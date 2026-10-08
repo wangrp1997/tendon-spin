@@ -154,3 +154,18 @@ configuration and routes source passive damping through solver viscous friction;
 differences, not isolated causal proof or a tested fix. The latest video uses
 MuJoCo CAD rendering of recorded Isaac poses, not an Isaac-native screen capture.
 User now requests no additional checks beyond the requested work.
+
+
+[Sharpa-style Boya actuator adaptation v3 completed](experiments/2026-10-08-boya-isaac-sharpa-v3/README.md):
+user approved adaptation and quick delivery, superseding the pending v2 diagnosis
+choice for this bounded repair. One fixed boya_sharpa_pd_hold_v3 original-grasp
+episode,10000steps/5.000s,84.90s wall,time-limit stop,0reset/switch/train actions.
+Max drift.125847mm,speed.904rad/s,link normal4.025412N,coupling2.988e-6rad.
+Predeclared short-hold criterion passed; v2's3ms divergence not observed in v3.
+Changes: external PD with total motor clipping, slave damping reflected to master,
+solver friction0,declared uncalibrated armature A=4*D_effective*dt,28source collision
+excludes restored,explicit NewtonMimic coefficients. Multiple factors changed;
+not single-factor causation or physical-model equivalence. Native Isaac RTX video
+recorded during this same run. No additional tests/scans; no rotation, full baseline
+or hardware result. Complete Hora task/cache/training remains pending; additional
+full contact/penetration validation was not silently claimed. Local commit only.

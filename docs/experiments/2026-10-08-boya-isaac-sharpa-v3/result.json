@@ -1,0 +1,625 @@
+{
+  "controller": "boya_sharpa_pd_hold_v3",
+  "requested_s": 5.0,
+  "physics_steps": 10000,
+  "actual_s": 5.0,
+  "training_actions": 0,
+  "controller_switches": 0,
+  "episode_resets": 0,
+  "benchmark_validated": false,
+  "hold_completed": true,
+  "rendering_engine": "Isaac Sim RTX native camera",
+  "armature_calibrated_on_hardware": false,
+  "sources": [
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "30ed28f758919fc3ab5b7fbecd46f2a3b9c1c97bc8906bd8d0115d8dcc3437be"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "cc936ddf373265466667916acb7c5e517a8080ffdcd4d57ddaf11370ff3db8c2"
+    },
+    {
+      "path": "scripts/run_boya_sharpa_hold.py",
+      "sha256": "00f9ef92bdf4ac5ac58fb548cc1ced6dfaddc6ff16d01fc56a37ee521656013f"
+    }
+  ],
+  "status": "completed",
+  "wall_s": 84.90326958103105,
+  "motor_parameters": {
+    "damping": {
+      "FAJ1": 0.5,
+      "FAJ3": 0.5,
+      "THJ4": 0.05,
+      "THJ3": 0.05,
+      "THJ2": 0.05,
+      "THJ1": 0.05,
+      "FFJ4": 0.05,
+      "FFJ3": 0.05,
+      "FFJ2": 0.1,
+      "FFJ1": 0.05,
+      "MFJ4": 0.05,
+      "MFJ3": 0.05,
+      "MFJ2": 0.1,
+      "MFJ1": 0.05,
+      "RFJ4": 0.05,
+      "RFJ3": 0.05,
+      "RFJ2": 0.1,
+      "RFJ1": 0.05,
+      "LFJ4": 0.05,
+      "LFJ3": 0.05,
+      "LFJ2": 0.1,
+      "LFJ1": 0.05
+    },
+    "armature": {
+      "FAJ1": 0.001,
+      "FAJ3": 0.001,
+      "THJ4": 0.0001,
+      "THJ3": 0.0001,
+      "THJ2": 0.0001,
+      "THJ1": 0.0001,
+      "FFJ4": 0.0001,
+      "FFJ3": 0.0001,
+      "FFJ2": 0.0002,
+      "FFJ1": 0.0,
+      "MFJ4": 0.0001,
+      "MFJ3": 0.0001,
+      "MFJ2": 0.0002,
+      "MFJ1": 0.0,
+      "RFJ4": 0.0001,
+      "RFJ3": 0.0001,
+      "RFJ2": 0.0002,
+      "RFJ1": 0.0,
+      "LFJ4": 0.0001,
+      "LFJ3": 0.0001,
+      "LFJ2": 0.0002,
+      "LFJ1": 0.0
+    },
+    "caps": {
+      "FAJ1": 1.0,
+      "FAJ3": 1.0,
+      "THJ4": 0.3,
+      "THJ3": 0.3,
+      "THJ2": 0.3,
+      "THJ1": 0.3,
+      "FFJ4": 0.3,
+      "FFJ3": 0.3,
+      "FFJ2": 0.3,
+      "FFJ1": 0.0,
+      "MFJ4": 0.3,
+      "MFJ3": 0.3,
+      "MFJ2": 0.3,
+      "MFJ1": 0.0,
+      "RFJ4": 0.3,
+      "RFJ3": 0.3,
+      "RFJ2": 0.3,
+      "RFJ1": 0.0,
+      "LFJ4": 0.3,
+      "LFJ3": 0.3,
+      "LFJ2": 0.3,
+      "LFJ1": 0.0
+    },
+    "armature_semantics": "unidentified nominal simulation assumption: A=4*D_effective*dt on 18 motors"
+  },
+  "contract": {
+    "path": "docs/data/boya_native_contract.json",
+    "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+  },
+  "usd": {
+    "path": "outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "restored_collision_excludes": [
+    [
+      "fabase",
+      "falink1"
+    ],
+    [
+      "fabase",
+      "pmbase"
+    ],
+    [
+      "falink1",
+      "pmbase"
+    ],
+    [
+      "pmbase",
+      "palm"
+    ],
+    [
+      "palm",
+      "thbase"
+    ],
+    [
+      "palm",
+      "thproximal"
+    ],
+    [
+      "palm",
+      "ffbase"
+    ],
+    [
+      "palm",
+      "mfbase"
+    ],
+    [
+      "palm",
+      "rfbase"
+    ],
+    [
+      "palm",
+      "lfbase"
+    ],
+    [
+      "thbase",
+      "thproximal"
+    ],
+    [
+      "thproximal",
+      "thmiddle"
+    ],
+    [
+      "thmiddle",
+      "thdistal"
+    ],
+    [
+      "ffbase",
+      "ffproximal"
+    ],
+    [
+      "ffbase",
+      "mfbase"
+    ],
+    [
+      "ffproximal",
+      "ffmiddle"
+    ],
+    [
+      "ffmiddle",
+      "ffdistal"
+    ],
+    [
+      "mfbase",
+      "mfproximal"
+    ],
+    [
+      "mfbase",
+      "rfbase"
+    ],
+    [
+      "mfproximal",
+      "mfmiddle"
+    ],
+    [
+      "mfmiddle",
+      "mfdistal"
+    ],
+    [
+      "rfbase",
+      "rfproximal"
+    ],
+    [
+      "rfbase",
+      "lfbase"
+    ],
+    [
+      "rfproximal",
+      "rfmiddle"
+    ],
+    [
+      "rfmiddle",
+      "rfdistal"
+    ],
+    [
+      "lfbase",
+      "lfproximal"
+    ],
+    [
+      "lfproximal",
+      "lfmiddle"
+    ],
+    [
+      "lfmiddle",
+      "lfdistal"
+    ]
+  ],
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "configuration": {
+    "device": "cuda:0",
+    "dt": 0.0005,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "physics_prim_path": "/physicsScene",
+    "physics_material": {
+      "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0.0,
+      "density": null,
+      "_usd_applied_schema": null,
+      "_usd_field_exceptions": {},
+      "_usd_namespace": "physics"
+    },
+    "use_fabric": true,
+    "render_interval": 1,
+    "enable_scene_query_support": false,
+    "use_newton_actuators": false,
+    "physics": {
+      "class_type": "isaaclab_physx.physics.physx_manager:PhysxManager",
+      "deterministic": false,
+      "solver_type": 1,
+      "solve_articulation_contact_last": false,
+      "min_position_iteration_count": 16,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 4,
+      "max_velocity_iteration_count": 255,
+      "enable_scene_query_support": false,
+      "enable_ccd": true,
+      "enable_stabilization": false,
+      "enable_external_forces_every_iteration": true,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576
+    },
+    "create_stage_in_memory": false,
+    "logging_level": "WARNING",
+    "save_logs_to_file": true,
+    "log_dir": null,
+    "visualizer_cfgs": [],
+    "default_visualizer_cfg": null
+  },
+  "contact_filters": [
+    "/World/Hand/Geometry/world/fabase",
+    "/World/Hand/Geometry/world/fabase/falink1",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal"
+  ],
+  "armature_readback": [
+    [
+      0.0010000000474974513,
+      0.0010000000474974513,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      9.999999747378752e-05,
+      0.00019999999494757503,
+      0.00019999999494757503,
+      0.00019999999494757503,
+      0.00019999999494757503,
+      9.999999747378752e-05,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "friction_readback": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  ],
+  "stop_reason": "time limit",
+  "max_drift_mm": 0.12584659357767805,
+  "max_joint_speed_rad_s": 0.9039995074272156,
+  "max_link_normal_N": 4.025411605834961,
+  "max_coupling_error_rad": 2.987682819366455e-06,
+  "video": {
+    "path": "outputs/isaac_boya_sharpa_v3/isaac_native.mp4",
+    "fps": 20,
+    "frames": 122,
+    "physics_sample_times_s": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35000000000000003,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7000000000000001,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.9500000000000001,
+      1.0,
+      1.05,
+      1.1,
+      1.1500000000000001,
+      1.2,
+      1.25,
+      1.3,
+      1.35,
+      1.4000000000000001,
+      1.45,
+      1.5,
+      1.55,
+      1.6,
+      1.6500000000000001,
+      1.7,
+      1.75,
+      1.8,
+      1.85,
+      1.9000000000000001,
+      1.95,
+      2.0,
+      2.05,
+      2.1,
+      2.15,
+      2.2,
+      2.25,
+      2.3000000000000003,
+      2.35,
+      2.4,
+      2.45,
+      2.5,
+      2.5500000000000003,
+      2.6,
+      2.65,
+      2.7,
+      2.75,
+      2.8000000000000003,
+      2.85,
+      2.9,
+      2.95,
+      3.0,
+      3.0500000000000003,
+      3.1,
+      3.15,
+      3.2,
+      3.25,
+      3.3000000000000003,
+      3.35,
+      3.4,
+      3.45,
+      3.5,
+      3.5500000000000003,
+      3.6,
+      3.65,
+      3.7,
+      3.75,
+      3.8000000000000003,
+      3.85,
+      3.9,
+      3.95,
+      4.0,
+      4.05,
+      4.1,
+      4.15,
+      4.2,
+      4.25,
+      4.3,
+      4.3500000000000005,
+      4.4,
+      4.45,
+      4.5,
+      4.55,
+      4.6000000000000005,
+      4.65,
+      4.7,
+      4.75,
+      4.8,
+      4.8500000000000005,
+      4.9,
+      4.95,
+      5.0,
+      5.0
+    ],
+    "terminal_still_s": 1.0
+  },
+  "video_encoder_return_code": 0,
+  "initial_state": {
+    "path": "outputs/isaac_boya_sharpa_v3/initial_state.npz",
+    "sha256": "5cae17ae445ed82e1eb3623109ed45721ce23819bcad4ab2000768dc4a8ef542"
+  },
+  "execution": {
+    "path": "outputs/isaac_boya_sharpa_v3/execution.npz",
+    "sha256": "2100ebcb75f3f4fca9359a7d09ff18c5d3a8ff0f6c72e9993c98b796f8615654"
+  }
+}

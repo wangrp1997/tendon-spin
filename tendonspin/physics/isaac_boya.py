@@ -14,7 +14,7 @@ from isaaclab.sensors import ContactSensor, ContactSensorCfg
 from isaaclab_physx.physics import PhysxCfg
 
 
-def make_scene(root, contract, usd_path):
+def make_scene(root, contract, usd_path, *, actuator_cfg=None, before_reset=None):
     """Call only after AppLauncher. This separately declared engine is PhysX."""
     cfg=sim_utils.SimulationCfg(dt=contract['physics_dt'],device='cuda:0',
         gravity=tuple(contract['gravity']),visualizer_cfgs=[],use_newton_actuators=False,
@@ -36,7 +36,7 @@ def make_scene(root, contract, usd_path):
             joint_pos=joints,joint_vel=velocities),
         # Zero-gain forwarding actuator: all efforts are derived by the source
         # position motor adapter below; no independent passive-joint actions.
-        actuators={'source_effort_forwarder':IdealPDActuatorCfg(joint_names_expr=['.*'],
+        actuators=actuator_cfg if actuator_cfg is not None else {'source_effort_forwarder':IdealPDActuatorCfg(joint_names_expr=['.*'],
             stiffness=0.,damping=0.,effort_limit=1000000.,effort_limit_sim=1000000.,
             velocity_limit_sim=100.,
             viscous_friction={j['name']:j['damping'] for j in contract['joints']})}))
@@ -62,6 +62,8 @@ def make_scene(root, contract, usd_path):
     sensor=ContactSensor(ContactSensorCfg(prim_path='/World/Cylinder',update_period=0.,
         filter_prim_paths_expr=filters,max_contact_data_count_per_prim=64,
         track_contact_points=True,track_friction_forces=True))
+    if before_reset is not None:
+        before_reset(stage, hand, cylinder)
     sim.reset()
     runtime_paths=list(hand.root_view.link_paths[0])
     if set(filters)!=set(runtime_paths):
