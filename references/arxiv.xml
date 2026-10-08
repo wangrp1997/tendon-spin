@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/oZB5XSkOw0NNTAaMPCmF3c7OAKY</id>
+  <title>arXiv Query: search_query=&amp;id_list=2210.04887,2405.07391&amp;start=0&amp;max_results=2</title>
+  <updated>2026-10-08T02:49:22Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=2&amp;id_list=2210.04887,2405.07391" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2405.07391v3</id>
+    <title>AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch</title>
+    <updated>2024-11-03T16:22:30Z</updated>
+    <link href="https://arxiv.org/abs/2405.07391v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.07391v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Human hands are capable of in-hand manipulation in the presence of different hand motions. For a robot hand, harnessing rich tactile information to achieve this level of dexterity still remains a significant challenge. In this paper, we present AnyRotate, a system for gravity-invariant multi-axis in-hand object rotation using dense featured sim-to-real touch. We tackle this problem by training a dense tactile policy in simulation and present a sim-to-real method for rich tactile sensing to achieve zero-shot policy transfer. Our formulation allows the training of a unified policy to rotate unseen objects about arbitrary rotation axes in any hand direction. In our experiments, we highlight the benefit of capturing detailed contact information when handling objects of varying properties. Interestingly, we found rich multi-fingered tactile sensing can detect unstable grasps and provide a reactive behavior that improves the robustness of the policy. The project website can be found at https://maxyang27896.github.io/anyrotate/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-12T22:51:35Z</published>
+    <arxiv:comment>Project website can be found at https://maxyang27896.github.io/anyrotate/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Max Yang</name>
+    </author>
+    <author>
+      <name>Chenghua Lu</name>
+    </author>
+    <author>
+      <name>Alex Church</name>
+    </author>
+    <author>
+      <name>Yijiong Lin</name>
+    </author>
+    <author>
+      <name>Chris Ford</name>
+    </author>
+    <author>
+      <name>Haoran Li</name>
+    </author>
+    <author>
+      <name>Efi Psomopoulou</name>
+    </author>
+    <author>
+      <name>David A. W. Barton</name>
+    </author>
+    <author>
+      <name>Nathan F. Lepora</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.04887v1</id>
+    <title>In-Hand Object Rotation via Rapid Motor Adaptation</title>
+    <updated>2022-10-10T17:58:45Z</updated>
+    <link href="https://arxiv.org/abs/2210.04887v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.04887v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generalized in-hand manipulation has long been an unsolved challenge of robotics. As a small step towards this grand goal, we demonstrate how to design and learn a simple adaptive controller to achieve in-hand object rotation using only fingertips. The controller is trained entirely in simulation on only cylindrical objects, which then - without any fine-tuning - can be directly deployed to a real robot hand to rotate dozens of objects with diverse sizes, shapes, and weights over the z-axis. This is achieved via rapid online adaptation of the controller to the object properties using only proprioception history. Furthermore, natural and stable finger gaits automatically emerge from training the control policy via reinforcement learning. Code and more videos are available at https://haozhi.io/hora</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-10T17:58:45Z</published>
+    <arxiv:comment>CoRL 2022. Code and Website: https://haozhi.io/hora</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Haozhi Qi</name>
+    </author>
+    <author>
+      <name>Ashish Kumar</name>
+    </author>
+    <author>
+      <name>Roberto Calandra</name>
+    </author>
+    <author>
+      <name>Yi Ma</name>
+    </author>
+    <author>
+      <name>Jitendra Malik</name>
+    </author>
+  </entry>
+</feed>

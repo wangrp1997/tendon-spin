@@ -1,0 +1,76 @@
+{
+  "physical_replay_errors": {
+    "ctrl": 0.0,
+    "qpos": 0.0,
+    "qvel": 0.0,
+    "motor": 0.0,
+    "metrics": 0.0,
+    "flags": 0.0,
+    "final_state": 0.0
+  },
+  "observation_error": 0.0,
+  "original_state": true,
+  "old_repository_imported_diagnostic": true,
+  "new_controller_success": false,
+  "source_record": {
+    "path": "outputs/imported/ppo_v1/evaluations/update_0064/native/execution.npz",
+    "sha256": "7ed87dca070b0d205af6545d1fd1943c5eca1a94f1dcec52495bf4bd6b60159e"
+  },
+  "scene": {
+    "scene_sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e",
+    "source_scene_sha256": "c5323edb48642c373f02e500da23dc2adc2119be11f504babe3bdad0f007f9bc",
+    "manifest": {
+      "source_repository": "/home/rw/Projects/botyard-inhand",
+      "source_commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+      "source_scene_sha256": "c5323edb48642c373f02e500da23dc2adc2119be11f504babe3bdad0f007f9bc",
+      "scene_sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e",
+      "meshes": {
+        "../hand/meshes/fabase.stl": "45fa7c0a6c7740e7eddaebde0f7ebdad00ceaa52b19198335cace4096e083230",
+        "../hand/meshes/falink1.stl": "2d0b052a89bdf12caa7bdf4dcad9700f4df4b3a350447e24e252355b82c8eccc",
+        "../hand/meshes/pmbase.stl": "bd6293a1ef3f46b2cca3256b781327b84998e619fb67435e7269261be93a1b0e",
+        "../hand/meshes/palm.stl": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6",
+        "../hand/meshes/thbase.stl": "7d7b6317167073d3e98f0de94b2596a5d37ad52305f31a4f0fade153eb6dd3d9",
+        "../hand/meshes/thproximal.stl": "4b6af54b3d938c28addeb9697b96239056c34e15d4023f011c5656853400c07a",
+        "../hand/meshes/thmiddle.stl": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391",
+        "../hand/meshes/thdistal.stl": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111",
+        "../hand/meshes/ffbase.stl": "ba77e740cf829bcecce1bceac0835229d18bbf0c645db88dd2ed0a01d14350bb",
+        "../hand/meshes/ffproximal.stl": "7d8f39bd649b700a7d9405ff74540b0f9c4e7d19e4fe80d6a61df3f0308814d9",
+        "../hand/meshes/ffmiddle.stl": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53",
+        "../hand/meshes/ffdistal.stl": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630",
+        "../hand/meshes/mfbase.stl": "af179da71c38b28e81cc48ce4ee3d33a375c8a657ce53eb67691a2524b7572ce",
+        "../hand/meshes/mfproximal.stl": "ecd104d562d0e6b32428b2006acbabee0304428e3b6e3348dcaac5430881c9f4",
+        "../hand/meshes/mfmiddle.stl": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371",
+        "../hand/meshes/mfdistal.stl": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f",
+        "../hand/meshes/rfbase.stl": "74dd13a864bb3a157a371d0eb6687c82896783ec497c4e874449fda7cd81c33a",
+        "../hand/meshes/rfproximal.stl": "3c871bb97066cda05145ca93b90e090c8dc5d8430c28906811d007c981cf4bd3",
+        "../hand/meshes/rfmiddle.stl": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4",
+        "../hand/meshes/rfdistal.stl": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15",
+        "../hand/meshes/lfbase.stl": "b2b657b77e38f8e264186c4951f65605e168ba7f1b37fb6051ae3c6cdb510986",
+        "../hand/meshes/lfproximal.stl": "15c775c851f5e29d17c18523a3686d0251a11ca2b4a5e715a8271ba3c4307c6c",
+        "../hand/meshes/lfmiddle.stl": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e",
+        "../hand/meshes/lfdistal.stl": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+      },
+      "changes": "Mesh paths only; original saved integration state and physical XML values retained",
+      "object": {
+        "diameter_mm": 40,
+        "height_mm": 32,
+        "mass_g": 50
+      },
+      "native_initial_state": true
+    }
+  },
+  "code_sources": [
+    {
+      "path": "tendonspin/physics/native.py",
+      "sha256": "20e8378835fa91b717b711678b3068169f83cf6881baef6b583b216e019412fa"
+    },
+    {
+      "path": "tendonspin/physics/replay.c",
+      "sha256": "f2c58b0fb423a024baeabbd1213639e5009fe3177e68e4088f3901fd9f086bf4"
+    },
+    {
+      "path": "tendonspin/rl/environment.py",
+      "sha256": "921b54e00e02a92f0a202f0d78a91d80f2cb5fb14ba5a41076644490eefb8490"
+    }
+  ]
+}

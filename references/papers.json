@@ -1,0 +1,66 @@
+{
+  "total_results": 2,
+  "returned": 2,
+  "query_as_executed": "arXiv Query: search_query=&id_list=2210.04887,2405.07391&start=0&max_results=2",
+  "entries": [
+    {
+      "arxiv_id": "2405.07391",
+      "arxiv_id_versioned": "2405.07391v3",
+      "version": "3",
+      "title": "AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch",
+      "abstract": "Human hands are capable of in-hand manipulation in the presence of different hand motions. For a robot hand, harnessing rich tactile information to achieve this level of dexterity still remains a significant challenge. In this paper, we present AnyRotate, a system for gravity-invariant multi-axis in-hand object rotation using dense featured sim-to-real touch. We tackle this problem by training a dense tactile policy in simulation and present a sim-to-real method for rich tactile sensing to achieve zero-shot policy transfer. Our formulation allows the training of a unified policy to rotate unseen objects about arbitrary rotation axes in any hand direction. In our experiments, we highlight the benefit of capturing detailed contact information when handling objects of varying properties. Interestingly, we found rich multi-fingered tactile sensing can detect unstable grasps and provide a reactive behavior that improves the robustness of the policy. The project website can be found at https://maxyang27896.github.io/anyrotate/.",
+      "authors": [
+        "Max Yang",
+        "Chenghua Lu",
+        "Alex Church",
+        "Yijiong Lin",
+        "Chris Ford",
+        "Haoran Li",
+        "Efi Psomopoulou",
+        "David A. W. Barton",
+        "Nathan F. Lepora"
+      ],
+      "published": "2024-05-12T22:51:35Z",
+      "updated": "2024-11-03T16:22:30Z",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "doi": null,
+      "journal_ref": null,
+      "comment": "Project website can be found at https://maxyang27896.github.io/anyrotate/",
+      "abstract_url": "https://arxiv.org/abs/2405.07391v3",
+      "pdf_url": "https://arxiv.org/pdf/2405.07391v3"
+    },
+    {
+      "arxiv_id": "2210.04887",
+      "arxiv_id_versioned": "2210.04887v1",
+      "version": "1",
+      "title": "In-Hand Object Rotation via Rapid Motor Adaptation",
+      "abstract": "Generalized in-hand manipulation has long been an unsolved challenge of robotics. As a small step towards this grand goal, we demonstrate how to design and learn a simple adaptive controller to achieve in-hand object rotation using only fingertips. The controller is trained entirely in simulation on only cylindrical objects, which then - without any fine-tuning - can be directly deployed to a real robot hand to rotate dozens of objects with diverse sizes, shapes, and weights over the z-axis. This is achieved via rapid online adaptation of the controller to the object properties using only proprioception history. Furthermore, natural and stable finger gaits automatically emerge from training the control policy via reinforcement learning. Code and more videos are available at https://haozhi.io/hora",
+      "authors": [
+        "Haozhi Qi",
+        "Ashish Kumar",
+        "Roberto Calandra",
+        "Yi Ma",
+        "Jitendra Malik"
+      ],
+      "published": "2022-10-10T17:58:45Z",
+      "updated": "2022-10-10T17:58:45Z",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "doi": null,
+      "journal_ref": null,
+      "comment": "CoRL 2022. Code and Website: https://haozhi.io/hora",
+      "abstract_url": "https://arxiv.org/abs/2210.04887v1",
+      "pdf_url": "https://arxiv.org/pdf/2210.04887v1"
+    }
+  ]
+}

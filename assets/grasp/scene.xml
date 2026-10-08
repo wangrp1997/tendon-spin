@@ -1,0 +1,250 @@
+<mujoco model="botyard_v3_2_right">
+  <compiler angle="radian" />
+  <option timestep="0.0005" impratio="10" tolerance="1e-10" ccd_tolerance="1e-10" integrator="implicitfast" cone="elliptic" noslip_iterations="5" />
+  <asset>
+    <mesh name="fabase" file="../hand/meshes/fabase.stl" />
+    <mesh name="falink1" file="../hand/meshes/falink1.stl" />
+    <mesh name="pmbase" file="../hand/meshes/pmbase.stl" />
+    <mesh name="palm" file="../hand/meshes/palm.stl" />
+    <mesh name="thbase" file="../hand/meshes/thbase.stl" />
+    <mesh name="thproximal" file="../hand/meshes/thproximal.stl" />
+    <mesh name="thmiddle" file="../hand/meshes/thmiddle.stl" />
+    <mesh name="thdistal" file="../hand/meshes/thdistal.stl" />
+    <mesh name="ffbase" file="../hand/meshes/ffbase.stl" />
+    <mesh name="ffproximal" file="../hand/meshes/ffproximal.stl" />
+    <mesh name="ffmiddle" file="../hand/meshes/ffmiddle.stl" />
+    <mesh name="ffdistal" file="../hand/meshes/ffdistal.stl" />
+    <mesh name="mfbase" file="../hand/meshes/mfbase.stl" />
+    <mesh name="mfproximal" file="../hand/meshes/mfproximal.stl" />
+    <mesh name="mfmiddle" file="../hand/meshes/mfmiddle.stl" />
+    <mesh name="mfdistal" file="../hand/meshes/mfdistal.stl" />
+    <mesh name="rfbase" file="../hand/meshes/rfbase.stl" />
+    <mesh name="rfproximal" file="../hand/meshes/rfproximal.stl" />
+    <mesh name="rfmiddle" file="../hand/meshes/rfmiddle.stl" />
+    <mesh name="rfdistal" file="../hand/meshes/rfdistal.stl" />
+    <mesh name="lfbase" file="../hand/meshes/lfbase.stl" />
+    <mesh name="lfproximal" file="../hand/meshes/lfproximal.stl" />
+    <mesh name="lfmiddle" file="../hand/meshes/lfmiddle.stl" />
+    <mesh name="lfdistal" file="../hand/meshes/lfdistal.stl" />
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072" />
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300" />
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2" />
+  </asset>
+  <worldbody>
+    <geom name="floor_collision" size="0 0 0.05" pos="0 0 -0.12" type="plane" friction="0.5 0 0" solref="0.003" rgba="1 1 1 1" material="groundplane" />
+    <body name="fabase" quat="0.499998 0.5 -0.500002 -0.5">
+      <inertial pos="0.000153261 0.00328496 0.100113" quat="0.707327 -0.00344469 0.00526015 0.706859" mass="0.132734" diaginertia="0.000343539 0.000236446 0.000165651" />
+      <geom type="mesh" friction="0.5 0 0" solref="0.003" rgba="0 0 0 1" mesh="fabase" />
+      <body name="falink1" pos="0 0.017433 0.21">
+        <inertial pos="1.16913e-09 -6.63471e-09 4.47655e-11" quat="0 0.707107 0 0.707107" mass="0.00243603" diaginertia="2.15582e-07 2.11795e-07 1.1748e-07" />
+        <joint name="FAJ1" actuatorfrcrange="-1 1" damping="0.5" axis="-1 0 0" />
+        <geom type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.2 0.2 0.2 1" mesh="falink1" />
+        <body name="pmbase" pos="0 0.0024852 0" quat="0.707105 0 0 0.707108">
+          <inertial pos="-0.0167575 3.14582e-07 0.0129339" quat="0.456976 0.456986 -0.539591 0.539609" mass="0.00504917" diaginertia="2.11001e-06 1.59337e-06 9.05987e-07" />
+          <joint name="FAJ3" actuatorfrcrange="-1 1" damping="0.5" axis="-1 0 0" />
+          <geom type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.2 0.2 0.2 1" mesh="pmbase" />
+          <body name="palm" pos="-0.011315 0 0.01845" quat="0.707105 0 0 -0.707108">
+            <inertial pos="-0.00381387 0.00110708 0.0416254" quat="0.47952 0.521346 0.522948 0.474114" mass="0.0546794" diaginertia="7.69746e-05 5.29779e-05 2.90132e-05" />
+            <geom type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.2 0.2 0.2 1" mesh="palm" />
+            <site name="palm_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+            <body name="thbase" pos="-0.031004 0.0044895 0.024975" quat="0.24695 0.662582 0.401109 0.582334">
+              <inertial pos="0.0152576 0.000588848 -7.11072e-09" quat="0.999802 0.000365614 7.26798e-06 0.0198749" mass="0.00757805" diaginertia="6.43652e-07 4.59263e-07 4.47708e-07" />
+              <joint name="THJ4" range="-1.0472 1.0472" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+              <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="thbase" />
+              <body name="thproximal" pos="0.031 0 0" quat="0.499998 0.5 0.500002 0.5">
+                <inertial pos="0.000292903 -0.000177537 0.0153782" quat="0.747586 -0.0191127 -0.0219453 0.663527" mass="0.00736386" diaginertia="1.0747e-06 8.74636e-07 3.80084e-07" />
+                <joint name="THJ3" range="-1.0472 1.0472" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="1 0 0" />
+                <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="thproximal" />
+                <body name="thmiddle" pos="0.00175 -0.00027771 0.034999" quat="0.702815 0 0 0.711373">
+                  <inertial pos="-0.000303319 0.00114992 0.0156212" quat="0.999747 0.00990494 -0.0167304 -0.0112805" mass="0.00547793" diaginertia="9.11692e-07 7.75928e-07 1.9871e-07" />
+                  <joint name="THJ2" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="1 0 0" />
+                  <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="thmiddle" />
+                  <body name="thdistal" pos="-0.00027986 -0.00017588 0.034998" quat="0.999982 0 0 -0.00606146">
+                    <inertial pos="-0.000285359 0.00147314 0.0156091" quat="0.689488 -0.0496465 0.0689604 0.719296" mass="0.00619843" diaginertia="4.88891e-07 4.3611e-07 1.78647e-07" />
+                    <joint name="THJ1" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="1 0 0" />
+                    <geom name="thdistal_collision" type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.870588 0.811765 0.764706 1" mesh="thdistal" />
+                    <site name="thpad" size="0.0006" pos="0 -0.00694958 0.018" quat="0.707107 0.707107 0 0" group="3" rgba="0.1 0.8 0.3 1" />
+                    <body name="thtip" pos="0 -0.0067301 0.026376">
+                      <site name="thtip_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="ffbase" pos="-0.0345 -0.00060716 0.09169" quat="0.707105 0 0 0.707108">
+              <inertial pos="0.000964132 -7.31039e-05 0.00792474" quat="0.164195 0.716514 0.148233 0.66157" mass="0.00475659" diaginertia="2.31438e-07 2.26488e-07 1.4484e-07" />
+              <joint name="FFJ4" range="-0.2618 0.2618" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+              <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="ffbase" />
+              <body name="ffproximal" pos="0.0023 0 0.018" quat="0.707105 0 0 -0.707108">
+                <inertial pos="0.000569318 -0.000998929 0.0231806" quat="0.999921 -0.00749408 -0.00458135 0.00896628" mass="0.00685021" diaginertia="1.57187e-06 1.40302e-06 2.51341e-07" />
+                <joint name="FFJ3" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="ffproximal" />
+                <body name="ffmiddle" pos="0 0.0005 0.045001">
+                  <inertial pos="0.000252965 -0.00192826 0.0123059" quat="0.999992 -0.00214298 -0.00304222 0.00133568" mass="0.00374845" diaginertia="3.68615e-07 2.94513e-07 1.14354e-07" />
+                  <joint name="FFJ2" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                  <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="ffmiddle" />
+                  <body name="ffdistal" pos="0 0 0.025106">
+                    <inertial pos="-3.37526e-05 -0.00177234 0.0153058" quat="0.723778 0.0687378 -0.0316666 0.68587" mass="0.00659931" diaginertia="4.93322e-07 4.54286e-07 1.73945e-07" />
+                    <joint name="FFJ1" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                    <geom name="ffdistal_collision" type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.870588 0.811765 0.764706 1" mesh="ffdistal" />
+                    <site name="ffpad" size="0.0006" pos="0 0.00686167 0.018" quat="0 0 0.707107 0.707107" group="3" rgba="0.1 0.8 0.3 1" />
+                    <body name="fftip" pos="0 0.0034687 0.027004">
+                      <site name="fftip_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="mfbase" pos="-0.0115 -0.00060716 0.09969" quat="0.707105 0 0 0.707108">
+              <inertial pos="0.000964133 -7.3104e-05 0.00792474" quat="0.164195 0.716514 0.148233 0.66157" mass="0.00475659" diaginertia="2.31438e-07 2.26488e-07 1.4484e-07" />
+              <joint name="MFJ4" range="-0.2618 0.2618" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+              <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="mfbase" />
+              <body name="mfproximal" pos="0.0023 0 0.018" quat="0.707105 0 0 -0.707108">
+                <inertial pos="0.000569318 -0.000998929 0.0231806" quat="0.999921 -0.00749408 -0.00458135 0.00896628" mass="0.00685021" diaginertia="1.57187e-06 1.40302e-06 2.51341e-07" />
+                <joint name="MFJ3" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="mfproximal" />
+                <body name="mfmiddle" pos="0 0.0005 0.045001">
+                  <inertial pos="0.000252965 -0.00192826 0.0123059" quat="0.999992 -0.00214291 -0.0030422 0.00133565" mass="0.00374845" diaginertia="3.68615e-07 2.94513e-07 1.14354e-07" />
+                  <joint name="MFJ2" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                  <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="mfmiddle" />
+                  <body name="mfdistal" pos="0 0 0.025106">
+                    <inertial pos="-3.37492e-05 -0.00177234 0.0153058" quat="0.723777 0.0687381 -0.0316665 0.685871" mass="0.00659931" diaginertia="4.93322e-07 4.54286e-07 1.73944e-07" />
+                    <joint name="MFJ1" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                    <geom name="mfdistal_collision" type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.870588 0.811765 0.764706 1" mesh="mfdistal" />
+                    <site name="mfpad" size="0.0006" pos="0 0.00686167 0.018" quat="0 0 0.707107 0.707107" group="3" rgba="0.1 0.8 0.3 1" />
+                    <body name="mftip" pos="0 0.0034594 0.027004">
+                      <site name="mftip_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="rfbase" pos="0.0115 -0.00060716 0.09169" quat="0.707105 0 0 0.707108">
+              <inertial pos="0.000964133 -7.3104e-05 0.00792474" quat="0.164195 0.716514 0.148233 0.66157" mass="0.00475659" diaginertia="2.31438e-07 2.26488e-07 1.4484e-07" />
+              <joint name="RFJ4" range="-0.2618 0.2618" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+              <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="rfbase" />
+              <body name="rfproximal" pos="0.0023 0 0.018" quat="0.707105 0 0 -0.707108">
+                <inertial pos="0.000569318 -0.000998929 0.0231806" quat="0.999921 -0.00749408 -0.00458135 0.00896628" mass="0.00685021" diaginertia="1.57187e-06 1.40302e-06 2.51341e-07" />
+                <joint name="RFJ3" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="rfproximal" />
+                <body name="rfmiddle" pos="0 0.0005 0.045001">
+                  <inertial pos="0.000252962 -0.00192826 0.0123059" quat="0.999992 -0.00214286 -0.00304219 0.00133559" mass="0.00374845" diaginertia="3.68615e-07 2.94513e-07 1.14354e-07" />
+                  <joint name="RFJ2" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                  <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="rfmiddle" />
+                  <body name="rfdistal" pos="0 0 0.025106">
+                    <inertial pos="-3.3752e-05 -0.00177234 0.0153058" quat="0.723778 0.068738 -0.0316667 0.68587" mass="0.00659931" diaginertia="4.93321e-07 4.54286e-07 1.73944e-07" />
+                    <joint name="RFJ1" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                    <geom name="rfdistal_collision" type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.870588 0.811765 0.764706 1" mesh="rfdistal" />
+                    <site name="rfpad" size="0.0006" pos="0 0.00686167 0.018" quat="0 0 0.707107 0.707107" group="3" rgba="0.1 0.8 0.3 1" />
+                    <body name="rftip" pos="0 0.0034687 0.027004">
+                      <site name="rftip_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="lfbase" pos="0.0345 -0.00060716 0.08369" quat="0.707105 0 0 0.707108">
+              <inertial pos="0.000964133 -7.30916e-05 0.00792473" quat="0.164181 0.716517 0.148217 0.661574" mass="0.0047566" diaginertia="2.31439e-07 2.26488e-07 1.4484e-07" />
+              <joint name="LFJ4" range="-0.2618 0.2618" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+              <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="lfbase" />
+              <body name="lfproximal" pos="0.0023 0 0.018" quat="0.707105 0 0 -0.707108">
+                <inertial pos="0.000569318 -0.000998929 0.0231806" quat="0.999921 -0.00749408 -0.00458135 0.00896628" mass="0.00685021" diaginertia="1.57187e-06 1.40302e-06 2.51341e-07" />
+                <joint name="LFJ3" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="lfproximal" />
+                <body name="lfmiddle" pos="0 0.0005 0.045001">
+                  <inertial pos="0.000252961 -0.00192826 0.0123059" quat="0.999992 -0.00214304 -0.00304218 0.00133559" mass="0.00374845" diaginertia="3.68615e-07 2.94513e-07 1.14354e-07" />
+                  <joint name="LFJ2" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                  <geom type="mesh" friction="0.5 0 0" solref="0.003" mesh="lfmiddle" />
+                  <body name="lfdistal" pos="0 0 0.025106">
+                    <inertial pos="-3.37525e-05 -0.00177234 0.0153058" quat="0.723778 0.068738 -0.0316667 0.68587" mass="0.0065993" diaginertia="4.93321e-07 4.54286e-07 1.73944e-07" />
+                    <joint name="LFJ1" range="0 1.5708" actuatorfrcrange="-0.3 0.3" damping="0.05" axis="-1 0 0" />
+                    <geom name="lfdistal_collision" type="mesh" friction="0.5 0 0" solref="0.003" rgba="0.870588 0.811765 0.764706 1" mesh="lfdistal" />
+                    <site name="lfpad" size="0.0006" pos="0 0.00686167 0.018" quat="0 0 0.707107 0.707107" group="3" rgba="0.1 0.8 0.3 1" />
+                    <body name="lftip" pos="0 0.003478 0.027004">
+                      <site name="lftip_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="central" pos="0 0.02335 0.045">
+              <site name="central_frame" size="0.0015" rgba="0.9 0.4 0.1 1" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="cylinder_support_mocap" pos="-0.34 0.03 0.07" mocap="true" />
+    <body name="cylinder" pos="-0.34 0.03 0.07">
+      <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.05" diaginertia="1e-05 9.26667e-06 9.26667e-06" />
+      <joint name="cylinder_free" type="free" />
+      <geom name="cylinder_geom" size="0.02 0.016" type="cylinder" friction="0.5 0 0" solref="0.003" rgba="0.75 0.55 0.25 1" density="0" />
+    </body>
+    <light pos="0 0 1" name="scene_style_0" />
+    <light pos="0.3 0 1.5" dir="0 0 -1" directional="true" name="scene_style_1" />
+  </worldbody>
+  <contact>
+    <exclude body1="fabase" body2="falink1" />
+    <exclude body1="fabase" body2="pmbase" />
+    <exclude body1="falink1" body2="pmbase" />
+    <exclude body1="pmbase" body2="palm" />
+    <exclude body1="palm" body2="thbase" />
+    <exclude body1="palm" body2="thproximal" />
+    <exclude body1="palm" body2="ffbase" />
+    <exclude body1="palm" body2="mfbase" />
+    <exclude body1="palm" body2="rfbase" />
+    <exclude body1="palm" body2="lfbase" />
+    <exclude body1="thbase" body2="thproximal" />
+    <exclude body1="thproximal" body2="thmiddle" />
+    <exclude body1="thmiddle" body2="thdistal" />
+    <exclude body1="ffbase" body2="ffproximal" />
+    <exclude body1="ffbase" body2="mfbase" />
+    <exclude body1="ffproximal" body2="ffmiddle" />
+    <exclude body1="ffmiddle" body2="ffdistal" />
+    <exclude body1="mfbase" body2="mfproximal" />
+    <exclude body1="mfbase" body2="rfbase" />
+    <exclude body1="mfproximal" body2="mfmiddle" />
+    <exclude body1="mfmiddle" body2="mfdistal" />
+    <exclude body1="rfbase" body2="rfproximal" />
+    <exclude body1="rfbase" body2="lfbase" />
+    <exclude body1="rfproximal" body2="rfmiddle" />
+    <exclude body1="rfmiddle" body2="rfdistal" />
+    <exclude body1="lfbase" body2="lfproximal" />
+    <exclude body1="lfproximal" body2="lfmiddle" />
+    <exclude body1="lfmiddle" body2="lfdistal" />
+  </contact>
+  <equality>
+    <joint name="mimic_FFJ1" joint1="FFJ1" joint2="FFJ2" solref="0.002" solimp="0.95 0.995" />
+    <joint name="mimic_MFJ1" joint1="MFJ1" joint2="MFJ2" solref="0.002" solimp="0.95 0.995" />
+    <joint name="mimic_RFJ1" joint1="RFJ1" joint2="RFJ2" solref="0.002" solimp="0.95 0.995" />
+    <joint name="mimic_LFJ1" joint1="LFJ1" joint2="LFJ2" solref="0.002" solimp="0.95 0.995" />
+    <weld name="cylinder_support" body1="cylinder" body2="cylinder_support_mocap" relpose="0 0 0 1 0 0 0" solref="0.0005" solimp="0.95 0.99" />
+  </equality>
+  <actuator>
+    <general name="FAJ3" joint="FAJ3" ctrlrange="-0.261799 0.261799" ctrllimited="true" forcelimited="true" forcerange="-1 1" biastype="affine" gainprm="40" biasprm="0 -40" />
+    <general name="FAJ1" joint="FAJ1" ctrlrange="-0.261799 0.698132" ctrllimited="true" forcelimited="true" forcerange="-1 1" biastype="affine" gainprm="40" biasprm="0 -40" />
+    <general name="THJ4" joint="THJ4" ctrlrange="-1.0472 1.0472" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="THJ3" joint="THJ3" ctrlrange="-1.0472 1.0472" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="THJ2" joint="THJ2" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="THJ1" joint="THJ1" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="FFJ4" joint="FFJ4" ctrlrange="-0.2618 0.2618" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="FFJ3" joint="FFJ3" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="FFJ2" joint="FFJ2" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="MFJ4" joint="MFJ4" ctrlrange="-0.2618 0.2618" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="MFJ3" joint="MFJ3" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="MFJ2" joint="MFJ2" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="RFJ4" joint="RFJ4" ctrlrange="-0.2618 0.2618" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="RFJ3" joint="RFJ3" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="RFJ2" joint="RFJ2" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="LFJ4" joint="LFJ4" ctrlrange="-0.2618 0.2618" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="LFJ3" joint="LFJ3" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+    <general name="LFJ2" joint="LFJ2" ctrlrange="0 1.5708" ctrllimited="true" forcelimited="true" forcerange="-0.3 0.3" biastype="affine" gainprm="10" biasprm="0 -10" />
+  </actuator>
+  <statistic extent="0.4" center="-0.15 0 0.05" />
+  <visual>
+    <rgba haze="0.15 0.25 0.35 1" />
+    <quality shadowsize="4096" />
+    <global azimuth="220" elevation="-30" />
+    <headlight ambient="0.45 0.45 0.45" diffuse="0.5 0.5 0.5" specular="0.25 0.25 0.25" />
+  </visual>
+</mujoco>

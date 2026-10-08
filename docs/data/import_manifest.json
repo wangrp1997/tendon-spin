@@ -1,0 +1,552 @@
+{
+  "source_commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+  "sharpa_commit": "5accf024d376685eaa17da7aa4614498217eab4d",
+  "files": [
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/environment.py",
+      "path": "tendonspin/rl/environment.py",
+      "sha256": "18b2baffacda585f33d31e97b78db300e79cddb37cd998981b6b50e2836f9477",
+      "bytes": 13538
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/video.py",
+      "path": "tendonspin/rl/video.py",
+      "sha256": "6c7186d4976c59c123ecec8253c5f16216aee667d2db4cc8c2f91cd33fa8ec84",
+      "bytes": 3066
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/__init__.py",
+      "path": "tendonspin/rl/__init__.py",
+      "sha256": "e085785d625ed365f9376ea8117b9eb9cde347b4e31758b27794edc38b7e00e1",
+      "bytes": 83
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/evaluate.py",
+      "path": "tendonspin/rl/evaluate.py",
+      "sha256": "cc5b542553ba61c8e4412a7882f22f3406ee6370d5ea6256c7f4b65b624f5de7",
+      "bytes": 4103
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/train.py",
+      "path": "tendonspin/rl/train.py",
+      "sha256": "65278003b10b99de061233eaf019da58b9376d5e4b960bc749fd0fb21d05001f",
+      "bytes": 12497
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/config.py",
+      "path": "tendonspin/rl/config.py",
+      "sha256": "fb01d5399b91ce87597195fb8d7033ecf58f9935cb92fa275eff930a71487b6f",
+      "bytes": 2471
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/policy.py",
+      "path": "tendonspin/rl/policy.py",
+      "sha256": "3df6619a939386e379c7946fd12a4f7b6b2ce7abffc119db7883bf759b4615cd",
+      "bytes": 2453
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/worker.py",
+      "path": "tendonspin/rl/worker.py",
+      "sha256": "be2e2b0b120c37bd2c6e22266044b080e1bbee635306a1b476706cd0e4226a43",
+      "bytes": 1528
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/research/learning/transport.py",
+      "path": "tendonspin/rl/transport.py",
+      "sha256": "d7d480787315771bb8358ea5a74038a10ac8e36139047e872aa50f4ce48e77e3",
+      "bytes": 2532
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/rotation/metrics.py",
+      "path": "tendonspin/physics/metrics.py",
+      "sha256": "096e36d6cb1603a0c1c81784ccfeec1e68b743c237244e2ff784c103db8872bd",
+      "bytes": 2352
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-07-failure-driven-validation/replay.c",
+      "path": "tendonspin/physics/replay.c",
+      "sha256": "f2c58b0fb423a024baeabbd1213639e5009fe3177e68e4088f3901fd9f086bf4",
+      "bytes": 3518
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/tests/test_learning_ppo.py",
+      "path": "tests/test_ppo.py",
+      "sha256": "9c60678af57413f100f0eeb6c8c29826dd5518c9bbae9f9fc59528848ac6316a",
+      "bytes": 1612
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/grasp/stable_state.npz",
+      "path": "assets/grasp/stable_state.npz",
+      "sha256": "7bb739a45b59ad4e965bc5fd9df86f08785e5ca132aadc7e76ab1b461e7d9229",
+      "bytes": 5090
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/grasp/summary.json",
+      "path": "assets/grasp/source_summary.json",
+      "sha256": "17c5c7be6e5fa7ac8405584e7529efb574d6d1f60e360862be5247153e99d869",
+      "bytes": 4519
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/grasp/model_manifest.json",
+      "path": "assets/grasp/source_model_manifest.json",
+      "sha256": "1450a84c364301250c57b474854ec1a71df4db3afbdaed60a056588c1741169f",
+      "bytes": 4199
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/fabase.STL",
+      "path": "assets/hand/meshes/fabase.stl",
+      "sha256": "45fa7c0a6c7740e7eddaebde0f7ebdad00ceaa52b19198335cace4096e083230",
+      "bytes": 2106784
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/falink1.STL",
+      "path": "assets/hand/meshes/falink1.stl",
+      "sha256": "2d0b052a89bdf12caa7bdf4dcad9700f4df4b3a350447e24e252355b82c8eccc",
+      "bytes": 118484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/pmbase.STL",
+      "path": "assets/hand/meshes/pmbase.stl",
+      "sha256": "bd6293a1ef3f46b2cca3256b781327b84998e619fb67435e7269261be93a1b0e",
+      "bytes": 75584
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/palm.STL",
+      "path": "assets/hand/meshes/palm.stl",
+      "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6",
+      "bytes": 1347484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thbase.STL",
+      "path": "assets/hand/meshes/thbase.stl",
+      "sha256": "7d7b6317167073d3e98f0de94b2596a5d37ad52305f31a4f0fade153eb6dd3d9",
+      "bytes": 348784
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thproximal.STL",
+      "path": "assets/hand/meshes/thproximal.stl",
+      "sha256": "4b6af54b3d938c28addeb9697b96239056c34e15d4023f011c5656853400c07a",
+      "bytes": 805384
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thmiddle.STL",
+      "path": "assets/hand/meshes/thmiddle.stl",
+      "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391",
+      "bytes": 657584
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thdistal.STL",
+      "path": "assets/hand/meshes/thdistal.stl",
+      "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111",
+      "bytes": 533884
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffbase.STL",
+      "path": "assets/hand/meshes/ffbase.stl",
+      "sha256": "ba77e740cf829bcecce1bceac0835229d18bbf0c645db88dd2ed0a01d14350bb",
+      "bytes": 571484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffproximal.STL",
+      "path": "assets/hand/meshes/ffproximal.stl",
+      "sha256": "7d8f39bd649b700a7d9405ff74540b0f9c4e7d19e4fe80d6a61df3f0308814d9",
+      "bytes": 781984
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffmiddle.STL",
+      "path": "assets/hand/meshes/ffmiddle.stl",
+      "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53",
+      "bytes": 522784
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffdistal.STL",
+      "path": "assets/hand/meshes/ffdistal.stl",
+      "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630",
+      "bytes": 522884
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfbase.STL",
+      "path": "assets/hand/meshes/mfbase.stl",
+      "sha256": "af179da71c38b28e81cc48ce4ee3d33a375c8a657ce53eb67691a2524b7572ce",
+      "bytes": 443484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfproximal.STL",
+      "path": "assets/hand/meshes/mfproximal.stl",
+      "sha256": "ecd104d562d0e6b32428b2006acbabee0304428e3b6e3348dcaac5430881c9f4",
+      "bytes": 781984
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfmiddle.STL",
+      "path": "assets/hand/meshes/mfmiddle.stl",
+      "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371",
+      "bytes": 522484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfdistal.STL",
+      "path": "assets/hand/meshes/mfdistal.stl",
+      "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f",
+      "bytes": 525084
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfbase.STL",
+      "path": "assets/hand/meshes/rfbase.stl",
+      "sha256": "74dd13a864bb3a157a371d0eb6687c82896783ec497c4e874449fda7cd81c33a",
+      "bytes": 443184
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfproximal.STL",
+      "path": "assets/hand/meshes/rfproximal.stl",
+      "sha256": "3c871bb97066cda05145ca93b90e090c8dc5d8430c28906811d007c981cf4bd3",
+      "bytes": 781984
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfmiddle.STL",
+      "path": "assets/hand/meshes/rfmiddle.stl",
+      "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4",
+      "bytes": 522484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfdistal.STL",
+      "path": "assets/hand/meshes/rfdistal.stl",
+      "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15",
+      "bytes": 522684
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfbase.STL",
+      "path": "assets/hand/meshes/lfbase.stl",
+      "sha256": "b2b657b77e38f8e264186c4951f65605e168ba7f1b37fb6051ae3c6cdb510986",
+      "bytes": 443484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfproximal.STL",
+      "path": "assets/hand/meshes/lfproximal.stl",
+      "sha256": "15c775c851f5e29d17c18523a3686d0251a11ca2b4a5e715a8271ba3c4307c6c",
+      "bytes": 781984
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfmiddle.STL",
+      "path": "assets/hand/meshes/lfmiddle.stl",
+      "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e",
+      "bytes": 522484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfdistal.STL",
+      "path": "assets/hand/meshes/lfdistal.stl",
+      "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a",
+      "bytes": 522484
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/mjcf/v3_2/right_dexhand.xml",
+      "path": "assets/hand/source/right_dexhand.xml",
+      "sha256": "da20570474e72a0a26e525bb865e2d75d1529c56c6a3b9c84bafb1ae723a5591",
+      "bytes": 18701
+    },
+    {
+      "source": "/home/rw/botyard_ws/src/ros2_botyard/dexhand_description/mjcf/v3_2/urdf/right_dexhand.urdf",
+      "path": "assets/hand/source/right_dexhand.urdf",
+      "sha256": "9e642393401b9a040672ad7b1c988dba2ceef9a4a90a6649221690cc7e587e87",
+      "bytes": 28407
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/experiment_state.md",
+      "path": "docs/history/experiment_state.md",
+      "sha256": "738adee4885b5dc0ecc0e6711f59eb3ba75af7ba37c53dba21d0dafae0d0f387",
+      "bytes": 143682
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research_survey_v2.md",
+      "path": "docs/history/research_survey_v2.md",
+      "sha256": "696d9cc87a2970f69a91e0d3d74b1a1b2fc6cab3218e7144a994aeff267da792",
+      "bytes": 33433
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research_orientation_gait_novelty.md",
+      "path": "docs/history/research_orientation_gait_novelty.md",
+      "sha256": "4ca60e1de6ab66c3b3a295085c756680ba32f9fd3f2baacf3d24828231a517a5",
+      "bytes": 14906
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research_positioning.md",
+      "path": "docs/history/research_positioning.md",
+      "sha256": "6c3395c4f4f2cce54cca2fce523038fefd4917a1a310ff61082e5e80c3059330",
+      "bytes": 14202
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/real_robot_plan.md",
+      "path": "docs/history/real_robot_plan.md",
+      "sha256": "ae1c74c0f13d5a424596eabf7f4a605de381c97f08a4a1dadb28f960fcba21df",
+      "bytes": 9021
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-08-privileged-ppo/README.md",
+      "path": "docs/history/research/2026-10-08-privileged-ppo/README.md",
+      "sha256": "41931a28deac2e3c7f415b6bf9e600a593637b40d159db56d61c0f0964e37def",
+      "bytes": 5251
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-08-privileged-ppo/PROTOCOL.md",
+      "path": "docs/history/research/2026-10-08-privileged-ppo/PROTOCOL.md",
+      "sha256": "fc6a8d87add00d57e8072d2c8d764ba49e87a45f7447b6212d93ddf8d11a9efc",
+      "bytes": 4464
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-08-privileged-ppo/data/pilot.json",
+      "path": "docs/history/research/2026-10-08-privileged-ppo/data/pilot.json",
+      "sha256": "6828cbcba409f507da92c286ed44c0b8f0b531869687ed1f597dad6e36a22027",
+      "bytes": 17833
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-08-privileged-ppo/data/evaluations.csv",
+      "path": "docs/history/research/2026-10-08-privileged-ppo/data/evaluations.csv",
+      "sha256": "6a34f12b91ad9ff70faae7c53c246b5de2c6dd3ad1539c9948af9bb1a3af4f6b",
+      "bytes": 830
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-07-history-model-audit/README.md",
+      "path": "docs/history/research/2026-10-07-history-model-audit/README.md",
+      "sha256": "881a175d7b3c40fb4e998b04f9db79d78133e791a68c47dc4e5003ea715491f2",
+      "bytes": 22523
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/research/2026-10-08-nonlearning-reassessment/README.md",
+      "path": "docs/history/research/2026-10-08-nonlearning-reassessment/README.md",
+      "sha256": "60f6bc5db8ff91709e05397a32fd7cda7937ed4180798bf406ec4d513fe22cac",
+      "bytes": 16227
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/experiments/2026-10-07-rotation-demo-benchmark/FOLLOWUP_COMPARISON.md",
+      "path": "docs/history/experiments/2026-10-07-rotation-demo-benchmark/FOLLOWUP_COMPARISON.md",
+      "sha256": "7f39159ac43ee47c48ac56138b72bbe0a627637ed310d7680d07b0f0b7b630c3",
+      "bytes": 4908
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/docs/experiments/2026-10-07-rotation-demo-benchmark/data/extended_scores.csv",
+      "path": "docs/history/experiments/2026-10-07-rotation-demo-benchmark/data/extended_scores.csv",
+      "sha256": "41edc967bb9e9b8eadbc08ed419169a39e6853d593d5af2d46bad88a49ee125d",
+      "bytes": 3760
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/checkpoints/update_0064.pt",
+      "path": "outputs/imported/ppo_v1/checkpoints/update_0064.pt",
+      "sha256": "cfdeef3cf4aeaddb04f9aa069f35cf03eafd7b81ddc4ac02680a3027641979b1",
+      "bytes": 923559
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/evaluations/update_0064/native/execution.npz",
+      "path": "outputs/imported/ppo_v1/evaluations/update_0064/native/execution.npz",
+      "sha256": "7ed87dca070b0d205af6545d1fd1943c5eca1a94f1dcec52495bf4bd6b60159e",
+      "bytes": 3623935
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/evaluations/update_0064/policy_trace.npz",
+      "path": "outputs/imported/ppo_v1/evaluations/update_0064/policy_trace.npz",
+      "sha256": "5c03f7b1cc717cbadde49f80fb236ef1376c97a3767a5144885484ae390d14d6",
+      "bytes": 20696
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/evaluations/update_0064/results.json",
+      "path": "outputs/imported/ppo_v1/evaluations/update_0064/results.json",
+      "sha256": "d823fef374411ff2f647923bfe881f4b5c061ce0ed955579f3f07584f50e3b7d",
+      "bytes": 3361
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/protocol.json",
+      "path": "outputs/imported/ppo_v1/protocol.json",
+      "sha256": "5e47b601bcb2a32fbf31b02187183151ad6c64f95977fd54e23a640d8f22d1d9",
+      "bytes": 2401
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/results.json",
+      "path": "outputs/imported/ppo_v1/results.json",
+      "sha256": "886d7a8f2a0223746f1f8a5612fe209d9f53360cfa71c917c30bde4e58b82851",
+      "bytes": 17648
+    },
+    {
+      "source": "/home/rw/Projects/botyard-inhand/outputs/research/learning/privileged_ppo_v1/pilot_01/training.jsonl",
+      "path": "outputs/imported/ppo_v1/training.jsonl",
+      "sha256": "e7763253b43a6d2412019678043c553b43c4e0c601fd963b7ea3e15557bad516",
+      "bytes": 36870
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/README.md",
+      "path": "third_party/sharpa/README.md",
+      "sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654",
+      "bytes": 3912
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/LICENSE",
+      "path": "third_party/sharpa/LICENSE",
+      "sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b",
+      "bytes": 9666
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/NOTICE",
+      "path": "third_party/sharpa/NOTICE",
+      "sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade",
+      "bytes": 4339
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/pyproject.toml",
+      "path": "third_party/sharpa/pyproject.toml",
+      "sha256": "b946431aabe95f757b18dab0dd36425177d43e9935fb8ffc576f96a3705af502",
+      "bytes": 332
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/models/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/models/running_mean_std.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/running_mean_std.py",
+      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "bytes": 3733
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/models/models.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/models.py",
+      "sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225",
+      "bytes": 5862
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/ppo/ppo.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/ppo.py",
+      "sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a",
+      "bytes": 17805
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/ppo/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/ppo/experience.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/experience.py",
+      "sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4",
+      "bytes": 4993
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/padapt/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/algo/padapt/padapt.py",
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/padapt.py",
+      "sha256": "b4d1e1e5eb841327ab5a5e09d08bbeef46972a6dcd60f140b63785c3694416f4",
+      "bytes": 7671
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/wrapper/config_wrapper.py",
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/config_wrapper.py",
+      "sha256": "acfaa5a2358f7dae1726972782ba1d2d5472942d1c63ba094f0212d94f09dbb2",
+      "bytes": 161
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/wrapper/sharpa_wave_env_wrapper.py",
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_env_wrapper.py",
+      "sha256": "47539f490b73fca3818443f1e85eef12f4f9a94ad72cf9902e215bf9139352c1",
+      "bytes": 7294
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/wrapper/sharpa_wave_deploy_env_wrapper.py",
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_deploy_env_wrapper.py",
+      "sha256": "4c837faf39e6f9053ceb6bec66805cc603e82ada48b30c61427f96ca339ada4f",
+      "bytes": 4476
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/wrapper/vec_env.py",
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/vec_env.py",
+      "sha256": "4cea1f22d498d76d00ef34facbf0abec256ce4266f679fb9dd185641bdca778b",
+      "bytes": 3718
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd",
+      "bytes": 9963
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env.py",
+      "sha256": "908753356946a38676db8d8edaf815bd208608b9d5f833b8ae4c8e10bde1fbae",
+      "bytes": 16861
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1",
+      "bytes": 32532
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8",
+      "bytes": 12710
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/__init__.py",
+      "sha256": "0aec922cd106709cd1c97cd55ab21699a235ed1a34510936f36fa4ea26ea58da",
+      "bytes": 1203
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env_cfg.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env_cfg.py",
+      "sha256": "79e3a380efbb1a85cd632ac95f7f3510efab03821b556a7c2e0ff1a9d90ad741",
+      "bytes": 11730
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env_cfg.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env_cfg.py",
+      "sha256": "3abd62145ded9280234ce45adb2f3a3b5eca35944593ab2cabc59185a0236909",
+      "bytes": 2052
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/agents/__init__.py",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/__init__.py",
+      "sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+      "bytes": 192
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d",
+      "bytes": 824
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/scripts/train.py",
+      "path": "third_party/sharpa/rl_isaaclab/scripts/train.py",
+      "sha256": "2aaf148906863fc5ce260d389595dbfaf8e2c481153d55187d9f4173fb67febd",
+      "bytes": 5491
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/scripts/deploy.py",
+      "path": "third_party/sharpa/rl_isaaclab/scripts/deploy.py",
+      "sha256": "551799674a4d0bf5c69a07f721ab8833f9db12b189047324cd50db3ad8b9dc4b",
+      "bytes": 4730
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/utils/modified_events.py",
+      "path": "third_party/sharpa/rl_isaaclab/utils/modified_events.py",
+      "sha256": "63c2e812ae194ab2107a80c2e64083a7f35e90ac6160f432e436a35c6299e8fb",
+      "bytes": 7498
+    },
+    {
+      "source": "/home/rw/Projects/sharpa-rl-lab/rl_isaaclab/utils/misc.py",
+      "path": "third_party/sharpa/rl_isaaclab/utils/misc.py",
+      "sha256": "9f7a0cfa1d920b5adf05eed992ccb3b237319e374c2eda47f8627a8d15547b61",
+      "bytes": 1939
+    }
+  ]
+}

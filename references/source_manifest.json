@@ -1,0 +1,883 @@
+{
+  "access_date": "2026-10-08",
+  "scope": "two targeted arXiv IDs, official Hora archive, AnyRotate project, local Sharpa fork",
+  "arxiv": {
+    "endpoint": "https://export.arxiv.org/api/query",
+    "parameters": {
+      "id_list": "2210.04887,2405.07391",
+      "max_results": 2
+    },
+    "metadata": "references/papers.json",
+    "count_expected": 2,
+    "count_retrieved": 2
+  },
+  "sources": [
+    {
+      "name": "Hora",
+      "url": "https://github.com/HaozhiQi/hora/archive/refs/tags/v0.0.1.tar.gz",
+      "archive": "outputs/hora-v0.0.1.tar.gz",
+      "sha256": "d5ff6e903f898a3269c409dcf792cd565fdcdacc970b662eacdcecae7bfa00c3",
+      "tag": "v0.0.1",
+      "status": "reference source; no Boya port executed"
+    },
+    {
+      "name": "AnyRotate",
+      "url": "https://maxyang27896.github.io/anyrotate/",
+      "snapshot": "references/anyrotate-project.html",
+      "sha256": "a141d2a54b199bea58adcc5c71e9d34466ac43b2030db5f1008a0f6633f4d1e5",
+      "source_code_availability": "not established by inspected official project page",
+      "status": "paper reference; no Boya reproduction executed"
+    },
+    {
+      "name": "Sharpa",
+      "origin": "git@github.com:wangrp1997/sharpa-rl-lab.git",
+      "local_source": "/home/rw/Projects/sharpa-rl-lab",
+      "commit": "5accf024d376685eaa17da7aa4614498217eab4d",
+      "copy_scope": "selected PPO, adaptation, task and deployment source plus original licenses/notices",
+      "upstream_revision_equivalence": "not verified; GitHub API rate limit exceeded",
+      "status": "local user fork reference; no Boya port executed"
+    }
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2210.04887v1",
+      "url": "https://arxiv.org/pdf/2210.04887v1",
+      "path": "outputs/references/hora.pdf",
+      "sha256": "d18d851fd7836d6195abd8e102caccd70dae5c54d206013f8aabf510c3133066",
+      "bytes": 8689249,
+      "pages": 16,
+      "validation": "pdfinfo and pdftotext succeeded"
+    },
+    {
+      "arxiv_id": "2405.07391v3",
+      "url": "https://arxiv.org/pdf/2405.07391v3",
+      "path": "outputs/references/anyrotate.pdf",
+      "sha256": "e5adc8090f8cec5f9938282f2690e6c9869dc36f68b0035a79b24feed2ca90a2",
+      "bytes": 28108404,
+      "pages": 21,
+      "validation": "initial download timeout; range-resumed complete; pdfinfo and pdftotext succeeded"
+    }
+  ],
+  "files": [
+    {
+      "path": "third_party/hora/.gitignore",
+      "sha256": "9160dac53f3991c589920fc8fd844ae3ed07426191aa34428d31fe927f64527c"
+    },
+    {
+      "path": "third_party/hora/LICENSE",
+      "sha256": "a3712180ead764eaa0c5f6d55d7cfebf56320d81107219dd238d4854c3c79a99"
+    },
+    {
+      "path": "third_party/hora/README.md",
+      "sha256": "950d313f77250e65e1b7c05816bf3a5b7383237b58a5502a3975a25e18226842"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/allegro.urdf",
+      "sha256": "69426b433bdd6f84d7abb815dfb1e8efbc528d1b6d6db2ff742336d60f5b5a93"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/allegro_internal.urdf",
+      "sha256": "8c11be4ee50a6461480e77fcaedd5badd725b316c6fb87e93bfc6669ade5b889"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/base_link.obj",
+      "sha256": "1fd2047c1186fda5395122b261d5a76dac2639edd7c3c22bcf25500ae8d9a847"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/base_link_left.obj",
+      "sha256": "10ecd4f66d1eea541e49ee33daedea1b9efedea0f9b3386280f26812344c576b"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_0.0.obj",
+      "sha256": "3a26407816a1d64fb97dfbe13c4a94ae89cdc187175820373556a06c8953aa9a"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_1.0.obj",
+      "sha256": "99facec63918ea328def95c33e9c3e6cde1b34934572f026dd74c67f3d52a39b"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_12.0_left.obj",
+      "sha256": "407fe20b00d0840a6b86dde410022c1cd80a329189156c22e682b707ec6dd39f"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_12.0_right.obj",
+      "sha256": "af870e770f3252db894381f28ac43f739fb3bf76cb83b8e054d0b5814b34df34"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_13.0.obj",
+      "sha256": "21594d9237fa03f79186a68141089dcb7a116c99ef7b63aba876fc3ff9c06dd1"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_14.0.obj",
+      "sha256": "0949d534b00474400a111c87b7a346b6b3f76fffeacfa60c4ddf1d7a03780ddc"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_15.0.obj",
+      "sha256": "d66d94149bbf4c728a5e870ef8bbb79ba7cfc0f5d3a4ef1b45c5f7880329556f"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_15.0_tip.obj",
+      "sha256": "1fc6be82f660a8ba86c72ddfe59a42906bfe29c0f86127a0554ea3c74d035e05"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_2.0.obj",
+      "sha256": "9f2f6e0f47501b1d88a68f7bb488fc01020abcd30c6e944f310e110b70111a2d"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_3.0.obj",
+      "sha256": "349fe1e9ec544a5441fd3e99aa4a77e6874684d0e46e921323f5cb5d73471e5b"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_3.0_tip.obj",
+      "sha256": "c4eabee510d7422a0d623249acb6b030dad324fcdb9f7e89f14754f455ae8bb0"
+    },
+    {
+      "path": "third_party/hora/assets/allegro/meshes/allegro/link_4.0.obj",
+      "sha256": "fb49529069517662c547faf05e373e26e98bcc257aabd4aedf8481cb268104d4"
+    },
+    {
+      "path": "third_party/hora/assets/ball.urdf",
+      "sha256": "1b6dc9869783dc83e3fa12ac9dc6e80ae6506e6baa1c045561b3568ee7555a61"
+    },
+    {
+      "path": "third_party/hora/assets/cube.urdf",
+      "sha256": "c861470cd9fcc12fe3e0bad47e74f088874c9d85e0456f339dfb212f9d938c3b"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0000.urdf",
+      "sha256": "26cabfd4731147559e196897492ea23b75f295da347c7a52a5c8c4e205922957"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0001.urdf",
+      "sha256": "d106c458895fd6541107f4f1c18452066d722211a9f0a8ed42189a072aa83175"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0002.urdf",
+      "sha256": "631ccbbe184615d17e0252c4083323a6e6da215b3dc658f7920e9c14fd5c69d8"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0003.urdf",
+      "sha256": "eb062e09246fa00776200d69bf9b261245cb5941841720c2d7361897de33d34e"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0004.urdf",
+      "sha256": "f22a7f04ac199f6b9347bb86c857559f520b5d104676bb440bdca8313130eb3e"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0005.urdf",
+      "sha256": "a1101bf54019fd3b1f4a5b6ff63922e3452d2d7c941a0f06038ef191e36a4b3d"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0006.urdf",
+      "sha256": "d5a99f20128b1bf24370c760cf0bd1e355bf9812002d9e44456a4cda87e0bd3a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0007.urdf",
+      "sha256": "3c662b0cad95a598d97b1b250cac0f7598af8f14ea7242add8e1c3f85fc256b5"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0008.urdf",
+      "sha256": "83e602c219f811e0479c8864d2d34dfa6a2033550e217abfefe2ff7170e49f3d"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0009.urdf",
+      "sha256": "7f3057c937dfbabdf007c68f4df0541c8a91023c9eb6c268d272f0893fe9b848"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0010.urdf",
+      "sha256": "beb01c6eb70e30cd449bd0839e241b72844a72209e8dc9d180c908c0c87f979b"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0011.urdf",
+      "sha256": "c71f4126043fd7420d8261b19384d60ab4b3e52f9bb7ff6b846a78ff33a4b273"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0012.urdf",
+      "sha256": "0d45f1cf4160da85545dcdbbb24851a5e5645daff9c22c483f70d62cffeb60a6"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0013.urdf",
+      "sha256": "9c276447b758989d7c7a2aa16dfe027257f5dcc039258638faf37a5cf14c298a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0014.urdf",
+      "sha256": "49c89d2eb4353f6dd8e33d0e17728dfd4177680dd3b258f54f5003647a6ba218"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0015.urdf",
+      "sha256": "c622ea33f925eff2de3735dd71ab5a10da7e672a8b573e3328be2e78cf09c321"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0016.urdf",
+      "sha256": "17b51ae569e5d6a7a08d5ae627d21080e4843644d14de8b407d69b1d70501c1f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0017.urdf",
+      "sha256": "7c851e719f58cb08309c66741cdb08b92900f6b9ae080d55a7d4ed15c245936c"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0018.urdf",
+      "sha256": "fc8c850f497ce775216f7f254f8e590092dc6fa2d9d3eda0d460ae7f4cb3addc"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0019.urdf",
+      "sha256": "1ca8628af5ee64b19a8781d9be37620b4c2984b34ab9eec9c89e92c1f71c653f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0020.urdf",
+      "sha256": "dd459148d338c5d6151df4d8bd9c648bcdb92aaab6d1330506b754ba8cdf0384"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0021.urdf",
+      "sha256": "dd57d74f14b903824a4393c33589d61772d43df463bda49dc4f2de8e63034b23"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0022.urdf",
+      "sha256": "68501c5979d7915d6897f57be30187511bd58f4156f19fcf05004c9ff687aa79"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0023.urdf",
+      "sha256": "175dfb525baa6f0998decc07f2788b0cc5439fe18dc69996911bdcc8cff5931d"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0024.urdf",
+      "sha256": "ea4e26b32063c46b89f56548fcc77cf96362c35d3a22d6f67fc1261d07f2b265"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0025.urdf",
+      "sha256": "9d31703c68ff3cf91d948beaee8b0f30f6ea4d1ac852c22ce4505c5b441f5629"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0026.urdf",
+      "sha256": "8a83d21b363ec7837c9f568bc681c160874a032eb869c93b50275342de94f7af"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0027.urdf",
+      "sha256": "cb92bf3cca614a9427987d4550b8027f2551ecb3283a83064aff0b5c90b633d3"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0028.urdf",
+      "sha256": "1f8d2755f95039028467761797b670d33ca92cfc320deb590a9dd7ebbacc86c6"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0029.urdf",
+      "sha256": "a01384bad18780f48c8a0b0fa5cfb78c78b99ef4c9ca5e85e02602133997d6b4"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0030.urdf",
+      "sha256": "7e892e4f25619da0f9c62f50638c4d1e12c39a40129e2b639da69f90a8c0dbd8"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0031.urdf",
+      "sha256": "154c6b59fdf58f2e8a39eb5798040fb22a7462105dbb9f2ff12f74e63826bfc9"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0032.urdf",
+      "sha256": "bebc81ff521f0d803bc08f679d044708beb5da4db4955e73b54f08680f3f73db"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0033.urdf",
+      "sha256": "1df9ca064615653b910fc26545e3a5b41bee671c09f708b2092080b643dfc194"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0034.urdf",
+      "sha256": "09409ee0126dd09e25c28b591c70bfeb0084061fe434c0e00ce3b87121e59c26"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0035.urdf",
+      "sha256": "40502997571d186dac892317405b9e23fee993ec2669a779110973bb05ad9958"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0036.urdf",
+      "sha256": "0a80552b978b9e87a0d123002c08d31798b986f730de2d6a4f3b2b61def9905b"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0037.urdf",
+      "sha256": "202d1312863b353adfc83555a7bbfa6fd5799b6f77113ac1fb371f1d0dcafd14"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0038.urdf",
+      "sha256": "c69e6a01ec0896cda856ec83ba4359b9c04f0048b901a000932fde78cc6b0827"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0039.urdf",
+      "sha256": "e1ef528d694e5082f78209d7bd622300bbbd26ef6d215120fd58c8fa57cd39e2"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0040.urdf",
+      "sha256": "d15e8dcce92bbd9d4d454ba38e5a8b156275b71ae8888b356b149e1306359a9a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0041.urdf",
+      "sha256": "099af0c9d9388b25497cb0b76644c21aa63d4fdf0f4aa8a05a235a64fa02ca1f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0042.urdf",
+      "sha256": "3db09a00e9a5537bddae6504843316f11eecbd066988a13cea1cbe17c33be0af"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0043.urdf",
+      "sha256": "24093c2556509ad7b6d0ff5c637e33337d864278a5f3ffa89d7fb50d41cf3259"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0044.urdf",
+      "sha256": "5d79687c1f95d78041f98364d4ff9647cc2ce0c5be7a77e6ec27e7d83c83a51f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0045.urdf",
+      "sha256": "aaf614501af05112e6a453197fe40b4ba33661e955cce1829c1e6ed1846a5f5a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0046.urdf",
+      "sha256": "45e4b36a044ab56cc0c09f5b50fcb6a7494c3a749a4a51a8fd10f561289b9f16"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0047.urdf",
+      "sha256": "e830fdf8015f341e9aa450cda41e2f6ea80bc08a0671574832360a39676dda53"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0048.urdf",
+      "sha256": "9f444dab1f29bd2f9c9a87d351a9b00211547f7f7f9d8c66375f5fa7e8faea76"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0049.urdf",
+      "sha256": "a8fc3a4819a832157403f59dda0b5e82dcea8d2b7ea5856a038dbefecc769c20"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0050.urdf",
+      "sha256": "5488b93b6ad18d8366bbce2dda0c3b69f2374377304fcde5da764b7902fec745"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0051.urdf",
+      "sha256": "2abbac550aef47a18310de3a4dcf73e95cdf7c0d943ee1d8e5d2bd55c40d6773"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0052.urdf",
+      "sha256": "e720e3f141ab374db8bd9dc6ebd8de48caf9cfdfa6fffd6cbd6dc9fbdcc7c13b"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0053.urdf",
+      "sha256": "c8ea68431d51bf8465ca174b05e044328f687169d3c314243d136d3bde599fc8"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0054.urdf",
+      "sha256": "63cb2767a9a2b1d84f4f30ae4c8ea4ae55bb65874f2ebb710f51dd48e8a24b3e"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0055.urdf",
+      "sha256": "05f26b30f1f088afcd35997e681765d694b82181a546bf4c3b427226d2503a64"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0056.urdf",
+      "sha256": "71b7b19906307da2b09cd767a2e1a77d33c6c0ab01484f05e71950baff2687bc"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0057.urdf",
+      "sha256": "53fc1db9c295d9e70cfbad9a81e3f17fed3d8ebdfdece079c8f83826d7c7b327"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0058.urdf",
+      "sha256": "8b7360c8ba4dc32fcb92c3af2e610a67137f81115067d6b119b213e62b451f69"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0059.urdf",
+      "sha256": "0396204a9593f8939a26d1300aa410150d85c77e186c507daf403cfe06fb4f68"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0060.urdf",
+      "sha256": "82b4a8b863db2ef49de5d8b62c76df98e1f898874844fb45e7d002a1e9bfa953"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0061.urdf",
+      "sha256": "5eae64e8315e212d32206015aed50212d759406e98adfe710a61ea0a6de1d047"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0062.urdf",
+      "sha256": "bb8a4c56f035009ca0c6a5d89b56a515d1baabdf41da2b6276623b2a85aa4822"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0063.urdf",
+      "sha256": "c5d7c657b1ddb96783eb6aee615fab3656ef58d446218498349c18eff3468dda"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0064.urdf",
+      "sha256": "a0b370f4ed6f06718cb14e80b8299a490b6759fa7e41ddeb39301e28ff384a6f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0065.urdf",
+      "sha256": "ef9ae709d818ea483704d65b28c8475c46fd690ec999ddc76bf1b9919763de7a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0066.urdf",
+      "sha256": "01063b6e727772ce95045b28f92a8c21761e83f2017d41bdfe2ec4f086b335c5"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0067.urdf",
+      "sha256": "694cc27ca838b3bffe28df33b6cc12a7f244a47b91ee53e3f9f49265cb00d2b5"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0068.urdf",
+      "sha256": "ea78a25cae5e8599043020c20ba039bb203b6f58dc58a1a3fdc9a58cc6aec950"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0069.urdf",
+      "sha256": "cff16721454caa3a667ab932944538e3decd217aff6f365550359e47863d5475"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0070.urdf",
+      "sha256": "70e282e37ca95213ffaa16665ca15aa425489083ded503eb873feea93dde32e2"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0071.urdf",
+      "sha256": "2e89c74108b129c086789093fdded540eb65579de1ea0003053ceedad38d1265"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0072.urdf",
+      "sha256": "21033ee9894e35149b99b6d90df07a1211a7d3bf3c19ebc3194e3beefb80e150"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0073.urdf",
+      "sha256": "42cfb361810faf4ec59c703c77c32cb3ce8e0a10ce125c282a66ab8b63fcfff9"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0074.urdf",
+      "sha256": "df749f99a672ea3a81be056609d4d93dcfe490f6b0cc16b789acd37e5a9bdc7a"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0075.urdf",
+      "sha256": "50cb20ecdd597514649e230e10f01b7efae81450396bd2a2e56b53f63e5225a6"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0076.urdf",
+      "sha256": "f7efd62d3fd50129a8314f70f8cf60903d278e78b36713500811c16676611071"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0077.urdf",
+      "sha256": "7dc149afd1d809c29976a02c663edb756653f34aa508a492558ca7f312fe6411"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0078.urdf",
+      "sha256": "b8bd68cbbce22714f297fb51a7318212bb0c964082ed7663601ad1dbdbca713f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0079.urdf",
+      "sha256": "81451c13594042b596dbaad9f5fce48bb021a0ab2699afd2ddd95534569d2a0f"
+    },
+    {
+      "path": "third_party/hora/assets/cuboid/default/0080.urdf",
+      "sha256": "b8fcbf68f2dcd1db7139201fe3ee0511b9abc358ea7cd50e5687cc080d727ca1"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0000.urdf",
+      "sha256": "2c8c9650d268f4e1899131793b28c978936d993e5db97c2dbc968119dcdb7499"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0001.urdf",
+      "sha256": "49a0e48d8947a5cadfe9044b76b421e226c3eac39eba3c3113425418a52ada7b"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0002.urdf",
+      "sha256": "6f3490140f6b49d328695aeb37400d02dafbe607b4d30933045b343c5300cd55"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0003.urdf",
+      "sha256": "e765618671e62fd223aa438129c2e5273ad96d8f7260cfd4d0049eae9d81e268"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0004.urdf",
+      "sha256": "062b7ef292ecabe7c45378a82a9e81641227b8f2d8043d7664cb6a84b54e261b"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0005.urdf",
+      "sha256": "9fbff2c176268eb7d02678c16e0e30c3317c570d2d54bb8b43ec502c075d90ed"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0006.urdf",
+      "sha256": "438c29b7844930a04b2f8de8b99a062ad3af95c04790573bc07300920bbf75f9"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0007.urdf",
+      "sha256": "9ae4f03d67e4f11adc02932de28328560d5fd03dd4c05041ec83a06a3e253b39"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder/default/0008.urdf",
+      "sha256": "0decd0ae8ccfdb5fbb49c251f389e2f326b82e85730fb5faf6511f89469fe26b"
+    },
+    {
+      "path": "third_party/hora/assets/cylinder.urdf",
+      "sha256": "a2657b0315ed140cb3563b31d3f06a06784006c54638b3e08d1093a8cb9c9f1a"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/kinbody.xml",
+      "sha256": "aa88530686e35cd7182dc39f7cdf998cd9011b2aec99442e9f3d27a0a2bb1cd5"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/nontextured.ply",
+      "sha256": "f0e1290dc3b359b9d1d5dbccc2e385293a947e1d6d9940d0d82a845592f71831"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/nontextured.stl",
+      "sha256": "e4a849e6bbabb5a1f964ad3d9f1e0b5459d5fe481572c47e5e972fb53bfb2dcf"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/texture_map.png",
+      "sha256": "7e2aef766a39b64dab16fe84e9a4a6779008727946d2a6127c6270eea10fde60"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured.dae",
+      "sha256": "0f8d45b7832327198bd9576e498ccaca849c943da39c122e05e0415b3436bb02"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured.mtl",
+      "sha256": "a779e1d8a29bdbc18ee724b7faa2e1e53591cbc2ee451ff38c64df7222c3f31e"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured.obj",
+      "sha256": "99a646824d8a98f14d163207fe3a2dd2d6a0818b3b295e7339a461f72245bb52"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured.obj.mtl",
+      "sha256": "afde660d59a0762fa7169675dbe06a5eb6595da4b48d41bf86a102ce80355797"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured_backup.obj",
+      "sha256": "30a79e3d5ed50a682285f1b386213cea018786af7bf533ff4d0d02f9114dd030"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured_vhacd.obj",
+      "sha256": "bdcd451cd4f456c9bbdbb6c60edcc47c66e23d822929dcece7cb655127c2a2b4"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball/google_16k/textured_vhacd_backup.obj",
+      "sha256": "a42604e10594ac2f01cc01396670de453bb03a754c458381d941d1543a3463ff"
+    },
+    {
+      "path": "third_party/hora/assets/ycb/056_tennis_ball.urdf",
+      "sha256": "3c789b4c8aeaaa338ea03075945ae7335c483e8125ab1eb3825489812d1ab016"
+    },
+    {
+      "path": "third_party/hora/cache/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/configs/config.yaml",
+      "sha256": "1b9817484271f173c0f60b77aa3f06af4ddf8b19297b658924a165596250f48f"
+    },
+    {
+      "path": "third_party/hora/configs/task/AllegroHandGrasp.yaml",
+      "sha256": "f0335a205adb852e5e9730ef1eb55683f298a29e7f1cac0b3a679d80c972b1b3"
+    },
+    {
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+    },
+    {
+      "path": "third_party/hora/configs/task/PublicAllegroHandGrasp.yaml",
+      "sha256": "bef6da88c0b3b2e5e2417fc34eac52182fec6df7aa99eb42d6eb43855c3b5c27"
+    },
+    {
+      "path": "third_party/hora/configs/task/PublicAllegroHandHora.yaml",
+      "sha256": "e0b957b9cf0a40932d52ec0006a08dc6c45e20b6276ad14f347b5790948270fe"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandGrasp.yaml",
+      "sha256": "87705c8e4996cf80b0ac124954722242ae142ea5aad853b90bcd62956a20265c"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+      "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+    },
+    {
+      "path": "third_party/hora/configs/train/PublicAllegroHandGrasp.yaml",
+      "sha256": "87705c8e4996cf80b0ac124954722242ae142ea5aad853b90bcd62956a20265c"
+    },
+    {
+      "path": "third_party/hora/configs/train/PublicAllegroHandHora.yaml",
+      "sha256": "0457f4b34989e7d022d54be369e99f01b3d4706f9fa0778232341e708bdce674"
+    },
+    {
+      "path": "third_party/hora/deploy.py",
+      "sha256": "5b9da1aa2aa2ddc26cfb3aa3c8d0366ba4af6d9d46996a81f91dcce2e2a411c3"
+    },
+    {
+      "path": "third_party/hora/docs/deploy.md",
+      "sha256": "f77e4eab8df5f0bd6eb86d769c5cf545d53a7a01a7f07041d1b65d4af4506528"
+    },
+    {
+      "path": "third_party/hora/docs/dev.md",
+      "sha256": "8efcb7a8e4f5bede375e3ff0009ed8e5a903ec8ba5dd3f45f36f9db7c1ccfc0d"
+    },
+    {
+      "path": "third_party/hora/docs/install.md",
+      "sha256": "24f18d8f0e7f67571926b1886c608c044aa83efa130e22a11c3b7b962334853f"
+    },
+    {
+      "path": "third_party/hora/gen_grasp.py",
+      "sha256": "b06e9e498aeed5223d16f89d6f0a186a51774418a68250ee7c53d1a989f4ee88"
+    },
+    {
+      "path": "third_party/hora/hora/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/deploy.py",
+      "sha256": "c2585d6212db25100de2433ff644488199f473b662330ebc23faf44cf9266d7f"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/robots/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/robots/allegro.py",
+      "sha256": "ba954612feb64a034c36fc33db5b1988b49dd545365de24667ae49d8ccac8644"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "bbb7ccefff5a9188b4e1618db489de85a9ec11ba382a75907bde12a279639dd7"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/padapt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/padapt/padapt.py",
+      "sha256": "977a87257dffb49589b98ae9e2d4b2af5e9e8cc5b576c65850aecc6ce4656ae3"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "624e47e6316512a22e08e72dec0b402f7f15b8e59f392c2a0651bcb75e08f438"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/__init__.py",
+      "sha256": "4236998e0ade73d6660df387a14bd7543342afa8d456a208dad977a2b712296c"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_grasp.py",
+      "sha256": "8643359c60613eb436fcbdd04083b9d63092cf6dc0cebd96d2ec3d25baf2ee6a"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "2c42a12be2c63dd37eb84f1160e925d3caf7bda7a5d0002af32f9168f76f62e9"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/base/__init__.py",
+      "sha256": "16dffd658ec0b9968fc74d3b5e6bb6aac8d1c8b75edefe8b2d0a52b2ae5825da"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/base/vec_task.py",
+      "sha256": "d75afe250b5a6242e216661be3e4bfc4d4395dedcaf398364f1a0da35ff52098"
+    },
+    {
+      "path": "third_party/hora/hora/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/hora/utils/misc.py",
+      "sha256": "a09175b0fb7e009146ffec5ca3690f73d8a9a8006eb769c38ba2b22f17b61d13"
+    },
+    {
+      "path": "third_party/hora/hora/utils/reformat.py",
+      "sha256": "8b25e9b8c491cf2a22cd2d9fffa72f011670999cc570d5a43b30eea49c56141f"
+    },
+    {
+      "path": "third_party/hora/outputs/AllegroHandHora/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/hora/requirements.txt",
+      "sha256": "ff2c29c75d9b52aa5c47c5a03c37da712f21714dcedaff9d0ff4d5b81d19e852"
+    },
+    {
+      "path": "third_party/hora/scripts/deploy.sh",
+      "sha256": "76a8d380d6b895a186d8329978b8f6ed7ac64576d41bf303af742c396f85599d"
+    },
+    {
+      "path": "third_party/hora/scripts/eval_s1.sh",
+      "sha256": "a51a96ff96df3c7c611047a93ba231590622c3b22acd0c72f48d89bf11bcf14f"
+    },
+    {
+      "path": "third_party/hora/scripts/eval_s2.sh",
+      "sha256": "fe179f234a05dc48c422fecb948910574c88342577d33376844b462d09383123"
+    },
+    {
+      "path": "third_party/hora/scripts/gen_grasp.sh",
+      "sha256": "b927bd4591953aa75dd63c6d45c03ef46d514b09cd8e0a907889bf03d7df9e7c"
+    },
+    {
+      "path": "third_party/hora/scripts/train_s1.sh",
+      "sha256": "41a9a1d2f391b61bf0a20d88de589eff87e02f474f14afdd8524e285e4f0357f"
+    },
+    {
+      "path": "third_party/hora/scripts/train_s2.sh",
+      "sha256": "09df3f7336d24d90a9b0097f7287c547294da27afcab5a6d3db3eb018237934e"
+    },
+    {
+      "path": "third_party/hora/scripts/vis_s1.sh",
+      "sha256": "14a9c1794f524926e1107a268f218647a7922f0cb01c2c19eb0deb44a3dce63c"
+    },
+    {
+      "path": "third_party/hora/scripts/vis_s2.sh",
+      "sha256": "719fab9c01b16ed15ff8236c89a2208f88ab1371473cd78bc03c111dad2690bc"
+    },
+    {
+      "path": "third_party/hora/train.py",
+      "sha256": "28a19a6ce5c75560050a2c6aac467b190a82bc721d63df1fa82bbc269bbf1622"
+    },
+    {
+      "path": "third_party/sharpa/LICENSE",
+      "sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b"
+    },
+    {
+      "path": "third_party/sharpa/NOTICE",
+      "sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade"
+    },
+    {
+      "path": "third_party/sharpa/README.md",
+      "sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654"
+    },
+    {
+      "path": "third_party/sharpa/pyproject.toml",
+      "sha256": "b946431aabe95f757b18dab0dd36425177d43e9935fb8ffc576f96a3705af502"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/models.py",
+      "sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/running_mean_std.py",
+      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/padapt.py",
+      "sha256": "b4d1e1e5eb841327ab5a5e09d08bbeef46972a6dcd60f140b63785c3694416f4"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/experience.py",
+      "sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/ppo.py",
+      "sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/scripts/deploy.py",
+      "sha256": "551799674a4d0bf5c69a07f721ab8833f9db12b189047324cd50db3ad8b9dc4b"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/scripts/train.py",
+      "sha256": "2aaf148906863fc5ce260d389595dbfaf8e2c481153d55187d9f4173fb67febd"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/__init__.py",
+      "sha256": "0aec922cd106709cd1c97cd55ab21699a235ed1a34510936f36fa4ea26ea58da"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/__init__.py",
+      "sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env.py",
+      "sha256": "908753356946a38676db8d8edaf815bd208608b9d5f833b8ae4c8e10bde1fbae"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env_cfg.py",
+      "sha256": "3abd62145ded9280234ce45adb2f3a3b5eca35944593ab2cabc59185a0236909"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env_cfg.py",
+      "sha256": "79e3a380efbb1a85cd632ac95f7f3510efab03821b556a7c2e0ff1a9d90ad741"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/utils/misc.py",
+      "sha256": "9f7a0cfa1d920b5adf05eed992ccb3b237319e374c2eda47f8627a8d15547b61"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/utils/modified_events.py",
+      "sha256": "63c2e812ae194ab2107a80c2e64083a7f35e90ac6160f432e436a35c6299e8fb"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/config_wrapper.py",
+      "sha256": "acfaa5a2358f7dae1726972782ba1d2d5472942d1c63ba094f0212d94f09dbb2"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_deploy_env_wrapper.py",
+      "sha256": "4c837faf39e6f9053ceb6bec66805cc603e82ada48b30c61427f96ca339ada4f"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_env_wrapper.py",
+      "sha256": "47539f490b73fca3818443f1e85eef12f4f9a94ad72cf9902e215bf9139352c1"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/vec_env.py",
+      "sha256": "4cea1f22d498d76d00ef34facbf0abec256ce4266f679fb9dd185641bdca778b"
+    },
+    {
+      "path": "references/anyrotate-project.html",
+      "sha256": "a141d2a54b199bea58adcc5c71e9d34466ac43b2030db5f1008a0f6633f4d1e5"
+    },
+    {
+      "path": "references/arxiv.xml",
+      "sha256": "328f7321614127b4088297cdfdd4f38787473a2e29ea62d9adfdbfaf1a3772c1"
+    },
+    {
+      "path": "references/papers.json",
+      "sha256": "b147bbcb66165f05faff25623c6d0b25fb044e3adf6bc4f389538fb418636f4b"
+    }
+  ]
+}

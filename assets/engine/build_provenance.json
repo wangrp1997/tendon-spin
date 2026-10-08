@@ -1,0 +1,41 @@
+{
+  "source_commit": "123347c0eeab7e13c8da0828ab593bbd95bcf335",
+  "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+  "compiled_modules": [
+    "_callbacks",
+    "_constants",
+    "_enums",
+    "_errors",
+    "_functions",
+    "_render",
+    "_rollout",
+    "_simulate",
+    "_specs",
+    "_structs"
+  ],
+  "installed_environment_modified": false,
+  "sha256": {
+    "runtime-original/mujoco/_rollout.cpython-311-x86_64-linux-gnu.so": "b3bf7f519c9bc8d7f188c3ae440243780fc98060b212b1e15b3371a03bbb3d17",
+    "runtime-original/mujoco/libmujoco.so.3.13.0": "2757a06504e5ee0583a5133a14f45cc1eddbef2d5ef02355c889f6b7a01ad377",
+    "runtime-original/mujoco/_render.cpython-311-x86_64-linux-gnu.so": "ecda29d12af38c1008f4ca1523c5f34f36b0415a75054436186c263e377b805a",
+    "runtime-original/mujoco/_specs.cpython-311-x86_64-linux-gnu.so": "91f689b77a0c9d62cb457fa735168807fcf17f6d153630c5597bc9437c5478ef",
+    "runtime-original/mujoco/_constants.cpython-311-x86_64-linux-gnu.so": "ed9225d322ffeca8a5e00e5c6a55cefb113572709766f9d555fce4362ce37022",
+    "runtime-original/mujoco/_functions.cpython-311-x86_64-linux-gnu.so": "fbbda7f57ecfc36d054907e623831d77374b1451a9362cbe395fada536b0e315",
+    "runtime-original/mujoco/_structs.cpython-311-x86_64-linux-gnu.so": "450465f06d4c7db3967a5fe4a183f55cd22948367944024bfa58344fcc06195a",
+    "runtime-original/mujoco/_errors.cpython-311-x86_64-linux-gnu.so": "970f464626dce482a926dbaa70962ac921b978e47c4386633cef83739a7a1cff",
+    "runtime-original/mujoco/_callbacks.cpython-311-x86_64-linux-gnu.so": "13b8c5bb911cbbd3f97aa66416c4511341c0c095b69d299d97740a5fc34daa5f",
+    "runtime-original/mujoco/_simulate.cpython-311-x86_64-linux-gnu.so": "4f2db533a81d2009f9fdf309f0aa3478127c9fb5b0845746031f9d2b323e54e2",
+    "runtime-original/mujoco/_enums.cpython-311-x86_64-linux-gnu.so": "fd8a2632d6ce1e730ad378e584ecef2eebfc27e6a4380f761f85c8fde0a31f9f",
+    "runtime-patched/mujoco/_rollout.cpython-311-x86_64-linux-gnu.so": "b3bf7f519c9bc8d7f188c3ae440243780fc98060b212b1e15b3371a03bbb3d17",
+    "runtime-patched/mujoco/libmujoco.so.3.13.0": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+    "runtime-patched/mujoco/_render.cpython-311-x86_64-linux-gnu.so": "ecda29d12af38c1008f4ca1523c5f34f36b0415a75054436186c263e377b805a",
+    "runtime-patched/mujoco/_specs.cpython-311-x86_64-linux-gnu.so": "91f689b77a0c9d62cb457fa735168807fcf17f6d153630c5597bc9437c5478ef",
+    "runtime-patched/mujoco/_constants.cpython-311-x86_64-linux-gnu.so": "ed9225d322ffeca8a5e00e5c6a55cefb113572709766f9d555fce4362ce37022",
+    "runtime-patched/mujoco/_functions.cpython-311-x86_64-linux-gnu.so": "fbbda7f57ecfc36d054907e623831d77374b1451a9362cbe395fada536b0e315",
+    "runtime-patched/mujoco/_structs.cpython-311-x86_64-linux-gnu.so": "450465f06d4c7db3967a5fe4a183f55cd22948367944024bfa58344fcc06195a",
+    "runtime-patched/mujoco/_errors.cpython-311-x86_64-linux-gnu.so": "970f464626dce482a926dbaa70962ac921b978e47c4386633cef83739a7a1cff",
+    "runtime-patched/mujoco/_callbacks.cpython-311-x86_64-linux-gnu.so": "13b8c5bb911cbbd3f97aa66416c4511341c0c095b69d299d97740a5fc34daa5f",
+    "runtime-patched/mujoco/_simulate.cpython-311-x86_64-linux-gnu.so": "4f2db533a81d2009f9fdf309f0aa3478127c9fb5b0845746031f9d2b323e54e2",
+    "runtime-patched/mujoco/_enums.cpython-311-x86_64-linux-gnu.so": "fd8a2632d6ce1e730ad378e584ecef2eebfc27e6a4380f761f85c8fde0a31f9f"
+  }
+}

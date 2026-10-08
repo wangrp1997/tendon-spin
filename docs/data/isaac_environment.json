@@ -1,0 +1,20 @@
+{
+  "isaacsim": {
+    "version": "6.1.0.0",
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/__init__.py"
+  },
+  "isaaclab": {
+    "version": "3.0.0rc1",
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/__init__.py"
+  },
+  "torch": {
+    "version": "2.11.0",
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/torch/__init__.py"
+  },
+  "reinstalled": false,
+  "boya_isaac_model_validated": false,
+  "headless_launch": false,
+  "headless_launch_reason": "Omniverse EULA not accepted; runtime exited before initialization",
+  "probe_log": "outputs/isaac_probe.log",
+  "eula_acceptance_supplied": false
+}

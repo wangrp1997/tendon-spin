@@ -1,0 +1,36 @@
+{
+  "format_version": 2,
+  "hand": "../../../../botyard_ws/src/ros2_botyard/dexhand_description/mjcf/v3_2/right_dexhand.xml",
+  "hand_sha256": "da20570474e72a0a26e525bb865e2d75d1529c56c6a3b9c84bafb1ae723a5591",
+  "scene_sha256": "c5323edb48642c373f02e500da23dc2adc2119be11f504babe3bdad0f007f9bc",
+  "meshes": {
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/fabase.STL": "45fa7c0a6c7740e7eddaebde0f7ebdad00ceaa52b19198335cace4096e083230",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/falink1.STL": "2d0b052a89bdf12caa7bdf4dcad9700f4df4b3a350447e24e252355b82c8eccc",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/pmbase.STL": "bd6293a1ef3f46b2cca3256b781327b84998e619fb67435e7269261be93a1b0e",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/palm.STL": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thbase.STL": "7d7b6317167073d3e98f0de94b2596a5d37ad52305f31a4f0fade153eb6dd3d9",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thproximal.STL": "4b6af54b3d938c28addeb9697b96239056c34e15d4023f011c5656853400c07a",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thmiddle.STL": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rh/thdistal.STL": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffbase.STL": "ba77e740cf829bcecce1bceac0835229d18bbf0c645db88dd2ed0a01d14350bb",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffproximal.STL": "7d8f39bd649b700a7d9405ff74540b0f9c4e7d19e4fe80d6a61df3f0308814d9",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffmiddle.STL": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/ffdistal.STL": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfbase.STL": "af179da71c38b28e81cc48ce4ee3d33a375c8a657ce53eb67691a2524b7572ce",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfproximal.STL": "ecd104d562d0e6b32428b2006acbabee0304428e3b6e3348dcaac5430881c9f4",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfmiddle.STL": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/mfdistal.STL": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfbase.STL": "74dd13a864bb3a157a371d0eb6687c82896783ec497c4e874449fda7cd81c33a",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfproximal.STL": "3c871bb97066cda05145ca93b90e090c8dc5d8430c28906811d007c981cf4bd3",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfmiddle.STL": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/rfdistal.STL": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfbase.STL": "b2b657b77e38f8e264186c4951f65605e168ba7f1b37fb6051ae3c6cdb510986",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfproximal.STL": "15c775c851f5e29d17c18523a3686d0251a11ca2b4a5e715a8271ba3c4307c6c",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfmiddle.STL": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e",
+    "../../../../botyard_ws/src/ros2_botyard/dexhand_description/meshes/lfdistal.STL": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+  },
+  "model_source": {
+    "reference_revision": "28f4ba5649714c74c13f881891d579bfceb766e2",
+    "git_revision": "28f4ba5649714c74c13f881891d579bfceb766e2"
+  }
+}
