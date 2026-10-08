@@ -1,0 +1,104 @@
+{
+  "unit": "tendonspin-1931970-1376141270977850.service",
+  "monitor_pid": 1931970,
+  "monitor_nice": 0,
+  "events": [
+    {
+      "elapsed_s": 0.03277739998884499,
+      "kind": "released",
+      "reason": "effective cgroup limits verified before child execution"
+    },
+    {
+      "elapsed_s": 49.20338869281113,
+      "kind": "stop requested",
+      "reason": "sustained system memory pressure"
+    }
+  ],
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/train_boya_hora.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_env2048_guarded_v1/training",
+    "--cache",
+    "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+    "--num-envs",
+    "2048",
+    "--updates",
+    "2",
+    "--wall-s",
+    "240",
+    "--save-every",
+    "1",
+    "--minibatch-size",
+    "512",
+    "--max-gpu-memory-mib",
+    "10240",
+    "--seed",
+    "43",
+    "--controller",
+    "hora_boya_env2048_guarded_v1",
+    "--protocol",
+    "docs/experiments/2026-10-08-boya-env2048-guarded/PROTOCOL.md",
+    "--stop-file",
+    "/home/rw/Projects/tendon-spin/outputs/boya_env2048_guarded_v1/guard/STOP",
+    "--heartbeat",
+    "/home/rw/Projects/tendon-spin/outputs/boya_env2048_guarded_v1/guard/heartbeat.json"
+  ],
+  "status": "completed",
+  "limits": {
+    "gpu_stop_mib": 10240,
+    "gpu_kill_mib": 12288,
+    "available_stop_mib": 12288,
+    "available_kill_mib": 8192,
+    "heartbeat_s": 90.0,
+    "wall_s": 300.0,
+    "grace_s": 8.0,
+    "terminate_s": 5.0
+  },
+  "pid": 1931979,
+  "limits_readback": {
+    "properties": {
+      "RuntimeMaxUSec": "5min",
+      "MainPID": "1931979",
+      "Result": "success",
+      "ExecMainCode": "0",
+      "ExecMainStatus": "0",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/tendonspin-1931970-1376141270977850.service",
+      "CPUQuotaPerSecUSec": "4s",
+      "IOWeight": "10",
+      "MemoryHigh": "12884901888",
+      "MemoryMax": "17179869184",
+      "MemorySwapMax": "0",
+      "Nice": "10",
+      "IOSchedulingClass": "3",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "cgroup": {
+      "cpu.max": "400000 100000",
+      "memory.high": "12884901888",
+      "memory.max": "17179869184",
+      "memory.swap.max": "0"
+    }
+  },
+  "exit_code": 0,
+  "wall_s": 54.27961368300021,
+  "final_unit": {
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "ExecMainCode": "0",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "CPUQuotaPerSecUSec": "infinity",
+    "IOWeight": "[not set]",
+    "MemoryHigh": "infinity",
+    "MemoryMax": "infinity",
+    "MemorySwapMax": "infinity",
+    "Nice": "0",
+    "IOSchedulingClass": "2",
+    "ActiveState": "inactive",
+    "SubState": "dead"
+  },
+  "sample_count": 53
+}

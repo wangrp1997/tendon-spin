@@ -1,0 +1,155 @@
+{
+  "policy_checks": [
+    {
+      "name": "normal",
+      "action": null,
+      "passed": true
+    },
+    {
+      "name": "GPUsoft",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "GPUemergency",
+      "action": "kill",
+      "passed": true
+    },
+    {
+      "name": "RAMsoft",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "RAMemergency",
+      "action": "kill",
+      "passed": true
+    },
+    {
+      "name": "heartbeat",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "telemetry",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "GPUbusy",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "disk",
+      "action": "stop",
+      "passed": true
+    },
+    {
+      "name": "memory pressure",
+      "action": "stop",
+      "passed": true
+    }
+  ],
+  "process_checks": [
+    {
+      "kind": "cooperative",
+      "passed": true,
+      "events": [
+        {
+          "elapsed_s": 0.12065697507932782,
+          "kind": "released",
+          "reason": "effective cgroup limits verified before child execution"
+        },
+        {
+          "elapsed_s": 0.12119683995842934,
+          "kind": "stop requested",
+          "reason": "whole-device GPU memory >10GiB"
+        }
+      ],
+      "exit_code": 0,
+      "limits_readback": {
+        "properties": {
+          "RuntimeMaxUSec": "15s",
+          "MainPID": "1922132",
+          "Result": "success",
+          "ExecMainCode": "0",
+          "ExecMainStatus": "0",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/tendonspin-1922124-1375786598168954.service",
+          "CPUQuotaPerSecUSec": "4s",
+          "IOWeight": "10",
+          "MemoryHigh": "12884901888",
+          "MemoryMax": "17179869184",
+          "MemorySwapMax": "0",
+          "Nice": "10",
+          "IOSchedulingClass": "3",
+          "ActiveState": "active",
+          "SubState": "running"
+        },
+        "cgroup": {
+          "cpu.max": "400000 100000",
+          "memory.high": "12884901888",
+          "memory.max": "17179869184",
+          "memory.swap.max": "0"
+        }
+      },
+      "child_reclaimed": true
+    },
+    {
+      "kind": "unresponsive",
+      "passed": true,
+      "events": [
+        {
+          "elapsed_s": 0.04586656717583537,
+          "kind": "released",
+          "reason": "effective cgroup limits verified before child execution"
+        },
+        {
+          "elapsed_s": 0.04607264418154955,
+          "kind": "stop requested",
+          "reason": "whole-device GPU memory >10GiB"
+        },
+        {
+          "elapsed_s": 1.0465846969746053,
+          "kind": "SIGTERM",
+          "reason": "cooperative stop deadline"
+        },
+        {
+          "elapsed_s": 2.0587634411640465,
+          "kind": "SIGKILL",
+          "reason": "process did not exit after SIGTERM"
+        }
+      ],
+      "exit_code": 255,
+      "limits_readback": {
+        "properties": {
+          "RuntimeMaxUSec": "15s",
+          "MainPID": "1922156",
+          "Result": "success",
+          "ExecMainCode": "0",
+          "ExecMainStatus": "0",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/tendonspin-1922124-1375787752609775.service",
+          "CPUQuotaPerSecUSec": "4s",
+          "IOWeight": "10",
+          "MemoryHigh": "12884901888",
+          "MemoryMax": "17179869184",
+          "MemorySwapMax": "0",
+          "Nice": "10",
+          "IOSchedulingClass": "3",
+          "ActiveState": "active",
+          "SubState": "running"
+        },
+        "cgroup": {
+          "cpu.max": "400000 100000",
+          "memory.high": "12884901888",
+          "memory.max": "17179869184",
+          "memory.swap.max": "0"
+        }
+      },
+      "child_reclaimed": true
+    }
+  ],
+  "new_physics_steps": 0,
+  "telemetry_is_synthetic": true,
+  "large_memory_or_gpu_allocation": false
+}

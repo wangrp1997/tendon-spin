@@ -52,6 +52,7 @@ class HoraBoyaEnv:
         self.lower=p.adapter.control_limits[p.adapter.active,0]
         self.upper=p.adapter.control_limits[p.adapter.active,1]
         self.rotation_axis=-p.axis0
+        self.stop_check=None
         self.physical_steps=0;self.actions_executed=0
         self.trace=None;self.trace_count=0;self.control_trace=[]
 
@@ -109,6 +110,7 @@ class HoraBoyaEnv:
 
     @torch.no_grad()
     def step(self,actions):
+        if self.stop_check is not None:self.stop_check()
         p=self.physics
         self.control_trace.append({k:v.cpu().numpy() for k,v in self.observe().items() if k!='proprio_hist'})
         p.adapter.set_action(actions)

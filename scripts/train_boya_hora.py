@@ -9,6 +9,7 @@ import time
 import subprocess
 import signal
 import traceback
+from tendonspin.rl.resource_guard import TrainingPulse,TrainingStopRequested
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
@@ -20,12 +21,16 @@ parser.add_argument('--seed',type=int,default=43)
 parser.add_argument('--save-every',type=int,default=4)
 parser.add_argument('--minibatch-size',type=int,default=None)
 parser.add_argument('--max-gpu-memory-mib',type=int,default=12288)
+parser.add_argument('--stop-file',type=Path)
+parser.add_argument('--heartbeat',type=Path)
 parser.add_argument('--controller',default='hora_boya_nominal_teacher_v1')
 parser.add_argument('--protocol',default='docs/experiments/2026-10-08-boya-hora-pilot/PROTOCOL.md')
 args=parser.parse_args()
 root=Path(__file__).resolve().parents[1]
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
 started=time.monotonic()
+pulse=TrainingPulse(args.stop_file,args.heartbeat)
+pulse.check('launching')
 stop_request={'signal':None}
 def request_stop(signum, frame):
     stop_request['signal']=signum
@@ -43,7 +48,8 @@ files=('scripts/train_boya_hora.py','tendonspin/rl/isaac_hora.py','tendonspin/ba
        'third_party/hora/hora/algo/models/models.py','third_party/hora/hora/algo/models/running_mean_std.py',
        'third_party/hora/hora/tasks/allegro_hand_hora.py',
        'tendonspin/baselines/reference_models.py','tendonspin/evaluation/rotation.py',
-       'tendonspin/physics/coordinates.py','scripts/evaluate_boya_hora.py',args.protocol)
+       'tendonspin/physics/coordinates.py','scripts/evaluate_boya_hora.py',
+       'tendonspin/rl/resource_guard.py','scripts/guarded_boya_entry.py',args.protocol)
 for name in files:
     source=root/name
     snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True)
@@ -77,7 +83,9 @@ try:
     cfg.train.ppo.max_agent_steps=args.updates*args.num_envs*cfg.train.ppo.horizon_length
     OmegaConf.save(OmegaConf.create(OmegaConf.to_container(cfg,resolve=True)),out/'config.yaml')
     PPO=load_ppo()
+    pulse.check('constructing scene')
     env=HoraBoyaEnv(root,out,args.cache,args.num_envs)
+    env.stop_check=pulse.check
     record['cache_size']=len(env.cache['q'])
     record['joint_names']=env.physics.names
     record['body_names']=list(env.physics.hand.body_names)
@@ -94,6 +102,7 @@ try:
             record['stop_reason']='signal requested stop at update boundary';break
         if time.monotonic()-started>args.wall_s:
             record['stop_reason']='wall budget';break
+        pulse.check('update boundary')
         env.begin_trace(agent.horizon_length)
         agent.epoch_num=update
         losses=agent.train_epoch()
@@ -127,10 +136,25 @@ try:
         if record.get('observed_gpu_memory_used_MiB',0)>args.max_gpu_memory_mib:
             record['stop_reason']='device memory headroom limit';break
     agent.save(str(out/'teacher_final'))
+    torch.save(dict(optimizer=agent.optimizer.state_dict(),update=len(record['updates']),
+        agent_steps=agent.agent_steps,learning_rate=agent.last_lr,torch_rng=torch.get_rng_state(),
+        cuda_rng=torch.cuda.get_rng_state_all(),numpy_rng=np.random.get_state(),
+        environment_restore='future resume requires declared reset'),out/'optimizer_final.pth')
     record['checkpoint']=str((out/'teacher_final.pth').relative_to(root))
     record['checkpoint_sha256']=hashlib.sha256((out/'teacher_final.pth').read_bytes()).hexdigest()
     initial=torch.load(out/'teacher_initial.pth',weights_only=False)['model']
     record['model_parameters_changed']=any(not torch.equal(v,initial[k]) for k,v in agent.model.state_dict().items())
+except TrainingStopRequested as error:
+    record['stop_reason']='resource guard requested stop'
+    record['guard_reason']=str(error)
+    if agent is not None:
+        agent.save(str(out/'teacher_guard_stop'))
+        torch.save(dict(optimizer=agent.optimizer.state_dict(),update=len(record['updates']),
+            agent_steps=agent.agent_steps,learning_rate=agent.last_lr,torch_rng=torch.get_rng_state(),
+            cuda_rng=torch.cuda.get_rng_state_all(),numpy_rng=np.random.get_state(),
+            environment_restore='future resume requires declared reset'),out/'optimizer_guard_stop.pth')
+        record['checkpoint']=str((out/'teacher_guard_stop.pth').relative_to(root))
+        record['checkpoint_sha256']=hashlib.sha256((out/'teacher_guard_stop.pth').read_bytes()).hexdigest()
 except BaseException as error:
     failed=True;record['stop_reason']='process error'
     record['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())

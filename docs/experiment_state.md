@@ -303,3 +303,28 @@ headless/camerasoff,full logs and physics/control intervals retained. No frozen
 rotation evaluation or measured desktop latency.1024 is current throughput winner;
 no bigger scan or further training launched. Preserve all old measurements and
 128-env early rotation result separately; sample budgets still far below paper.
+
+
+User authorizes one 2048-env trial and explicit desktop resource protection.
+[Protocol](experiments/2026-10-08-boya-env2048-guarded/PROTOCOL.md):2updates/32768actions,
+same nominal task/cache/seed/physics; new factors2048envs,independent watchdog and
+systemd per-job CPU4core quota/12GiB soft+16GiB hard RAM/no swap/nice10 limits.
+Synthetic-telemetry protection verification passed10decision cases and2tiny actual
+process cases(cooperative exit and forced cgroup kill),effective limits read back.
+0robot physics in those checks. Actual2048 throughput result pending; no further
+scale scan or long training authorized in this bounded trial. GPU watchdog10GiB
+stop/12GiBkill;systemMemAvailable12GiBstop/8GiBkill;external300s runtime cap.
+
+
+[2048 guarded trial completed by protective stop](experiments/2026-10-08-boya-env2048-guarded/README.md):
+54.280s process/exit0,14336of32768actions,0completedPPOupdates. System memory
+PSI full avg10 crossed predeclared5%line at49.203s;cooperative save and exit followed
+in5.08s,noTERM/KILL. Saved current policy/optimizer/RNG and interrupted raw trace;
+no new gradient update and no comparable full2048 training speed. Child/service exited.
+PeakGPU4532MiB(4.43GiB),peakchildRSS8493.54MiB,cgroup10021.90MiB,
+minsystemMemAvailable39980.16MiB;no capacity-limit trigger. GlobalPSI source is not
+isolated;do not infer2048hardware infeasibility or guaranteed1024guarded performance.
+Two synthetic tiny-child protection cases plus10policy checks passed,separate from
+real2048data. Retain1024as preferred next size from historical581.17actions/s,
+which predates these cgroup limits. No further scan/long train/frozen-policy evaluation
+launched;no sustained-rotation claim. New status supersedes preceding pending entry.
