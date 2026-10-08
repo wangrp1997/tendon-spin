@@ -1,0 +1,14 @@
+{
+  "pid": 2540127,
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/compare_boya_hora.py",
+    "wait-run",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_height10m_v1"
+  ],
+  "started_unix_s": 1791474249.9248602,
+  "detached": true,
+  "additional_gpu_episodes_after_dependency": 1,
+  "no_gpu_launch_during_training": true
+}

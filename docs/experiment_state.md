@@ -484,3 +484,24 @@ Newtaskdone counts olddrift/tilt/force=0;diagnostics retained. TBactualHTTP conf
 hora_height_fresh andoldcurves. Requested10M/rounded10002432;120s originalstate
 finaleval queuedonlyon normalbudgetcompletion. No convergence/rotationclaim.
 Code84109c7pushed;oldoutputs preserved. Supersedes preceding launchpending status.
+
+
+[Matched teacher comparison prepared](experiments/2026-10-08-boya-hora-matched-eval/README.md):
+User authorizes firstitem:old/new checkpoint commonconditions. Newindependent
+comparison code reuses existing frozen evaluator unchanged;runtime source hashes
+and originaltraininglineages remain distinct. Samegrasp44/heighttermination/120s
+(+30s supplementary)/10002432trainactions/seed43/ownnormalizers. Reuse queuednew
+finalevaluation,then only1additionaloldcheckpoint episode afterstagecompletion.
+13focusedCPUtests+compile/diffcheckpass;0newphysics. Actualmanifest/queuepending.
+No old63.626313deg score inserted as if commoncriteria. Initialstate/source/model/
+checkpoint/count mismatches block reporting. Singlepair,notSOTAstatisticalbenchmark.
+
+
+[Matched comparison QUEUED](experiments/2026-10-08-boya-hora-matched-eval/README.md):
+Realmanifest preparation passed source/observationAST/cache/budgetidentity checks.
+DetachedCPUwaiterPID2540127,waitingfortrainingandexistingfinalevaluation;0additional
+GPUepisodes launched. On normalcompletion,reuse newevaluation and runONE oldpolicy
+under commonheight rules,thencompare actualinitialstates and emitJSON/CSV/Markdown.
+Oldpolicy's ownnormalizer andoriginaltrainingprovenance retained viaexplicit
+inferenceexecutioncontract;activehashedtraining/evaluator files untouched.
+Pendingtable has no claimed scores. Supersedes preceding queuepending state.
