@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "basis": "Boya nominal palm and middle/distal CAD meshes transformed by original grasp44 body frames; task-region approximation, not a proven controllability boundary.",
+  "nominal_object_position_m": [
+    -0.36543899035183314,
+    0.01834018831507308,
+    0.10606109973956034
+  ],
+  "palm_top_z_m": 0.04118875624400497,
+  "object_bounding_radius_m": 0.025612496949731396,
+  "reset_height_m": 0.06680125319373637,
+  "xy_lower_m": [
+    -0.4598660913130383,
+    -0.0691499734867364
+  ],
+  "xy_upper_m": [
+    -0.25905495451026683,
+    0.0765354088213197
+  ],
+  "confirmation_control_steps": 2,
+  "control_hz": 20,
+  "height_basis": "Palm top plus cylinder circumsphere radius: even a palm-supported cylinder is below this center-height plane. No claim that every position above is recoverable.",
+  "lateral_basis": "Fixed nominal middle/distal mesh XY envelope expanded by cylinder circumsphere radius; all five fingers included.",
+  "contact_policy": "Per-finger simulation contact diagnostics only; fewer than two fingers does not terminate. No tactile array or new actor input.",
+  "sources": [
+    {
+      "path": "docs/data/boya_native_contract.json",
+      "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+    },
+    {
+      "path": "assets/hand/meshes/palm.stl",
+      "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6"
+    },
+    {
+      "path": "assets/hand/meshes/thmiddle.stl",
+      "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391"
+    },
+    {
+      "path": "assets/hand/meshes/thdistal.stl",
+      "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111"
+    },
+    {
+      "path": "assets/hand/meshes/ffmiddle.stl",
+      "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53"
+    },
+    {
+      "path": "assets/hand/meshes/ffdistal.stl",
+      "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630"
+    },
+    {
+      "path": "assets/hand/meshes/mfmiddle.stl",
+      "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371"
+    },
+    {
+      "path": "assets/hand/meshes/mfdistal.stl",
+      "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f"
+    },
+    {
+      "path": "assets/hand/meshes/rfmiddle.stl",
+      "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4"
+    },
+    {
+      "path": "assets/hand/meshes/rfdistal.stl",
+      "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15"
+    },
+    {
+      "path": "assets/hand/meshes/lfmiddle.stl",
+      "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e"
+    },
+    {
+      "path": "assets/hand/meshes/lfdistal.stl",
+      "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+    }
+  ]
+}

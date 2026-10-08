@@ -78,5 +78,43 @@ class HoraTerminationTests(unittest.TestCase):
                                    torch.tensor([2, 3, 5]))
 
 
+class BoyaWorkspaceTests(unittest.TestCase):
+    def setUp(self):
+        self.spec = make_termination_spec(ROOT, 'boya_workspace', NOMINAL_Z)
+        self.rule = TaskTermination(self.spec)
+        self.origins = torch.tensor([[1., 2., 3.], [-2., -3., 1.]], dtype=torch.float64)
+        self.m = measurement([NOMINAL_Z, NOMINAL_Z])
+        self.m['object_state'][:, :3] = torch.tensor(self.spec.workspace['nominal_object_position_m'])
+        self.m['object_state'][:, :3] += self.origins
+
+    def check(self, boundary=True):
+        return self.rule.failure_codes(self.m, self.origins, control_boundary=boundary)
+
+    def test_old_five_mm_crossing_and_low_contact_do_not_reset(self):
+        self.m['object_state'][:, 2] -= .006
+        self.m['finger_contact_count'] = torch.zeros(2)
+        for _ in range(4):
+            torch.testing.assert_close(self.check(), torch.tensor([0, 0]))
+
+    def test_palm_and_lateral_exits_need_confirmation_and_clear_on_reset(self):
+        self.m['object_state'][0, 2] = self.origins[0, 2] + self.spec.workspace['palm_top_z_m'] + .02
+        self.m['object_state'][1, 0] = self.origins[1, 0] + self.spec.workspace['xy_upper_m'][0] + .001
+        torch.testing.assert_close(self.check(), torch.tensor([0, 0]))
+        torch.testing.assert_close(self.check(False), torch.tensor([0, 0]))
+        torch.testing.assert_close(self.check(), torch.tensor([9, 10]))
+        self.rule.reset(torch.tensor([0]))
+        torch.testing.assert_close(self.check(), torch.tensor([0, 10]))
+        self.rule.reset()
+        torch.testing.assert_close(self.check(), torch.tensor([0, 0]))
+
+    def test_return_to_region_clears_pending_failure(self):
+        self.m['object_state'][0, 2] -= .06
+        self.check()
+        self.m['object_state'][0, 2] += .06
+        self.check()
+        self.m['object_state'][0, 2] -= .06
+        torch.testing.assert_close(self.check(), torch.tensor([0, 0]))
+
+
 if __name__ == '__main__':
     unittest.main()

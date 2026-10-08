@@ -8,7 +8,7 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--resume',type=Path,help='Omit for a fresh learner; supply only for deliberate continuation')
 parser.add_argument('--total-actions',type=int,default=10000000)
-parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height'),default='legacy_strict')
+parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height','boya_workspace'),default='legacy_strict')
 parser.add_argument('--controller',help='Explicit experiment/controller identity')
 parser.add_argument('--protocol',default='docs/experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md')
 args=parser.parse_args();root=Path(__file__).resolve().parents[1]

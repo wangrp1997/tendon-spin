@@ -1,0 +1,20 @@
+{
+  "pid": 2623204,
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-m",
+    "tensorboard.main",
+    "--logdir_spec",
+    "workspace_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training/training/stage1_tb,hora_height_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2/training/training/stage1_tb,formal_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/training/stage1_tb,preview:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/training/stage1_tb,resume_test:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/training/stage1_tb",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "6006",
+    "--reload_interval",
+    "10",
+    "--load_fast=false"
+  ],
+  "url": "http://127.0.0.1:6006/",
+  "new_label": "workspace_fresh",
+  "older_curves_preserved": true
+}

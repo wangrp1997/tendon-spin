@@ -87,3 +87,11 @@ Keep numerical checks and oldlimits as labeled diagnostics;sharedtrain/eval rule
 separate source/configuration identity and oldstrict shadow scores. No repeat
 launch permission or new visual-review gate is needed;all other run preferences
 (noresourcewatchdog,summarylogs,checkpoints,TensorBoard,push) persist.
+
+Latest2026-10-09 user authorization: stop height-v2 and delete ONLY its weights
+(done), preserve first strict-run weights. Replace v2 nominal-minus5mm termination
+with declared Boya geometry-based manipulation-region height/lateral bounds and
+brief confirmation; low finger contact is diagnostic, not an immediate reset.
+Start a NEW fresh1024/10M run promptly, with necessary launch checks only.
+No repeated approval/preview required. This supersedes v2 rule for the new branch;
+retain old logs/profiles. Keep TensorBoard/checkpoints, no watchdog, stagepush.

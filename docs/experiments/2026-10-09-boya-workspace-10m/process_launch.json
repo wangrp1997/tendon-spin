@@ -1,0 +1,22 @@
+{
+  "launched_at": "2026-10-09T00:32:56.570900+08:00",
+  "pid": 2621876,
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_background.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3",
+    "--total-actions",
+    "10000000",
+    "--termination-profile",
+    "boya_workspace",
+    "--controller",
+    "hora_boya1024_workspace_teacher_fresh10m_v3",
+    "--protocol",
+    "docs/experiments/2026-10-09-boya-workspace-10m/PROTOCOL.md"
+  ],
+  "output": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3",
+  "fresh": true,
+  "resume": null,
+  "tests": "8 termination tests passed; edited Python compiled; diff whitespace check passed"
+}

@@ -527,3 +527,23 @@ are historical;thisrun nolongerresumable. Checkpointmetadata preserved ashistory
 automaticcomparison remains stopped. No newterminationrule/restart/experiment.
 Discuss geometry-relative escape plus persistent motion/contact evidence; exactBoya
 boundary remains undecided,not a claim that heightcrossing equals actualdrop.
+
+
+[Workspace-rule fresh training authorized](experiments/2026-10-09-boya-workspace-10m/README.md):
+User requests repair/restart promptly,no extra checking. FixedCAD-derivedlowerz
+.066801253194m(palmtop+cylindersphere),39.26mmdescentfromnominal; middle/distalXY
+mesh-envelope expanded by objectradius, allfivefingers.2consecutive20Hzoutside
+samples required; partialreset clears history. Contactcountdiagnostic only.
+Explicit taskregionapproximation,not verifiedrecoverability. Sameengine/grasp/
+PPO/reward/28cache/privileges/budget; newfreshv3 planned. Firstold80weights retained.
+Formerheightcomparison remains stopped,not silentlymigrated. Launchpending.
+
+
+[Workspace-rule fresh training RUNNING](experiments/2026-10-09-boya-workspace-10m/README.md):
+Actual2026-10-09 00:32:56launch supervisor2621876/train2621877;
+freshseed43,noresume,1024headless,10002432roundedbudget. Snapshot7updates/
+57344actions/738.0actionspersecond;checkpoint saved.
+8targetedterminationtests+compile passed,noextraGPUruns. TBworkspace_freshadded,
+oldcurves/firststrict80weights retained. Geometryrule/source identity archived;
+queuedfinalevaluation only after normalbudget. Oldmatchedqueue remains stopped.
+Supersedes launchpending;no convergence or tasksuccess claim.

@@ -170,10 +170,12 @@ class BoyaParallel:
         drift = torch.linalg.vector_norm(obj[:,:3]-self.center,dim=-1)*1000
         tilt = torch.rad2deg(torch.acos((axis_z(obj[:,3:7])*self.axis0).sum(-1).clamp(-1,1)))
         normal = torch.linalg.vector_norm(force,dim=-1)
-        support = ((normal@self.groups)>1e-6).sum(-1)
+        group_contact = (normal@self.groups)>1e-6
+        support = group_contact.sum(-1)
         coupling = (q[:,self.slaves]-q[:,self.masters]).abs().amax(-1)
         finite = torch.isfinite(torch.cat((q,v,obj,force.flatten(1),friction.flatten(1)),dim=-1)).all(-1)
         return dict(joint_pos=q,joint_vel=v,object_state=obj,body_pose=tensor(self.hand.data.body_link_pose_w),
             normal_force_matrix_w=force,friction_force_matrix_w=friction,drift_mm=drift,tilt_deg=tilt,
             max_speed=v.abs().amax(-1),max_normal=normal.amax(-1),coupling_error=coupling,
-            support_groups=support,finite=finite)
+            support_groups=support,finger_contact_count=group_contact[:,:5].sum(-1),
+            palm_contact=group_contact[:,5],finite=finite)

@@ -89,6 +89,7 @@ class HoraBoyaEnv:
         commands=self.cache['commands'][samples].clone()
         p._write_state(q,torch.zeros_like(q),obj,commands,ids)
         self.init_q[ids]=q[:,p.active_joint_ids]
+        self.termination.reset(ids)
         self.progress[ids]=0;self.net[ids]=0.;self.peak[ids]=0.;self.backward[ids]=0.
         self.valid_steps[ids]=0
         for values in self.diagnostic_max.values():values[ids]=0.
