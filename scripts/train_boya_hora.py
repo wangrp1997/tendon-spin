@@ -2,6 +2,7 @@
 # Boya interface, logging modes and atomic resumable learner state are port additions.
 """Train a nominal Hora teacher; cumulative budgets support declared cache-reset resume."""
 import argparse
+from collections import Counter
 import hashlib
 import json
 import math
@@ -119,11 +120,15 @@ try:
             raise ValueError('Checkpoint is not a completed PPO-update boundary')
         if target_updates<=agent.epoch_num:raise ValueError('Cumulative target is already reached by checkpoint')
     agent.obs=env.reset();agent.save(str(out/'teacher_initial'))
+    # AppLauncher installs its own exit handlers; restore cooperative saving only
+    # after Isaac and the scene have initialized, before training can be interrupted.
+    signal.signal(signal.SIGINT,request_stop);signal.signal(signal.SIGTERM,request_stop)
+    record['manual_stop_handler']='request_stop, installed after Isaac initialization'
     save('training');training_started=time.monotonic()
 
     def collect_episode_summary():
         rows=env.completed if args.trace_mode=='summary' else env.completed[processed_episodes:]
-        stats=dict(count=len(rows))
+        stats=dict(count=len(rows),stop_counts=dict(Counter(row['stop_reason'] for row in rows)))
         if rows:
             for key in ('net_deg','peak_deg','backward_deg','valid_prefix_s'):
                 a=np.asarray([row[key] for row in rows])
@@ -163,8 +168,19 @@ try:
             completed_episodes=record['completed_episodes'],training_episode_summary=stats,
             mean_recent_episode_reward=float(agent.episode_rewards.get_mean()),**values))
         agent.write_stats(*losses)
+        agent.writer.add_scalar('episode_rewards/step',float(agent.episode_rewards.get_mean()),agent.agent_steps)
+        agent.writer.add_scalar('episode_lengths/step',float(agent.episode_lengths.get_mean()),agent.agent_steps)
+        agent.writer.add_scalar('performance/session_actions_per_s',record['training_actions_per_wall_s'],agent.agent_steps)
         for key,metrics in stats.items():
-            if isinstance(metrics,dict):agent.writer.add_scalar('training_episodes/'+key,metrics['mean'],agent.agent_steps)
+            if isinstance(metrics,dict) and 'mean' in metrics:
+                agent.writer.add_scalar('training_episodes/'+key,metrics['mean'],agent.agent_steps)
+                for quantile in ('median','p90','max'):
+                    agent.writer.add_scalar('training_episodes/'+key+'/'+quantile,metrics[quantile],agent.agent_steps)
+        if stats['count']:
+            for reason in env.reasons[1:]:
+                agent.writer.add_scalar('training_episodes/termination_fraction/'+reason,
+                    stats['stop_counts'].get(reason,0)/stats['count'],agent.agent_steps)
+        agent.writer.flush()
         if update%args.save_every==0 or update==target_updates or len(record['updates'])==1:
             checkpoint(f'teacher_u{update:06d}')
         if args.max_gpu_memory_mib>0 and (update==1 or update%8==0):

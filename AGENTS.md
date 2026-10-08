@@ -63,3 +63,16 @@ checks remain. User explicitly declines the new resource watchdog/cgroup/automat
 memory-stop mechanisms for1024training. A10M cumulative budget and resumability were
 authorized,then gated by a short native visual preview: deliver it for user review
 before launching the long run. Do not start long training before that review.
+
+The user reviewed the corrected floor/background video and now explicitly approves
+starting the1024-env background10M cumulative training continuation. The preview
+review gate is satisfied. Continue from the65536-action preview learner checkpoint,
+keep the no-resource-watchdog and summary-log choices,save TensorBoard curves and
+periodic resumable checkpoints. No further launch approval is needed for this stage.
+
+Latest user correction: formal1024training must start FROM SCRATCH,not from the
+preview checkpoint. The user permits first verifying resume on the already running
+short continuation;stop and retain that run as resume_test. After verification,
+launch fresh network,normalizers,Adam,seed43 and zero counts toward10M. Keep preview,
+resume-test and formal TensorBoard runs separate. Formal later checkpoints remain
+resumable. This supersedes the preceding instruction to resume the preview forformal.

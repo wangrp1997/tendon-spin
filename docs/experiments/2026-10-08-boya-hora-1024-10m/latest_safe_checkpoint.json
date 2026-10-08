@@ -1,0 +1,17 @@
+{
+  "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/teacher_u000016.pth",
+  "sha256": "bea82edfe88bba97cd95bb572be0882a41ba6ac44621db979c7c36f279f04cad",
+  "actions_executed": 131072,
+  "completed_updates": 16,
+  "completed_episodes": 24299,
+  "episode_stop_counts": {
+    "nonfinite": 0,
+    "drift >5mm": 15899,
+    "tilt >15deg": 4856,
+    "speed >100rad/s": 0,
+    "link normal >12N": 3544,
+    "mimic error >.05rad": 0,
+    "episode time limit": 0
+  },
+  "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training"
+}

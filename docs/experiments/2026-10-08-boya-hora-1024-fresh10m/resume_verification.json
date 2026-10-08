@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": {
+    "model": true,
+    "running_mean_std": true,
+    "value_mean_std": true,
+    "adam_step_continued": true,
+    "parameter_update": true,
+    "action_counter_continued": true,
+    "update_counter_continued": true,
+    "lineage_continued": true,
+    "finite_losses": true
+  },
+  "source_actions": 65536,
+  "first_resumed_actions": 73728,
+  "source_adam_steps": [
+    640.0
+  ],
+  "first_resumed_adam_steps": [
+    720.0
+  ],
+  "actual_stop_status": "SIGTERM exit143; training result is stale last-update snapshot",
+  "actual_stop_reason": "user-requested stop; Isaac had replaced pre-launch Python signal handler",
+  "actual_cumulative_actions": 172032,
+  "actual_added_actions": 106496,
+  "completed_updates": 21,
+  "stage_phase": "error",
+  "formal_training_use": false,
+  "additional_simulator_launches_for_test": 0,
+  "last_reported_cumulative_actions": 172032,
+  "last_reported_added_actions": 106496,
+  "latest_safe_checkpoint_actions": 131072,
+  "latest_safe_checkpoint_updates": 16,
+  "normal_final_save_completed": false,
+  "graceful_shutdown_validated": false,
+  "stop_handler_fix": "reinstall Python SIGINT/SIGTERM handlers after Isaac/scene initialization"
+}

@@ -373,3 +373,45 @@ object;floorCollisionAPI absent,0newphysics/training/nointerpolation. Viewed ini
 and terminalframes: hand/object/floor visible. New video4.75s includes explicitslowmo/
 stills,not extra execution. Previewwrapper and renderer only;physics/training sources
 untouched,existing resume contract remains compatible. Long10M still NOT launched.
+
+
+User approved corrected visual preview and explicitly requests background formal
+training and TensorBoard. Prior video-review gate is satisfied. [10Mprotocol](experiments/2026-10-08-boya-hora-1024-10m/PROTOCOL.md):
+resume exact65536-action/8update checkpoint to10002432roundedcumulativetarget with
+1024envs,same physics/PPO/cache;no guard/resourcecutoff. Summarylogs/pairedsnapshots
+first+every16updates,TBeventsflushedeachupdate. Preview TB event tags read successfully;
+add existing totalreward/episode-length/terminationstatistics toformalcurves.
+Launch pending;one120s-window original-state frozen final evaluation queued only on
+normal targetcompletion. No training/convergence/rotation result claimed yet.
+
+
+User corrects initialization: formal training FROM SCRATCH. Then authorizes testing
+resume first using the already launched continuation. The existingboya_hora1024_10m_v1
+is now resume_test,notformal;gracefulstoprequested. Preserve actualsamples/lineage and
+source/protocol,nopooling. After resumedmodel/norms/Adam/count verification,launch
+[separate fresh10Mprotocol](experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md)
+with fresh seed43 network/normalizers/Adam and no --resume. TB labelsformal_fresh,
+resume_test,preview separate. This supersedes the previous continuation launchintent.
+
+
+Resume integration PASSED without additional simulation launches:model+obs/value
+normalizers restoreexactly,Adam640→720,actions65536→73728,epoch8→9,weightschange,
+finite losses. [Stopped continuation](experiments/2026-10-08-boya-hora-1024-10m/README.md)
+records21completeupdates/172032cumulative/106496added inlast-update snapshot;periodic
+checkpoint16/131072islastsafe. Requestedstop hitIsaac-installedSIGTERMhandler(exit143),
+no normalfinalsave/eval;oldresultstatus isstale,notcompletion. ReinstallPythonstop
+handlersafterIsaacinitializationforfreshrun. Formalzero-start stilllaunchpending;
+none ofresume-testdata willbe counted asformaltraining.
+
+
+[Fresh formal1024 training is RUNNING](experiments/2026-10-08-boya-hora-1024-fresh10m/README.md):
+user correction applied after actualresume-testverification;freshseed43 model/norms/
+Adam,zero counts,no--resume. Firstcheckpointupdate1/actions8192/Adam80verified;
+initialmodel matches freshseed and differsfrompreviewtrained,separatelineage.
+Launchsnapshot14updates/114688actions,~849.2/s;
+target10002432roundedsamples,nonepooled. Noresourcewatchdog/cgroup/autocutoff.
+Summarylogs,pairedcheckpointsevery16updates,TBhttp://127.0.0.1:6006 formal_fresh/.
+ActualHTTP confirmsreward/loss/rotation/duration/terminationcurves;preview/resume_test
+separate. StagePID2030161,trainPID2030163;background detached.
+Finaloriginal-state120s-windowevalqueuedafterbudget,NOT executed. No convergence/
+rotation/completebaseline/hardwareclaim. Supersedesfreshlaunchpendingstatusabove.

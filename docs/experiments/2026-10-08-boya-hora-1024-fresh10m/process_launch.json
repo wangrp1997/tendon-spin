@@ -1,0 +1,37 @@
+{
+  "stage_pid": 2030161,
+  "tensorboard_pid": 2030162,
+  "started_unix_s": 1791456023.7379048,
+  "initialization": "fresh seed43; no --resume",
+  "stage_command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_background.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1",
+    "--total-actions",
+    "10000000",
+    "--protocol",
+    "docs/experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md"
+  ],
+  "tensorboard_command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-m",
+    "tensorboard.main",
+    "--logdir_spec",
+    "formal_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/training/stage1_tb,preview:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/training/stage1_tb,resume_test:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/training/stage1_tb",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "6006",
+    "--reload_interval",
+    "10",
+    "--load_fast=false"
+  ],
+  "tensorboard_url": "http://127.0.0.1:6006",
+  "event_directories": {
+    "formal_fresh": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/training/stage1_tb",
+    "preview": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/training/stage1_tb",
+    "resume_test": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/training/stage1_tb"
+  },
+  "detached": true
+}

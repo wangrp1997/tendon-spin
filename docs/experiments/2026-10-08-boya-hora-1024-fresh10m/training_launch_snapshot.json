@@ -1,0 +1,840 @@
+{
+  "controller": "hora_boya1024_nominal_teacher_fresh10m_v1",
+  "seed": 43,
+  "requested_updates": 1221,
+  "requested_total_actions": 10000000,
+  "requested_wall_s": 0.0,
+  "max_gpu_memory_mib": 0,
+  "save_every": 16,
+  "protocol": "docs/experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md",
+  "headless": true,
+  "enable_cameras": false,
+  "trace_mode": "summary",
+  "num_envs": 1024,
+  "updates": [
+    {
+      "update": 1,
+      "actions": 8192,
+      "learning_rate": 0.0006584362139917696,
+      "completed_episodes": 1113,
+      "training_episode_summary": {
+        "count": 1113,
+        "stop_counts": {
+          "tilt >15deg": 207,
+          "link normal >12N": 251,
+          "drift >5mm": 655
+        },
+        "net_deg": {
+          "mean": 0.6324476216687935,
+          "median": 0.4050280749797821,
+          "p90": 5.172922039031989,
+          "max": 19.476573944091797
+        },
+        "peak_deg": {
+          "mean": 1.9895622038555176,
+          "median": 0.9694948792457581,
+          "p90": 5.543922042846684,
+          "max": 21.0387020111084
+        },
+        "backward_deg": {
+          "mean": 2.113404126253144,
+          "median": 1.2348839044570923,
+          "p90": 5.4460454940795895,
+          "max": 31.41684913635254
+        },
+        "valid_prefix_s": {
+          "mean": 0.13529111149654743,
+          "median": 0.10650000721216202,
+          "p90": 0.2906000077724458,
+          "max": 0.3985000252723694
+        }
+      },
+      "mean_recent_episode_reward": 0.06555330008268356,
+      "actor_loss": 0.24381601810455322,
+      "critic_loss": 0.7310768365859985,
+      "bounds_loss": 71.9541015625,
+      "entropy": 22.8681640625,
+      "kl": 10.477218627929688
+    },
+    {
+      "update": 2,
+      "actions": 16384,
+      "learning_rate": 8.670764957916308e-05,
+      "completed_episodes": 2716,
+      "training_episode_summary": {
+        "count": 1603,
+        "stop_counts": {
+          "drift >5mm": 1101,
+          "link normal >12N": 231,
+          "tilt >15deg": 271
+        },
+        "net_deg": {
+          "mean": 6.814583021310215,
+          "median": 4.420651912689209,
+          "p90": 18.324358367919917,
+          "max": 45.152462005615234
+        },
+        "peak_deg": {
+          "mean": 7.637463858022752,
+          "median": 5.39295768737793,
+          "p90": 18.324358367919917,
+          "max": 45.152462005615234
+        },
+        "backward_deg": {
+          "mean": 2.630333327566797,
+          "median": 0.5218693017959595,
+          "p90": 8.096456146240234,
+          "max": 40.53649139404297
+        },
+        "valid_prefix_s": {
+          "mean": 0.2497925881124424,
+          "median": 0.1875000149011612,
+          "p90": 0.569800043106079,
+          "max": 0.796500027179718
+        }
+      },
+      "mean_recent_episode_reward": 0.7193796634674072,
+      "actor_loss": 0.10447926819324493,
+      "critic_loss": 0.7421150207519531,
+      "bounds_loss": 44.85601806640625,
+      "entropy": 22.922697067260742,
+      "kl": 0.5022368431091309
+    },
+    {
+      "update": 3,
+      "actions": 24576,
+      "learning_rate": 0.00013006147436874462,
+      "completed_episodes": 4410,
+      "training_episode_summary": {
+        "count": 1694,
+        "stop_counts": {
+          "drift >5mm": 1126,
+          "tilt >15deg": 335,
+          "link normal >12N": 233
+        },
+        "net_deg": {
+          "mean": 8.702821583147056,
+          "median": 6.220496892929077,
+          "p90": 22.02144775390625,
+          "max": 51.93943405151367
+        },
+        "peak_deg": {
+          "mean": 9.455543255227589,
+          "median": 7.147802114486694,
+          "p90": 22.213054847717295,
+          "max": 51.93943405151367
+        },
+        "backward_deg": {
+          "mean": 1.7035904161505495,
+          "median": 0.008162715006619692,
+          "p90": 5.952187395095826,
+          "max": 27.226137161254883
+        },
+        "valid_prefix_s": {
+          "mean": 0.22134475638856838,
+          "median": 0.16250000894069672,
+          "p90": 0.4855000376701355,
+          "max": 1.1255000829696655
+        }
+      },
+      "mean_recent_episode_reward": 1.13740873336792,
+      "actor_loss": -0.0017410487635061145,
+      "critic_loss": 0.5336665511131287,
+      "bounds_loss": 40.46610641479492,
+      "entropy": 22.916791915893555,
+      "kl": 0.018272368237376213
+    },
+    {
+      "update": 4,
+      "actions": 32768,
+      "learning_rate": 8.670764957916308e-05,
+      "completed_episodes": 6037,
+      "training_episode_summary": {
+        "count": 1627,
+        "stop_counts": {
+          "drift >5mm": 1068,
+          "link normal >12N": 200,
+          "tilt >15deg": 359
+        },
+        "net_deg": {
+          "mean": 9.252923749487223,
+          "median": 7.033970832824707,
+          "p90": 21.771122741699227,
+          "max": 46.418731689453125
+        },
+        "peak_deg": {
+          "mean": 9.915737745501849,
+          "median": 7.913088321685791,
+          "p90": 22.067074203491213,
+          "max": 46.418731689453125
+        },
+        "backward_deg": {
+          "mean": 1.631143269983305,
+          "median": 0.008340539410710335,
+          "p90": 5.580349731445317,
+          "max": 43.41581726074219
+        },
+        "valid_prefix_s": {
+          "mean": 0.22792871415182334,
+          "median": 0.17550000548362732,
+          "p90": 0.5085000395774841,
+          "max": 1.4700000286102295
+        }
+      },
+      "mean_recent_episode_reward": 1.1087039709091187,
+      "actor_loss": -0.0014686137437820435,
+      "critic_loss": 0.3549403250217438,
+      "bounds_loss": 39.705284118652344,
+      "entropy": 22.90675163269043,
+      "kl": 0.026070499792695045
+    },
+    {
+      "update": 5,
+      "actions": 40960,
+      "learning_rate": 0.00013006147436874462,
+      "completed_episodes": 7691,
+      "training_episode_summary": {
+        "count": 1654,
+        "stop_counts": {
+          "drift >5mm": 1072,
+          "link normal >12N": 237,
+          "tilt >15deg": 345
+        },
+        "net_deg": {
+          "mean": 9.391620453100533,
+          "median": 7.311288595199585,
+          "p90": 23.004757690429688,
+          "max": 50.435218811035156
+        },
+        "peak_deg": {
+          "mean": 10.002611909508966,
+          "median": 7.933411121368408,
+          "p90": 23.055873489379884,
+          "max": 50.435218811035156
+        },
+        "backward_deg": {
+          "mean": 1.4860219478799574,
+          "median": 0.00756977591663599,
+          "p90": 5.0225780010223415,
+          "max": 30.70720863342285
+        },
+        "valid_prefix_s": {
+          "mean": 0.22606228382361573,
+          "median": 0.17675000429153442,
+          "p90": 0.47990001142025,
+          "max": 1.9260001182556152
+        }
+      },
+      "mean_recent_episode_reward": 1.179465889930725,
+      "actor_loss": -0.005795840639621019,
+      "critic_loss": 0.3145405948162079,
+      "bounds_loss": 39.703094482421875,
+      "entropy": 22.903799057006836,
+      "kl": 0.015964016318321228
+    },
+    {
+      "update": 6,
+      "actions": 49152,
+      "learning_rate": 0.0002926383173296754,
+      "completed_episodes": 9351,
+      "training_episode_summary": {
+        "count": 1660,
+        "stop_counts": {
+          "drift >5mm": 1081,
+          "link normal >12N": 256,
+          "tilt >15deg": 323
+        },
+        "net_deg": {
+          "mean": 10.144668666644762,
+          "median": 8.345049858093262,
+          "p90": 23.05390911102296,
+          "max": 57.46805953979492
+        },
+        "peak_deg": {
+          "mean": 10.602698494898522,
+          "median": 8.797863006591797,
+          "p90": 23.253358650207534,
+          "max": 57.46805953979492
+        },
+        "backward_deg": {
+          "mean": 1.2255221449260887,
+          "median": 0.006395778618752956,
+          "p90": 4.306475305557251,
+          "max": 27.629541397094727
+        },
+        "valid_prefix_s": {
+          "mean": 0.2254111553974315,
+          "median": 0.18375001102685928,
+          "p90": 0.4907000333070758,
+          "max": 1.350000023841858
+        }
+      },
+      "mean_recent_episode_reward": 1.3448890447616577,
+      "actor_loss": -0.004527696408331394,
+      "critic_loss": 0.29142165184020996,
+      "bounds_loss": 39.06801986694336,
+      "entropy": 22.89751434326172,
+      "kl": 0.016747433692216873
+    },
+    {
+      "update": 7,
+      "actions": 57344,
+      "learning_rate": 0.00013006147436874462,
+      "completed_episodes": 10935,
+      "training_episode_summary": {
+        "count": 1584,
+        "stop_counts": {
+          "drift >5mm": 1046,
+          "tilt >15deg": 320,
+          "link normal >12N": 218
+        },
+        "net_deg": {
+          "mean": 10.882159361409993,
+          "median": 9.242760181427002,
+          "p90": 24.017545127868654,
+          "max": 58.76726150512695
+        },
+        "peak_deg": {
+          "mean": 11.385095904840657,
+          "median": 9.709751605987549,
+          "p90": 24.17834701538086,
+          "max": 58.76726150512695
+        },
+        "backward_deg": {
+          "mean": 1.2696148473604842,
+          "median": 0.006619947729632258,
+          "p90": 4.772908544540406,
+          "max": 39.78083038330078
+        },
+        "valid_prefix_s": {
+          "mean": 0.23621213247040004,
+          "median": 0.19050000607967377,
+          "p90": 0.5024999976158142,
+          "max": 1.561500072479248
+        }
+      },
+      "mean_recent_episode_reward": 1.3960130214691162,
+      "actor_loss": -0.0063875275664031506,
+      "critic_loss": 0.2584473788738251,
+      "bounds_loss": 40.316890716552734,
+      "entropy": 22.873584747314453,
+      "kl": 0.03874700888991356
+    },
+    {
+      "update": 8,
+      "actions": 65536,
+      "learning_rate": 0.0002926383173296754,
+      "completed_episodes": 12559,
+      "training_episode_summary": {
+        "count": 1624,
+        "stop_counts": {
+          "drift >5mm": 1085,
+          "link normal >12N": 234,
+          "tilt >15deg": 305
+        },
+        "net_deg": {
+          "mean": 11.349666226756176,
+          "median": 9.436168193817139,
+          "p90": 24.65929756164551,
+          "max": 53.301910400390625
+        },
+        "peak_deg": {
+          "mean": 11.6486249386689,
+          "median": 9.791088581085205,
+          "p90": 24.689591789245608,
+          "max": 53.301910400390625
+        },
+        "backward_deg": {
+          "mean": 0.8537413354062627,
+          "median": 0.003346191719174385,
+          "p90": 3.173538684844971,
+          "max": 18.23124122619629
+        },
+        "valid_prefix_s": {
+          "mean": 0.2238439141831182,
+          "median": 0.1770000010728836,
+          "p90": 0.473050019145012,
+          "max": 1.315000057220459
+        }
+      },
+      "mean_recent_episode_reward": 1.3874932527542114,
+      "actor_loss": -0.003829158842563629,
+      "critic_loss": 0.1987861841917038,
+      "bounds_loss": 40.503639221191406,
+      "entropy": 22.857126235961914,
+      "kl": 0.01686566136777401
+    },
+    {
+      "update": 9,
+      "actions": 73728,
+      "learning_rate": 0.00019509221155311694,
+      "completed_episodes": 14201,
+      "training_episode_summary": {
+        "count": 1642,
+        "stop_counts": {
+          "drift >5mm": 1049,
+          "link normal >12N": 226,
+          "tilt >15deg": 367
+        },
+        "net_deg": {
+          "mean": 12.007823715405028,
+          "median": 10.376170635223389,
+          "p90": 26.29049053192139,
+          "max": 51.225669860839844
+        },
+        "peak_deg": {
+          "mean": 12.397809934042796,
+          "median": 10.616343021392822,
+          "p90": 26.471771430969238,
+          "max": 51.225669860839844
+        },
+        "backward_deg": {
+          "mean": 1.02524702274715,
+          "median": 0.00328447122592479,
+          "p90": 3.754199671745301,
+          "max": 22.962377548217773
+        },
+        "valid_prefix_s": {
+          "mean": 0.2365039694310142,
+          "median": 0.19200000166893005,
+          "p90": 0.506800025701523,
+          "max": 1.558500051498413
+        }
+      },
+      "mean_recent_episode_reward": 1.6239558458328247,
+      "actor_loss": -0.0018033415544778109,
+      "critic_loss": 0.2004244327545166,
+      "bounds_loss": 41.02025604248047,
+      "entropy": 22.826101303100586,
+      "kl": 0.03711838275194168
+    },
+    {
+      "update": 10,
+      "actions": 81920,
+      "learning_rate": 0.00019509221155311694,
+      "completed_episodes": 15792,
+      "training_episode_summary": {
+        "count": 1591,
+        "stop_counts": {
+          "drift >5mm": 1038,
+          "link normal >12N": 264,
+          "tilt >15deg": 289
+        },
+        "net_deg": {
+          "mean": 12.458228511132866,
+          "median": 11.096227645874023,
+          "p90": 25.702505111694336,
+          "max": 54.29365539550781
+        },
+        "peak_deg": {
+          "mean": 12.759238736364551,
+          "median": 11.269067764282227,
+          "p90": 25.914485931396484,
+          "max": 54.29365539550781
+        },
+        "backward_deg": {
+          "mean": 0.8139746629102498,
+          "median": 0.003065831260755658,
+          "p90": 2.899637222290039,
+          "max": 20.022903442382812
+        },
+        "valid_prefix_s": {
+          "mean": 0.2329934114967265,
+          "median": 0.1925000101327896,
+          "p90": 0.48100003600120544,
+          "max": 1.8360000848770142
+        }
+      },
+      "mean_recent_episode_reward": 1.5934170484542847,
+      "actor_loss": -0.005954847205430269,
+      "critic_loss": 0.1960945576429367,
+      "bounds_loss": 42.00276565551758,
+      "entropy": 22.790979385375977,
+      "kl": 0.025782207027077675
+    },
+    {
+      "update": 11,
+      "actions": 90112,
+      "learning_rate": 0.00019509221155311694,
+      "completed_episodes": 17343,
+      "training_episode_summary": {
+        "count": 1551,
+        "stop_counts": {
+          "drift >5mm": 1023,
+          "link normal >12N": 234,
+          "tilt >15deg": 294
+        },
+        "net_deg": {
+          "mean": 13.033398131944487,
+          "median": 11.821035385131836,
+          "p90": 27.131662368774414,
+          "max": 54.179710388183594
+        },
+        "peak_deg": {
+          "mean": 13.338832423896855,
+          "median": 12.002842903137207,
+          "p90": 27.131662368774414,
+          "max": 54.179710388183594
+        },
+        "backward_deg": {
+          "mean": 0.7406232573408124,
+          "median": 0.003668998135253787,
+          "p90": 2.5574111938476562,
+          "max": 15.797408103942871
+        },
+        "valid_prefix_s": {
+          "mean": 0.2355915649927946,
+          "median": 0.19950000941753387,
+          "p90": 0.48900002241134644,
+          "max": 1.2990000247955322
+        }
+      },
+      "mean_recent_episode_reward": 1.4713711738586426,
+      "actor_loss": -0.005647954996675253,
+      "critic_loss": 0.22691002488136292,
+      "bounds_loss": 40.623714447021484,
+      "entropy": 22.75984001159668,
+      "kl": 0.02088080160319805
+    },
+    {
+      "update": 12,
+      "actions": 98304,
+      "learning_rate": 0.00019509221155311694,
+      "completed_episodes": 18879,
+      "training_episode_summary": {
+        "count": 1536,
+        "stop_counts": {
+          "drift >5mm": 990,
+          "tilt >15deg": 326,
+          "link normal >12N": 220
+        },
+        "net_deg": {
+          "mean": 13.890680358083046,
+          "median": 12.281521797180176,
+          "p90": 28.695673942565918,
+          "max": 52.432159423828125
+        },
+        "peak_deg": {
+          "mean": 14.11877468614554,
+          "median": 12.600714683532715,
+          "p90": 28.72147846221924,
+          "max": 52.432159423828125
+        },
+        "backward_deg": {
+          "mean": 0.645065845521264,
+          "median": 0.0027389023452997208,
+          "p90": 2.2168434858322144,
+          "max": 14.218599319458008
+        },
+        "valid_prefix_s": {
+          "mean": 0.24231544118750512,
+          "median": 0.20750001072883606,
+          "p90": 0.5095000267028809,
+          "max": 1.1045000553131104
+        }
+      },
+      "mean_recent_episode_reward": 1.728395700454712,
+      "actor_loss": -0.0069444626569747925,
+      "critic_loss": 0.2063039094209671,
+      "bounds_loss": 42.148983001708984,
+      "entropy": 22.736867904663086,
+      "kl": 0.022502169013023376
+    },
+    {
+      "update": 13,
+      "actions": 106496,
+      "learning_rate": 0.0002926383173296754,
+      "completed_episodes": 20326,
+      "training_episode_summary": {
+        "count": 1447,
+        "stop_counts": {
+          "drift >5mm": 966,
+          "link normal >12N": 184,
+          "tilt >15deg": 297
+        },
+        "net_deg": {
+          "mean": 14.433516501402064,
+          "median": 13.314778327941895,
+          "p90": 27.816931152343752,
+          "max": 60.68211364746094
+        },
+        "peak_deg": {
+          "mean": 14.684679550082219,
+          "median": 13.449769973754883,
+          "p90": 27.819861602783206,
+          "max": 60.68211364746094
+        },
+        "backward_deg": {
+          "mean": 0.7154394637925661,
+          "median": 0.0038627609610557556,
+          "p90": 2.5264656543731703,
+          "max": 13.13569450378418
+        },
+        "valid_prefix_s": {
+          "mean": 0.255020744505814,
+          "median": 0.22150000929832458,
+          "p90": 0.525500011444092,
+          "max": 1.2825000286102295
+        }
+      },
+      "mean_recent_episode_reward": 1.783156394958496,
+      "actor_loss": -0.011450003832578659,
+      "critic_loss": 0.19998347759246826,
+      "bounds_loss": 42.73686218261719,
+      "entropy": 22.717260360717773,
+      "kl": 0.02030644379556179
+    },
+    {
+      "update": 14,
+      "actions": 114688,
+      "learning_rate": 0.00019509221155311694,
+      "completed_episodes": 21799,
+      "training_episode_summary": {
+        "count": 1473,
+        "stop_counts": {
+          "tilt >15deg": 324,
+          "drift >5mm": 938,
+          "link normal >12N": 211
+        },
+        "net_deg": {
+          "mean": 14.819436493957541,
+          "median": 13.407686233520508,
+          "p90": 29.99522132873535,
+          "max": 58.96834182739258
+        },
+        "peak_deg": {
+          "mean": 15.057134021424684,
+          "median": 13.43117618560791,
+          "p90": 30.006754302978514,
+          "max": 58.96834182739258
+        },
+        "backward_deg": {
+          "mean": 0.6258809138272523,
+          "median": 0.0028161038644611835,
+          "p90": 2.312089776992797,
+          "max": 8.501884460449219
+        },
+        "valid_prefix_s": {
+          "mean": 0.25231467567331134,
+          "median": 0.21900001168251038,
+          "p90": 0.5022000074386596,
+          "max": 1.1065000295639038
+        }
+      },
+      "mean_recent_episode_reward": 1.959426760673523,
+      "actor_loss": -0.005248974543064833,
+      "critic_loss": 0.18867754936218262,
+      "bounds_loss": 42.40809631347656,
+      "entropy": 22.706106185913086,
+      "kl": 0.028160614892840385
+    }
+  ],
+  "actions_executed": 114688,
+  "session_actions_executed": 114688,
+  "physics_steps": 11468800,
+  "completed_updates": 14,
+  "completed_episodes": 21799,
+  "stop_reason": null,
+  "full_hora_reproduction": false,
+  "benchmark_validated": false,
+  "domain_randomization": false,
+  "cache_path": "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+  "cache_size": 28,
+  "resume_from": null,
+  "environment_resume": "fresh seed43 initialization",
+  "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training",
+  "episode_stop_counts": {
+    "nonfinite": 0,
+    "drift >5mm": 14238,
+    "tilt >15deg": 4362,
+    "speed >100rad/s": 0,
+    "link normal >12N": 3199,
+    "mimic error >.05rad": 0,
+    "episode time limit": 0
+  },
+  "sources": [
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "c01a3429c660320f197a687d18b01cf02f07125736eb8e99011794fdc1bdeef1"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "a191a47c158c85f0da44ce8b9b339cde99657153e3386e3c340b372640cf6577"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "50c5cef5d5257b21b59793549b7257e3c753f59c1b29275f3e3bf4b32e5862eb"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "c8fbbee66e6f82973797af64bb03a3658565cf93521f9561c1d1be46a8dca3d8"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+      "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "6c5b1696cbb59712bb69dd92867614cca60edaaf1d280dd052795df7349555c7"
+    },
+    {
+      "path": "tendonspin/rl/checkpoint.py",
+      "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+    },
+    {
+      "path": "tendonspin/rl/native_video.py",
+      "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+    },
+    {
+      "path": "tendonspin/rl/resource_guard.py",
+      "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+    },
+    {
+      "path": "scripts/guarded_boya_entry.py",
+      "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+    },
+    {
+      "path": "docs/experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md",
+      "sha256": "c9df542a71cb774df3eecee678716ac4e62e8ba960178cdf3ff1585844a3b580"
+    }
+  ],
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca",
+  "status": "update completed",
+  "wall_s": 153.5977643369697,
+  "rounded_target_actions": 10002432,
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "filter_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "thproximal",
+    "thmiddle",
+    "thdistal",
+    "ffbase",
+    "ffproximal",
+    "ffmiddle",
+    "ffdistal",
+    "mfbase",
+    "mfproximal",
+    "mfmiddle",
+    "mfdistal",
+    "rfbase",
+    "rfproximal",
+    "rfmiddle",
+    "rfdistal",
+    "lfbase",
+    "lfproximal",
+    "lfmiddle",
+    "lfdistal"
+  ],
+  "reason_codes": [
+    "active",
+    "nonfinite",
+    "drift >5mm",
+    "tilt >15deg",
+    "speed >100rad/s",
+    "link normal >12N",
+    "mimic error >.05rad",
+    "episode time limit"
+  ],
+  "manual_stop_handler": "request_stop, installed after Isaac initialization",
+  "session_physics_steps": 11468800,
+  "training_actions_per_wall_s": 849.2287012785259,
+  "checkpoint": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000001.pth",
+  "checkpoint_sha256": "93119bfe901a572026ccfccbd1485e08b3ddbf1b7ea2b200f5951d121745054d"
+}
