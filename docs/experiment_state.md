@@ -232,3 +232,23 @@ Accepted final.1s minimum observed finger-count distribution:2fingers10,3fingers
 4fingers3. Both cache versions require>=2 hand groups in90% of final.1s,not4fingers.
 Counts alone do not certify force closure. Full robustness and baseline pipeline
 remain pending; no unsupported continuous-rotation/cache-reset success claim.
+
+
+[Cache28 learning stage](experiments/2026-10-08-boya-hora-cache28/README.md)
+initially launched64envs from scratch,then explicitly interrupted when user requested
+more parallelism with desktop headroom. Last completed12updates/6144actions;
+no evaluation. SIGINT shutdown exposed incomplete-control trace export KeyError:reward;
+last result remains stale update-completed text,not a final stop record. Complete
+12rollouts retained,incomplete13th not saved; do not infer its action total.
+
+[128-environment training started](experiments/2026-10-08-boya-hora-cache28-128/README.md):
+new fresh seed43,28-state cache,128envs×horizon8×64updates=65536requested actions;
+minibatch512,5epochs,same nominal task/physics/reward. User requested modest GPU
+scale-up and responsiveness;headless/no-camera,nice+10,Torch/OMP/MKL4threads.
+First2updates ran atabout100actions/s;observed whole-card useabout3.8GiB/16GiB.
+Sampled device-memory12GiB cap and1800s training cap. Checkpoint every16updates;
+separate final frozen original-state120s evaluator automatically queued after
+training. Current stage is RUNNING,not a rotation result or completed full baseline.
+Live state under outputs/boya_hora_cache28_env128_stage1/stage.json and training/
+result.json. New counts exclude interrupted64env samples. Train stop signals now
+request saving at a PPO-update boundary. No concurrent old64env job remains.

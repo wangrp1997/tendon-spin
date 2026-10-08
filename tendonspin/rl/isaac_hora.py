@@ -46,6 +46,7 @@ class HoraBoyaEnv:
         self.valid_steps=torch.zeros_like(self.progress)
         self.episode_ids=torch.arange(num_envs,device=self.device)
         self.next_episode_id=num_envs
+        self.cache_ids=torch.full((num_envs,),-1,dtype=torch.long,device=self.device)
         self.completed=[];self.reason_counts=Counter()
         self.init_q=p.q0[:,p.active_joint_ids].clone()
         self.lower=p.adapter.control_limits[p.adapter.active,0]
@@ -72,6 +73,7 @@ class HoraBoyaEnv:
     def _reset_ids(self,ids):
         p=self.physics
         samples=torch.randint(len(self.cache['q']),(len(ids),),device=self.device)
+        self.cache_ids[ids]=samples
         q=self.cache['q'][samples].clone()
         obj=self.cache['object_state'][samples].clone()
         obj[:,:3]+=p.origins[ids];obj[:,7:]=0.
@@ -118,7 +120,7 @@ class HoraBoyaEnv:
             frame=dict(m,joint_pos_before=q,joint_vel_before=v,action=actions,
                 commands=p.adapter.commands,motor_effort_requested=effort,
                 actuator_effort_forwarded=tensor(p.hand.actuators.applied_effort),
-                first_failure=first,episode_id=self.episode_ids,valid_prefix=valid,net_angle_rad=self.net)
+                first_failure=first,episode_id=self.episode_ids,cache_index=self.cache_ids,valid_prefix=valid,net_angle_rad=self.net)
             if self.trace is None:
                 self.trace={k:np.empty((self.trace_capacity,*val.shape),dtype=val.cpu().numpy().dtype) for k,val in frame.items()}
             for k,val in frame.items():self.trace[k][self.trace_count]=val.cpu().numpy()
@@ -147,7 +149,7 @@ class HoraBoyaEnv:
         for i in ids.cpu().tolist():
             reason=self.reasons[int(first[i])]
             self.reason_counts[reason]+=1
-            self.completed.append(dict(episode_id=int(self.episode_ids[i]),env=i,
+            self.completed.append(dict(episode_id=int(self.episode_ids[i]),env=i,cache_index=int(self.cache_ids[i]),
                 actions=int(self.progress[i]),valid_prefix_s=float(self.valid_steps[i]*p.dt),
                 net_deg=float(torch.rad2deg(self.net[i])),peak_deg=float(torch.rad2deg(self.peak[i])),
                 backward_deg=float(torch.rad2deg(self.backward[i])),stop_reason=reason))

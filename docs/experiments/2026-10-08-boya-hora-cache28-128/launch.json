@@ -1,0 +1,18 @@
+{
+  "stage_path": "outputs/boya_hora_cache28_env128_stage1",
+  "supervisor_pid": 1844416,
+  "child_pid": 1844417,
+  "status_at_capture": "update completed",
+  "actions_at_capture": 20480,
+  "updates_at_capture": 20,
+  "cache_size": 28,
+  "num_envs": 128,
+  "requested_actions": 65536,
+  "observed_gpu_memory_used_MiB": 3835,
+  "headless": true,
+  "nice": 10,
+  "training_completed": false,
+  "evaluation_executed": false,
+  "live_result": "outputs/boya_hora_cache28_env128_stage1/training/result.json",
+  "live_supervisor": "outputs/boya_hora_cache28_env128_stage1/stage.json"
+}
