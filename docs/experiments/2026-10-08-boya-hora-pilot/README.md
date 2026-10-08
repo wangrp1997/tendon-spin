@@ -41,3 +41,8 @@ separate initialization and hold-screening criterion is pending user confirmatio
 under AGENTS.md; original-grasp nominal pilot above is already completed.
 
 No additional testing/audit or video work; local milestone commit, no push.
+
+Latest follow-up: user approved the separate initialization criterion and the
+[new cache execution](../2026-10-08-boya-settled-cache/README.md) produced28 states.
+That resolves the pending-answer statement above. This pilot still used its original
+one-state cache; no further PPO actions are attributed to the new cache.

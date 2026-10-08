@@ -1,0 +1,405 @@
+{
+  "new_physics_steps": 0,
+  "source": "same executed v2 final0.1s contact trace",
+  "cache_criteria_require_four_fingers": false,
+  "group_force_detection_N": 1e-06,
+  "accepted_tail_min_finger_count_histogram": {
+    "4": 3,
+    "3": 15,
+    "2": 10
+  },
+  "accepted_candidates": [
+    {
+      "batch": 0,
+      "env": 10,
+      "tail_min_observed_groups": 4,
+      "tail_min_observed_finger_groups": 4,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 0,
+      "env": 25,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 0,
+      "env": 35,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 0.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 0,
+      "env": 58,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 1,
+      "env": 26,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 2,
+      "env": 1,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 2,
+      "env": 9,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 0.975,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 2,
+      "env": 54,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 2,
+      "env": 56,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 2,
+      "env": 61,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 9,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 0.92,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 11,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 0.975,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 15,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 23,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 0.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 35,
+      "tail_min_observed_groups": 4,
+      "tail_min_observed_finger_groups": 4,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 38,
+      "tail_min_observed_groups": 4,
+      "tail_min_observed_finger_groups": 4,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 3,
+      "env": 44,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 4,
+      "env": 30,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 4,
+      "env": 43,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 4,
+      "env": 49,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.92,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 5,
+      "env": 21,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 6,
+      "env": 2,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.985,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 6,
+      "env": 4,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 6,
+      "env": 12,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 1.0,
+        "MF": 0.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 6,
+      "env": 28,
+      "tail_min_observed_groups": 3,
+      "tail_min_observed_finger_groups": 3,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 1.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 6,
+      "env": 51,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 0.64,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 7,
+      "env": 30,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    },
+    {
+      "batch": 7,
+      "env": 59,
+      "tail_min_observed_groups": 2,
+      "tail_min_observed_finger_groups": 2,
+      "tail_group_contact_fraction": {
+        "TH": 1.0,
+        "FF": 0.0,
+        "MF": 1.0,
+        "RF": 0.0,
+        "LF": 0.0,
+        "other_hand": 0.0
+      }
+    }
+  ]
+}

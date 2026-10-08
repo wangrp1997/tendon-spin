@@ -210,3 +210,25 @@ No global installs or original-repo writes. Per-physics-step training data retai
 candidates meet final.1s criteria alone,which does NOT revise the1/504 full-prefix
 accepted cache. Asked user whether to separately declare.5s initialization then
 .5s strict holding in one bounded follow-up; no follow-up launched pending answer.
+
+
+User approved one two-phase follow-up: .5s initialization settling then .5s strict
+hold screening,504 random candidates/8anchors/<=300s. No four-finger requirement:
+old and new cache rules both require2 observed hand groups in90% of final.1s.
+[Predeclared protocol](experiments/2026-10-08-boya-settled-cache/PROTOCOL.md)
+retains original pose reference, all formal physical thresholds and initial diagnostics.
+This supersedes pending-answer text above; no change to historical1/504 result.
+
+
+[Approved two-phase cache completed](experiments/2026-10-08-boya-settled-cache/README.md):
+64envs×8batches×(.5s init+.5s strict hold),16000batched steps,157.103s wall,
+batch-budget stop.28/504 random candidates accepted;8/8 nominal anchors passed.
+Formal first failures:drift474,tilt2. Initialization diagnostics retained; no mid-
+episode resets/switches or changed object reference. Same16input/size/gravity/PD.
+Historicalv1 full-prefix1/504 is separate and unchanged; different screening phase
+is not a controller performance improvement ratio. New28-state cache saved under
+outputs/boya_settled_cache_v2/grasp_cache.npz.0training actions this run.
+Accepted final.1s minimum observed finger-count distribution:2fingers10,3fingers15,
+4fingers3. Both cache versions require>=2 hand groups in90% of final.1s,not4fingers.
+Counts alone do not certify force closure. Full robustness and baseline pipeline
+remain pending; no unsupported continuous-rotation/cache-reset success claim.

@@ -15,12 +15,16 @@ parser.add_argument('--out', type=Path, required=True)
 parser.add_argument('--num-envs', type=int, default=64)
 parser.add_argument('--batches', type=int, default=8)
 parser.add_argument('--seed', type=int, default=42)
+parser.add_argument('--settle-s', type=float, choices=(0., .5), default=0.)
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=False)
 start = time.monotonic()
-record = dict(controller='boya_fingers16_grasp_cache_v1', num_envs=args.num_envs,
+protocol = ('docs/experiments/2026-10-08-boya-settled-cache/PROTOCOL.md' if args.settle_s else
+            'docs/experiments/2026-10-08-boya-parallel-cache/PROTOCOL.md')
+record = dict(controller=('boya_fingers16_grasp_cache_settled_v2' if args.settle_s else 'boya_fingers16_grasp_cache_v1'), num_envs=args.num_envs,
+    initialization_s=args.settle_s, formal_hold_s=.5, protocol=protocol, contact_groups_required=2,
     requested_batches=args.batches, seed=args.seed, batches=[], training_actions=0,
     benchmark_validated=False, controller_switches=0, accepted_random=0,
     random_candidates_executed=0, nominal_anchors_passed=0,
@@ -28,7 +32,7 @@ record = dict(controller='boya_fingers16_grasp_cache_v1', num_envs=args.num_envs
 for name in ('scripts/generate_boya_grasps.py','tendonspin/physics/isaac_parallel.py',
              'tendonspin/physics/isaac_boya.py','tendonspin/physics/isaac_boya_sharpa.py',
              'tendonspin/interfaces.py','docs/data/boya_native_contract.json',
-             'docs/experiments/2026-10-08-boya-parallel-cache/PROTOCOL.md'):
+             protocol):
     source = root/name
     (out/source.name).write_bytes(source.read_bytes())
     record.setdefault('sources',[]).append(dict(path=name,sha256=hashlib.sha256(source.read_bytes()).hexdigest()))
@@ -54,13 +58,24 @@ try:
         origins=env.origins.cpu().tolist())
     generator = torch.Generator(device=env.device).manual_seed(args.seed)
     actions = torch.zeros((args.num_envs,16),device=env.device)
-    planned = round(.5/env.dt)
+    settle_steps = round(args.settle_s/env.dt)
+    planned = settle_steps + round(.5/env.dt)
     tail_steps = round(.1/env.dt)
     reasons = ['completed','nonfinite','drift >5mm','tilt >15deg','speed >100rad/s',
                'link normal >12N','mimic error >.05rad','insufficient observed support','wall budget']
     record['reason_codes'] = reasons
     cache = []
     all_counts = Counter()
+    def violations(m):
+        return (~m['finite'],m['drift_mm']>5.,m['tilt_deg']>15.,m['max_speed']>100.,
+                m['max_normal']>12.,m['coupling_error']>.05)
+
+    def mark_failure(first, first_step, bads, step):
+        for code,bad in enumerate(bads,1):
+            new = (first==0)&bad
+            first[new]=code; first_step[new]=step
+
+
     save('collecting')
     for batch in range(args.batches):
         if time.monotonic()-start >270:
@@ -69,29 +84,51 @@ try:
         np.savez(out/f'batch_{batch:03d}_initial.npz',**{k:v.cpu().numpy() for k,v in initial.items()})
         first = torch.zeros(args.num_envs,dtype=torch.long,device=env.device)
         first_step = torch.full_like(first,-1)
+        init_first = torch.zeros_like(first)
+        init_first_step = torch.full_like(first,-1)
+        init_nonfinite = torch.zeros_like(first,dtype=torch.bool)
         tail_support = torch.zeros_like(first)
         trace = None
         maxima = torch.zeros((args.num_envs,5),device=env.device)
+        init_maxima = torch.zeros_like(maxima)
+        formal_started = False
         executed = 0
         for step in range(planned):
+            if step == settle_steps and settle_steps:
+                formal_start = env.measure()
+                np.savez(out/f'batch_{batch:03d}_formal_start.npz',
+                    **{k:v.cpu().numpy() for k,v in formal_start.items()},commands=env.adapter.commands.cpu().numpy())
+                first[init_nonfinite]=1
+                first_step[init_nonfinite]=init_first_step[init_nonfinite]
+                mark_failure(first,first_step,violations(formal_start),step)
+                maxima = torch.stack([formal_start[k] for k in
+                    ('drift_mm','tilt_deg','max_speed','max_normal','coupling_error')],dim=-1)
+                formal_started = True
             if step%env.adapter.steps_per_control==0:
                 if time.monotonic()-start >270:
                     record['stop_reason']='wall budget'; break
                 env.adapter.set_action(actions)
             q,v,effort = env.advance()
             m = env.measure()
-            bads = (~m['finite'],m['drift_mm']>5.,m['tilt_deg']>15.,m['max_speed']>100.,
-                    m['max_normal']>12.,m['coupling_error']>.05)
-            for code,bad in enumerate(bads,1):
-                new = (first==0)&bad
-                first[new]=code; first_step[new]=step+1
+            if step < settle_steps:
+                mark_failure(init_first,init_first_step,violations(m),step+1)
+                init_nonfinite |= ~m['finite']
+            else:
+                mark_failure(first,first_step,violations(m),step+1)
+                formal_started = True
             if step>=planned-tail_steps:
                 tail_support += (m['support_groups']>=2)
-            maxima = torch.maximum(maxima,torch.stack([m[k] for k in
-                ('drift_mm','tilt_deg','max_speed','max_normal','coupling_error')],dim=-1))
+            values = torch.stack([m[k] for k in
+                ('drift_mm','tilt_deg','max_speed','max_normal','coupling_error')],dim=-1)
+            if step < settle_steps:
+                init_maxima = torch.maximum(init_maxima,values)
+            else:
+                maxima = torch.maximum(maxima,values)
             frame = dict(m, joint_pos_before=q,joint_vel_before=v,action=actions,
                 commands=env.adapter.commands,motor_effort_requested=effort,
-                actuator_effort_forwarded=tensor(env.hand.actuators.applied_effort),first_failure=first)
+                actuator_effort_forwarded=tensor(env.hand.actuators.applied_effort),first_failure=first,
+                initialization_first_failure=init_first,
+                phase=torch.full_like(first,int(step>=settle_steps)))
             if trace is None:
                 trace = {k:np.empty((planned,*value.shape),dtype=value.cpu().numpy().dtype) for k,value in frame.items()}
             for k,value in frame.items():
@@ -112,7 +149,11 @@ try:
         all_counts.update(counts)
         summary=dict(batch=batch,physics_steps=executed,simulated_s=executed*env.dt,
             random_accepted=int(accepted.sum()),random_reasons=dict(counts),
+            initialization_s=min(executed,settle_steps)*env.dt,
+            formal_executed_s=max(0,executed-settle_steps)*env.dt,
+            initialization_first_reasons=dict(Counter(reasons[i] for i in init_first[1:].cpu().tolist())),
             anchor_reason=reasons[int(first[0])],anchor_maxima=maxima[0].cpu().tolist(),
+            anchor_initialization_maxima=init_maxima[0].cpu().tolist(),
             anchor_tail_observed_support_fraction=float(tail_support[0]/tail_steps))
         record['batches'].append(summary)
         record['accepted_random'] += summary['random_accepted']
@@ -123,6 +164,9 @@ try:
             np.savez(out/f'batch_{batch:03d}_execution.npz',**{k:v[:executed] for k,v in trace.items()})
         np.savez(out/f'batch_{batch:03d}_selection.npz',first_failure=first.cpu().numpy(),
             first_failure_step=first_step.cpu().numpy(),maxima=maxima.cpu().numpy(),
+            initialization_first_failure=init_first.cpu().numpy(),
+            initialization_first_failure_step=init_first_step.cpu().numpy(),
+            initialization_maxima=init_maxima.cpu().numpy(),
             tail_support_steps=tail_support.cpu().numpy(),accepted=accepted.cpu().numpy())
         del trace
         save('batch completed')

@@ -29,3 +29,6 @@ using this explicitly limited cache, then resolve cache coverage before large tr
 26个随机候选仅在末.1s满足各项门槛。后者只说明初始化暂态影响筛选，
 不修改历史1/504通过数，也不证明这26个都能从缓存状态稳定重启。
 更改为初始化/正式保持两阶段筛选已询问用户，尚未执行。
+
+最新后续：用户已批准并完成[独立两阶段v2](../2026-10-08-boya-settled-cache/README.md)，
+28/504通过，保留本页旧1/504全程标准及所有原始数据。
