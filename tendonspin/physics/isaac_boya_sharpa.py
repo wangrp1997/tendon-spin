@@ -39,16 +39,17 @@ def actuator_configuration(parameters):
         friction=0., dynamic_friction=0., viscous_friction=0.)}
 
 
-def configure_constraints(stage, root, contract):
+def configure_constraints(stage, root, contract, hand_prefix='/World/Hand'):
     from pxr import UsdPhysics, Sdf
     bodies = {p.GetName(): p for p in stage.Traverse()
-              if str(p.GetPath()).startswith('/World/Hand/') and p.HasAPI(UsdPhysics.RigidBodyAPI)}
+              if str(p.GetPath()).startswith(hand_prefix+'/') and p.HasAPI(UsdPhysics.RigidBodyAPI)}
     excluded = []
     for entry in ET.parse(root/'assets/grasp/scene.xml').getroot().findall('./contact/exclude'):
         a, b = entry.attrib['body1'], entry.attrib['body2']
         UsdPhysics.FilteredPairsAPI.Apply(bodies[a]).CreateFilteredPairsRel().AddTarget(bodies[b].GetPath())
         excluded.append([a, b])
-    joints = {p.GetName(): p for p in stage.Traverse() if p.IsA(UsdPhysics.RevoluteJoint)}
+    joints = {p.GetName(): p for p in stage.Traverse()
+              if str(p.GetPath()).startswith(hand_prefix+'/') and p.IsA(UsdPhysics.RevoluteJoint)}
     # Preserve the currently documented NewtonMimicAPI, make its coefficients
     # explicit. This alone does not claim equivalence to MuJoCo solref/solimp.
     for c in contract['couplings']:

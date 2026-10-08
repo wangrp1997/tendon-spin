@@ -1,0 +1,25 @@
+# First 16-input Isaac parallel cache executed
+
+64 environments, 8 batches, 8000 parallel physics steps, 82.539 s wall.
+504 random candidate episodes at ±.25rad: **1 accepted** (0.1984%).
+8 independent nominal-anchor episodes all completed .5s and passed screening.
+These anchors are excluded from random cache size. No resets within each candidate,
+no training actions, no rotation result. Stop: requested batch budget.
+
+First rejection counts: link normal >12N:400; drift >5mm:100; tilt >15deg:3.
+No candidate first rejected for nonfinite state, excessive joint speed or mimic error.
+Thus nominal holding survived batching; this does not establish diverse reset coverage.
+One surviving grasp is enough for connecting the PPO interfaces, not a paper-scale cache.
+
+[Protocol](PROTOCOL.md) declares original40×32mm/50g/grasp44/full gravity,
+16 finger inputs and held wrists, v3 dynamics, all criteria and Hora sampling differences.
+[Result](result.json) includes configuration/source identity and per-batch evidence.
+Raw initial samples, each physics step and failure indices: outputs/boya_parallel_cache_v1/.
+Cache: outputs/boya_parallel_cache_v1/grasp_cache.npz (one state).
+Observed GPU memory during collection approximately3802MiB of16303MiB;
+Torch's reported8.84MB excludes PhysX/Kit and is not total GPU memory.
+No full penetration certification or hardware result; benchmark_validated=false.
+
+Execution itself is the required integration validation; no extra test/audit pass.
+Local milestone commit only, remote not created. Next: original Hora PPO nominal pilot
+using this explicitly limited cache, then resolve cache coverage before large training.

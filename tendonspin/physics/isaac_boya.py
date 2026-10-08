@@ -91,7 +91,8 @@ class SourcePositionAdapter:
         self.hand=hand;self.contract=contract;self.device=hand.device
         names=list(hand.joint_names)
         self.ids=torch.tensor([names.index(a['joint']) for a in contract['actuators']],device=self.device)
-        self.commands=torch.tensor([a['initial_ctrl'] for a in contract['actuators']],device=self.device,dtype=torch.float32)[None]
+        self.num_envs=hand.num_instances
+        self.commands=torch.tensor([a['initial_ctrl'] for a in contract['actuators']],device=self.device,dtype=torch.float32)[None].repeat(self.num_envs,1)
         self.kp=torch.tensor([a['gain'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
         self.force_limits=torch.tensor([a['force_range'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
         self.control_limits=torch.tensor([a['control_range'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
@@ -108,8 +109,8 @@ class SourcePositionAdapter:
 
     def set_action(self,action):
         action=torch.as_tensor(action,device=self.device,dtype=torch.float32)
-        if action.shape!=(1,self.action_dim) or not torch.isfinite(action).all() or (action.abs()>1.).any():
-            raise ValueError(f'{self.action_dim} bounded position inputs required')
+        if action.shape!=(self.num_envs,self.action_dim) or not torch.isfinite(action).all() or (action.abs()>1.).any():
+            raise ValueError(f'Expected ({self.num_envs},{self.action_dim}) bounded position inputs')
         self.old=self.commands.clone();self.next=self.old.clone();self.elapsed=0
         self.next[:,self.active]=torch.clamp(self.old[:,self.active]+action*.35*self.control_dt,
             min=self.control_limits[self.active,0],max=self.control_limits[self.active,1])

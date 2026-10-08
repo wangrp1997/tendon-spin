@@ -1,0 +1,828 @@
+{
+  "controller": "boya_fingers16_grasp_cache_v1",
+  "num_envs": 64,
+  "requested_batches": 8,
+  "seed": 42,
+  "batches": [
+    {
+      "batch": 0,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "link normal >12N": 53,
+        "drift >5mm": 9,
+        "tilt >15deg": 1
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11050833016633987,
+        0.05233915522694588,
+        0.90415358543396,
+        3.934480667114258,
+        3.159046173095703e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 1,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "link normal >12N": 49,
+        "drift >5mm": 14
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.1117929071187973,
+        0.05595291033387184,
+        0.9042463898658752,
+        3.8760275840759277,
+        2.853572368621826e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 2,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 1,
+      "random_reasons": {
+        "link normal >12N": 51,
+        "drift >5mm": 10,
+        "tilt >15deg": 1,
+        "completed": 1
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11132347583770752,
+        0.05934702232480049,
+        0.9042500257492065,
+        3.8755433559417725,
+        2.853572368621826e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 3,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "drift >5mm": 11,
+        "link normal >12N": 52
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11329568177461624,
+        0.05595291033387184,
+        0.9042513966560364,
+        3.8603622913360596,
+        2.853572368621826e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 4,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "link normal >12N": 50,
+        "drift >5mm": 13
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11370155960321426,
+        0.05934702232480049,
+        0.9042535424232483,
+        3.858250617980957,
+        2.853572368621826e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 5,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "link normal >12N": 46,
+        "drift >5mm": 17
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11753431707620621,
+        0.06255725771188736,
+        0.9043188691139221,
+        4.05999755859375,
+        2.942979335784912e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 6,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "link normal >12N": 50,
+        "drift >5mm": 13
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.11287953704595566,
+        0.06255725771188736,
+        0.9041880965232849,
+        4.106625080108643,
+        2.8759241104125977e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    },
+    {
+      "batch": 7,
+      "physics_steps": 1000,
+      "simulated_s": 0.5,
+      "random_accepted": 0,
+      "random_reasons": {
+        "drift >5mm": 13,
+        "link normal >12N": 49,
+        "tilt >15deg": 1
+      },
+      "anchor_reason": "completed",
+      "anchor_maxima": [
+        0.10939061641693115,
+        0.05233915522694588,
+        0.9041821360588074,
+        3.894465923309326,
+        3.1888484954833984e-06
+      ],
+      "anchor_tail_observed_support_fraction": 1.0
+    }
+  ],
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "controller_switches": 0,
+  "accepted_random": 1,
+  "random_candidates_executed": 504,
+  "nominal_anchors_passed": 8,
+  "stop_reason": "requested batch budget",
+  "sources": [
+    {
+      "path": "scripts/generate_boya_grasps.py",
+      "sha256": "0a5a7f9788087142c1f2a224b644ae0f8dbd3e916b4e84f552f2dbb292cc7dfa"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "256784c2df6e3103b6c0ea7bf88651df8ac12edaf3afc7de1ff18d8322bb2cd9"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "docs/data/boya_native_contract.json",
+      "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+    },
+    {
+      "path": "docs/experiments/2026-10-08-boya-parallel-cache/PROTOCOL.md",
+      "sha256": "c923cb04692ef322d5c77c8216050e0ffa9d9da4b2994efa0e7884dc5d692970"
+    }
+  ],
+  "status": "completed",
+  "wall_s": 82.53896762500517,
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "filter_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "thproximal",
+    "thmiddle",
+    "thdistal",
+    "ffbase",
+    "ffproximal",
+    "ffmiddle",
+    "ffdistal",
+    "mfbase",
+    "mfproximal",
+    "mfmiddle",
+    "mfdistal",
+    "rfbase",
+    "rfproximal",
+    "rfmiddle",
+    "rfdistal",
+    "lfbase",
+    "lfproximal",
+    "lfmiddle",
+    "lfdistal"
+  ],
+  "motor_parameters": {
+    "damping": {
+      "FAJ1": 0.5,
+      "FAJ3": 0.5,
+      "THJ4": 0.05,
+      "THJ3": 0.05,
+      "THJ2": 0.05,
+      "THJ1": 0.05,
+      "FFJ4": 0.05,
+      "FFJ3": 0.05,
+      "FFJ2": 0.1,
+      "FFJ1": 0.05,
+      "MFJ4": 0.05,
+      "MFJ3": 0.05,
+      "MFJ2": 0.1,
+      "MFJ1": 0.05,
+      "RFJ4": 0.05,
+      "RFJ3": 0.05,
+      "RFJ2": 0.1,
+      "RFJ1": 0.05,
+      "LFJ4": 0.05,
+      "LFJ3": 0.05,
+      "LFJ2": 0.1,
+      "LFJ1": 0.05
+    },
+    "armature": {
+      "FAJ1": 0.001,
+      "FAJ3": 0.001,
+      "THJ4": 0.0001,
+      "THJ3": 0.0001,
+      "THJ2": 0.0001,
+      "THJ1": 0.0001,
+      "FFJ4": 0.0001,
+      "FFJ3": 0.0001,
+      "FFJ2": 0.0002,
+      "FFJ1": 0.0,
+      "MFJ4": 0.0001,
+      "MFJ3": 0.0001,
+      "MFJ2": 0.0002,
+      "MFJ1": 0.0,
+      "RFJ4": 0.0001,
+      "RFJ3": 0.0001,
+      "RFJ2": 0.0002,
+      "RFJ1": 0.0,
+      "LFJ4": 0.0001,
+      "LFJ3": 0.0001,
+      "LFJ2": 0.0002,
+      "LFJ1": 0.0
+    },
+    "caps": {
+      "FAJ1": 1.0,
+      "FAJ3": 1.0,
+      "THJ4": 0.3,
+      "THJ3": 0.3,
+      "THJ2": 0.3,
+      "THJ1": 0.3,
+      "FFJ4": 0.3,
+      "FFJ3": 0.3,
+      "FFJ2": 0.3,
+      "FFJ1": 0.0,
+      "MFJ4": 0.3,
+      "MFJ3": 0.3,
+      "MFJ2": 0.3,
+      "MFJ1": 0.0,
+      "RFJ4": 0.3,
+      "RFJ3": 0.3,
+      "RFJ2": 0.3,
+      "RFJ1": 0.0,
+      "LFJ4": 0.3,
+      "LFJ3": 0.3,
+      "LFJ2": 0.3,
+      "LFJ1": 0.0
+    },
+    "armature_semantics": "unidentified nominal simulation assumption: A=4*D_effective*dt on 18 motors"
+  },
+  "collision_excludes": [
+    [
+      "fabase",
+      "falink1"
+    ],
+    [
+      "fabase",
+      "pmbase"
+    ],
+    [
+      "falink1",
+      "pmbase"
+    ],
+    [
+      "pmbase",
+      "palm"
+    ],
+    [
+      "palm",
+      "thbase"
+    ],
+    [
+      "palm",
+      "thproximal"
+    ],
+    [
+      "palm",
+      "ffbase"
+    ],
+    [
+      "palm",
+      "mfbase"
+    ],
+    [
+      "palm",
+      "rfbase"
+    ],
+    [
+      "palm",
+      "lfbase"
+    ],
+    [
+      "thbase",
+      "thproximal"
+    ],
+    [
+      "thproximal",
+      "thmiddle"
+    ],
+    [
+      "thmiddle",
+      "thdistal"
+    ],
+    [
+      "ffbase",
+      "ffproximal"
+    ],
+    [
+      "ffbase",
+      "mfbase"
+    ],
+    [
+      "ffproximal",
+      "ffmiddle"
+    ],
+    [
+      "ffmiddle",
+      "ffdistal"
+    ],
+    [
+      "mfbase",
+      "mfproximal"
+    ],
+    [
+      "mfbase",
+      "rfbase"
+    ],
+    [
+      "mfproximal",
+      "mfmiddle"
+    ],
+    [
+      "mfmiddle",
+      "mfdistal"
+    ],
+    [
+      "rfbase",
+      "rfproximal"
+    ],
+    [
+      "rfbase",
+      "lfbase"
+    ],
+    [
+      "rfproximal",
+      "rfmiddle"
+    ],
+    [
+      "rfmiddle",
+      "rfdistal"
+    ],
+    [
+      "lfbase",
+      "lfproximal"
+    ],
+    [
+      "lfproximal",
+      "lfmiddle"
+    ],
+    [
+      "lfmiddle",
+      "lfdistal"
+    ]
+  ],
+  "dt": 0.0005,
+  "action_names": [
+    "THJ4",
+    "THJ3",
+    "THJ2",
+    "THJ1",
+    "FFJ4",
+    "FFJ3",
+    "FFJ2",
+    "MFJ4",
+    "MFJ3",
+    "MFJ2",
+    "RFJ4",
+    "RFJ3",
+    "RFJ2",
+    "LFJ4",
+    "LFJ3",
+    "LFJ2"
+  ],
+  "origins": [
+    [
+      3.5,
+      -3.5,
+      0.0
+    ],
+    [
+      3.5,
+      -2.5,
+      0.0
+    ],
+    [
+      3.5,
+      -1.5,
+      0.0
+    ],
+    [
+      3.5,
+      -0.5,
+      0.0
+    ],
+    [
+      3.5,
+      0.5,
+      0.0
+    ],
+    [
+      3.5,
+      1.5,
+      0.0
+    ],
+    [
+      3.5,
+      2.5,
+      0.0
+    ],
+    [
+      3.5,
+      3.5,
+      0.0
+    ],
+    [
+      2.5,
+      -3.5,
+      0.0
+    ],
+    [
+      2.5,
+      -2.5,
+      0.0
+    ],
+    [
+      2.5,
+      -1.5,
+      0.0
+    ],
+    [
+      2.5,
+      -0.5,
+      0.0
+    ],
+    [
+      2.5,
+      0.5,
+      0.0
+    ],
+    [
+      2.5,
+      1.5,
+      0.0
+    ],
+    [
+      2.5,
+      2.5,
+      0.0
+    ],
+    [
+      2.5,
+      3.5,
+      0.0
+    ],
+    [
+      1.5,
+      -3.5,
+      0.0
+    ],
+    [
+      1.5,
+      -2.5,
+      0.0
+    ],
+    [
+      1.5,
+      -1.5,
+      0.0
+    ],
+    [
+      1.5,
+      -0.5,
+      0.0
+    ],
+    [
+      1.5,
+      0.5,
+      0.0
+    ],
+    [
+      1.5,
+      1.5,
+      0.0
+    ],
+    [
+      1.5,
+      2.5,
+      0.0
+    ],
+    [
+      1.5,
+      3.5,
+      0.0
+    ],
+    [
+      0.5,
+      -3.5,
+      0.0
+    ],
+    [
+      0.5,
+      -2.5,
+      0.0
+    ],
+    [
+      0.5,
+      -1.5,
+      0.0
+    ],
+    [
+      0.5,
+      -0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      1.5,
+      0.0
+    ],
+    [
+      0.5,
+      2.5,
+      0.0
+    ],
+    [
+      0.5,
+      3.5,
+      0.0
+    ],
+    [
+      -0.5,
+      -3.5,
+      0.0
+    ],
+    [
+      -0.5,
+      -2.5,
+      0.0
+    ],
+    [
+      -0.5,
+      -1.5,
+      0.0
+    ],
+    [
+      -0.5,
+      -0.5,
+      0.0
+    ],
+    [
+      -0.5,
+      0.5,
+      0.0
+    ],
+    [
+      -0.5,
+      1.5,
+      0.0
+    ],
+    [
+      -0.5,
+      2.5,
+      0.0
+    ],
+    [
+      -0.5,
+      3.5,
+      0.0
+    ],
+    [
+      -1.5,
+      -3.5,
+      0.0
+    ],
+    [
+      -1.5,
+      -2.5,
+      0.0
+    ],
+    [
+      -1.5,
+      -1.5,
+      0.0
+    ],
+    [
+      -1.5,
+      -0.5,
+      0.0
+    ],
+    [
+      -1.5,
+      0.5,
+      0.0
+    ],
+    [
+      -1.5,
+      1.5,
+      0.0
+    ],
+    [
+      -1.5,
+      2.5,
+      0.0
+    ],
+    [
+      -1.5,
+      3.5,
+      0.0
+    ],
+    [
+      -2.5,
+      -3.5,
+      0.0
+    ],
+    [
+      -2.5,
+      -2.5,
+      0.0
+    ],
+    [
+      -2.5,
+      -1.5,
+      0.0
+    ],
+    [
+      -2.5,
+      -0.5,
+      0.0
+    ],
+    [
+      -2.5,
+      0.5,
+      0.0
+    ],
+    [
+      -2.5,
+      1.5,
+      0.0
+    ],
+    [
+      -2.5,
+      2.5,
+      0.0
+    ],
+    [
+      -2.5,
+      3.5,
+      0.0
+    ],
+    [
+      -3.5,
+      -3.5,
+      0.0
+    ],
+    [
+      -3.5,
+      -2.5,
+      0.0
+    ],
+    [
+      -3.5,
+      -1.5,
+      0.0
+    ],
+    [
+      -3.5,
+      -0.5,
+      0.0
+    ],
+    [
+      -3.5,
+      0.5,
+      0.0
+    ],
+    [
+      -3.5,
+      1.5,
+      0.0
+    ],
+    [
+      -3.5,
+      2.5,
+      0.0
+    ],
+    [
+      -3.5,
+      3.5,
+      0.0
+    ]
+  ],
+  "reason_codes": [
+    "completed",
+    "nonfinite",
+    "drift >5mm",
+    "tilt >15deg",
+    "speed >100rad/s",
+    "link normal >12N",
+    "mimic error >.05rad",
+    "insufficient observed support",
+    "wall budget"
+  ],
+  "random_reason_counts": {
+    "link normal >12N": 400,
+    "drift >5mm": 100,
+    "tilt >15deg": 3,
+    "completed": 1
+  },
+  "cache_path": "outputs/boya_parallel_cache_v1/grasp_cache.npz",
+  "cuda_peak_allocated_MB": 8.836096
+}

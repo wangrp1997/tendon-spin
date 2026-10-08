@@ -183,3 +183,14 @@ code/records retain their historical13-action contract.
 Focused existing reference/deployment tests:5passed with existing env_isaaclab;
 16-action student inference/history-only adaptation and five-finger measured-input
 command boundary exercised. No extra simulator launch or training run.
+
+
+[First16-input parallel grasp cache](experiments/2026-10-08-boya-parallel-cache/README.md):
+64 Isaac environments ×8 batches ×.5s,82.539s wall,512 candidate episodes including
+8 nominal anchors. All anchors passed;1/504 random candidates passed. Rejected first
+for link normal>12N:400,drift>5mm:100,tilt>15deg:3. Original size/orientation/gravity
+and v3 dynamics retained;16 finger actions,wrists held,passive mimics.
+Hora±.25rad sampling adapted with source preload and declared Boya physical gates.
+Per-step raw traces and one cache state saved;0PPO actions,not rotation/baseline success.
+No complete penetration certification. Use only as limited PPO integration cache;
+large-scale training still needs broader valid reset coverage. No parameter scan.
