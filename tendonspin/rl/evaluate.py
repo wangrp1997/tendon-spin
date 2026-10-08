@@ -1,3 +1,7 @@
+# Adapted botyard-inhand/research/learning/evaluate.py
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# TendonSpin changes and evaluation identity are declared in docs/experiment_state.md.
+# This local PPO is not a reproduced Hora/AnyRotate/Sharpa policy.
 """Independent original-state execution of one frozen policy checkpoint."""
 import argparse
 from dataclasses import asdict

@@ -1,3 +1,4 @@
+# Project/source: New TendonSpin offline deployment contract tests; no original paper policy or physical driver execution.
 import tempfile
 from pathlib import Path
 import unittest

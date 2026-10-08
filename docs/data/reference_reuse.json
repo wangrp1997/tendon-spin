@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-08",
+  "scope": "network and observation-interface diagnostics only",
+  "executed_task_episodes": 0,
+  "baseline_rotation_success": false,
+  "tests_passed": [
+    "Original-width Hora and Sharpa TCN exact equality after copying weights",
+    "13-action/26-feature Boya stage-two tensor forward without privileged inputs; only history encoder updated",
+    "Contact masking and explicit missing contact-pose handling"
+  ],
+  "hora_version": "v0.0.1",
+  "sharpa_revision": "5accf024d376685eaa17da7aa4614498217eab4d",
+  "mechanism": "Reuse original ActorCritic, embedding, normalizers; parameterized upstream TCN; Hora frozen-base latent MSE",
+  "training_complete": false,
+  "hardware_evaluated": false
+}

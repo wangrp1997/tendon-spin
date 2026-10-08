@@ -1,3 +1,7 @@
+# Adapted botyard-inhand/research/learning/transport.py
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# TendonSpin changes and evaluation identity are declared in docs/experiment_state.md.
+# This local PPO is not a reproduced Hora/AnyRotate/Sharpa policy.
 """Local JSON pipes keep the existing cp311 patched engine separate from Torch.
 
 All workers execute the same engine/model. The GPU learner never imports another

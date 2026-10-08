@@ -1,3 +1,6 @@
+# Adapted from botyard-inhand/docs/research/2026-10-07-failure-driven-validation/numerics.py::Runner; original packaged native scene/state instrumentation
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# Changes: standalone TendonSpin package/asset paths; original behavior retained.
 """Self-contained original native engine, packaged meshes and strict demo gates.
 
 Mesh path relocation does not change physical parameters or the saved state.
@@ -239,4 +242,3 @@ class Runner:
         other=np.arange(len(z))!=1
         assert np.max(abs(values[other]-z[other]))<1e-8,(values,z)
         assert abs(np.cos(np.radians(values[1]))-np.cos(np.radians(z[1])))<1e-12,(values,z)
-

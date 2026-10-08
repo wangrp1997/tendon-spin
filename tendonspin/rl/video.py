@@ -1,3 +1,7 @@
+# New standalone renderer referencing the interface of botyard-inhand/research/learning/video.py
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# TendonSpin changes and evaluation identity are declared in docs/experiment_state.md.
+# This local PPO is not a reproduced Hora/AnyRotate/Sharpa policy.
 """Render verified saved native trajectories without policy/physics reexecution."""
 import argparse
 import json

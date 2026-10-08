@@ -1,3 +1,6 @@
+# Vendored reference: git@github.com:wangrp1997/sharpa-rl-lab.git (commit 5accf024d376685eaa17da7aa4614498217eab4d).
+# Original relative file: rl_isaaclab/algo/models/models.py.
+# Added provenance header only; original copyright/license follows unchanged.
 # --------------------------------------------------------
 # In-Hand Object Rotation via Rapid Motor Adaptation
 # https://arxiv.org/abs/2210.04887

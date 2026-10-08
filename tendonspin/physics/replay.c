@@ -1,3 +1,7 @@
+/* Copied from botyard-inhand/docs/research/2026-10-07-failure-driven-validation/replay.c
+ * Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+ * Original per-physics-step execution and validity gates retained.
+ */
 /* Exact native command playback, with original per-step physical gates.
  * This function evolves the supplied data. It never resets or adopts forecasts.
  */

@@ -1,3 +1,6 @@
+# Vendored reference: https://github.com/HaozhiQi/hora (tag v0.0.1).
+# Original relative file: hora/tasks/__init__.py.
+# Added provenance header only; original copyright/license follows unchanged.
 # Copyright (c) 2018-2021, NVIDIA Corporation
 # All rights reserved.
 #

@@ -1,3 +1,4 @@
+# Project/source: New TendonSpin measured-input adapter; references Hora arXiv:2210.04887 and AnyRotate arXiv:2405.07391 deployment boundaries. No upstream robot driver code copied.
 """Offline deployment interface for an observation-limited student policy.
 
 No ROS or hardware publish occurs here. Teacher checkpoints are rejected. Motor

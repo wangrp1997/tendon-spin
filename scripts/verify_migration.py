@@ -1,3 +1,4 @@
+# Project/source: New TendonSpin diagnostic using the imported botyard-inhand PPO-v1 trace and native runner; source record identity is saved in docs/data/migration.json.
 """Check packaged physics and observation ABI against the old executed episode."""
 from dataclasses import replace
 import json

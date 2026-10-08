@@ -597,7 +597,9 @@
     },
     {
       "path": "third_party/hora/deploy.py",
-      "sha256": "5b9da1aa2aa2ddc26cfb3aa3c8d0366ba4af6d9d46996a81f91dcce2e2a411c3"
+      "sha256": "ac026ebccb8bd84251d4065ca2b6d4fec06754f71f955f7b042d194caf352c7f",
+      "upstream_snapshot_sha256": "5b9da1aa2aa2ddc26cfb3aa3c8d0366ba4af6d9d46996a81f91dcce2e2a411c3",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/docs/deploy.md",
@@ -613,95 +615,141 @@
     },
     {
       "path": "third_party/hora/gen_grasp.py",
-      "sha256": "b06e9e498aeed5223d16f89d6f0a186a51774418a68250ee7c53d1a989f4ee88"
+      "sha256": "0aaa2092b631cb34bd4ea60de13dc752d3eeaca7bf2624e46ebf7ac80039dd6a",
+      "upstream_snapshot_sha256": "b06e9e498aeed5223d16f89d6f0a186a51774418a68250ee7c53d1a989f4ee88",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "82fcf8ae4936e6063eeddadcd7d20249238d9fa1f66a0e056842783beceffd7a",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "ca1687e21b96f369c479ca275d62cffae658d0fb8de27cc0880f0620beebb929",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/deploy/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "d235096d4cc1892095c3e1f271d3c5661a4624eaed7ccb7377256963954bfbf1",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/deploy/deploy.py",
-      "sha256": "c2585d6212db25100de2433ff644488199f473b662330ebc23faf44cf9266d7f"
+      "sha256": "5a37e45931dcab7f9641929e6b964de0188d63ba5c7264742dae7857e63e8c97",
+      "upstream_snapshot_sha256": "c2585d6212db25100de2433ff644488199f473b662330ebc23faf44cf9266d7f",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/deploy/robots/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "adb341e9698db793ae8e9091223c801c69dcf77a37a415be50f16144ecf59576",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/deploy/robots/allegro.py",
-      "sha256": "ba954612feb64a034c36fc33db5b1988b49dd545365de24667ae49d8ccac8644"
+      "sha256": "720d077594cc6c6691e0401b8e073d954e478c7cdd09528cbab517596eac45ec",
+      "upstream_snapshot_sha256": "ba954612feb64a034c36fc33db5b1988b49dd545365de24667ae49d8ccac8644",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/models/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "28b73ba646209e5edf71aecfae760072b747d9a6c71bd4c717a3876de9411aa1",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/models/models.py",
-      "sha256": "bbb7ccefff5a9188b4e1618db489de85a9ec11ba382a75907bde12a279639dd7"
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8",
+      "upstream_snapshot_sha256": "bbb7ccefff5a9188b4e1618db489de85a9ec11ba382a75907bde12a279639dd7",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/models/running_mean_std.py",
-      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8"
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63",
+      "upstream_snapshot_sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/padapt/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "e4725c6205d810c8a0ec9d3471bd9936ae0a26f676595fa8b0700ae5693dc270",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/padapt/padapt.py",
-      "sha256": "977a87257dffb49589b98ae9e2d4b2af5e9e8cc5b576c65850aecc6ce4656ae3"
+      "sha256": "30d2bca8905c05a6301efd2de9a0bd14583639216d6339a687b1cd9ce2ec541d",
+      "upstream_snapshot_sha256": "977a87257dffb49589b98ae9e2d4b2af5e9e8cc5b576c65850aecc6ce4656ae3",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/ppo/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "0ed05daf5253a42fbc07c286ab0718575c091080ca40a36b9343bcc910bd6924",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/ppo/experience.py",
-      "sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4"
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988",
+      "upstream_snapshot_sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/algo/ppo/ppo.py",
-      "sha256": "624e47e6316512a22e08e72dec0b402f7f15b8e59f392c2a0651bcb75e08f438"
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263",
+      "upstream_snapshot_sha256": "624e47e6316512a22e08e72dec0b402f7f15b8e59f392c2a0651bcb75e08f438",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/tasks/__init__.py",
-      "sha256": "4236998e0ade73d6660df387a14bd7543342afa8d456a208dad977a2b712296c"
+      "sha256": "8b4c8ee902b57de2f911b83ce9a78e34a80533a00b529fb7fa31626d00e05e09",
+      "upstream_snapshot_sha256": "4236998e0ade73d6660df387a14bd7543342afa8d456a208dad977a2b712296c",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/tasks/allegro_hand_grasp.py",
-      "sha256": "8643359c60613eb436fcbdd04083b9d63092cf6dc0cebd96d2ec3d25baf2ee6a"
+      "sha256": "b58fc207b1896aed3db72222760b49b6b4db109e89c9d2b5f517787cc0744caa",
+      "upstream_snapshot_sha256": "8643359c60613eb436fcbdd04083b9d63092cf6dc0cebd96d2ec3d25baf2ee6a",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
-      "sha256": "2c42a12be2c63dd37eb84f1160e925d3caf7bda7a5d0002af32f9168f76f62e9"
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26",
+      "upstream_snapshot_sha256": "2c42a12be2c63dd37eb84f1160e925d3caf7bda7a5d0002af32f9168f76f62e9",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/tasks/base/__init__.py",
-      "sha256": "16dffd658ec0b9968fc74d3b5e6bb6aac8d1c8b75edefe8b2d0a52b2ae5825da"
+      "sha256": "0b7e6912c2f97dd22ba43ee64b546ced8d2890300f2612cd437d1c5675853c18",
+      "upstream_snapshot_sha256": "16dffd658ec0b9968fc74d3b5e6bb6aac8d1c8b75edefe8b2d0a52b2ae5825da",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/tasks/base/vec_task.py",
-      "sha256": "d75afe250b5a6242e216661be3e4bfc4d4395dedcaf398364f1a0da35ff52098"
+      "sha256": "5e6a0761c78c1d8d394d6799a9f03fc641dc72a1aab181aac2facc159debdbb9",
+      "upstream_snapshot_sha256": "d75afe250b5a6242e216661be3e4bfc4d4395dedcaf398364f1a0da35ff52098",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/utils/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "d4b663333dd3928abd54f694c5e765b991abbcbf147ea277334bbc4240296f4a",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/utils/misc.py",
-      "sha256": "a09175b0fb7e009146ffec5ca3690f73d8a9a8006eb769c38ba2b22f17b61d13"
+      "sha256": "8be934ddb85f30b167e334e9ce21a051df1f319ca84a68d88b121664c7c2cbc1",
+      "upstream_snapshot_sha256": "a09175b0fb7e009146ffec5ca3690f73d8a9a8006eb769c38ba2b22f17b61d13",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/hora/utils/reformat.py",
-      "sha256": "8b25e9b8c491cf2a22cd2d9fffa72f011670999cc570d5a43b30eea49c56141f"
+      "sha256": "f8817c0685f44624c5b58694cbb720d1b4eae360b352527dfc484ffaa2896bfe",
+      "upstream_snapshot_sha256": "8b25e9b8c491cf2a22cd2d9fffa72f011670999cc570d5a43b30eea49c56141f",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/hora/outputs/AllegroHandHora/.keep",
@@ -745,7 +793,9 @@
     },
     {
       "path": "third_party/hora/train.py",
-      "sha256": "28a19a6ce5c75560050a2c6aac467b190a82bc721d63df1fa82bbc269bbf1622"
+      "sha256": "c171cc0a67fe704cef12421ca6ffb1c6f321224eee10d72987b6d36485f90757",
+      "upstream_snapshot_sha256": "28a19a6ce5c75560050a2c6aac467b190a82bc721d63df1fa82bbc269bbf1622",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/LICENSE",
@@ -765,55 +815,81 @@
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "8ba728d1af90e504d258b13dc8f8e56ce376282ecb1ed5a177c40c3156ac459d",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/models/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "7bbf4890a509581600e25a82f692a8ff412968e019cb38bd5ad1e7b048f40ff8",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/models/models.py",
-      "sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225"
+      "sha256": "81ce34fb69fa9af7babd4162885c7bcfde7a32704dc8ed16bf1dc21fc12bf41e",
+      "upstream_snapshot_sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/models/running_mean_std.py",
-      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8"
+      "sha256": "28b6e87c4c192d8156195dfa602b72d0ba1dde556267c6dd695b6bccec065a98",
+      "upstream_snapshot_sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/padapt/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "eb6a9a9087f3ad81935afba884a58d95bcb09c345235d86f084af4a9a4d9fbb5",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/padapt/padapt.py",
-      "sha256": "b4d1e1e5eb841327ab5a5e09d08bbeef46972a6dcd60f140b63785c3694416f4"
+      "sha256": "456b990ad79ed2b532ca7712ac3932199345f9af50cf9e0373109abb560628f2",
+      "upstream_snapshot_sha256": "b4d1e1e5eb841327ab5a5e09d08bbeef46972a6dcd60f140b63785c3694416f4",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/ppo/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "sha256": "3709e91c58348171c40f2746e6bafa5fb41a4e37fd0c53de05a42a96613a3064",
+      "upstream_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/ppo/experience.py",
-      "sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4"
+      "sha256": "bf6a066731ba01fbb7391c54fd175891b3e0940f6055632531bce2d921732c96",
+      "upstream_snapshot_sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/algo/ppo/ppo.py",
-      "sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a"
+      "sha256": "2b89d0a71d6b5ccb603cd60a7728ca1746d17397fb056a4fa79d7c39f3da2b08",
+      "upstream_snapshot_sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/scripts/deploy.py",
-      "sha256": "551799674a4d0bf5c69a07f721ab8833f9db12b189047324cd50db3ad8b9dc4b"
+      "sha256": "5dadd0b5716988c4b55c1cb9c1372528e344f24e3cca53e93b3eac6afcf79076",
+      "upstream_snapshot_sha256": "551799674a4d0bf5c69a07f721ab8833f9db12b189047324cd50db3ad8b9dc4b",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/scripts/train.py",
-      "sha256": "2aaf148906863fc5ce260d389595dbfaf8e2c481153d55187d9f4173fb67febd"
+      "sha256": "9fd2212dceef45f3d822b513f9a8e4e731a89ae7c8c6339d3cb2c33fe77a0624",
+      "upstream_snapshot_sha256": "2aaf148906863fc5ce260d389595dbfaf8e2c481153d55187d9f4173fb67febd",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/__init__.py",
-      "sha256": "0aec922cd106709cd1c97cd55ab21699a235ed1a34510936f36fa4ea26ea58da"
+      "sha256": "dbd88c648b66b846d4509838898baa3f99e417c18ac402da621537ce5f37c545",
+      "upstream_snapshot_sha256": "0aec922cd106709cd1c97cd55ab21699a235ed1a34510936f36fa4ea26ea58da",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/__init__.py",
-      "sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a"
+      "sha256": "722eed6daa785d40b83baa791cb082b4f2ef447662570b4a9a5e84a11659b088",
+      "upstream_snapshot_sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
@@ -821,51 +897,75 @@
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env.py",
-      "sha256": "908753356946a38676db8d8edaf815bd208608b9d5f833b8ae4c8e10bde1fbae"
+      "sha256": "b9ece8ebcc2033fea831499c1334e05b0434cbd361ebc96f78293fcdba54ef52",
+      "upstream_snapshot_sha256": "908753356946a38676db8d8edaf815bd208608b9d5f833b8ae4c8e10bde1fbae",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env_cfg.py",
-      "sha256": "3abd62145ded9280234ce45adb2f3a3b5eca35944593ab2cabc59185a0236909"
+      "sha256": "939e5b9c8693b71fc039a0466b7cbc51fde410a8fb853af955e2767679e77bbc",
+      "upstream_snapshot_sha256": "3abd62145ded9280234ce45adb2f3a3b5eca35944593ab2cabc59185a0236909",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
-      "sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1"
+      "sha256": "c161f27406b89e5cbfa3d69eb57f51e40b6ef5d610b2f1bb86df4731339b983a",
+      "upstream_snapshot_sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
-      "sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8"
+      "sha256": "a5276f21f9f43524c6a9ed27ba23f5a07bedfe5001993b0479b3b2ad91b91e21",
+      "upstream_snapshot_sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
-      "sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd"
+      "sha256": "e136a197840885e3927cdbd89635aa41274713c7820eb18d8b73bbc867189f03",
+      "upstream_snapshot_sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env_cfg.py",
-      "sha256": "79e3a380efbb1a85cd632ac95f7f3510efab03821b556a7c2e0ff1a9d90ad741"
+      "sha256": "7b0742307af5311b68d82f41f2d56f0a0ef911adcd8b1cada5b5ba18e8f31084",
+      "upstream_snapshot_sha256": "79e3a380efbb1a85cd632ac95f7f3510efab03821b556a7c2e0ff1a9d90ad741",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/utils/misc.py",
-      "sha256": "9f7a0cfa1d920b5adf05eed992ccb3b237319e374c2eda47f8627a8d15547b61"
+      "sha256": "b72cdc89f1bee232c12db4dc8e505a57919627e89cc6d18bfbcd25e605fd017e",
+      "upstream_snapshot_sha256": "9f7a0cfa1d920b5adf05eed992ccb3b237319e374c2eda47f8627a8d15547b61",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/utils/modified_events.py",
-      "sha256": "63c2e812ae194ab2107a80c2e64083a7f35e90ac6160f432e436a35c6299e8fb"
+      "sha256": "452e0ad7ed1c38955a7d156b4afd19ae5bcfa730deb4ff1c55358088b9608612",
+      "upstream_snapshot_sha256": "63c2e812ae194ab2107a80c2e64083a7f35e90ac6160f432e436a35c6299e8fb",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/wrapper/config_wrapper.py",
-      "sha256": "acfaa5a2358f7dae1726972782ba1d2d5472942d1c63ba094f0212d94f09dbb2"
+      "sha256": "6cf820679a9b0b67375f7cde9733d39169b6adc2a80c87c11465298377f67407",
+      "upstream_snapshot_sha256": "acfaa5a2358f7dae1726972782ba1d2d5472942d1c63ba094f0212d94f09dbb2",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_deploy_env_wrapper.py",
-      "sha256": "4c837faf39e6f9053ceb6bec66805cc603e82ada48b30c61427f96ca339ada4f"
+      "sha256": "40fefe032e8641684a5fda91d236b7a5ec79f8e75f3d3f8854c56849075de20a",
+      "upstream_snapshot_sha256": "4c837faf39e6f9053ceb6bec66805cc603e82ada48b30c61427f96ca339ada4f",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_env_wrapper.py",
-      "sha256": "47539f490b73fca3818443f1e85eef12f4f9a94ad72cf9902e215bf9139352c1"
+      "sha256": "cadd6fa9bc661551cdccd9776f323672c414e25e2e1d2e0969e71c8b9d80ad9a",
+      "upstream_snapshot_sha256": "47539f490b73fca3818443f1e85eef12f4f9a94ad72cf9902e215bf9139352c1",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "third_party/sharpa/rl_isaaclab/wrapper/vec_env.py",
-      "sha256": "4cea1f22d498d76d00ef34facbf0abec256ce4266f679fb9dd185641bdca778b"
+      "sha256": "9ccb423781d072c29dfd072fc5bf63a88157c495bfce1a9193b4e3b9e062e5e9",
+      "upstream_snapshot_sha256": "4cea1f22d498d76d00ef34facbf0abec256ce4266f679fb9dd185641bdca778b",
+      "changes": "Added provenance comments only; original Python AST unchanged"
     },
     {
       "path": "references/anyrotate-project.html",
@@ -879,5 +979,20 @@
       "path": "references/papers.json",
       "sha256": "b147bbcb66165f05faff25623c6d0b25fb044e3adf6bc4f389538fb418636f4b"
     }
-  ]
+  ],
+  "workflow_reference": {
+    "arxiv_id": "2609.00065",
+    "url": "https://arxiv.org/abs/2609.00065",
+    "verified_title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+    "authors": [
+      "Timothy Kassis",
+      "Vinayak Agarwal",
+      "Yuhuan He",
+      "Darshil Patel",
+      "Aubrey M. Brueckner"
+    ],
+    "year": 2026,
+    "snapshot": "outputs/references/scientific-agent-skills.html",
+    "role": "procedural tooling attribution; not rotation method evidence"
+  }
 }

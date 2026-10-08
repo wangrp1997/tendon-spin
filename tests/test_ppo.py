@@ -1,3 +1,6 @@
+# Adapted from botyard-inhand/tests/test_learning_ppo.py
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# Changes: standalone TendonSpin package/asset paths; original behavior retained.
 """Credit assignment must not turn training resets into continuous successes."""
 import unittest
 

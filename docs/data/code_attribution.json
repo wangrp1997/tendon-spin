@@ -1,0 +1,409 @@
+{
+  "date": "2026-10-08",
+  "active_trial_finished_before_changes": true,
+  "formal_trial_source": "outputs/teacher_v2/pilot_01/source",
+  "files": [
+    {
+      "path": "tendonspin/rl/config.py",
+      "before_sha256": "854e043326085f3266cd5bae97087b45c398ae5c5b1699b9c8e70fe6876767c5",
+      "after_sha256": "4cdabe6eeedf6c25af13d57867be8257afe365b52a1b8132a462377495c56b27",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/environment.py",
+      "before_sha256": "921b54e00e02a92f0a202f0d78a91d80f2cb5fb14ba5a41076644490eefb8490",
+      "after_sha256": "aa8fbfa22ec87673e820e7081824a15949dc58a9583f5169213e4d70b18c9933",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/evaluate.py",
+      "before_sha256": "518ca04f4ff9c704b6b8987237d4204fbd48577a418324bd1051aae3d7b1f9f5",
+      "after_sha256": "b329713f5c7093e4a3236354084d57c69675ff01405487a1253bc2b5fc132708",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/policy.py",
+      "before_sha256": "3df6619a939386e379c7946fd12a4f7b6b2ce7abffc119db7883bf759b4615cd",
+      "after_sha256": "569e9cf0251df7b671813cad5e8552c84e6145c311d1910c6bd7616f2fd2727e",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/train.py",
+      "before_sha256": "72f28c91b75837dee193aebc41c4bdef49f2714156e8b99285893d16d31b1218",
+      "after_sha256": "c82d134a4b08e49d191c4e29cec048266d1932e4192401ca12e47cb3fd9a5d5f",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/transport.py",
+      "before_sha256": "2a08e7e2ab4c9796e99336e0c0399920d1faa7414071b6bedbdca3f624e46ad1",
+      "after_sha256": "0ea7b0c2a2dc0fb6f721a42d11b2659e64533fea6ae2e6657028ac4994bc2a74",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/video.py",
+      "before_sha256": "06c05ab34f2e9cf46fcd22787c1185afe8e6d6a549a03679c886072290daf699",
+      "after_sha256": "19d2eac5c8947fb8fb3810c050d1b581e89bbe2cf643c0e8e6e437b990db8318",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/rl/worker.py",
+      "before_sha256": "be2e2b0b120c37bd2c6e22266044b080e1bbee635306a1b476706cd0e4226a43",
+      "after_sha256": "2469fde7d4f6fbd0748d4cf573a843d757b8fb9f5855827fc8da3b97d01dc4f5",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/physics/native.py",
+      "before_sha256": "20e8378835fa91b717b711678b3068169f83cf6881baef6b583b216e019412fa",
+      "after_sha256": "e93823e3888df4b4bcacd86a6769d129ae31702a95176787a3ec6ac6d9bfcc16",
+      "change": "attribution comments and EOF whitespace only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/physics/metrics.py",
+      "before_sha256": "096e36d6cb1603a0c1c81784ccfeec1e68b743c237244e2ff784c103db8872bd",
+      "after_sha256": "6915e2efda34586fbf80049a47cb9efe1be295198dc509bdaa0118de0e675a41",
+      "change": "attribution comments and EOF whitespace only; Python AST unchanged"
+    },
+    {
+      "path": "tests/test_ppo.py",
+      "before_sha256": "0bc5e50640604af0cffe478d0271ff21a128bdfb643a3b81f625c255f255b58d",
+      "after_sha256": "3d8f769409755dae686c0957d76585725d36e31d0d54b1fdfe495a7d7434ac77",
+      "change": "attribution comments and EOF whitespace only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/physics/replay.c",
+      "before_sha256": "f2c58b0fb423a024baeabbd1213639e5009fe3177e68e4088f3901fd9f086bf4",
+      "after_sha256": "765c150f20fd6aa5d238aa583daa3afe2c792c27b3e2c0aaf1903be0b4c7cda5",
+      "change": "attribution comment prefix only; original C body unchanged"
+    },
+    {
+      "path": "tendonspin/deploy/runtime.py",
+      "before_sha256": "b9bbd64df13591512ebdc6b9055e71ef1602901e7f848d1e6083f876a8ea05cb",
+      "after_sha256": "1cebb8e9df583aa8cdae33779f2bc38a1e7cc16ab87db3aca1aad5269619e377",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "before_sha256": "538be128f839abc9c6a9061b39bfca104ad3d9c9b9673a2bb99bd01eb205d160",
+      "after_sha256": "62e473d8f013fa01070e0854f0e577084c11b045ea00e52149b916e162fccf97",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "scripts/verify_migration.py",
+      "before_sha256": "863a5f9ab1ef5b62412b6c98bd974433e4e397bb68ae18eb2ae8def7e0f09865",
+      "after_sha256": "b1d7f64f29d8dab2ec71b3e8cde2013f72168dd5dbf5f7fbcbf008b2daaa5afb",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "scripts/probe_isaac.py",
+      "before_sha256": "88630ebd776a5638d256c15f94b499da18a99f0eb9f8f7977240bd367ec36a43",
+      "after_sha256": "f434e4343880acad0285ee9227e62ff7afc4301f8ba86f4b9f29b772873a9e12",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "tests/test_deployment.py",
+      "before_sha256": "ff9720e7933bf069d13b93c5103187b6d3b2979bbfbc7ef0cbc28f5db674eabd",
+      "after_sha256": "a99b394c353bc9f57bf52d137d8d9df6ac661e39e2f7de864e90155a20672fd1",
+      "change": "attribution comments only; Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/deploy.py",
+      "before_sha256": "5b9da1aa2aa2ddc26cfb3aa3c8d0366ba4af6d9d46996a81f91dcce2e2a411c3",
+      "after_sha256": "ac026ebccb8bd84251d4065ca2b6d4fec06754f71f955f7b042d194caf352c7f",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/gen_grasp.py",
+      "before_sha256": "b06e9e498aeed5223d16f89d6f0a186a51774418a68250ee7c53d1a989f4ee88",
+      "after_sha256": "0aaa2092b631cb34bd4ea60de13dc752d3eeaca7bf2624e46ebf7ac80039dd6a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "82fcf8ae4936e6063eeddadcd7d20249238d9fa1f66a0e056842783beceffd7a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "ca1687e21b96f369c479ca275d62cffae658d0fb8de27cc0880f0620beebb929",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "d235096d4cc1892095c3e1f271d3c5661a4624eaed7ccb7377256963954bfbf1",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/deploy.py",
+      "before_sha256": "c2585d6212db25100de2433ff644488199f473b662330ebc23faf44cf9266d7f",
+      "after_sha256": "5a37e45931dcab7f9641929e6b964de0188d63ba5c7264742dae7857e63e8c97",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/robots/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "adb341e9698db793ae8e9091223c801c69dcf77a37a415be50f16144ecf59576",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/deploy/robots/allegro.py",
+      "before_sha256": "ba954612feb64a034c36fc33db5b1988b49dd545365de24667ae49d8ccac8644",
+      "after_sha256": "720d077594cc6c6691e0401b8e073d954e478c7cdd09528cbab517596eac45ec",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "28b73ba646209e5edf71aecfae760072b747d9a6c71bd4c717a3876de9411aa1",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "before_sha256": "bbb7ccefff5a9188b4e1618db489de85a9ec11ba382a75907bde12a279639dd7",
+      "after_sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "before_sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "after_sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/padapt/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "e4725c6205d810c8a0ec9d3471bd9936ae0a26f676595fa8b0700ae5693dc270",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/padapt/padapt.py",
+      "before_sha256": "977a87257dffb49589b98ae9e2d4b2af5e9e8cc5b576c65850aecc6ce4656ae3",
+      "after_sha256": "30d2bca8905c05a6301efd2de9a0bd14583639216d6339a687b1cd9ce2ec541d",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "0ed05daf5253a42fbc07c286ab0718575c091080ca40a36b9343bcc910bd6924",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "before_sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4",
+      "after_sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "before_sha256": "624e47e6316512a22e08e72dec0b402f7f15b8e59f392c2a0651bcb75e08f438",
+      "after_sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/__init__.py",
+      "before_sha256": "4236998e0ade73d6660df387a14bd7543342afa8d456a208dad977a2b712296c",
+      "after_sha256": "8b4c8ee902b57de2f911b83ce9a78e34a80533a00b529fb7fa31626d00e05e09",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_grasp.py",
+      "before_sha256": "8643359c60613eb436fcbdd04083b9d63092cf6dc0cebd96d2ec3d25baf2ee6a",
+      "after_sha256": "b58fc207b1896aed3db72222760b49b6b4db109e89c9d2b5f517787cc0744caa",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "before_sha256": "2c42a12be2c63dd37eb84f1160e925d3caf7bda7a5d0002af32f9168f76f62e9",
+      "after_sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/base/__init__.py",
+      "before_sha256": "16dffd658ec0b9968fc74d3b5e6bb6aac8d1c8b75edefe8b2d0a52b2ae5825da",
+      "after_sha256": "0b7e6912c2f97dd22ba43ee64b546ced8d2890300f2612cd437d1c5675853c18",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/base/vec_task.py",
+      "before_sha256": "d75afe250b5a6242e216661be3e4bfc4d4395dedcaf398364f1a0da35ff52098",
+      "after_sha256": "5e6a0761c78c1d8d394d6799a9f03fc641dc72a1aab181aac2facc159debdbb9",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/utils/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "d4b663333dd3928abd54f694c5e765b991abbcbf147ea277334bbc4240296f4a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/utils/misc.py",
+      "before_sha256": "a09175b0fb7e009146ffec5ca3690f73d8a9a8006eb769c38ba2b22f17b61d13",
+      "after_sha256": "8be934ddb85f30b167e334e9ce21a051df1f319ca84a68d88b121664c7c2cbc1",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/hora/utils/reformat.py",
+      "before_sha256": "8b25e9b8c491cf2a22cd2d9fffa72f011670999cc570d5a43b30eea49c56141f",
+      "after_sha256": "f8817c0685f44624c5b58694cbb720d1b4eae360b352527dfc484ffaa2896bfe",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/hora/train.py",
+      "before_sha256": "28a19a6ce5c75560050a2c6aac467b190a82bc721d63df1fa82bbc269bbf1622",
+      "after_sha256": "c171cc0a67fe704cef12421ca6ffb1c6f321224eee10d72987b6d36485f90757",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "8ba728d1af90e504d258b13dc8f8e56ce376282ecb1ed5a177c40c3156ac459d",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "7bbf4890a509581600e25a82f692a8ff412968e019cb38bd5ad1e7b048f40ff8",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/models.py",
+      "before_sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225",
+      "after_sha256": "81ce34fb69fa9af7babd4162885c7bcfde7a32704dc8ed16bf1dc21fc12bf41e",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/models/running_mean_std.py",
+      "before_sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "after_sha256": "28b6e87c4c192d8156195dfa602b72d0ba1dde556267c6dd695b6bccec065a98",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "eb6a9a9087f3ad81935afba884a58d95bcb09c345235d86f084af4a9a4d9fbb5",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/padapt/padapt.py",
+      "before_sha256": "b4d1e1e5eb841327ab5a5e09d08bbeef46972a6dcd60f140b63785c3694416f4",
+      "after_sha256": "456b990ad79ed2b532ca7712ac3932199345f9af50cf9e0373109abb560628f2",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/__init__.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "3709e91c58348171c40f2746e6bafa5fb41a4e37fd0c53de05a42a96613a3064",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/experience.py",
+      "before_sha256": "a6e217706afb806a34e0e0c7696c486d0e1187ffe8f1c5ae59acc78928bc40c4",
+      "after_sha256": "bf6a066731ba01fbb7391c54fd175891b3e0940f6055632531bce2d921732c96",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/algo/ppo/ppo.py",
+      "before_sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a",
+      "after_sha256": "2b89d0a71d6b5ccb603cd60a7728ca1746d17397fb056a4fa79d7c39f3da2b08",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/scripts/deploy.py",
+      "before_sha256": "551799674a4d0bf5c69a07f721ab8833f9db12b189047324cd50db3ad8b9dc4b",
+      "after_sha256": "5dadd0b5716988c4b55c1cb9c1372528e344f24e3cca53e93b3eac6afcf79076",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/scripts/train.py",
+      "before_sha256": "2aaf148906863fc5ce260d389595dbfaf8e2c481153d55187d9f4173fb67febd",
+      "after_sha256": "9fd2212dceef45f3d822b513f9a8e4e731a89ae7c8c6339d3cb2c33fe77a0624",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/__init__.py",
+      "before_sha256": "0aec922cd106709cd1c97cd55ab21699a235ed1a34510936f36fa4ea26ea58da",
+      "after_sha256": "dbd88c648b66b846d4509838898baa3f99e417c18ac402da621537ce5f37c545",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/agents/__init__.py",
+      "before_sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+      "after_sha256": "722eed6daa785d40b83baa791cb082b4f2ef447662570b4a9a5e84a11659b088",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env.py",
+      "before_sha256": "908753356946a38676db8d8edaf815bd208608b9d5f833b8ae4c8e10bde1fbae",
+      "after_sha256": "b9ece8ebcc2033fea831499c1334e05b0434cbd361ebc96f78293fcdba54ef52",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_deploy_env_cfg.py",
+      "before_sha256": "3abd62145ded9280234ce45adb2f3a3b5eca35944593ab2cabc59185a0236909",
+      "after_sha256": "939e5b9c8693b71fc039a0466b7cbc51fde410a8fb853af955e2767679e77bbc",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "before_sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1",
+      "after_sha256": "c161f27406b89e5cbfa3d69eb57f51e40b6ef5d610b2f1bb86df4731339b983a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "before_sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8",
+      "after_sha256": "a5276f21f9f43524c6a9ed27ba23f5a07bedfe5001993b0479b3b2ad91b91e21",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "before_sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd",
+      "after_sha256": "e136a197840885e3927cdbd89635aa41274713c7820eb18d8b73bbc867189f03",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env_cfg.py",
+      "before_sha256": "79e3a380efbb1a85cd632ac95f7f3510efab03821b556a7c2e0ff1a9d90ad741",
+      "after_sha256": "7b0742307af5311b68d82f41f2d56f0a0ef911adcd8b1cada5b5ba18e8f31084",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/utils/misc.py",
+      "before_sha256": "9f7a0cfa1d920b5adf05eed992ccb3b237319e374c2eda47f8627a8d15547b61",
+      "after_sha256": "b72cdc89f1bee232c12db4dc8e505a57919627e89cc6d18bfbcd25e605fd017e",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/utils/modified_events.py",
+      "before_sha256": "63c2e812ae194ab2107a80c2e64083a7f35e90ac6160f432e436a35c6299e8fb",
+      "after_sha256": "452e0ad7ed1c38955a7d156b4afd19ae5bcfa730deb4ff1c55358088b9608612",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/config_wrapper.py",
+      "before_sha256": "acfaa5a2358f7dae1726972782ba1d2d5472942d1c63ba094f0212d94f09dbb2",
+      "after_sha256": "6cf820679a9b0b67375f7cde9733d39169b6adc2a80c87c11465298377f67407",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_deploy_env_wrapper.py",
+      "before_sha256": "4c837faf39e6f9053ceb6bec66805cc603e82ada48b30c61427f96ca339ada4f",
+      "after_sha256": "40fefe032e8641684a5fda91d236b7a5ec79f8e75f3d3f8854c56849075de20a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/sharpa_wave_env_wrapper.py",
+      "before_sha256": "47539f490b73fca3818443f1e85eef12f4f9a94ad72cf9902e215bf9139352c1",
+      "after_sha256": "cadd6fa9bc661551cdccd9776f323672c414e25e2e1d2e0969e71c8b9d80ad9a",
+      "change": "attribution comments only; original Python AST unchanged"
+    },
+    {
+      "path": "third_party/sharpa/rl_isaaclab/wrapper/vec_env.py",
+      "before_sha256": "4cea1f22d498d76d00ef34facbf0abec256ce4266f679fb9dd185641bdca778b",
+      "after_sha256": "9ccb423781d072c29dfd072fc5bf63a88157c495bfce1a9193b4e3b9e062e5e9",
+      "change": "attribution comments only; original Python AST unchanged"
+    }
+  ]
+}

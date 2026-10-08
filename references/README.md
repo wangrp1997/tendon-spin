@@ -10,3 +10,9 @@ API query returned both requested records. `source_manifest.json` records versio
 URLs, access date, archive/document/file hashes, PDF validation and source gaps.
 No original paper policy or Boya baseline was executed by downloading references.
 See `../docs/baseline_methods.md` for verified mechanisms and novelty boundaries.
+
+Literature/PDF procedural tooling: Kassis, T., Agarwal, V., He, Y., Patel, D., and
+Brueckner, A. M. (2026). *Scientific Agent Skills: A Library of Procedural Knowledge
+for Research Agents*. [arXiv:2609.00065](https://arxiv.org/abs/2609.00065),
+[DOI](https://doi.org/10.48550/arXiv.2609.00065). Current arXiv landing-page
+metadata was checked2026-10-08; this is tool attribution, not a rotation baseline.

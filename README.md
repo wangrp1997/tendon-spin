@@ -36,3 +36,14 @@ Check results in docs/experiment_state.md and docs/experiments before rerunning.
 Large runtime/checkpoints/raw logs stay under ignored runtime/outputs. Small
 results, provenance and model assets are versioned. Training resets are never
 reported as a continuous rotation episode; every evaluation uses one frozen policy.
+
+Reference networks are reused directly through
+[tendonspin/baselines/reference_models.py](tendonspin/baselines/reference_models.py).
+Every added adapter declares repositories, versions, papers and changes in its
+header. [Virtual-touch notes](docs/reference_reuse.md) explain why a full raw
+force-point grid is unnecessary for the initial teacher/student baseline.
+The hardware array is real sensing; its ROS message capacity is not a measured
+taxel count. Baseline ports and hardware student execution remain pending.
+
+Remote publication is paused by the user's2026-10-08 instruction. Keep local
+milestone commits until the user creates and identifies the new remote.

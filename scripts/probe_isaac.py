@@ -1,3 +1,4 @@
+# Project/source: New environment probe using NVIDIA Isaac Sim SimulationApp API from the existing installed6.1 runtime; no environment rebuild.
 """Read-only environment reuse and optional minimal headless engine launch."""
 import argparse
 import importlib.metadata

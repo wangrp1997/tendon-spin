@@ -1,3 +1,6 @@
+# Vendored reference: git@github.com:wangrp1997/sharpa-rl-lab.git (commit 5accf024d376685eaa17da7aa4614498217eab4d).
+# Original relative file: rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py.
+# Added provenance header only; original copyright/license follows unchanged.
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
 # All rights reserved.
 #

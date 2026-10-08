@@ -1,3 +1,6 @@
+# Vendored reference: https://github.com/HaozhiQi/hora (tag v0.0.1).
+# Original relative file: hora/algo/ppo/ppo.py.
+# Added provenance header only; original copyright/license follows unchanged.
 # --------------------------------------------------------
 # In-Hand Object Rotation via Rapid Motor Adaptation
 # https://arxiv.org/abs/2210.04887

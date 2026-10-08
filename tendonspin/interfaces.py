@@ -1,3 +1,4 @@
+# Project/source: New named interface from the packaged Boya model and botyard-inhand original actuator order; not a hardware calibration.
 """Hardware-facing actuator names; this module has no simulator dependency."""
 FINGERS = ('TH','FF','MF','RF')
 ACTION_NAMES = tuple(f + 'J' + str(j) for f in FINGERS for j in ((4,3,2,1) if f == 'TH' else (4,3,2)))

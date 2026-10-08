@@ -1,3 +1,6 @@
+# Adapted from botyard-inhand/rotation/metrics.py
+# Source revision: 204d197a9606fb7266e884f3b2e6110195be01cb.
+# Changes: standalone TendonSpin package/asset paths; original behavior retained.
 """Measure actual cylinder spin without quaternion wrapping or tilt rewards."""
 from __future__ import annotations
 from dataclasses import dataclass
