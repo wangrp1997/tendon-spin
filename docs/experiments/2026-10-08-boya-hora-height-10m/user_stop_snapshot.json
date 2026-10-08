@@ -1,0 +1,102 @@
+{
+  "recorded_at": "2026-10-09T00:08:57.425224+08:00",
+  "user_request": "Stop current training; discuss true drop detection before any criterion change or restart.",
+  "stop_signal": "SIGTERM to comparison waiter and training supervisor; supervisor forwarded to learner",
+  "stage": {
+    "supervisor_pid": 2433176,
+    "phase": "stopped",
+    "training": {
+      "exit_code": 0,
+      "result": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2/training/result.json",
+      "status": "completed",
+      "stop_reason": "signal requested stop at update boundary",
+      "actions_executed": 4055040,
+      "session_actions_executed": 4055040
+    },
+    "evaluation": "not launched after requested/non-budget stop",
+    "process_nice": 10,
+    "requested_total_actions": 10000000,
+    "resume_checkpoint": null,
+    "initialization": "fresh network/normalizers/Adam/RNG seed43",
+    "automatic_resource_stop": false,
+    "termination_profile": "hora_height",
+    "wall_s": 5207.46562614711,
+    "training_command": [
+      "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+      "/home/rw/Projects/tendon-spin/scripts/train_boya_hora.py",
+      "--out",
+      "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2/training",
+      "--cache",
+      "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+      "--total-actions",
+      "10000000",
+      "--num-envs",
+      "1024",
+      "--trace-mode",
+      "summary",
+      "--wall-s",
+      "0",
+      "--max-gpu-memory-mib",
+      "0",
+      "--save-every",
+      "16",
+      "--minibatch-size",
+      "512",
+      "--seed",
+      "43",
+      "--termination-profile",
+      "hora_height",
+      "--controller",
+      "hora_boya1024_height_teacher_fresh10m_v2",
+      "--protocol",
+      "docs/experiments/2026-10-08-boya-hora-height-10m/PROTOCOL.md"
+    ],
+    "child_pid": 2433207
+  },
+  "comparison_queue": {
+    "phase": "stopped",
+    "pid": 2540127,
+    "additional_gpu_episodes_launched": 0,
+    "updated_unix_s": 1791475629.9789948,
+    "dependency_phase": "training"
+  },
+  "training": {
+    "controller": "hora_boya1024_height_teacher_fresh10m_v2",
+    "status": "completed",
+    "stop_reason": "signal requested stop at update boundary",
+    "actions_executed": 4055040,
+    "completed_updates": 495,
+    "completed_episodes": 126478,
+    "checkpoint": "outputs/boya_hora1024_height10m_v2/training/teacher_final.pth",
+    "checkpoint_sha256": "be0e3b7bd3df3f57ad95723d5156cb97e82cad80e3bba498841a1d4c46cd32b8",
+    "episode_stop_counts": {
+      "nonfinite": 0,
+      "drift >5mm": 0,
+      "tilt >15deg": 0,
+      "speed >100rad/s": 0,
+      "link normal >12N": 0,
+      "mimic error >.05rad": 0,
+      "episode time limit": 0,
+      "object below Hora height": 126478
+    },
+    "termination": {
+      "profile": "hora_height",
+      "nominal_height_m": 0.10606109973956034,
+      "reset_height_m": 0.10106109973956033,
+      "episode_control_steps": 400,
+      "reference_nominal_height_m": 0.65,
+      "reference_reset_height_m": 0.645,
+      "task_check_timing": "control boundary (20 Hz)",
+      "numerical_check_timing": "each physics step"
+    },
+    "wall_s": 5206.874966845848
+  },
+  "processes_absent": [
+    2433176,
+    2433207,
+    2540127
+  ],
+  "interpretation": "Orderly requested interruption, not completion of the 10M budget. Final weights retained. No final-policy evaluation or matched score exists.",
+  "termination_limitation": "Hora 0.645m absolute reset plane is source-backed; its nominal creation height 0.650m is not its actual cached reset distribution. The Boya nominal-minus-5mm translation has not been calibrated as loss of grasp. Height crossings do not prove actual dropping or that all previous learning was useless.",
+  "next_action": "Discussion only. No task rule edited, no retraining or evaluation launched."
+}

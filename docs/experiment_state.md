@@ -505,3 +505,25 @@ under commonheight rules,thencompare actualinitialstates and emitJSON/CSV/Markdo
 Oldpolicy's ownnormalizer andoriginaltrainingprovenance retained viaexplicit
 inferenceexecutioncontract;activehashedtraining/evaluator files untouched.
 Pendingtable has no claimed scores. Supersedes preceding queuepending state.
+
+
+[Height-rule training and matched queue STOPPED by user](experiments/2026-10-08-boya-hora-height-10m/README.md):
+2026-10-09 00:07 user requested stop before discussing real drop detection. SIGTERM
+ended learner at complete update495/4,055,040actions; resumable teacher_final saved,
+oldweights/logs preserved. stop_reason=signal requested stop at update boundary;
+status=completed denotes orderly exit,NOT10M completion. Supervisorphase=stopped,
+finalevaluation notlaunched; comparisonqueuephase=stopped/0additionalGPUepisodes.
+AllthreePIDs exited. No fixedpolicy score or matched comparison exists. SourceHora
+.645mplane is real,but.650mcreationheight is not its cachedresetdistribution:
+Boya nominalminus5mm remains an unvalidated crosshand assumption,not proof ofdrop.
+Heightcounts cannot establish loss ofsupport or that previouslearning was useless.
+No rulechange/restart/newexperiment. Supersedes priorRUNNING/QUEUED;fullhistory retained.
+
+
+[Stopped height-run weights DELETED by explicit user request](experiments/2026-10-08-boya-hora-height-10m/weight_removal.json):
+Removed only thisrun33.pthfiles/100,979,714bytes,includinginitial/periodic/final.
+Olderweights andalllogs/curves/identities retained. Previoussavedcheckpoint statements
+are historical;thisrun nolongerresumable. Checkpointmetadata preserved ashistory;
+automaticcomparison remains stopped. No newterminationrule/restart/experiment.
+Discuss geometry-relative escape plus persistent motion/contact evidence; exactBoya
+boundary remains undecided,not a claim that heightcrossing equals actualdrop.

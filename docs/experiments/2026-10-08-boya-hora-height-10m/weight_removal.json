@@ -1,0 +1,145 @@
+{
+  "requested_at": "2026-10-09T00:10:09.848883+08:00",
+  "user_authorization": "Delete this stopped run weights; continue discussion of better termination only.",
+  "run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2",
+  "status": "removed",
+  "files": [
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_final.pth",
+      "bytes": 3123059
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_initial.pth",
+      "bytes": 1036742
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000001.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000016.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000032.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000048.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000064.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000080.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000096.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000112.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000128.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000144.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000160.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000176.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000192.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000208.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000224.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000240.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000256.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000272.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000288.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000304.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000320.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000336.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000352.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000368.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000384.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000400.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000416.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000432.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000448.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000464.pth",
+      "bytes": 3123223
+    },
+    {
+      "path": "outputs/boya_hora1024_height10m_v2/training/teacher_u000480.pth",
+      "bytes": 3123223
+    }
+  ],
+  "total_files": 33,
+  "total_bytes": 100979714,
+  "preserved": "Earlier run weights; current and earlier logs, curves, source identities and training records.",
+  "checkpoint_references": "Existing result.json/latest_checkpoint.json and stop snapshot describe historical checkpoints which are now intentionally removed. This run is no longer resumable from local weights.",
+  "completed_at": "2026-10-09T00:10:09.856044+08:00"
+}
