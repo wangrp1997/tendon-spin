@@ -252,3 +252,36 @@ training. Current stage is RUNNING,not a rotation result or completed full basel
 Live state under outputs/boya_hora_cache28_env128_stage1/stage.json and training/
 result.json. New counts exclude interrupted64env samples. Train stop signals now
 request saving at a PPO-update boundary. No concurrent old64env job remains.
+
+
+[128-env stage completed](experiments/2026-10-08-boya-hora-cache28-128/README.md):
+65536actions/64updates/6553600physics steps,635.979s train process,104.283actions/s
+training loop,max sampled3838MiB GPU. Normal update-budget end. Separate fixed-final
+original-state evaluation actually executed: .4845s total/.484s valid prefix,
++34.581409deg net,drift>5mm stop,0resets/switches,120s window incomplete. No sustained
+rotation or complete physical/hardware certification. All jobs now exited. This
+supersedes the earlier RUNNING launch entry without altering its snapshot.
+
+User authorizes one bounded512env throughput trial (8updates/32768actions,<=300s),
+[protocol](experiments/2026-10-08-boya-env512-throughput/PROTOCOL.md). Same task,
+nominal dynamics,28grasp cache;fresh training identity,not continued/spliced control.
+CPU nice+10,4threads,whole-device10GiB sampled stop cap,1Hz resource monitoring.
+Interrupt-export bug repaired with explicit missing-control-field masks; no PPO
+or physics changes. No further simulator check/parameter scan added.
+
+
+[512env throughput trial completed](experiments/2026-10-08-boya-env512-throughput/README.md):
+8updates/32768actions,106.023s process,update-budget/exit0.
+Training-loop349.97actions/s versus128 first32768
+103.92/s (~3.37x). Max sampledwhole-device
+4008MiB/16303MiB,GPU utilization peak
+78%,nice+10/4threads. No desktop
+latency measurement or512frozen-policy evaluation; resource test only,not rotation success.
+All processes exited.512recommended for subsequent training,no further run launched.
+
+User questioned short training budget. Rechecked Hora PDF p15 Optimization Details:
+16384envs,8steps,5epochs,batch32768,~100000gradient updates,~500Magent steps.
+65536actions=0.0131%of that; prior10.6min stage was budget completion,NOT converged
+training. Repo1.5Bconfig is a cap,not paper measured total. Paper7000h is simulated
+real-time-equivalent,not wall training. At current512 throughput,500M arithmetic
+extrapolation~16.5days; no success/time guarantee.

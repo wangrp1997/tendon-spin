@@ -94,8 +94,17 @@ class HoraBoyaEnv:
 
     def flush_trace(self,path):
         if self.trace is not None:
-            np.savez(path,**{k:v[:self.trace_count] for k,v in self.trace.items()},
-                     **{'control_'+k:np.stack([r[k] for r in self.control_trace]) for k in self.control_trace[0]})
+            controls={}
+            keys=dict.fromkeys(k for row in self.control_trace for k in row)
+            for key in keys:
+                example=next(row[key] for row in self.control_trace if key in row)
+                present=np.array([key in row for row in self.control_trace],dtype=bool)
+                controls['control_'+key]=np.stack([row.get(key,np.zeros_like(example)) for row in self.control_trace])
+                if not present.all():
+                    # A signal may interrupt an action before reward/done exists.
+                    # Explicit masks distinguish missing values from measured zeros.
+                    controls['control_'+key+'_recorded']=present
+            np.savez(path,**{k:v[:self.trace_count] for k,v in self.trace.items()},**controls)
         self.trace=None;self.control_trace=[]
 
     @torch.no_grad()

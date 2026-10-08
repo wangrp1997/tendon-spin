@@ -1,0 +1,19 @@
+{
+  "actions512": 32768,
+  "process_wall_s512": 106.02260133787058,
+  "training_loop_actions_per_s512": 349.9749619472164,
+  "process_actions_per_s512": 309.0661763294755,
+  "matched32768_actions_per_s128": 103.91519042393467,
+  "matched_budget_speed_ratio": 3.367890300921847,
+  "full65536_actions_per_s128": 104.2829758049523,
+  "old128_gpu_max_sampled_MiB": 3838,
+  "gpu_max_sampled_MiB512": 4008,
+  "gpu_median_sampled_utilization512": 63,
+  "gpu_max_sampled_utilization512": 78,
+  "host_child_max_sampled_RSS_MiB": 5700.28515625,
+  "desktop_interaction_measured": false,
+  "formal_rotation_eval_executed512": false,
+  "paper_reported_agent_steps": 500000000,
+  "prior_stage_fraction_of_paper": 0.000131072,
+  "days_for500M_at_observed512_rate": 16.53557444463654
+}

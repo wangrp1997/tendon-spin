@@ -19,6 +19,7 @@ parser.add_argument('--wall-s',type=float,default=240.)
 parser.add_argument('--seed',type=int,default=43)
 parser.add_argument('--save-every',type=int,default=4)
 parser.add_argument('--minibatch-size',type=int,default=None)
+parser.add_argument('--max-gpu-memory-mib',type=int,default=12288)
 parser.add_argument('--controller',default='hora_boya_nominal_teacher_v1')
 parser.add_argument('--protocol',default='docs/experiments/2026-10-08-boya-hora-pilot/PROTOCOL.md')
 args=parser.parse_args()
@@ -31,7 +32,7 @@ def request_stop(signum, frame):
 signal.signal(signal.SIGINT,request_stop)
 signal.signal(signal.SIGTERM,request_stop)
 record=dict(controller=args.controller,seed=args.seed,requested_updates=args.updates,
-    requested_wall_s=args.wall_s,save_every=args.save_every,protocol=args.protocol,headless=True,enable_cameras=False,
+    requested_wall_s=args.wall_s,max_gpu_memory_mib=args.max_gpu_memory_mib,save_every=args.save_every,protocol=args.protocol,headless=True,enable_cameras=False,
     num_envs=args.num_envs,updates=[],actions_executed=0,physics_steps=0,
     stop_reason='update budget',full_hora_reproduction=False,benchmark_validated=False,
     domain_randomization=False,cache_path=str(args.cache),cache_size=None)
@@ -123,7 +124,7 @@ try:
                 record['observed_gpu_memory_used_MiB']=used
                 record['max_observed_gpu_memory_used_MiB']=max(used,record.get('max_observed_gpu_memory_used_MiB',0))
         save('update completed')
-        if record.get('observed_gpu_memory_used_MiB',0)>12288:
+        if record.get('observed_gpu_memory_used_MiB',0)>args.max_gpu_memory_mib:
             record['stop_reason']='device memory headroom limit';break
     agent.save(str(out/'teacher_final'))
     record['checkpoint']=str((out/'teacher_final.pth').relative_to(root))

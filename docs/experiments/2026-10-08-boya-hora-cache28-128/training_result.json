@@ -1,0 +1,1538 @@
+{
+  "controller": "hora_boya_cache28_teacher_v3_env128",
+  "seed": 43,
+  "requested_updates": 64,
+  "requested_wall_s": 1800.0,
+  "save_every": 16,
+  "protocol": "docs/experiments/2026-10-08-boya-hora-cache28-128/PROTOCOL.md",
+  "headless": true,
+  "enable_cameras": false,
+  "num_envs": 128,
+  "updates": [
+    {
+      "update": 1,
+      "actions": 1024,
+      "learning_rate": 0.0006584362139917696,
+      "completed_episodes": 147,
+      "actor_loss": 0.12861602008342743,
+      "critic_loss": 0.6794082522392273,
+      "bounds_loss": 22.53559684753418,
+      "entropy": 22.700448989868164,
+      "kl": 0.49103450775146484
+    },
+    {
+      "update": 2,
+      "actions": 2048,
+      "learning_rate": 0.0009876543209876543,
+      "completed_episodes": 291,
+      "actor_loss": -0.03364592790603638,
+      "critic_loss": 0.41338035464286804,
+      "bounds_loss": 23.000102996826172,
+      "entropy": 22.703771591186523,
+      "kl": 0.02292189933359623
+    },
+    {
+      "update": 3,
+      "actions": 3072,
+      "learning_rate": 0.0009876543209876543,
+      "completed_episodes": 450,
+      "actor_loss": -0.0273333340883255,
+      "critic_loss": 0.30940207839012146,
+      "bounds_loss": 23.9504337310791,
+      "entropy": 22.665700912475586,
+      "kl": 0.023404130712151527
+    },
+    {
+      "update": 4,
+      "actions": 4096,
+      "learning_rate": 0.0014814814814814816,
+      "completed_episodes": 615,
+      "actor_loss": -0.022146690636873245,
+      "critic_loss": 0.45781299471855164,
+      "bounds_loss": 24.128265380859375,
+      "entropy": 22.615875244140625,
+      "kl": 0.023091547191143036
+    },
+    {
+      "update": 5,
+      "actions": 5120,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 789,
+      "actor_loss": -0.024212434887886047,
+      "critic_loss": 0.3761860430240631,
+      "bounds_loss": 23.864940643310547,
+      "entropy": 22.597578048706055,
+      "kl": 0.03252195194363594
+    },
+    {
+      "update": 6,
+      "actions": 6144,
+      "learning_rate": 0.0014814814814814818,
+      "completed_episodes": 961,
+      "actor_loss": -0.012875141575932503,
+      "critic_loss": 0.537273108959198,
+      "bounds_loss": 24.964710235595703,
+      "entropy": 22.569272994995117,
+      "kl": 0.022463565692305565
+    },
+    {
+      "update": 7,
+      "actions": 7168,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 1120,
+      "actor_loss": -0.019025947898626328,
+      "critic_loss": 0.3471620976924896,
+      "bounds_loss": 24.024682998657227,
+      "entropy": 22.523202896118164,
+      "kl": 0.03969401866197586
+    },
+    {
+      "update": 8,
+      "actions": 8192,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 1299,
+      "actor_loss": -0.030766606330871582,
+      "critic_loss": 0.39346033334732056,
+      "bounds_loss": 24.726186752319336,
+      "entropy": 22.49940299987793,
+      "kl": 0.021267371252179146
+    },
+    {
+      "update": 9,
+      "actions": 9216,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 1475,
+      "actor_loss": -0.020693201571702957,
+      "critic_loss": 0.4302337169647217,
+      "bounds_loss": 25.6856746673584,
+      "entropy": 22.494680404663086,
+      "kl": 0.02788025699555874
+    },
+    {
+      "update": 10,
+      "actions": 10240,
+      "learning_rate": 0.0014814814814814818,
+      "completed_episodes": 1629,
+      "actor_loss": -0.015653064474463463,
+      "critic_loss": 0.40945693850517273,
+      "bounds_loss": 26.693471908569336,
+      "entropy": 22.4915714263916,
+      "kl": 0.028122559189796448
+    },
+    {
+      "update": 11,
+      "actions": 11264,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 1803,
+      "actor_loss": -0.018526004627346992,
+      "critic_loss": 0.37468838691711426,
+      "bounds_loss": 27.33290672302246,
+      "entropy": 22.479087829589844,
+      "kl": 0.03308955952525139
+    },
+    {
+      "update": 12,
+      "actions": 12288,
+      "learning_rate": 0.0014814814814814818,
+      "completed_episodes": 1960,
+      "actor_loss": -0.028564635664224625,
+      "critic_loss": 0.4102148115634918,
+      "bounds_loss": 28.864501953125,
+      "entropy": 22.46303367614746,
+      "kl": 0.02885333076119423
+    },
+    {
+      "update": 13,
+      "actions": 13312,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 2130,
+      "actor_loss": 0.004522302653640509,
+      "critic_loss": 0.4293034076690674,
+      "bounds_loss": 28.732465744018555,
+      "entropy": 22.43877601623535,
+      "kl": 0.04758897051215172
+    },
+    {
+      "update": 14,
+      "actions": 14336,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 2272,
+      "actor_loss": -0.014839730225503445,
+      "critic_loss": 0.5310668349266052,
+      "bounds_loss": 28.391569137573242,
+      "entropy": 22.43447494506836,
+      "kl": 0.027611766010522842
+    },
+    {
+      "update": 15,
+      "actions": 15360,
+      "learning_rate": 0.0014814814814814818,
+      "completed_episodes": 2422,
+      "actor_loss": -0.008101756684482098,
+      "critic_loss": 0.49397116899490356,
+      "bounds_loss": 27.649343490600586,
+      "entropy": 22.417585372924805,
+      "kl": 0.024607708677649498
+    },
+    {
+      "update": 16,
+      "actions": 16384,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 2580,
+      "actor_loss": -0.0241662859916687,
+      "critic_loss": 0.41939231753349304,
+      "bounds_loss": 28.484115600585938,
+      "entropy": 22.38494873046875,
+      "kl": 0.03246266394853592
+    },
+    {
+      "update": 17,
+      "actions": 17408,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 2717,
+      "actor_loss": -0.026522034779191017,
+      "critic_loss": 0.453118234872818,
+      "bounds_loss": 29.7689208984375,
+      "entropy": 22.35256576538086,
+      "kl": 0.02835935913026333
+    },
+    {
+      "update": 18,
+      "actions": 18432,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 2858,
+      "actor_loss": -0.022664306685328484,
+      "critic_loss": 0.49659690260887146,
+      "bounds_loss": 28.434295654296875,
+      "entropy": 22.315866470336914,
+      "kl": 0.027117585763335228
+    },
+    {
+      "update": 19,
+      "actions": 19456,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3003,
+      "actor_loss": -0.027552595362067223,
+      "critic_loss": 0.4020167291164398,
+      "bounds_loss": 28.961383819580078,
+      "entropy": 22.269906997680664,
+      "kl": 0.02582531049847603
+    },
+    {
+      "update": 20,
+      "actions": 20480,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3132,
+      "actor_loss": -0.026941955089569092,
+      "critic_loss": 0.44781064987182617,
+      "bounds_loss": 30.86492919921875,
+      "entropy": 22.232248306274414,
+      "kl": 0.025708859786391258
+    },
+    {
+      "update": 21,
+      "actions": 21504,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3278,
+      "actor_loss": -0.015821952372789383,
+      "critic_loss": 0.4311056137084961,
+      "bounds_loss": 31.888715744018555,
+      "entropy": 22.22707176208496,
+      "kl": 0.026916146278381348
+    },
+    {
+      "update": 22,
+      "actions": 22528,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3405,
+      "actor_loss": -0.019604122266173363,
+      "critic_loss": 0.4984070956707001,
+      "bounds_loss": 31.531314849853516,
+      "entropy": 22.21207618713379,
+      "kl": 0.025237515568733215
+    },
+    {
+      "update": 23,
+      "actions": 23552,
+      "learning_rate": 0.0014814814814814818,
+      "completed_episodes": 3532,
+      "actor_loss": -0.01548891980201006,
+      "critic_loss": 0.5828519463539124,
+      "bounds_loss": 31.23223304748535,
+      "entropy": 22.18263816833496,
+      "kl": 0.025800565257668495
+    },
+    {
+      "update": 24,
+      "actions": 24576,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3663,
+      "actor_loss": -0.015972694382071495,
+      "critic_loss": 0.5096480846405029,
+      "bounds_loss": 31.25786781311035,
+      "entropy": 22.154142379760742,
+      "kl": 0.032225847244262695
+    },
+    {
+      "update": 25,
+      "actions": 25600,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3787,
+      "actor_loss": -0.011585788801312447,
+      "critic_loss": 0.8422020077705383,
+      "bounds_loss": 32.397361755371094,
+      "entropy": 22.13642692565918,
+      "kl": 0.029181113466620445
+    },
+    {
+      "update": 26,
+      "actions": 26624,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 3897,
+      "actor_loss": 0.002044117543846369,
+      "critic_loss": 0.5406737327575684,
+      "bounds_loss": 32.02389144897461,
+      "entropy": 22.1160888671875,
+      "kl": 0.028363948687911034
+    },
+    {
+      "update": 27,
+      "actions": 27648,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4037,
+      "actor_loss": -0.012557166628539562,
+      "critic_loss": 0.47326740622520447,
+      "bounds_loss": 33.396663665771484,
+      "entropy": 22.101186752319336,
+      "kl": 0.03747008368372917
+    },
+    {
+      "update": 28,
+      "actions": 28672,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 4148,
+      "actor_loss": -0.020154481753706932,
+      "critic_loss": 0.4716126620769501,
+      "bounds_loss": 33.30731964111328,
+      "entropy": 22.088773727416992,
+      "kl": 0.030971979722380638
+    },
+    {
+      "update": 29,
+      "actions": 29696,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4277,
+      "actor_loss": -0.03148564323782921,
+      "critic_loss": 0.415592759847641,
+      "bounds_loss": 34.93785095214844,
+      "entropy": 22.071149826049805,
+      "kl": 0.022077089175581932
+    },
+    {
+      "update": 30,
+      "actions": 30720,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 4385,
+      "actor_loss": -0.016433877870440483,
+      "critic_loss": 0.4216589629650116,
+      "bounds_loss": 35.3346061706543,
+      "entropy": 22.031875610351562,
+      "kl": 0.025060290470719337
+    },
+    {
+      "update": 31,
+      "actions": 31744,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4520,
+      "actor_loss": -0.022018777206540108,
+      "critic_loss": 0.4847920536994934,
+      "bounds_loss": 35.92760467529297,
+      "entropy": 22.005401611328125,
+      "kl": 0.0243865717202425
+    },
+    {
+      "update": 32,
+      "actions": 32768,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 4648,
+      "actor_loss": -0.018439292907714844,
+      "critic_loss": 0.46377286314964294,
+      "bounds_loss": 36.05178451538086,
+      "entropy": 21.983686447143555,
+      "kl": 0.029855389147996902
+    },
+    {
+      "update": 33,
+      "actions": 33792,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4756,
+      "actor_loss": -0.030160069465637207,
+      "critic_loss": 0.44184818863868713,
+      "bounds_loss": 36.92097473144531,
+      "entropy": 21.96514320373535,
+      "kl": 0.01968919113278389
+    },
+    {
+      "update": 34,
+      "actions": 34816,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4881,
+      "actor_loss": -0.025972215458750725,
+      "critic_loss": 0.4368908405303955,
+      "bounds_loss": 36.9172477722168,
+      "entropy": 21.943450927734375,
+      "kl": 0.02786119282245636
+    },
+    {
+      "update": 35,
+      "actions": 35840,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 4998,
+      "actor_loss": -0.01892017386853695,
+      "critic_loss": 0.44046497344970703,
+      "bounds_loss": 35.61375045776367,
+      "entropy": 21.93604850769043,
+      "kl": 0.02991390787065029
+    },
+    {
+      "update": 36,
+      "actions": 36864,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 5124,
+      "actor_loss": -0.014484005980193615,
+      "critic_loss": 0.5681613087654114,
+      "bounds_loss": 37.08561325073242,
+      "entropy": 21.93006706237793,
+      "kl": 0.03139026090502739
+    },
+    {
+      "update": 37,
+      "actions": 37888,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 5229,
+      "actor_loss": -0.028859097510576248,
+      "critic_loss": 0.4403260350227356,
+      "bounds_loss": 36.953765869140625,
+      "entropy": 21.91371726989746,
+      "kl": 0.01997835747897625
+    },
+    {
+      "update": 38,
+      "actions": 38912,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 5348,
+      "actor_loss": -0.02113586664199829,
+      "critic_loss": 0.38637593388557434,
+      "bounds_loss": 37.4840202331543,
+      "entropy": 21.89284324645996,
+      "kl": 0.025142623111605644
+    },
+    {
+      "update": 39,
+      "actions": 39936,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 5462,
+      "actor_loss": -0.02990848384797573,
+      "critic_loss": 0.4243033528327942,
+      "bounds_loss": 36.93227767944336,
+      "entropy": 21.886716842651367,
+      "kl": 0.025153085589408875
+    },
+    {
+      "update": 40,
+      "actions": 40960,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 5565,
+      "actor_loss": -0.01931268721818924,
+      "critic_loss": 0.5224441885948181,
+      "bounds_loss": 37.605323791503906,
+      "entropy": 21.884910583496094,
+      "kl": 0.028354747220873833
+    },
+    {
+      "update": 41,
+      "actions": 41984,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 5687,
+      "actor_loss": -0.02099098637700081,
+      "critic_loss": 0.40540847182273865,
+      "bounds_loss": 38.59550476074219,
+      "entropy": 21.87616539001465,
+      "kl": 0.033082958310842514
+    },
+    {
+      "update": 42,
+      "actions": 43008,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 5810,
+      "actor_loss": -0.02002848871052265,
+      "critic_loss": 0.4456598460674286,
+      "bounds_loss": 39.08536911010742,
+      "entropy": 21.867572784423828,
+      "kl": 0.02594079077243805
+    },
+    {
+      "update": 43,
+      "actions": 44032,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 5932,
+      "actor_loss": -0.022214194759726524,
+      "critic_loss": 0.45108547806739807,
+      "bounds_loss": 38.88480758666992,
+      "entropy": 21.852083206176758,
+      "kl": 0.03464836999773979
+    },
+    {
+      "update": 44,
+      "actions": 45056,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6054,
+      "actor_loss": -0.02238476648926735,
+      "critic_loss": 0.5459707379341125,
+      "bounds_loss": 39.49585723876953,
+      "entropy": 21.833091735839844,
+      "kl": 0.021065790206193924
+    },
+    {
+      "update": 45,
+      "actions": 46080,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 6170,
+      "actor_loss": -0.02303917147219181,
+      "critic_loss": 0.45014140009880066,
+      "bounds_loss": 39.92573165893555,
+      "entropy": 21.817785263061523,
+      "kl": 0.029189348220825195
+    },
+    {
+      "update": 46,
+      "actions": 47104,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6287,
+      "actor_loss": -0.022664619609713554,
+      "critic_loss": 0.4704110622406006,
+      "bounds_loss": 41.14741897583008,
+      "entropy": 21.810379028320312,
+      "kl": 0.021945446729660034
+    },
+    {
+      "update": 47,
+      "actions": 48128,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6404,
+      "actor_loss": -0.026918981224298477,
+      "critic_loss": 0.334398090839386,
+      "bounds_loss": 43.23670959472656,
+      "entropy": 21.80406951904297,
+      "kl": 0.03062891960144043
+    },
+    {
+      "update": 48,
+      "actions": 49152,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 6521,
+      "actor_loss": -0.02466036193072796,
+      "critic_loss": 0.3086104094982147,
+      "bounds_loss": 42.19900131225586,
+      "entropy": 21.793378829956055,
+      "kl": 0.03051779977977276
+    },
+    {
+      "update": 49,
+      "actions": 50176,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6622,
+      "actor_loss": -0.020769987255334854,
+      "critic_loss": 0.4757385849952698,
+      "bounds_loss": 39.90806198120117,
+      "entropy": 21.805511474609375,
+      "kl": 0.01849690079689026
+    },
+    {
+      "update": 50,
+      "actions": 51200,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6726,
+      "actor_loss": -0.020948776975274086,
+      "critic_loss": 0.5155928730964661,
+      "bounds_loss": 41.01875686645508,
+      "entropy": 21.8232479095459,
+      "kl": 0.026038846001029015
+    },
+    {
+      "update": 51,
+      "actions": 52224,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 6834,
+      "actor_loss": -0.0284900963306427,
+      "critic_loss": 0.3554660975933075,
+      "bounds_loss": 42.03972244262695,
+      "entropy": 21.82220458984375,
+      "kl": 0.03327128291130066
+    },
+    {
+      "update": 52,
+      "actions": 53248,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 6949,
+      "actor_loss": -0.020094459876418114,
+      "critic_loss": 0.5019590258598328,
+      "bounds_loss": 42.472816467285156,
+      "entropy": 21.811304092407227,
+      "kl": 0.02316390350461006
+    },
+    {
+      "update": 53,
+      "actions": 54272,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 7066,
+      "actor_loss": -0.020046669989824295,
+      "critic_loss": 0.49777403473854065,
+      "bounds_loss": 43.35688018798828,
+      "entropy": 21.800846099853516,
+      "kl": 0.031831301748752594
+    },
+    {
+      "update": 54,
+      "actions": 55296,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 7196,
+      "actor_loss": -0.031338825821876526,
+      "critic_loss": 0.3852527141571045,
+      "bounds_loss": 45.24605178833008,
+      "entropy": 21.793668746948242,
+      "kl": 0.020752636715769768
+    },
+    {
+      "update": 55,
+      "actions": 56320,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 7305,
+      "actor_loss": -0.024086447432637215,
+      "critic_loss": 0.3424115478992462,
+      "bounds_loss": 45.77783203125,
+      "entropy": 21.78449821472168,
+      "kl": 0.026078561320900917
+    },
+    {
+      "update": 56,
+      "actions": 57344,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 7421,
+      "actor_loss": -0.0023611620999872684,
+      "critic_loss": 0.2943602502346039,
+      "bounds_loss": 46.21623229980469,
+      "entropy": 21.780725479125977,
+      "kl": 0.021278439089655876
+    },
+    {
+      "update": 57,
+      "actions": 58368,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 7529,
+      "actor_loss": -0.03157093748450279,
+      "critic_loss": 0.3255683481693268,
+      "bounds_loss": 45.12611770629883,
+      "entropy": 21.78016471862793,
+      "kl": 0.03230686113238335
+    },
+    {
+      "update": 58,
+      "actions": 59392,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 7643,
+      "actor_loss": -0.02314777486026287,
+      "critic_loss": 0.3808664083480835,
+      "bounds_loss": 44.58940887451172,
+      "entropy": 21.787952423095703,
+      "kl": 0.024625582620501518
+    },
+    {
+      "update": 59,
+      "actions": 60416,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 7750,
+      "actor_loss": -0.030309034511446953,
+      "critic_loss": 0.3763275444507599,
+      "bounds_loss": 46.04011535644531,
+      "entropy": 21.794780731201172,
+      "kl": 0.027898207306861877
+    },
+    {
+      "update": 60,
+      "actions": 61440,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 7869,
+      "actor_loss": -0.023944664746522903,
+      "critic_loss": 0.35364434123039246,
+      "bounds_loss": 47.182891845703125,
+      "entropy": 21.79465675354004,
+      "kl": 0.02776305191218853
+    },
+    {
+      "update": 61,
+      "actions": 62464,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 7979,
+      "actor_loss": -0.009644187055528164,
+      "critic_loss": 0.39769792556762695,
+      "bounds_loss": 47.519283294677734,
+      "entropy": 21.79673194885254,
+      "kl": 0.026426805183291435
+    },
+    {
+      "update": 62,
+      "actions": 63488,
+      "learning_rate": 0.0009876543209876546,
+      "completed_episodes": 8109,
+      "actor_loss": -0.032136186957359314,
+      "critic_loss": 0.4327438771724701,
+      "bounds_loss": 48.2392578125,
+      "entropy": 21.798507690429688,
+      "kl": 0.021670907735824585
+    },
+    {
+      "update": 63,
+      "actions": 64512,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 8222,
+      "actor_loss": -0.02941911853849888,
+      "critic_loss": 0.3616655170917511,
+      "bounds_loss": 45.674827575683594,
+      "entropy": 21.801794052124023,
+      "kl": 0.033002819865942
+    },
+    {
+      "update": 64,
+      "actions": 65536,
+      "learning_rate": 0.0006584362139917697,
+      "completed_episodes": 8319,
+      "actor_loss": -0.018944762647151947,
+      "critic_loss": 0.36635157465934753,
+      "bounds_loss": 44.42539978027344,
+      "entropy": 21.798437118530273,
+      "kl": 0.023125333711504936
+    }
+  ],
+  "actions_executed": 65536,
+  "physics_steps": 6553600,
+  "stop_reason": "update budget",
+  "full_hora_reproduction": false,
+  "benchmark_validated": false,
+  "domain_randomization": false,
+  "cache_path": "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+  "cache_size": 28,
+  "sources": [
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "747577a6bbfd86bc771f83b6f903e562cf04160268cd269f5562993e92013f46"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "37199a0bf82e6d73bcc0630576e6a8ef39a22fbc919490291791973731e7652b"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "50c5cef5d5257b21b59793549b7257e3c753f59c1b29275f3e3bf4b32e5862eb"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "256784c2df6e3103b6c0ea7bf88651df8ac12edaf3afc7de1ff18d8322bb2cd9"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "e78d833207a33bcf7cde303b9d4e17b22e008cec4d60970463b13e0163eb69e9"
+    },
+    {
+      "path": "docs/experiments/2026-10-08-boya-hora-cache28-128/PROTOCOL.md",
+      "sha256": "8a3e0bcc2a6bc038ad6c4ac557a84ab363d33c84804b25d22b19a25fbb370271"
+    }
+  ],
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca",
+  "status": "completed",
+  "wall_s": 635.9792329198681,
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "filter_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "thproximal",
+    "thmiddle",
+    "thdistal",
+    "ffbase",
+    "ffproximal",
+    "ffmiddle",
+    "ffdistal",
+    "mfbase",
+    "mfproximal",
+    "mfmiddle",
+    "mfdistal",
+    "rfbase",
+    "rfproximal",
+    "rfmiddle",
+    "rfdistal",
+    "lfbase",
+    "lfproximal",
+    "lfmiddle",
+    "lfdistal"
+  ],
+  "reason_codes": [
+    "active",
+    "nonfinite",
+    "drift >5mm",
+    "tilt >15deg",
+    "speed >100rad/s",
+    "link normal >12N",
+    "mimic error >.05rad",
+    "episode time limit"
+  ],
+  "origins": [
+    [
+      5.5,
+      -5.0,
+      0.0
+    ],
+    [
+      5.5,
+      -4.0,
+      0.0
+    ],
+    [
+      5.5,
+      -3.0,
+      0.0
+    ],
+    [
+      5.5,
+      -2.0,
+      0.0
+    ],
+    [
+      5.5,
+      -1.0,
+      0.0
+    ],
+    [
+      5.5,
+      0.0,
+      0.0
+    ],
+    [
+      5.5,
+      1.0,
+      0.0
+    ],
+    [
+      5.5,
+      2.0,
+      0.0
+    ],
+    [
+      5.5,
+      3.0,
+      0.0
+    ],
+    [
+      5.5,
+      4.0,
+      0.0
+    ],
+    [
+      5.5,
+      5.0,
+      0.0
+    ],
+    [
+      4.5,
+      -5.0,
+      0.0
+    ],
+    [
+      4.5,
+      -4.0,
+      0.0
+    ],
+    [
+      4.5,
+      -3.0,
+      0.0
+    ],
+    [
+      4.5,
+      -2.0,
+      0.0
+    ],
+    [
+      4.5,
+      -1.0,
+      0.0
+    ],
+    [
+      4.5,
+      0.0,
+      0.0
+    ],
+    [
+      4.5,
+      1.0,
+      0.0
+    ],
+    [
+      4.5,
+      2.0,
+      0.0
+    ],
+    [
+      4.5,
+      3.0,
+      0.0
+    ],
+    [
+      4.5,
+      4.0,
+      0.0
+    ],
+    [
+      4.5,
+      5.0,
+      0.0
+    ],
+    [
+      3.5,
+      -5.0,
+      0.0
+    ],
+    [
+      3.5,
+      -4.0,
+      0.0
+    ],
+    [
+      3.5,
+      -3.0,
+      0.0
+    ],
+    [
+      3.5,
+      -2.0,
+      0.0
+    ],
+    [
+      3.5,
+      -1.0,
+      0.0
+    ],
+    [
+      3.5,
+      0.0,
+      0.0
+    ],
+    [
+      3.5,
+      1.0,
+      0.0
+    ],
+    [
+      3.5,
+      2.0,
+      0.0
+    ],
+    [
+      3.5,
+      3.0,
+      0.0
+    ],
+    [
+      3.5,
+      4.0,
+      0.0
+    ],
+    [
+      3.5,
+      5.0,
+      0.0
+    ],
+    [
+      2.5,
+      -5.0,
+      0.0
+    ],
+    [
+      2.5,
+      -4.0,
+      0.0
+    ],
+    [
+      2.5,
+      -3.0,
+      0.0
+    ],
+    [
+      2.5,
+      -2.0,
+      0.0
+    ],
+    [
+      2.5,
+      -1.0,
+      0.0
+    ],
+    [
+      2.5,
+      0.0,
+      0.0
+    ],
+    [
+      2.5,
+      1.0,
+      0.0
+    ],
+    [
+      2.5,
+      2.0,
+      0.0
+    ],
+    [
+      2.5,
+      3.0,
+      0.0
+    ],
+    [
+      2.5,
+      4.0,
+      0.0
+    ],
+    [
+      2.5,
+      5.0,
+      0.0
+    ],
+    [
+      1.5,
+      -5.0,
+      0.0
+    ],
+    [
+      1.5,
+      -4.0,
+      0.0
+    ],
+    [
+      1.5,
+      -3.0,
+      0.0
+    ],
+    [
+      1.5,
+      -2.0,
+      0.0
+    ],
+    [
+      1.5,
+      -1.0,
+      0.0
+    ],
+    [
+      1.5,
+      0.0,
+      0.0
+    ],
+    [
+      1.5,
+      1.0,
+      0.0
+    ],
+    [
+      1.5,
+      2.0,
+      0.0
+    ],
+    [
+      1.5,
+      3.0,
+      0.0
+    ],
+    [
+      1.5,
+      4.0,
+      0.0
+    ],
+    [
+      1.5,
+      5.0,
+      0.0
+    ],
+    [
+      0.5,
+      -5.0,
+      0.0
+    ],
+    [
+      0.5,
+      -4.0,
+      0.0
+    ],
+    [
+      0.5,
+      -3.0,
+      0.0
+    ],
+    [
+      0.5,
+      -2.0,
+      0.0
+    ],
+    [
+      0.5,
+      -1.0,
+      0.0
+    ],
+    [
+      0.5,
+      0.0,
+      0.0
+    ],
+    [
+      0.5,
+      1.0,
+      0.0
+    ],
+    [
+      0.5,
+      2.0,
+      0.0
+    ],
+    [
+      0.5,
+      3.0,
+      0.0
+    ],
+    [
+      0.5,
+      4.0,
+      0.0
+    ],
+    [
+      0.5,
+      5.0,
+      0.0
+    ],
+    [
+      -0.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -0.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -0.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -0.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -0.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    [
+      -0.5,
+      1.0,
+      0.0
+    ],
+    [
+      -0.5,
+      2.0,
+      0.0
+    ],
+    [
+      -0.5,
+      3.0,
+      0.0
+    ],
+    [
+      -0.5,
+      4.0,
+      0.0
+    ],
+    [
+      -0.5,
+      5.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -1.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -1.5,
+      0.0,
+      0.0
+    ],
+    [
+      -1.5,
+      1.0,
+      0.0
+    ],
+    [
+      -1.5,
+      2.0,
+      0.0
+    ],
+    [
+      -1.5,
+      3.0,
+      0.0
+    ],
+    [
+      -1.5,
+      4.0,
+      0.0
+    ],
+    [
+      -1.5,
+      5.0,
+      0.0
+    ],
+    [
+      -2.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -2.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -2.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -2.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -2.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -2.5,
+      0.0,
+      0.0
+    ],
+    [
+      -2.5,
+      1.0,
+      0.0
+    ],
+    [
+      -2.5,
+      2.0,
+      0.0
+    ],
+    [
+      -2.5,
+      3.0,
+      0.0
+    ],
+    [
+      -2.5,
+      4.0,
+      0.0
+    ],
+    [
+      -2.5,
+      5.0,
+      0.0
+    ],
+    [
+      -3.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -3.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -3.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -3.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -3.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -3.5,
+      0.0,
+      0.0
+    ],
+    [
+      -3.5,
+      1.0,
+      0.0
+    ],
+    [
+      -3.5,
+      2.0,
+      0.0
+    ],
+    [
+      -3.5,
+      3.0,
+      0.0
+    ],
+    [
+      -3.5,
+      4.0,
+      0.0
+    ],
+    [
+      -3.5,
+      5.0,
+      0.0
+    ],
+    [
+      -4.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -4.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -4.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -4.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -4.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -4.5,
+      0.0,
+      0.0
+    ],
+    [
+      -4.5,
+      1.0,
+      0.0
+    ],
+    [
+      -4.5,
+      2.0,
+      0.0
+    ],
+    [
+      -4.5,
+      3.0,
+      0.0
+    ],
+    [
+      -4.5,
+      4.0,
+      0.0
+    ],
+    [
+      -4.5,
+      5.0,
+      0.0
+    ],
+    [
+      -5.5,
+      -5.0,
+      0.0
+    ],
+    [
+      -5.5,
+      -4.0,
+      0.0
+    ],
+    [
+      -5.5,
+      -3.0,
+      0.0
+    ],
+    [
+      -5.5,
+      -2.0,
+      0.0
+    ],
+    [
+      -5.5,
+      -1.0,
+      0.0
+    ],
+    [
+      -5.5,
+      0.0,
+      0.0
+    ],
+    [
+      -5.5,
+      1.0,
+      0.0
+    ]
+  ],
+  "training_actions_per_wall_s": 104.2829758049523,
+  "episode_stop_counts": {
+    "tilt >15deg": 1805,
+    "link normal >12N": 1429,
+    "drift >5mm": 5085
+  },
+  "observed_gpu_memory_used_MiB": 3835,
+  "max_observed_gpu_memory_used_MiB": 3838,
+  "checkpoint": "outputs/boya_hora_cache28_env128_stage1/training/teacher_final.pth",
+  "checkpoint_sha256": "954972db662f9587802f2975f2523fed01fcaaad3b6a5f4fd1f1b6841a04533d",
+  "model_parameters_changed": true,
+  "active_training_episodes_at_stop": 128
+}
