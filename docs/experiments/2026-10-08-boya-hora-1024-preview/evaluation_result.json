@@ -1,0 +1,347 @@
+{
+  "controller": "frozen_hora_boya1024_preview_v1",
+  "requested_s": 5.0,
+  "physics_steps": 712,
+  "valid_steps": 711,
+  "actual_s": 0.356,
+  "valid_s": 0.3555,
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "initial_state": "original grasp44, not cache",
+  "headless": true,
+  "seed": 43,
+  "enable_cameras": true,
+  "checkpoint": "outputs/boya_hora1024_preview_v1/training/teacher_final.pth",
+  "checkpoint_sha256": "677a1fff1459549a9da3b77fd50ba1e00488a52d215d356c589e1d9e1d028412",
+  "stop_reason": "drift >5mm",
+  "training_actions_in_checkpoint": 65536,
+  "sources": [
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "4bc13f772d4bb2fa24e9401f16c37c6eeba35257a06a9261deec7ab0e74680d2"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "a191a47c158c85f0da44ce8b9b339cde99657153e3386e3c340b372640cf6577"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "50c5cef5d5257b21b59793549b7257e3c753f59c1b29275f3e3bf4b32e5862eb"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "c8fbbee66e6f82973797af64bb03a3658565cf93521f9561c1d1be46a8dca3d8"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+      "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "6c5b1696cbb59712bb69dd92867614cca60edaaf1d280dd052795df7349555c7"
+    },
+    {
+      "path": "tendonspin/rl/checkpoint.py",
+      "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+    },
+    {
+      "path": "tendonspin/rl/native_video.py",
+      "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+    },
+    {
+      "path": "tendonspin/rl/resource_guard.py",
+      "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+    },
+    {
+      "path": "scripts/guarded_boya_entry.py",
+      "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+    },
+    {
+      "path": "docs/experiments/2026-10-08-boya-hora-1024-preview/PROTOCOL.md",
+      "sha256": "b450aaf9d7c724b064a313590e424373bc4e117bc4aae37c8320bd091586cca9"
+    }
+  ],
+  "status": "completed",
+  "wall_s": 15.40643261000514,
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "filter_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "thproximal",
+    "thmiddle",
+    "thdistal",
+    "ffbase",
+    "ffproximal",
+    "ffmiddle",
+    "ffdistal",
+    "mfbase",
+    "mfproximal",
+    "mfmiddle",
+    "mfdistal",
+    "rfbase",
+    "rfproximal",
+    "rfmiddle",
+    "rfdistal",
+    "lfbase",
+    "lfproximal",
+    "lfmiddle",
+    "lfdistal"
+  ],
+  "net_deg": 24.059253073332286,
+  "metrics": {
+    "30.0": {
+      "window_s": 30.0,
+      "valid_seconds": 0.3555,
+      "complete_window_observed": false,
+      "net_deg": 24.059253073332286,
+      "peak_deg": 24.059253073332286,
+      "forward_deg": 24.059253724408336,
+      "backward_deg": 6.510760499622847e-07,
+      "net_deg_per_budget_second": 0.8019751024444095,
+      "net_deg_per_valid_second": 67.67722383497127,
+      "valid_prefix_last_tail_s": 30.0,
+      "valid_prefix_last_tail_net_deg": null,
+      "full_window_final_tail_net_deg": null,
+      "goals": [
+        {
+          "target_deg": 90.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        },
+        {
+          "target_deg": 360.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        },
+        {
+          "target_deg": 720.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        }
+      ],
+      "stalled": null,
+      "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+    },
+    "120.0": {
+      "window_s": 120.0,
+      "valid_seconds": 0.3555,
+      "complete_window_observed": false,
+      "net_deg": 24.059253073332286,
+      "peak_deg": 24.059253073332286,
+      "forward_deg": 24.059253724408336,
+      "backward_deg": 6.510760499622847e-07,
+      "net_deg_per_budget_second": 0.20049377561110238,
+      "net_deg_per_valid_second": 67.67722383497127,
+      "valid_prefix_last_tail_s": 30.0,
+      "valid_prefix_last_tail_net_deg": null,
+      "full_window_final_tail_net_deg": null,
+      "goals": [
+        {
+          "target_deg": 90.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        },
+        {
+          "target_deg": 360.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        },
+        {
+          "target_deg": 720.0,
+          "reached": false,
+          "first_sampled_time_s": null,
+          "observed_until_s": 0.3555,
+          "time_resolution_s": 0.0005
+        }
+      ],
+      "stalled": null,
+      "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+    }
+  },
+  "video": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/evaluation/isaac_native.mp4",
+    "engine": "Isaac Sim RTX native camera",
+    "encoder_exit_code": 0,
+    "fps": 20,
+    "frames": 95,
+    "duration_s": 4.75,
+    "motion_playback_speed": 0.2,
+    "initial_still_s": 1,
+    "terminal_still_s": 2,
+    "physics_sample_times": [
+      {
+        "physics_s": 0.0,
+        "valid_net_deg": 0.0,
+        "drift_mm": 0.0,
+        "repeated_frames": 20,
+        "phase": "\u521d\u59cb\u72b6\u6001\u5b9a\u683c"
+      },
+      {
+        "physics_s": 0.05,
+        "valid_net_deg": 3.3112333258962394,
+        "drift_mm": 0.7590430974960327,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.1,
+        "valid_net_deg": 7.495571586338258,
+        "drift_mm": 1.7569085359573364,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.15,
+        "valid_net_deg": 11.14308396637199,
+        "drift_mm": 2.4505512714385986,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.2,
+        "valid_net_deg": 14.55827917441485,
+        "drift_mm": 3.1340949535369873,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.25,
+        "valid_net_deg": 17.741141966578937,
+        "drift_mm": 3.8157639503479004,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.3,
+        "valid_net_deg": 20.825035831925845,
+        "drift_mm": 4.446067810058594,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.35000000000000003,
+        "valid_net_deg": 23.72293248496709,
+        "drift_mm": 4.947320461273193,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.356,
+        "valid_net_deg": 24.059253073332286,
+        "drift_mm": 5.002784252166748,
+        "repeated_frames": 40,
+        "phase": "\u7ec8\u6b62\u72b6\u6001\u5b9a\u683c"
+      }
+    ],
+    "interpolated": false
+  },
+  "physics_trace_chunks": 1
+}

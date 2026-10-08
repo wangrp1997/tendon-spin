@@ -14,6 +14,7 @@ parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--checkpoint',type=Path,required=True)
 parser.add_argument('--cache',type=Path,required=True,help='Task construction only; evaluation never calls cache reset')
 parser.add_argument('--source-record',type=Path,required=True)
+parser.add_argument('--video',action='store_true',help='Record actual evaluation with an Isaac RTX camera')
 parser.add_argument('--seconds',type=float,default=120.)
 parser.add_argument('--wall-s',type=float,default=1500.)
 args=parser.parse_args()
@@ -23,7 +24,7 @@ started=time.monotonic()
 record=dict(controller='frozen_hora_boya_cache28_teacher_v2',requested_s=args.seconds,
     physics_steps=0,valid_steps=0,actual_s=0.,valid_s=0.,episode_resets=0,
     controller_switches=0,training_actions=0,benchmark_validated=False,
-    initial_state='original grasp44, not cache',headless=True,seed=43,
+    initial_state='original grasp44, not cache',headless=True,seed=43,enable_cameras=args.video,
     checkpoint=str(args.checkpoint),checkpoint_sha256=hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
     stop_reason='time limit')
 training=json.loads(args.source_record.read_text())
@@ -42,8 +43,8 @@ def save(status):
 
 save('launching')
 from isaaclab.app import AppLauncher
-app=AppLauncher(headless=True,enable_cameras=False,device='cuda:0').app
-failed=False;env=None;frames=[];angles=[];controls=[];chunks=0
+app=AppLauncher(headless=True,enable_cameras=args.video,device='cuda:0').app
+failed=False;env=None;frames=[];angles=[];controls=[];chunks=0;video=None
 try:
     import numpy as np
     import torch
@@ -52,7 +53,10 @@ try:
     from tendonspin.baselines.reference_models import build_model,reference_module
     from tendonspin.evaluation.rotation import score_prefix
     torch.set_num_threads(4);torch.manual_seed(43);np.random.seed(43)
-    env=HoraBoyaEnv(root,out,args.cache,num_envs=1)
+    if args.video:
+        from tendonspin.rl.native_video import NativePolicyVideo
+        video=NativePolicyVideo(out,record['training_actions_in_checkpoint'])
+    env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None)
     p=env.physics
     p.reset_nominal()
     env.history[:]=env._frame(noise=False)[:,None,:]
@@ -63,6 +67,8 @@ try:
     record.update(joint_names=p.names,body_names=list(p.hand.body_names),filter_names=p.filter_names)
     initial=p.measure()
     np.savez(out/'initial_state.npz',**{k:v.cpu().numpy() for k,v in initial.items()},commands=p.adapter.commands.cpu().numpy())
+    if video:
+        video.attach(p);video.capture(0.,0.,float(initial['drift_mm'][0]),initial=True)
     prev=initial['object_state'][:,3:7].clone()
     net=0.
     planned=round(args.seconds/p.dt)
@@ -101,14 +107,20 @@ try:
             frames=[];chunks+=1
         if not valid:
             record['stop_reason']=env.reasons[code];break
+        if video and (step+1)%100==0:video.capture(record['actual_s'],net,float(m['drift_mm'][0]))
         if (step+1)%p.adapter.steps_per_control==0:
             env.history=torch.roll(env.history,-1,dims=1);env.history[:,-1]=env._frame()
         if (step+1)%20000==0:save('evaluating')
+    if video:video.capture(record['actual_s'],net,float(m['drift_mm'][0]),reason=record['stop_reason'])
     record['metrics']={str(window):score_prefix(angles,p.dt,record['valid_steps'],window_s=window) for window in (30.,120.)}
 except BaseException as error:
     failed=True;record['stop_reason']='process error'
     record['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
 finally:
+    if video is not None:
+        record['video']=video.close()
+        if record['video'] and record['video']['encoder_exit_code']:
+            failed=True;record['video_error']='ffmpeg did not complete successfully'
     if frames:
         np.savez(out/f'physics_{chunks:03d}.npz',**{k:np.asarray([f[k] for f in frames]) for k in frames[0]})
         chunks+=1

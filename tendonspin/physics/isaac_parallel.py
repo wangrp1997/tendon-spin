@@ -35,7 +35,7 @@ def axis_z(quat):
 
 
 class BoyaParallel:
-    def __init__(self, root, out, num_envs=64):
+    def __init__(self, root, out, num_envs=64, scene_setup=None):
         self.root, self.out = Path(root), Path(out)
         self.contract = finger_action_contract(json.loads((self.root/'docs/data/boya_native_contract.json').read_text()))
         c = self.contract
@@ -94,6 +94,7 @@ class BoyaParallel:
         self.hand = self.scene.articulations['hand']
         self.object = self.scene.rigid_objects['cylinder']
         self.contact = self.scene.sensors['contact']
+        if scene_setup is not None:scene_setup(self)
         self.sim.reset()
         self.origins = tensor(self.scene.env_origins)
         self.adapter = SharpaPositionAdapter(self.hand,c,self.parameters)

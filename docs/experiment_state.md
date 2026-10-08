@@ -328,3 +328,26 @@ Two synthetic tiny-child protection cases plus10policy checks passed,separate fr
 real2048data. Retain1024as preferred next size from historical581.17actions/s,
 which predates these cgroup limits. No further scan/long train/frozen-policy evaluation
 launched;no sustained-rotation claim. New status supersedes preceding pending entry.
+
+
+User approves lightweight training logs and no new resource-stop guard for1024;
+requests first10M actions with continuation,then asks to see short visualization
+BEFORE long training. [Preview protocol](experiments/2026-10-08-boya-hora-1024-preview/PROTOCOL.md):
+fresh1024×8×8=65536actions,summary-only training;unchanged physics/PPO;paired atomic
+resumable checkpoints and CPU original-PPO next-update equivalence passed. Thenone
+nativeRTX5s-window original-state frozen evaluation with fulltrace,physicalgate stop,
+0.2x labelled video. Preview pending;long10Mrun NOT launched and requires user review.
+
+
+[1024 lightweight/resumable short preview completed](experiments/2026-10-08-boya-hora-1024-preview/README.md):
+8updates/65536actions,100.520s process,800.10actions/s loop,updatebudget/exit0.
+Summary logging + checkpoints/source/TensorBoard total13.72MB,no training fulltrace;
+allphysicsgates unchanged,noresourcewatchdog/cgroup/automaticGPUstop. Fresh seed43;
+paired learner snapshots support explicit cache-reset resume,CPU original-PPO next-
+update equivalence passed. Final frozen original-state nativeRTX evaluation:
+.3560sactual/.3555svalid,+24.05925deg net,drift>5mmstop,0reset/switch,5swindowincomplete.
+Video4.75s includes labeled.2xplayback +1sinitial/2sterminalstills;not4.75s execution.
+Full evaluation traces retained. No sustained/converged/baseline/hardware claim.
+1000万 long training NOT started;latest user explicitly wants video review first.
+Future continuation from this exact final checkpoint includes65536in10002432rounded
+target;do not sum independent historical runs. This supersedes preceding previewpending.

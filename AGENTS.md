@@ -54,3 +54,12 @@ actions (TH4 + FF3 + MF3 + RF3 + LF3). Hold both wrist targets for now; keep
 the four distal mimic joints passive. Use this layout in future grasp caches,
 teacher/student and touch interfaces. Do not impose an extra small-finger lock
 or amplitude multiplier. Preserve historical13-action results as their own runs.
+
+The user now authorizes summary-only training logs: keep learning/episode statistics,
+checkpoints and provenance; reserve full physics traces for separately recorded
+policy evaluations or selected diagnostics. This supersedes full-step TRAINING
+archive requirements for the declared1024learning route. All physical termination
+checks remain. User explicitly declines the new resource watchdog/cgroup/automatic
+memory-stop mechanisms for1024training. A10M cumulative budget and resumability were
+authorized,then gated by a short native visual preview: deliver it for user review
+before launching the long run. Do not start long training before that review.

@@ -1,0 +1,23 @@
+{
+  "training_actions": 65536,
+  "completed_updates": 8,
+  "training_wall_s": 100.52014162694104,
+  "training_loop_actions_per_s": 800.0989189970777,
+  "training_output_bytes": 13720722,
+  "train_stop_reason": "update budget",
+  "actual_evaluation_s": 0.356,
+  "valid_evaluation_s": 0.3555,
+  "net_deg": 24.059253073332286,
+  "evaluation_stop_reason": "drift >5mm",
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "long10M_training_started": false,
+  "video": "outputs/boya_hora1024_preview_v1/evaluation/isaac_native.mp4",
+  "video_sha256": "c0bc53a9357c47868a9013daa3d4b78e80d9329f8dc06b9b4bd618fa5719e1df",
+  "resume_validation": {
+    "command": "PYTHONPATH=. /home/rw/miniconda3/envs/env_isaaclab/bin/python -m unittest tests.test_hora_resume -v",
+    "passed": 1,
+    "cpu_only": true,
+    "robot_physics_steps": 0
+  }
+}
