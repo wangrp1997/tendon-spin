@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_hora.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_visible_v2/evaluation",
+    "--cache",
+    "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+    "--checkpoint",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/teacher_final.pth",
+    "--source-record",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/result.json",
+    "--seconds",
+    "5.0",
+    "--wall-s",
+    "1500",
+    "--video"
+  ],
+  "training_record": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/result.json",
+  "checkpoint_sha256": "677a1fff1459549a9da3b77fd50ba1e00488a52d215d356c589e1d9e1d028412",
+  "render_override": {
+    "ISAAC_LAB_ENABLE_ISAAC_RTX_PER_ENV_SCENE_PARTITION": "0"
+  },
+  "reason": "single-env /World spectator camera otherwise cannot see partitioned env_0 geometry",
+  "scope": "this child process only; camera visibility, no physics/controller change",
+  "source_sha256": "69fde1b7f8c91d2fde2b9b9028d37b0fe5684c0e099a57abd01a6a25735fdaec",
+  "status": "completed",
+  "exit_code": 0,
+  "wall_s": 16.378760650055483
+}

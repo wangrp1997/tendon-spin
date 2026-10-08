@@ -1,0 +1,106 @@
+{
+  "motion_source": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_visible_v2/evaluation/result.json",
+  "motion_source_sha256": "746e17c635f7aae97979dad53cabd3ab1484f04848145f83b746b70dc6ed1a6a",
+  "renderer": "Isaac Sim RTX; archived measured world-body poses",
+  "new_training_actions": 0,
+  "new_physics_steps": 0,
+  "controller_reexecuted": false,
+  "interpolation": false,
+  "source_actual_s": 0.356,
+  "source_net_deg": 24.059253073332286,
+  "source_stop_reason": "drift >5mm",
+  "floor_collision": false,
+  "style": "dark slate checker floor, dome/key light, orange cylinder and painted marker",
+  "hand_asset": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "initial_state_sha256": "c4f3bb669c9a99fc0fbf718c80ebba62494282d87e61740e929cdcd8bedd9f85",
+  "trajectory_sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_visible_v2/evaluation/physics_000.npz",
+      "sha256": "f383d68b962be18fa54a0f8b5fada1cae08ed6e492a5e29dc2471c1994023edc"
+    }
+  ],
+  "max_authored_body_world_matrix_error": 4.440892098500626e-16,
+  "floor_has_collision_api": false,
+  "video": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_studio_v3/isaac_native.mp4",
+    "engine": "Isaac Sim RTX native camera",
+    "encoder_exit_code": 0,
+    "fps": 20,
+    "frames": 95,
+    "duration_s": 4.75,
+    "motion_playback_speed": 0.2,
+    "initial_still_s": 1,
+    "terminal_still_s": 2,
+    "physics_sample_times": [
+      {
+        "physics_s": 0.0,
+        "valid_net_deg": 0.0,
+        "drift_mm": 0.0,
+        "repeated_frames": 20,
+        "phase": "\u521d\u59cb\u72b6\u6001\u5b9a\u683c"
+      },
+      {
+        "physics_s": 0.05,
+        "valid_net_deg": 3.3112333258962394,
+        "drift_mm": 0.7590430974960327,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.1,
+        "valid_net_deg": 7.495571586338258,
+        "drift_mm": 1.7569085359573364,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.15,
+        "valid_net_deg": 11.14308396637199,
+        "drift_mm": 2.4505512714385986,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.2,
+        "valid_net_deg": 14.55827917441485,
+        "drift_mm": 3.1340949535369873,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.25,
+        "valid_net_deg": 17.741141966578937,
+        "drift_mm": 3.8157639503479004,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.3,
+        "valid_net_deg": 20.825035831925845,
+        "drift_mm": 4.446067810058594,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.35000000000000003,
+        "valid_net_deg": 23.72293248496709,
+        "drift_mm": 4.947320461273193,
+        "repeated_frames": 5,
+        "phase": "0.2\u500d\u901f\u6162\u653e"
+      },
+      {
+        "physics_s": 0.356,
+        "valid_net_deg": 24.059253073332286,
+        "drift_mm": 5.002784252166748,
+        "repeated_frames": 40,
+        "phase": "\u7ec8\u6b62\u72b6\u6001\u5b9a\u683c"
+      }
+    ],
+    "interpolated": false
+  },
+  "status": "completed",
+  "wall_s": 3.573609296930954
+}

@@ -1,0 +1,21 @@
+{
+  "original_video_status": "unusable white scene; retained and superseded",
+  "visible_rerecord": {
+    "actual_s": 0.356,
+    "valid_s": 0.3555,
+    "net_deg": 24.059253073332286,
+    "stop_reason": "drift >5mm",
+    "episode_resets": 0,
+    "controller_switches": 0
+  },
+  "current_video": "outputs/boya_hora1024_studio_v3/isaac_native.mp4",
+  "video_sha256": "adfb1af88147bc746542dd3b7f4149912970519f3bbcc1a17ff292c68cdd5090",
+  "studio_renderer": "native Isaac RTX",
+  "motion_source": "recorded visible_v2 Isaac/PhysX episode; direct measured body world poses",
+  "new_training_actions": 0,
+  "new_physics_steps": 0,
+  "max_body_world_matrix_error": 4.440892098500626e-16,
+  "floor_collision": false,
+  "initial_and_terminal_frames_visually_inspected": true,
+  "long_training_started": false
+}

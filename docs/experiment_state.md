@@ -351,3 +351,25 @@ Full evaluation traces retained. No sustained/converged/baseline/hardware claim.
 1000万 long training NOT started;latest user explicitly wants video review first.
 Future continuation from this exact final checkpoint includes65536in10002432rounded
 target;do not sum independent historical runs. This supersedes preceding previewpending.
+
+
+User reports white preview. Actual saved frame confirms no visible hand/cylinder;
+previous video-delivery claim is corrected: encoded successfully but visually unusable.
+Original numerical execution remains separately recorded. [Rendering correction](experiments/2026-10-08-boya-hora-1024-preview/VIDEO_FIX.md):
+RTX per-env partitioning hides env_0 geometry from external/World spectator camera.
+One single-env rerecord with documented process-only partitioning=0;original source
+hash checks and checkpoint/task/physics intact. Corrected execution/video pending;
+1000万 training remains unstarted awaiting user review. No package/global changes.
+
+
+[Video delivery corrected and restyled](experiments/2026-10-08-boya-hora-1024-preview/VIDEO_FIX.md):
+Original encodedpreview was white-only and not a usable visual result; headline/link
+explicitly corrected. Single-env RTXpartition=0 rerecord,all original source hashes
+checked,samecheckpoint/physics/task: .356sactual/.3555svalid,+24.05925deg,drift>5mm,
+0reset/switch. Separate execution preserved underboya_hora1024_preview_visible_v2.
+User then requests Sharpa-style floor/background. NativeIsaacRTX studio_v3 renders
+its archived measured world-link poses with checker referencefloor/shadows/orange
+object;floorCollisionAPI absent,0newphysics/training/nointerpolation. Viewed initial
+and terminalframes: hand/object/floor visible. New video4.75s includes explicitslowmo/
+stills,not extra execution. Previewwrapper and renderer only;physics/training sources
+untouched,existing resume contract remains compatible. Long10M still NOT launched.
