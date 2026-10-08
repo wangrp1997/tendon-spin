@@ -67,8 +67,11 @@ cache; its saved bytes match the original. Complete Hora pipeline is the priorit
 requested by the user; task/cache/randomization/teacher/student training are still
 pending, and any Boya port must retain its distinct hand/engine identity.
 
-User pauses push until the new remote is created/identified. Continue concise
-local milestone commits; original repository remains outside this work's writes.
+The initial push pause ended when the user created and identified
+https://github.com/wangrp1997/tendon-spin on2026-10-08 and explicitly requested
+pushing this learning project. Continue concise milestone commits and pushes;
+training outputs and weights remain local. Original repository remains outside
+this work's writes.
 
 [Metric literature/source follow-up](research/2026-10-08-rotation-metrics/README.md):
 8full-text sources, bounded OpenAlex/Crossref searches; arXiv broad API429/timeout

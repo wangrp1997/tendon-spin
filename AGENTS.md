@@ -28,9 +28,10 @@ commands or claim real-world success from a simulated or dry-run deployment.
 Keep large training archives, copied runtimes and weights under ignored directories.
 Commit code, self-contained model assets, source/engine identity and small evidence.
 
-The user has paused all pushes for this new repository until they create the
-remote. Continue local milestone commits. Prefer reference-code reuse over new
-implementations; add repository/project/paper and exact version attribution in
+The user created https://github.com/wangrp1997/tendon-spin and explicitly
+authorized pushing this learning repository there. Continue concise milestone
+commits and pushes to that remote. Keep training outputs and weights local.
+Prefer reference-code reuse over new implementations; add repository/project/paper and exact version attribution in
 file headers, preserve licenses and declare port changes. Hardware touch is a
 point-force array plus net3D fingertip force. Driver116 is message-array capacity,
 not a verified count of physical active taxels. Baseline virtual touch features

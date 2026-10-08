@@ -49,5 +49,7 @@ force-point grid is unnecessary for the initial teacher/student baseline.
 The hardware array is real sensing; its ROS message capacity is not a measured
 taxel count. Baseline ports and hardware student execution remain pending.
 
-Remote publication is paused by the user's2026-10-08 instruction. Keep local
-milestone commits until the user creates and identifies the new remote.
+Remote repository: [wangrp1997/tendon-spin](https://github.com/wangrp1997/tendon-spin).
+The user created this remote and authorized milestone pushes on2026-10-08.
+Training checkpoints, TensorBoard events and large raw logs remain local under
+ignored outputs/; code, packaged model assets and small evidence are versioned.
