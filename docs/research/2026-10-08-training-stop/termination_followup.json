@@ -1,0 +1,54 @@
+{
+  "sources": [
+    {
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "lines": [
+        27
+      ],
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "lines": [
+        453
+      ],
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "lines": [
+        265,
+        266
+      ],
+      "sha256": "30080047b9de39246bb5d3d5f804dcd4f5c214a746e401f68537f888453a3188"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "lines": [
+        252,
+        328
+      ],
+      "sha256": "7f51e50650bf7fbb1a1e8cb76a0b4d221aaeda2a32f43fddf8e398ce76ed170c"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "lines": [
+        126,
+        158,
+        182
+      ],
+      "sha256": "a191a47c158c85f0da44ce8b9b339cde99657153e3386e3c340b372640cf6577"
+    },
+    {
+      "path": "outputs/anyrotate-paper.txt",
+      "lines": [
+        770,
+        776
+      ],
+      "sha256": "00650073914bf83595d473dac9dd9e40e44c44aedab746b6e1521a5280c282a9"
+    }
+  ],
+  "new_numeric_graduation_rules_adopted": false,
+  "new_execution_launched": false,
+  "terminal_evidence": "../../experiments/2026-10-08-boya-hora-1024-fresh10m/terminal_evidence.json"
+}

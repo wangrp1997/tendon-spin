@@ -431,3 +431,34 @@ updates but workingMPC+OptiTrack prerequisites. Online latent/gain changes,offli
 model fitting,and online weight updates kept distinct. No validated Boya safety
 ortransfer claim;current nominal teacher unchanged. Prioritize verifying actuator
 response and real tactile supervision prerequisites before selecting a new method.
+
+
+[Teacher stopping criteria source review](research/2026-10-08-training-stop/README.md):
+Hora and official Sharpa PPO stop on agent-step caps and save best recent reward;
+no reward-value graduation branch. Hora paper reports ~500M samples (public YAML
+cap1.5B); Sharpa YAML300M. Paper evaluations use finite-window rotation andTTF/TTT,
+not universal required turns. Boya120s signed-prefix metric retained; current5mm/
+15deg/12N gates differ from reference terminations. Proposed20-rollout/18full-window
+and3-checkpoint/<5%gain heuristics are explicitly DISCUSSION ONLY,not paper thresholds
+or new active acceptance rules. Poor-performance plateau means pause/diagnose,not
+successful graduation; nominal teacher completion does not complete sim2real.
+0newphysics/training/evaluation launches;existing10M and queued single evaluation
+remain their original experiment. Source hashes and exact evidence archived.
+
+
+[Termination mismatch follow-up](research/2026-10-08-training-stop/README.md):
+User challenges reproduction mismatch; confirmed inheritedBoya5mm/15deg/12N are
+trainingdone+evaluationstop,not mere logs. Horaoriginal only objectheight/time;
+Sharpa relativeheight±20mm/time;AnyRotate keypointdistance.1/axis45deg. Currentport
+is customtermination,NOT completeHora reproduction. Proposed numeric graduation
+heuristics in preceding review are NOT adopted;priority is aligning source semantics.
+No code,threshold,trainingbudget or execution changes;historicalresults retained.
+
+[Fresh10M and queued final evaluation COMPLETED](experiments/2026-10-08-boya-hora-1024-fresh10m/README.md):
+10002432actions/1221updates,trainexit0/updatebudget. Frozenfinal originalgrasp44,
+0reset/0switch,120srequested/2.1485sactual/2.148svalid,+63.626313degnet+peak,
+1.042972degbackward;evalexit0,stoptilt>15deg. Firstinvalid tilt15.005651deg,
+drift2.559715mm,maxnormal3.683823N,finite. Customtilt-limit termination is not
+established drop or originalHora capacity limit;no execution afterstop. Noautoresume,
+DR,student or baselinesuccess claim. Small evidence saved;rawtraces+weightsignored.
+Supersedes freshRUNNING/queued-eval status;priorrecords preserved.

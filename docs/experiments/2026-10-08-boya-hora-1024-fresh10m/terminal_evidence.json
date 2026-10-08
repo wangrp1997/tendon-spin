@@ -1,0 +1,31 @@
+{
+  "source": "outputs/boya_hora1024_fresh10m_v1/evaluation/physics_002.npz",
+  "sha256": "e9933f79aa110dc9f1efc2dc560bfb3012e2bf9812b066a731affecec04d38b5",
+  "frames": [
+    {
+      "elapsed_s": 2.148,
+      "valid": true,
+      "failure_code": 0,
+      "net_angle_deg": 63.62631335013549,
+      "drift_mm": 2.5556347370147705,
+      "tilt_deg": 14.996597290039062,
+      "max_normal": 3.674482583999634,
+      "max_speed": 0.3374200165271759,
+      "coupling_error": 1.4901161193847656e-06,
+      "finite": true
+    },
+    {
+      "elapsed_s": 2.1485,
+      "valid": false,
+      "failure_code": 3,
+      "net_angle_deg": 63.62631335013549,
+      "drift_mm": 2.5597150325775146,
+      "tilt_deg": 15.005650520324707,
+      "max_normal": 3.6838226318359375,
+      "max_speed": 0.3369327783584595,
+      "coupling_error": 1.430511474609375e-06,
+      "finite": true
+    }
+  ],
+  "interpretation": "Custom tilt threshold triggered; no post-termination execution or independently established drop event."
+}
