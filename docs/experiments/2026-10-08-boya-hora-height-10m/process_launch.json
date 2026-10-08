@@ -1,0 +1,43 @@
+{
+  "stage_pid": 2433176,
+  "started_unix_s": 1791470432.2003708,
+  "stage_command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_background.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2",
+    "--total-actions",
+    "10000000",
+    "--termination-profile",
+    "hora_height",
+    "--controller",
+    "hora_boya1024_height_teacher_fresh10m_v2",
+    "--protocol",
+    "docs/experiments/2026-10-08-boya-hora-height-10m/PROTOCOL.md"
+  ],
+  "initialization": "fresh seed43; no --resume; all old outputs preserved",
+  "detached": true,
+  "source_commit": "84109c7",
+  "tensorboard_pid": 2433241,
+  "tensorboard_command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-m",
+    "tensorboard.main",
+    "--logdir_spec",
+    "hora_height_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2/training/training/stage1_tb,formal_fresh:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/training/stage1_tb,preview:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/training/stage1_tb,resume_test:/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/training/stage1_tb",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "6006",
+    "--reload_interval",
+    "10",
+    "--load_fast=false"
+  ],
+  "tensorboard_url": "http://127.0.0.1:6006",
+  "event_directories": {
+    "hora_height_fresh": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_height10m_v2/training/training/stage1_tb",
+    "formal_fresh": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/training/stage1_tb",
+    "preview": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_preview_v1/training/training/stage1_tb",
+    "resume_test": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_10m_v1/training/training/stage1_tb"
+  }
+}

@@ -474,3 +474,13 @@ Numericalfinite/speed/mimic remain. Train+evalshareexactspec;resumecontract reco
 28cache/noDR/privileged differences documented,not completeHora reproduction.
 1024freshseed43/10002432roundedactions,nooldweights;launchpending,0newGPUtests.
 Oldweights/results untouched. Newprotocol+review saved before launch.
+
+
+[Corrected height-rule fresh training RUNNING](experiments/2026-10-08-boya-hora-height-10m/README.md):
+Actualdetached launch supervisor2433176/train2433207,1024headlessenvironments,
+newzero-initseed43,nooldweights. Initialnetwork exactlymatches verifiedfreshseed43;
+checkpointprofile/lineage verified. Snapshot11updates/90112actions,738.8/s.
+Newtaskdone counts olddrift/tilt/force=0;diagnostics retained. TBactualHTTP confirms
+hora_height_fresh andoldcurves. Requested10M/rounded10002432;120s originalstate
+finaleval queuedonlyon normalbudgetcompletion. No convergence/rotationclaim.
+Code84109c7pushed;oldoutputs preserved. Supersedes preceding launchpending status.
