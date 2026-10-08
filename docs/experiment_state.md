@@ -126,3 +126,13 @@ is not evidence of a bug. Runtime coupling/damping/inertia/contact behavior need
 isolation. No further launch or parameter scan performed. Stop dependent large
 cache/PPO work pending user's choice of a bounded minimal interface diagnosis.
 3 coordinate regression tests passed; existing environment/original repos unchanged.
+
+
+[用户要求的在线核查](experiments/2026-10-08-boya-isaac-physical-v2/ONLINE_REFERENCES.md):
+0new physics. Primary PhysX5.6.1 documents drive/contact/limit/mimic competition,
+post-mimic limit/contact ordering and TGS/PGS friction differences. Actual native
+four active mimic solref=[.002,1],solimp=[.95,.995,.001,.5,2]; explicit compliance
+mapping missing from USD. This and28 named exclude gaps are concrete transfer
+issues, not proof of an isolated SDK6.1 defect or a successful repair. v2 external
+PD differs from the implicit-drive example; older issue4129 supplementary only.
+Bounded minimal mimic/damping response isolation recommended, no extra launch.

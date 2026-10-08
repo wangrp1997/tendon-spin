@@ -1,0 +1,104 @@
+{
+  "kind": "source constraint parameters/static schema audit; zero new integration",
+  "new_physics_steps": 0,
+  "source_xml": {
+    "path": "assets/grasp/scene.xml",
+    "sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e"
+  },
+  "source_constraints": [
+    {
+      "name": "mimic_FFJ1",
+      "active": true,
+      "solref": [
+        0.002,
+        1.0
+      ],
+      "solimp": [
+        0.95,
+        0.995,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "polycoef": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "mimic_MFJ1",
+      "active": true,
+      "solref": [
+        0.002,
+        1.0
+      ],
+      "solimp": [
+        0.95,
+        0.995,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "polycoef": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "mimic_RFJ1",
+      "active": true,
+      "solref": [
+        0.002,
+        1.0
+      ],
+      "solimp": [
+        0.95,
+        0.995,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "polycoef": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "mimic_LFJ1",
+      "active": true,
+      "solref": [
+        0.002,
+        1.0
+      ],
+      "solimp": [
+        0.95,
+        0.995,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "polycoef": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "installed_current_mimic_schema": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/exts/omni.usd.schema.newton/usd/schema/newton/newton_usd_schemas/generatedSchema.usda",
+    "sha256": "ef4a5494bd62e624beace159c17a1dba862fea2f644bbbe217682ecfb4ceac6f",
+    "line": 869
+  },
+  "mapping_status": "linear mimic coefficient/offset declared; native solref/solimp compliance was not explicitly forwarded or validated; actual PhysX coupling response not certified"
+}

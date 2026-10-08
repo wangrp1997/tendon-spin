@@ -1,0 +1,139 @@
+{
+  "kind": "bounded online API/issue lookup plus static source comparison",
+  "new_physics_steps": 0,
+  "retrieved_date": "2026-10-08",
+  "sources": [
+    {
+      "name": "physx_articulations",
+      "purpose": "SDK5.6.1 constraint ordering/stability; illustrative mechanism, not proof of an Isaac6.1 defect",
+      "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.6.1/docs/Articulations.html",
+      "status": 200,
+      "sha256": "c0d60a0132ba18539dc6b4dcf2b6f97252dbdf5c8d670a30db849e13ee89be27",
+      "raw_path": "outputs/isaac_interface_lookup/physx_articulations.html",
+      "retrieved_utc": "2026-10-08T05:54:45.220251+00:00"
+    },
+    {
+      "name": "physx_friction_api",
+      "purpose": "SDK friction formula; distinguish SDK/Tensor from USD degrees",
+      "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.6.1/_api_build/structPxJointFrictionParams.html",
+      "status": 200,
+      "sha256": "8d5d66c260dd155cffb2947ecb08186a040234ea6d6bb24f7a4edcca744e5132",
+      "raw_path": "outputs/isaac_interface_lookup/physx_friction_api.html",
+      "retrieved_utc": "2026-10-08T05:57:08.452362+00:00"
+    },
+    {
+      "name": "omni_joint_schema",
+      "purpose": "USD joint-axis units; no blind conversion at Tensor boundary",
+      "url": "https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/joints/physx_joint_schema.html",
+      "status": 200,
+      "sha256": "254d78d139a4f4b32c95dfed838eb4bfbca3c038321e805234df5814bbd304dd",
+      "raw_path": "outputs/isaac_interface_lookup/omni_joint_schema.html",
+      "retrieved_utc": "2026-10-08T05:57:05.690622+00:00"
+    },
+    {
+      "name": "mujoco_solver",
+      "purpose": "Native solref/solimp compliance interpretation",
+      "url": "https://mujoco.readthedocs.io/en/stable/modeling.html",
+      "status": 200,
+      "sha256": "778056885d7cf132b01d3b92fa71a865a3ba745ab112085884dfc7859d272382",
+      "raw_path": "outputs/isaac_interface_lookup/mujoco_solver.html",
+      "retrieved_utc": "2026-10-08T05:58:12.471611+00:00"
+    },
+    {
+      "name": "github_mimic_issues",
+      "purpose": "Supplementary different-robot/older-version issue search",
+      "url": "https://api.github.com/search/issues?q=repo%3Aisaac-sim%2FIsaacLab+is%3Aissue+mimic+unstable&per_page=6",
+      "status": 200,
+      "sha256": "94eaa4ee2af7ffb66d3a77a94b33949c9d891a760be8a2f21d43824b348480ba",
+      "raw_path": "outputs/isaac_interface_lookup/github_mimic_issues.json",
+      "retrieved_utc": "2026-10-08T05:55:36.155697+00:00"
+    },
+    {
+      "name": "github_damping_issues",
+      "purpose": "Supplementary4129 relates to5.0/2.2.1, not verified6.1 defect",
+      "url": "https://api.github.com/search/issues?q=repo%3Aisaac-sim%2FIsaacLab+is%3Aissue+%22viscous%22&per_page=6",
+      "status": 200,
+      "sha256": "239ee7f8ff4bcf63debfd72215764ffa64d3ff45c9aa0e81ac9af735a3bfd028",
+      "raw_path": "outputs/isaac_interface_lookup/github_damping_issues.json",
+      "retrieved_utc": "2026-10-08T05:55:34.188452+00:00"
+    },
+    {
+      "name": "github_mimic",
+      "purpose": "Broad source discovery only; no direct fix established",
+      "url": "https://api.github.com/search/issues?q=repo%3Aisaac-sim%2FIsaacLab+mimic+physx&per_page=6",
+      "status": 200,
+      "sha256": "920c85c2477f6f7728cf683531a3ac92ce169e41452d2ed8e4e262bce743dd33",
+      "raw_path": "outputs/isaac_interface_lookup/github_mimic.json",
+      "retrieved_utc": "2026-10-08T05:54:45.466095+00:00"
+    },
+    {
+      "name": "mimic_search",
+      "purpose": "Google interstitial; no substantive results, excluded",
+      "url": "https://www.google.com.hk/search?q=%22NewtonMimicAPI%22+%22PhysX%22",
+      "status": 200,
+      "sha256": "e3fde24274f95122fe3d26df992b04b33fdbc4f9bdab790b7f243d19b7fa8ff0",
+      "raw_path": "outputs/isaac_interface_lookup/mimic_search.html",
+      "retrieved_utc": "2026-10-08T05:54:49.490886+00:00"
+    },
+    {
+      "name": "damping_search",
+      "purpose": "Google interstitial; no substantive results, excluded",
+      "url": "https://www.google.com.hk/search?q=PhysX+articulation+viscous+friction+large+damping+unstable+velocity",
+      "status": 200,
+      "sha256": "f9351d7d1eb3f9ac6591c44ecb5a2a6d397f88c57d972737f8f5adb771ed9896",
+      "raw_path": "outputs/isaac_interface_lookup/damping_search.html",
+      "retrieved_utc": "2026-10-08T05:54:45.420162+00:00"
+    },
+    {
+      "name": "bing_mimic",
+      "purpose": "Irrelevant MRT content returned; excluded",
+      "url": "https://www.bing.com/search?q=%22NewtonMimicAPI%22+%22PhysX%22",
+      "status": 200,
+      "sha256": "ef3cfea7f25f89f89a9197896476f3fa59a1462308d4dccca2766a4c986f6d44",
+      "raw_path": "outputs/isaac_interface_lookup/bing_mimic.html",
+      "retrieved_utc": "2026-10-08T05:55:34.570640+00:00"
+    },
+    {
+      "name": "friction_issue_comments",
+      "purpose": "GitHub403 rate limit; comments unavailable, excluded",
+      "url": "https://api.github.com/repos/isaac-sim/IsaacLab/issues/4129/comments?per_page=30",
+      "status": 403,
+      "sha256": "345f8b022b37d1c342f8cb1df44dc251160276f622fb4993ff333d8625d914e5",
+      "raw_path": "outputs/isaac_interface_lookup/friction_issue_comments.json",
+      "retrieved_utc": "2026-10-08T05:57:11.359048+00:00"
+    },
+    {
+      "name": "tensor_friction_api",
+      "purpose": "Official page has no setter content; cannot establish Tensor units",
+      "url": "https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/extensions/runtime/source/omni.physics.tensors/docs/api/python.html",
+      "status": 200,
+      "sha256": "f2c53acb889151f90c2fca629e3994248a191c1c8e7faa9d52b0c43af22485e2",
+      "raw_path": "outputs/isaac_interface_lookup/tensor_friction_api.html",
+      "retrieved_utc": "2026-10-08T05:58:13.141384+00:00"
+    }
+  ],
+  "verified_short_quotes": [
+    {
+      "source": "physx_articulations",
+      "section": "Articulation Drive Stability",
+      "quote": "When joint drives are coupled with other hard constraints such as contacts, mimic joints or joint limits, however, the outcome is not necessarily stable."
+    },
+    {
+      "source": "physx_articulations",
+      "section": "Mimic Joints",
+      "quote": "A key feature of PhysX mimic joints is that limits and contacts are processed after mimic joints. This means that limits and contact constraints are preserved at the expense of mimic joints."
+    },
+    {
+      "source": "physx_articulations",
+      "section": "Articulation Joint Friction",
+      "quote": "In particular, joint friction may appear weaker for PxSolverType::eTGS than for PxSolverType::ePGS."
+    }
+  ],
+  "scope_limits": [
+    "SDK5.6.1 theory is not an IsaacSim6.1 bug reproduction",
+    "v2 uses external clipped PD/zero-gain forwarding, different from SDK implicit-drive example",
+    "native compliance not mapped; actual default mimic response must be measured",
+    "no single cause or repair proved by web lookup",
+    "rate-limited/irrelevant sources excluded; not an exhaustive search"
+  ]
+}
