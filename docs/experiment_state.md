@@ -144,3 +144,13 @@ terminal failure, two CAD views. Actual3ms held as10s/300frames/30fps; on-screen
 labels distinguish recorded poses from new execution. Source NPZ/model hashes
 verified, body-to-geometry roundtrip error8.66e-15.0new physics/training; no
 rotation or repaired-interface claim. Next physical diagnosis remains pending.
+
+
+[User-requested Sharpa code/asset comparison](experiments/2026-10-08-boya-isaac-physical-v2/SHARPA_COMPARISON.md):
+0new physics. Sharpa22 active joints have authored motor armature0.00012–0.0032kg·m²
+and external PD damping before actuator clipping. Boya has no explicit armature
+configuration and routes source passive damping through solver viscous friction;
+4mimic joints add a separate transfer requirement. These are concrete configuration
+differences, not isolated causal proof or a tested fix. The latest video uses
+MuJoCo CAD rendering of recorded Isaac poses, not an Isaac-native screen capture.
+User now requests no additional checks beyond the requested work.

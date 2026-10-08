@@ -42,3 +42,9 @@ changing backend, grasp/size, task criteria, observation tier or algorithm route
 Do not use controller substitutions or indefinite parameter scans to conceal a
 failure. Complete independent source/metric verification while required input is
 pending; elapsed time is not approval. SOTA requires matched executed comparisons.
+
+The user requests no extra checking passes beyond the requested work. Prioritize
+the concrete diagnosis or fix and prompt delivery; do not append optional audit,
+render-verification, or broader test work. When providing a video, state both the
+source of its motion and the renderer; recorded Isaac poses drawn with MuJoCo
+are not an Isaac-native recording.
