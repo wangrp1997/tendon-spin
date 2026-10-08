@@ -1,0 +1,50 @@
+seed: 43
+rl_device: cuda:0
+test: false
+checkpoint: null
+task:
+  env:
+    numEnvs: 64
+train:
+  seed: 43
+  algo: PPO
+  network:
+    mlp:
+      units:
+      - 512
+      - 256
+      - 128
+    priv_mlp:
+      units:
+      - 256
+      - 128
+      - 8
+  load_path: null
+  ppo:
+    output_name: debug
+    normalize_input: true
+    normalize_value: true
+    value_bootstrap: true
+    num_actors: 64
+    normalize_advantage: true
+    gamma: 0.99
+    tau: 0.95
+    learning_rate: 0.005
+    kl_threshold: 0.02
+    horizon_length: 8
+    minibatch_size: 512
+    mini_epochs: 5
+    clip_value: true
+    critic_coef: 4
+    entropy_coef: 0.0
+    e_clip: 0.2
+    bounds_loss_coef: 0.0001
+    truncate_grads: true
+    grad_norm: 1.0
+    save_best_after: 0
+    save_frequency: 500
+    max_agent_steps: 8192
+    priv_info: true
+    priv_info_dim: 9
+    priv_info_embed_dim: 8
+    proprio_adapt: false

@@ -194,3 +194,19 @@ Hora±.25rad sampling adapted with source preload and declared Boya physical gat
 Per-step raw traces and one cache state saved;0PPO actions,not rotation/baseline success.
 No complete penetration certification. Use only as limited PPO integration cache;
 large-scale training still needs broader valid reset coverage. No parameter scan.
+
+
+[Hora original-PPO Boya nominal pilot completed](experiments/2026-10-08-boya-hora-pilot/README.md):
+64envs,16updates,8192actions/819200physics steps,121.031s wall,update-budget stop.
+Original pinned PPO/ActorCritic/attribute encoder/reward reused with documented
+Boya physics/obs/action/termination and dependency-loader adaptations. All losses
+finite,model changed,final and every4-update checkpoints saved.760 exploratory
+episodes ended(drift488,tilt198,force74). Single accepted cache state;no DR/student,
+no original-state frozen evaluation,no sustained rotation/full baseline/hardware claim.
+No global installs or original-repo writes. Per-physics-step training data retained.
+
+[Cache sampling diagnosis](experiments/2026-10-08-boya-parallel-cache/sampling_diagnosis.json):
+0new physics. Force-rejection first-step quartiles are all1 (max33).26 random
+candidates meet final.1s criteria alone,which does NOT revise the1/504 full-prefix
+accepted cache. Asked user whether to separately declare.5s initialization then
+.5s strict holding in one bounded follow-up; no follow-up launched pending answer.

@@ -23,3 +23,9 @@ No full penetration certification or hardware result; benchmark_validated=false.
 Execution itself is the required integration validation; no extra test/audit pass.
 Local milestone commit only, remote not created. Next: original Hora PPO nominal pilot
 using this explicitly limited cache, then resolve cache coverage before large training.
+
+随后接通原Hora PPO并完成16次更新，见[训练阶段](../2026-10-08-boya-hora-pilot/README.md)。
+已有缓存数据诊断：400个力门槛首拒中首失败步的25/50/75分位均为第1步；
+26个随机候选仅在末.1s满足各项门槛。后者只说明初始化暂态影响筛选，
+不修改历史1/504通过数，也不证明这26个都能从缓存状态稳定重启。
+更改为初始化/正式保持两阶段筛选已询问用户，尚未执行。

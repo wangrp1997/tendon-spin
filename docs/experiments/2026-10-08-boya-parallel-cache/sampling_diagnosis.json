@@ -1,0 +1,79 @@
+{
+  "new_physics_steps": 0,
+  "accepted_cache_changed": false,
+  "force_rejected_first_step_percentiles": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    33.0
+  ],
+  "tail_only_diagnostic": [
+    {
+      "batch": 0,
+      "tail_only_candidates": [
+        10,
+        25,
+        35,
+        58
+      ]
+    },
+    {
+      "batch": 1,
+      "tail_only_candidates": [
+        26
+      ]
+    },
+    {
+      "batch": 2,
+      "tail_only_candidates": [
+        1,
+        9,
+        54,
+        56,
+        61
+      ]
+    },
+    {
+      "batch": 3,
+      "tail_only_candidates": [
+        9,
+        11,
+        15,
+        38,
+        44
+      ]
+    },
+    {
+      "batch": 4,
+      "tail_only_candidates": [
+        30,
+        43,
+        49
+      ]
+    },
+    {
+      "batch": 5,
+      "tail_only_candidates": [
+        21
+      ]
+    },
+    {
+      "batch": 6,
+      "tail_only_candidates": [
+        2,
+        4,
+        12,
+        28,
+        51
+      ]
+    },
+    {
+      "batch": 7,
+      "tail_only_candidates": [
+        30,
+        59
+      ]
+    }
+  ]
+}
