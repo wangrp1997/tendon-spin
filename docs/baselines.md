@@ -42,3 +42,6 @@ Teacher truth cannot be hidden inside a deployment result.
 Executed teacher-v2 checkpoints and all source/replay evidence are at
 [the trial record](experiments/2026-10-08-teacher-v2/README.md). Reference network
 adapters are tensor-tested only and are not added as scored baseline episodes.
+
+Original-hand paper scores, training scale and grasp generation are separately
+verified in [the evidence audit](baseline_evidence.md); they are not Boya scores.

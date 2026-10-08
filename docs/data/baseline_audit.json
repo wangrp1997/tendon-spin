@@ -1,0 +1,134 @@
+{
+  "kind": "original-paper and local-record audit; not a new execution",
+  "access_date": "2026-10-08",
+  "new_physics_steps": 0,
+  "original_papers": [
+    {
+      "name": "Hora",
+      "arxiv": "2210.04887v1",
+      "path": "outputs/references/hora.pdf",
+      "sha256": "d18d851fd7836d6195abd8e102caccd70dae5c54d206013f8aabf510c3133066",
+      "evidence": "Figure3/p6; metric definition Section4/p5; appendix A.1/p11; grasp p13-14; optimization p15",
+      "hand": "16DoF Allegro",
+      "physical_heavy_objects": {
+        "evaluation_window_s": 30,
+        "mean_rotation_rad": 23.96,
+        "std_rotation_rad": 3.16,
+        "mean_rotation_turns": 3.8133524364818125,
+        "mean_time_to_fall_normalized": 0.98,
+        "std_time_to_fall_normalized": 0.08,
+        "derived_mean_time_to_fall_s": 29.4,
+        "objects": 6,
+        "initial_grasps_per_object": 20
+      },
+      "reported_almost_perfect_continuous_objects": 22,
+      "test_objects": 33,
+      "reported_teacher_agent_steps_approx": 500000000,
+      "parallel_environments": 16384,
+      "grasp_cache_poses_per_scale": 50000,
+      "grasp_offset_uniform_rad": [
+        -0.25,
+        0.25
+      ],
+      "grasp_settle_s": 0.5,
+      "unlimited_rotation_proven": false
+    },
+    {
+      "name": "AnyRotate",
+      "arxiv": "2405.07391v3",
+      "path": "outputs/references/anyrotate.pdf",
+      "sha256": "e5adc8090f8cec5f9938282f2690e6c9869dc36f68b0035a79b24feed2ca90a2",
+      "evidence": "Section4/p6; Table2/3 p7; grasp AppendixC/p15; hyperparameters Table7/p17; stability local-optimum discussion Section3.1/p4 and5.1/p6",
+      "hand": "16DoF Allegro with tactile fingertips",
+      "palm_up_z_rotation": {
+        "evaluation_window_s": 30,
+        "mean_rotation_turns": 1.57,
+        "std_rotation_turns": 0.57,
+        "mean_time_to_terminate_s": 30,
+        "std_time_to_terminate_s": 0
+      },
+      "palm_down_z_rotation": {
+        "evaluation_window_s": 30,
+        "mean_rotation_turns": 1.33,
+        "std_rotation_turns": 0.44,
+        "mean_time_to_terminate_s": 28.2,
+        "std_time_to_terminate_s": 3.1
+      },
+      "parallel_environments": 8192,
+      "grasp_cache_poses_per_object": 10000,
+      "grasp_offset_uniform_rad": [
+        -0.3,
+        0.3
+      ],
+      "grasp_stability_test_s": 6,
+      "grasp_gravity_directions": 6,
+      "unlimited_rotation_proven": false
+    }
+  ],
+  "sharpa": {
+    "source": "local fork",
+    "commit": "5accf024d376685eaa17da7aa4614498217eab4d",
+    "evidence": "third_party/sharpa/README.md and task/ppo configuration",
+    "parallel_environments_configured": 16384,
+    "teacher_agent_step_cap_configured": 300000000,
+    "recommended_object_diameter_mm": 48,
+    "recommended_object_height_mm": 60,
+    "continuous_duration_quantitative_record_verified": false,
+    "original_paper_verified": false,
+    "configured_budgets_not_executed_results": true
+  },
+  "local_teacher_v2": {
+    "complete_reference_reproduction": false,
+    "additional_agent_steps": 262144,
+    "initialization_agent_steps": 131072,
+    "cumulative_recorded_agent_steps": 393216,
+    "parallel_environments": 8,
+    "final_valid_seconds": 120,
+    "final_net_deg": 18.397393664270062,
+    "highest_archived_initialization_net_deg": 94.62208331758943,
+    "highest_archived_initialization_valid_s": 2.506,
+    "highest_archived_initialization_reason": "position_drift",
+    "repeated_rotation_learned": false
+  },
+  "local_grasp": {
+    "source_repository": "/home/rw/Projects/botyard-inhand",
+    "source_commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+    "source_saved_state": "outputs/grasp/stable_state.npz",
+    "local_saved_state": "assets/grasp/stable_state.npz",
+    "saved_state_sha256": "7bb739a45b59ad4e965bc5fd9df86f08785e5ca132aadc7e76ab1b461e7d9229",
+    "same_bytes_as_original": true,
+    "source_plan": "assets/grasp/source_plan.json",
+    "source_plan_sha256": "7929844fd4d739fe36f6c89822629a9e42a95bdcb40d9662aab6e387170c4c11",
+    "generation_sources": [
+      {
+        "path": "grasp/generate_grasp.py",
+        "commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+        "sha256": "5b7ee8ddec05dd23d6d843c48b7791219cb3f393b1041eaf759287258376c08d",
+        "current_original_file_matches": true
+      },
+      {
+        "path": "grasp/grasp_baseline.py",
+        "commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+        "sha256": "8ea316920d3beaa8182feb51af9b3d6a8769367f24dfa034bda23f3377cdac3a",
+        "current_original_file_matches": true
+      },
+      {
+        "path": "grasp/plan.json",
+        "commit": "204d197a9606fb7266e884f3b2e6110195be01cb",
+        "sha256": "7929844fd4d739fe36f6c89822629a9e42a95bdcb40d9662aab6e387170c4c11",
+        "current_original_file_matches": true
+      }
+    ],
+    "method": "CAD contact-coordinate and static force/moment optimization, supported normal-force preload, support removal, hold then independent reload",
+    "object_diameter_mm": 40,
+    "object_height_mm": 32,
+    "object_mass_g": 50,
+    "archived_hold_s": 5.000499999998818,
+    "archived_independent_reload_s": 30,
+    "training_reset_states": 1,
+    "learned_grasp": false,
+    "continuation_optimized": false,
+    "archive_engine_not_reinterpreted_as_new_engine_hold_test": true
+  },
+  "comparison_limits": "Different hands, objects, modalities, engines and windows; original-paper numbers are not a matched ranking or Boya reproduction. Larger batching accelerates samples but is not an isolated cure for the observed stall."
+}

@@ -36,6 +36,13 @@ predeclared finite120s/positive-tail sign criterion but with only+.146616deg
 in its last30s, not proof of repeated gaits. Freeze this reward diagnostic;
 no reward/gain/candidate scan is opened. Full baseline reproduction remains next.
 
+[Archived action diagnosis](experiments/2026-10-08-teacher-v2/data/action_diagnosis.json):
+0new integration. After30s six position targets (THJ4/THJ1/FFJ4/MFJ2/RFJ4/RFJ2)
+remain at software bounds with outward actions100%; clipping removes requested
+motion. Last30s mean cumulative target/actual travel per motor .001926/.002434rad.
+These are command limits, not proof of physical hard stops. Reward reconstructed
+to1.78e−14; no isolated claim that reward or sample budget alone caused failure.
+
 [Reference reuse](reference_reuse.md): original Hora ActorCritic/embedding/
 normalizers directly loaded, Sharpa parameterized original30-frameTCN adapted
 to13-action/26-channel Boya. At original width,TCN outputs agree exactly;
@@ -49,6 +56,16 @@ AnyRotate/Sharpa, initial simulation uses contact-feature observations and does
 not need the full raw grid. Calibration, full teacher/history/tactile port,
 student training and hardware evaluation are pending. Keep nominal teacher
 truth distinct from virtual sensing and real measured student observations.
+
+[Original-paper/baseline audit](baseline_evidence.md): Hora Figure3 uses radians,
+23.96rad≈3.81turns in a30s real-world window, mean normalizedTTF.98; AnyRotate
+palm-upz1.57turns/30s. Neither proves indefinite rotation. Sharpa quantitative
+lifetime/paper is not verified. Hora reports≈500M training actions; v2 has262144
+new actions and131072 in its warm-start history. Our sole fixed grasp was CAD
+static-force optimized/preloaded/unsupported-held and reloaded, not a paper grasp
+cache; its saved bytes match the original. Complete Hora pipeline is the priority
+requested by the user; task/cache/randomization/teacher/student training are still
+pending, and any Boya port must retain its distinct hand/engine identity.
 
 User pauses push until the new remote is created/identified. Continue concise
 local milestone commits; original repository remains outside this work's writes.
