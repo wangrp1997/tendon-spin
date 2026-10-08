@@ -44,3 +44,15 @@ def load_reward():
     namespace={'torch':torch}
     exec(compile(ast.Module(body=[function],type_ignores=[]),str(path),'exec'),namespace)
     return namespace['compute_hand_reward']
+
+
+def load_termination():
+    """Extract the original height/time method without importing IsaacGym."""
+    import torch
+    path=HORA/'hora/tasks/allegro_hand_hora.py'
+    tree=ast.parse(path.read_text(),filename=str(path))
+    cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='AllegroHandHora')
+    function=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='check_termination')
+    namespace={'torch':torch}
+    exec(compile(ast.Module(body=[function],type_ignores=[]),str(path),'exec'),namespace)
+    return namespace['check_termination']

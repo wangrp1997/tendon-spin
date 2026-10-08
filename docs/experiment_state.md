@@ -462,3 +462,15 @@ drift2.559715mm,maxnormal3.683823N,finite. Customtilt-limit termination is not
 established drop or originalHora capacity limit;no execution afterstop. Noautoresume,
 DR,student or baselinesuccess claim. Small evidence saved;rawtraces+weightsignored.
 Supersedes freshRUNNING/queued-eval status;priorrecords preserved.
+
+
+[Height termination correction reviewed; fresh restart authorized](experiments/2026-10-08-boya-hora-height-10m/README.md):
+User explicitly preserves weights and authorizes correction/review/newbackground10M.
+Newhora_height profile directly extracts originalHora height/time method;translate
+canonical.65/reset.645 toBoya nominal.10606109974/reset.10106109974m,onefixedplane
+across cache resets. Heightchecked20Hz;old3D5mm/15deg/12N nowdiagnostics/shadowscores.
+Numericalfinite/speed/mimic remain. Train+evalshareexactspec;resumecontract recordsit.
+10focusedtests+compile/diffcheckpassed. OriginalPPO/reward unchanged;action/engine/
+28cache/noDR/privileged differences documented,not completeHora reproduction.
+1024freshseed43/10002432roundedactions,nooldweights;launchpending,0newGPUtests.
+Oldweights/results untouched. Newprotocol+review saved before launch.

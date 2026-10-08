@@ -21,6 +21,7 @@ parser.add_argument('--updates',type=int,default=16)
 parser.add_argument('--total-actions',type=int,help='Cumulative target, rounded up to a complete PPO rollout')
 parser.add_argument('--resume',type=Path,help='Paired learner checkpoint; simulation resets from the same cache')
 parser.add_argument('--trace-mode',choices=('full','summary'),default='full')
+parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height'),default='legacy_strict')
 parser.add_argument('--num-envs',type=int,default=64)
 parser.add_argument('--wall-s',type=float,default=240.,help='0 disables the optional wall limit')
 parser.add_argument('--seed',type=int,default=43)
@@ -59,6 +60,7 @@ files=('scripts/train_boya_hora.py','tendonspin/rl/isaac_hora.py','tendonspin/ba
        'third_party/hora/hora/tasks/allegro_hand_hora.py','third_party/hora/configs/train/AllegroHandHora.yaml',
        'tendonspin/baselines/reference_models.py','tendonspin/evaluation/rotation.py',
        'tendonspin/physics/coordinates.py','scripts/evaluate_boya_hora.py',
+       'tendonspin/rl/termination.py','third_party/hora/configs/task/AllegroHandHora.yaml',
        'tendonspin/rl/checkpoint.py','tendonspin/rl/native_video.py','tendonspin/rl/resource_guard.py','scripts/guarded_boya_entry.py',args.protocol)
 for name in files:
     source=root/name;content=source.read_bytes()
@@ -102,9 +104,12 @@ try:
         ppo=ppo_contract,network=OmegaConf.to_container(cfg.train.network,resolve=True),
         sources={x['path']:x['sha256'] for x in record['sources'] if
                  x['path'].startswith(('tendonspin/physics/','tendonspin/baselines/','third_party/')) or
-                 x['path'] in ('tendonspin/rl/isaac_hora.py','tendonspin/interfaces.py','tendonspin/evaluation/rotation.py')})
+                 x['path'] in ('tendonspin/rl/isaac_hora.py','tendonspin/rl/termination.py','tendonspin/interfaces.py','tendonspin/evaluation/rotation.py')})
     PPO=load_ppo();pulse.check('constructing scene')
-    env=HoraBoyaEnv(root,out,args.cache,args.num_envs,trace_mode=args.trace_mode);env.stop_check=pulse.check
+    env=HoraBoyaEnv(root,out,args.cache,args.num_envs,trace_mode=args.trace_mode,
+        termination_profile=args.termination_profile);env.stop_check=pulse.check
+    record['termination']=env.termination.spec.to_dict()
+    contract['termination']=record['termination']
     record.update(cache_size=len(env.cache['q']),joint_names=env.physics.names,
         body_names=list(env.physics.hand.body_names),filter_names=env.physics.filter_names,reason_codes=env.reasons)
     if args.trace_mode=='full':record['origins']=env.physics.origins.cpu().tolist()
@@ -130,7 +135,8 @@ try:
         rows=env.completed if args.trace_mode=='summary' else env.completed[processed_episodes:]
         stats=dict(count=len(rows),stop_counts=dict(Counter(row['stop_reason'] for row in rows)))
         if rows:
-            for key in ('net_deg','peak_deg','backward_deg','valid_prefix_s'):
+            for key in ('net_deg','peak_deg','backward_deg','valid_prefix_s','episode_max_drift_mm',
+                        'episode_max_tilt_deg','episode_max_normal_N','legacy_strict_net_deg','legacy_strict_valid_s'):
                 a=np.asarray([row[key] for row in rows])
                 stats[key]=dict(mean=float(a.mean()),median=float(np.median(a)),p90=float(np.quantile(a,.9)),max=float(a.max()))
         return stats

@@ -77,3 +77,13 @@ short continuation;stop and retain that run as resume_test. After verification,
 launch fresh network,normalizers,Adam,seed43 and zero counts toward10M. Keep preview,
 resume-test and formal TensorBoard runs separate. Formal later checkpoints remain
 resumable. This supersedes the preceding instruction to resume the preview forformal.
+
+
+Latest authorization after source audit: preserve all old weights and runs,correct
+inherited5mm/15deg/12N task-done to the declared translatedHora height/time rule,
+review,and launch a NEW fresh1024background10M run. This supersedes the earlier
+blanket statement that all old physical task gates remain for this new branch.
+Keep numerical checks and oldlimits as labeled diagnostics;sharedtrain/eval rule,
+separate source/configuration identity and oldstrict shadow scores. No repeat
+launch permission or new visual-review gate is needed;all other run preferences
+(noresourcewatchdog,summarylogs,checkpoints,TensorBoard,push) persist.

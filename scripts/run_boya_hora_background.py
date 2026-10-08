@@ -8,6 +8,8 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--resume',type=Path,help='Omit for a fresh learner; supply only for deliberate continuation')
 parser.add_argument('--total-actions',type=int,default=10000000)
+parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height'),default='legacy_strict')
+parser.add_argument('--controller',help='Explicit experiment/controller identity')
 parser.add_argument('--protocol',default='docs/experiments/2026-10-08-boya-hora-1024-fresh10m/PROTOCOL.md')
 args=parser.parse_args();root=Path(__file__).resolve().parents[1]
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
@@ -15,7 +17,8 @@ os.nice(10);started=time.monotonic();child=None;requested=None
 state=dict(supervisor_pid=os.getpid(),phase='starting',training=None,evaluation=None,
     process_nice=os.getpriority(os.PRIO_PROCESS,0),requested_total_actions=args.total_actions,
     resume_checkpoint=str(args.resume.resolve()) if args.resume else None,
-    initialization='resume' if args.resume else 'fresh network/normalizers/Adam/RNG seed43',automatic_resource_stop=False)
+    initialization='resume' if args.resume else 'fresh network/normalizers/Adam/RNG seed43',automatic_resource_stop=False,
+    termination_profile=args.termination_profile)
 (out/'run_boya_hora_background.py').write_bytes(Path(__file__).read_bytes())
 environment=os.environ.copy();environment.update(OMNI_KIT_ACCEPT_EULA='YES',PYTHONPATH=str(root),
     OMP_NUM_THREADS='4',MKL_NUM_THREADS='4')
@@ -46,8 +49,8 @@ try:
     run('training',[sys.executable,str(root/'scripts/train_boya_hora.py'),'--out',str(out/'training'),
         '--cache',str(cache),*(['--resume',str(args.resume.resolve())] if args.resume else []),'--total-actions',str(args.total_actions),
         '--num-envs','1024','--trace-mode','summary','--wall-s','0','--max-gpu-memory-mib','0',
-        '--save-every','16','--minibatch-size','512','--seed','43',
-        '--controller',('hora_boya1024_nominal_teacher_resume10m_v1' if args.resume else 'hora_boya1024_nominal_teacher_fresh10m_v1'),'--protocol',args.protocol])
+        '--save-every','16','--minibatch-size','512','--seed','43','--termination-profile',args.termination_profile,
+        '--controller',(args.controller or ('hora_boya1024_nominal_teacher_resume10m_v1' if args.resume else 'hora_boya1024_nominal_teacher_fresh10m_v1')),'--protocol',args.protocol])
     if requested is not None or state['training'].get('stop_reason')!='update budget':
         state['phase']='stopped';state['evaluation']='not launched after requested/non-budget stop'
     else:

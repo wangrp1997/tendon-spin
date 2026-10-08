@@ -49,6 +49,7 @@ try:
     import numpy as np
     import torch
     from tendonspin.rl.isaac_hora import HoraBoyaEnv,spin_increment
+    from tendonspin.rl.termination import legacy_failure_codes
     from tendonspin.physics.isaac_parallel import tensor
     from tendonspin.baselines.reference_models import build_model,reference_module
     from tendonspin.evaluation.rotation import score_prefix
@@ -56,7 +57,11 @@ try:
     if args.video:
         from tendonspin.rl.native_video import NativePolicyVideo
         video=NativePolicyVideo(out,record['training_actions_in_checkpoint'])
-    env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None)
+    env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None,
+        termination_profile=training.get('termination',{}).get('profile','legacy_strict'))
+    record['termination']=env.termination.spec.to_dict()
+    if 'termination' in training and record['termination']!=training['termination']:
+        raise ValueError('Evaluation termination differs from the training contract')
     p=env.physics
     p.reset_nominal()
     env.history[:]=env._frame(noise=False)[:,None,:]
@@ -70,7 +75,7 @@ try:
     if video:
         video.attach(p);video.capture(0.,0.,float(initial['drift_mm'][0]),initial=True)
     prev=initial['object_state'][:,3:7].clone()
-    net=0.
+    net=0.;legacy_steps=0;legacy_stopped=False;legacy_reason='time limit'
     planned=round(args.seconds/p.dt)
     save('evaluating frozen original-state policy')
     for step in range(planned):
@@ -84,10 +89,14 @@ try:
             p.adapter.set_action(action)
         q,v,effort=p.advance()
         m=p.measure()
-        bads=(~m['finite'],m['drift_mm']>5.,m['tilt_deg']>15.,m['max_speed']>100.,
-              m['max_normal']>12.,m['coupling_error']>.05)
-        code=next((i for i,bad in enumerate(bads,1) if bool(bad[0])),0)
+        code=int(env.termination.failure_codes(m,p.origins,
+            control_boundary=(step+1)%p.adapter.steps_per_control==0)[0])
         valid=code==0
+        legacy_code=int(legacy_failure_codes(m)[0])
+        if not legacy_stopped:
+            if legacy_code:
+                legacy_stopped=True;legacy_reason=env.reasons[legacy_code]
+            else:legacy_steps+=1
         if valid:
             net+=float(torch.rad2deg(spin_increment(prev,m['object_state'][:,3:7]))[0])
             record['valid_steps']+=1
@@ -98,7 +107,8 @@ try:
             action=action.cpu().numpy()[0].copy(),commands=p.adapter.commands.cpu().numpy()[0].copy(),
             motor_effort_requested=effort.cpu().numpy()[0].copy(),
             actuator_effort_forwarded=tensor(p.hand.actuators.applied_effort).cpu().numpy()[0].copy(),
-            valid=valid,failure_code=code,net_angle_deg=net,elapsed_s=(step+1)*p.dt)
+            valid=valid,failure_code=code,legacy_strict_code=legacy_code,
+            legacy_strict_valid=not legacy_stopped,net_angle_deg=net,elapsed_s=(step+1)*p.dt)
         frames.append(frame)
         record.update(physics_steps=step+1,actual_s=(step+1)*p.dt,
             valid_s=record['valid_steps']*p.dt,net_deg=net)
@@ -113,6 +123,11 @@ try:
         if (step+1)%20000==0:save('evaluating')
     if video:video.capture(record['actual_s'],net,float(m['drift_mm'][0]),reason=record['stop_reason'])
     record['metrics']={str(window):score_prefix(angles,p.dt,record['valid_steps'],window_s=window) for window in (30.,120.)}
+    legacy_steps=min(legacy_steps,record['valid_steps'])
+    record['legacy_strict_shadow']=dict(
+        interpretation='Offline prefix of this same execution under old rules; not a second rollout or primary score',
+        stop_reason=legacy_reason if legacy_stopped else record['stop_reason'],
+        metrics={str(window):score_prefix(angles,p.dt,legacy_steps,window_s=window) for window in (30.,120.)})
 except BaseException as error:
     failed=True;record['stop_reason']='process error'
     record['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
