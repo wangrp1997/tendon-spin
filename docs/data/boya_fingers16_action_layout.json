@@ -1,0 +1,39 @@
+{
+  "action_layout": "boya_fingers16_wrist_hold_v1",
+  "action_names": [
+    "THJ4",
+    "THJ3",
+    "THJ2",
+    "THJ1",
+    "FFJ4",
+    "FFJ3",
+    "FFJ2",
+    "MFJ4",
+    "MFJ3",
+    "MFJ2",
+    "RFJ4",
+    "RFJ3",
+    "RFJ2",
+    "LFJ4",
+    "LFJ3",
+    "LFJ2"
+  ],
+  "action_dim": 16,
+  "held_motor_names": [
+    "FAJ3",
+    "FAJ1"
+  ],
+  "passive_joint_names": [
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "proprio_frame_dim": 32,
+  "student_schema": "motor16_padforce15_action16_history20_v2",
+  "source_physical_contract": "docs/data/boya_native_contract.json",
+  "command_speed_rad_s": 0.35,
+  "control_dt": 0.05,
+  "status": "interface updated; no new physical episode or trained policy",
+  "little_finger_range": "original LFJ4/LFJ3/LFJ2 limits; no extra amplitude multiplier"
+}

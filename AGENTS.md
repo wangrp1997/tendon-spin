@@ -48,3 +48,9 @@ the concrete diagnosis or fix and prompt delivery; do not append optional audit,
 render-verification, or broader test work. When providing a video, state both the
 source of its motion and the renderer; recorded Isaac poses drawn with MuJoCo
 are not an Isaac-native recording.
+
+The user authorizes all five fingers for the learning route:16 active motor
+actions (TH4 + FF3 + MF3 + RF3 + LF3). Hold both wrist targets for now; keep
+the four distal mimic joints passive. Use this layout in future grasp caches,
+teacher/student and touch interfaces. Do not impose an extra small-finger lock
+or amplitude multiplier. Preserve historical13-action results as their own runs.

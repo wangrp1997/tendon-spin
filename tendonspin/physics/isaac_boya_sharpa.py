@@ -1,6 +1,6 @@
 # Reference: sharpa-rl-lab 5accf024d376685eaa17da7aa4614498217eab4d,
 # rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py::_apply_action (BSD-3-Clause).
-# Reuse: TendonSpin SourcePositionAdapter, original Boya13-input/18-motor interface.
+# Reuse: TendonSpin SourcePositionAdapter, named Boya finger inputs/18 motors.
 # Port: bounded external PD, declared prototype armature, passive tendon damping
 # reflected into the master motor, original named collision exclusions restored.
 """Sharpa-style motor organization for Boya; nominal simulation parameters only."""
@@ -9,8 +9,9 @@ import xml.etree.ElementTree as ET
 import torch
 from isaaclab.actuators import IdealPDActuatorCfg
 from .isaac_boya import SourcePositionAdapter
+from tendonspin.interfaces import finger_action_contract
 
-CONTROLLER = 'boya_sharpa_pd_hold_v3'
+CONTROLLER = 'boya_sharpa_fingers16_pd_v4'
 
 
 def motor_parameters(contract):
@@ -62,6 +63,7 @@ def configure_constraints(stage, root, contract):
 class SharpaPositionAdapter(SourcePositionAdapter):
     """One fixed PD implementation; zero actions hold the original position targets."""
     def __init__(self, hand, contract, parameters):
+        contract = finger_action_contract(contract)
         super().__init__(hand, contract)
         self.motor_damping = torch.tensor([parameters['damping'][a['joint']] for a in contract['actuators']],
                                           device=self.device, dtype=torch.float32)

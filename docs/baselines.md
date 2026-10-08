@@ -6,9 +6,9 @@ of superiority to the original papers. Their hand/action/observations differ.
 
 |Baseline|Available evidence/source|Boya evaluation status|Deployment comparison|
 |---|---|---|---|
-|Hora CoRL2022|arXiv2210.04887v1, downloaded v0.0.1 official source under third_party/hora|Reference only; needs13-action hand/task port and retraining|Proprioception-history extrinsics adaptation, no object truth at deployment|
+|Hora CoRL2022|arXiv2210.04887v1, downloaded v0.0.1 official source under third_party/hora|Reference only; needs16-action hand/task port and retraining|Proprioception-history extrinsics adaptation, no object truth at deployment|
 |AnyRotate CoRL2024|arXiv2405.07391v3 and official project saved under references; project source-code availability not established|Paper-defined reproduction pending; not label a generic tactile PPO as original AnyRotate|Dense tactile feature calibration/student distillation on available Boya sensing|
-|SharpaWave RL Lab|Official95ccda3d... selected snapshot separately under third_party/sharpa_upstream; user fork5accf024... under third_party/sharpa retained; three task ASTs differ|Reference only;13-action tendon-coupling/motor calibration port pending|Motor history + tactile observations and deployment command interface|
+|SharpaWave RL Lab|Official95ccda3d... selected snapshot separately under third_party/sharpa_upstream; user fork5accf024... under third_party/sharpa retained; three task ASTs differ|Reference only;16-action tendon-coupling/motor calibration port pending|Motor history + tactile observations and deployment command interface|
 |Historical Boya PPO-v1|Frozen teacher pilot imported with SHA;2.506s/94.622083deg|Historical starting reference, privileged95 features|Not deployable; no student exists|
 |TendonSpin teacher-v2|Bounded128-update reward diagnostic, explicit historical-weight initialization|u128:120s/18.397394deg; last30s−.200283deg; repeated rotation unresolved|Privileged teacher only; no trained student|
 

@@ -169,3 +169,17 @@ not single-factor causation or physical-model equivalence. Native Isaac RTX vide
 recorded during this same run. No additional tests/scans; no rotation, full baseline
 or hardware result. Complete Hora task/cache/training remains pending; additional
 full contact/penetration validation was not silently claimed. Local commit only.
+
+
+[User-authorized five-finger action layout](data/boya_fingers16_action_layout.json):
+current learning/Isaac adapter defaults now16 actions (TH4+FF3+MF3+RF3+LF3),
+wrists held,4distal mimics passive. Original LF limits/rates apply; no additional
+small-finger amplitude restriction. Hora actor/student16 outputs and32-channel
+proprioceptive frames; virtual touch5 fingers; standalone untrained deployment
+MLP schema versioned to63 features. Current runner identity=v4 fingers16,
+actions/record dimensions derived from layout; historicalv3 remains13-action5s
+hold.0new physical execution/training in this interface change. Native teacher-v2
+code/records retain their historical13-action contract.
+Focused existing reference/deployment tests:5passed with existing env_isaaclab;
+16-action student inference/history-only adaptation and five-finger measured-input
+command boundary exercised. No extra simulator launch or training run.

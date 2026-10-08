@@ -4,6 +4,7 @@ import torch
 from tendonspin.baselines.reference_models import reference_module, build_model, student_from_teacher, adaptation_loss
 from tendonspin.baselines.touch import DenseTouch
 import numpy as np
+from tendonspin.interfaces import ACTION_DIM, PROPRIO_FRAME_DIM, FINGERS
 
 
 class ReferenceTests(unittest.TestCase):
@@ -19,10 +20,10 @@ class ReferenceTests(unittest.TestCase):
         torch.manual_seed(44)
         teacher = build_model()
         student = student_from_teacher(teacher)
-        data = dict(obs=torch.randn(2, 78), priv_info=torch.randn(2, 9),
-                    proprio_hist=torch.randn(2, 30, 26))
+        data = dict(obs=torch.randn(2, 3 * PROPRIO_FRAME_DIM), priv_info=torch.randn(2, 9),
+                    proprio_hist=torch.randn(2, 30, PROPRIO_FRAME_DIM))
         with torch.no_grad():
-            self.assertEqual(tuple(student.act_inference({k:v for k,v in data.items() if k!='priv_info'}).shape), (2, 13))
+            self.assertEqual(tuple(student.act_inference({k:v for k,v in data.items() if k!='priv_info'}).shape), (2, ACTION_DIM))
         before = {k:v.clone() for k,v in student.state_dict().items()}
         optimizer = torch.optim.Adam([p for p in student.parameters() if p.requires_grad], lr=3e-4)
         loss = adaptation_loss(student, data)
@@ -34,15 +35,15 @@ class ReferenceTests(unittest.TestCase):
 
     def test_contact_masking_and_missing_pose_are_explicit(self):
         processor = DenseTouch()
-        out = processor.step(np.zeros((4,3)))
-        np.testing.assert_array_equal(out['features'],np.zeros(16))
-        force = np.zeros((4,3));force[0,2] = 1.
+        out = processor.step(np.zeros((len(FINGERS),3)))
+        np.testing.assert_array_equal(out['features'],np.zeros(4 * len(FINGERS)))
+        force = np.zeros((len(FINGERS),3));force[0,2] = 1.
         out = processor.step(force)
         self.assertEqual(out['features'][0],1.)
         self.assertFalse(out['pose_available'].any())
-        self.assertAlmostEqual(float(out['features'][12]),.3,places=6)
-        out = processor.step(np.zeros((4,3)))
-        self.assertEqual(out['features'][12],0.)
+        self.assertAlmostEqual(float(out['features'][3 * len(FINGERS)]),.3,places=6)
+        out = processor.step(np.zeros((len(FINGERS),3)))
+        self.assertEqual(out['features'][3 * len(FINGERS)],0.)
 
 
 if __name__=='__main__':unittest.main()

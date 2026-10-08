@@ -36,8 +36,15 @@ ROS header to current publish time and uses a10ms timer; acquisition timestamp,
 actual freshness, point geometry and Newton conversion are not proven by this.
 The teacher's existing95 truth features do not become deployment observations.
 
-Next complete baseline: Hora teacher/history adaptation on13 real inputs, then
+Next complete baseline: Hora teacher/history adaptation on16 finger inputs (wrist held), then
 tactile-feature comparison based on AnyRotate/Sharpa. Use native MuJoCo for
 contract verification; prefer the existing Isaac Lab for large batching after
 passive coupling, actuator control and unsupported-grasp contact transfer pass
 separate checks. Do not rewrite array physics as a prerequisite.
+
+Current user-authorized layout opens LFJ4/LFJ3/LFJ2:16 actions,32 measured-position/target
+channels per frame,30-frame Hora history,5 fingertip force channels. Reference
+model defaults and normalizers use these widths. The standalone untrained MLP
+deployment interface has its own versioned63-feature/20-frame schema; it is not
+the completed Hora adaptation policy. Historical13-action checkpoints require
+their declared old dimensions and are not automatically expanded or relabeled.

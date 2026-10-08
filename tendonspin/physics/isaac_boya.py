@@ -5,6 +5,7 @@
 from pathlib import Path
 
 from tendonspin.physics.coordinates import wxyz_to_xyzw
+from tendonspin.interfaces import action_motor_indices
 
 import torch
 import isaaclab.sim as sim_utils
@@ -80,7 +81,7 @@ def make_scene(root, contract, usd_path, *, actuator_cfg=None, before_reset=None
 
 
 class SourcePositionAdapter:
-    """13 active position inputs,18 source motors,4 passive solver-damped joints.
+    """Named finger position inputs,18 source motors,4 passive solver-damped joints.
 
     Motor effort is clipped independently. The same passive damping coefficients
     are assigned as solver-side viscous friction, avoiding explicit -D*qdot
@@ -94,12 +95,12 @@ class SourcePositionAdapter:
         self.kp=torch.tensor([a['gain'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
         self.force_limits=torch.tensor([a['force_range'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
         self.control_limits=torch.tensor([a['control_range'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
-        motor_names=[a['name'] for a in contract['actuators']]
-        self.active=torch.tensor([motor_names.index(n) for n in contract['action_names']],device=self.device)
+        self.action_names=tuple(contract['action_names'])
+        self.active=torch.tensor(action_motor_indices(contract,self.action_names),device=self.device)
         by_name={j['name']:j for j in contract['joints']}
         self.damping=torch.tensor([by_name[n]['damping'] for n in names],device=self.device,dtype=torch.float32)
         self.action_dim=len(self.active)
-        assert self.action_dim==13 and len(names)==22
+        assert self.action_dim in (13,16) and len(names)==22
         self.old=self.commands.clone();self.next=self.commands.clone()
         self.physics_dt=contract['physics_dt'];self.control_dt=contract['control_dt']
         self.steps_per_control=round(self.control_dt/self.physics_dt)
@@ -107,8 +108,8 @@ class SourcePositionAdapter:
 
     def set_action(self,action):
         action=torch.as_tensor(action,device=self.device,dtype=torch.float32)
-        if action.shape!=(1,13) or not torch.isfinite(action).all() or (action.abs()>1.).any():
-            raise ValueError('13 bounded position inputs required')
+        if action.shape!=(1,self.action_dim) or not torch.isfinite(action).all() or (action.abs()>1.).any():
+            raise ValueError(f'{self.action_dim} bounded position inputs required')
         self.old=self.commands.clone();self.next=self.old.clone();self.elapsed=0
         self.next[:,self.active]=torch.clamp(self.old[:,self.active]+action*.35*self.control_dt,
             min=self.control_limits[self.active,0],max=self.control_limits[self.active,1])

@@ -10,7 +10,7 @@ import math
 import numpy as np
 import torch
 
-from tendonspin.interfaces import ACTION_NAMES, STUDENT_SCHEMA, STUDENT_FRAME_DIM, STUDENT_HISTORY
+from tendonspin.interfaces import ACTION_NAMES, ACTION_DIM, FINGERS, STUDENT_SCHEMA, STUDENT_FRAME_DIM, STUDENT_HISTORY
 from tendonspin.rl.policy import Policy
 
 
@@ -23,8 +23,8 @@ class SensorFrame:
     previous_action: np.ndarray
 
     def features(self):
-        for name,shape in [('motor_position_rad',(13,)),('commanded_position_rad',(13,)),
-                           ('pad_force_N',(4,3)),('previous_action',(13,))]:
+        for name,shape in [('motor_position_rad',(ACTION_DIM,)),('commanded_position_rad',(ACTION_DIM,)),
+                           ('pad_force_N',(len(FINGERS),3)),('previous_action',(ACTION_DIM,))]:
             value=np.asarray(getattr(self,name))
             if value.shape!=shape or not np.isfinite(value).all():
                 raise ValueError('Invalid sensor field: '+name)
@@ -42,8 +42,8 @@ class StudentRuntime:
         self.low=np.asarray(bundle['command_low_rad'],dtype=float)
         self.high=np.asarray(bundle['command_high_rad'],dtype=float)
         self.rate=np.asarray(bundle['command_rate_rad_s'],dtype=float)
-        if any(a.shape!=(13,) for a in (self.low,self.high,self.rate)):
-            raise ValueError('13 calibrated command bounds/rates required')
+        if any(a.shape!=(ACTION_DIM,) for a in (self.low,self.high,self.rate)):
+            raise ValueError(f'{ACTION_DIM} calibrated command bounds/rates required')
         if not all(np.isfinite(a).all() for a in (self.low,self.high,self.rate)) or np.any(self.low>=self.high) or np.any(self.rate<=0):
             raise ValueError('Invalid command calibration')
         self.calibration_id=bundle['calibration_id']
@@ -51,7 +51,7 @@ class StudentRuntime:
         self.max_age=float(bundle['maximum_sensor_age_s'])
         if not self.calibration_id or self.dt<=0 or self.max_age<=0:
             raise ValueError('Timing and calibration identity required')
-        self.policy=Policy(STUDENT_FRAME_DIM*STUDENT_HISTORY,13)
+        self.policy=Policy(STUDENT_FRAME_DIM*STUDENT_HISTORY,ACTION_DIM)
         self.policy.load_state_dict(bundle['policy'])
         self.policy.eval()
         self.history=None

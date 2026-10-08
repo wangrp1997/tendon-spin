@@ -14,11 +14,12 @@ Not used by teacher-v2; this is an observation adapter, not a trained student.
 """
 from dataclasses import dataclass
 import numpy as np
+from tendonspin.interfaces import FINGERS
 
 
 @dataclass(frozen=True)
 class TouchConfig:
-    fingers: int = 4
+    fingers: int = len(FINGERS)
     force_threshold_N: float = .25
     alpha: float = .5
     force_max_N: float = 5.

@@ -1,6 +1,6 @@
 # References: Sharpa RL Lab 5accf024... external PD; TendonSpin physical-v2
 # probe/runner logging; NVIDIA Isaac Lab Camera/AppLauncher APIs (BSD-3-Clause).
-# Separate v3 controller and original-state run; native Isaac RTX images only.
+# Separate v4 five-finger controller and original-state run; native Isaac RTX images only.
 """Run the declared five-second Boya Sharpa-style holding adaptation."""
 import argparse
 import hashlib
@@ -11,6 +11,8 @@ import subprocess
 import time
 import traceback
 
+from tendonspin.interfaces import ACTION_NAMES, ACTION_LAYOUT, finger_action_contract
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--out', type=Path, required=True)
 parser.add_argument('--seconds', type=float, default=5.)
@@ -20,7 +22,8 @@ root = Path(__file__).resolve().parents[1]
 args.out = args.out.resolve()
 args.out.mkdir(parents=True, exist_ok=False)
 started = time.monotonic()
-record = dict(controller='boya_sharpa_pd_hold_v3', requested_s=args.seconds,
+record = dict(controller='boya_sharpa_fingers16_pd_v4', requested_s=args.seconds,
+              action_layout=ACTION_LAYOUT, action_names=list(ACTION_NAMES),
               physics_steps=0, actual_s=0., training_actions=0, controller_switches=0,
               episode_resets=0, benchmark_validated=False, hold_completed=False,
               rendering_engine='Isaac Sim RTX native camera' if not args.no_video else None,
@@ -40,7 +43,7 @@ def save(status):
 
 
 for name in ('tendonspin/physics/isaac_boya_sharpa.py','tendonspin/physics/isaac_boya.py',
-             'scripts/run_boya_sharpa_hold.py'):
+             'tendonspin/interfaces.py', 'scripts/run_boya_sharpa_hold.py'):
     source = root/name
     snapshot = args.out/source.name
     snapshot.write_bytes(source.read_bytes())
@@ -72,11 +75,11 @@ try:
         return dict(joint_pos=to_np(hand.data.joint_pos)[0], joint_vel=to_np(hand.data.joint_vel)[0],
                     object_state=to_np(obj.data.root_state_w)[0], body_pose=to_np(hand.data.body_link_pose_w)[0])
 
-    contract = json.loads((root/'docs/data/boya_native_contract.json').read_text())
+    contract = finger_action_contract(json.loads((root/'docs/data/boya_native_contract.json').read_text()))
     imported = json.loads((root/'docs/data/isaac_boya_import_phases.json').read_text())
     parameters = motor_parameters(contract)
     record['motor_parameters'] = parameters
-    record['contract'] = dict(path='docs/data/boya_native_contract.json',
+    record['source_physical_contract'] = dict(path='docs/data/boya_native_contract.json',
         sha256=hashlib.sha256((root/'docs/data/boya_native_contract.json').read_bytes()).hexdigest())
     record['usd'] = imported['usd']
 
@@ -147,7 +150,7 @@ try:
         if time.monotonic()-started > 260:
             record['stop_reason'] = 'wall budget'; break
         if step % adapter.steps_per_control == 0:
-            adapter.set_action(torch.zeros((1,13),device=hand.device))
+            adapter.set_action(torch.zeros((1,adapter.action_dim),device=hand.device))
         before_q = to_np(hand.data.joint_pos)[0]
         before_v = to_np(hand.data.joint_vel)[0]
         effort = to_np(adapter.apply())[0]
@@ -164,7 +167,7 @@ try:
         speed = float(np.abs(state['joint_vel']).max())
         normal = float(np.linalg.norm(force,axis=-1).max())
         state.update(joint_pos_before=before_q,joint_vel_before=before_v,
-            action=np.zeros(13), commands=to_np(adapter.commands)[0],motor_effort_requested=effort,
+            action=np.zeros(adapter.action_dim), commands=to_np(adapter.commands)[0],motor_effort_requested=effort,
             actuator_effort_forwarded=to_np(hand.actuators.applied_effort)[0],
             normal_force_matrix_w=force,friction_force_matrix_w=friction_force,
             drift_mm=drift,tilt_deg=tilt,coupling_error_rad=coupling,elapsed_s=(step+1)*cfg.dt)

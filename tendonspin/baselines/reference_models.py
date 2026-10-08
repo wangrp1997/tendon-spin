@@ -8,7 +8,7 @@ Sources:
   rl_isaaclab/algo/models/models.py; retains Hora's MIT header and Sharpa notices.
 
 Reuse: load the pinned ActorCritic and RunningMeanStd implementations directly.
-Boya adaptation: 13 actions, 26 measured-position/target channels per frame;
+Boya adaptation: 16 finger actions, 32 measured-position/target channels per frame;
 use Sharpa's parameterized version of the same 30-frame TCN for variable width.
 This module is a network port, not a complete Hora/Sharpa/AnyRotate reproduction.
 It is not used by teacher-v2, whose frozen source remains separate.
@@ -18,6 +18,8 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+
+from tendonspin.interfaces import ACTION_DIM, PROPRIO_FRAME_DIM
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCES = {
@@ -41,8 +43,10 @@ def reference_module(name):
     return module
 
 
-def build_model(*, frame_features=26, actions=13, privileged_features=9, student=False):
+def build_model(*, frame_features=None, actions=ACTION_DIM, privileged_features=9, student=False):
     """Original Hora actor/critic/embedding; width-adjusted original TCN."""
+    if frame_features is None:
+        frame_features = 2 * actions
     if frame_features <= 0 or actions <= 0 or privileged_features <= 0:
         raise ValueError('Positive channel counts required')
     model = reference_module('hora_models').ActorCritic(dict(
@@ -55,13 +59,13 @@ def build_model(*, frame_features=26, actions=13, privileged_features=9, student
     return model
 
 
-def build_normalizers(frame_features=26):
+def build_normalizers(frame_features=PROPRIO_FRAME_DIM):
     """Use Hora's observation and history normalization without reimplementation."""
     cls = reference_module('hora_normalizer').RunningMeanStd
     return cls((3 * frame_features,)), cls((30, frame_features))
 
 
-def student_from_teacher(teacher, frame_features=26, actions=13, privileged_features=9):
+def student_from_teacher(teacher, frame_features=None, actions=ACTION_DIM, privileged_features=9):
     """Hora stage two: copy/freeze the teacher; optimize only the history TCN."""
     student = build_model(frame_features=frame_features, actions=actions,
                           privileged_features=privileged_features, student=True)
