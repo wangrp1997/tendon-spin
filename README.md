@@ -17,6 +17,10 @@ Available Isaac Sim/Lab is assessed separately for GPU training; environment
 availability alone does not validate a transferred tendon-driven hand model.
 See docs/backend_decision.md, docs/baselines.md and docs/deployment.md.
 
+First completed trial: final teacher ran120s with18.397394deg net rotation;
+most progress was early and final30s reversed. Sustained rotation is unresolved.
+[Actual results/video](docs/experiments/2026-10-08-teacher-v2/README.md).
+
 Run migration verification:
 
 ```bash

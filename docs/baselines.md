@@ -10,7 +10,7 @@ of superiority to the original papers. Their hand/action/observations differ.
 |AnyRotate CoRL2024|arXiv2405.07391v3 and official project saved under references; project source-code availability not established|Paper-defined reproduction pending; not label a generic tactile PPO as original AnyRotate|Dense tactile feature calibration/student distillation on available Boya sensing|
 |SharpaWave RL Lab|Local source snapshot5accf024d376685eaa17da7aa4614498217eab4d,22DoF/PPO/proprio-adaptation/deploy source under third_party/sharpa; original license/NOTICE retained|Reference only;13-action tendon-coupling/motor calibration port pending|Motor history + tactile observations and deployment command interface|
 |Historical Boya PPO-v1|Frozen teacher pilot imported with SHA;2.506s/94.622083deg|Historical starting reference, privileged95 features|Not deployable; no student exists|
-|TendonSpin teacher-v2|New declared reward objective and explicit initialization|New independent evaluations required|Teacher only; observation-limited student separately required|
+|TendonSpin teacher-v2|Bounded128-update reward diagnostic, explicit historical-weight initialization|u128:120s/18.397394deg; last30s−.200283deg; repeated rotation unresolved|Privileged teacher only; no trained student|
 
 Sharpa is a related implementation rather than automatically a distinct published
 algorithm; its YAML explicitly includes Hora privileged-embedding settings.
@@ -38,3 +38,7 @@ identical object/initialization/time budget and separately measured rotation tru
 Compare speed/net angle, valid duration/drop rate, tactile outages, latency,
 position/axis drift and unseen material/mass effects with frozen parameters.
 Teacher truth cannot be hidden inside a deployment result.
+
+Executed teacher-v2 checkpoints and all source/replay evidence are at
+[the trial record](experiments/2026-10-08-teacher-v2/README.md). Reference network
+adapters are tensor-tested only and are not added as scored baseline episodes.

@@ -1,0 +1,56 @@
+{
+  "execution": {
+    "path": "outputs/teacher_v2/pilot_01/evaluations/update_0128/native/execution.npz",
+    "sha256": "cf6ae9af974463208b4e65ac13c8ba646246d37a0090a69604a301ecdcd8e4a6"
+  },
+  "video": "outputs/teacher_v2/pilot_01/demo_update_0128.mp4",
+  "video_sha256": "165ec6f2d48b7f9bf64a0f449b9a2fe51421ad50c256942277140a059fdd0186",
+  "rendering_only": true,
+  "physical_reexecution": false,
+  "valid_seconds": 120.0,
+  "net_deg": 18.397393664270062,
+  "terminal_still_seconds": 1.0,
+  "attribution": {
+    "checkpoint": "outputs/teacher_v2/pilot_01/checkpoints/update_0128.pt",
+    "checkpoint_sha256": "798bbb23dd0adbe65e6f78a8b1f8c4e5a72a7be50bd6f94d6f60a9e4c110d556",
+    "inference": "deterministic tanh(mean)",
+    "policy_source_sha256": "3df6619a939386e379c7946fd12a4f7b6b2ce7abffc119db7883bf759b4615cd",
+    "config": {
+      "control_dt": 0.05,
+      "command_speed_rad_s": 0.35,
+      "train_episode_s": 30.0,
+      "evaluation_s": 120.0,
+      "rotation_reward_per_rad": 5.0,
+      "reward_spin_cap_rad_s": 0.2,
+      "failure_penalty": 5.0,
+      "position_cost_per_s": 0.2,
+      "tilt_cost_per_s": 0.2,
+      "tracking_cost_per_s": 0.005,
+      "action_cost_per_s": 0.01,
+      "environments": 8,
+      "rollout_steps": 256,
+      "updates": 128,
+      "epochs": 4,
+      "minibatch": 256,
+      "learning_rate": 0.0003,
+      "gamma": 0.995,
+      "gae_lambda": 0.95,
+      "clip": 0.2,
+      "entropy_coefficient": 0.002,
+      "value_coefficient": 0.5,
+      "max_grad_norm": 0.5,
+      "target_kl": 0.03,
+      "seed": 44,
+      "train_wall_s": 1200.0
+    },
+    "controller": "tendonspin_teacher_ppo_v2"
+  },
+  "renderer_source": {
+    "path": "tendonspin/rl/video.py",
+    "sha256": "19d2eac5c8947fb8fb3810c050d1b581e89bbe2cf643c0e8e6e437b990db8318"
+  },
+  "encoded_seconds": 121.033333,
+  "encoded_frames": 3631,
+  "physical_seconds": 120.0,
+  "extra_rendered_frames": "One final valid frame plus1s terminal still; no new physics"
+}

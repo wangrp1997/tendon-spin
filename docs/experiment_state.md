@@ -21,10 +21,34 @@ Historical PPO-v1:131072 actions, final2.506s/94.622083deg, position gate
 failure with TH/FF/RF supporting;95truth features, not deployed. Historical
 scores remain under docs/history and outputs/imported, never reattributed.
 
-Teacher-v2 is ready but the formal128-update trial has not started. New factor:
-rotation reward bounded to1/s at.2rad/s, same5-point failure penalty and physical
-gates, explicitly warm-started u64 weights with new optimizer. See
-[fixed protocol](experiments/2026-10-08-teacher-v2/PROTOCOL.md).
-Hora/AnyRotate/Sharpa references are copied and source identity retained; no
-Boya port or SOTA comparison is complete. Observation-limited student training,
-randomization calibration and hardware evaluation remain pending.
+[Teacher-v2 completed](experiments/2026-10-08-teacher-v2/README.md):128
+updates/262144actions/26182209physics steps/934train episodes/1028.31s total wall,
+update-budget stop. Original-state120s evaluations: imported initialization
+2.506s/94.622083deg drift;u32 120s/14.833574deg time limit;u64
+110.804s/1.466386deg drift;u128 120s/18.397394deg time limit. Every physics
+and stored-observation inference replay error0; reset0/switch0. Original18
+source snapshots are intact. Current-file attribution comments were added only
+after completion; no reattribution to new adapters.
+
+Finalu128 last30s−.200283deg and15.774726deg already at5s indicate mostly
+holding after early motion; repeated rotation remains unresolved. u32 meets the
+predeclared finite120s/positive-tail sign criterion but with only+.146616deg
+in its last30s, not proof of repeated gaits. Freeze this reward diagnostic;
+no reward/gain/candidate scan is opened. Full baseline reproduction remains next.
+
+[Reference reuse](reference_reuse.md): original Hora ActorCritic/embedding/
+normalizers directly loaded, Sharpa parameterized original30-frameTCN adapted
+to13-action/26-channel Boya. At original width,TCN outputs agree exactly;
+student tensor check updates only the history encoder.8tests pass; these
+network/feature diagnostics are0task episodes, not trained baseline successes.
+Hora/AnyRotate/Sharpa reference identity and licenses are retained in references.
+
+User confirms point-force tactile arrays and net3D fingertip forces.116 is
+local ROS message capacity, not confirmed physical active-point count. Following
+AnyRotate/Sharpa, initial simulation uses contact-feature observations and does
+not need the full raw grid. Calibration, full teacher/history/tactile port,
+student training and hardware evaluation are pending. Keep nominal teacher
+truth distinct from virtual sensing and real measured student observations.
+
+User pauses push until the new remote is created/identified. Continue concise
+local milestone commits; original repository remains outside this work's writes.

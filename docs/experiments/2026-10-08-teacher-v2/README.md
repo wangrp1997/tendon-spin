@@ -1,9 +1,45 @@
-# Teacher-v2 status
+# Teacher-v2:保持改善，反复续转未解决
 
-Migration physics and95-feature ABI verified exactly; see ../../data/migration.json.
-Independent64-action training smoke completed with both0.5s original-state
-evaluations reaching the diagnostic time limit; replay/inference error0.
-[Small smoke evidence](../../data/smoke.json) is excluded from benchmark scoring.
-The fixed128-update reward protocol is declared; formal training pending.
-The imported94.62deg checkpoint is historical privileged motion, not a sustained
-result from this stage. All frozen formal evaluations will be retained.
+2026-10-08，独立TendonSpin仓库首轮。原40×32mm/50g/抓取44/原朝向，
+13路原kp10位置输入、腕/LF固定、被动耦合/CAD碰撞、补丁MuJoCo3.13
+native multiccd/.5ms，20Hz/.35rad/s插值；95维特权观测。原5mm/15°/12N/
+对象与自穿透1.5mm/真实承托/无外撑/数值物理界均保留，各物理步验收。
+新因素仅为封顶旋转奖励归一化；明确从历史PPO-v1 u64权重初始化，
+新优化器。没有域随机化、学生、控制器切换或更换引擎。
+
+**完成128更新/262144动作/26182209实际训练物理步/934训练episode，
+总墙钟1028.31s，按预设更新预算结束。** 每个冻结策略从同一原初态
+单独评测120s窗，失败帧保留但不计分。没有拼接角度或训练中接管。
+
+|更新|有效s|净角°|峰角°|末30s净角°|实际停止|
+|---|---:|---:|---:|---:|---|
+|0，历史权重初始化|2.506|94.622083|94.622083|—|漂移超5mm|
+|32|120.000|14.833574|15.134179|+0.146616|时间窗结束|
+|64|110.804|1.466386|14.301320|−8.246882|漂移超5mm|
+|128|120.000|18.397394|18.609004|−0.200283|时间窗结束|
+
+第128策略前5s已净15.774726°，之后115s只增2.622668°，末30s略倒转；
+安全运行满窗不等于反复旋转。第32策略符合事前弱判据“120s有效且
+末30s正净推进”，但仅+.146616°，该判据不能证明完整反复换指。
+保留它已达该有限判据的事实，不事后改变通过线；本项目目标仍未
+解决。全部倒转与峰值留表；第0行复现旧初始化行为，不当新算法提升。
+
+最终策略全有效物理界通过、reset0/switch0；每物理步ctrl/qpos/qvel/
+motor/contact metrics/flags/完整末态独立重放误差0，保存观测上的
+冻结权重推理误差0。执行前源码18文件的归档哈希再次核实；运行后
+增加的引用注释不改变已执行控制器，不与新网络适配混报。
+
+结论：奖励修正增加有效保持时长，没有学出高效反复推进；停止追加
+这版奖励/权重扫描。下一走已引用的Hora教师/本体历史适应，后续
+AnyRotate/Sharpa触觉特征与蒸馏，完整基线机制需另立协议和从头评测。
+当前自定义PPO不是原论文复现，不证明学习上限、SOTA或真机鲁棒。
+
+[固定执行前协议](PROTOCOL.md) · [完整小结果](data/pilot.json) ·
+[逐检查点表](data/evaluations.csv) · [诊断与决定](data/diagnosis.json) ·
+[最终实际120秒视频](../../../outputs/teacher_v2/pilot_01/demo_update_0128.mp4) ·
+[视频来源](data/video.json)。视频原速，额外1s停留不算物理执行。
+原始物理数组、训练日志、冻结权重和源码保留于ignored outputs。
+
+迁移诊断和64-action/.5s smoke保留于../../data，不计正式成绩。
+原历史v1/非学习记录不改；本轮没有写botyard-inhand或硬件驱动仓库。
+用户要求新项目先不push，本阶段只本地commit。
