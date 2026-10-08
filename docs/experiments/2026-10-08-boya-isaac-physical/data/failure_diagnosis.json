@@ -1,0 +1,486 @@
+{
+  "kind": "offline transfer audit; no new integration",
+  "new_physics_steps": 0,
+  "original_physical_state_verified": false,
+  "benchmark_eligible": false,
+  "source_phase": {
+    "path": "outputs/isaac_boya_physical_audit/phases_raw.json",
+    "sha256": "71d825d7885a49a34e547be624620d3cf4f4f440a570e8518f349f3794e539af"
+  },
+  "execution": {
+    "path": "outputs/isaac_boya_physical/execution.npz",
+    "sha256": "2d38f26bb7347c81b3addb660791909f7fb3ace4eb29a685a969fd8a1a1dc719"
+  },
+  "requested_controller": "boya_source_pd_hold_v1",
+  "logged_steps": 34,
+  "integration_elapsed_s": 0.017,
+  "actual_diagnostic_stop_reason": "nonfinite state",
+  "first_nonfinite_by_field": {
+    "joint_pos": {
+      "shape": [
+        34,
+        22
+      ],
+      "first_nonfinite_step": 34,
+      "maximum_finite_absolute_value": 1.030478482362828e+20
+    },
+    "joint_vel": {
+      "shape": [
+        34,
+        22
+      ],
+      "first_nonfinite_step": 34,
+      "maximum_finite_absolute_value": 1.1372818541808775e+22
+    },
+    "object_state": {
+      "shape": [
+        34,
+        13
+      ],
+      "first_nonfinite_step": null,
+      "maximum_finite_absolute_value": 0.9010317921638489
+    },
+    "commands": {
+      "shape": [
+        34,
+        18
+      ],
+      "first_nonfinite_step": null,
+      "maximum_finite_absolute_value": 1.0511438846588135
+    },
+    "efforts": {
+      "shape": [
+        34,
+        22
+      ],
+      "first_nonfinite_step": null,
+      "maximum_finite_absolute_value": 5.686409200535643e+20
+    },
+    "body_pose": {
+      "shape": [
+        34,
+        24,
+        7
+      ],
+      "first_nonfinite_step": 34,
+      "maximum_finite_absolute_value": 6592871972995072.0
+    },
+    "contact_force_matrix": {
+      "shape": [
+        34,
+        30,
+        3
+      ],
+      "first_nonfinite_step": null,
+      "maximum_finite_absolute_value": 0.0
+    }
+  },
+  "first_step_body_comparison": [
+    {
+      "body": "fabase",
+      "first_step_position_difference_mm": 0.038111705775256736,
+      "first_step_orientation_difference_deg": 179.9999931698311,
+      "isaac_pos": [
+        -3.6507844924926758e-06,
+        -2.1636296878568828e-05,
+        3.1161587685346603e-05
+      ],
+      "source_native_pos": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "body": "falink1",
+      "first_step_position_difference_mm": 34.83278324937154,
+      "first_step_orientation_difference_deg": 179.99999968371745,
+      "isaac_pos": [
+        -0.2100037783384323,
+        -2.296579441463109e-05,
+        -0.01740061491727829
+      ],
+      "source_native_pos": [
+        -0.21000006972864002,
+        8.400001394520329e-07,
+        0.01743215999986056
+      ]
+    },
+    {
+      "body": "pmbase",
+      "first_step_position_difference_mm": 39.803097819625,
+      "first_step_orientation_difference_deg": 179.99998236156708,
+      "isaac_pos": [
+        -0.2100154608488083,
+        -2.2968000848777592e-05,
+        -0.01988578401505947
+      ],
+      "source_native_pos": [
+        -0.21001634998060412,
+        8.400652405783484e-07,
+        0.019917306674283618
+      ]
+    },
+    {
+      "body": "palm",
+      "first_step_position_difference_mm": 16.96582600244766,
+      "first_step_orientation_difference_deg": 179.99995301759228,
+      "isaac_pos": [
+        -0.22841203212738037,
+        -2.0518898963928223e-05,
+        -0.00848411489278078
+      ],
+      "source_native_pos": [
+        -0.22839183086448164,
+        7.982840355346043e-07,
+        0.008481685690510755
+      ]
+    },
+    {
+      "body": "thbase",
+      "first_step_position_difference_mm": 67.12562651503079,
+      "first_step_orientation_difference_deg": 179.74192502820242,
+      "isaac_pos": [
+        -0.2534118890762329,
+        -0.031021255999803543,
+        -0.012856053188443184
+      ],
+      "source_native_pos": [
+        -0.25339569419149033,
+        0.03100480722843398,
+        0.01280748034004417
+      ]
+    },
+    {
+      "body": "ffbase",
+      "first_step_position_difference_mm": 70.56174111160095,
+      "first_step_orientation_difference_deg": 179.99983408947713,
+      "isaac_pos": [
+        -0.32010266184806824,
+        -0.03450855240225792,
+        -0.00744561105966568
+      ],
+      "source_native_pos": [
+        -0.320075873816183,
+        0.03450083067368946,
+        0.007273887524834084
+      ]
+    },
+    {
+      "body": "mfbase",
+      "first_step_position_difference_mm": 27.265471197910706,
+      "first_step_orientation_difference_deg": 179.99982768138076,
+      "isaac_pos": [
+        -0.3280995786190033,
+        -0.011507515795528889,
+        -0.007407982833683491
+      ],
+      "source_native_pos": [
+        -0.32807571029067456,
+        0.011500833501092881,
+        0.007221481018134369
+      ]
+    },
+    {
+      "body": "rfbase",
+      "first_step_position_difference_mm": 27.298954592493693,
+      "first_step_orientation_difference_deg": 179.9998208517932,
+      "isaac_pos": [
+        -0.3200966417789459,
+        0.01149144396185875,
+        -0.007445628754794598
+      ],
+      "source_native_pos": [
+        -0.32007589008128934,
+        -0.011499169326307663,
+        0.0072738886233011495
+      ]
+    },
+    {
+      "body": "lfbase",
+      "first_step_position_difference_mm": 70.56120667094022,
+      "first_step_orientation_difference_deg": 179.9999646215837,
+      "isaac_pos": [
+        -0.31209373474121094,
+        0.03449039161205292,
+        -0.007483283989131451
+      ],
+      "source_native_pos": [
+        -0.3120760698719041,
+        -0.03449917215370821,
+        0.007326296228467928
+      ]
+    },
+    {
+      "body": "thproximal",
+      "first_step_position_difference_mm": 98.29040940999307,
+      "first_step_orientation_difference_deg": 179.04820889297034,
+      "isaac_pos": [
+        -0.2713121473789215,
+        -0.03101903386414051,
+        -0.03816574811935425
+      ],
+      "source_native_pos": [
+        -0.2713426438544718,
+        0.031004879532449684,
+        0.03808409003733508
+      ]
+    },
+    {
+      "body": "ffproximal",
+      "first_step_position_difference_mm": 76.15934898738138,
+      "first_step_orientation_difference_deg": 179.9593907568676,
+      "isaac_pos": [
+        -0.3379591703414917,
+        -0.03685879334807396,
+        -0.00966162420809269
+      ],
+      "source_native_pos": [
+        -0.3379350484600671,
+        0.03686180557283695,
+        0.00945693094282743
+      ]
+    },
+    {
+      "body": "mfproximal",
+      "first_step_position_difference_mm": 36.53618836675574,
+      "first_step_orientation_difference_deg": 179.94738803101262,
+      "isaac_pos": [
+        -0.3456406891345978,
+        -0.015591885894536972,
+        -0.009625470265746117
+      ],
+      "source_native_pos": [
+        -0.3456184111096876,
+        0.015595823802883938,
+        0.009406590260903675
+      ]
+    },
+    {
+      "body": "rfproximal",
+      "first_step_position_difference_mm": 23.876315515405473,
+      "first_step_orientation_difference_deg": 179.95438274215368,
+      "isaac_pos": [
+        -0.3375758230686188,
+        0.007149802520871162,
+        -0.009663410484790802
+      ],
+      "source_native_pos": [
+        -0.3375564902393708,
+        -0.007146912160101753,
+        0.00945940359064692
+      ]
+    },
+    {
+      "body": "lfproximal",
+      "first_step_position_difference_mm": 71.61691446341642,
+      "first_step_orientation_difference_deg": 179.99997355697852,
+      "isaac_pos": [
+        -0.33010435104370117,
+        0.034494154155254364,
+        -0.009698581881821156
+      ],
+      "source_native_pos": [
+        -0.3300907506698424,
+        -0.034499155301573596,
+        0.009508331000901748
+      ]
+    },
+    {
+      "body": "thmiddle",
+      "first_step_position_difference_mm": 138.10927494738638,
+      "first_step_orientation_difference_deg": 179.05397555967534,
+      "isaac_pos": [
+        -0.29385218024253845,
+        -0.024895623326301575,
+        -0.06429082900285721
+      ],
+      "source_native_pos": [
+        -0.29385030068595025,
+        0.025369567322721234,
+        0.06434657781171373
+      ]
+    },
+    {
+      "body": "ffmiddle",
+      "first_step_position_difference_mm": 120.44800941118133,
+      "first_step_orientation_difference_deg": 179.99386997077872,
+      "isaac_pos": [
+        -0.3661014139652252,
+        -0.040543340146541595,
+        -0.04458693414926529
+      ],
+      "source_native_pos": [
+        -0.3659527869304546,
+        0.04053833237265684,
+        0.044483056659143504
+      ]
+    },
+    {
+      "body": "mfmiddle",
+      "first_step_position_difference_mm": 104.87872718565454,
+      "first_step_orientation_difference_deg": 179.97285672786384,
+      "isaac_pos": [
+        -0.3681866228580475,
+        -0.02080240659415722,
+        -0.048224322497844696
+      ],
+      "source_native_pos": [
+        -0.36808109613042334,
+        0.020784399128073255,
+        0.048056900334097825
+      ]
+    },
+    {
+      "body": "rfmiddle",
+      "first_step_position_difference_mm": 97.19775888584229,
+      "first_step_orientation_difference_deg": 179.96164017661627,
+      "isaac_pos": [
+        -0.35940083861351013,
+        0.0017710638931021094,
+        -0.04865158349275589
+      ],
+      "source_native_pos": [
+        -0.35932605064136064,
+        -0.0017860766645105232,
+        0.048481034562369865
+      ]
+    },
+    {
+      "body": "lfmiddle",
+      "first_step_position_difference_mm": 73.93253843114044,
+      "first_step_orientation_difference_deg": 179.99995172419614,
+      "isaac_pos": [
+        -0.3749656081199646,
+        0.034503545612096786,
+        -0.013277040794491768
+      ],
+      "source_native_pos": [
+        -0.3749371940324608,
+        -0.03449913768087553,
+        0.013268187211337257
+      ]
+    },
+    {
+      "body": "thdistal",
+      "first_step_position_difference_mm": 181.61939591696427,
+      "first_step_orientation_difference_deg": 179.06611658303183,
+      "isaac_pos": [
+        -0.3185657858848572,
+        -0.01949869655072689,
+        -0.08847928047180176
+      ],
+      "source_native_pos": [
+        -0.31849700635571515,
+        0.02042111716042386,
+        0.08869862084742713
+      ]
+    },
+    {
+      "body": "ffdistal",
+      "first_step_position_difference_mm": 159.46107201577013,
+      "first_step_orientation_difference_deg": 179.96510096457402,
+      "isaac_pos": [
+        -0.3750693202018738,
+        -0.04170985147356987,
+        -0.06800758838653564
+      ],
+      "source_native_pos": [
+        -0.3749448538710381,
+        0.041707735787376375,
+        0.06789430318276346
+      ]
+    },
+    {
+      "body": "mfdistal",
+      "first_step_position_difference_mm": 148.79254211793597,
+      "first_step_orientation_difference_deg": 179.9855588471969,
+      "isaac_pos": [
+        -0.37900981307029724,
+        -0.023299358785152435,
+        -0.07073953002691269
+      ],
+      "source_native_pos": [
+        -0.3788989841466186,
+        0.02327720846477018,
+        0.07057512487512095
+      ]
+    },
+    {
+      "body": "rfdistal",
+      "first_step_position_difference_mm": 140.6560744166019,
+      "first_step_orientation_difference_deg": 179.99272624407394,
+      "isaac_pos": [
+        -0.3715846836566925,
+        -0.0012316652573645115,
+        -0.07039665430784225
+      ],
+      "source_native_pos": [
+        -0.3714900841158407,
+        0.0012094381965089078,
+        0.07023820387156862
+      ]
+    },
+    {
+      "body": "lfdistal",
+      "first_step_position_difference_mm": 76.98576697077402,
+      "first_step_orientation_difference_deg": 179.99993612971105,
+      "isaac_pos": [
+        -0.39978569746017456,
+        0.03450873866677284,
+        -0.017055224627256393
+      ],
+      "source_native_pos": [
+        -0.39975324141265733,
+        -0.034499127889608475,
+        0.01707279342272666
+      ]
+    }
+  ],
+  "finite_record_coupling_residuals": {
+    "FF": {
+      "max_abs_on_finite_records_rad": 7.720939535229098e+19,
+      "last_finite_record_rad": -7.720939535229098e+19,
+      "finite_records": 33,
+      "note": "finite does not mean physically valid; original pose was not preserved"
+    },
+    "MF": {
+      "max_abs_on_finite_records_rad": 5.891083795821494e+18,
+      "last_finite_record_rad": -5.891083795821494e+18,
+      "finite_records": 33,
+      "note": "finite does not mean physically valid; original pose was not preserved"
+    },
+    "RF": {
+      "max_abs_on_finite_records_rad": 2.2889219375790817e+18,
+      "last_finite_record_rad": -2.2889219375790817e+18,
+      "finite_records": 33,
+      "note": "finite does not mean physically valid; original pose was not preserved"
+    },
+    "LF": {
+      "max_abs_on_finite_records_rad": 1.0329760450155538e+20,
+      "last_finite_record_rad": -1.0329760450155538e+20,
+      "finite_records": 33,
+      "note": "finite does not mean physically valid; original pose was not preserved"
+    }
+  },
+  "initial_command_max_error_rad": 3.6554966165169844e-08,
+  "confirmed_bug": "Native WXYZ quaternion was passed directly to Isaac Lab3 InitialStateCfg.rot requiring XYZW; output quaternions were also interpreted with the wrong order. Declared grasp/orientation did not match actual execution.",
+  "confirmed_api_reference": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/assets/asset_base_cfg.py",
+    "lines": [
+      37,
+      38,
+      39
+    ]
+  },
+  "numerical_issue": "Joint speeds alternate/grow to1.137e22rad/s and first become nonfinite atstep34. Explicit viscous damping in the adapter is an additional numerical-risk hypothesis; its causal contribution is not isolated from wrong pose/import/contact issues.",
+  "reporting_corrections": [
+    "No eligible original-state controller result",
+    "raw efforts are requested combined motor/passive efforts, not certified actually applied joint torque; the forwarding actuator also has a declared1e6 clamp",
+    "Configured CCD was disabled by the runtime for GPU dynamics",
+    "Contact filters warn about fixed tip/central colliders; all-zero sensor matrix is not proof of actual contact loss",
+    "max tilt0 was computed with the wrong quaternion order and is not a valid physical axis estimate",
+    "The first33 finite records are not declared a physically valid prefix"
+  ],
+  "action": "Stop dependent Isaac grasp/cache/PPO work pending user choice; preserve paper method and original configuration"
+}

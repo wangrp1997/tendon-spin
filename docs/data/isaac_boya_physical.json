@@ -1,0 +1,52 @@
+{
+  "kind": "one separately declared Boya physical-interface diagnostic",
+  "controller": "boya_source_pd_hold_v1",
+  "wall_budget_s": 300,
+  "actual_wall_s": 5.555205706972629,
+  "return_code": 0,
+  "parent_stop_reason": "completed",
+  "source": [
+    {
+      "path": "scripts/probe_boya_physics.py",
+      "sha256": "c575372cf959b58722b53fc12c62bec8af000cc8f3d0230906b5c64a4ce6e16b",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_audit/probe_source.py",
+        "sha256": "c575372cf959b58722b53fc12c62bec8af000cc8f3d0230906b5c64a4ce6e16b"
+      }
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "48e7380223380c1e05ef606b869d94992e47bde4653b12bf3a60a1c3bbe152f9",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_audit/isaac_boya_source.py",
+        "sha256": "48e7380223380c1e05ef606b869d94992e47bde4653b12bf3a60a1c3bbe152f9"
+      }
+    }
+  ],
+  "protocol": {
+    "path": "docs/experiments/2026-10-08-boya-isaac-physical/PROTOCOL.md",
+    "sha256": "0425735113ca7baad1107db002ffdb4b37e607f98f865ea746e22bd12b50d273"
+  },
+  "log": {
+    "path": "outputs/isaac_boya_physical_audit/launch.log",
+    "sha256": "ddbc33d9c9a08113167c8f2f658b8e086622fffc288832beba06e9526200d342"
+  },
+  "phase_record": {
+    "path": "docs/data/isaac_boya_physical_phases.json",
+    "sha256": "3bd41ef85011a244304e7e77a9e2aaa5c5384d4432d65dd9c3e5fc235b1ed182"
+  },
+  "physics_steps": 34,
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "grasp_validated": false,
+  "original_phase_record": {
+    "path": "outputs/isaac_boya_physical_audit/phases_raw.json",
+    "sha256": "71d825d7885a49a34e547be624620d3cf4f4f440a570e8518f349f3794e539af"
+  },
+  "reporting_correction": {
+    "original_physical_state_verified": false,
+    "benchmark_eligible": false,
+    "diagnosis": "docs/experiments/2026-10-08-boya-isaac-physical/data/failure_diagnosis.json",
+    "note": "Corrects raw original-state-restored/max-tilt assertions; retains historical source and raw failure. Eight nonfinite coupling values are null in the strict JSON derivative."
+  }
+}

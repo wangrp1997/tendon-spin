@@ -33,3 +33,13 @@ GPU batching is useful once that contract matches. Isaac performance/scores must
 remain separate from MuJoCo, and a Sharpa/Allegro policy is not a Boya demo.
 
 This is a first-stage backend decision, not a permanent rejection of Isaac.
+
+
+Latest Boya transfer: structural USD import passed; corrected physical-v2 passed
+original-state FK/command/solver-damping readback but failed after6steps/3ms with
+5.856909mm drift, large joint speeds/forces and coupling errors. Full source PD
+requests and PhysX actuation readback agree; this is not a learned-policy failure.
+Original28 collision excludes are not explicitly ported; dynamic coupling and
+solver response are not certified. See experiments/2026-10-08-boya-isaac-physical-v2.
+Existing nominal MuJoCo history is unchanged. Isaac cache/PPO stays blocked on
+physical verification; backend route changes need the user's requested choice.

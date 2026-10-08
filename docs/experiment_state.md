@@ -88,3 +88,41 @@ which was not observed and not claimed. Existing environment unchanged; no Boya
 model/teacher/student/train actions. Startup blocker has a working official
 entrypoint. Next mandatory boundary is collision/coupling/13input/grasp transfer,
 then [complete Hora Boya port](hora_boya_port.md), not another v2 reward scan.
+
+
+[Boya structural import](experiments/2026-10-08-boya-isaac-import/PROTOCOL.md):
+4.440463s/exit0;22 revolute names,4 NewtonMimicAPI schemas and CAD collisions
+present. Zero dynamics; schema presence does not verify physical coupling.
+
+[Boya physical-v1 failed transfer](experiments/2026-10-08-boya-isaac-physical/data/failure_diagnosis.json):
+34steps/.017s, nonfinite joints. Offline audit confirms WXYZ passed into Lab3
+XYZW and outputs misinterpreted: root error180deg, distal position errors up to
+181.6mm. Retract the raw phase's original-state-restored assertion; no eligible
+original-grasp prefix, max-tilt0 invalid. Efforts were requested, not total actual
+torque; zero contact matrix used wrong paths and is not proof of no contact.
+Explicit damping risk quantified offline, not isolated full-cause evidence.
+
+User now approves quaternion/contact-path/solver-damping correction and one fresh
+single-scene<=300s verification. [Physical-v2 protocol](experiments/2026-10-08-boya-isaac-physical-v2/PROTOCOL.md)
+declares unchanged physical grasp/size/gains/coupling, pre-step FK/state/solver
+readback gates and separate v2 evidence. Large cache/PPO work remains dependent
+on physical-contract verification. No reward/gain/grasp/backend scan authorized.
+
+
+[Approved physical-v2 completed](experiments/2026-10-08-boya-isaac-physical-v2/README.md):
+5.071286s process/exit0; original-state FK/commands/solver-damping readback verified.
+All24 body poses match within.000135mm/.000284deg. Zero actions, unchanged commands,
+sourcePD reconstructed within1.49e−8Nm and actuator/PhysX-actuation effort error0.
+Actual6steps/3ms then drift5.856909mm; speed3620.99rad/s, max link normal668.87N,
+coupling errors up to4.16rad. Planned.5s hold incomplete; no certified physical
+prefix/rotation score/training success. New sensor matrix24×3 is observable;
+self-contact impulses and complete physical gates still absent. CCD effectively
+GPU-disabled. V1 pose failure and raw tilt/error attribution corrected separately.
+
+Offline XML/USD audit finds28 source named collision excludes not explicitly
+ported; adjacent PhysX filtering may be automatic, causal contribution unknown.
+NewtonMimicAPI is current documented schema, so missing legacy mimic API alone
+is not evidence of a bug. Runtime coupling/damping/inertia/contact behavior needs
+isolation. No further launch or parameter scan performed. Stop dependent large
+cache/PPO work pending user's choice of a bounded minimal interface diagnosis.
+3 coordinate regression tests passed; existing environment/original repos unchanged.

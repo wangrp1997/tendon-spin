@@ -1,0 +1,30 @@
+{
+  "kind": "Boya USD structural import diagnostic, not task/controller execution",
+  "user_authorized_isaac_validation": true,
+  "license_scope": "process only",
+  "wall_budget_s": 300,
+  "actual_wall_s": 4.440462758997455,
+  "return_code": 0,
+  "stop_reason": "completed",
+  "phase_record": {
+    "path": "docs/data/isaac_boya_import_phases.json",
+    "sha256": "48fb9ca038e5a55c4d796b992da706e58a30212c1ae20eab8f1122289df41b1c"
+  },
+  "source": {
+    "path": "scripts/probe_boya_import.py",
+    "sha256": "05cbef496269746534453af4771d5fb78ad9b024e99a9b038d7096006c274abb",
+    "snapshot": "outputs/isaac_boya_import_audit/probe_source.py"
+  },
+  "protocol": {
+    "path": "docs/experiments/2026-10-08-boya-isaac-import/PROTOCOL.md",
+    "sha256": "11430fa8c51d747feecc3f7cb3d28281322d2b69cf3a8efafc69e2d9440700a0"
+  },
+  "log": {
+    "path": "outputs/isaac_boya_import_audit/launch.log",
+    "sha256": "ea689cd2caadd209bb7acfc7b7cd3c6839894b73bef02e63c5bc05e467001e54"
+  },
+  "structural_checks_passed": true,
+  "physics_steps": 0,
+  "training_actions": 0,
+  "grasp_validated": false
+}

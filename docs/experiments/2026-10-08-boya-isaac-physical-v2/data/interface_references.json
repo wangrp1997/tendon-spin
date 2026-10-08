@@ -1,0 +1,59 @@
+{
+  "kind": "installed authoritative API/source audit; zero new physics",
+  "sources": [
+    {
+      "purpose": "XYZW initial-state convention",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/assets/asset_base_cfg.py",
+      "sha256": "589e4ddab2af8f7b1ea788aba5f0bc4f13fa1c5e199ee75589c4b7ec41914157",
+      "lines": [
+        37,
+        39
+      ]
+    },
+    {
+      "purpose": "solver-side viscous friction units",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/actuators/actuator_base_cfg.py",
+      "sha256": "86ad7710017d322e4df5ac41a577c6b5ee06f291bde545ab00673b6815b269be",
+      "lines": [
+        153,
+        164
+      ]
+    },
+    {
+      "purpose": "forward kinematics without physics stepping",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/sim/simulation_context.py",
+      "sha256": "c3c17f084bc21ddfd80649f8179a6aa916d857a1dcaa1cc1c7f2b7c3945936b2",
+      "lines": [
+        742,
+        744
+      ]
+    },
+    {
+      "purpose": "current mimic import/test",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/exts/isaacsim.asset.importer.urdf/isaacsim/asset/importer/urdf/tests/test_urdf.py",
+      "sha256": "362156e4f8d382bbae6fb2dab7505d3399a45ec97ff11abd4bd4e7cbf8c7b2d2",
+      "lines": [
+        520,
+        524
+      ]
+    },
+    {
+      "purpose": "legacy mimic deprecated; current Newton schema required",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.schema.physx-110.3.2+110.3.0.lx64.r.cp312.u7f4/plugins/PhysxSchema/resources/schema.usda",
+      "sha256": "eaef57fc794f6114d3641c00bbc3f3141abc9f8bfe8480d61d4bafc4a33a1904",
+      "lines": [
+        2418,
+        2440
+      ]
+    },
+    {
+      "purpose": "official legacy compatibility example, not selected/tested here",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physx.demos-110.3.2+110.3.0.cp312.u7f4/omni/physxdemos/scenes/MimicJointDemo.py",
+      "sha256": "ee87c2353122240b2473f5ab5fb52a3f9e0870a26635f04cb80d702dcaf82374",
+      "lines": [
+        125,
+        128
+      ]
+    }
+  ]
+}

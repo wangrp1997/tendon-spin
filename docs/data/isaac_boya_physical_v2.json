@@ -1,0 +1,68 @@
+{
+  "kind": "one approved physical-transfer repair verification",
+  "controller": "boya_source_pd_hold_v2",
+  "wall_budget_s": 300,
+  "source": [
+    {
+      "path": "scripts/probe_boya_physics.py",
+      "sha256": "54f0372c4732911a525581e159c0750e121fd130a506e24e397b8e992bb29818",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_v2_audit/probe_boya_physics.py",
+        "sha256": "54f0372c4732911a525581e159c0750e121fd130a506e24e397b8e992bb29818"
+      }
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "05dc7a90501edef77f1f434369de8fb3d993b7e69ce5f3d4fbf0b51639feee6b",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_v2_audit/isaac_boya.py",
+        "sha256": "05dc7a90501edef77f1f434369de8fb3d993b7e69ce5f3d4fbf0b51639feee6b"
+      }
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_v2_audit/coordinates.py",
+        "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+      }
+    },
+    {
+      "path": "scripts/run_boya_physical_diagnostic.py",
+      "sha256": "498609d912577739fffcb4ebbd6e4251344d86588b4f3efad0b82d068cd82a7e",
+      "snapshot": {
+        "path": "outputs/isaac_boya_physical_v2_audit/run_boya_physical_diagnostic.py",
+        "sha256": "498609d912577739fffcb4ebbd6e4251344d86588b4f3efad0b82d068cd82a7e"
+      }
+    }
+  ],
+  "protocol": {
+    "path": "docs/experiments/2026-10-08-boya-isaac-physical-v2/PROTOCOL.md",
+    "sha256": "c09675832f2947fe3ce23f9fa8de634f4e743f23d974b801107270cfbd1594a5"
+  },
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/probe_boya_physics.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/docs/data/isaac_boya_physical_v2_phases.json"
+  ],
+  "physics_steps": 6,
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "grasp_validated": false,
+  "actual_wall_s": 5.071285911137238,
+  "return_code": 0,
+  "parent_stop_reason": "process completed",
+  "log": {
+    "path": "outputs/isaac_boya_physical_v2_audit/launch.log",
+    "sha256": "f5bc46e980d7f394688193ccddf8ffc4178407fe7d4bd78ced055df7555fc794"
+  },
+  "phase_record": {
+    "path": "docs/data/isaac_boya_physical_v2_phases.json",
+    "sha256": "519ce600eb7b6ab765720cc3dfaa0671cc80ebced367fed76f1dccfdb20a16c5"
+  },
+  "original_physical_state_verified": true,
+  "stop_reason": "position drift >5mm",
+  "diagnostic_elapsed_s": 0.003,
+  "complete": true
+}

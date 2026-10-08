@@ -1,0 +1,213 @@
+{
+  "kind": "original physical-state Isaac interface diagnostic",
+  "controller": "boya_source_pd_hold_v1",
+  "physics_steps": 34,
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "grasp_validated": false,
+  "complete": true,
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "eula_acceptance_supplied": true,
+  "phase": "before close",
+  "wall_s_at_phase": 5.288484564982355,
+  "contract": {
+    "path": "docs/data/boya_native_contract.json",
+    "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+  },
+  "configuration": {
+    "device": "cuda:0",
+    "dt": 0.0005,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "physics_prim_path": "/physicsScene",
+    "physics_material": {
+      "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0.0,
+      "density": null,
+      "_usd_applied_schema": null,
+      "_usd_field_exceptions": {},
+      "_usd_namespace": "physics"
+    },
+    "use_fabric": true,
+    "render_interval": 1,
+    "enable_scene_query_support": false,
+    "use_newton_actuators": false,
+    "physics": {
+      "class_type": "isaaclab_physx.physics.physx_manager:PhysxManager",
+      "deterministic": false,
+      "solver_type": 1,
+      "solve_articulation_contact_last": false,
+      "min_position_iteration_count": 16,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 4,
+      "max_velocity_iteration_count": 255,
+      "enable_scene_query_support": false,
+      "enable_ccd": true,
+      "enable_stabilization": false,
+      "enable_external_forces_every_iteration": true,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576
+    },
+    "create_stage_in_memory": false,
+    "logging_level": "WARNING",
+    "save_logs_to_file": true,
+    "log_dir": null,
+    "visualizer_cfgs": [],
+    "default_visualizer_cfg": null
+  },
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "contact_filters": [
+    "/World/Hand/Geometry/world/fabase",
+    "/World/Hand/Geometry/world/falink1",
+    "/World/Hand/Geometry/world/pmbase",
+    "/World/Hand/Geometry/world/palm",
+    "/World/Hand/Geometry/world/thbase",
+    "/World/Hand/Geometry/world/thproximal",
+    "/World/Hand/Geometry/world/thmiddle",
+    "/World/Hand/Geometry/world/thdistal",
+    "/World/Hand/Geometry/world/thtip",
+    "/World/Hand/Geometry/world/ffbase",
+    "/World/Hand/Geometry/world/ffproximal",
+    "/World/Hand/Geometry/world/ffmiddle",
+    "/World/Hand/Geometry/world/ffdistal",
+    "/World/Hand/Geometry/world/fftip",
+    "/World/Hand/Geometry/world/mfbase",
+    "/World/Hand/Geometry/world/mfproximal",
+    "/World/Hand/Geometry/world/mfmiddle",
+    "/World/Hand/Geometry/world/mfdistal",
+    "/World/Hand/Geometry/world/mftip",
+    "/World/Hand/Geometry/world/rfbase",
+    "/World/Hand/Geometry/world/rfproximal",
+    "/World/Hand/Geometry/world/rfmiddle",
+    "/World/Hand/Geometry/world/rfdistal",
+    "/World/Hand/Geometry/world/rftip",
+    "/World/Hand/Geometry/world/lfbase",
+    "/World/Hand/Geometry/world/lfproximal",
+    "/World/Hand/Geometry/world/lfmiddle",
+    "/World/Hand/Geometry/world/lfdistal",
+    "/World/Hand/Geometry/world/lftip",
+    "/World/Hand/Geometry/world/central"
+  ],
+  "execution": {
+    "path": "outputs/isaac_boya_physical/execution.npz",
+    "sha256": "2d38f26bb7347c81b3addb660791909f7fb3ace4eb29a685a969fd8a1a1dc719"
+  },
+  "coupling_residuals": {
+    "FF": {
+      "max_abs_rad": null,
+      "last_rad": null
+    },
+    "MF": {
+      "max_abs_rad": null,
+      "last_rad": null
+    },
+    "RF": {
+      "max_abs_rad": null,
+      "last_rad": null
+    },
+    "LF": {
+      "max_abs_rad": null,
+      "last_rad": null
+    }
+  },
+  "max_drift_mm": 1.4201464968009745,
+  "max_tilt_deg": 0.0,
+  "contact_force_shape": [
+    30,
+    3
+  ],
+  "stop_reason": "nonfinite state",
+  "diagnostic_elapsed_s": 0.017,
+  "remaining_gates": [
+    "certify per-link contact/support interpretation",
+    "object/self penetration",
+    "all original force/external/numerical gates",
+    "long-duration unsupported holding",
+    "large-batch throughput"
+  ],
+  "sanitization": {
+    "kind": "strict JSON derivative; original raw bytes retained",
+    "nonfinite_fields_replaced_by_null": [
+      "$.coupling_residuals.FF.max_abs_rad",
+      "$.coupling_residuals.FF.last_rad",
+      "$.coupling_residuals.MF.max_abs_rad",
+      "$.coupling_residuals.MF.last_rad",
+      "$.coupling_residuals.RF.max_abs_rad",
+      "$.coupling_residuals.RF.last_rad",
+      "$.coupling_residuals.LF.max_abs_rad",
+      "$.coupling_residuals.LF.last_rad"
+    ],
+    "raw_source": {
+      "path": "outputs/isaac_boya_physical_audit/phases_raw.json",
+      "sha256": "71d825d7885a49a34e547be624620d3cf4f4f440a570e8518f349f3794e539af"
+    }
+  }
+}

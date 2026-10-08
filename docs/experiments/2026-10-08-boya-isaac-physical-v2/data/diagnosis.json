@@ -1,0 +1,427 @@
+{
+  "kind": "offline physical-v2 execution and source-contract audit",
+  "new_physics_steps": 0,
+  "controller": "boya_source_pd_hold_v2",
+  "phase_record": {
+    "path": "docs/data/isaac_boya_physical_v2_phases.json",
+    "sha256": "519ce600eb7b6ab765720cc3dfaa0671cc80ebced367fed76f1dccfdb20a16c5"
+  },
+  "execution": {
+    "path": "outputs/isaac_boya_physical_v2/execution.npz",
+    "sha256": "5e1cfd27041d783a3150023a35ce3f7f3cc1eccb1622e86c52b86ece0618dab1"
+  },
+  "initial_state": {
+    "path": "outputs/isaac_boya_physical_v2/initial_state.npz",
+    "sha256": "5cae17ae445ed82e1eb3623109ed45721ce23819bcad4ab2000768dc4a8ef542"
+  },
+  "logged_steps": 6,
+  "actual_stop_reason": "position drift >5mm",
+  "original_physical_state_verified": true,
+  "benchmark_eligible": false,
+  "physical_prefix_certified": false,
+  "initial_transfer_errors": {
+    "max_body_position_mm": 0.00013515266133002303,
+    "max_body_orientation_deg": 0.00028361738567353825,
+    "object_position_mm": 7.525837986720613e-06,
+    "object_orientation_deg": 1.7075472925031877e-06,
+    "max_joint_rad": 3.747239030182925e-08,
+    "max_joint_speed_rad_s": 4.800822012065303e-13,
+    "max_object_speed_error": 1.9204893548390757e-13
+  },
+  "motor_effort_reconstruction_error_Nm": 1.4901161193847656e-08,
+  "passive_motor_effort_error_Nm": 0.0,
+  "zero_actions_and_unchanged_commands_verified": true,
+  "effort_readback_consistent": true,
+  "effective_ccd": false,
+  "effective_ccd_evidence": {
+    "log": {
+      "path": "outputs/isaac_boya_physical_v2_audit/launch.log",
+      "sha256": "f5bc46e980d7f394688193ccddf8ffc4178407fe7d4bd78ced055df7555fc794"
+    },
+    "matched_warning": "CCD disabled when GPU dynamics is enabled."
+  },
+  "effective_backend": "Isaac Lab PhysX, confirmed by configured PhysxCfg and active isaaclab_physx startup log",
+  "reporting_corrections": [
+    "raw effective_settings.backend=ResolvableString labels the wrapper class, not the engine; use configured PhysxCfg plus active backend log",
+    "solver-side damping coefficients read back correctly, but stability is not fixed",
+    "initial pose identity passed; contact/coupling/penetration physical contract did not",
+    "no certified benchmark prefix or rotation angle; original force/support/numerical gates not fully ported"
+  ],
+  "observations": [
+    "step1 already has MFJ2 speed33.49rad/s while object drift only.00112mm",
+    "coupling error magnitudes grow to2.40/2.05/4.16/2.48rad over3ms",
+    "all actions0; PD requested, actuator-forwarded and PhysX-actuation-readback efforts agree",
+    "normal force maximum rises from4.02N to668.87N; final object speed11.76m/s"
+  ],
+  "unresolved_causal_tests": [
+    "isolated mimic/viscous-damping runtime and passivity check with unchanged coefficients",
+    "forward exact original named collision exclusions and verify contact pairs",
+    "compare actual imported inertia/solver response and initial-contact impulses"
+  ],
+  "limitation": "No self-contact impulse trace was captured in v2. Missing explicit exclusions and dynamic coupling failure are evidence of an unverified transfer; their separate causal contributions are not isolated. No claim that missing legacy mimic schema or collision alone caused failure.",
+  "static_contract": {
+    "source_scene": {
+      "path": "assets/grasp/scene.xml",
+      "sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e"
+    },
+    "imported_usd": {
+      "path": "outputs/isaac_boya_import/boya/boya.usda",
+      "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+    },
+    "source_collision_exclusions": [
+      {
+        "body1": "fabase",
+        "body2": "falink1"
+      },
+      {
+        "body1": "fabase",
+        "body2": "pmbase"
+      },
+      {
+        "body1": "falink1",
+        "body2": "pmbase"
+      },
+      {
+        "body1": "pmbase",
+        "body2": "palm"
+      },
+      {
+        "body1": "palm",
+        "body2": "thbase"
+      },
+      {
+        "body1": "palm",
+        "body2": "thproximal"
+      },
+      {
+        "body1": "palm",
+        "body2": "ffbase"
+      },
+      {
+        "body1": "palm",
+        "body2": "mfbase"
+      },
+      {
+        "body1": "palm",
+        "body2": "rfbase"
+      },
+      {
+        "body1": "palm",
+        "body2": "lfbase"
+      },
+      {
+        "body1": "thbase",
+        "body2": "thproximal"
+      },
+      {
+        "body1": "thproximal",
+        "body2": "thmiddle"
+      },
+      {
+        "body1": "thmiddle",
+        "body2": "thdistal"
+      },
+      {
+        "body1": "ffbase",
+        "body2": "ffproximal"
+      },
+      {
+        "body1": "ffbase",
+        "body2": "mfbase"
+      },
+      {
+        "body1": "ffproximal",
+        "body2": "ffmiddle"
+      },
+      {
+        "body1": "ffmiddle",
+        "body2": "ffdistal"
+      },
+      {
+        "body1": "mfbase",
+        "body2": "mfproximal"
+      },
+      {
+        "body1": "mfbase",
+        "body2": "rfbase"
+      },
+      {
+        "body1": "mfproximal",
+        "body2": "mfmiddle"
+      },
+      {
+        "body1": "mfmiddle",
+        "body2": "mfdistal"
+      },
+      {
+        "body1": "rfbase",
+        "body2": "rfproximal"
+      },
+      {
+        "body1": "rfbase",
+        "body2": "lfbase"
+      },
+      {
+        "body1": "rfproximal",
+        "body2": "rfmiddle"
+      },
+      {
+        "body1": "rfmiddle",
+        "body2": "rfdistal"
+      },
+      {
+        "body1": "lfbase",
+        "body2": "lfproximal"
+      },
+      {
+        "body1": "lfproximal",
+        "body2": "lfmiddle"
+      },
+      {
+        "body1": "lfmiddle",
+        "body2": "lfdistal"
+      }
+    ],
+    "source_exclusion_count": 28,
+    "imported_filtered_pair_schema_or_relationship_lines": [],
+    "explicit_source_exclusions_forwarded": false,
+    "collision_difference": "Native XML has28 named exclude pairs; converted USD/probe contains no explicit pair filter authoring. PhysX may suppress adjacent articulation pairs; do not infer all28 pairs collide.",
+    "source_mimic_relations": [
+      {
+        "name": "mimic_FFJ1",
+        "joint1": "FFJ1",
+        "joint2": "FFJ2",
+        "solref": "0.002",
+        "solimp": "0.95 0.995"
+      },
+      {
+        "name": "mimic_MFJ1",
+        "joint1": "MFJ1",
+        "joint2": "MFJ2",
+        "solref": "0.002",
+        "solimp": "0.95 0.995"
+      },
+      {
+        "name": "mimic_RFJ1",
+        "joint1": "RFJ1",
+        "joint2": "RFJ2",
+        "solref": "0.002",
+        "solimp": "0.95 0.995"
+      },
+      {
+        "name": "mimic_LFJ1",
+        "joint1": "LFJ1",
+        "joint2": "LFJ2",
+        "solref": "0.002",
+        "solimp": "0.95 0.995"
+      }
+    ],
+    "imported_mimic_schemas": [
+      {
+        "name": "FFJ1",
+        "path": "/dexhand/Physics/FFJ1",
+        "schemas": [
+          "NewtonJointAPI",
+          "NewtonMimicAPI",
+          "PhysxJointAPI",
+          "PhysicsDriveAPI:angular",
+          "PhysicsJointStateAPI:angular",
+          "MjcJointAPI"
+        ],
+        "attributes": {
+          "newton:mimicCoef0": "0.0",
+          "newton:mimicCoef1": "1.0",
+          "newton:mimicEnabled": "True"
+        },
+        "relationships": {
+          "newton:mimicJoint": [
+            "/dexhand/Physics/FFJ2"
+          ]
+        }
+      },
+      {
+        "name": "MFJ1",
+        "path": "/dexhand/Physics/MFJ1",
+        "schemas": [
+          "NewtonJointAPI",
+          "NewtonMimicAPI",
+          "PhysxJointAPI",
+          "PhysicsDriveAPI:angular",
+          "PhysicsJointStateAPI:angular",
+          "MjcJointAPI"
+        ],
+        "attributes": {
+          "newton:mimicCoef0": "0.0",
+          "newton:mimicCoef1": "1.0",
+          "newton:mimicEnabled": "True"
+        },
+        "relationships": {
+          "newton:mimicJoint": [
+            "/dexhand/Physics/MFJ2"
+          ]
+        }
+      },
+      {
+        "name": "RFJ1",
+        "path": "/dexhand/Physics/RFJ1",
+        "schemas": [
+          "NewtonJointAPI",
+          "NewtonMimicAPI",
+          "PhysxJointAPI",
+          "PhysicsDriveAPI:angular",
+          "PhysicsJointStateAPI:angular",
+          "MjcJointAPI"
+        ],
+        "attributes": {
+          "newton:mimicCoef0": "0.0",
+          "newton:mimicCoef1": "1.0",
+          "newton:mimicEnabled": "True"
+        },
+        "relationships": {
+          "newton:mimicJoint": [
+            "/dexhand/Physics/RFJ2"
+          ]
+        }
+      },
+      {
+        "name": "LFJ1",
+        "path": "/dexhand/Physics/LFJ1",
+        "schemas": [
+          "NewtonJointAPI",
+          "NewtonMimicAPI",
+          "PhysxJointAPI",
+          "PhysicsDriveAPI:angular",
+          "PhysicsJointStateAPI:angular",
+          "MjcJointAPI"
+        ],
+        "attributes": {
+          "newton:mimicCoef0": "0.0",
+          "newton:mimicCoef1": "1.0",
+          "newton:mimicEnabled": "True"
+        },
+        "relationships": {
+          "newton:mimicJoint": [
+            "/dexhand/Physics/LFJ2"
+          ]
+        }
+      }
+    ],
+    "mimic_interpretation": "NewtonMimicAPI is the documented current schema. Missing legacy PhysxMimicJointAPI is not by itself a bug; dynamic coupling failed in this execution and needs an isolated runtime check."
+  },
+  "step_trace": [
+    {
+      "step": 1,
+      "elapsed_s": 0.0005,
+      "drift_mm": 0.0011208566651624348,
+      "tilt_deg": 0.002619880356875885,
+      "max_abs_joint_speed_rad_s": 33.493064880371094,
+      "fastest_joint": "MFJ2",
+      "maximum_link_normal_force_N": 4.020928382873535,
+      "nonzero_normal_force_link_count": 1,
+      "object_speed_m_s": 0.04100364074110985,
+      "source_motor_max_abs_Nm": 0.2618771493434906,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -0.0044228434562683105,
+      "MF_coupling_error_rad": -0.00433986634016037,
+      "RF_coupling_error_rad": -0.005681167356669903,
+      "LF_coupling_error_rad": -0.0015383437275886536
+    },
+    {
+      "step": 2,
+      "elapsed_s": 0.001,
+      "drift_mm": 0.046380051531454795,
+      "tilt_deg": 0.10151783040478753,
+      "max_abs_joint_speed_rad_s": 100.13355255126953,
+      "fastest_joint": "RFJ1",
+      "maximum_link_normal_force_N": 7.167797088623047,
+      "nonzero_normal_force_link_count": 3,
+      "object_speed_m_s": 0.10607600957155228,
+      "source_motor_max_abs_Nm": 0.21413269639015198,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -0.015199273824691772,
+      "MF_coupling_error_rad": -0.007414087653160095,
+      "RF_coupling_error_rad": -0.017818501219153404,
+      "LF_coupling_error_rad": -0.0023774653673171997
+    },
+    {
+      "step": 3,
+      "elapsed_s": 0.0015,
+      "drift_mm": 0.1580030828491929,
+      "tilt_deg": 0.3465798109017236,
+      "max_abs_joint_speed_rad_s": 98.68525695800781,
+      "fastest_joint": "MFJ1",
+      "maximum_link_normal_force_N": 13.203189849853516,
+      "nonzero_normal_force_link_count": 3,
+      "object_speed_m_s": 0.23310202360153198,
+      "source_motor_max_abs_Nm": 0.24067342281341553,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -0.0583556592464447,
+      "MF_coupling_error_rad": -0.018968477845191956,
+      "RF_coupling_error_rad": -0.0645071491599083,
+      "LF_coupling_error_rad": -0.007058680057525635
+    },
+    {
+      "step": 4,
+      "elapsed_s": 0.002,
+      "drift_mm": 0.5228370478898788,
+      "tilt_deg": 1.361013878670395,
+      "max_abs_joint_speed_rad_s": 120.83429718017578,
+      "fastest_joint": "FFJ2",
+      "maximum_link_normal_force_N": 57.234928131103516,
+      "nonzero_normal_force_link_count": 3,
+      "object_speed_m_s": 0.9514788389205933,
+      "source_motor_max_abs_Nm": 0.30000001192092896,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -0.21229085326194763,
+      "MF_coupling_error_rad": -0.09027442336082458,
+      "RF_coupling_error_rad": -0.26294049620628357,
+      "LF_coupling_error_rad": -0.04954390227794647
+    },
+    {
+      "step": 5,
+      "elapsed_s": 0.0025,
+      "drift_mm": 2.1572917369565263,
+      "tilt_deg": 6.387608018932162,
+      "max_abs_joint_speed_rad_s": 390.2851867675781,
+      "fastest_joint": "FFJ2",
+      "maximum_link_normal_force_N": 250.3591766357422,
+      "nonzero_normal_force_link_count": 4,
+      "object_speed_m_s": 4.368837833404541,
+      "source_motor_max_abs_Nm": 0.30000001192092896,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -0.7151957750320435,
+      "MF_coupling_error_rad": -0.4473177194595337,
+      "RF_coupling_error_rad": -1.1765326261520386,
+      "LF_coupling_error_rad": -0.35287877917289734
+    },
+    {
+      "step": 6,
+      "elapsed_s": 0.003,
+      "drift_mm": 5.856908680207287,
+      "tilt_deg": 11.121320137037749,
+      "max_abs_joint_speed_rad_s": 3620.986083984375,
+      "fastest_joint": "RFJ2",
+      "maximum_link_normal_force_N": 668.873291015625,
+      "nonzero_normal_force_link_count": 1,
+      "object_speed_m_s": 11.761357307434082,
+      "source_motor_max_abs_Nm": 1.0,
+      "forwarding_error_Nm": 0.0,
+      "actuation_readback_error_Nm": 0.0,
+      "finite_state_force": true,
+      "FF_coupling_error_rad": -2.4047789573669434,
+      "MF_coupling_error_rad": -2.0500519275665283,
+      "RF_coupling_error_rad": -4.163787841796875,
+      "LF_coupling_error_rad": -2.481478452682495
+    }
+  ]
+}

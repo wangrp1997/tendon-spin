@@ -1,0 +1,571 @@
+{
+  "kind": "Boya structural import; zero dynamic steps",
+  "physics_steps": 0,
+  "training_actions": 0,
+  "object_loaded": false,
+  "grasp_validated": false,
+  "controller": null,
+  "complete": true,
+  "eula_acceptance_supplied": true,
+  "urdf": {
+    "path": "assets/hand/boya.urdf",
+    "sha256": "4aa1dbbb7b930bc29ac824b25697cde6c2bed3318d8b0dd5ea6439b643f34cca"
+  },
+  "phase": "before close",
+  "wall_s_at_phase": 4.303904358996078,
+  "launcher_source": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/app/app_launcher.py",
+    "sha256": "af8a09c87a05221f309892e24788a59c9776e7e9097b3cde0b57e607d4eb3675"
+  },
+  "converter_source": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/sim/converters/urdf_converter.py",
+    "sha256": "5a823096f5f7cb03e062397d5032ffe211036bffb0cf147d47162d51b52cfaa4"
+  },
+  "conversion_configuration": {
+    "asset_path": "/home/rw/Projects/tendon-spin/assets/hand/boya.urdf",
+    "usd_dir": "/home/rw/Projects/tendon-spin/outputs/isaac_boya_import",
+    "usd_file_name": null,
+    "force_usd_conversion": true,
+    "make_instanceable": false,
+    "physics_variant": "physics",
+    "fix_base": true,
+    "root_link_name": null,
+    "link_density": 0.0,
+    "merge_fixed_joints": false,
+    "convert_mimic_joints_to_normal_joints": false,
+    "joint_drive": {
+      "drive_type": "force",
+      "target_type": "none",
+      "gains": {
+        "stiffness": 0.0,
+        "damping": 0.0
+      }
+    },
+    "collision_from_visuals": false,
+    "collision_type": "Convex Hull",
+    "self_collision": true,
+    "replace_cylinders_with_capsules": false,
+    "merge_mesh": false,
+    "ros_package_paths": [],
+    "robot_type": "Default",
+    "run_asset_transformer": false,
+    "run_multi_physics_conversion": true,
+    "debug_mode": false
+  },
+  "usd": {
+    "path": "outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "joints": [
+    {
+      "name": "FOREARM",
+      "path": "/dexhand/Physics/FOREARM",
+      "type": "PhysicsFixedJoint",
+      "schemas": []
+    },
+    {
+      "name": "FAJ1",
+      "path": "/dexhand/Physics/FAJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "FAJ3",
+      "path": "/dexhand/Physics/FAJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "PALM",
+      "path": "/dexhand/Physics/PALM",
+      "type": "PhysicsFixedJoint",
+      "schemas": []
+    },
+    {
+      "name": "THJ4",
+      "path": "/dexhand/Physics/THJ4",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "THJ3",
+      "path": "/dexhand/Physics/THJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "THJ2",
+      "path": "/dexhand/Physics/THJ2",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "THJ1",
+      "path": "/dexhand/Physics/THJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "FFJ4",
+      "path": "/dexhand/Physics/FFJ4",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "FFJ3",
+      "path": "/dexhand/Physics/FFJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "FFJ2",
+      "path": "/dexhand/Physics/FFJ2",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "FFJ1",
+      "path": "/dexhand/Physics/FFJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "MFJ4",
+      "path": "/dexhand/Physics/MFJ4",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "MFJ3",
+      "path": "/dexhand/Physics/MFJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "MFJ2",
+      "path": "/dexhand/Physics/MFJ2",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "MFJ1",
+      "path": "/dexhand/Physics/MFJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "RFJ4",
+      "path": "/dexhand/Physics/RFJ4",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "RFJ3",
+      "path": "/dexhand/Physics/RFJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "RFJ2",
+      "path": "/dexhand/Physics/RFJ2",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "RFJ1",
+      "path": "/dexhand/Physics/RFJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "LFJ4",
+      "path": "/dexhand/Physics/LFJ4",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "LFJ3",
+      "path": "/dexhand/Physics/LFJ3",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "LFJ2",
+      "path": "/dexhand/Physics/LFJ2",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    },
+    {
+      "name": "LFJ1",
+      "path": "/dexhand/Physics/LFJ1",
+      "type": "PhysicsRevoluteJoint",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ]
+    }
+  ],
+  "mimics": [
+    {
+      "name": "FFJ1",
+      "path": "/dexhand/Physics/FFJ1",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ],
+      "attributes": {
+        "newton:mimicCoef0": "0.0",
+        "newton:mimicCoef1": "1.0",
+        "newton:mimicEnabled": "True"
+      },
+      "relationships": {
+        "newton:mimicJoint": [
+          "/dexhand/Physics/FFJ2"
+        ]
+      }
+    },
+    {
+      "name": "MFJ1",
+      "path": "/dexhand/Physics/MFJ1",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ],
+      "attributes": {
+        "newton:mimicCoef0": "0.0",
+        "newton:mimicCoef1": "1.0",
+        "newton:mimicEnabled": "True"
+      },
+      "relationships": {
+        "newton:mimicJoint": [
+          "/dexhand/Physics/MFJ2"
+        ]
+      }
+    },
+    {
+      "name": "RFJ1",
+      "path": "/dexhand/Physics/RFJ1",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ],
+      "attributes": {
+        "newton:mimicCoef0": "0.0",
+        "newton:mimicCoef1": "1.0",
+        "newton:mimicEnabled": "True"
+      },
+      "relationships": {
+        "newton:mimicJoint": [
+          "/dexhand/Physics/RFJ2"
+        ]
+      }
+    },
+    {
+      "name": "LFJ1",
+      "path": "/dexhand/Physics/LFJ1",
+      "schemas": [
+        "NewtonJointAPI",
+        "NewtonMimicAPI",
+        "PhysxJointAPI",
+        "PhysicsDriveAPI:angular",
+        "PhysicsJointStateAPI:angular",
+        "MjcJointAPI"
+      ],
+      "attributes": {
+        "newton:mimicCoef0": "0.0",
+        "newton:mimicCoef1": "1.0",
+        "newton:mimicEnabled": "True"
+      },
+      "relationships": {
+        "newton:mimicJoint": [
+          "/dexhand/Physics/LFJ2"
+        ]
+      }
+    }
+  ],
+  "collisions": [
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal/thdistal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thmiddle_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thproximal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal/ffdistal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffmiddle_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffproximal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal/mfdistal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfmiddle_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfproximal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal/rfdistal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfmiddle_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfproximal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal/lfdistal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfmiddle_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfproximal_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/palm/palm_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/pmbase/pmbase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/falink1/falink1_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    },
+    {
+      "path": "/dexhand/Geometry/world/fabase/fabase_1",
+      "type": "Mesh",
+      "approximation": "convexHull"
+    }
+  ],
+  "articulations": [
+    {
+      "path": "/dexhand/Geometry/world/fabase",
+      "attributes": {
+        "newton:selfCollisionEnabled": "True"
+      }
+    }
+  ],
+  "meters_per_unit": 1.0,
+  "up_axis": "Z",
+  "checks": {
+    "all_expected_revolute_joints": true,
+    "missing_joint_names": [],
+    "all_mimic_slave_schemas": true,
+    "missing_mimic_slaves": [],
+    "collision_geometry_present": true
+  },
+  "structural_checks_passed": true
+}

@@ -1,0 +1,666 @@
+{
+  "kind": "Boya Isaac physical transfer diagnostic v2",
+  "controller": "boya_source_pd_hold_v2",
+  "physics_steps": 6,
+  "training_actions": 0,
+  "benchmark_validated": false,
+  "grasp_validated": false,
+  "complete": true,
+  "original_physical_state_verified": true,
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "eula_acceptance_supplied": true,
+  "phase": "before close",
+  "wall_s_at_phase": 4.8260837371926755,
+  "contract": {
+    "path": "docs/data/boya_native_contract.json",
+    "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+  },
+  "usd": {
+    "path": "outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "configuration": {
+    "device": "cuda:0",
+    "dt": 0.0005,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "physics_prim_path": "/physicsScene",
+    "physics_material": {
+      "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0.0,
+      "density": null,
+      "_usd_applied_schema": null,
+      "_usd_field_exceptions": {},
+      "_usd_namespace": "physics"
+    },
+    "use_fabric": true,
+    "render_interval": 1,
+    "enable_scene_query_support": false,
+    "use_newton_actuators": false,
+    "physics": {
+      "class_type": "isaaclab_physx.physics.physx_manager:PhysxManager",
+      "deterministic": false,
+      "solver_type": 1,
+      "solve_articulation_contact_last": false,
+      "min_position_iteration_count": 16,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 4,
+      "max_velocity_iteration_count": 255,
+      "enable_scene_query_support": false,
+      "enable_ccd": true,
+      "enable_stabilization": false,
+      "enable_external_forces_every_iteration": true,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576
+    },
+    "create_stage_in_memory": false,
+    "logging_level": "WARNING",
+    "save_logs_to_file": true,
+    "log_dir": null,
+    "visualizer_cfgs": [],
+    "default_visualizer_cfg": null
+  },
+  "joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "backend_joint_names": [
+    "FAJ1",
+    "FAJ3",
+    "THJ4",
+    "FFJ4",
+    "MFJ4",
+    "RFJ4",
+    "LFJ4",
+    "THJ3",
+    "FFJ3",
+    "MFJ3",
+    "RFJ3",
+    "LFJ3",
+    "THJ2",
+    "FFJ2",
+    "MFJ2",
+    "RFJ2",
+    "LFJ2",
+    "THJ1",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "runtime_body_paths": [
+    "/World/Hand/Geometry/world/fabase",
+    "/World/Hand/Geometry/world/fabase/falink1",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal"
+  ],
+  "contact_filters": [
+    "/World/Hand/Geometry/world/fabase",
+    "/World/Hand/Geometry/world/fabase/falink1",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle",
+    "/World/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal"
+  ],
+  "effective_settings": {
+    "backend": "ResolvableString",
+    "quaternion_input_output": "XYZW; native contract WXYZ explicitly converted",
+    "ccd_requested": true,
+    "ccd_effective": null,
+    "ccd_evidence": "Requested flag is not proof of effective CCD; inspect this launch log",
+    "damping_implementation": "solver-side viscous joint friction; no explicit damping effort",
+    "self_collision_requested": true,
+    "friction_properties_backend_order": [
+      [
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ],
+        [
+          0.0,
+          0.0,
+          0.05000000074505806
+        ]
+      ]
+    ],
+    "drive_stiffness_backend_order": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "drive_damping_backend_order": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "actuator_forwarder_effort_limit_Nm": 1000000.0,
+    "source_motor_caps_Nm": [
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -1.0,
+        1.0
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ],
+      [
+        -0.3,
+        0.3
+      ]
+    ],
+    "damping_max_readback_error": 7.450580569168253e-10,
+    "damping_readback_passed": true
+  },
+  "initial_state": {
+    "path": "outputs/isaac_boya_physical_v2/initial_state.npz",
+    "sha256": "5cae17ae445ed82e1eb3623109ed45721ce23819bcad4ab2000768dc4a8ef542"
+  },
+  "initialization_audit": {
+    "passed": true,
+    "tolerances": {
+      "position_mm": 0.05,
+      "orientation_deg": 0.05,
+      "joint_rad": 1e-06,
+      "joint_speed_rad_s": 1e-06,
+      "object_speed": 1e-06
+    },
+    "checks": {
+      "all_state_finite": true,
+      "body_positions": true,
+      "body_orientations": true,
+      "object_position": true,
+      "object_orientation": true,
+      "joint_positions": true,
+      "joint_velocities": true,
+      "object_velocities": true,
+      "motor_commands": true,
+      "solver_damping_readback": true,
+      "runtime_contact_filters": true
+    },
+    "errors": {
+      "max_body_position_mm": 0.00013515266133002303,
+      "max_body_orientation_deg": 0.00028361738567353825,
+      "object_position_mm": 7.525837986720613e-06,
+      "object_orientation_deg": 1.7075472925031877e-06,
+      "max_joint_rad": 3.747239030182925e-08,
+      "max_joint_speed_rad_s": 4.800822012065303e-13,
+      "max_object_speed_error": 1.9204893548390757e-13
+    },
+    "body_comparison": [
+      {
+        "body": "fabase",
+        "position_mm": 3.3501934891646936e-05,
+        "orientation_deg": 4.517745487845101e-06
+      },
+      {
+        "body": "falink1",
+        "position_mm": 1.8443153764672005e-05,
+        "orientation_deg": 4.182619578303746e-06
+      },
+      {
+        "body": "pmbase",
+        "position_mm": 1.3986831883955265e-05,
+        "orientation_deg": 3.257792601184328e-05
+      },
+      {
+        "body": "palm",
+        "position_mm": 2.383024042792194e-05,
+        "orientation_deg": 1.9014441926092303e-05
+      },
+      {
+        "body": "thbase",
+        "position_mm": 2.6100121055802905e-05,
+        "orientation_deg": 7.238470009452764e-05
+      },
+      {
+        "body": "ffbase",
+        "position_mm": 4.2446033673248665e-05,
+        "orientation_deg": 2.986987836227836e-05
+      },
+      {
+        "body": "mfbase",
+        "position_mm": 5.12802033243238e-05,
+        "orientation_deg": 2.7953753927588597e-05
+      },
+      {
+        "body": "rfbase",
+        "position_mm": 4.7349321842706765e-05,
+        "orientation_deg": 1.8937615583927184e-05
+      },
+      {
+        "body": "lfbase",
+        "position_mm": 5.942799440320467e-05,
+        "orientation_deg": 2.967400819492987e-05
+      },
+      {
+        "body": "thproximal",
+        "position_mm": 6.812182674970028e-05,
+        "orientation_deg": 6.257642484585834e-05
+      },
+      {
+        "body": "ffproximal",
+        "position_mm": 5.3461957775950396e-05,
+        "orientation_deg": 8.706816964856284e-06
+      },
+      {
+        "body": "mfproximal",
+        "position_mm": 3.63333077782551e-05,
+        "orientation_deg": 2.0982692419620064e-05
+      },
+      {
+        "body": "rfproximal",
+        "position_mm": 5.07882535582679e-05,
+        "orientation_deg": 1.5080649355333733e-05
+      },
+      {
+        "body": "lfproximal",
+        "position_mm": 5.4897913928441674e-05,
+        "orientation_deg": 1.681739047370585e-05
+      },
+      {
+        "body": "thmiddle",
+        "position_mm": 0.00010289215144700109,
+        "orientation_deg": 6.860006165013248e-05
+      },
+      {
+        "body": "ffmiddle",
+        "position_mm": 5.9232928529201896e-05,
+        "orientation_deg": 1.8860476299618384e-05
+      },
+      {
+        "body": "mfmiddle",
+        "position_mm": 4.133607876146581e-05,
+        "orientation_deg": 2.0347774359156983e-05
+      },
+      {
+        "body": "rfmiddle",
+        "position_mm": 5.857311671471035e-05,
+        "orientation_deg": 1.1326587362040635e-05
+      },
+      {
+        "body": "lfmiddle",
+        "position_mm": 7.866532301424717e-05,
+        "orientation_deg": 3.3936831226166655e-05
+      },
+      {
+        "body": "thdistal",
+        "position_mm": 0.00013515266133002303,
+        "orientation_deg": 0.00028361738567353825
+      },
+      {
+        "body": "ffdistal",
+        "position_mm": 5.064871247671184e-05,
+        "orientation_deg": 3.0064472461725398e-05
+      },
+      {
+        "body": "mfdistal",
+        "position_mm": 2.9048841309986782e-05,
+        "orientation_deg": 3.397976208612202e-05
+      },
+      {
+        "body": "rfdistal",
+        "position_mm": 6.198555725629388e-05,
+        "orientation_deg": 1.758027537185658e-05
+      },
+      {
+        "body": "lfdistal",
+        "position_mm": 7.933599162284923e-05,
+        "orientation_deg": 4.694978832367688e-05
+      }
+    ],
+    "command_max_error_rad": 3.6554966165169844e-08
+  },
+  "effort_semantics": {
+    "motor_effort_requested": "external clipped source proportional motor effort; excludes passive damping",
+    "actuator_effort_forwarded": "actuator collection applied effort after model clipping; excludes solver passive/contact forces",
+    "solver_actuation_effort_readback": "PhysX get_dof_actuation_forces; not total joint reaction or passive damping force",
+    "state_alignment": "joint state before action, command/effort, then resulting post-step state"
+  },
+  "stop_reason": "position drift >5mm",
+  "execution": {
+    "path": "outputs/isaac_boya_physical_v2/execution.npz",
+    "sha256": "5e1cfd27041d783a3150023a35ce3f7f3cc1eccb1622e86c52b86ece0618dab1"
+  },
+  "coupling_residuals": {
+    "FF": {
+      "max_abs_finite_rad": 2.4047789573669434,
+      "last_finite_rad": -2.4047789573669434
+    },
+    "MF": {
+      "max_abs_finite_rad": 2.0500519275665283,
+      "last_finite_rad": -2.0500519275665283
+    },
+    "RF": {
+      "max_abs_finite_rad": 4.163787841796875,
+      "last_finite_rad": -4.163787841796875
+    },
+    "LF": {
+      "max_abs_finite_rad": 2.481478452682495,
+      "last_finite_rad": -2.481478452682495
+    }
+  },
+  "max_drift_mm": 5.856908680207287,
+  "max_tilt_deg": 11.121320137037749,
+  "contact_force_shape": [
+    24,
+    3
+  ],
+  "max_contact_normal_force_N": 668.873291015625,
+  "max_abs_joint_speed_rad_s": 3620.986083984375,
+  "forwarding_max_error_Nm": 0.0,
+  "actuation_readback_max_error_Nm": 0.0,
+  "diagnostic_elapsed_s": 0.003,
+  "remaining_gates": [
+    "certify per-link contact/support interpretation",
+    "object/self penetration",
+    "all original force/external/numerical gates",
+    "long-duration unsupported holding",
+    "large-batch throughput"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "offline unconstrained damping-only linearization of original initial hand mass matrix",
+  "new_physics_steps": 0,
+  "physics_dt": 0.0005,
+  "damping_max_eigenvalue_per_s": 252472.35017719274,
+  "explicit_euler_stability_dt_upper_s": 7.921659534584042e-06,
+  "initial_dt_times_lambda": 126.23617508859637,
+  "explicit_euler_spectral_radius": 125.23617508859601,
+  "limitation": "Uses original MuJoCo hand inertias at initial q; excludes equality/contact constraints and actual imported PhysX inertia. This checks explicit damping adapter risk, not an isolated causal diagnosis of the full executed instability."
+}
