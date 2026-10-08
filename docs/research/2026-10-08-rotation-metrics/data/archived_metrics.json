@@ -1,0 +1,438 @@
+{
+  "kind": "archived rescoring only",
+  "new_physics_steps": 0,
+  "records": [
+    {
+      "kind": "archived episode rescoring",
+      "new_physics_steps": 0,
+      "results_source": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0000/results.json",
+        "sha256": "ca95f61fbc3bd5ffdb84ee65cd7c6d927519fb9783223f77d2716ca7432bc9fc"
+      },
+      "execution": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0000/native/execution.npz",
+        "sha256": "7ed87dca070b0d205af6545d1fd1943c5eca1a94f1dcec52495bf4bd6b60159e"
+      },
+      "protocol": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0000/native/protocol.json",
+        "sha256": "6c3331fd2277f72d7c563dc7da90c3b99b10546b75d647188410fe469acdc48b"
+      },
+      "controller": "tendonspin_teacher_ppo_v2",
+      "training_updates": 0,
+      "stage": "imported-weight initialization",
+      "original_declared_window_s": 120.0,
+      "original_stop_reason": "position_drift",
+      "source_episode_physical_failure": true,
+      "source_first_invalid_time_s": 2.5065,
+      "angle_definition": "Signed unwrapped spin about the moving cylinder axis, direction -1; not SO(3) endpoint distance",
+      "scores": [
+        {
+          "window_s": 30.0,
+          "valid_seconds": 2.5060000000000002,
+          "complete_window_observed": false,
+          "net_deg": 94.62208331758943,
+          "peak_deg": 94.62208331758943,
+          "forward_deg": 94.62208331758943,
+          "backward_deg": 0.0,
+          "net_deg_per_budget_second": 3.1540694439196475,
+          "net_deg_per_valid_second": 37.7582136143613,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 2.362,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": true,
+          "window_stop_reason": "position_drift"
+        },
+        {
+          "window_s": 120.0,
+          "valid_seconds": 2.5060000000000002,
+          "complete_window_observed": false,
+          "net_deg": 94.62208331758943,
+          "peak_deg": 94.62208331758943,
+          "forward_deg": 94.62208331758943,
+          "backward_deg": 0.0,
+          "net_deg_per_budget_second": 0.7885173609799119,
+          "net_deg_per_valid_second": 37.7582136143613,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 2.362,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 2.5060000000000002,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": true,
+          "window_stop_reason": "position_drift"
+        }
+      ]
+    },
+    {
+      "kind": "archived episode rescoring",
+      "new_physics_steps": 0,
+      "results_source": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0032/results.json",
+        "sha256": "72447392d09ea12a170dc6f12775ec59b2c3dbaaabb8b18117bdb63c77cb4c8b"
+      },
+      "execution": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0032/native/execution.npz",
+        "sha256": "51bc0c012252e2f0c90d7f77d9c58ac2d4bcd342a5f3b80738f895faaa3e9a6a"
+      },
+      "protocol": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0032/native/protocol.json",
+        "sha256": "7decfb38c0f120c427bf870b368400c51cfd5be78b75dabe087b840cf6ab8cc6"
+      },
+      "controller": "tendonspin_teacher_ppo_v2",
+      "training_updates": 32,
+      "stage": "new v2 training",
+      "original_declared_window_s": 120.0,
+      "original_stop_reason": "time_limit",
+      "source_episode_physical_failure": false,
+      "source_first_invalid_time_s": null,
+      "angle_definition": "Signed unwrapped spin about the moving cylinder axis, direction -1; not SO(3) endpoint distance",
+      "scores": [
+        {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 15.097106156366669,
+          "peak_deg": 15.134179098831524,
+          "forward_deg": 19.30964486256469,
+          "backward_deg": 4.2125387061980195,
+          "net_deg_per_budget_second": 0.503236871878889,
+          "net_deg_per_valid_second": 0.503236871878889,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 15.097106156366669,
+          "full_window_final_tail_net_deg": 15.097106156366669,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": false,
+          "window_stop_reason": "requested window observed"
+        },
+        {
+          "window_s": 120.0,
+          "valid_seconds": 120.0,
+          "complete_window_observed": true,
+          "net_deg": 14.833573613130309,
+          "peak_deg": 15.134179098831524,
+          "forward_deg": 23.249256524251305,
+          "backward_deg": 8.415682911120996,
+          "net_deg_per_budget_second": 0.12361311344275257,
+          "net_deg_per_valid_second": 0.12361311344275257,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 0.14661563100908914,
+          "full_window_final_tail_net_deg": 0.14661563100908914,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": false,
+          "window_stop_reason": "requested window observed"
+        }
+      ]
+    },
+    {
+      "kind": "archived episode rescoring",
+      "new_physics_steps": 0,
+      "results_source": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0064/results.json",
+        "sha256": "19cb692748767d9ae02f4642c6a8aadbd1afcaa6180afddb4a1f5327fe4d1f1a"
+      },
+      "execution": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0064/native/execution.npz",
+        "sha256": "433c91ed4b5d9e8f2735dd9aee7e859a0c07c177220f5142a08d5508c20fe329"
+      },
+      "protocol": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0064/native/protocol.json",
+        "sha256": "8348e659ab578121ef061a52e0fabeb8d30803bff15f7f43da8d746d1512d85e"
+      },
+      "controller": "tendonspin_teacher_ppo_v2",
+      "training_updates": 64,
+      "stage": "new v2 training",
+      "original_declared_window_s": 120.0,
+      "original_stop_reason": "position_drift",
+      "source_episode_physical_failure": true,
+      "source_first_invalid_time_s": 110.8045,
+      "angle_definition": "Signed unwrapped spin about the moving cylinder axis, direction -1; not SO(3) endpoint distance",
+      "scores": [
+        {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 13.018794758460672,
+          "peak_deg": 14.301320171519178,
+          "forward_deg": 18.168958532534596,
+          "backward_deg": 5.150163774073924,
+          "net_deg_per_budget_second": 0.43395982528202237,
+          "net_deg_per_valid_second": 0.43395982528202237,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 13.018794758460672,
+          "full_window_final_tail_net_deg": 13.018794758460672,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": false,
+          "window_stop_reason": "requested window observed"
+        },
+        {
+          "window_s": 120.0,
+          "valid_seconds": 110.804,
+          "complete_window_observed": false,
+          "net_deg": 1.4663856075430666,
+          "peak_deg": 14.301320171519178,
+          "forward_deg": 21.010920382229713,
+          "backward_deg": 19.544534774686646,
+          "net_deg_per_budget_second": 0.012219880062858889,
+          "net_deg_per_valid_second": 0.013234049380374955,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": -8.246882132667904,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 110.804,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 110.804,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 110.804,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": true,
+          "window_stop_reason": "position_drift"
+        }
+      ]
+    },
+    {
+      "kind": "archived episode rescoring",
+      "new_physics_steps": 0,
+      "results_source": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0128/results.json",
+        "sha256": "900c2042f909199567ff51dfca0eeea1027bce3d77a3ae178551c98b02af57ce"
+      },
+      "execution": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0128/native/execution.npz",
+        "sha256": "cf6ae9af974463208b4e65ac13c8ba646246d37a0090a69604a301ecdcd8e4a6"
+      },
+      "protocol": {
+        "path": "outputs/teacher_v2/pilot_01/evaluations/update_0128/native/protocol.json",
+        "sha256": "683148470de2505c0a646ee876ed636bc6a2bf5a65e22c5e2e3fed7e60b39582"
+      },
+      "controller": "tendonspin_teacher_ppo_v2",
+      "training_updates": 128,
+      "stage": "new v2 training",
+      "original_declared_window_s": 120.0,
+      "original_stop_reason": "time_limit",
+      "source_episode_physical_failure": false,
+      "source_first_invalid_time_s": null,
+      "angle_definition": "Signed unwrapped spin about the moving cylinder axis, direction -1; not SO(3) endpoint distance",
+      "scores": [
+        {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 16.44062361518555,
+          "peak_deg": 16.721519772716274,
+          "forward_deg": 21.554769247580616,
+          "backward_deg": 5.114145632395065,
+          "net_deg_per_budget_second": 0.5480207871728517,
+          "net_deg_per_valid_second": 0.5480207871728517,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 16.44062361518555,
+          "full_window_final_tail_net_deg": 16.44062361518555,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": false,
+          "window_stop_reason": "requested window observed"
+        },
+        {
+          "window_s": 120.0,
+          "valid_seconds": 120.0,
+          "complete_window_observed": true,
+          "net_deg": 18.397393664270062,
+          "peak_deg": 18.609003899395887,
+          "forward_deg": 35.2626512219301,
+          "backward_deg": 16.865257557660037,
+          "net_deg_per_budget_second": 0.15331161386891717,
+          "net_deg_per_valid_second": 0.15331161386891717,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": -0.20028270827819838,
+          "full_window_final_tail_net_deg": -0.20028270827819838,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 120.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold",
+          "physical_failure_within_window": false,
+          "window_stop_reason": "requested window observed"
+        }
+      ]
+    }
+  ]
+}

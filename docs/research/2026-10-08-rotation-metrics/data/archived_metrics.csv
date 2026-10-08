@@ -1,0 +1,9 @@
+training_updates,stage,window_s,valid_seconds,complete_window_observed,net_deg,peak_deg,forward_deg,backward_deg,full_window_final_tail_net_deg,time_to_90deg_s,time_to_360deg_s,window_stop_reason,physical_failure_within_window,original_stop_reason,source_episode_physical_failure
+0,imported-weight initialization,30.0,2.5060000000000002,False,94.62208331758943,94.62208331758943,94.62208331758943,0.0,,2.362,,position_drift,True,position_drift,True
+0,imported-weight initialization,120.0,2.5060000000000002,False,94.62208331758943,94.62208331758943,94.62208331758943,0.0,,2.362,,position_drift,True,position_drift,True
+32,new v2 training,30.0,30.0,True,15.097106156366669,15.134179098831524,19.30964486256469,4.2125387061980195,15.097106156366669,,,requested window observed,False,time_limit,False
+32,new v2 training,120.0,120.0,True,14.833573613130309,15.134179098831524,23.249256524251305,8.415682911120996,0.14661563100908914,,,requested window observed,False,time_limit,False
+64,new v2 training,30.0,30.0,True,13.018794758460672,14.301320171519178,18.168958532534596,5.150163774073924,13.018794758460672,,,requested window observed,False,position_drift,True
+64,new v2 training,120.0,110.804,False,1.4663856075430666,14.301320171519178,21.010920382229713,19.544534774686646,,,,position_drift,True,position_drift,True
+128,new v2 training,30.0,30.0,True,16.44062361518555,16.721519772716274,21.554769247580616,5.114145632395065,16.44062361518555,,,requested window observed,False,time_limit,False
+128,new v2 training,120.0,120.0,True,18.397393664270062,18.609003899395887,35.2626512219301,16.865257557660037,-0.20028270827819838,,,requested window observed,False,time_limit,False

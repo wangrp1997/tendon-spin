@@ -35,3 +35,10 @@ file headers, preserve licenses and declare port changes. Hardware touch is a
 point-force array plus net3D fingertip force. Driver116 is message-array capacity,
 not a verified count of physical active taxels. Baseline virtual touch features
 can be trained without synthesizing the entire raw grid.
+
+The user now explicitly requires questions when reproduction hits a blocker.
+Stop the dependent experiment and present the evidence and concrete options before
+changing backend, grasp/size, task criteria, observation tier or algorithm route.
+Do not use controller substitutions or indefinite parameter scans to conceal a
+failure. Complete independent source/metric verification while required input is
+pending; elapsed time is not approval. SOTA requires matched executed comparisons.

@@ -1,0 +1,38 @@
+{
+  "kind": "empty-scene environment diagnostic",
+  "eula_acceptance_supplied": true,
+  "license_confirmation_scope": "current process only",
+  "reinstalled": false,
+  "boya_isaac_model_validated": false,
+  "training_actions": 0,
+  "physics_steps": 3,
+  "headless_launch": true,
+  "complete": false,
+  "versions": {
+    "isaacsim": "6.1.0.0",
+    "isaaclab": "3.0.0rc1",
+    "torch": "2.11.0"
+  },
+  "phase": "before close",
+  "wall_s_at_phase": 3.684329577954486,
+  "launcher_source": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/app/app_launcher.py",
+    "sha256": "af8a09c87a05221f309892e24788a59c9776e7e9097b3cde0b57e607d4eb3675"
+  },
+  "experience": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/apps/isaaclab.python.headless.kit",
+    "sha256": "634413dd442c5c0f8e75eed64efa5e89d2372061d43e75dd72cd6385abee733e"
+  },
+  "configuration": {
+    "headless": true,
+    "enable_cameras": false,
+    "device": "cuda:0",
+    "physics_backend": "default PhysX",
+    "dt": 0.005,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ]
+  }
+}

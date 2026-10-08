@@ -8,10 +8,22 @@ The old131072-action pilot took325.23s including evaluations, so a bounded nativ
 learning trial is currently practical. Learning does not require Isaac Sim.
 
 Existing Isaac Sim6.1.0.0/Isaac Lab3.0.0rc1 are found in env_isaaclab. No environment
-was rebuilt or package installed. The minimal headless launch reported that the
-Omniverse EULA is not accepted for this runtime; no acceptance flag was supplied.
-Record this as launch-unverified, not a defective physics engine. Package versions
-and the local probe are retained under data and outputs respectively.
+was rebuilt or package installed. The historical first minimal launch stopped at the unaccepted Omniverse EULA;
+its record remains in data/isaac_environment.json. The user then explicitly
+accepted the license for this process. A direct SimulationApp follow-up timed
+out at150s without returning the constructor; preserve that separate evidence
+in data/isaac_direct_startup_timeout.json.
+
+The user authorized one official-headless follow-up with a5-minute ceiling.
+Installed AppLauncher + isaaclab.python.headless.kit returned, reset and3
+nonrendering physics steps completed; process exited0 after3.951799s. Default
+SimulationApp.close fast shutdown exits the process, so the post-close marker
+expected by the protocol was not observed; this is stated explicitly in
+experiments/2026-10-08-isaaclab-probe/README.md. Startup/stepping are verified;
+Boya model, batched dynamics and training remain unverified. No package/global
+environment was rebuilt or changed. Process-only EULA confirmation is authorized
+and must not be requested again. Keep direct/full-app timeout and official
+headless success separate; root cause of the full-app hang is not isolated.
 
 Even after launch is available, a Boya Isaac task needs independently verified:
 the packaged CAD/URDF collision and self-contact geometry, passive finger coupling,

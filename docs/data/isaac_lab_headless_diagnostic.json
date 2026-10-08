@@ -1,0 +1,78 @@
+{
+  "kind": "one user-authorized bounded official Isaac Lab startup diagnostic",
+  "user_accepted_license": true,
+  "user_authorized_this_diagnostic": true,
+  "wall_budget_s": 300,
+  "timeout_s": 298,
+  "termination_grace_s": 2,
+  "actual_wall_s": 3.9517991149332374,
+  "return_code": 0,
+  "stop_reason": "completed",
+  "log": {
+    "path": "outputs/isaaclab_headless_diagnostic.log",
+    "sha256": "ac038245fd33b6ff20192ab45921bdc1f0e89c9cd89750d6616b5835ef15ef53"
+  },
+  "probe": {
+    "path": "scripts/probe_isaaclab.py",
+    "sha256": "d29fc3a3ac225dd87781840fea68e46e597bd8c03f873b94d8d38275d7b1ac55"
+  },
+  "protocol": {
+    "path": "docs/experiments/2026-10-08-isaaclab-probe/PROTOCOL.md",
+    "sha256": "5b326213f3530743aa3012335aa43a2488f11216cc1f9e85ae7bcbc8f6d1e78b"
+  },
+  "last_flushed_phase": {
+    "kind": "empty-scene environment diagnostic",
+    "eula_acceptance_supplied": true,
+    "license_confirmation_scope": "current process only",
+    "reinstalled": false,
+    "boya_isaac_model_validated": false,
+    "training_actions": 0,
+    "physics_steps": 3,
+    "headless_launch": true,
+    "complete": false,
+    "versions": {
+      "isaacsim": "6.1.0.0",
+      "isaaclab": "3.0.0rc1",
+      "torch": "2.11.0"
+    },
+    "phase": "before close",
+    "wall_s_at_phase": 3.684329577954486,
+    "launcher_source": {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/app/app_launcher.py",
+      "sha256": "af8a09c87a05221f309892e24788a59c9776e7e9097b3cde0b57e607d4eb3675"
+    },
+    "experience": {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/apps/isaaclab.python.headless.kit",
+      "sha256": "634413dd442c5c0f8e75eed64efa5e89d2372061d43e75dd72cd6385abee733e"
+    },
+    "configuration": {
+      "headless": true,
+      "enable_cameras": false,
+      "device": "cuda:0",
+      "physics_backend": "default PhysX",
+      "dt": 0.005,
+      "gravity": [
+        0.0,
+        0.0,
+        -9.81
+      ]
+    }
+  },
+  "boya_model_loaded": false,
+  "training_actions": 0,
+  "acceptance": {
+    "launcher_returned": true,
+    "reset_returned": true,
+    "three_steps_returned": true,
+    "close_issued": true,
+    "process_exit_zero": true,
+    "post_close_marker_observed": false,
+    "protocol_close_return_marker_requirement_met": false
+  },
+  "teardown_interpretation": "Installed SimulationApp.close documents default fast shutdown terminating the process at app.shutdown; therefore a post-close marker was not reached. Constructor/reset/3 physics steps and normal exit are observed. Do not relabel an unobserved close-return marker as observed.",
+  "close_api_source": {
+    "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/exts/isaacsim.simulation_app/isaacsim/simulation_app/simulation_app.py",
+    "sha256": "c2a2173be57abac20ef97f81b80d58319c94c9a4017c98709f8d13489ad0b746",
+    "explanation_lines": "989-1008"
+  }
+}

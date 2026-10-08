@@ -59,8 +59,8 @@ truth distinct from virtual sensing and real measured student observations.
 
 [Original-paper/baseline audit](baseline_evidence.md): Hora Figure3 uses radians,
 23.96rad≈3.81turns in a30s real-world window, mean normalizedTTF.98; AnyRotate
-palm-upz1.57turns/30s. Neither proves indefinite rotation. Sharpa quantitative
-lifetime/paper is not verified. Hora reports≈500M training actions; v2 has262144
+palm-upz1.57turns/30s. Neither proves indefinite rotation. The RL Lab quantitative rotation lifetime remains unverified; the follow-up
+separately verifies20s TacBPM paper results and official Sharpa source identity. Hora reports≈500M training actions; v2 has262144
 new actions and131072 in its warm-start history. Our sole fixed grasp was CAD
 static-force optimized/preloaded/unsupported-held and reloaded, not a paper grasp
 cache; its saved bytes match the original. Complete Hora pipeline is the priority
@@ -69,3 +69,22 @@ pending, and any Boya port must retain its distinct hand/engine identity.
 
 User pauses push until the new remote is created/identified. Continue concise
 local milestone commits; original repository remains outside this work's writes.
+
+[Metric literature/source follow-up](research/2026-10-08-rotation-metrics/README.md):
+8full-text sources, bounded OpenAlex/Crossref searches; arXiv broad API429/timeout
+retained. Fixed-window angle+lifetime convention; preserve120s Boya primary,
+add30s, first-target/unreached/tail/backward reporting.4teacher archives offline
+rescored,0new physics, identical old endpoint angles. Window-specific physical
+failure separated from full-source episode failure.4analytic metric tests pass.
+Official Sharpa95ccda3d... pinned separately:3task ASTs differ from user fork,
+models/normalizer/PPO ASTs match;20s resets/GIF looping do not prove indefinite
+rotation. TacBPM20s signed806/945deg examples are a different2026 paper/method.
+
+[Isaac official-headless diagnostic](experiments/2026-10-08-isaaclab-probe/README.md):
+user accepted process-only EULA and this one<=5min follow-up after direct150s
+startup timeout. AppLauncher returned/reset/3nonrender physics steps returned,
+exit0/3.951799s; normal fast shutdown terminates process before post-close marker,
+which was not observed and not claimed. Existing environment unchanged; no Boya
+model/teacher/student/train actions. Startup blocker has a working official
+entrypoint. Next mandatory boundary is collision/coupling/13input/grasp transfer,
+then [complete Hora Boya port](hora_boya_port.md), not another v2 reward scan.

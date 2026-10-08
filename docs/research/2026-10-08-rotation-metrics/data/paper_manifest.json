@@ -1,0 +1,217 @@
+[
+  {
+    "key": "hora",
+    "title": "In-Hand Object Rotation via Rapid Motor Adaptation",
+    "authors": [
+      "Haozhi Qi",
+      "Ashish Kumar",
+      "Roberto Calandra",
+      "Yi Ma",
+      "Jitendra Malik"
+    ],
+    "arxiv": "2210.04887v1",
+    "year": 2022,
+    "pdf": "outputs/references/hora.pdf",
+    "text": "outputs/hora-paper.txt",
+    "metric_pages": [
+      5,
+      6,
+      7,
+      11,
+      15
+    ],
+    "role": "continuous single-axis rotation with proprioceptive adaptation",
+    "pdf_sha256": "d18d851fd7836d6195abd8e102caccd70dae5c54d206013f8aabf510c3133066",
+    "text_sha256": "33cc1fbb89926f6c539e97a234414337d1a67786e96b015467cdc7197bcb510b",
+    "url": "https://arxiv.org/abs/2210.04887v1",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "anyrotate",
+    "title": "AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch",
+    "authors": [
+      "Max Yang",
+      "Chenghua Lu",
+      "Alex Church",
+      "Yijiong Lin",
+      "Chris Ford",
+      "Haoran Li",
+      "Efi Psomopoulou",
+      "David A. W. Barton",
+      "Nathan F. Lepora"
+    ],
+    "arxiv": "2405.07391v3",
+    "year": 2024,
+    "pdf": "outputs/references/anyrotate.pdf",
+    "text": "outputs/anyrotate-paper.txt",
+    "metric_pages": [
+      6,
+      7,
+      8,
+      15,
+      17
+    ],
+    "role": "multi-axis and hand-orientation continuous rotation with tactile student",
+    "pdf_sha256": "e5adc8090f8cec5f9938282f2690e6c9869dc36f68b0035a79b24feed2ca90a2",
+    "text_sha256": "00650073914bf83595d473dac9dd9e40e44c44aedab746b6e1521a5280c282a9",
+    "url": "https://arxiv.org/abs/2405.07391v3",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "rotating_without_seeing",
+    "title": "Rotating without Seeing: Towards In-hand Dexterity through Touch",
+    "authors": [
+      "Zhao-Heng Yin",
+      "Binghao Huang",
+      "Yuzhe Qin",
+      "Qifeng Chen",
+      "Xiaolong Wang"
+    ],
+    "arxiv": "2303.10880v4",
+    "year": 2023,
+    "doi": "10.15607/RSS.2023.XIX.036",
+    "metric_pages": [
+      5,
+      7
+    ],
+    "role": "continuous rotation, rounds and time-to-fall",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/rotating_without_seeing.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/rotating_without_seeing.txt",
+    "pages": 15,
+    "bytes": 6925202,
+    "pdf_sha256": "7be48b3f9573efaf8d53b2abf94f23ae16532d6afa2408bc803bc14d4286a5ba",
+    "text_sha256": "2c090448e8e07153dc4a3f2693a313fb165146e6b008b5137c87b7d4a1bce105",
+    "url": "https://arxiv.org/abs/2303.10880v4",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "general_rotation",
+    "title": "General In-Hand Object Rotation with Vision and Touch",
+    "authors": [
+      "Haozhi Qi",
+      "Brent Yi",
+      "Sudharshan Suresh",
+      "Mike Lambeta",
+      "Yi Ma",
+      "Roberto Calandra",
+      "Jitendra Malik"
+    ],
+    "arxiv": "2309.09979v2",
+    "year": 2023,
+    "metric_pages": [
+      6,
+      9
+    ],
+    "role": "rotation reward, orthogonal rotation penalty and normalized time-to-fall",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/general_rotation.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/general_rotation.txt",
+    "pages": 16,
+    "bytes": 6982877,
+    "pdf_sha256": "6f0d51408b914da24ea2efeeaabc6a93c4149be4710a6153085ce407acb94170",
+    "text_sha256": "4dfef4a841cbca01c289867a67affb8f0406413ba539c61b6224cbd74238ec49",
+    "url": "https://arxiv.org/abs/2309.09979v2",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "dactyl",
+    "title": "Learning Dexterous In-Hand Manipulation",
+    "authors": [
+      "OpenAI",
+      "Marcin Andrychowicz et al."
+    ],
+    "arxiv": "1808.00177v5",
+    "year": 2019,
+    "doi": "10.1177/0278364919887447",
+    "metric_pages": [
+      10
+    ],
+    "role": "different task: consecutive target reorientations, not continuous turns",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/dactyl.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/dactyl.txt",
+    "pages": 27,
+    "bytes": 4590851,
+    "pdf_sha256": "da6ec44dd0941d674ec58334ff630f83d7bd19e6062ab2837ccfa0b3b94f6f73",
+    "text_sha256": "7e01dda330b4c4f9d0cbf3edcfb7785769e5ddac4b382c67ecf9b8dd1e9c1467",
+    "url": "https://arxiv.org/abs/1808.00177v5",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "tacmap",
+    "title": "Tacmap: Bridging the Tactile Sim-to-Real Gap via Geometry-Consistent Penetration Depth Map",
+    "authors": [
+      "Lei Su",
+      "Zhijie Peng",
+      "Renyuan Ren",
+      "Shengping Mao",
+      "Juan Du",
+      "Kaifeng Zhang",
+      "Xuezhou Zhu"
+    ],
+    "arxiv": "2602.21625v2",
+    "year": 2026,
+    "metric_pages": [
+      7
+    ],
+    "role": "Sharpa tactile transfer evidence; quantitative rotation count/lifetime not verified",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/tacmap.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/tacmap.txt",
+    "pages": 8,
+    "bytes": 2809092,
+    "pdf_sha256": "0a1cff3027b9afac15914f1fac5a45168430d9e18fab1506224efeea6584515c",
+    "text_sha256": "457170f7c1e78de625a283df42d86a2d41a1e95baa9d38f6d270c5f132c1904a",
+    "url": "https://arxiv.org/abs/2602.21625v2",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "tacbpm",
+    "title": "TacBPM: A Tactile-conditioned Behavior Prior Model for Dexterous Reorientation",
+    "authors": [
+      "Jie Yin",
+      "Wanli Xing",
+      "Zeyuan Zhao",
+      "Xuezhou Zhu",
+      "Zhijie Deng",
+      "Kaifeng Zhang"
+    ],
+    "arxiv": "2609.18174v1",
+    "year": 2026,
+    "metric_pages": [
+      6,
+      7
+    ],
+    "role": "Sharpa team preprint, signed 20s angle plus >180deg success",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/tacbpm.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/tacbpm.txt",
+    "pages": 8,
+    "bytes": 4794744,
+    "pdf_sha256": "5173867035550525d02fd1eec041a8f47b54e5089aba4354556ee2164c61272c",
+    "text_sha256": "1eac4344f1df6b9e859799e91d6cefdc7f432d15e13446ad51f9668e3427911b",
+    "url": "https://arxiv.org/abs/2609.18174v1",
+    "access_date": "2026-10-08"
+  },
+  {
+    "key": "dextag",
+    "title": "DexTaG: Tactile-as-Guidance in Reinforcement Learning for Dexterous Manipulation",
+    "authors": [
+      "Han Yang",
+      "Yian Wang",
+      "Yunlong Song",
+      "Zhenjia Xu",
+      "Chuang Gan"
+    ],
+    "arxiv": "2609.33882v1",
+    "year": 2026,
+    "metric_pages": [
+      1
+    ],
+    "role": "excluded from direct rotation ranking: tool-use/trajectory completion task",
+    "pdf": "outputs/references/metrics_2026-10-08/papers/dextag.pdf",
+    "text": "outputs/references/metrics_2026-10-08/papers/dextag.txt",
+    "pages": 9,
+    "bytes": 5649471,
+    "pdf_sha256": "27da20310099eead5300117713840212167d22669f35b82da10d6061e2b1d44f",
+    "text_sha256": "d01b8495a4241c414692e67e297509a432c863bb9021573eaf584f45173f4603",
+    "url": "https://arxiv.org/abs/2609.33882v1",
+    "access_date": "2026-10-08"
+  }
+]

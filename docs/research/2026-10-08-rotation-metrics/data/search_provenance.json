@@ -1,0 +1,244 @@
+{
+  "scope": "bounded metric-focused review, not an exhaustive systematic search",
+  "access_date": "2026-10-08",
+  "searches": [
+    {
+      "path": "outputs/references/metrics_2026-10-08/openalex/search_log.json",
+      "sha256": "c836b9a46a74a04c133ec1d07a47174a7ef2ff84d7fe6ec04d94a405d5d54bbc",
+      "entries": [
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "in-hand object rotation",
+            "per_page": 25,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:26:16.456349+00:00",
+          "scope": "bounded first-page search",
+          "reported_total": 498986,
+          "returned": 25,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/rotation.json",
+          "results_sha256": "333426e9a90774b0959dbe772a483acd20b197886650eee41afff315e51f1e67"
+        },
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "SharpaWave",
+            "per_page": 10,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:26:18.924910+00:00",
+          "scope": "bounded first-page search",
+          "reported_total": 9,
+          "returned": 9,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/sharpa.json",
+          "results_sha256": "9ab9d629ed01e54c6f5d802d7cb01398d03cecc8baf109af423008ffe0d90faa"
+        }
+      ]
+    },
+    {
+      "path": "outputs/references/metrics_2026-10-08/openalex/targeted_log.json",
+      "sha256": "5df2b8ff18ffb45ad117a085c771e0ccf9f33b47ae27598c37bcfde9e70011c9",
+      "entries": [
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "Rotating without Seeing Towards In-hand Dexterity through Touch",
+            "per_page": 8,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:28:52.070975+00:00",
+          "scope": "bounded targeted search",
+          "reported_total": 872,
+          "returned": 8,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/rotating_without_seeing.json",
+          "results_sha256": "8e7cc51c57e5c1d7e16172a4c881b903b85123c3e770b96a20052f004f5c1ff3"
+        },
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "Learning Dexterous In-Hand Manipulation",
+            "per_page": 8,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:28:54.807647+00:00",
+          "scope": "bounded targeted search",
+          "reported_total": 12346,
+          "returned": 8,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/dactyl.json",
+          "results_sha256": "a33d7bd951b602f511fa4ee1d36abdb3ed7c8c29d1361fecf1f9c3ea0e161fce"
+        },
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "robot dexterous continuous in-hand rotation tactile",
+            "per_page": 8,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:28:58.844274+00:00",
+          "scope": "bounded targeted search",
+          "reported_total": 2264,
+          "returned": 8,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/touch_rotation.json",
+          "results_sha256": "127b6edc7ea877af851ff7f1b9eb77b1a5fc7bbfd8f225799b100520d5cb7ad6"
+        },
+        {
+          "endpoint": "https://api.openalex.org/works",
+          "parameters": {
+            "search": "Tacmap Bridging the Tactile Sim-to-Real Gap",
+            "per_page": 8,
+            "page": 1,
+            "filter": "to_publication_date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:29:01.775841+00:00",
+          "scope": "bounded targeted search",
+          "reported_total": 2,
+          "returned": 2,
+          "results_file": "outputs/references/metrics_2026-10-08/openalex/tacmap.json",
+          "results_sha256": "4202203ec62f87193f59ad963e8ca5667a4e6906b75f93fabe7ba0b42273217e"
+        }
+      ]
+    },
+    {
+      "path": "outputs/references/metrics_2026-10-08/crossref/search_log.json",
+      "sha256": "021a7945eb6f22bbec9af23e18032a5a9bc751924e41cf47446ba5b6cb869c3e",
+      "entries": [
+        {
+          "endpoint": "https://api.crossref.org/works",
+          "parameters": {
+            "query.bibliographic": "continuous in-hand object rotation",
+            "rows": 20,
+            "offset": 0,
+            "filter": "until-pub-date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:26:16.735650+00:00",
+          "scope": "bounded first-page search",
+          "reported_total": 857058,
+          "returned": 20,
+          "results_file": "outputs/references/metrics_2026-10-08/crossref/rotation.json",
+          "results_sha256": "97e37fab1a94ea75b29449d34335b1cad1bfd432a3422e276feb0130c621e69b"
+        },
+        {
+          "endpoint": "https://api.crossref.org/works",
+          "parameters": {
+            "query.bibliographic": "SharpaWave",
+            "rows": 10,
+            "offset": 0,
+            "filter": "until-pub-date:2026-10-08"
+          },
+          "accessed_at": "2026-10-08T04:26:19.549468+00:00",
+          "scope": "bounded first-page search",
+          "reported_total": 0,
+          "returned": 0,
+          "results_file": "outputs/references/metrics_2026-10-08/crossref/sharpa.json",
+          "results_sha256": "631741b644264a9413e700f64582f80dae531a9632b752c5fb855d0fca1a91d1"
+        }
+      ]
+    },
+    {
+      "path": "outputs/references/metrics_2026-10-08/crossref/targeted_log.json",
+      "sha256": "76ed6ee57a87c928582660ead73ffccccdd1811fb6a191dc4447de9dbc1935c8",
+      "entries": [
+        {
+          "endpoint": "https://api.crossref.org/works",
+          "parameters": {
+            "query.title": "Rotating without Seeing Towards In-hand Dexterity through Touch",
+            "rows": 5,
+            "offset": 0
+          },
+          "accessed_at": "2026-10-08T04:28:49.326246+00:00",
+          "scope": "bounded targeted title query",
+          "reported_total": 2744976,
+          "returned": 5,
+          "results_file": "outputs/references/metrics_2026-10-08/crossref/rotating_without_seeing.json",
+          "results_sha256": "c2fcf3703b21299e5c284dd09a20168d870d11212b6971403092ae12ae37d365"
+        },
+        {
+          "endpoint": "https://api.crossref.org/works",
+          "parameters": {
+            "query.title": "General In-Hand Object Rotation with Vision and Touch",
+            "rows": 5,
+            "offset": 0
+          },
+          "accessed_at": "2026-10-08T04:28:52.273099+00:00",
+          "scope": "bounded targeted title query",
+          "reported_total": 1205427,
+          "returned": 5,
+          "results_file": "outputs/references/metrics_2026-10-08/crossref/general_rotation.json",
+          "results_sha256": "2a0feab5319852c95433dab2afcede2a3fc4e77fbf8f149fb6980749516f9574"
+        },
+        {
+          "endpoint": "https://api.crossref.org/works",
+          "parameters": {
+            "query.title": "Learning Dexterous In-Hand Manipulation",
+            "rows": 5,
+            "offset": 0
+          },
+          "accessed_at": "2026-10-08T04:28:54.460159+00:00",
+          "scope": "bounded targeted title query",
+          "reported_total": 2429217,
+          "returned": 5,
+          "results_file": "outputs/references/metrics_2026-10-08/crossref/dactyl.json",
+          "results_sha256": "f3ad9aeeee9c19ffb90828ba7b04c61c3993908fd5c0ec3bb06c4fe411a8b600"
+        }
+      ]
+    },
+    {
+      "path": "outputs/references/metrics_2026-10-08/arxiv/search_log.json",
+      "sha256": "e4f1c56fa6e68c096d44f9dfdc1d5ef5075142fd20a7f6c0a6175b192e9b13d2",
+      "entries": [
+        {
+          "endpoint": "https://export.arxiv.org/api/query",
+          "parameters": {
+            "search_query": "cat:cs.RO AND (ti:\"in-hand\" OR ti:dexterous) AND (ti:rotation OR abs:\"continuous rotation\")",
+            "start": 0,
+            "max_results": 30,
+            "sortBy": "relevance",
+            "sortOrder": "descending"
+          },
+          "accessed_at": "2026-10-08T04:26:16.306603+00:00",
+          "scope": "bounded first-page search",
+          "error": "HTTP Error 429: Unknown Error"
+        },
+        {
+          "endpoint": "https://export.arxiv.org/api/query",
+          "parameters": {
+            "search_query": "all:Sharpa OR all:SharpaWave",
+            "start": 0,
+            "max_results": 15,
+            "sortBy": "relevance",
+            "sortOrder": "descending"
+          },
+          "accessed_at": "2026-10-08T04:26:20.851468+00:00",
+          "scope": "bounded first-page search",
+          "error": "HTTP Error 429: Unknown Error"
+        }
+      ]
+    },
+    {
+      "path": "outputs/references/metrics_2026-10-08/arxiv/retry_log.json",
+      "sha256": "d6311b046ca2cb9171f21b164c9f1a487ddb4847ed080183e75197ae4b0dc0a1",
+      "entries": {
+        "endpoint": "https://export.arxiv.org/api/query",
+        "parameters": {
+          "search_query": "ti:\"in-hand\" AND ti:rotation",
+          "start": 0,
+          "max_results": 30
+        },
+        "accessed_at": "2026-10-08T04:28:50.715055+00:00",
+        "retry": 1,
+        "error": "The read operation timed out"
+      }
+    }
+  ],
+  "limitations": [
+    "arXiv API returned HTTP429 for both broad queries and timed out on one bounded retry",
+    "OpenAlex and Crossref broad searches include unrelated results; only declared first pages were returned",
+    "No dual screening or pooled cross-robot meta-analysis"
+  ]
+}

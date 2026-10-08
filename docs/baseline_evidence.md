@@ -8,7 +8,8 @@
 |---|---|---|
 |[Hora](https://arxiv.org/abs/2210.04887v1)，Allegro|30s评测窗，6种重物×20初始抓取，平均23.96±3.16 **弧度**，约3.81圈；归一化TTF .98±.08，对应平均29.4s|图3/第6页；Rotations单位是弧度，不是23.96圈。附录A.1记录33物体中22个几乎稳定续转，较难物体仅10–20s后可能掉落|
 |[AnyRotate](https://arxiv.org/abs/2405.07391v3)，带触觉Allegro|掌朝上z轴30s窗平均1.57±.57圈，TTT30±0s；掌朝下1.33±.44圈，TTT28.2±3.1s|表2/第7页；第4节把卡住、掉落和轴偏离都计作终止，不保证任意物体永远不停|
-|SharpaWave|本地fork的README提供sim/real GIF与部署流程|没有核验到可引用的连续时长/圈数统计或原始论文，不编造量化成绩；推荐48×60mm圆柱也不同于当前伯牙40×32mm|
+|Sharpa RL Lab|官方95ccda3d...已核对，20s reset episodes；real.gif每次显示14.99s|未核实到该仓库的长期旋转量化表；GIF播放时长不当真实episode。三处任务AST与fork不同|
+|Sharpa相关TacBPM|2026预印本表IV：20s，corner block+z平均806°/10次，small tennis+z945°/10次，均10/10达>180°|另一篇方法，不归给RL Lab代码；不同物体/轴/时间窗不混入伯牙排行榜|
 
 伯牙当前自定义PPO-v2完成一轮预算，不是完整Hora/AnyRotate/Sharpa复现。
 初始化权重来自历史131072动作的PPO-v1；本轮额外262144动作，共有
@@ -53,5 +54,9 @@ Allegro完全相同。触觉消融随后参考AnyRotate/Sharpa，不混称原控
 大规模主训练优先评估现有Isaac Lab，MuJoCo保留当前动力学核对。
 切换引擎须单列构型，校验原CAD碰撞、耦合、13路位置输入/限幅、
 重力及无支撑抓取；不能用换引擎掩盖指令饱和。现有Isaac6.1/Lab3
-安装未重建，但启动探针仍在EULA处退出，伯牙模型未验证；没有启动
-Isaac大训练或接受许可。见[后端状态](backend_decision.md)。
+安装未重建。用户已同意本次进程许可；直接SimulationApp150s超时后，
+官方AppLauncher无渲染入口约3.95s完成reset/3物理步/正常退出。伯牙
+模型与大训练仍未验证；旧拒绝许可/超时档案保留。见[后端状态](backend_decision.md)。
+
+本轮增加八篇全文指标核验、官方Sharpa固定源码和旧轨迹重评分，见
+[指标调研](research/2026-10-08-rotation-metrics/README.md)；没有新增旋转成绩。

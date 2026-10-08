@@ -1,0 +1,18 @@
+{
+  "kind": "prior authorized direct SimulationApp launch",
+  "eula_acceptance_supplied": true,
+  "license_scope": "process only",
+  "wall_limit_s": 150,
+  "return_code": 124,
+  "stop_reason": "timeout at Simulation App Starting",
+  "launcher_returned": false,
+  "physics_steps": 0,
+  "boya_model_loaded": false,
+  "training_actions": 0,
+  "log": {
+    "path": "outputs/isaac_probe_after_license.log",
+    "sha256": "98db2688e8161b0415bd8d7c6aa2d5b84a1b433f1ad78cab90db802e74da9375"
+  },
+  "source": "scripts/probe_isaac.py",
+  "source_sha256": "d777488e1af0de013bc7b70339abe5f6ea8a01a3856b1223caade7b07d735b74"
+}

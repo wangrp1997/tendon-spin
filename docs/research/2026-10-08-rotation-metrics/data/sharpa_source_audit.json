@@ -1,0 +1,237 @@
+{
+  "upstream": "https://github.com/sharpa-robotics/sharpa-rl-lab",
+  "upstream_commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+  "user_fork_commit": "5accf024d376685eaa17da7aa4614498217eab4d",
+  "source_records": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/README.md",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:51.682367+00:00",
+      "sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654",
+      "bytes": 3912,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/README.md",
+      "local_fork_sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654",
+      "exact_bytes_match_local_fork": true
+    },
+    {
+      "path": "NOTICE",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/NOTICE",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:53.137456+00:00",
+      "sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade",
+      "bytes": 4339,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/NOTICE",
+      "local_fork_sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade",
+      "exact_bytes_match_local_fork": true
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/LICENSE",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:53.823988+00:00",
+      "sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b",
+      "bytes": 9666,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/LICENSE",
+      "local_fork_sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b",
+      "exact_bytes_match_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:54.712731+00:00",
+      "sha256": "4124743af40b078bfd08ebefffdfdc3f47938830af1e2b8961d6da9eae36138e",
+      "bytes": 32588,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "local_fork_sha256": "c3d3a3cd666934f47f4686351749b457782d044c83091fd5aa074b4fe486c5e1",
+      "exact_bytes_match_local_fork": false,
+      "python_ast_matches_local_fork": false
+    },
+    {
+      "path": "rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:56.321133+00:00",
+      "sha256": "1535ba33fa4d044b8a69ac3b14be57cfb28870b62e5ace83df74521c4249006e",
+      "bytes": 12638,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "local_fork_sha256": "adf65f7f7ecc5f427c67c239299954b3af2bb4a0945eb6c4edade8d28dc981a8",
+      "exact_bytes_match_local_fork": false,
+      "python_ast_matches_local_fork": false
+    },
+    {
+      "path": "rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:28:58.319465+00:00",
+      "sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d",
+      "bytes": 824,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "local_fork_sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d",
+      "exact_bytes_match_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/scripts/play.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/scripts/play.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:29:01.330051+00:00",
+      "sha256": "ed1329fe069ba2a4399b1d36e2e23e08e4cdd6de8278f12a2270969680d24730",
+      "bytes": 4594,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/scripts/play.py",
+      "local_fork_sha256": "ed1329fe069ba2a4399b1d36e2e23e08e4cdd6de8278f12a2270969680d24730",
+      "exact_bytes_match_local_fork": true,
+      "python_ast_matches_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:29:02.677659+00:00",
+      "sha256": "a3fc6872c6c01ff721792202e6bd1eeee1d92e63a57371e7398a25ce00acf6df",
+      "bytes": 6254,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "local_fork_sha256": "36aefa882f538280e7531a987936597b9584139cbcf23485ba75188292d783dd",
+      "exact_bytes_match_local_fork": false,
+      "python_ast_matches_local_fork": false
+    },
+    {
+      "path": "resources/real.gif",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/resources/real.gif",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:29:03.269519+00:00",
+      "sha256": "d53c8b62cc8a3de91ebe5f6015c08b1d87c81d52443649ec12bfca05409ab8b7",
+      "bytes": 20907063,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/resources/real.gif",
+      "local_fork_sha256": "d53c8b62cc8a3de91ebe5f6015c08b1d87c81d52443649ec12bfca05409ab8b7",
+      "exact_bytes_match_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/algo/models/models.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/models/models.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:40:42.768308+00:00",
+      "sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225",
+      "bytes": 5862,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/algo/models/models.py",
+      "python_ast_matches_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/algo/models/running_mean_std.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/models/running_mean_std.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:40:44.681417+00:00",
+      "sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "bytes": 3733,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/algo/models/running_mean_std.py",
+      "python_ast_matches_local_fork": true
+    },
+    {
+      "path": "rl_isaaclab/algo/ppo/ppo.py",
+      "url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/ppo/ppo.py",
+      "commit": "95ccda3d948801bb5da4cb7ffea766e03067a63b",
+      "accessed_at": "2026-10-08T04:40:45.522964+00:00",
+      "sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a",
+      "bytes": 17805,
+      "snapshot": "outputs/references/metrics_2026-10-08/sharpa-official/rl_isaaclab/algo/ppo/ppo.py",
+      "python_ast_matches_local_fork": true
+    }
+  ],
+  "selected_official_copy": [
+    {
+      "path": "third_party/sharpa_upstream/README.md",
+      "sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654",
+      "upstream_sha256": "3c9a49aa4cd3f1c5cbcb2552b66894ba85ff25ae9f98187f6599e9430ee22654",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/README.md",
+      "changes": "none"
+    },
+    {
+      "path": "third_party/sharpa_upstream/NOTICE",
+      "sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade",
+      "upstream_sha256": "265bfd399ab39fe615164f3cec887e06ba2652b5d647e84fa80ab21315558ade",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/NOTICE",
+      "changes": "none"
+    },
+    {
+      "path": "third_party/sharpa_upstream/LICENSE",
+      "sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b",
+      "upstream_sha256": "ecb5a318c68e023cc889f11232c43c1e3a865cfd29a4359043229f47a1392c2b",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/LICENSE",
+      "changes": "none"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "sha256": "7f51e50650bf7fbb1a1e8cb76a0b4d221aaeda2a32f43fddf8e398ce76ed170c",
+      "upstream_sha256": "4124743af40b078bfd08ebefffdfdc3f47938830af1e2b8961d6da9eae36138e",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "sha256": "30080047b9de39246bb5d3d5f804dcd4f5c214a746e401f68537f888453a3188",
+      "upstream_sha256": "1535ba33fa4d044b8a69ac3b14be57cfb28870b62e5ace83df74521c4249006e",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_env_cfg.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d",
+      "upstream_sha256": "8714d7de98f1723867c2d88fa385220b5dd3de2cf2715fc957e309efe523be8d",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/agents/ppo_cfg.yaml",
+      "changes": "none"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/scripts/play.py",
+      "sha256": "bb04ced2c941c66f0165a18c98d9c89f46f281aab34c6e01a53ea95cecf4c553",
+      "upstream_sha256": "ed1329fe069ba2a4399b1d36e2e23e08e4cdd6de8278f12a2270969680d24730",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/scripts/play.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "sha256": "818e7cd09a2e3f4e332092d373f805a70468a70d348a5f40c49a8fa73890407f",
+      "upstream_sha256": "a3fc6872c6c01ff721792202e6bd1eeee1d92e63a57371e7398a25ce00acf6df",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/tasks/inhand_rotate/sharpa_wave_grasp_env.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/algo/models/models.py",
+      "sha256": "48dc92bcacedf0d9d586b427493c80c853c1a356c118486954447421cb6ca656",
+      "upstream_sha256": "ca066ed1bee52bff09822cf10c472df6170f486cf05ed84e55f6187a77a13225",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/models/models.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/algo/models/running_mean_std.py",
+      "sha256": "7fcecbe83d1d87a39af51c446e0a0567c9664ab6659804fb739783ea2288c4a1",
+      "upstream_sha256": "98f63931433654b217535e535be4cd899af2c041a89071ab9fed1db87443a5c8",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/models/running_mean_std.py",
+      "changes": "attribution comments only"
+    },
+    {
+      "path": "third_party/sharpa_upstream/rl_isaaclab/algo/ppo/ppo.py",
+      "sha256": "a1e6448d6a3128cfde96cf8e099574a79a1f99f57160d2f9f25736491a6ebbce",
+      "upstream_sha256": "d53251aa47e82142559d3298e89ef61ea949703255196db37941ce25aad87b8a",
+      "upstream_url": "https://raw.githubusercontent.com/sharpa-robotics/sharpa-rl-lab/95ccda3d948801bb5da4cb7ffea766e03067a63b/rl_isaaclab/algo/ppo/ppo.py",
+      "changes": "attribution comments only"
+    }
+  ],
+  "video": {
+    "frames": 225,
+    "width": 640,
+    "height": 738,
+    "display_cycle_seconds": 14.99,
+    "loop": 0,
+    "sha256": "d53c8b62cc8a3de91ebe5f6015c08b1d87c81d52443649ec12bfca05409ab8b7",
+    "interpretation": "Animation display duration only, not validated uninterrupted physical rotation"
+  },
+  "quantitative_rotation_lifetime_verified": false,
+  "episode_limit_s": 20,
+  "actions": 22,
+  "observations": 192,
+  "history_frames": 30,
+  "num_envs": 16384,
+  "max_training_actions_configured": 300000000,
+  "source_comparison": "Three task/grasp/config Python ASTs differ from user fork; model/normalizer/PPO ASTs agree. Existing fork and its attribution are preserved.",
+  "scope": "selected source audit, not a complete runnable official repository, trained checkpoint or Boya baseline"
+}
