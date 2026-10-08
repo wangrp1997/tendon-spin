@@ -1,0 +1,36 @@
+{
+  "unittest": "tests.test_hora_comparison",
+  "passed": 11,
+  "real_manifest_preparation": "passed",
+  "compatibility": {
+    "shared_core_paths": [
+      "tendonspin/physics/isaac_boya.py",
+      "tendonspin/physics/isaac_boya_sharpa.py",
+      "tendonspin/interfaces.py",
+      "third_party/hora/hora/algo/ppo/ppo.py",
+      "third_party/hora/hora/algo/ppo/experience.py",
+      "third_party/hora/hora/algo/models/models.py",
+      "third_party/hora/hora/algo/models/running_mean_std.py",
+      "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "tendonspin/baselines/reference_models.py",
+      "tendonspin/evaluation/rotation.py",
+      "tendonspin/physics/coordinates.py"
+    ],
+    "diagnostic_only_source_changes": [
+      "tendonspin/physics/isaac_parallel.py"
+    ],
+    "identical_observation_functions": [
+      "_frame",
+      "observe"
+    ],
+    "identical_scoring_function": "spin_increment",
+    "changed_sources": [
+      "tendonspin/physics/isaac_parallel.py",
+      "scripts/evaluate_boya_hora.py",
+      "tendonspin/baselines/hora_training.py",
+      "tendonspin/rl/isaac_hora.py",
+      "scripts/train_boya_hora.py"
+    ]
+  },
+  "gpu_episodes_for_preparation": 0
+}

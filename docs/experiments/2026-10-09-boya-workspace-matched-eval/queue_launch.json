@@ -1,0 +1,14 @@
+{
+  "pid": 2650612,
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/compare_boya_hora.py",
+    "wait-run",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1"
+  ],
+  "launched_at": "2026-10-09T00:49:55.459780+08:00",
+  "selection": "first and third runs final paired checkpoints at10002432actions",
+  "extra_gpu_episodes": 1,
+  "reuse_new_policy_evaluation": true
+}

@@ -38,6 +38,23 @@ def function_ast(path, name, class_name=None):
     return ast.dump(node, include_attributes=False)
 
 
+def contact_diagnostics_only(old_path, new_path):
+    """Permit only the two declared diagnostic additions; compare the entire AST."""
+    source = Path(new_path).read_text()
+    changes = (
+        ('        group_contact = (normal@self.groups)>1e-6\n        support = group_contact.sum(-1)',
+         '        support = ((normal@self.groups)>1e-6).sum(-1)'),
+        ('            support_groups=support,finger_contact_count=group_contact[:,:5].sum(-1),\n            palm_contact=group_contact[:,5],finite=finite)',
+         '            support_groups=support,finite=finite)'),
+    )
+    for new, old in changes:
+        if source.count(new) != 1:
+            return False
+        source = source.replace(new, old, 1)
+    return ast.dump(ast.parse(source), include_attributes=False) == ast.dump(
+        ast.parse(Path(old_path).read_text()), include_attributes=False)
+
+
 def check_policy_compatibility(old, new, old_training, new_training):
     """Allow the declared termination/logging port, never an observation/model change."""
     a, b = source_map(old), source_map(new)
@@ -47,9 +64,16 @@ def check_policy_compatibility(old, new, old_training, new_training):
     required = [p for p in a if p.startswith(prefixes)]
     if not required:
         raise ValueError('Missing physics/policy source identity')
+    diagnostic_only = []
     for path in required:
         if a[path] != b.get(path):
-            raise ValueError('Policy/physics incompatibility: ' + path)
+            if (path == 'tendonspin/physics/isaac_parallel.py'
+                    and new.get('termination', {}).get('profile') == 'boya_workspace'
+                    and contact_diagnostics_only(Path(old_training) / 'sources' / path,
+                                                 Path(new_training) / 'sources' / path)):
+                diagnostic_only.append(path)
+            else:
+                raise ValueError('Policy/physics incompatibility: ' + path)
     for data, directory in ((old, old_training), (new, new_training)):
         verify_sources(Path(directory) / 'sources', data['sources'])
     env = 'sources/tendonspin/rl/isaac_hora.py'
@@ -60,7 +84,8 @@ def check_policy_compatibility(old, new, old_training, new_training):
         raise ValueError('Training cache differs')
     if old['rounded_target_actions'] != new['rounded_target_actions']:
         raise ValueError('Different planned sample budgets')
-    return dict(shared_core_paths=required, identical_observation_functions=['_frame', 'observe'],
+    return dict(shared_core_paths=[p for p in required if p not in diagnostic_only],
+                diagnostic_only_source_changes=diagnostic_only, identical_observation_functions=['_frame', 'observe'],
                 identical_scoring_function='spin_increment',
                 changed_sources=[p for p in a.keys() & b.keys() if a[p] != b[p]])
 
@@ -73,8 +98,9 @@ def prepare(root, out, old_run, new_run, protocol):
         raise ValueError('Old training did not normally complete its budget')
     compatibility = check_policy_compatibility(old, new, old_training, new_training)
     verify_sources(root, new['sources'])
-    if new['termination']['profile'] != 'hora_height':
-        raise ValueError('Expected the already-declared new height profile')
+    profile = new['termination']['profile']
+    if profile not in ('hora_height', 'boya_workspace'):
+        raise ValueError('Expected a declared common evaluation profile')
     old_checkpoint = root / old['checkpoint']
     if digest(old_checkpoint) != old['checkpoint_sha256']:
         raise ValueError('Preserved old checkpoint hash differs')
@@ -91,7 +117,8 @@ def prepare(root, out, old_run, new_run, protocol):
         expected_training_actions=old['actions_executed'], requested_s=120., wall_s=1500., seed=43,
         termination=new['termination'], runtime_sources=new['sources'], comparison_pins=pins,
         compatibility=compatibility, old_training_controller=old['controller'], new_training_controller=new['controller'],
-        old_execution_controller='matched_height_old_weights__' + old['controller'],
+        old_execution_controller=('matched_height_old_weights__' if profile == 'hora_height'
+                                  else 'matched_workspace_old_weights__') + old['controller'],
         initial_state='original grasp44, not cache',
         reuse_new_evaluation=str(new_run / 'evaluation'),
         observation='privileged teacher: 96 proprio + 9 privileged, original actor and its own normalizer',
@@ -102,11 +129,11 @@ def prepare(root, out, old_run, new_run, protocol):
     atomic_json(out / 'status.json', dict(phase='prepared', training_actions=0, new_physics_steps=0))
     (out / 'comparison.md').write_text(
         '# 同条件教师对照（待执行）\n\n'
-        '同一原始grasp44、同一hora_height规则、同一120s预算；主指标为有效前缀净转角。\n'
+        f'同一原始grasp44、同一{profile}规则、同一120s预算；主指标为有效前缀净转角。\n'
         '等待新训练及原定最终评估结束，再补跑旧权重。当前没有同条件对照成绩。\n\n'
         '| 权重 | 训练动作数 | 同条件评估 |\n|---|---:|---|\n'
         f'| 旧严格规则教师 | {old["actions_executed"]} | 待运行 |\n'
-        '| 新高度规则教师 | 训练中 | 等待原定最终评估 |\n\n'
+        f'| 新{profile}教师 | 训练中 | 等待原定最终评估 |\n\n'
         '历史旧规则的63.626313°不填入本表；单初态对照不证明SOTA或统计显著性。\n')
     return plan
 
@@ -139,7 +166,8 @@ def make_old_execution_contract(plan, old_training):
             record_sha256=plan['old_training_record_sha256'], controller=old_training['controller'],
             original_termination=old_training.get('termination', {'profile': 'legacy_strict'}),
             checkpoint_sha256=plan['old_checkpoint_sha256'], sources=old_training['sources']),
-        migration='Old preserved policy+own normalizer; new common height evaluation rule, declared before execution')
+        migration='Old preserved policy+own normalizer; common evaluation profile ' +
+                  plan['termination']['profile'] + ', declared before execution')
 
 
 def validate_result(record, plan, checkpoint_sha256, controller):
@@ -208,7 +236,7 @@ def write_report(out, plan, old, new, initial_agreement):
     atomic_json(out / 'comparison.json', payload)
     with (out / 'comparison.csv').open('w', newline='') as file:
         writer=csv.DictWriter(file,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
-    lines=['# 同条件教师对照', '', '相同原始grasp44、hora_height终止、120s预算、seed43；各自单独初始化，无重置或控制器切换。', '',
+    lines=['# 同条件教师对照', '', f'相同原始grasp44、{plan["termination"]["profile"]}终止、120s预算、seed43；各自单独初始化，无重置或控制器切换。', '',
            '| 权重 | 窗口s | 净角° | 有效s | 峰角° | 倒转° | 停止原因 |', '|---|---:|---:|---:|---:|---:|---|']
     for r in rows:
         lines.append(f'| {r["policy"]} | {r["window_s"]:.0f} | {r["net_deg"]:.3f} | {r["valid_s"]:.4f} | {r["peak_deg"]:.3f} | {r["backward_deg"]:.3f} | {r["stop_reason"]} |')

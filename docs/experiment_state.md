@@ -547,3 +547,16 @@ freshseed43,noresume,1024headless,10002432roundedbudget. Snapshot7updates/
 oldcurves/firststrict80weights retained. Geometryrule/source identity archived;
 queuedfinalevaluation only after normalbudget. Oldmatchedqueue remains stopped.
 Supersedes launchpending;no convergence or tasksuccess claim.
+
+
+[First/third FINAL checkpoint comparison QUEUED](experiments/2026-10-09-boya-workspace-matched-eval/README.md):
+User explicitly enables two-weight automatic evaluation after currenttraining.
+NewCPUwaiterPID2650612 confirmedwaiting/0additionalGPUepisodes. Sameoriginalgrasp44/
+currentboya_workspace/120s(+30s)/10002432actions/seed43/ownnormalizers. Uses each
+run FINALcheckpoint,not bestrewardselection. Reuse newexistingfinaleval then
+oneoldpolicyepisode. Priorv2heightqueue staysstopped; this is anewplan.
+11CPUcomparisonchecks andactualmanifestpreparepassed. Narrowknowncontactdiagnostic
+sourceextension accepted only after entiremoduleASTcomparison; otherphysics/core
+hashes andobs/scoringASTs preserved. Activehashedtrain/evaluator/geometry untouched.
+No currentmatchedscore,no extraGPUruns duringtraining. Errors/manualstop prevent
+automaticlaunch/retry. Singleseedpair,notSOTA/indefiniterotationproof.

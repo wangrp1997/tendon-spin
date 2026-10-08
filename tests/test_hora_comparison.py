@@ -10,7 +10,7 @@ import torch
 
 from tendonspin.evaluation.comparison import (
     validate_result, compare_initial_states, write_report, make_old_execution_contract,
-    verify_checkpoint, digest, dependency_completed, diagnostics)
+    verify_checkpoint, digest, dependency_completed, diagnostics, contact_diagnostics_only)
 from tendonspin.evaluation.rotation import score_prefix
 
 
@@ -113,6 +113,38 @@ class ComparisonTests(unittest.TestCase):
             self.assertEqual(rows[0]['stop_reason'],'window completed')
             self.assertEqual(rows[0]['source_episode_stop_reason'],'object below Hora height')
             self.assertEqual(rows[1]['stop_reason'],'object below Hora height')
+
+
+    def test_workspace_rule_is_reported_and_old_height_score_is_rejected(self):
+        plan=copy.deepcopy(self.plan)
+        plan['termination']={'profile':'boya_workspace','reset_height_m':.0668}
+        with self.assertRaisesRegex(ValueError,'termination'):
+            validate_result(self.result,plan,'old-weights','frozen_matched_old')
+        result=copy.deepcopy(self.result);result['termination']=copy.deepcopy(plan['termination'])
+        validate_result(result,plan,'old-weights','frozen_matched_old')
+        with tempfile.TemporaryDirectory() as tmp:
+            plan['reuse_new_evaluation']=str(Path(tmp)/'new')
+            write_report(tmp,plan,result,result,{})
+            report=(Path(tmp)/'comparison.md').read_text()
+            self.assertIn('boya_workspace',report)
+            self.assertNotIn('hora_height',report)
+
+    def test_contact_diagnostics_exception_rejects_other_physics_changes(self):
+        old=("class Physics:\n"
+             "    def advance(self):\n        dt = .0005\n        return dt\n"
+             "    def measure(self):\n"
+             "        support = ((normal@self.groups)>1e-6).sum(-1)\n"
+             "        return dict(\n            support_groups=support,finite=finite)\n")
+        new=old.replace('        support = ((normal@self.groups)>1e-6).sum(-1)',
+                        '        group_contact = (normal@self.groups)>1e-6\n        support = group_contact.sum(-1)')
+        new=new.replace('            support_groups=support,finite=finite)',
+                        '            support_groups=support,finger_contact_count=group_contact[:,:5].sum(-1),\n            palm_contact=group_contact[:,5],finite=finite)')
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=Path(tmp)/'old.py',Path(tmp)/'new.py';a.write_text(old);b.write_text(new)
+            self.assertTrue(contact_diagnostics_only(a,b))
+            for bad in (new.replace('.0005','.001'),new.replace('1e-6','1e-2'),new+'\nhidden_change = True\n'):
+                b.write_text(bad)
+                self.assertFalse(contact_diagnostics_only(a,b))
 
 
 if __name__=='__main__':unittest.main()
