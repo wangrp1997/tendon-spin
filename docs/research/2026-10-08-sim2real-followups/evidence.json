@@ -1,0 +1,385 @@
+{
+  "access_date": "2026-10-08",
+  "scope": "targeted citation follow-up, not exhaustive literature review",
+  "new_simulation_steps": 0,
+  "new_training_actions": 0,
+  "hardware_commands_sent": 0,
+  "changes_to_active_training": false,
+  "queries": [
+    {
+      "api": "OpenAlex",
+      "endpoint": "https://api.openalex.org/works",
+      "params": {
+        "search": "In-Hand Object Rotation via Rapid Motor Adaptation",
+        "per-page": 5,
+        "cursor": "*"
+      },
+      "result": "HTTP 429: shared unauthenticated daily budget exhausted; no results used"
+    },
+    {
+      "api": "OpenAlex",
+      "endpoint": "https://api.openalex.org/works",
+      "params": {
+        "search": "AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch",
+        "per-page": 5,
+        "cursor": "*"
+      },
+      "result": "HTTP 429: shared unauthenticated daily budget exhausted; no results used"
+    },
+    {
+      "api": "Semantic Scholar",
+      "endpoint": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2210.04887/citations",
+      "params": {
+        "fields": "title,year,externalIds,openAccessPdf",
+        "limit": 1000
+      },
+      "returned_records": 220,
+      "next": null,
+      "total_exposed": false,
+      "initial_attempt": "Hora first request returned HTTP 429; one retry succeeded",
+      "raw": "outputs/references/followups_2026-10-08/hora_s2_citations_retry.json"
+    },
+    {
+      "api": "Semantic Scholar",
+      "endpoint": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2405.07391/citations",
+      "params": {
+        "fields": "title,year,externalIds,openAccessPdf",
+        "limit": 1000
+      },
+      "returned_records": 71,
+      "next": null,
+      "total_exposed": false,
+      "initial_attempt": "HTTP 200",
+      "raw": "outputs/references/followups_2026-10-08/anyrotate_s2_citations.json"
+    },
+    {
+      "api": "arXiv",
+      "endpoint": "https://export.arxiv.org/api/query",
+      "params": {
+        "search_query": "(all:\"dexterous\" AND (all:\"fine-tuning\" OR all:\"dynamics adaptation\" OR all:\"real-world reinforcement\"))",
+        "max_results": 20,
+        "sortBy": "relevance"
+      },
+      "total_results": 93,
+      "returned": 20,
+      "raw": "outputs/references/followups_2026-10-08/arxiv_adaptation.xml",
+      "scope": "first page only"
+    },
+    {
+      "api": "arXiv",
+      "endpoint": "https://export.arxiv.org/api/query",
+      "params": {
+        "id_list": "2510.08556,2603.04531,2609.14878,2601.02778,2610.07525,2609.07002,2505.00991,2606.27353,2608.15897",
+        "max_results": 12
+      },
+      "returned": 9,
+      "raw": "outputs/references/followups_2026-10-08/selected.xml"
+    }
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2609.14878",
+      "arxiv_id_versioned": "2609.14878v2",
+      "title": "Real-World Reinforcement Learning with MPC Scaffolding for Dexterous Manipulation",
+      "authors": [
+        "Emek Barış Küçüktabak",
+        "Karankumar Patel",
+        "Zhaodong Yang",
+        "Jinda Cui",
+        "Kazuhiro Sasabuchi",
+        "Jun Takamatsu"
+      ],
+      "published": "2026-09-14T00:57:55Z",
+      "updated": "2026-09-16T02:45:24Z",
+      "abstract_url": "https://arxiv.org/abs/2609.14878v2",
+      "pdf_url": "https://arxiv.org/pdf/2609.14878v2",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2609.14878v2.txt",
+      "text_sha256": "3b51ec6ca6b5d60d98d027a603e35fa4b8d73979b391dc0530d66d8f92a28f8e"
+    },
+    {
+      "arxiv_id": "2606.27353",
+      "arxiv_id_versioned": "2606.27353v1",
+      "title": "Continual Robot Policy Learning via Variational Neural Dynamics",
+      "authors": [
+        "Jiaxu Xing",
+        "Zhiyuan Zhu",
+        "Yunfan Ren",
+        "Ismail Geles",
+        "Yifan Zhai",
+        "Rudolf Reiter",
+        "Davide Scaramuzza"
+      ],
+      "published": "2026-06-25T17:56:04Z",
+      "updated": "2026-06-25T17:56:04Z",
+      "abstract_url": "https://arxiv.org/abs/2606.27353v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.27353v1",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora"
+      ],
+      "read_level": "abstract only; not used for detailed method claims",
+      "text_path": null,
+      "text_sha256": null
+    },
+    {
+      "arxiv_id": "2603.04531",
+      "arxiv_id_versioned": "2603.04531v3",
+      "title": "PTLD: Sim-to-real Privileged Tactile Latent Distillation for Dexterous Manipulation",
+      "authors": [
+        "Rosy Chen",
+        "Mustafa Mukadam",
+        "Michael Kaess",
+        "Tingfan Wu",
+        "Francois R Hogan",
+        "Jitendra Malik",
+        "Akash Sharma"
+      ],
+      "published": "2026-03-04T19:17:42Z",
+      "updated": "2026-06-18T16:44:12Z",
+      "abstract_url": "https://arxiv.org/abs/2603.04531v3",
+      "pdf_url": "https://arxiv.org/pdf/2603.04531v3",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora",
+        "AnyRotate"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2603.04531v3.txt",
+      "text_sha256": "303828dee5fa2a87367c92c8773a66d7b23e02c6f18f504be92f5a8eb3663b10"
+    },
+    {
+      "arxiv_id": "2510.08556",
+      "arxiv_id_versioned": "2510.08556v1",
+      "title": "DexNDM: Closing the Reality Gap for Dexterous In-Hand Rotation via Joint-Wise Neural Dynamics Model",
+      "authors": [
+        "Xueyi Liu",
+        "He Wang",
+        "Li Yi"
+      ],
+      "published": "2025-10-09T17:59:11Z",
+      "updated": "2025-10-09T17:59:11Z",
+      "abstract_url": "https://arxiv.org/abs/2510.08556v1",
+      "pdf_url": "https://arxiv.org/pdf/2510.08556v1",
+      "comment": "Project Website: https://meowuu7.github.io/DexNDM/ Video: https://youtu.be/tU2Mv8vWftU",
+      "cites_verified_by_semantic_scholar": [
+        "Hora",
+        "AnyRotate"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2510.08556v1.txt",
+      "text_sha256": "ef78bc1581004a69130a46729a6d1685a20bb33f9ff2a44c653dc5440dd683ce"
+    },
+    {
+      "arxiv_id": "2601.02778",
+      "arxiv_id_versioned": "2601.02778v2",
+      "title": "Closing the Reality Gap: Zero-Shot Sim-to-Real Deployment for Dexterous Force-Based Grasping and Manipulation",
+      "authors": [
+        "Zhe Zhao",
+        "Haoyu Dong",
+        "Zhengmao He",
+        "Yang Li",
+        "Xinyu Yi",
+        "Zhibin Li"
+      ],
+      "published": "2026-01-06T07:26:39Z",
+      "updated": "2026-01-09T13:09:26Z",
+      "abstract_url": "https://arxiv.org/abs/2601.02778v2",
+      "pdf_url": "https://arxiv.org/pdf/2601.02778v2",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [],
+      "read_level": "abstract only; not used for detailed method claims",
+      "text_path": null,
+      "text_sha256": null
+    },
+    {
+      "arxiv_id": "2608.15897",
+      "arxiv_id_versioned": "2608.15897v2",
+      "title": "Tactile Sim2Real without Tactile Simulation via Bottlenecked Latent Reconstruction",
+      "authors": [
+        "Fan Yang",
+        "Youngsun Wi",
+        "Jinhao Yu",
+        "Nima Fazeli",
+        "Dmitry Berenson"
+      ],
+      "published": "2026-08-16T19:09:55Z",
+      "updated": "2026-08-19T00:46:03Z",
+      "abstract_url": "https://arxiv.org/abs/2608.15897v2",
+      "pdf_url": "https://arxiv.org/pdf/2608.15897v2",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora"
+      ],
+      "read_level": "abstract only; not used for detailed method claims",
+      "text_path": null,
+      "text_sha256": null
+    },
+    {
+      "arxiv_id": "2610.07525",
+      "arxiv_id_versioned": "2610.07525v1",
+      "title": "ReDex: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction",
+      "authors": [
+        "Jinzhou Li",
+        "Hadi Tabatabaee",
+        "Kelin Yu",
+        "Yuyin Sun",
+        "Cheng-Hao Kuo",
+        "Roberto Martín-Martín",
+        "Nima Fazeli",
+        "X. Alice Wu",
+        "Xianyi Cheng"
+      ],
+      "published": "2026-10-05T23:47:05Z",
+      "updated": "2026-10-05T23:47:05Z",
+      "abstract_url": "https://arxiv.org/abs/2610.07525v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07525v1",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora",
+        "AnyRotate"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2610.07525v1.txt",
+      "text_sha256": "33eafd226367a9cd1320a8f93e92e4a0d984b723f0aac1ed87f4b2037c23bf36"
+    },
+    {
+      "arxiv_id": "2505.00991",
+      "arxiv_id_versioned": "2505.00991v1",
+      "title": "DexCtrl: Towards Sim-to-Real Dexterity with Adaptive Controller Learning",
+      "authors": [
+        "Shuqi Zhao",
+        "Ke Yang",
+        "Yuxin Chen",
+        "Chenran Li",
+        "Yichen Xie",
+        "Xiang Zhang",
+        "Changhao Wang",
+        "Masayoshi Tomizuka"
+      ],
+      "published": "2025-05-02T04:29:16Z",
+      "updated": "2025-05-02T04:29:16Z",
+      "abstract_url": "https://arxiv.org/abs/2505.00991v1",
+      "pdf_url": "https://arxiv.org/pdf/2505.00991v1",
+      "comment": null,
+      "cites_verified_by_semantic_scholar": [
+        "Hora",
+        "AnyRotate"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2505.00991v1.txt",
+      "text_sha256": "5ce205eea1f4bec235966eb1fbe826f31b24b4f5e633dd88fc6563b05b7024ca"
+    },
+    {
+      "arxiv_id": "2609.07002",
+      "arxiv_id_versioned": "2609.07002v1",
+      "title": "WM-Craftnet: World Synesthesia Model for Generalizable and Robust Dexterous In-Hand Manipulation",
+      "authors": [
+        "Jie Yin",
+        "Zeyuan Zhao",
+        "Xiaojing Tan",
+        "Yang Liu",
+        "Chiyu Wang",
+        "Xinyang Gu"
+      ],
+      "published": "2026-09-07T03:48:06Z",
+      "updated": "2026-09-07T03:48:06Z",
+      "abstract_url": "https://arxiv.org/abs/2609.07002v1",
+      "pdf_url": "https://arxiv.org/pdf/2609.07002v1",
+      "comment": "Accepted to CoRL2026. Project website: https://wmcraftnet.github.io/",
+      "cites_verified_by_semantic_scholar": [
+        "Hora",
+        "AnyRotate"
+      ],
+      "read_level": "selected method/result/limitation sections from full text",
+      "text_path": "outputs/references/followups_2026-10-08/fulltext/2609.07002v1.txt",
+      "text_sha256": "6040e59b0411881ad949e4d998ffb85cdd43f77ca3c192db6db53e06634d4ca9"
+    }
+  ],
+  "fulltext_downloads": [
+    {
+      "arxiv": "2609.14878v2",
+      "url": "https://arxiv.org/html/2609.14878v2",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:13:48.288181+00:00",
+      "text_chars": 48021,
+      "title_found": true
+    },
+    {
+      "arxiv": "2603.04531v3",
+      "url": "https://arxiv.org/html/2603.04531v3",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:13:50.992692+00:00",
+      "text_chars": 56384,
+      "title_found": true
+    },
+    {
+      "arxiv": "2510.08556v1",
+      "url": "https://arxiv.org/html/2510.08556v1",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:13:56.499346+00:00",
+      "text_chars": 155119,
+      "title_found": true
+    },
+    {
+      "arxiv": "2610.07525v1",
+      "url": "https://arxiv.org/html/2610.07525v1",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:13:57.789205+00:00",
+      "text_chars": 48277,
+      "title_found": true
+    },
+    {
+      "arxiv": "2505.00991v1",
+      "url": "https://arxiv.org/html/2505.00991v1",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:14:01.314164+00:00",
+      "text_chars": 38476,
+      "title_found": true
+    },
+    {
+      "arxiv": "2609.07002v1",
+      "url": "https://arxiv.org/html/2609.07002v1",
+      "http_status": "200",
+      "curl_exit": 0,
+      "accessed_at": "2026-10-08T13:14:04.639454+00:00",
+      "text_chars": 58537,
+      "title_found": true
+    }
+  ],
+  "tool_reference": {
+    "arxiv_id": "2609.00065",
+    "arxiv_id_versioned": "2609.00065v2",
+    "version": "2",
+    "title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+    "abstract": "A language-model agent asked to analyse an experiment will usually return working code. Whether the analysis is defensible is a different question. A defensible analysis depends on procedural choices: which test the field accepts, which identifier namespace is authoritative, and which caveats must accompany a result. We present Scientific Agent Skills, an open library of 163 such procedures in 16 areas of practice, including genomics, cheminformatics, medical imaging, study design and scientific communication. Each skill is a directory built around a versioned, human-readable instruction file. An agent loads the file only when a task calls for it; the directory often also contains reference material and runnable scripts. We report no task-level evaluation and no host selection rate. We measure two properties of the documentation corpus: the always-resident descriptions of all 163 skills cost 7.1% of a 200,000-token window, and the median documented workflow fits within 23.9% of it, although 29 of 46 would overflow if every reference file were loaded. Openly licensed and available at https://github.com/K-Dense-AI/scientific-agent-skills.",
+    "authors": [
+      "Timothy Kassis",
+      "Vinayak Agarwal",
+      "Yuhuan He",
+      "Darshil Patel",
+      "Aubrey M. Brueckner"
+    ],
+    "published": "2026-08-30T15:40:35Z",
+    "updated": "2026-09-02T21:50:40Z",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "doi": null,
+    "journal_ref": null,
+    "comment": "31 pages, 16 figures, 2 tables, 1 listing. v2: adds a figure of how the documented workflows compose skills, quotes the skill clauses behind the introduction's examples, replaces the appendix listing with a procedural skill, names supported hosts and the pinned install path, and reports the two corpus findings in the abstract",
+    "abstract_url": "https://arxiv.org/abs/2609.00065v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.00065v2"
+  }
+}

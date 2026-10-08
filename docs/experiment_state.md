@@ -418,3 +418,16 @@ ActualHTTP confirmsreward/loss/rotation/duration/terminationcurves;preview/resum
 separate. StagePID2030161,trainPID2030163;background detached.
 Finaloriginal-state120s-windowevalqueuedafterbudget,NOT executed. No convergence/
 rotation/completebaseline/hardwareclaim. Supersedesfreshlaunchpendingstatusabove.
+
+
+[Sim-to-real citation follow-up](research/2026-10-08-sim2real-followups/README.md):
+0newphysics/training/hardwarecommands. SemanticScholar returns220 Hora citations and71
+AnyRotate citations(overlapping);OpenAlex429sharedbudget retained;arXiv targetedmetadata
+and6new fulltexts verified. DexNDM:real-data joint dynamics+residual actions;
+DexCtrl:learned action+PD adjustment;PTLD:real tactile latent supervision with external
+pose during collection;ReDex:human finger corrections then standaloneBC;
+WM-Craftnet:predictive recurrent context;MPC-scaffoldedSAC:actual real-world policy
+updates but workingMPC+OptiTrack prerequisites. Online latent/gain changes,offline
+model fitting,and online weight updates kept distinct. No validated Boya safety
+ortransfer claim;current nominal teacher unchanged. Prioritize verifying actuator
+response and real tactile supervision prerequisites before selecting a new method.
