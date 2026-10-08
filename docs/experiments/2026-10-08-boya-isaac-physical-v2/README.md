@@ -51,3 +51,13 @@ PhysX可能自动排除相邻link，因此不能说28对全发生碰撞，也不
 不自行换抓取、尺寸、引擎或展开参数扫描。
 
 用户要求补查网络后的[官方依据及诊断顺序](ONLINE_REFERENCES.md)：PhysX约束竞争有明确文档；原四处mimic的solref/solimp柔顺未显式移植。0新物理，不把网页机制当作已隔离的SDK bug或已修复结果。
+
+用户要求的[最新失败姿态回放](../../../outputs/isaac_boya_physical_v2/pose_replay_v2.mp4)已生成，
+[初末态对照](../../../outputs/isaac_boya_physical_v2/pose_replay_v2_comparison.png)。
+这是原初态加6步实际Isaac世界刚体姿态的离线CAD可视化，共7个保存状态，
+不是新物理执行或策略视频。实际时间3ms，逐帧停留形成10s/300帧/30fps视频；
+含最终失败状态，双视角，标明真实毫秒、目标不变及5.857mm漂移终止。
+没有补插未记录姿态，没有通过原引擎FK重建异常关节状态；仅复用原CAD绘图。
+25个几何体映射24手刚体和圆柱，姿态/几何逆变换最大误差8.66e−15，
+原NPZ和模型哈希核对通过。[视频来源与校验](data/video_replay.json)，
+[渲染脚本](../../../scripts/render_isaac_pose_replay.py)。0新增物理步，下一次物理诊断仍等待用户选择。

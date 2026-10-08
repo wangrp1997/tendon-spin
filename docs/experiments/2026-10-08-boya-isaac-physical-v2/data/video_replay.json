@@ -1,0 +1,127 @@
+{
+  "kind": "Recorded Isaac physical-v2 world-body pose visualization",
+  "controller": "boya_source_pd_hold_v2",
+  "phase_record": {
+    "path": "docs/data/isaac_boya_physical_v2_phases.json",
+    "sha256": "519ce600eb7b6ab765720cc3dfaa0671cc80ebced367fed76f1dccfdb20a16c5"
+  },
+  "execution": {
+    "path": "outputs/isaac_boya_physical_v2/execution.npz",
+    "sha256": "5e1cfd27041d783a3150023a35ce3f7f3cc1eccb1622e86c52b86ece0618dab1"
+  },
+  "initial_state": {
+    "path": "outputs/isaac_boya_physical_v2/initial_state.npz",
+    "sha256": "5cae17ae445ed82e1eb3623109ed45721ce23819bcad4ab2000768dc4a8ef542"
+  },
+  "contract": {
+    "path": "docs/data/boya_native_contract.json",
+    "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+  },
+  "renderer": {
+    "path": "scripts/render_isaac_pose_replay.py",
+    "sha256": "a16205e12e808e479df6e99c4012817db7b138c4c9760f9a46f0a0f5c24176dc"
+  },
+  "geometry_source": {
+    "path": "assets/grasp/scene.xml",
+    "sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e"
+  },
+  "video": {
+    "path": "outputs/isaac_boya_physical_v2/pose_replay_v2.mp4",
+    "sha256": "ed367fb6f9b53a56f4b92c15917d5d0fc582d384bb768d996d7cebb02454eaf2"
+  },
+  "comparison": {
+    "path": "outputs/isaac_boya_physical_v2/pose_replay_v2_comparison.png",
+    "sha256": "676ffb27163a76868db49ca1000613f4f398d675df3c881cc21d875068d4ed62"
+  },
+  "new_physics_steps": 0,
+  "physical_reexecution": false,
+  "rendering_only": true,
+  "rendering_engine": "MuJoCo 3.13 CAD drawing only; dynamics are recorded PhysX",
+  "pose_source": "stored world-body positions and XYZW quaternions, not native FK of joint positions",
+  "interpolation": false,
+  "unique_recorded_poses": 7,
+  "includes_initial_state": true,
+  "includes_terminal_failure": true,
+  "physics_dt_s": 0.0005,
+  "actual_execution_s": 0.003,
+  "recorded_times_ms": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "held_frames_per_pose": [
+    60,
+    30,
+    30,
+    30,
+    30,
+    30,
+    90
+  ],
+  "fps": 30,
+  "video_frames": 300,
+  "video_duration_s": 10.0,
+  "body_names": [
+    "fabase",
+    "falink1",
+    "pmbase",
+    "palm",
+    "thbase",
+    "ffbase",
+    "mfbase",
+    "rfbase",
+    "lfbase",
+    "thproximal",
+    "ffproximal",
+    "mfproximal",
+    "rfproximal",
+    "lfproximal",
+    "thmiddle",
+    "ffmiddle",
+    "mfmiddle",
+    "rfmiddle",
+    "lfmiddle",
+    "thdistal",
+    "ffdistal",
+    "mfdistal",
+    "rfdistal",
+    "lfdistal"
+  ],
+  "rendered_dynamic_geoms": 25,
+  "model_geometry_composition_max_error": 1.2212453270876722e-15,
+  "compiled_sameframe_vs_declared_local_position_difference_m": 6.699511825859609e-09,
+  "saved_body_pose_geometry_roundtrip_max_error": 8.659739592076221e-15,
+  "drift_mm": [
+    0.0,
+    0.0011208566651624348,
+    0.046380051531454795,
+    0.1580030828491929,
+    0.5228370478898788,
+    2.1572917369565263,
+    5.856908680207287
+  ],
+  "max_joint_speed_rad_s": [
+    3.706613279064186e-05,
+    33.493064880371094,
+    100.13355255126953,
+    98.68525695800781,
+    120.83429718017578,
+    390.2851867675781,
+    3620.986083984375
+  ],
+  "max_link_normal_N": [
+    4.020928382873535,
+    7.167797088623047,
+    13.203189849853516,
+    57.234928131103516,
+    250.3591766357422,
+    668.873291015625
+  ],
+  "terminal_reason": "position drift >5mm",
+  "benchmark_validated": false,
+  "captions": "Chinese; actual ms, unchanged targets, failure and discrete slowed replay explicitly labeled"
+}

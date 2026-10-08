@@ -136,3 +136,11 @@ mapping missing from USD. This and28 named exclude gaps are concrete transfer
 issues, not proof of an isolated SDK6.1 defect or a successful repair. v2 external
 PD differs from the implicit-drive example; older issue4129 supplementary only.
 Bounded minimal mimic/damping response isolation recommended, no extra launch.
+
+
+[Latest Isaac failure video provenance](experiments/2026-10-08-boya-isaac-physical-v2/data/video_replay.json):
+user-requested offline replay of initial+6 recorded world-body poses, including
+terminal failure, two CAD views. Actual3ms held as10s/300frames/30fps; on-screen
+labels distinguish recorded poses from new execution. Source NPZ/model hashes
+verified, body-to-geometry roundtrip error8.66e-15.0new physics/training; no
+rotation or repaired-interface claim. Next physical diagnosis remains pending.
