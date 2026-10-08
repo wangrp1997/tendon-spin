@@ -285,3 +285,21 @@ User questioned short training budget. Rechecked Hora PDF p15 Optimization Detai
 training. Repo1.5Bconfig is a cap,not paper measured total. Paper7000h is simulated
 real-time-equivalent,not wall training. At current512 throughput,500M arithmetic
 extrapolation~16.5days; no success/time guarantee.
+
+
+User requests further speed beyond350actions/s. One separately declared1024-env
+throughput follow-up is authorized (same32768sample budget,4updates,horizon8,
+minibatch512,seed43). Read the512results;GPU4GiB/median63%left headroom.
+[Protocol](experiments/2026-10-08-boya-env1024-throughput/PROTOCOL.md) retains
+all task/physics conditions and full logging; no larger sweep or policy success claim.
+
+
+[1024env throughput completed](experiments/2026-10-08-boya-env1024-throughput/README.md):
+4updates/32768actions,75.147s process,update-budget/exit0. Training-loop
+581.17actions/s versus512349.97/s,
++66.1%at same sample budget. Peak observed
+whole-card4226MiB (~4.13GiB),GPUutil peak75%,childRSS~6.73GiB. nice+10/4threads,
+headless/camerasoff,full logs and physics/control intervals retained. No frozen
+rotation evaluation or measured desktop latency.1024 is current throughput winner;
+no bigger scan or further training launched. Preserve all old measurements and
+128-env early rotation result separately; sample budgets still far below paper.

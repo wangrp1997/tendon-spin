@@ -1,0 +1,15 @@
+{
+  "actions": 32768,
+  "training_loop_actions_per_s128": 103.91519042393467,
+  "training_loop_actions_per_s512": 349.9749619472164,
+  "training_loop_actions_per_s1024": 581.1747132966035,
+  "process_actions_per_s1024": 436.0525466418102,
+  "process_wall_s1024": 75.14690661104396,
+  "speed_ratio1024_over512": 1.660617976963326,
+  "max_gpu_memory_MiB1024": 4226,
+  "peak_gpu_utilization_percent1024": 75,
+  "median_gpu_utilization_percent1024": 57.0,
+  "max_host_child_RSS_MiB1024": 6888.1796875,
+  "independent_rotation_eval_executed": false,
+  "desktop_latency_measured": false
+}
