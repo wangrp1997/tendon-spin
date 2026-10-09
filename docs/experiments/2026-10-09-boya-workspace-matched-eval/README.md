@@ -42,3 +42,11 @@ boya_workspace终止规则、120秒窗口，报告净转角/维持时长/倒转/
 [新评估证据](new_final_evaluation.json)、[旧评估证据](old_final_evaluation.json)、
 [权重身份](checkpoint_identities.json)、[完成状态](completed_status.json)。
 大规模原始轨迹和权重保留在忽略的outputs目录。本条取代前述准备/等待状态。
+
+
+## 比较后删除第一轮权重（2026-10-09）
+
+用户明确要求删除旧权重。第一轮正式训练80个.pth已删除，共247,715,579字节；
+第三轮新权重保留。第一轮评估轨迹、结果、训练日志及权重历史hash均保留。
+原记录中的“权重保留”和checkpoint路径是删除前状态，现在无法再加载第一轮权重。
+[删除清单](old_weight_removal.json)。

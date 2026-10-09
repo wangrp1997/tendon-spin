@@ -39,3 +39,14 @@ TensorBoard新标签workspace_fresh，地址http://127.0.0.1:6006/，保留旧�
 [最终评估](final_evaluation.json)、[新旧同条件对照](../2026-10-09-boya-workspace-matched-eval/comparison.md)。
 训练/评估进程均已结束，权重和原始轨迹保留；没有自动追加训练或修改任务规则。
 本条取代前述RUNNING状态。
+
+
+## 完整评估轨迹视频（2026-10-09）
+
+用户要求立即交付，不追加检查。复用现有render_boya_isaac_studio.py，Isaac RTX
+原生渲染该次已执行轨迹；不是新控制器执行，也没有MuJoCo渲染或补跑物理。
+原回合实际5.600秒、有效净转182.935623度。0.2倍慢放，完整包含终止状态；
+背景棋盘地面仅用于视觉，不产生物理支撑。编码正常完成。
+
+视频：outputs/boya_workspace182deg_video_v1/isaac_native.mp4。
+[视频来源与编码记录](evaluation_video.json)。未进行额外画面审查、仿真或测试。

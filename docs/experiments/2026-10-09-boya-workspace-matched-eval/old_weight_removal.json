@@ -1,0 +1,332 @@
+{
+  "requested_at": "2026-10-09T08:42:43.503994+08:00",
+  "authorization": "User requests deleting the old weights after completed first-vs-third comparison and providing the new182.94degree evaluation video.",
+  "scope": "Only first formal run boya_hora1024_fresh10m_v1",
+  "status": "removed",
+  "files": [
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_final.pth",
+      "bytes": 3122355
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_initial.pth",
+      "bytes": 1036742
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000001.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000016.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000032.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000048.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000064.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000080.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000096.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000112.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000128.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000144.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000160.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000176.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000192.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000208.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000224.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000240.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000256.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000272.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000288.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000304.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000320.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000336.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000352.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000368.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000384.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000400.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000416.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000432.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000448.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000464.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000480.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000496.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000512.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000528.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000544.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000560.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000576.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000592.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000608.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000624.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000640.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000656.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000672.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000688.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000704.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000720.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000736.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000752.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000768.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000784.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000800.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000816.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000832.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000848.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000864.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000880.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000896.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000912.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000928.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000944.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000960.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000976.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u000992.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001008.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001024.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001040.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001056.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001072.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001088.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001104.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001120.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001136.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001152.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001168.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001184.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001200.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001216.pth",
+      "bytes": 3122519
+    },
+    {
+      "path": "outputs/boya_hora1024_fresh10m_v1/training/teacher_u001221.pth",
+      "bytes": 3122519
+    }
+  ],
+  "total_files": 80,
+  "total_bytes": 247715579,
+  "retained": "Current workspace-v3 weights; all evaluation trajectories, training logs, curves and provenance. Old checkpoint paths/hashes in archived records are historical, not available files.",
+  "completed_at": "2026-10-09T08:42:43.508396+08:00"
+}

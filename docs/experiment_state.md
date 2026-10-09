@@ -576,3 +576,18 @@ meannet96.050deg; keep separate fromfrozenresults. Oldstrictshadow new7.499deg/.
 (drift),old63.626deg/2.148s(tilt); historicalscores preserved,not pooled.
 Supervisors/train/queue exited;weights/rawdata retained. Smallcompletionevidence
 archived,no newexperiment orautoresume. Supersedes priorRUNNING/QUEUED status.
+
+
+[First formal run weights DELETED after completed comparison](experiments/2026-10-09-boya-workspace-matched-eval/old_weight_removal.json):
+Explicituserrequest: deleteoldweights anddelivernew182.94DEGREEevaluationvideo.
+Removed firststrict10M80.pthfiles/247715579bytes only; currentworkspacev3weights
+andallrawtraces/logs/results preserved. Historicalcheckpointpaths/hashes retained,
+not availableoldweights. Video requested from exact5.600s archivednewepisode,
+not182.94seconds,no newcontrollerexecution.
+
+
+[Newfinal evaluation video DELIVERED](experiments/2026-10-09-boya-workspace-10m/evaluation_video.json):
+ExistingIsaacRTXstudiorenderer replayed exactarchivedworldposes ofnewfinalepisode,
+5.600sphysical/+182.935623degnet,0.2xslowmotion includingterminalframe. No newphysics,
+controllerexecution orMuJoCorendering; referencefloorvisualonly. Encodercompleted.
+Video outputs/boya_workspace182deg_video_v1/isaac_native.mp4. Noextracheckpass.
