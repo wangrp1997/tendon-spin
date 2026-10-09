@@ -1,0 +1,25 @@
+{
+  "read_at": "2026-10-09T09:01:15.757224+08:00",
+  "orchestrator_pid": 3453674,
+  "supervisor_pid": 3453685,
+  "training_pid": 3453686,
+  "phase": "training_then_evaluation",
+  "current_target": {
+    "requested_actions": 20000000,
+    "rounded_actions": 20004864
+  },
+  "training": {
+    "status": "update completed",
+    "stop_reason": null,
+    "actions_executed": 10059776,
+    "session_actions_executed": 57344,
+    "completed_updates": 1228,
+    "training_actions_per_wall_s": 794.9843422064282,
+    "resume_from": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training/teacher_final.pth",
+    "resumed_checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb",
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training",
+    "checkpoint": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_u001222.pth",
+    "checkpoint_sha256": "8f1f946e92e36a247d3d64e4ef3e86e1ad72db3e2e9cc9b03a07078e8094b832"
+  },
+  "necessary_validation": "3 schedule/stop CPU tests passed; script compiled; actual resumed count and first update/checkpoint observed; no extra GPU probe."
+}

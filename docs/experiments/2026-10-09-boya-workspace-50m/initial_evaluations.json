@@ -1,0 +1,22 @@
+{
+  "window_s": 120.0,
+  "rows": [
+    {
+      "training_actions": 10002432,
+      "net_deg": 182.93562335016514,
+      "valid_s": 5.5995,
+      "peak_deg": 182.93562335016514,
+      "backward_deg": 1.266058536643584,
+      "complete_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "drift_mm": 74.42474365234375,
+      "tilt_deg": 77.904296875,
+      "max_normal": 56.906463623046875,
+      "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training/teacher_final.pth",
+      "checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb",
+      "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/evaluation/result.json",
+      "initial_state_max_error": 0.0
+    }
+  ],
+  "interpretation": "One independent frozen original-state episode per checkpoint; no summed angles or resets."
+}

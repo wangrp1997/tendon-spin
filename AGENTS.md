@@ -95,3 +95,13 @@ brief confirmation; low finger contact is diagnostic, not an immediate reset.
 Start a NEW fresh1024/10M run promptly, with necessary launch checks only.
 No repeated approval/preview required. This supersedes v2 rule for the new branch;
 retain old logs/profiles. Keep TensorBoard/checkpoints, no watchdog, stagepush.
+
+Latest user authorization2026-10-09: implement and start cumulative continuation
+of the CURRENT workspace10M teacher to50M total, with automatic frozen original-
+state120s evaluation at20/30/40/50M. Restore fulllearnerstate; no fresh restart.
+Reuse same task/reward/engine/28cache and numericalrules. Sequential segment
+resume resets simulation fromcache; report explicitly. Stopafter50M or an execution
+error/manualstop; no automatic retries or algorithm/criterion changes. Preserve
+current10Mweights, logs and completedhistory; firststrictweights already deleted.
+Keep no-watchdog/headless/TensorBoard/checkpoint/push preferences. Video requests
+should deliver video without per-frame image clutter by default.

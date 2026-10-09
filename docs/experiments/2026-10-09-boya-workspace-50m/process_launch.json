@@ -1,0 +1,22 @@
+{
+  "pid": 3453674,
+  "launched_at": "2026-10-09T08:59:42.834753+08:00",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_milestones.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1",
+    "--resume-run",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3",
+    "--total-actions",
+    "50000000",
+    "--interval-actions",
+    "10000000",
+    "--protocol",
+    "docs/experiments/2026-10-09-boya-workspace-50m/PROTOCOL.md"
+  ],
+  "resume_from_actions": 10002432,
+  "total_actions_requested": 50000000,
+  "new_gpu_validation_trials": 0,
+  "tests_passed": 3
+}

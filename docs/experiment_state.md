@@ -591,3 +591,23 @@ ExistingIsaacRTXstudiorenderer replayed exactarchivedworldposes ofnewfinalepisod
 5.600sphysical/+182.935623degnet,0.2xslowmotion includingterminalframe. No newphysics,
 controllerexecution orMuJoCorendering; referencefloorvisualonly. Encodercompleted.
 Video outputs/boya_workspace182deg_video_v1/isaac_native.mp4. Noextracheckpass.
+
+
+[Workspace continuation to50M with10M evaluations AUTHORIZED](experiments/2026-10-09-boya-workspace-50m/README.md):
+User explicitly asks implementation+resume. Currentv3checkpoint10002432/1221,
+fulllearnerstate retained. Newfactorlargerbudgetwithdeclaredcacheresetbetween
+segments; originalPPO/reward/physics/criteria unmodified. Sequential targets
+20004864,30007296,40001536,50003968;4neworiginalgrasp44/120sevaluations,existing
+10Mscore reusedonly. Wrapperrecords percheckpointnet/time/backward/tilt/stops,
+JSON/CSV/Markdown+TBcurves; no anglepooling/images/bestrewardselection.3necessary
+CPU scheduling/stoptests passed; launchpending. No extraGPUtrial/watchdog.
+
+
+[Workspace50M milestone continuation RUNNING](experiments/2026-10-09-boya-workspace-50m/README.md):
+Actual2026-10-09 08:59:42 launch orchestrator3453674/supervisor3453685/train3453686.
+Restored1221updates/10002432actions withoriginalfinalSHA90419cc9...,model/norms/Adam/
+LR/RNG/lineage; subsequent actualupdate1228/10059776actions,
+newsession57344actions andcheckpoint observed. Targets20/30/40/50M
+sequentialtrain+originalgrasp120seval, then stop. TBworkspace_continue50m added;
+10Mbaseline reused, no latermetricsyet.3CPUtests+compilepassed,no extraGPUprobe.
+Coretraining/physics/evaluator unchanged; neworchestrator only. Supersedeslaunchpending.
