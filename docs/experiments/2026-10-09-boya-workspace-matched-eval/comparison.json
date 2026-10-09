@@ -1,0 +1,90 @@
+{
+  "status": "completed",
+  "primary_window_s": 120.0,
+  "rows": [
+    {
+      "policy": "old_weights_new_criteria",
+      "window_s": 30.0,
+      "net_deg": 142.64555961206617,
+      "valid_s": 3.3495,
+      "peak_deg": 184.8161248148984,
+      "backward_deg": 43.463820093204674,
+      "final_30s_net_deg": null,
+      "complete_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "source_episode_stop_reason": "object below Boya manipulation region",
+      "max_drift_mm": 98.22926330566406,
+      "max_tilt_deg": 91.57479858398438,
+      "max_normal_N": 76.1728515625,
+      "checkpoint_sha256": "bf5b77d30ef8f84b7ce81c9a9a0962ddbee7d99938efd328ae219a597fad86b1",
+      "result_path": "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/old_evaluation/result.json"
+    },
+    {
+      "policy": "old_weights_new_criteria",
+      "window_s": 120.0,
+      "net_deg": 142.64555961206617,
+      "valid_s": 3.3495,
+      "peak_deg": 184.8161248148984,
+      "backward_deg": 43.463820093204674,
+      "final_30s_net_deg": null,
+      "complete_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "source_episode_stop_reason": "object below Boya manipulation region",
+      "max_drift_mm": 98.22926330566406,
+      "max_tilt_deg": 91.57479858398438,
+      "max_normal_N": 76.1728515625,
+      "checkpoint_sha256": "bf5b77d30ef8f84b7ce81c9a9a0962ddbee7d99938efd328ae219a597fad86b1",
+      "result_path": "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/old_evaluation/result.json"
+    },
+    {
+      "policy": "new_weights_new_criteria",
+      "window_s": 30.0,
+      "net_deg": 182.93562335016514,
+      "valid_s": 5.5995,
+      "peak_deg": 182.93562335016514,
+      "backward_deg": 1.266058536643584,
+      "final_30s_net_deg": null,
+      "complete_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "source_episode_stop_reason": "object below Boya manipulation region",
+      "max_drift_mm": 74.42474365234375,
+      "max_tilt_deg": 77.904296875,
+      "max_normal_N": 56.906463623046875,
+      "checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb",
+      "result_path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/evaluation/result.json"
+    },
+    {
+      "policy": "new_weights_new_criteria",
+      "window_s": 120.0,
+      "net_deg": 182.93562335016514,
+      "valid_s": 5.5995,
+      "peak_deg": 182.93562335016514,
+      "backward_deg": 1.266058536643584,
+      "final_30s_net_deg": null,
+      "complete_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "source_episode_stop_reason": "object below Boya manipulation region",
+      "max_drift_mm": 74.42474365234375,
+      "max_tilt_deg": 77.904296875,
+      "max_normal_N": 56.906463623046875,
+      "checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb",
+      "result_path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/evaluation/result.json"
+    }
+  ],
+  "initial_agreement": {
+    "max_abs_difference": {
+      "joint_pos": 0.0,
+      "joint_vel": 0.0,
+      "object_state": 0.0,
+      "commands": 0.0
+    },
+    "atol": 1e-06,
+    "rtol": 0.0,
+    "independently_initialized": true
+  },
+  "independent_episodes": 2,
+  "reused_new_episode": true,
+  "additional_old_episode": true,
+  "multiple_seed_benchmark": false,
+  "source_plan": "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/plan.json"
+}

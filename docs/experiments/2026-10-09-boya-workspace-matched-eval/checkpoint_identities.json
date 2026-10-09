@@ -1,0 +1,14 @@
+{
+  "old": {
+    "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/teacher_final.pth",
+    "checkpoint_sha256": "bf5b77d30ef8f84b7ce81c9a9a0962ddbee7d99938efd328ae219a597fad86b1",
+    "actions": 10002432,
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training"
+  },
+  "new": {
+    "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training/teacher_final.pth",
+    "checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb",
+    "actions": 10002432,
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training"
+  }
+}

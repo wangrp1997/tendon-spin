@@ -1,0 +1,26 @@
+{
+  "phase": "completed",
+  "pid": 2650612,
+  "additional_gpu_episodes_launched": 1,
+  "updated_unix_s": 1791491100.7128952,
+  "dependency_phase": "completed",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_hora.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/old_evaluation",
+    "--checkpoint",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_fresh10m_v1/training/teacher_final.pth",
+    "--cache",
+    "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+    "--source-record",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/old_execution_contract.json",
+    "--seconds",
+    "120.0",
+    "--wall-s",
+    "1500.0"
+  ],
+  "child_pid": 3002325,
+  "report": "/home/rw/Projects/tendon-spin/outputs/boya_hora_matched_workspace10m_v1/comparison.md",
+  "independent_episodes": 2
+}

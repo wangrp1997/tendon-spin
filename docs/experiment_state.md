@@ -560,3 +560,19 @@ sourceextension accepted only after entiremoduleASTcomparison; otherphysics/core
 hashes andobs/scoringASTs preserved. Activehashedtrain/evaluator/geometry untouched.
 No currentmatchedscore,no extraGPUruns duringtraining. Errors/manualstop prevent
 automaticlaunch/retry. Singleseedpair,notSOTA/indefiniterotationproof.
+
+
+[Workspace10M training and two-final-checkpoint comparison COMPLETED](experiments/2026-10-09-boya-workspace-matched-eval/README.md):
+Training normalbudget10002432actions/1221updates,finished2026-10-09 04:21:50;
+comparisonfinished04:25. Samegrasp44/workspace/120s/seed43/ownnormalizers; independent
+initialstates match exactly,0resets/0switches,2episodes total(newreused+1old).
+Oldfinal:+142.645560deg/3.3495svalid,peak184.816125/backward43.463820;
+newfinal:+182.935623deg/5.5995svalid,peak182.935623/backward1.266059.
+Bothstop belowBoya manipulationregion; neither completed30/120s. Validprefix
+maxdrift/tilt/normal:old98.229mm/91.575deg/76.173N,new74.425mm/77.904deg/56.906N.
+New+40.290deg and+2.250s inthispair,but still largetilt/earlyfailure;not stable or
+indefinite rotation/SOTA/hardwareproof. Traininglast10reward16.414,meanvalid4.591s,
+meannet96.050deg; keep separate fromfrozenresults. Oldstrictshadow new7.499deg/.290s
+(drift),old63.626deg/2.148s(tilt); historicalscores preserved,not pooled.
+Supervisors/train/queue exited;weights/rawdata retained. Smallcompletionevidence
+archived,no newexperiment orautoresume. Supersedes priorRUNNING/QUEUED status.
