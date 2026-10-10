@@ -61,6 +61,13 @@ increased and B failed later than at5M, but neither completed30s; stable rotatio
 remains unresolved. No automatic extension launched.
 [Protocol, learning trend and final evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md).
 
+User-approved A/B continuation launched2026-10-10 23:54:13Shanghai. Both arms
+restore their OWN full10M learners and run concurrently to50M cumulative, with
+one frozen original-grasp30s evaluation at20/30/40/50M. Runtime/reward/task/PPO
+remain fixed; each segment resets physics from the same28-state cache. Summary
+training, TensorBoard and paired checkpoints continue without a resource watchdog
+or automatic extension. [Protocol and actual launch](docs/experiments/2026-10-10-boya-pose-ab-continue50m/README.md).
+
 Run migration verification:
 
 ```bash

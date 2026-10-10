@@ -184,3 +184,25 @@ stable rotation unresolved. No automatic extension, retry, coefficient scan or
 new route authorized by these results. Preserve all weights/history. Read
 docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md for fulltrend,
 source evidence and the fixed-axis reward versus moving-axis score distinction.
+
+Latest user explicitly authorizes the proposed A/B continuation to50M cumulative,
+every10M frozen30s originalstate evaluation. Both launched2026-10-10 23:54:13Shanghai
+(outerA3216699/B3216700), outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a,arm_b.
+Restore OWN10,002,432/1221 fulllearner; each adds40,001,536actions, final50,003,968/
+6104updates. Nodes20/30/40/50M, one30s-or-failure episode each plus existinganalysis;
+reuse existing10M result without another rollout. Same task/reward/engine/cache/
+16actions/privilegedobservations/PPO/1024envs. No fresh restart/migration/LRreset.
+Physics resets from same28cache at every fulllearner resume; report this explicitly.
+Ordinary physical eval failure continues fixedbudget. Execution/source/resume/
+manualerror stops dependentarm without retry/extension/parameter scan; stop50M,
+no automatic500M. Preserve all parents; no-watchdog/headless/summary/TensorBoard/
+pairedcheckpoint/milestonepush preferences persist. Read the continuation README
+and immutable PROTOCOL.md in docs/experiments/2026-10-10-boya-pose-ab-continue50m/.
+Do not modify pinned runner/helper/train/eval/analysis/core code or either protocol
+while running. Necessary first actualresume identity verification remains allowed;
+no extra GPUtrial/video/audit campaigns.
+First actualresume verification is now complete: both initialmodels/normalizers
+exact OWNparentmatch, corecontracts equal, first10,010,624/update1222/Adamstep97760
+from97680, modelupdated and parenthashes preserved. Both were10,059,776/update1228
+at2026-10-10 23:56:48Shanghai; trainingPIDsA3216719/B3216718, noerrors. Keep the
+formal fixedbudget chains running; no additional launch approval is needed.

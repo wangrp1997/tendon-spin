@@ -1088,3 +1088,47 @@ All eight node eval/stage records, both final analyses/training summaries/status
 CSV and source hashes archived as small evidence; weights/fulltraces/TensorBoard
 staylocal, oldhistory preserved. Recording only: no extra tests/physics/audits/
 parameter scans or follow-on budget. Stable sustained rotation remains unresolved.
+
+
+[A/B own10M->50M continuation LAUNCHED by explicit user approval](experiments/2026-10-10-boya-pose-ab-continue50m/README.md):
+User approves the proposed continuation of BOTH arms to50M cumulative, evaluating
+every10M; this supersedes the preceding10M stop for this new bounded stage.
+Each restores OWN10,002,432actions/1221updates policy/critic/bothnormalizers/
+Adam/LR/scheduler/RNG/counters; no fresh restart, migration or A/B swapping.
+Parent checkpointSHA A f3b360c3efa128f1eb2296e0e562565e882f0e8025c7a08ea98b51cf28eeb3f1,
+B b6093e4bd328e92adf1fdbfb638ff1e9f8727edb9d4984bb5ed31b3f1eecdf21.
+Each new40,001,536actions/4883updates -> final50,003,968/6104; requested20/30/40/50M
+nodes actual20,004,864/30,007,296/40,001,536/50,003,968. ExactlyONE frozen ownmodel/
+normalizer/originalgrasp44/30s-or-physicalfailure/fulltrace/rewarddiagnostics/
+existinganalysis at each node, existing10M eval reused without a new rollout.
+Physical early failure continues fixedbudget; execution/source/resume/manualerror
+stops dependentarm, no retry/extension/coefficientscan/automatic500M stage.
+Fulllearner resume at each segment resets physics from same28cache; no continuous
+trainingphysics or reset/policy angle sums. Same1024env/original4engine/16actions/
+privilegedteacher/task/cache/PPO/Apose/Bdrop16/runtime, no algorithm/metric change.
+New scheduler reuses existing fresh and cumulative helpers; both protocols/core
+sources pinned. New protocol replaces the provenance document only; strict core
+learner contract remains equal. All parent weights/history retained.
+
+Detached simultaneous launch2026-10-10 23:54:13Shanghai, outerA3216699/B3216700,
+outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a andarm_b. Necessary CPUpreflight
+passed: sources/cache/checkpointhashes, each fulllearnerstate, Adamsteps97680,
+inheritedLR5.7805099719442054e-5; A/Bcorecontractdiffonlyrewardconfiguration.
+Two focused new scheduler CPUchecks and two new Python syntax checks passed;
+no extra GPUtrials/previews/audits. Actualfirstresume update verification pending.
+Summarytraining/TensorBoard/first-every16-final pairedcheckpoints/headless/nice10,
+noresourcewatchdog/cgroup/quota/trainingwallcutoff. Prior concurrent440–450actions/s
+forecast first20M result2026-10-11 06–07h, total2026-10-12 02–04hShanghai (~26–28h),
+conditional on actual throughput and evaluation durations. Finite learning trend,
+not convergence/statistical/SOTA/hardware/originalHora reproduction claim.
+
+23:56:48actualfirstresume verification PASSED: each teacher_initial model and
+bothnormalizers exactly tensor-equal OWN10Mparent, corecontract exactlyequal,
+firstpairedcheckpoint10,010,624actions/update1222/Adamsteps97760 (parent97680,+80),
+modelupdated, ownparent checkpointSHA unchanged, originalownlineage retained.
+Both actual10,059,776actions/1228updates/new57,344actions, finite losses/noerrors;
+outer/segment/trainingprocesses alive, AtrainingPID3216719/B3216718. Each~450.4
+actions/s, remainingpuretraining~24.63h excludingfourevals/analysis/segmentstartups.
+One-offGPU7290/16303MiB, each3252MiB, instant95%; no watchdog/threshold.
+Actualplans/configs/initialequality/Adamadvance/counts/provenance archived;
+TensorBoard/pairedcheckpoints writing. No auxiliaryGPUtrial/extraeval/testcampaign.

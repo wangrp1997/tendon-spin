@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026-10-10T23:53:33.928484+08:00",
+  "scheduler_cpu_checks": "2 passed",
+  "new_python_syntax": "2 files passed",
+  "targets": [
+    {
+      "requested_actions": 20000000,
+      "rounded_actions": 20004864
+    },
+    {
+      "requested_actions": 30000000,
+      "rounded_actions": 30007296
+    },
+    {
+      "requested_actions": 40000000,
+      "rounded_actions": 40001536
+    },
+    {
+      "requested_actions": 50000000,
+      "rounded_actions": 50003968
+    }
+  ],
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca",
+  "initial_reference_sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a",
+  "arms": {
+    "A": {
+      "origin_run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000",
+      "checkpoint": {
+        "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000/training/teacher_final.pth",
+        "checkpoint_sha256": "f3b360c3efa128f1eb2296e0e562565e882f0e8025c7a08ea98b51cf28eeb3f1",
+        "actions": 10002432,
+        "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_001000000/training"
+      },
+      "actions": 10002432,
+      "updates": 1221,
+      "inherited_learning_rate": 5.7805099719442054e-05,
+      "adam_steps_per_parameter": [
+        97680.0
+      ],
+      "scheduler": {
+        "min_lr": 1e-06,
+        "max_lr": 0.01,
+        "kl_threshold": 0.02
+      },
+      "cuda_rng_states": 1,
+      "runtime_sources_match": true,
+      "full_learner_keys_present": true,
+      "core_contract_sha256": "215446e50de615cb67f85f34f68e2ce3c07cc3acd5d09cbe84cc9a8053e322d1"
+    },
+    "B": {
+      "origin_run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000",
+      "checkpoint": {
+        "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000/training/teacher_final.pth",
+        "checkpoint_sha256": "b6093e4bd328e92adf1fdbfb638ff1e9f8727edb9d4984bb5ed31b3f1eecdf21",
+        "actions": 10002432,
+        "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_001000000/training"
+      },
+      "actions": 10002432,
+      "updates": 1221,
+      "inherited_learning_rate": 5.7805099719442054e-05,
+      "adam_steps_per_parameter": [
+        97680.0
+      ],
+      "scheduler": {
+        "min_lr": 1e-06,
+        "max_lr": 0.01,
+        "kl_threshold": 0.02
+      },
+      "cuda_rng_states": 1,
+      "runtime_sources_match": true,
+      "full_learner_keys_present": true,
+      "core_contract_sha256": "9ccfa912e8b0ae63cbfc47d85202a5ced06facb9dbb64cb8a1d957fbfdefaa3f"
+    }
+  },
+  "paired_contract_diff_only_reward_configuration": true
+}

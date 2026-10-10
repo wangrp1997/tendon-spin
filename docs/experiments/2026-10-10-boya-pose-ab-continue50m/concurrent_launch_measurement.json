@@ -1,0 +1,6 @@
+{
+  "recorded_at": "2026-10-10T23:56:48.760936+08:00",
+  "gpu_csv": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 5080, 16303 MiB, 7290 MiB, 95 %",
+  "processes_csv": "pid, process_name, used_gpu_memory [MiB]\n3216719, /home/rw/miniconda3/envs/env_isaaclab/bin/python, 3252 MiB\n3216718, /home/rw/miniconda3/envs/env_isaaclab/bin/python, 3252 MiB",
+  "use": "One-off startup measurement only; not a watchdog or stop threshold."
+}

@@ -1,0 +1,32 @@
+{
+  "arm": "B",
+  "pid": 3216700,
+  "launched_at": "2026-10-10T23:54:13.185745+08:00",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-u",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_ab_continuation.py",
+    "--arm",
+    "B",
+    "--resume-run",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b",
+    "--protocol",
+    "docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROTOCOL.md"
+  ],
+  "output": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b",
+  "log": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b.supervisor.log",
+  "resume_run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000",
+  "initialization": "OWN full10002432-action/1221-update learner; network/normalizers/Adam/LR/scheduler/RNG/counters restored",
+  "requested_total_actions": 50000000,
+  "rounded_final_actions": 50003968,
+  "new_actions": 40001536,
+  "evaluation_seconds": 30,
+  "new_evaluations": 4,
+  "concurrent": true,
+  "automatic_retry": false,
+  "automatic_extension": false,
+  "resource_watchdog": false,
+  "training_wall_limit": false
+}

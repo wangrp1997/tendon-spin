@@ -1,0 +1,109 @@
+{
+  "recorded_at": "2026-10-10T23:56:48.760936+08:00",
+  "arm": "B",
+  "pids": {
+    "outer": 3216700,
+    "segment": 3216716,
+    "training": 3216718
+  },
+  "all_processes_alive": true,
+  "phase": "training_then_evaluation",
+  "training_status": "update completed",
+  "actions_executed": 10059776,
+  "session_actions_executed": 57344,
+  "completed_updates": 1228,
+  "training_actions_per_wall_s": 450.4135728000248,
+  "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_001000000/training",
+  "resumed_checkpoint_sha256": "b6093e4bd328e92adf1fdbfb638ff1e9f8727edb9d4984bb5ed31b3f1eecdf21",
+  "parent_checkpoint_preserved": true,
+  "initial_model_normalizers_exact_parent_match": {
+    "model": true,
+    "running_mean_std": true,
+    "value_mean_std": true
+  },
+  "core_contract_exact_parent_match": true,
+  "first_checkpoint_actions": 10010624,
+  "first_checkpoint_update": 1222,
+  "first_checkpoint_sha256": "8b2bbcef9a4e6a1fbaae0644b758d3bdda8ca405e9ab3775d5241c131ae86237",
+  "first_adam_steps_per_parameter": [
+    97760.0
+  ],
+  "adam_step_increment_per_parameter": 80,
+  "model_updated": true,
+  "last_update": {
+    "update": 1228,
+    "actions": 10059776,
+    "learning_rate": 5.7805099719442054e-05,
+    "completed_episodes": 144358,
+    "training_episode_summary": {
+      "count": 13,
+      "stop_counts": {
+        "object below Boya manipulation region": 13
+      },
+      "net_deg": {
+        "mean": -24.374908584814804,
+        "median": -15.551410675048828,
+        "p90": 37.631777954101565,
+        "max": 193.8433074951172
+      },
+      "peak_deg": {
+        "mean": 57.267067615802475,
+        "median": 46.16738510131836,
+        "p90": 80.18773345947265,
+        "max": 193.8433074951172
+      },
+      "backward_deg": {
+        "mean": 103.64216481722318,
+        "median": 100.21897888183594,
+        "p90": 217.2882385253907,
+        "max": 259.40374755859375
+      },
+      "valid_prefix_s": {
+        "mean": 2.484115508886484,
+        "median": 2.5495002269744873,
+        "p90": 2.639500141143799,
+        "max": 2.749500036239624
+      },
+      "episode_max_drift_mm": {
+        "mean": 101.1438228900616,
+        "median": 76.35248565673828,
+        "p90": 150.8396942138672,
+        "max": 193.42965698242188
+      },
+      "episode_max_tilt_deg": {
+        "mean": 143.21817896916315,
+        "median": 154.65554809570312,
+        "p90": 169.63486022949218,
+        "max": 172.20384216308594
+      },
+      "episode_max_normal_N": {
+        "mean": 35.222601670485275,
+        "median": 34.4477653503418,
+        "p90": 55.94927673339844,
+        "max": 68.73143768310547
+      },
+      "legacy_strict_net_deg": {
+        "mean": 8.705385146447671,
+        "median": 6.961216449737549,
+        "p90": 19.384998321533203,
+        "max": 21.699420928955078
+      },
+      "legacy_strict_valid_s": {
+        "mean": 0.2893461642357019,
+        "median": 0.18850000202655792,
+        "p90": 0.44220001697540284,
+        "max": 0.7195000052452087
+      }
+    },
+    "mean_recent_episode_reward": -17.133318948650363,
+    "actor_loss": -0.00915637519210577,
+    "critic_loss": 0.021432382985949516,
+    "bounds_loss": 38.788421630859375,
+    "entropy": 15.175320625305176,
+    "kl": 0.014944788999855518
+  },
+  "no_training_error": true,
+  "pure_training_remaining_hours_at_current_rate": 24.634268501085185,
+  "pure_training_finish_at_current_rate": "2026-10-12T00:34:52.127540+08:00",
+  "eta_note": "Short startup rate, excludes future evaluations/analysis/segment startup; no convergence promise."
+}
