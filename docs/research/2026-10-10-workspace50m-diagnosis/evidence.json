@@ -1,0 +1,5113 @@
+{
+  "schema": 1,
+  "date": "2026-10-10",
+  "new_physics_steps": 0,
+  "new_training_actions": 0,
+  "offline_inference_only": true,
+  "device": "cpu",
+  "threads": 4,
+  "configuration": "Original workspace teacher, no engine/task/reward/action/observation edits",
+  "context": "40x32mm/50g cylinder, original grasp44, 16 finger actions, held wrists, four passive mimics; Isaac Sim6.1.0.0/Lab3.0.0rc1, v3 external clipped PD, 28-cache nominal privileged teacher",
+  "diagnostic_definitions": {
+    "common_prefix_s": 5,
+    "phase_windows_s": [
+      [
+        0,
+        5
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        20,
+        30
+      ]
+    ],
+    "terminal_windows_s": [
+      1.0,
+      0.2
+    ],
+    "sensor_contact_threshold_N": 1e-06,
+    "numerical_target_bound_tolerance_rad": 1e-06,
+    "training_summary_updates": [
+      10,
+      100
+    ],
+    "uncertainty": "One fixed original-state rollout per checkpoint; no confidence interval or causal experiment",
+    "reward": "Offline original Hora function on frozen evaluation control endpoints; canonical original-grasp pose reference; NOT recorded training rewards",
+    "plots": "Every20th physics sample (100Hz), always retain terminal sample; control/reward curves at20Hz. Pose-rate diagnostic is the signed quaternion increment summed over each complete50ms control interval divided by .05s; no other smoothing."
+  },
+  "episodes": {
+    "10": {
+      "record": {
+        "training_actions_in_checkpoint": 10002432,
+        "actual_s": 5.6000000000000005,
+        "valid_s": 5.5995,
+        "net_deg": 182.93562335016514,
+        "stop_reason": "object below Boya manipulation region",
+        "checkpoint_sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb"
+      },
+      "published_metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 5.5995,
+          "complete_window_observed": false,
+          "net_deg": 182.93562335016514,
+          "peak_deg": 182.93562335016514,
+          "forward_deg": 184.20168188680873,
+          "backward_deg": 1.266058536643584,
+          "net_deg_per_budget_second": 6.097854111672172,
+          "net_deg_per_valid_second": 32.66999256186537,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 4.2745,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 5.5995,
+          "complete_window_observed": false,
+          "net_deg": 182.93562335016514,
+          "peak_deg": 182.93562335016514,
+          "forward_deg": 184.20168188680873,
+          "backward_deg": 1.266058536643584,
+          "net_deg_per_budget_second": 1.524463527918043,
+          "net_deg_per_valid_second": 32.66999256186537,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 4.2745,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 5.5995,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      },
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "physics_samples": 11200,
+      "integration_max_increment_error_deg": 6.378628313541412e-06,
+      "integration_endpoint_error_deg": 2.4382306946790777e-06,
+      "command_reconstruction_max_error_rad": 2.9802322387695312e-08,
+      "common5s_net_deg": 129.05113674498472,
+      "windows": {
+        "0to5s": {
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "net_deg": 129.05113674498472,
+          "sensor_zero_hand_contact_fraction": 0.0002,
+          "finger_contacts_mean": 3.0421,
+          "max_normal_N": 10.2085599899292,
+          "max_tilt_deg": 33.995391845703125,
+          "object_angular_speed_rad_s": {
+            "mean": 0.8455412983894348,
+            "median": 0.6906634569168091,
+            "p90": 1.0728471279144287,
+            "min": 1.569209598528687e-05,
+            "max": 8.69481372833252
+          }
+        },
+        "5to20s": {
+          "start_s": 5.0,
+          "end_s": 5.5995,
+          "net_deg": 53.88448660518043,
+          "sensor_zero_hand_contact_fraction": 0.10925771476230192,
+          "finger_contacts_mean": 2.16930775646372,
+          "max_normal_N": 56.906463623046875,
+          "max_tilt_deg": 77.904296875,
+          "object_angular_speed_rad_s": {
+            "mean": 4.327413082122803,
+            "median": 1.3636558055877686,
+            "p90": 12.24191951751709,
+            "min": 0.3868101239204407,
+            "max": 22.02890396118164
+          }
+        },
+        "20to30s": null,
+        "last1s": {
+          "start_s": 4.5995,
+          "end_s": 5.5995,
+          "net_deg": 67.9240900722798,
+          "sensor_zero_hand_contact_fraction": 0.0655,
+          "finger_contacts_mean": 2.4555,
+          "max_normal_N": 56.906463623046875,
+          "max_tilt_deg": 77.904296875,
+          "object_angular_speed_rad_s": {
+            "mean": 2.879251003265381,
+            "median": 0.7871029376983643,
+            "p90": 9.630574226379395,
+            "min": 0.3868101239204407,
+            "max": 22.02890396118164
+          }
+        },
+        "last0.2s": {
+          "start_s": 5.3995,
+          "end_s": 5.5995,
+          "net_deg": 42.59188539534807,
+          "sensor_zero_hand_contact_fraction": 0.3225,
+          "finger_contacts_mean": 1.025,
+          "max_normal_N": 56.906463623046875,
+          "max_tilt_deg": 77.904296875,
+          "object_angular_speed_rad_s": {
+            "mean": 10.202568054199219,
+            "median": 9.63095474243164,
+            "p90": 13.469568252563477,
+            "min": 3.959341526031494,
+            "max": 22.02890396118164
+          }
+        }
+      },
+      "sample_points": [
+        {
+          "t": 1.0,
+          "net_deg": 22.426099342445298,
+          "height_m": 0.1061675101518631,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 8.8662748336792,
+          "normal_N": 3.2614030838012695,
+          "fixed_axis_omega_rad_s": 0.5663237571716309,
+          "moving_axis_omega_rad_s": 0.4981749951839447
+        },
+        {
+          "t": 5.0,
+          "net_deg": 129.05113674498472,
+          "height_m": 0.09913548827171326,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 33.800201416015625,
+          "normal_N": 3.6002843379974365,
+          "fixed_axis_omega_rad_s": 0.5470592975616455,
+          "moving_axis_omega_rad_s": 0.5269981622695923
+        },
+        {
+          "t": 5.3995,
+          "net_deg": 140.34373795481707,
+          "height_m": 0.09201160818338394,
+          "finger_contacts": 1,
+          "support_groups": 1,
+          "tilt_deg": 27.148813247680664,
+          "normal_N": 0.2414599061012268,
+          "fixed_axis_omega_rad_s": 3.452502727508545,
+          "moving_axis_omega_rad_s": 1.6779930591583252
+        },
+        {
+          "t": 5.5995,
+          "net_deg": 182.93562335016514,
+          "height_m": 0.04203252121806145,
+          "finger_contacts": 0,
+          "support_groups": 1,
+          "tilt_deg": 77.904296875,
+          "normal_N": 0.5017714500427246,
+          "fixed_axis_omega_rad_s": -1.0446417331695557,
+          "moving_axis_omega_rad_s": 3.0001778602600098
+        }
+      ],
+      "commands": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "outward_blocked_motor_fraction": 0.241875,
+          "at_target_bound_motor_fraction": 0.25125,
+          "command_travel_rad_per_motor": [
+            0.7657383680343628,
+            0.410766065120697,
+            0.5590941905975342,
+            0.31289350986480713,
+            0.28602373600006104,
+            0.5815932154655457,
+            0.40449559688568115,
+            0.4952218532562256,
+            0.866439938545227,
+            0.5995616912841797,
+            0.348392128944397,
+            0.6042507886886597,
+            0.2410695105791092,
+            0.9208309650421143,
+            0.8956874012947083,
+            0.2931797504425049
+          ],
+          "actual_travel_rad_per_motor": [
+            0.7700086832046509,
+            0.3900884985923767,
+            0.5560613870620728,
+            0.29012811183929443,
+            0.2753925323486328,
+            0.5593671202659607,
+            0.3629194498062134,
+            0.493446946144104,
+            0.6216051578521729,
+            0.5453243851661682,
+            0.3789988160133362,
+            0.5625218152999878,
+            0.24239198863506317,
+            0.92002934217453,
+            0.8893871903419495,
+            0.290152907371521
+          ],
+          "joints_at_bound_over90pct": [],
+          "joints_outward_blocked_over90pct": []
+        },
+        "5to20s": {
+          "control_count": 11,
+          "duration_s": 0.55,
+          "outward_blocked_motor_fraction": 0.17613636363636365,
+          "at_target_bound_motor_fraction": 0.18181818181818182,
+          "command_travel_rad_per_motor": [
+            0.1924998164176941,
+            0.05005674809217453,
+            0.06211358308792114,
+            0.17913173139095306,
+            0.19249998033046722,
+            0.19250011444091797,
+            0.18908029794692993,
+            0.19249998033046722,
+            0.12852007150650024,
+            0.18084309995174408,
+            0.040422797203063965,
+            0.0,
+            0.19250012934207916,
+            0.0,
+            0.13429661095142365,
+            0.1390131562948227
+          ],
+          "actual_travel_rad_per_motor": [
+            0.1855466067790985,
+            0.06416922807693481,
+            0.059775203466415405,
+            0.17820243537425995,
+            0.1922670155763626,
+            0.19371896982192993,
+            0.1889350712299347,
+            0.11007261276245117,
+            0.1272936463356018,
+            0.18284925818443298,
+            0.07324419915676117,
+            2.372264862060547e-05,
+            0.18787245452404022,
+            0.00020071864128112793,
+            0.13470879197120667,
+            0.13519924879074097
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ3",
+            "LFJ4"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "RFJ3",
+            "LFJ4"
+          ]
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "outward_blocked_motor_fraction": 0.178125,
+          "at_target_bound_motor_fraction": 0.184375,
+          "command_travel_rad_per_motor": [
+            0.33555489778518677,
+            0.09891809523105621,
+            0.15142545104026794,
+            0.2605413496494293,
+            0.3352649211883545,
+            0.2851663827896118,
+            0.24923262000083923,
+            0.30662792921066284,
+            0.20199912786483765,
+            0.3266938030719757,
+            0.1839044690132141,
+            0.0,
+            0.3500001132488251,
+            0.05103182792663574,
+            0.28089532256126404,
+            0.1390131562948227
+          ],
+          "actual_travel_rad_per_motor": [
+            0.3290191888809204,
+            0.08966585248708725,
+            0.15223655104637146,
+            0.2590714395046234,
+            0.3336639106273651,
+            0.2849556803703308,
+            0.24599626660346985,
+            0.2226097583770752,
+            0.2004677653312683,
+            0.3250262141227722,
+            0.2162739634513855,
+            2.396106719970703e-05,
+            0.34894001483917236,
+            0.0528264194726944,
+            0.2789245843887329,
+            0.13519926369190216
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ3"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "RFJ3"
+          ]
+        }
+      },
+      "reconstructed_reward": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "components_mean": {
+            "rotation": 0.46331360936164856,
+            "linear_cost": -0.005518557503819466,
+            "pose_cost": -0.0740726962685585,
+            "torque_cost": -0.025540027767419815,
+            "work_cost": -0.0026224972680211067,
+            "total": 0.3555598556995392
+          },
+          "components_sum": {
+            "rotation": 46.33135986328125,
+            "linear_cost": -0.551855742931366,
+            "pose_cost": -7.407269477844238,
+            "torque_cost": -2.5540027618408203,
+            "work_cost": -0.26224973797798157,
+            "total": 35.55598449707031
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.6476009488105774,
+            "median": 0.6228835582733154,
+            "p90": 0.8904744386672974,
+            "min": -0.2574617266654968,
+            "max": 2.696742057800293
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.6224418878555298,
+            "median": 0.5930736064910889,
+            "p90": 0.896491527557373,
+            "min": -0.2747804522514343,
+            "max": 2.5748038291931152
+          },
+          "rotation_upper_clip_fraction": 0.72,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "5to20s": {
+          "control_count": 11,
+          "duration_s": 0.55,
+          "components_mean": {
+            "rotation": 0.3796326816082001,
+            "linear_cost": -0.040259797126054764,
+            "pose_cost": -0.22432099282741547,
+            "torque_cost": -0.009138364344835281,
+            "work_cost": -0.00028573430608958006,
+            "total": 0.10562777519226074
+          },
+          "components_sum": {
+            "rotation": 4.175959587097168,
+            "linear_cost": -0.4428577721118927,
+            "pose_cost": -2.4675309658050537,
+            "torque_cost": -0.1005220115184784,
+            "work_cost": -0.003143077250570059,
+            "total": 1.1619055271148682
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 1.2378888130187988,
+            "median": 0.5053344368934631,
+            "p90": 3.378692388534546,
+            "min": -0.3914012908935547,
+            "max": 5.381418228149414
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 1.4006381034851074,
+            "median": 0.5353140234947205,
+            "p90": 3.254209280014038,
+            "min": -0.29405325651168823,
+            "max": 5.937375068664551
+          },
+          "rotation_upper_clip_fraction": 0.5454545454545454,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "components_mean": {
+            "rotation": 0.4337979853153229,
+            "linear_cost": -0.024955619126558304,
+            "pose_cost": -0.20702067017555237,
+            "torque_cost": -0.009492593817412853,
+            "work_cost": -0.0005513321375474334,
+            "total": 0.191777765750885
+          },
+          "components_sum": {
+            "rotation": 8.675959587097168,
+            "linear_cost": -0.49911239743232727,
+            "pose_cost": -4.140413284301758,
+            "torque_cost": -0.18985188007354736,
+            "work_cost": -0.01102664228528738,
+            "total": 3.8355553150177
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.9752383232116699,
+            "median": 0.645544171333313,
+            "p90": 1.649214506149292,
+            "min": -0.3914012908935547,
+            "max": 5.381418228149414
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 1.024912714958191,
+            "median": 0.5406934022903442,
+            "p90": 2.4404828548431396,
+            "min": -0.29405325651168823,
+            "max": 5.937375068664551
+          },
+          "rotation_upper_clip_fraction": 0.75,
+          "rotation_lower_clip_fraction": 0.0
+        }
+      },
+      "angular_velocity_pose_agreement": {
+        "first5s": {
+          "physics_samples": 10000,
+          "control_samples": 100,
+          "fixed_axis_omega_physics_mean_rad_s": 0.6521770358085632,
+          "moving_axis_omega_physics_mean_rad_s": 0.6242402195930481,
+          "pose_spin_physics_mean_rad_s": 0.450473427772522,
+          "pose_spin_control_interval_mean_rad_s": 0.450473427772522,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.6476009488105774,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.6224418878555298,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.23694705963134766,
+          "clipped_fixed_omega_physics_mean": 0.46592968702316284,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "5to20s": {
+          "physics_samples": 1199,
+          "control_samples": 11,
+          "fixed_axis_omega_physics_mean_rad_s": 1.4057166576385498,
+          "moving_axis_omega_physics_mean_rad_s": 1.5529108047485352,
+          "pose_spin_physics_mean_rad_s": 1.568743348121643,
+          "pose_spin_control_interval_mean_rad_s": 1.4289395809173584,
+          "fixed_axis_omega_endpoint_mean_rad_s": 1.2378888130187988,
+          "moving_axis_omega_endpoint_mean_rad_s": 1.4006381034851074,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.08388106524944305,
+          "clipped_fixed_omega_physics_mean": 0.3572683036327362,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        }
+      },
+      "last_visible_hand_contact_s": 5.5995,
+      "valid_net_after_last_visible_contact_deg": 0.0,
+      "longest_sensor_zero_hand_contact": {
+        "seconds": 0.0235,
+        "start_s": 5.555,
+        "end_s": 5.5785
+      },
+      "max_object_angular_speed_rad_s": 22.02890396118164
+    },
+    "20": {
+      "record": {
+        "training_actions_in_checkpoint": 20004864,
+        "actual_s": 85.0,
+        "valid_s": 85.0,
+        "net_deg": 26.488663823816154,
+        "stop_reason": "wall budget",
+        "checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e"
+      },
+      "published_metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 30.42674739742352,
+          "peak_deg": 35.82270588149602,
+          "forward_deg": 67.66742953649585,
+          "backward_deg": 37.24068213907233,
+          "net_deg_per_budget_second": 1.0142249132474506,
+          "net_deg_per_valid_second": 1.0142249132474506,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 30.42674739742352,
+          "full_window_final_tail_net_deg": 30.42674739742352,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 85.0,
+          "complete_window_observed": false,
+          "net_deg": 26.488663823816154,
+          "peak_deg": 35.82270588149602,
+          "forward_deg": 111.89938933671247,
+          "backward_deg": 85.41072551289632,
+          "net_deg_per_budget_second": 0.22073886519846794,
+          "net_deg_per_valid_second": 0.31163133910371943,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": -0.5700551464320753,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 85.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 85.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 85.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      },
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "physics_samples": 170000,
+      "integration_max_increment_error_deg": 6.50365836918354e-06,
+      "integration_endpoint_error_deg": 7.494979947963998e-05,
+      "command_reconstruction_max_error_rad": 1.1920928955078125e-07,
+      "common5s_net_deg": 19.85067240772911,
+      "windows": {
+        "0to5s": {
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "net_deg": 19.85067240772911,
+          "sensor_zero_hand_contact_fraction": 0.0009,
+          "finger_contacts_mean": 3.7439,
+          "max_normal_N": 85.23622131347656,
+          "max_tilt_deg": 14.888814926147461,
+          "object_angular_speed_rad_s": {
+            "mean": 0.5205853581428528,
+            "median": 0.5002154111862183,
+            "p90": 0.6816936731338501,
+            "min": 1.569209598528687e-05,
+            "max": 12.262262344360352
+          }
+        },
+        "5to20s": {
+          "start_s": 5.0,
+          "end_s": 20.0,
+          "net_deg": 13.0380099756967,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 3.3305333333333333,
+          "max_normal_N": 24.497604370117188,
+          "max_tilt_deg": 14.229220390319824,
+          "object_angular_speed_rad_s": {
+            "mean": 0.507530689239502,
+            "median": 0.46660488843917847,
+            "p90": 0.6620334982872009,
+            "min": 0.03449318930506706,
+            "max": 5.237650394439697
+          }
+        },
+        "20to30s": {
+          "start_s": 20.0,
+          "end_s": 30.0,
+          "net_deg": -2.4619349860022908,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 3.0,
+          "max_normal_N": 7.962939739227295,
+          "max_tilt_deg": 14.694238662719727,
+          "object_angular_speed_rad_s": {
+            "mean": 0.46277880668640137,
+            "median": 0.4595649838447571,
+            "p90": 0.5283684730529785,
+            "min": 0.11776428669691086,
+            "max": 1.5648921728134155
+          }
+        },
+        "last1s": {
+          "start_s": 84.0,
+          "end_s": 85.0,
+          "net_deg": 0.016959135932950176,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 3.0,
+          "max_normal_N": 7.285284042358398,
+          "max_tilt_deg": 13.986116409301758,
+          "object_angular_speed_rad_s": {
+            "mean": 0.46710407733917236,
+            "median": 0.46944451332092285,
+            "p90": 0.5317373871803284,
+            "min": 0.2472219467163086,
+            "max": 0.668823778629303
+          }
+        },
+        "last0.2s": {
+          "start_s": 84.8,
+          "end_s": 85.0,
+          "net_deg": -0.21010897726307576,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 3.0,
+          "max_normal_N": 6.8450517654418945,
+          "max_tilt_deg": 13.986116409301758,
+          "object_angular_speed_rad_s": {
+            "mean": 0.46438732743263245,
+            "median": 0.46517571806907654,
+            "p90": 0.5200412273406982,
+            "min": 0.31404757499694824,
+            "max": 0.5664501190185547
+          }
+        }
+      },
+      "sample_points": [
+        {
+          "t": 1.0,
+          "net_deg": 11.809648007554927,
+          "height_m": 0.1097758337855339,
+          "finger_contacts": 4,
+          "support_groups": 4,
+          "tilt_deg": 10.213669776916504,
+          "normal_N": 5.7689666748046875,
+          "fixed_axis_omega_rad_s": 0.4220068156719208,
+          "moving_axis_omega_rad_s": 0.376217782497406
+        },
+        {
+          "t": 5.0,
+          "net_deg": 19.85067240772911,
+          "height_m": 0.11507142335176468,
+          "finger_contacts": 4,
+          "support_groups": 4,
+          "tilt_deg": 14.18126392364502,
+          "normal_N": 9.953633308410645,
+          "fixed_axis_omega_rad_s": 0.2093384563922882,
+          "moving_axis_omega_rad_s": 0.1784103661775589
+        },
+        {
+          "t": 10.0,
+          "net_deg": 34.67347285827471,
+          "height_m": 0.11908937245607376,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 10.97111701965332,
+          "normal_N": 6.639312267303467,
+          "fixed_axis_omega_rad_s": 1.4815585613250732,
+          "moving_axis_omega_rad_s": 1.4577109813690186
+        },
+        {
+          "t": 20.0,
+          "net_deg": 32.88868238342581,
+          "height_m": 0.11983291804790497,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 13.610825538635254,
+          "normal_N": 6.731467247009277,
+          "fixed_axis_omega_rad_s": 0.3464037775993347,
+          "moving_axis_omega_rad_s": 0.30206549167633057
+        },
+        {
+          "t": 30.0,
+          "net_deg": 30.42674739742352,
+          "height_m": 0.11996588110923767,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 14.198023796081543,
+          "normal_N": 6.735988616943359,
+          "fixed_axis_omega_rad_s": 0.41134560108184814,
+          "moving_axis_omega_rad_s": 0.358445405960083
+        },
+        {
+          "t": 84.8,
+          "net_deg": 26.69877280107923,
+          "height_m": 0.12061554938554764,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 13.869332313537598,
+          "normal_N": 6.569974899291992,
+          "fixed_axis_omega_rad_s": 0.3731846809387207,
+          "moving_axis_omega_rad_s": 0.31168389320373535
+        },
+        {
+          "t": 85.0,
+          "net_deg": 26.488663823816154,
+          "height_m": 0.12058768421411514,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 13.675095558166504,
+          "normal_N": 6.607003688812256,
+          "fixed_axis_omega_rad_s": 0.3672417104244232,
+          "moving_axis_omega_rad_s": 0.3059476912021637
+        }
+      ],
+      "commands": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "outward_blocked_motor_fraction": 0.321875,
+          "at_target_bound_motor_fraction": 0.329375,
+          "command_travel_rad_per_motor": [
+            0.28301429748535156,
+            0.15123242139816284,
+            0.31181228160858154,
+            0.0590502992272377,
+            0.3290051221847534,
+            0.24719762802124023,
+            0.2631547451019287,
+            0.03074471652507782,
+            0.3033517599105835,
+            0.3614234924316406,
+            0.014999985694885254,
+            0.2687133550643921,
+            0.02594897523522377,
+            0.30480632185935974,
+            0.1607826203107834,
+            0.15774863958358765
+          ],
+          "actual_travel_rad_per_motor": [
+            0.2845690846443176,
+            0.16083818674087524,
+            0.45160967111587524,
+            0.022434771060943604,
+            0.25615671277046204,
+            0.21708399057388306,
+            0.25567689538002014,
+            0.10998080670833588,
+            0.30586326122283936,
+            0.3164353370666504,
+            0.07820117473602295,
+            0.2878938913345337,
+            0.01032324880361557,
+            0.2974652945995331,
+            0.1585458666086197,
+            0.155326247215271
+          ],
+          "joints_at_bound_over90pct": [
+            "MFJ4",
+            "RFJ4",
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "MFJ4",
+            "RFJ4",
+            "RFJ2"
+          ]
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "outward_blocked_motor_fraction": 0.41770833333333335,
+          "at_target_bound_motor_fraction": 0.41791666666666666,
+          "command_travel_rad_per_motor": [
+            0.5621433854103088,
+            0.11086933314800262,
+            0.29122787714004517,
+            0.0,
+            0.23650114238262177,
+            0.4951023459434509,
+            0.35827547311782837,
+            0.0,
+            0.34641432762145996,
+            0.5323700904846191,
+            0.0,
+            0.16067945957183838,
+            0.0,
+            0.5222939252853394,
+            0.0,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.5375008583068848,
+            0.2495378851890564,
+            0.00034760902053676546,
+            2.0721156346326097e-08,
+            0.15884210169315338,
+            0.4467802047729492,
+            0.3515760898590088,
+            0.12218686938285828,
+            0.38256049156188965,
+            0.4595498740673065,
+            0.2013281136751175,
+            0.20186316967010498,
+            2.7421833692642394e-06,
+            0.5041521787643433,
+            0.00013192124606575817,
+            3.854649912682362e-05
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ]
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "outward_blocked_motor_fraction": 0.4375,
+          "at_target_bound_motor_fraction": 0.4375,
+          "command_travel_rad_per_motor": [
+            0.3635295033454895,
+            0.07009433209896088,
+            0.19185325503349304,
+            0.0,
+            0.0,
+            0.3185110092163086,
+            0.21642565727233887,
+            0.0,
+            0.19862866401672363,
+            0.32401472330093384,
+            0.0,
+            0.07137000560760498,
+            0.0,
+            0.3126686215400696,
+            0.0,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.3463902473449707,
+            0.07498103380203247,
+            2.7384261557017453e-05,
+            3.3336107208015164e-09,
+            3.445148468017578e-05,
+            0.3055351972579956,
+            0.1972523331642151,
+            0.034884899854660034,
+            0.23562562465667725,
+            0.2942308783531189,
+            0.04127626121044159,
+            0.06543278694152832,
+            7.380571673820668e-07,
+            0.3017658293247223,
+            1.326743017671106e-06,
+            3.245075106406148e-07
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ]
+        },
+        "after30s": {
+          "control_count": 1100,
+          "duration_s": 55.0,
+          "outward_blocked_motor_fraction": 0.4375,
+          "at_target_bound_motor_fraction": 0.4375,
+          "command_travel_rad_per_motor": [
+            2.092130422592163,
+            0.3561420440673828,
+            1.1942150592803955,
+            0.0,
+            0.0,
+            1.6621816158294678,
+            1.2078722715377808,
+            0.0,
+            1.1454862356185913,
+            1.8159903287887573,
+            0.0,
+            0.42949676513671875,
+            0.0,
+            1.8132543563842773,
+            0.0,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            2.005641222000122,
+            0.44776374101638794,
+            0.0002082011487800628,
+            2.8638158511284928e-08,
+            0.0002567172050476074,
+            1.581716775894165,
+            1.1063106060028076,
+            0.2075958549976349,
+            1.3256289958953857,
+            1.6771461963653564,
+            0.2264776974916458,
+            0.34247565269470215,
+            4.585557690006681e-06,
+            1.7417374849319458,
+            2.339538150408771e-05,
+            5.600301847152878e-06
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ]
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "outward_blocked_motor_fraction": 0.4375,
+          "at_target_bound_motor_fraction": 0.4375,
+          "command_travel_rad_per_motor": [
+            0.03967709839344025,
+            0.0058342814445495605,
+            0.023581475019454956,
+            0.0,
+            0.0,
+            0.031365275382995605,
+            0.02196437120437622,
+            0.0,
+            0.02574443817138672,
+            0.041375383734703064,
+            0.0,
+            0.00774073600769043,
+            0.0,
+            0.036778971552848816,
+            0.0,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.03705236315727234,
+            0.008024251088500023,
+            7.393975920422236e-08,
+            4.094533878618023e-10,
+            2.682209014892578e-07,
+            0.0299837589263916,
+            0.021004587411880493,
+            0.0035625696182250977,
+            0.030777812004089355,
+            0.03829978406429291,
+            0.0033528804779052734,
+            0.005308032035827637,
+            5.265759739359055e-08,
+            0.03578893840312958,
+            2.908594467498915e-07,
+            7.310477201372123e-08
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "MFJ4",
+            "RFJ4",
+            "RFJ2",
+            "LFJ3",
+            "LFJ2"
+          ]
+        }
+      },
+      "reconstructed_reward": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "components_mean": {
+            "rotation": 0.2386823445558548,
+            "linear_cost": -0.003912345971912146,
+            "pose_cost": -0.0367107018828392,
+            "torque_cost": -0.03566502779722214,
+            "work_cost": -0.0031067465897649527,
+            "total": 0.15928752720355988
+          },
+          "components_sum": {
+            "rotation": 23.868234634399414,
+            "linear_cost": -0.3912346065044403,
+            "pose_cost": -3.6710703372955322,
+            "torque_cost": -3.566502809524536,
+            "work_cost": -0.31067466735839844,
+            "total": 15.928752899169922
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.250194787979126,
+            "median": 0.235251784324646,
+            "p90": 0.42600885033607483,
+            "min": -0.1055755466222763,
+            "max": 1.404724359512329
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.1995086520910263,
+            "median": 0.17208893597126007,
+            "p90": 0.4467373490333557,
+            "min": -0.1533956229686737,
+            "max": 0.8626113533973694
+          },
+          "rotation_upper_clip_fraction": 0.07,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "components_mean": {
+            "rotation": 0.3479282557964325,
+            "linear_cost": -0.0034403931349515915,
+            "pose_cost": -0.08139372617006302,
+            "torque_cost": -0.04583505541086197,
+            "work_cost": -0.007799243088811636,
+            "total": 0.2094598412513733
+          },
+          "components_sum": {
+            "rotation": 104.37847900390625,
+            "linear_cost": -1.0321179628372192,
+            "pose_cost": -24.41811752319336,
+            "torque_cost": -13.750516891479492,
+            "work_cost": -2.339772939682007,
+            "total": 62.83795166015625
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.37271758913993835,
+            "median": 0.36659929156303406,
+            "p90": 0.46225324273109436,
+            "min": -0.6167789697647095,
+            "max": 3.132363796234131
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.34184345602989197,
+            "median": 0.33354806900024414,
+            "p90": 0.43213778734207153,
+            "min": -0.6694243550300598,
+            "max": 3.164381504058838
+          },
+          "rotation_upper_clip_fraction": 0.06666666666666667,
+          "rotation_lower_clip_fraction": 0.0033333333333333335
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "components_mean": {
+            "rotation": 0.3676856756210327,
+            "linear_cost": -0.0024247262626886368,
+            "pose_cost": -0.09204762428998947,
+            "torque_cost": -0.039768584072589874,
+            "work_cost": -0.00032253554672934115,
+            "total": 0.23312216997146606
+          },
+          "components_sum": {
+            "rotation": 73.5371322631836,
+            "linear_cost": -0.48494523763656616,
+            "pose_cost": -18.40952491760254,
+            "torque_cost": -7.95371675491333,
+            "work_cost": -0.06450711190700531,
+            "total": 46.62443542480469
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.3677504062652588,
+            "median": 0.36684948205947876,
+            "p90": 0.42310255765914917,
+            "min": -0.006271593272686005,
+            "max": 0.5129450559616089
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.3214137554168701,
+            "median": 0.32200944423675537,
+            "p90": 0.3732298016548157,
+            "min": 0.026019588112831116,
+            "max": 0.4599516987800598
+          },
+          "rotation_upper_clip_fraction": 0.005,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "after30s": {
+          "control_count": 1100,
+          "duration_s": 55.0,
+          "components_mean": {
+            "rotation": 0.3637582063674927,
+            "linear_cost": -0.002613393124192953,
+            "pose_cost": -0.08813617378473282,
+            "torque_cost": -0.0402863509953022,
+            "work_cost": -0.00042682900675572455,
+            "total": 0.2322954535484314
+          },
+          "components_sum": {
+            "rotation": 400.134033203125,
+            "linear_cost": -2.874732494354248,
+            "pose_cost": -96.94979095458984,
+            "torque_cost": -44.31498718261719,
+            "work_cost": -0.46951189637184143,
+            "total": 255.52499389648438
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.363788902759552,
+            "median": 0.36741846799850464,
+            "p90": 0.42426973581314087,
+            "min": -0.6607099175453186,
+            "max": 0.5433599948883057
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.31175294518470764,
+            "median": 0.31440824270248413,
+            "p90": 0.3704436123371124,
+            "min": -0.6008397340774536,
+            "max": 0.46944934129714966
+          },
+          "rotation_upper_clip_fraction": 0.008181818181818182,
+          "rotation_lower_clip_fraction": 0.0009090909090909091
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "components_mean": {
+            "rotation": 0.3757290542125702,
+            "linear_cost": -0.0025357049889862537,
+            "pose_cost": -0.08655774593353271,
+            "torque_cost": -0.04029204323887825,
+            "work_cost": -0.00018276124319527298,
+            "total": 0.24616079032421112
+          },
+          "components_sum": {
+            "rotation": 7.514581203460693,
+            "linear_cost": -0.050714101642370224,
+            "pose_cost": -1.7311549186706543,
+            "torque_cost": -0.8058408498764038,
+            "work_cost": -0.0036552248056977987,
+            "total": 4.923215866088867
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.3757290542125702,
+            "median": 0.37000954151153564,
+            "p90": 0.41712117195129395,
+            "min": 0.31902098655700684,
+            "max": 0.4472862482070923
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.3190750181674957,
+            "median": 0.31416237354278564,
+            "p90": 0.3582918345928192,
+            "min": 0.2696605324745178,
+            "max": 0.3727577328681946
+          },
+          "rotation_upper_clip_fraction": 0.0,
+          "rotation_lower_clip_fraction": 0.0
+        }
+      },
+      "angular_velocity_pose_agreement": {
+        "first5s": {
+          "physics_samples": 10000,
+          "control_samples": 100,
+          "fixed_axis_omega_physics_mean_rad_s": 0.23085059225559235,
+          "moving_axis_omega_physics_mean_rad_s": 0.18238578736782074,
+          "pose_spin_physics_mean_rad_s": 0.0692921057343483,
+          "pose_spin_control_interval_mean_rad_s": 0.0692921057343483,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.250194787979126,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.1995086520910263,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.2832832634449005,
+          "clipped_fixed_omega_physics_mean": 0.22899594902992249,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "5to20s": {
+          "physics_samples": 30000,
+          "control_samples": 300,
+          "fixed_axis_omega_physics_mean_rad_s": 0.3694031834602356,
+          "moving_axis_omega_physics_mean_rad_s": 0.3366970121860504,
+          "pose_spin_physics_mean_rad_s": 0.015170390717685223,
+          "pose_spin_control_interval_mean_rad_s": 0.015170392580330372,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.37271758913993835,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.34184345602989197,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.34651702642440796,
+          "clipped_fixed_omega_physics_mean": 0.3512394428253174,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "20to30s": {
+          "physics_samples": 20000,
+          "control_samples": 200,
+          "fixed_axis_omega_physics_mean_rad_s": 0.36888939142227173,
+          "moving_axis_omega_physics_mean_rad_s": 0.3228812515735626,
+          "pose_spin_physics_mean_rad_s": -0.0042968313209712505,
+          "pose_spin_control_interval_mean_rad_s": -0.0042968313209712505,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.3677504062652588,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.3214137554168701,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.32902878522872925,
+          "clipped_fixed_omega_physics_mean": 0.3685605823993683,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        }
+      },
+      "last_visible_hand_contact_s": 85.0,
+      "valid_net_after_last_visible_contact_deg": 0.0,
+      "longest_sensor_zero_hand_contact": {
+        "seconds": 0.003,
+        "start_s": 4.184,
+        "end_s": 4.187
+      },
+      "max_object_angular_speed_rad_s": 12.262262344360352
+    },
+    "30": {
+      "record": {
+        "training_actions_in_checkpoint": 30007296,
+        "actual_s": 82.7,
+        "valid_s": 82.7,
+        "net_deg": 67.0095957834724,
+        "stop_reason": "wall budget",
+        "checkpoint_sha256": "df01d82403d14f7e025ca5eef6dff6bc37c0de774e57d154cdd603eb5f43eaaf"
+      },
+      "published_metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 64.04445427464643,
+          "peak_deg": 64.41580122087024,
+          "forward_deg": 79.00995737664653,
+          "backward_deg": 14.965503102000106,
+          "net_deg_per_budget_second": 2.1348151424882142,
+          "net_deg_per_valid_second": 2.1348151424882142,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 64.04445427464643,
+          "full_window_final_tail_net_deg": 64.04445427464643,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 82.7,
+          "complete_window_observed": false,
+          "net_deg": 67.0095957834724,
+          "peak_deg": 67.03131245069659,
+          "forward_deg": 112.67973756594715,
+          "backward_deg": 45.67014178247475,
+          "net_deg_per_budget_second": 0.5584132981956034,
+          "net_deg_per_valid_second": 0.8102732259186506,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 1.456735809201561,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 82.7,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 82.7,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 82.7,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      },
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "physics_samples": 165400,
+      "integration_max_increment_error_deg": 6.111571565270424e-06,
+      "integration_endpoint_error_deg": -0.000435150684211294,
+      "command_reconstruction_max_error_rad": 5.960464477539063e-08,
+      "common5s_net_deg": 51.36275959487995,
+      "windows": {
+        "0to5s": {
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "net_deg": 51.36275959487995,
+          "sensor_zero_hand_contact_fraction": 0.0003,
+          "finger_contacts_mean": 2.6761,
+          "max_normal_N": 20.019941329956055,
+          "max_tilt_deg": 14.270384788513184,
+          "object_angular_speed_rad_s": {
+            "mean": 0.5482624769210815,
+            "median": 0.5081344842910767,
+            "p90": 0.7777124047279358,
+            "min": 1.569209598528687e-05,
+            "max": 5.012546062469482
+          }
+        },
+        "5to20s": {
+          "start_s": 5.0,
+          "end_s": 20.0,
+          "net_deg": 12.733208161658467,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 2.5895333333333332,
+          "max_normal_N": 7.472631931304932,
+          "max_tilt_deg": 44.09858322143555,
+          "object_angular_speed_rad_s": {
+            "mean": 0.47813013195991516,
+            "median": 0.4157671630382538,
+            "p90": 0.5520604252815247,
+            "min": 0.0352710485458374,
+            "max": 7.330428123474121
+          }
+        },
+        "20to30s": {
+          "start_s": 20.0,
+          "end_s": 30.0,
+          "net_deg": -0.05151348189198757,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 2.86995,
+          "max_normal_N": 4.4436798095703125,
+          "max_tilt_deg": 46.53817367553711,
+          "object_angular_speed_rad_s": {
+            "mean": 0.39644238352775574,
+            "median": 0.39900124073028564,
+            "p90": 0.4541052281856537,
+            "min": 0.15065018832683563,
+            "max": 2.2148776054382324
+          }
+        },
+        "last1s": {
+          "start_s": 81.7,
+          "end_s": 82.7,
+          "net_deg": 0.19921874839081966,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 2.8735,
+          "max_normal_N": 3.7425472736358643,
+          "max_tilt_deg": 46.724124908447266,
+          "object_angular_speed_rad_s": {
+            "mean": 0.36517053842544556,
+            "median": 0.35472407937049866,
+            "p90": 0.4630356729030609,
+            "min": 0.2145669162273407,
+            "max": 0.6904993057250977
+          }
+        },
+        "last0.2s": {
+          "start_s": 82.5,
+          "end_s": 82.7,
+          "net_deg": 0.3007423180119986,
+          "sensor_zero_hand_contact_fraction": 0.0,
+          "finger_contacts_mean": 2.9075,
+          "max_normal_N": 3.7425472736358643,
+          "max_tilt_deg": 46.68895721435547,
+          "object_angular_speed_rad_s": {
+            "mean": 0.4163496494293213,
+            "median": 0.416917085647583,
+            "p90": 0.4693370759487152,
+            "min": 0.2945220470428467,
+            "max": 0.5858173370361328
+          }
+        }
+      },
+      "sample_points": [
+        {
+          "t": 1.0,
+          "net_deg": 14.994473623263104,
+          "height_m": 0.10597836971282959,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 11.806120872497559,
+          "normal_N": 5.894876956939697,
+          "fixed_axis_omega_rad_s": 0.5767890810966492,
+          "moving_axis_omega_rad_s": 0.4477391541004181
+        },
+        {
+          "t": 5.0,
+          "net_deg": 51.36275959487995,
+          "height_m": 0.1154710054397583,
+          "finger_contacts": 2,
+          "support_groups": 2,
+          "tilt_deg": 4.119701862335205,
+          "normal_N": 4.003440856933594,
+          "fixed_axis_omega_rad_s": 0.4014340341091156,
+          "moving_axis_omega_rad_s": 0.3662657141685486
+        },
+        {
+          "t": 10.0,
+          "net_deg": 63.8726886301026,
+          "height_m": 0.11307357251644135,
+          "finger_contacts": 2,
+          "support_groups": 2,
+          "tilt_deg": 43.06943893432617,
+          "normal_N": 3.7767817974090576,
+          "fixed_axis_omega_rad_s": 0.37680473923683167,
+          "moving_axis_omega_rad_s": 0.07764323055744171
+        },
+        {
+          "t": 20.0,
+          "net_deg": 64.09596775653841,
+          "height_m": 0.11323513835668564,
+          "finger_contacts": 2,
+          "support_groups": 2,
+          "tilt_deg": 44.09858322143555,
+          "normal_N": 3.922775983810425,
+          "fixed_axis_omega_rad_s": 0.30364856123924255,
+          "moving_axis_omega_rad_s": 0.02119983732700348
+        },
+        {
+          "t": 30.0,
+          "net_deg": 64.04445427464643,
+          "height_m": 0.11362465471029282,
+          "finger_contacts": 2,
+          "support_groups": 2,
+          "tilt_deg": 45.645912170410156,
+          "normal_N": 3.243591070175171,
+          "fixed_axis_omega_rad_s": 0.3108311593532562,
+          "moving_axis_omega_rad_s": 0.05598756670951843
+        },
+        {
+          "t": 82.5,
+          "net_deg": 66.70885346546041,
+          "height_m": 0.11347819864749908,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 46.6895866394043,
+          "normal_N": 3.3154666423797607,
+          "fixed_axis_omega_rad_s": 0.264363169670105,
+          "moving_axis_omega_rad_s": 0.0346287339925766
+        },
+        {
+          "t": 82.7,
+          "net_deg": 67.0095957834724,
+          "height_m": 0.11344452202320099,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 46.6161994934082,
+          "normal_N": 3.6283700466156006,
+          "fixed_axis_omega_rad_s": 0.2769582271575928,
+          "moving_axis_omega_rad_s": 0.02977985143661499
+        }
+      ],
+      "commands": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "outward_blocked_motor_fraction": 0.2875,
+          "at_target_bound_motor_fraction": 0.29375,
+          "command_travel_rad_per_motor": [
+            0.4875631332397461,
+            0.2900165617465973,
+            0.3615444302558899,
+            0.3123890161514282,
+            0.13997679948806763,
+            0.18916338682174683,
+            0.3554801344871521,
+            0.14617179334163666,
+            0.5422718524932861,
+            0.3567104637622833,
+            0.014999985694885254,
+            0.15494751930236816,
+            0.06987808644771576,
+            0.4070407748222351,
+            0.5433571338653564,
+            0.15209068357944489
+          ],
+          "actual_travel_rad_per_motor": [
+            0.49565327167510986,
+            0.32203367352485657,
+            0.32566705346107483,
+            0.2840249538421631,
+            0.13475681841373444,
+            0.24531668424606323,
+            0.31030693650245667,
+            0.1592179536819458,
+            0.41015541553497314,
+            0.31728339195251465,
+            0.042368084192276,
+            0.1772376298904419,
+            0.05605926737189293,
+            0.4003473222255707,
+            0.5360695123672485,
+            0.15059004724025726
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ4",
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "RFJ4",
+            "RFJ2"
+          ]
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "outward_blocked_motor_fraction": 0.3745833333333333,
+          "at_target_bound_motor_fraction": 0.3747916666666667,
+          "command_travel_rad_per_motor": [
+            0.26442891359329224,
+            0.08999070525169373,
+            0.0,
+            0.3026858866214752,
+            0.002996504306793213,
+            0.12657612562179565,
+            0.15100082755088806,
+            0.1848190426826477,
+            0.0,
+            0.3640999495983124,
+            0.0,
+            0.146012544631958,
+            0.0,
+            0.37404197454452515,
+            0.4560476541519165,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.2542887330055237,
+            0.08778224885463715,
+            5.0676858265319424e-09,
+            0.2874230146408081,
+            0.008953452110290527,
+            0.09609681367874146,
+            0.1360403597354889,
+            0.09165264666080475,
+            0.1779167652130127,
+            0.28180360794067383,
+            0.0708170235157013,
+            0.09031713008880615,
+            0.051797054708004,
+            0.3600154519081116,
+            0.433195024728775,
+            7.217205961751461e-07
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ]
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "outward_blocked_motor_fraction": 0.375,
+          "at_target_bound_motor_fraction": 0.375,
+          "command_travel_rad_per_motor": [
+            0.19361430406570435,
+            0.056542083621025085,
+            0.0,
+            0.22101372480392456,
+            0.0,
+            0.0895349383354187,
+            0.10451731085777283,
+            0.12131042778491974,
+            0.0,
+            0.23031358420848846,
+            0.0,
+            0.10018408298492432,
+            0.0,
+            0.2546725869178772,
+            0.3192847669124603,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.18759924173355103,
+            0.05903993546962738,
+            3.3444860214615346e-09,
+            0.21167609095573425,
+            0.007992804050445557,
+            0.06710249185562134,
+            0.0868283212184906,
+            0.05975978076457977,
+            0.11739873886108398,
+            0.1807648092508316,
+            0.04581993818283081,
+            0.06302750110626221,
+            0.03899385780096054,
+            0.2449401468038559,
+            0.3044598698616028,
+            4.4923700670551625e-07
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ]
+        },
+        "after30s": {
+          "control_count": 1054,
+          "duration_s": 52.7,
+          "outward_blocked_motor_fraction": 0.37416982922201136,
+          "at_target_bound_motor_fraction": 0.3745256166982922,
+          "command_travel_rad_per_motor": [
+            1.061234712600708,
+            0.3052055537700653,
+            0.0,
+            1.1890732049942017,
+            0.0071602463722229,
+            0.512921929359436,
+            0.57261723279953,
+            0.6277718544006348,
+            0.0,
+            1.2918493747711182,
+            0.0,
+            0.5691983699798584,
+            0.0,
+            1.3071744441986084,
+            1.5858004093170166,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            1.0348091125488281,
+            0.35116147994995117,
+            2.6852390533349535e-08,
+            1.1472465991973877,
+            0.05763861536979675,
+            0.385128378868103,
+            0.530725359916687,
+            0.31274503469467163,
+            0.6205307245254517,
+            1.0420740842819214,
+            0.24084582924842834,
+            0.3240182399749756,
+            0.20867924392223358,
+            1.2631117105484009,
+            1.5085564851760864,
+            3.515681555654737e-06
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ2",
+            "FFJ4",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ]
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "outward_blocked_motor_fraction": 0.365625,
+          "at_target_bound_motor_fraction": 0.36875,
+          "command_travel_rad_per_motor": [
+            0.02028203010559082,
+            0.004770979285240173,
+            0.0,
+            0.014861322939395905,
+            0.0006805658340454102,
+            0.01078343391418457,
+            0.01309099793434143,
+            0.013642773032188416,
+            0.0,
+            0.02619089186191559,
+            0.0,
+            0.012425780296325684,
+            0.0,
+            0.02735672891139984,
+            0.018998071551322937,
+            0.0
+          ],
+          "actual_travel_rad_per_motor": [
+            0.020027518272399902,
+            0.0075673907995224,
+            4.4873718629823145e-10,
+            0.01393888145685196,
+            0.0016736090183258057,
+            0.008459150791168213,
+            0.011302083730697632,
+            0.006468459963798523,
+            0.010201096534729004,
+            0.020549044013023376,
+            0.004770874977111816,
+            0.006465435028076172,
+            0.0031858780421316624,
+            0.026418209075927734,
+            0.017374053597450256,
+            7.221360931453091e-08
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ2",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ2",
+            "MFJ3",
+            "RFJ4",
+            "RFJ2",
+            "LFJ2"
+          ]
+        }
+      },
+      "reconstructed_reward": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "components_mean": {
+            "rotation": 0.2992265820503235,
+            "linear_cost": -0.004155795089900494,
+            "pose_cost": -0.04944390803575516,
+            "torque_cost": -0.0282796248793602,
+            "work_cost": -0.6443679928779602,
+            "total": -0.42702072858810425
+          },
+          "components_sum": {
+            "rotation": 29.922657012939453,
+            "linear_cost": -0.41557952761650085,
+            "pose_cost": -4.944390773773193,
+            "torque_cost": -2.8279623985290527,
+            "work_cost": -64.43679809570312,
+            "total": -42.70207214355469
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.3018813729286194,
+            "median": 0.30543822050094604,
+            "p90": 0.5614198446273804,
+            "min": -1.778765082359314,
+            "max": 0.8739796876907349
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.25230705738067627,
+            "median": 0.26718348264694214,
+            "p90": 0.49921151995658875,
+            "min": -1.6915316581726074,
+            "max": 0.754351794719696
+          },
+          "rotation_upper_clip_fraction": 0.15,
+          "rotation_lower_clip_fraction": 0.03
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "components_mean": {
+            "rotation": 0.2661616802215576,
+            "linear_cost": -0.0027019225526601076,
+            "pose_cost": -0.0812627300620079,
+            "torque_cost": -0.022851435467600822,
+            "work_cost": -0.0004753772809635848,
+            "total": 0.15887022018432617
+          },
+          "components_sum": {
+            "rotation": 79.84850311279297,
+            "linear_cost": -0.8105767369270325,
+            "pose_cost": -24.37881851196289,
+            "torque_cost": -6.855430603027344,
+            "work_cost": -0.14261318743228912,
+            "total": 47.66106414794922
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.28073084354400635,
+            "median": 0.25231924653053284,
+            "p90": 0.3878944516181946,
+            "min": -0.024382319301366806,
+            "max": 2.3794169425964355
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.08501160889863968,
+            "median": 0.012919582426548004,
+            "p90": 0.27322518825531006,
+            "min": -0.14325398206710815,
+            "max": 1.7569680213928223
+          },
+          "rotation_upper_clip_fraction": 0.023333333333333334,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "components_mean": {
+            "rotation": 0.2280019223690033,
+            "linear_cost": -0.0021421555429697037,
+            "pose_cost": -0.08350122720003128,
+            "torque_cost": -0.022588655352592468,
+            "work_cost": -0.00022156216436997056,
+            "total": 0.11954832077026367
+          },
+          "components_sum": {
+            "rotation": 45.60038375854492,
+            "linear_cost": -0.42843109369277954,
+            "pose_cost": -16.700244903564453,
+            "torque_cost": -4.517731189727783,
+            "work_cost": -0.044312432408332825,
+            "total": 23.909664154052734
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.2280019223690033,
+            "median": 0.2348523586988449,
+            "p90": 0.31011560559272766,
+            "min": 0.006246462464332581,
+            "max": 0.3996169865131378
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": -0.03238089382648468,
+            "median": -0.02693980187177658,
+            "p90": 0.0212121419608593,
+            "min": -0.20184531807899475,
+            "max": 0.07414959371089935
+          },
+          "rotation_upper_clip_fraction": 0.0,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "after30s": {
+          "control_count": 1054,
+          "duration_s": 52.7,
+          "components_mean": {
+            "rotation": 0.24457001686096191,
+            "linear_cost": -0.0021791683975607157,
+            "pose_cost": -0.08347150683403015,
+            "torque_cost": -0.02256022021174431,
+            "work_cost": -0.0007419538451358676,
+            "total": 0.13561716675758362
+          },
+          "components_sum": {
+            "rotation": 257.77679443359375,
+            "linear_cost": -2.2968435287475586,
+            "pose_cost": -87.97896575927734,
+            "torque_cost": -23.778472900390625,
+            "work_cost": -0.7820193767547607,
+            "total": 142.94049072265625
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.2474302053451538,
+            "median": 0.24210751056671143,
+            "p90": 0.37695640325546265,
+            "min": -0.4496164917945862,
+            "max": 0.9678536653518677
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": -0.013314683921635151,
+            "median": -0.009507961571216583,
+            "p90": 0.07080771774053574,
+            "min": -0.7159519195556641,
+            "max": 0.2502468526363373
+          },
+          "rotation_upper_clip_fraction": 0.020872865275142316,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "components_mean": {
+            "rotation": 0.25149983167648315,
+            "linear_cost": -0.0020095629151910543,
+            "pose_cost": -0.08345706760883331,
+            "torque_cost": -0.02160787023603916,
+            "work_cost": -1.1182653452124214e-06,
+            "total": 0.1444242000579834
+          },
+          "components_sum": {
+            "rotation": 5.029996871948242,
+            "linear_cost": -0.04019125923514366,
+            "pose_cost": -1.669141411781311,
+            "torque_cost": -0.43215739727020264,
+            "work_cost": -2.2365305994753726e-05,
+            "total": 2.888484001159668
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.25149983167648315,
+            "median": 0.26395419239997864,
+            "p90": 0.32809990644454956,
+            "min": 0.11755804717540741,
+            "max": 0.40283432602882385
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": -0.009776253253221512,
+            "median": -0.009409204125404358,
+            "p90": 0.05828879401087761,
+            "min": -0.17052583396434784,
+            "max": 0.09286059439182281
+          },
+          "rotation_upper_clip_fraction": 0.0,
+          "rotation_lower_clip_fraction": 0.0
+        }
+      },
+      "angular_velocity_pose_agreement": {
+        "first5s": {
+          "physics_samples": 10000,
+          "control_samples": 100,
+          "fixed_axis_omega_physics_mean_rad_s": 0.3308241665363312,
+          "moving_axis_omega_physics_mean_rad_s": 0.2876684069633484,
+          "pose_spin_physics_mean_rad_s": 0.1792897880077362,
+          "pose_spin_control_interval_mean_rad_s": 0.1792898178100586,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.3018813729286194,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.25230705738067627,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.27193397283554077,
+          "clipped_fixed_omega_physics_mean": 0.3133889138698578,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "5to20s": {
+          "physics_samples": 30000,
+          "control_samples": 300,
+          "fixed_axis_omega_physics_mean_rad_s": 0.2790879011154175,
+          "moving_axis_omega_physics_mean_rad_s": 0.08488943427801132,
+          "pose_spin_physics_mean_rad_s": 0.014815722592175007,
+          "pose_spin_control_interval_mean_rad_s": 0.014815724454820156,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.28073084354400635,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.08501160889863968,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.16027311980724335,
+          "clipped_fixed_omega_physics_mean": 0.26414379477500916,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "20to30s": {
+          "physics_samples": 20000,
+          "control_samples": 200,
+          "fixed_axis_omega_physics_mean_rad_s": 0.23300477862358093,
+          "moving_axis_omega_physics_mean_rad_s": -0.028701189905405045,
+          "pose_spin_physics_mean_rad_s": -8.998202974908054e-05,
+          "pose_spin_control_interval_mean_rad_s": -8.99818551260978e-05,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.2280019223690033,
+          "moving_axis_omega_endpoint_mean_rad_s": -0.03238089382648468,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.06731715798377991,
+          "clipped_fixed_omega_physics_mean": 0.23290488123893738,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        }
+      },
+      "last_visible_hand_contact_s": 82.7,
+      "valid_net_after_last_visible_contact_deg": 0.0,
+      "longest_sensor_zero_hand_contact": {
+        "seconds": 0.001,
+        "start_s": 0.0,
+        "end_s": 0.001
+      },
+      "max_object_angular_speed_rad_s": 7.330428123474121
+    },
+    "40": {
+      "record": {
+        "training_actions_in_checkpoint": 40001536,
+        "actual_s": 7.8500000000000005,
+        "valid_s": 7.8495,
+        "net_deg": 115.52533287577222,
+        "stop_reason": "object below Boya manipulation region",
+        "checkpoint_sha256": "b7d460b94ee020d89844574e48c2e063cfb227bb1fc5581088ca5e46e44db862"
+      },
+      "published_metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 7.8495,
+          "complete_window_observed": false,
+          "net_deg": 115.52533287577222,
+          "peak_deg": 115.52533287577222,
+          "forward_deg": 117.52958134908135,
+          "backward_deg": 2.004248473309133,
+          "net_deg_per_budget_second": 3.8508444291924073,
+          "net_deg_per_valid_second": 14.717540337062516,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 7.47,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 7.8495,
+          "complete_window_observed": false,
+          "net_deg": 115.52533287577222,
+          "peak_deg": 115.52533287577222,
+          "forward_deg": 117.52958134908135,
+          "backward_deg": 2.004248473309133,
+          "net_deg_per_budget_second": 0.9627111072981018,
+          "net_deg_per_valid_second": 14.717540337062516,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 7.47,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 7.8495,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      },
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "physics_samples": 15700,
+      "integration_max_increment_error_deg": 7.5018033385276794e-06,
+      "integration_endpoint_error_deg": -3.301927506527136e-05,
+      "command_reconstruction_max_error_rad": 5.960464477539063e-08,
+      "common5s_net_deg": 52.33217595682419,
+      "windows": {
+        "0to5s": {
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "net_deg": 52.33217595682419,
+          "sensor_zero_hand_contact_fraction": 0.0002,
+          "finger_contacts_mean": 3.3168,
+          "max_normal_N": 12.595922470092773,
+          "max_tilt_deg": 30.93631362915039,
+          "object_angular_speed_rad_s": {
+            "mean": 0.6461799740791321,
+            "median": 0.5977062582969666,
+            "p90": 0.8112030029296875,
+            "min": 1.569209598528687e-05,
+            "max": 4.862840175628662
+          }
+        },
+        "5to20s": {
+          "start_s": 5.0,
+          "end_s": 7.8495,
+          "net_deg": 63.193156918948034,
+          "sensor_zero_hand_contact_fraction": 0.02263555009650816,
+          "finger_contacts_mean": 2.4181435339533253,
+          "max_normal_N": 42.16226577758789,
+          "max_tilt_deg": 126.64569854736328,
+          "object_angular_speed_rad_s": {
+            "mean": 1.352563738822937,
+            "median": 0.6405599117279053,
+            "p90": 1.9686015844345093,
+            "min": 0.18673932552337646,
+            "max": 20.91529083251953
+          }
+        },
+        "20to30s": null,
+        "last1s": {
+          "start_s": 6.8495,
+          "end_s": 7.8495,
+          "net_deg": 42.37612530285401,
+          "sensor_zero_hand_contact_fraction": 0.0645,
+          "finger_contacts_mean": 2.469,
+          "max_normal_N": 42.16226577758789,
+          "max_tilt_deg": 126.64569854736328,
+          "object_angular_speed_rad_s": {
+            "mean": 2.5019326210021973,
+            "median": 1.0467543601989746,
+            "p90": 7.068192481994629,
+            "min": 0.18673932552337646,
+            "max": 20.91529083251953
+          }
+        },
+        "last0.2s": {
+          "start_s": 7.6495,
+          "end_s": 7.8495,
+          "net_deg": 15.14326979246539,
+          "sensor_zero_hand_contact_fraction": 0.3225,
+          "finger_contacts_mean": 1.3625,
+          "max_normal_N": 42.16226577758789,
+          "max_tilt_deg": 126.64569854736328,
+          "object_angular_speed_rad_s": {
+            "mean": 5.357439994812012,
+            "median": 1.4269826412200928,
+            "p90": 14.142335891723633,
+            "min": 0.9744741916656494,
+            "max": 20.91529083251953
+          }
+        }
+      },
+      "sample_points": [
+        {
+          "t": 1.0,
+          "net_deg": 20.195599817822142,
+          "height_m": 0.1060362234711647,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 8.542930603027344,
+          "normal_N": 5.865590572357178,
+          "fixed_axis_omega_rad_s": 0.745215117931366,
+          "moving_axis_omega_rad_s": 0.7539536356925964
+        },
+        {
+          "t": 5.0,
+          "net_deg": 52.33217595682419,
+          "height_m": 0.11671679466962814,
+          "finger_contacts": 2,
+          "support_groups": 2,
+          "tilt_deg": 30.93631362915039,
+          "normal_N": 3.523468017578125,
+          "fixed_axis_omega_rad_s": 1.695674180984497,
+          "moving_axis_omega_rad_s": 1.024280309677124
+        },
+        {
+          "t": 7.6495,
+          "net_deg": 100.38206308330683,
+          "height_m": 0.09372910112142563,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 121.68516540527344,
+          "normal_N": 1.6591609716415405,
+          "fixed_axis_omega_rad_s": 0.9654110074043274,
+          "moving_axis_omega_rad_s": 0.7225502133369446
+        },
+        {
+          "t": 7.8495,
+          "net_deg": 115.52533287577222,
+          "height_m": 0.041468147188425064,
+          "finger_contacts": 0,
+          "support_groups": 0,
+          "tilt_deg": 98.12998962402344,
+          "normal_N": 0.0,
+          "fixed_axis_omega_rad_s": 12.186720848083496,
+          "moving_axis_omega_rad_s": 4.028900623321533
+        }
+      ],
+      "commands": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "outward_blocked_motor_fraction": 0.22875,
+          "at_target_bound_motor_fraction": 0.235625,
+          "command_travel_rad_per_motor": [
+            0.3026474118232727,
+            0.2605111002922058,
+            0.38721898198127747,
+            0.2481781542301178,
+            0.14554071426391602,
+            0.20943963527679443,
+            0.3574022054672241,
+            0.21807634830474854,
+            0.35161924362182617,
+            0.28539252281188965,
+            0.07858109474182129,
+            0.1804906129837036,
+            0.031434565782547,
+            0.4883107542991638,
+            0.40828245878219604,
+            0.13885743916034698
+          ],
+          "actual_travel_rad_per_motor": [
+            0.31457072496414185,
+            0.27362173795700073,
+            0.3165642023086548,
+            0.23224356770515442,
+            0.13509564101696014,
+            0.18051284551620483,
+            0.3642125725746155,
+            0.2158193141222,
+            0.34581971168518066,
+            0.2487255483865738,
+            0.10477006435394287,
+            0.18776702880859375,
+            0.027914252132177353,
+            0.4778331220149994,
+            0.4013855755329132,
+            0.13430830836296082
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "RFJ2"
+          ]
+        },
+        "5to20s": {
+          "control_count": 56,
+          "duration_s": 2.8000000000000003,
+          "outward_blocked_motor_fraction": 0.21540178571428573,
+          "at_target_bound_motor_fraction": 0.21986607142857142,
+          "command_travel_rad_per_motor": [
+            0.06384217739105225,
+            0.17230424284934998,
+            0.47822466492652893,
+            0.07612554728984833,
+            0.384363055229187,
+            0.26422327756881714,
+            0.09493318200111389,
+            0.1746005415916443,
+            0.25090324878692627,
+            0.20884576439857483,
+            0.0,
+            0.09772050380706787,
+            0.07891243696212769,
+            0.22938291728496552,
+            0.0655660405755043,
+            0.35459303855895996
+          ],
+          "actual_travel_rad_per_motor": [
+            0.07310926914215088,
+            0.15121866762638092,
+            0.47690349817276,
+            0.07152039557695389,
+            0.3670472502708435,
+            0.27775537967681885,
+            0.09071320295333862,
+            0.15266665816307068,
+            0.10931634902954102,
+            0.22928838431835175,
+            0.1171795129776001,
+            0.08348739147186279,
+            0.07638049125671387,
+            0.22688861191272736,
+            0.06379888206720352,
+            0.3503749370574951
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ4"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "RFJ4"
+          ]
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "outward_blocked_motor_fraction": 0.21875,
+          "at_target_bound_motor_fraction": 0.21875,
+          "command_travel_rad_per_motor": [
+            0.009172022342681885,
+            0.13499441742897034,
+            0.3060127794742584,
+            0.0,
+            0.2619468569755554,
+            0.081545889377594,
+            0.07008817791938782,
+            0.1096685454249382,
+            0.1738508939743042,
+            0.15811656415462494,
+            0.0,
+            0.06695306301116943,
+            0.07891243696212769,
+            0.14539362490177155,
+            0.0,
+            0.17015208303928375
+          ],
+          "actual_travel_rad_per_motor": [
+            0.01657569408416748,
+            0.10478584468364716,
+            0.3170732259750366,
+            8.105681627057493e-05,
+            0.24558380246162415,
+            0.09430676698684692,
+            0.0668717622756958,
+            0.11003588885068893,
+            0.04586136341094971,
+            0.18274642527103424,
+            0.08290983736515045,
+            0.05222499370574951,
+            0.07008367031812668,
+            0.1441483348608017,
+            7.576941851716867e-10,
+            0.1682945191860199
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "RFJ4",
+            "LFJ3"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "RFJ4",
+            "LFJ3"
+          ]
+        }
+      },
+      "reconstructed_reward": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "components_mean": {
+            "rotation": 0.4166443645954132,
+            "linear_cost": -0.0038536342326551676,
+            "pose_cost": -0.039845675230026245,
+            "torque_cost": -0.03499061241745949,
+            "work_cost": -0.0026580779813230038,
+            "total": 0.3352963924407959
+          },
+          "components_sum": {
+            "rotation": 41.66443634033203,
+            "linear_cost": -0.3853634297847748,
+            "pose_cost": -3.984567642211914,
+            "torque_cost": -3.499061107635498,
+            "work_cost": -0.2658078074455261,
+            "total": 33.529640197753906
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.4762192964553833,
+            "median": 0.4523558020591736,
+            "p90": 0.658001720905304,
+            "min": 0.042026616632938385,
+            "max": 1.695674180984497
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.4168534576892853,
+            "median": 0.38273048400878906,
+            "p90": 0.629827618598938,
+            "min": -0.06069318205118179,
+            "max": 1.024280309677124
+          },
+          "rotation_upper_clip_fraction": 0.39,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "5to20s": {
+          "control_count": 56,
+          "duration_s": 2.8000000000000003,
+          "components_mean": {
+            "rotation": 0.45926588773727417,
+            "linear_cost": -0.0110575957223773,
+            "pose_cost": -0.10012608021497726,
+            "torque_cost": -0.026372870430350304,
+            "work_cost": -0.003789391601458192,
+            "total": 0.31791993975639343
+          },
+          "components_sum": {
+            "rotation": 25.718889236450195,
+            "linear_cost": -0.6192253828048706,
+            "pose_cost": -5.607060432434082,
+            "torque_cost": -1.4768807888031006,
+            "work_cost": -0.2122059315443039,
+            "total": 17.803516387939453
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.6568883061408997,
+            "median": 0.5120065212249756,
+            "p90": 0.9358539581298828,
+            "min": 0.040301382541656494,
+            "max": 3.557433605194092
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.2997855544090271,
+            "median": 0.14421910047531128,
+            "p90": 0.4918971657752991,
+            "min": -0.4452599585056305,
+            "max": 3.896466016769409
+          },
+          "rotation_upper_clip_fraction": 0.5178571428571429,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "components_mean": {
+            "rotation": 0.4706624150276184,
+            "linear_cost": -0.02511865831911564,
+            "pose_cost": -0.13549521565437317,
+            "torque_cost": -0.029632464051246643,
+            "work_cost": -0.009408382698893547,
+            "total": 0.2710076868534088
+          },
+          "components_sum": {
+            "rotation": 9.413248062133789,
+            "linear_cost": -0.5023731589317322,
+            "pose_cost": -2.709904193878174,
+            "torque_cost": -0.5926492810249329,
+            "work_cost": -0.18816764652729034,
+            "total": 5.420153617858887
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.9563949704170227,
+            "median": 0.7471649646759033,
+            "p90": 1.7788537740707397,
+            "min": 0.040301382541656494,
+            "max": 3.557433605194092
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.6506006717681885,
+            "median": 0.27261266112327576,
+            "p90": 1.6303125619888306,
+            "min": -0.4452599585056305,
+            "max": 3.896466016769409
+          },
+          "rotation_upper_clip_fraction": 0.85,
+          "rotation_lower_clip_fraction": 0.0
+        }
+      },
+      "angular_velocity_pose_agreement": {
+        "first5s": {
+          "physics_samples": 10000,
+          "control_samples": 100,
+          "fixed_axis_omega_physics_mean_rad_s": 0.46648919582366943,
+          "moving_axis_omega_physics_mean_rad_s": 0.41317275166511536,
+          "pose_spin_physics_mean_rad_s": 0.18267367780208588,
+          "pose_spin_control_interval_mean_rad_s": 0.18267367780208588,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.4762192964553833,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.4168534576892853,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.26428064703941345,
+          "clipped_fixed_omega_physics_mean": 0.4201473593711853,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "5to20s": {
+          "physics_samples": 5699,
+          "control_samples": 56,
+          "fixed_axis_omega_physics_mean_rad_s": 0.8390474319458008,
+          "moving_axis_omega_physics_mean_rad_s": 0.31457605957984924,
+          "pose_spin_physics_mean_rad_s": 0.3870603144168854,
+          "pose_spin_control_interval_mean_rad_s": 0.3254189193248749,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.6568883061408997,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.2997855544090271,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.2069040685892105,
+          "clipped_fixed_omega_physics_mean": 0.46769821643829346,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        }
+      },
+      "last_visible_hand_contact_s": 7.8420000000000005,
+      "valid_net_after_last_visible_contact_deg": 1.7310212776064873,
+      "longest_sensor_zero_hand_contact": {
+        "seconds": 0.029500000000000002,
+        "start_s": 7.763,
+        "end_s": 7.7925
+      },
+      "max_object_angular_speed_rad_s": 20.91529083251953
+    },
+    "50": {
+      "record": {
+        "training_actions_in_checkpoint": 50003968,
+        "actual_s": 35.85,
+        "valid_s": 35.8495,
+        "net_deg": 226.8886682915687,
+        "stop_reason": "object below Boya manipulation region",
+        "checkpoint_sha256": "221927f6f2fd7e5c7f01efb5d7bfcdc9ccd969e9aa04f06724c7524fd30b9bae"
+      },
+      "published_metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 35.059028009702885,
+          "peak_deg": 44.24829502081458,
+          "forward_deg": 71.57137567840924,
+          "backward_deg": 36.512347668706354,
+          "net_deg_per_budget_second": 1.1686342669900962,
+          "net_deg_per_valid_second": 1.1686342669900962,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 35.059028009702885,
+          "full_window_final_tail_net_deg": 35.059028009702885,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 35.8495,
+          "complete_window_observed": false,
+          "net_deg": 226.8886682915687,
+          "peak_deg": 226.8886682915687,
+          "forward_deg": 270.37847031263675,
+          "backward_deg": 43.48980202106807,
+          "net_deg_per_budget_second": 1.8907389024297392,
+          "net_deg_per_valid_second": 6.328921415684143,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 183.93722422840358,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 35.6975,
+              "observed_until_s": 35.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 35.8495,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 35.8495,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      },
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "physics_samples": 71700,
+      "integration_max_increment_error_deg": 6.312038749456406e-06,
+      "integration_endpoint_error_deg": -3.699327868389446e-05,
+      "command_reconstruction_max_error_rad": 2.9802322387695312e-08,
+      "common5s_net_deg": 42.096720417066464,
+      "windows": {
+        "0to5s": {
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "net_deg": 42.096720417066464,
+          "sensor_zero_hand_contact_fraction": 0.0002,
+          "finger_contacts_mean": 3.6033,
+          "max_normal_N": 14.190515518188477,
+          "max_tilt_deg": 14.667045593261719,
+          "object_angular_speed_rad_s": {
+            "mean": 0.5322964787483215,
+            "median": 0.513055145740509,
+            "p90": 0.7947803735733032,
+            "min": 1.569209598528687e-05,
+            "max": 3.0825114250183105
+          }
+        },
+        "5to20s": {
+          "start_s": 5.0,
+          "end_s": 20.0,
+          "net_deg": -2.4549234490739735,
+          "sensor_zero_hand_contact_fraction": 3.3333333333333335e-05,
+          "finger_contacts_mean": 2.9958666666666667,
+          "max_normal_N": 13.343208312988281,
+          "max_tilt_deg": 16.767854690551758,
+          "object_angular_speed_rad_s": {
+            "mean": 0.4576631784439087,
+            "median": 0.45507973432540894,
+            "p90": 0.5537188649177551,
+            "min": 0.05558551475405693,
+            "max": 3.5600168704986572
+          }
+        },
+        "20to30s": {
+          "start_s": 20.0,
+          "end_s": 30.0,
+          "net_deg": -4.582768958289606,
+          "sensor_zero_hand_contact_fraction": 5e-05,
+          "finger_contacts_mean": 2.99495,
+          "max_normal_N": 13.498028755187988,
+          "max_tilt_deg": 14.0144624710083,
+          "object_angular_speed_rad_s": {
+            "mean": 0.31079187989234924,
+            "median": 0.3052099943161011,
+            "p90": 0.5106683373451233,
+            "min": 0.00798734836280346,
+            "max": 4.788342475891113
+          }
+        },
+        "last1s": {
+          "start_s": 34.8495,
+          "end_s": 35.8495,
+          "net_deg": 177.09145071638835,
+          "sensor_zero_hand_contact_fraction": 0.155,
+          "finger_contacts_mean": 2.464,
+          "max_normal_N": 4.510551452636719,
+          "max_tilt_deg": 51.539100646972656,
+          "object_angular_speed_rad_s": {
+            "mean": 3.9677891731262207,
+            "median": 0.2088317573070526,
+            "p90": 19.448715209960938,
+            "min": 0.10823346674442291,
+            "max": 19.545251846313477
+          }
+        },
+        "last0.2s": {
+          "start_s": 35.649499999999996,
+          "end_s": 35.8495,
+          "net_deg": 172.2710565775633,
+          "sensor_zero_hand_contact_fraction": 0.775,
+          "finger_contacts_mean": 0.3275,
+          "max_normal_N": 4.510551452636719,
+          "max_tilt_deg": 51.539100646972656,
+          "object_angular_speed_rad_s": {
+            "mean": 18.620208740234375,
+            "median": 19.44892120361328,
+            "p90": 19.525226593017578,
+            "min": 7.414178848266602,
+            "max": 19.545251846313477
+          }
+        }
+      },
+      "sample_points": [
+        {
+          "t": 1.0,
+          "net_deg": 17.273174341580955,
+          "height_m": 0.10714782029390335,
+          "finger_contacts": 4,
+          "support_groups": 4,
+          "tilt_deg": 10.267245292663574,
+          "normal_N": 6.519891262054443,
+          "fixed_axis_omega_rad_s": 0.42954128980636597,
+          "moving_axis_omega_rad_s": 0.38091498613357544
+        },
+        {
+          "t": 5.0,
+          "net_deg": 42.096720417066464,
+          "height_m": 0.105116106569767,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 14.666790008544922,
+          "normal_N": 5.096381664276123,
+          "fixed_axis_omega_rad_s": 0.35501402616500854,
+          "moving_axis_omega_rad_s": 0.23866644501686096
+        },
+        {
+          "t": 10.0,
+          "net_deg": 43.56326316673791,
+          "height_m": 0.10399743914604187,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 15.798659324645996,
+          "normal_N": 4.677346706390381,
+          "fixed_axis_omega_rad_s": 0.2369057834148407,
+          "moving_axis_omega_rad_s": 0.12779824435710907
+        },
+        {
+          "t": 20.0,
+          "net_deg": 39.64179696799249,
+          "height_m": 0.10257159918546677,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 12.813132286071777,
+          "normal_N": 4.284272193908691,
+          "fixed_axis_omega_rad_s": 0.16772201657295227,
+          "moving_axis_omega_rad_s": 0.1163444072008133
+        },
+        {
+          "t": 30.0,
+          "net_deg": 35.059028009702885,
+          "height_m": 0.10280852019786835,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 13.771516799926758,
+          "normal_N": 4.082507610321045,
+          "fixed_axis_omega_rad_s": -0.19649739563465118,
+          "moving_axis_omega_rad_s": -0.22518397867679596
+        },
+        {
+          "t": 35.6495,
+          "net_deg": 54.617611714005406,
+          "height_m": 0.10974594950675964,
+          "finger_contacts": 3,
+          "support_groups": 3,
+          "tilt_deg": 22.15098762512207,
+          "normal_N": 2.8300905227661133,
+          "fixed_axis_omega_rad_s": 6.580244064331055,
+          "moving_axis_omega_rad_s": 5.190201759338379
+        },
+        {
+          "t": 35.8495,
+          "net_deg": 226.8886682915687,
+          "height_m": -0.021500518545508385,
+          "finger_contacts": 0,
+          "support_groups": 0,
+          "tilt_deg": 51.539100646972656,
+          "normal_N": 0.0,
+          "fixed_axis_omega_rad_s": 18.459318161010742,
+          "moving_axis_omega_rad_s": 15.647244453430176
+        }
+      ],
+      "commands": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "outward_blocked_motor_fraction": 0.268125,
+          "at_target_bound_motor_fraction": 0.271875,
+          "command_travel_rad_per_motor": [
+            0.28422150015830994,
+            0.2346186637878418,
+            0.21012566983699799,
+            0.045337364077568054,
+            0.13318699598312378,
+            0.25186753273010254,
+            0.29832378029823303,
+            0.11542029678821564,
+            0.2333698272705078,
+            0.27598145604133606,
+            0.05268573760986328,
+            0.18848168849945068,
+            0.12556210160255432,
+            0.32096537947654724,
+            0.47296619415283203,
+            0.24360761046409607
+          ],
+          "actual_travel_rad_per_motor": [
+            0.2968918979167938,
+            0.23741686344146729,
+            0.22279757261276245,
+            0.03793030232191086,
+            0.1302652806043625,
+            0.21426743268966675,
+            0.2684909403324127,
+            0.12286415696144104,
+            0.2152031660079956,
+            0.24422043561935425,
+            0.10251790285110474,
+            0.19883573055267334,
+            0.10054182261228561,
+            0.3134516775608063,
+            0.4615078568458557,
+            0.24141646921634674
+          ],
+          "joints_at_bound_over90pct": [
+            "RFJ4",
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": []
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "outward_blocked_motor_fraction": 0.25,
+          "at_target_bound_motor_fraction": 0.25,
+          "command_travel_rad_per_motor": [
+            0.24141404032707214,
+            0.1312420517206192,
+            0.20850870013237,
+            0.0,
+            0.0,
+            0.2878949046134949,
+            0.18340256810188293,
+            0.2845023274421692,
+            0.324310302734375,
+            0.40158990025520325,
+            0.0,
+            0.1344916820526123,
+            0.0,
+            0.45103728771209717,
+            0.9410959482192993,
+            0.5888630151748657
+          ],
+          "actual_travel_rad_per_motor": [
+            0.2287987470626831,
+            0.1126599907875061,
+            0.1918267011642456,
+            3.1453388782409775e-09,
+            0.0002943575382232666,
+            0.27329444885253906,
+            0.16595470905303955,
+            0.2216808795928955,
+            0.3805004358291626,
+            0.34532374143600464,
+            0.064246267080307,
+            0.16900897026062012,
+            0.009428605437278748,
+            0.4368743300437927,
+            0.9020740389823914,
+            0.5551066398620605
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "RFJ4",
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "RFJ4",
+            "RFJ2"
+          ]
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "outward_blocked_motor_fraction": 0.25,
+          "at_target_bound_motor_fraction": 0.25,
+          "command_travel_rad_per_motor": [
+            0.16650116443634033,
+            0.06294159591197968,
+            0.10573312640190125,
+            0.0,
+            0.0,
+            0.1789039969444275,
+            0.14033177495002747,
+            0.1609523594379425,
+            0.2217780351638794,
+            0.25046467781066895,
+            0.0,
+            0.06445348262786865,
+            0.0,
+            0.2599320411682129,
+            0.6554349064826965,
+            0.386888712644577
+          ],
+          "actual_travel_rad_per_motor": [
+            0.1589057445526123,
+            0.07431896030902863,
+            0.07677954435348511,
+            6.25242657648073e-09,
+            0.00023347139358520508,
+            0.1685725450515747,
+            0.12968823313713074,
+            0.14223556220531464,
+            0.18549203872680664,
+            0.1632319986820221,
+            0.03720375895500183,
+            0.08102273941040039,
+            0.04089832305908203,
+            0.24922750890254974,
+            0.6301455497741699,
+            0.3556569516658783
+          ],
+          "joints_at_bound_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "RFJ4",
+            "RFJ2"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "THJ1",
+            "FFJ4",
+            "RFJ4",
+            "RFJ2"
+          ]
+        },
+        "after30s": {
+          "control_count": 116,
+          "duration_s": 5.800000000000001,
+          "outward_blocked_motor_fraction": 0.078125,
+          "at_target_bound_motor_fraction": 0.078125,
+          "command_travel_rad_per_motor": [
+            0.25755465030670166,
+            0.22478391230106354,
+            0.23553597927093506,
+            0.1935122311115265,
+            0.03751596808433533,
+            0.13710623979568481,
+            0.15696683526039124,
+            0.18150074779987335,
+            0.32947564125061035,
+            0.19276323914527893,
+            0.378194123506546,
+            0.13982701301574707,
+            0.2413562834262848,
+            0.34959840774536133,
+            0.2963034510612488,
+            0.40109962224960327
+          ],
+          "actual_travel_rad_per_motor": [
+            0.2553958594799042,
+            0.43608519434928894,
+            0.25610587000846863,
+            0.18206077814102173,
+            0.03602474927902222,
+            0.1250486969947815,
+            0.13348019123077393,
+            0.1436854600906372,
+            0.40078461170196533,
+            0.20422452688217163,
+            0.38161492347717285,
+            0.14246857166290283,
+            0.23106950521469116,
+            0.343140184879303,
+            0.28249743580818176,
+            0.3812808394432068
+          ],
+          "joints_at_bound_over90pct": [
+            "FFJ4"
+          ],
+          "joints_outward_blocked_over90pct": [
+            "FFJ4"
+          ]
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "outward_blocked_motor_fraction": 0.053125,
+          "at_target_bound_motor_fraction": 0.053125,
+          "command_travel_rad_per_motor": [
+            0.05309772491455078,
+            0.04306357726454735,
+            0.02507433295249939,
+            0.03034105896949768,
+            0.03751596808433533,
+            0.020503997802734375,
+            0.040547311305999756,
+            0.023353904485702515,
+            0.03625941276550293,
+            0.020590990781784058,
+            0.08383221924304962,
+            0.013957977294921875,
+            0.04480008780956268,
+            0.05041404813528061,
+            0.053153857588768005,
+            0.07996957004070282
+          ],
+          "actual_travel_rad_per_motor": [
+            0.05017024278640747,
+            0.05091981962323189,
+            0.04262404143810272,
+            0.03439891338348389,
+            0.03594204783439636,
+            0.0185544490814209,
+            0.031708210706710815,
+            0.020186737179756165,
+            0.24044066667556763,
+            0.038791775703430176,
+            0.07935696840286255,
+            0.013536453247070312,
+            0.04062669724225998,
+            0.0483369380235672,
+            0.051647648215293884,
+            0.07362288236618042
+          ],
+          "joints_at_bound_over90pct": [],
+          "joints_outward_blocked_over90pct": []
+        }
+      },
+      "reconstructed_reward": {
+        "first5s": {
+          "control_count": 100,
+          "duration_s": 5.0,
+          "components_mean": {
+            "rotation": 0.3621566891670227,
+            "linear_cost": -0.00255575031042099,
+            "pose_cost": -0.04186278209090233,
+            "torque_cost": -0.03287552669644356,
+            "work_cost": -0.0019638254307210445,
+            "total": 0.28289878368377686
+          },
+          "components_sum": {
+            "rotation": 36.215667724609375,
+            "linear_cost": -0.255575031042099,
+            "pose_cost": -4.186278343200684,
+            "torque_cost": -3.28755259513855,
+            "work_cost": -0.1963825523853302,
+            "total": 28.28987693786621
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.3981033265590668,
+            "median": 0.3766476511955261,
+            "p90": 0.6376487612724304,
+            "min": -0.012266874313354492,
+            "max": 1.0210580825805664
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.34077513217926025,
+            "median": 0.317063570022583,
+            "p90": 0.5911080241203308,
+            "min": -0.043720394372940063,
+            "max": 1.0203609466552734
+          },
+          "rotation_upper_clip_fraction": 0.2,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "5to20s": {
+          "control_count": 300,
+          "duration_s": 15.0,
+          "components_mean": {
+            "rotation": 0.22823934257030487,
+            "linear_cost": -0.002182058524340391,
+            "pose_cost": -0.09377698600292206,
+            "torque_cost": -0.029031893238425255,
+            "work_cost": -0.000295286561595276,
+            "total": 0.10295313596725464
+          },
+          "components_sum": {
+            "rotation": 68.4718017578125,
+            "linear_cost": -0.6546175479888916,
+            "pose_cost": -28.13309669494629,
+            "torque_cost": -8.70956802368164,
+            "work_cost": -0.08858597278594971,
+            "total": 30.885940551757812
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.22823934257030487,
+            "median": 0.2384369820356369,
+            "p90": 0.3047635555267334,
+            "min": -0.4676772952079773,
+            "max": 0.4456167221069336
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.13422784209251404,
+            "median": 0.13811293244361877,
+            "p90": 0.20495858788490295,
+            "min": -0.35313478112220764,
+            "max": 0.2988443374633789
+          },
+          "rotation_upper_clip_fraction": 0.0,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "20to30s": {
+          "control_count": 200,
+          "duration_s": 10.0,
+          "components_mean": {
+            "rotation": 0.092006616294384,
+            "linear_cost": -0.002114631002768874,
+            "pose_cost": -0.11196664720773697,
+            "torque_cost": -0.02745141088962555,
+            "work_cost": -0.00845397263765335,
+            "total": -0.057980041950941086
+          },
+          "components_sum": {
+            "rotation": 18.401323318481445,
+            "linear_cost": -0.4229261875152588,
+            "pose_cost": -22.393329620361328,
+            "torque_cost": -5.49028205871582,
+            "work_cost": -1.690794587135315,
+            "total": -11.59600830078125
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.09976839274168015,
+            "median": 0.08399248868227005,
+            "p90": 0.24056874215602875,
+            "min": -0.21629512310028076,
+            "max": 1.9864985942840576
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.03845571354031563,
+            "median": 0.02828044444322586,
+            "p90": 0.15867337584495544,
+            "min": -0.22518397867679596,
+            "max": 1.2578046321868896
+          },
+          "rotation_upper_clip_fraction": 0.01,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "after30s": {
+          "control_count": 116,
+          "duration_s": 5.800000000000001,
+          "components_mean": {
+            "rotation": 0.09831713140010834,
+            "linear_cost": -0.011516253463923931,
+            "pose_cost": -0.057811301201581955,
+            "torque_cost": -0.02149219438433647,
+            "work_cost": -0.03545477241277695,
+            "total": -0.027957387268543243
+          },
+          "components_sum": {
+            "rotation": 11.404787063598633,
+            "linear_cost": -1.3358854055404663,
+            "pose_cost": -6.706110954284668,
+            "torque_cost": -2.4930944442749023,
+            "work_cost": -4.112753391265869,
+            "total": -3.2430570125579834
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 0.6135830879211426,
+            "median": 0.060963813215494156,
+            "p90": 0.4109768271446228,
+            "min": -0.36041373014450073,
+            "max": 18.300365447998047
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 0.4572661221027374,
+            "median": 0.0012364572612568736,
+            "p90": 0.2257942408323288,
+            "min": -0.6239704489707947,
+            "max": 15.727176666259766
+          },
+          "rotation_upper_clip_fraction": 0.06896551724137931,
+          "rotation_lower_clip_fraction": 0.0
+        },
+        "last1s": {
+          "control_count": 20,
+          "duration_s": 1.0,
+          "components_mean": {
+            "rotation": 0.14503856003284454,
+            "linear_cost": -0.05237414315342903,
+            "pose_cost": -0.05394398421049118,
+            "torque_cost": -0.01882910169661045,
+            "work_cost": -0.06276941299438477,
+            "total": -0.042878083884716034
+          },
+          "components_sum": {
+            "rotation": 2.900771141052246,
+            "linear_cost": -1.0474828481674194,
+            "pose_cost": -1.078879714012146,
+            "torque_cost": -0.3765820264816284,
+            "work_cost": -1.2553882598876953,
+            "total": -0.8575616478919983
+          },
+          "fixed_axis_omega_rad_s": {
+            "mean": 3.091888904571533,
+            "median": 0.0589672289788723,
+            "p90": 17.69792938232422,
+            "min": -0.12857075035572052,
+            "max": 18.300365447998047
+          },
+          "moving_axis_omega_rad_s": {
+            "mean": 2.6050853729248047,
+            "median": 0.002343796193599701,
+            "p90": 15.41274356842041,
+            "min": -0.1876584142446518,
+            "max": 15.727176666259766
+          },
+          "rotation_upper_clip_fraction": 0.2,
+          "rotation_lower_clip_fraction": 0.0
+        }
+      },
+      "angular_velocity_pose_agreement": {
+        "first5s": {
+          "physics_samples": 10000,
+          "control_samples": 100,
+          "fixed_axis_omega_physics_mean_rad_s": 0.3854069411754608,
+          "moving_axis_omega_physics_mean_rad_s": 0.3310300409793854,
+          "pose_spin_physics_mean_rad_s": 0.1469452977180481,
+          "pose_spin_control_interval_mean_rad_s": 0.1469453126192093,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.3981033265590668,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.34077513217926025,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.22168827056884766,
+          "clipped_fixed_omega_physics_mean": 0.35362792015075684,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "5to20s": {
+          "physics_samples": 30000,
+          "control_samples": 300,
+          "fixed_axis_omega_physics_mean_rad_s": 0.23010195791721344,
+          "moving_axis_omega_physics_mean_rad_s": 0.13554508984088898,
+          "pose_spin_physics_mean_rad_s": -0.0028564438689500093,
+          "pose_spin_control_interval_mean_rad_s": -0.0028564438689500093,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.22823934257030487,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.13422784209251404,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.1690749228000641,
+          "clipped_fixed_omega_physics_mean": 0.23057252168655396,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        },
+        "20to30s": {
+          "physics_samples": 20000,
+          "control_samples": 200,
+          "fixed_axis_omega_physics_mean_rad_s": 0.08473704010248184,
+          "moving_axis_omega_physics_mean_rad_s": 0.030376367270946503,
+          "pose_spin_physics_mean_rad_s": -0.007998481392860413,
+          "pose_spin_control_interval_mean_rad_s": -0.007998482324182987,
+          "fixed_axis_omega_endpoint_mean_rad_s": 0.09976839274168015,
+          "moving_axis_omega_endpoint_mean_rad_s": 0.03845571354031563,
+          "pose_vs_moving_omega_physics_rmse_rad_s": 0.15991272032260895,
+          "clipped_fixed_omega_physics_mean": 0.08552364259958267,
+          "interpretation": "Reported engine angular velocity versus actual quaternion motion. Full-step comparison separates a persistent velocity/pose mismatch from endpoint-only sampling. No engine cause established."
+        }
+      },
+      "last_visible_hand_contact_s": 35.722,
+      "valid_net_after_last_visible_contact_deg": 114.64873582124712,
+      "longest_sensor_zero_hand_contact": {
+        "seconds": 0.1275,
+        "start_s": 35.722,
+        "end_s": 35.8495
+      },
+      "max_object_angular_speed_rad_s": 19.545251846313477
+    }
+  },
+  "training": {
+    "10": {
+      "actions": 10002432,
+      "updates": 1221,
+      "stop_reason": "update budget",
+      "resume_from": null,
+      "environment_resume": "fresh seed43 initialization",
+      "last_10_updates": {
+        "updates": 10,
+        "episode_count": 839,
+        "mean_recent_episode_reward": 16.413885966622264,
+        "entropy_last": 11.740339279174805,
+        "net_deg": 96.04981888225025,
+        "peak_deg": 122.59721991615159,
+        "backward_deg": 42.849599658166355,
+        "valid_prefix_s": 4.591276141613971,
+        "stop_counts": {
+          "object below Boya manipulation region": 839
+        }
+      },
+      "last_100_updates": {
+        "updates": 100,
+        "episode_count": 8926,
+        "mean_recent_episode_reward": 15.427157250252392,
+        "entropy_last": 11.740339279174805,
+        "net_deg": 99.13310460032396,
+        "peak_deg": 124.63286883294676,
+        "backward_deg": 41.36195261258252,
+        "valid_prefix_s": 4.526920393610145,
+        "stop_counts": {
+          "object outside Boya lateral region": 2,
+          "episode time limit": 5,
+          "object below Boya manipulation region": 8919
+        }
+      },
+      "tensorboard": {
+        "rotation_reward": {
+          "count": 100,
+          "start_step": 9191424,
+          "end_step": 10002432,
+          "mean": 0.34526059180498125,
+          "last": 0.32172292470932007
+        },
+        "object_linvel_penalty": {
+          "count": 100,
+          "start_step": 9191424,
+          "end_step": 10002432,
+          "mean": 0.05512509662657976,
+          "last": 0.0515681728720665
+        },
+        "episode_rewards/step": {
+          "count": 100,
+          "start_step": 9191424,
+          "end_step": 10002432,
+          "mean": 15.427157325744629,
+          "last": 16.86178207397461
+        },
+        "episode_lengths/step": {
+          "count": 100,
+          "start_step": 9191424,
+          "end_step": 10002432,
+          "mean": 90.40226821899414,
+          "last": 95.58280944824219
+        }
+      }
+    },
+    "20": {
+      "actions": 20004864,
+      "updates": 2442,
+      "stop_reason": "update budget",
+      "resume_from": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training/teacher_final.pth",
+      "environment_resume": "reset from declared cache",
+      "last_10_updates": {
+        "updates": 10,
+        "episode_count": 555,
+        "mean_recent_episode_reward": 21.788502702612988,
+        "entropy_last": 5.2747955322265625,
+        "net_deg": 116.33445568302193,
+        "peak_deg": 137.5187543557571,
+        "backward_deg": 41.158336923541796,
+        "valid_prefix_s": 7.301522808139389,
+        "stop_counts": {
+          "episode time limit": 45,
+          "object below Boya manipulation region": 510
+        }
+      },
+      "last_100_updates": {
+        "updates": 100,
+        "episode_count": 5694,
+        "mean_recent_episode_reward": 22.32201249030704,
+        "entropy_last": 5.2747955322265625,
+        "net_deg": 115.12966541834794,
+        "peak_deg": 136.11453812227515,
+        "backward_deg": 41.62263442637114,
+        "valid_prefix_s": 7.012611440840544,
+        "stop_counts": {
+          "episode time limit": 410,
+          "object below Boya manipulation region": 5284
+        }
+      },
+      "tensorboard": {
+        "rotation_reward": {
+          "count": 100,
+          "start_step": 19193856,
+          "end_step": 20004864,
+          "mean": 0.31919206827878954,
+          "last": 0.31243669986724854
+        },
+        "object_linvel_penalty": {
+          "count": 100,
+          "start_step": 19193856,
+          "end_step": 20004864,
+          "mean": 0.037605805099010466,
+          "last": 0.03954111039638519
+        },
+        "episode_rewards/step": {
+          "count": 100,
+          "start_step": 19193856,
+          "end_step": 20004864,
+          "mean": 22.322012462615966,
+          "last": 21.557031631469727
+        },
+        "episode_lengths/step": {
+          "count": 100,
+          "start_step": 19193856,
+          "end_step": 20004864,
+          "mean": 140.3250732421875,
+          "last": 141.8340606689453
+        }
+      }
+    },
+    "30": {
+      "actions": 30007296,
+      "updates": 3663,
+      "stop_reason": "update budget",
+      "resume_from": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_final.pth",
+      "environment_resume": "reset from declared cache",
+      "last_10_updates": {
+        "updates": 10,
+        "episode_count": 445,
+        "mean_recent_episode_reward": 13.556375994445014,
+        "entropy_last": 1.4401679039001465,
+        "net_deg": 69.3811856087674,
+        "peak_deg": 104.41549389414872,
+        "backward_deg": 58.41139217658818,
+        "valid_prefix_s": 9.582629457618413,
+        "stop_counts": {
+          "object outside Boya lateral region": 10,
+          "episode time limit": 85,
+          "object below Boya manipulation region": 350
+        }
+      },
+      "last_100_updates": {
+        "updates": 100,
+        "episode_count": 4560,
+        "mean_recent_episode_reward": 16.602392097593366,
+        "entropy_last": 1.4401679039001465,
+        "net_deg": 66.50777800891859,
+        "peak_deg": 99.50307521687948,
+        "backward_deg": 54.427001691580166,
+        "valid_prefix_s": 8.926858150972086,
+        "stop_counts": {
+          "object outside Boya lateral region": 49,
+          "episode time limit": 804,
+          "object below Boya manipulation region": 3707
+        }
+      },
+      "tensorboard": {
+        "rotation_reward": {
+          "count": 100,
+          "start_step": 29196288,
+          "end_step": 30007296,
+          "mean": 0.28260595321655274,
+          "last": 0.2638052999973297
+        },
+        "object_linvel_penalty": {
+          "count": 100,
+          "start_step": 29196288,
+          "end_step": 30007296,
+          "mean": 0.030854230243712664,
+          "last": 0.03005056641995907
+        },
+        "episode_rewards/step": {
+          "count": 100,
+          "start_step": 29196288,
+          "end_step": 30007296,
+          "mean": 16.60239212989807,
+          "last": 13.702559471130371
+        },
+        "episode_lengths/step": {
+          "count": 100,
+          "start_step": 29196288,
+          "end_step": 30007296,
+          "mean": 178.71300537109374,
+          "last": 189.98789978027344
+        }
+      }
+    },
+    "40": {
+      "actions": 40001536,
+      "updates": 4883,
+      "stop_reason": "update budget",
+      "resume_from": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/training/teacher_final.pth",
+      "environment_resume": "reset from declared cache",
+      "last_10_updates": {
+        "updates": 10,
+        "episode_count": 366,
+        "mean_recent_episode_reward": 30.94421126799849,
+        "entropy_last": -1.1019220352172852,
+        "net_deg": 87.4262311577573,
+        "peak_deg": 111.29458659463893,
+        "backward_deg": 53.31214935514221,
+        "valid_prefix_s": 10.554780401655885,
+        "stop_counts": {
+          "episode time limit": 65,
+          "object below Boya manipulation region": 301
+        }
+      },
+      "last_100_updates": {
+        "updates": 100,
+        "episode_count": 3707,
+        "mean_recent_episode_reward": 28.051392894163673,
+        "entropy_last": -1.1019220352172852,
+        "net_deg": 72.59681029774958,
+        "peak_deg": 99.24387049947636,
+        "backward_deg": 56.83544626189036,
+        "valid_prefix_s": 11.215997983542998,
+        "stop_counts": {
+          "episode time limit": 1014,
+          "object below Boya manipulation region": 2693
+        }
+      },
+      "tensorboard": {
+        "rotation_reward": {
+          "count": 100,
+          "start_step": 39190528,
+          "end_step": 40001536,
+          "mean": 0.26532868430018425,
+          "last": 0.27681756019592285
+        },
+        "object_linvel_penalty": {
+          "count": 100,
+          "start_step": 39190528,
+          "end_step": 40001536,
+          "mean": 0.025210413988679646,
+          "last": 0.02588772028684616
+        },
+        "episode_rewards/step": {
+          "count": 100,
+          "start_step": 39190528,
+          "end_step": 40001536,
+          "mean": 28.051392822265626,
+          "last": 29.779136657714844
+        },
+        "episode_lengths/step": {
+          "count": 100,
+          "start_step": 39190528,
+          "end_step": 40001536,
+          "mean": 224.05245010375975,
+          "last": 208.8793487548828
+        }
+      }
+    },
+    "50": {
+      "actions": 50003968,
+      "updates": 6104,
+      "stop_reason": "update budget",
+      "resume_from": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_040000000/training/teacher_final.pth",
+      "environment_resume": "reset from declared cache",
+      "last_10_updates": {
+        "updates": 10,
+        "episode_count": 253,
+        "mean_recent_episode_reward": 41.701466349321336,
+        "entropy_last": -3.3166184425354004,
+        "net_deg": 51.968737678565525,
+        "peak_deg": 62.813324841586024,
+        "backward_deg": 49.99215607099942,
+        "valid_prefix_s": 16.611901317660518,
+        "stop_counts": {
+          "episode time limit": 175,
+          "object below Boya manipulation region": 78
+        }
+      },
+      "last_100_updates": {
+        "updates": 100,
+        "episode_count": 2498,
+        "mean_recent_episode_reward": 38.47135441538498,
+        "entropy_last": -3.3166184425354004,
+        "net_deg": 53.21595425966432,
+        "peak_deg": 61.94899195628323,
+        "backward_deg": 46.16009614422101,
+        "valid_prefix_s": 16.24323027579187,
+        "stop_counts": {
+          "object outside Boya lateral region": 1,
+          "episode time limit": 1776,
+          "object below Boya manipulation region": 721
+        }
+      },
+      "tensorboard": {
+        "rotation_reward": {
+          "count": 100,
+          "start_step": 49192960,
+          "end_step": 50003968,
+          "mean": 0.2464882902801037,
+          "last": 0.23650729656219482
+        },
+        "object_linvel_penalty": {
+          "count": 100,
+          "start_step": 49192960,
+          "end_step": 50003968,
+          "mean": 0.014701429512351752,
+          "last": 0.014178617857396603
+        },
+        "episode_rewards/step": {
+          "count": 100,
+          "start_step": 49192960,
+          "end_step": 50003968,
+          "mean": 38.47135437011719,
+          "last": 40.21826934814453
+        },
+        "episode_lengths/step": {
+          "count": 100,
+          "start_step": 49192960,
+          "end_step": 50003968,
+          "mean": 324.5062713623047,
+          "last": 337.7409362792969
+        }
+      }
+    }
+  },
+  "inference": {
+    "10": {
+      "stored_action_replay_max_abs_error": 1.5497207641601562e-06,
+      "raw_mean_abs": 0.7240715026855469,
+      "bounded_mean_abs": 0.5308679938316345,
+      "raw_mean_outside_action_bounds_fraction": 0.2287946492433548,
+      "sigma_per_joint": [
+        0.4833202362060547,
+        0.13275519013404846,
+        0.3508903980255127,
+        0.6853047013282776,
+        0.5968743562698364,
+        0.40460723638534546,
+        0.4841746687889099,
+        0.4917728006839752,
+        0.456628680229187,
+        0.6114345192909241,
+        0.6733337640762329,
+        0.2746935188770294,
+        0.7160736322402954,
+        0.7835900187492371,
+        0.8083581328392029,
+        0.8327744603157043
+      ],
+      "sigma_mean": 0.5491616725921631,
+      "random_sign_opposite_mean_probability": 0.19346904754638672,
+      "deterministic_requested_target_travel_mean_rad": 0.006055299658328295,
+      "stochastic_expected_target_drift_abs_mean_rad": 0.005593034904450178,
+      "deterministic_vs_expected_stochastic_target_delta_abs_mean_rad": 0.0009399984846822917,
+      "interpretation": "Fixed-state Gaussian moments only; no stochastic rollout or rotation-performance claim"
+    },
+    "20": {
+      "stored_action_replay_max_abs_error": 1.296401023864746e-06,
+      "raw_mean_abs": 0.632343053817749,
+      "bounded_mean_abs": 0.44117051362991333,
+      "raw_mean_outside_action_bounds_fraction": 0.3047058880329132,
+      "sigma_per_joint": [
+        0.30191856622695923,
+        0.07876157015562057,
+        0.23322363197803497,
+        0.4469899535179138,
+        0.4695943295955658,
+        0.2496553659439087,
+        0.3186022937297821,
+        0.27246665954589844,
+        0.3008348345756531,
+        0.3348088562488556,
+        0.5802492499351501,
+        0.14208531379699707,
+        0.5234625935554504,
+        0.6196666955947876,
+        0.6053895950317383,
+        0.6539580225944519
+      ],
+      "sigma_mean": 0.38322922587394714,
+      "random_sign_opposite_mean_probability": 0.24087758362293243,
+      "deterministic_requested_target_travel_mean_rad": 0.0007600267417728901,
+      "stochastic_expected_target_drift_abs_mean_rad": 0.0007981894304975867,
+      "deterministic_vs_expected_stochastic_target_delta_abs_mean_rad": 7.259305129991844e-05,
+      "interpretation": "Fixed-state Gaussian moments only; no stochastic rollout or rotation-performance claim"
+    },
+    "30": {
+      "stored_action_replay_max_abs_error": 1.8775463104248047e-06,
+      "raw_mean_abs": 0.41830429434776306,
+      "bounded_mean_abs": 0.3250046372413635,
+      "raw_mean_outside_action_bounds_fraction": 0.18409915268421173,
+      "sigma_per_joint": [
+        0.22908519208431244,
+        0.06274408102035522,
+        0.1710454821586609,
+        0.3319302797317505,
+        0.40488097071647644,
+        0.18310151994228363,
+        0.23884591460227966,
+        0.18319779634475708,
+        0.24555838108062744,
+        0.24943257868289948,
+        0.5107377171516418,
+        0.10674218833446503,
+        0.4299358129501343,
+        0.5163223743438721,
+        0.5409854650497437,
+        0.5486087799072266
+      ],
+      "sigma_mean": 0.30957216024398804,
+      "random_sign_opposite_mean_probability": 0.26647573709487915,
+      "deterministic_requested_target_travel_mean_rad": 0.0006691088201478124,
+      "stochastic_expected_target_drift_abs_mean_rad": 0.0006821407005190849,
+      "deterministic_vs_expected_stochastic_target_delta_abs_mean_rad": 4.784209522767924e-05,
+      "interpretation": "Fixed-state Gaussian moments only; no stochastic rollout or rotation-performance claim"
+    },
+    "40": {
+      "stored_action_replay_max_abs_error": 1.0728836059570312e-06,
+      "raw_mean_abs": 0.41612136363983154,
+      "bounded_mean_abs": 0.33750829100608826,
+      "raw_mean_outside_action_bounds_fraction": 0.12062101811170578,
+      "sigma_per_joint": [
+        0.19621625542640686,
+        0.05310890078544617,
+        0.136555016040802,
+        0.2643020749092102,
+        0.3417305052280426,
+        0.14952082931995392,
+        0.19866174459457397,
+        0.16595163941383362,
+        0.22291569411754608,
+        0.2041381150484085,
+        0.46807897090911865,
+        0.08707068115472794,
+        0.3672621250152588,
+        0.46645522117614746,
+        0.46785932779312134,
+        0.48719263076782227
+      ],
+      "sigma_mean": 0.26731371879577637,
+      "random_sign_opposite_mean_probability": 0.19207561016082764,
+      "deterministic_requested_target_travel_mean_rad": 0.0028857768047600985,
+      "stochastic_expected_target_drift_abs_mean_rad": 0.0028783853631466627,
+      "deterministic_vs_expected_stochastic_target_delta_abs_mean_rad": 0.00014740441110916436,
+      "interpretation": "Fixed-state Gaussian moments only; no stochastic rollout or rotation-performance claim"
+    },
+    "50": {
+      "stored_action_replay_max_abs_error": 1.5795230865478516e-06,
+      "raw_mean_abs": 0.3745418190956116,
+      "bounded_mean_abs": 0.2312038391828537,
+      "raw_mean_outside_action_bounds_fraction": 0.09318340569734573,
+      "sigma_per_joint": [
+        0.1757403165102005,
+        0.051415178924798965,
+        0.11743388324975967,
+        0.20779456198215485,
+        0.3211211860179901,
+        0.12376806139945984,
+        0.16870543360710144,
+        0.13998882472515106,
+        0.19999825954437256,
+        0.17296601831912994,
+        0.399565726518631,
+        0.07645493745803833,
+        0.33665692806243896,
+        0.4022802710533142,
+        0.4157649874687195,
+        0.4072052538394928
+      ],
+      "sigma_mean": 0.2323037087917328,
+      "random_sign_opposite_mean_probability": 0.278836190700531,
+      "deterministic_requested_target_travel_mean_rad": 0.0012396288802847266,
+      "stochastic_expected_target_drift_abs_mean_rad": 0.0012477466370910406,
+      "deterministic_vs_expected_stochastic_target_delta_abs_mean_rad": 4.1616840462666005e-05,
+      "interpretation": "Fixed-state Gaussian moments only; no stochastic rollout or rotation-performance claim"
+    }
+  },
+  "source_manifest": [
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+    },
+    {
+      "path": "docs/data/boya_native_contract.json",
+      "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/result.json",
+      "sha256": "37a2d759ca6833f0bc1c02e0fb813c63f7ca194e260d76a1e4078a2418090637"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/control_inputs.npz",
+      "sha256": "47b9e84b039b5eb571f6dfdffd47bc80df7a5c5e33c11959b8dded1cc731cd12"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/training/teacher_final.pth",
+      "sha256": "90419cc9cc845ab09b319b73533777e983f6ecfd85998aa04955ba96d9ee9ebb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_000.npz",
+      "sha256": "5224fc0b1b3b00e2d69864b84be036ff4a1fe4ed3f07cad6f64742cd431987db"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_001.npz",
+      "sha256": "d8550558614b3dbb4a7bdf3f53b5f8e94da4aecbe86ea3de658d46768d27cafc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_002.npz",
+      "sha256": "cfa33e5fbdce51844523d9d82fd1d5128c9636e750749d526ccaf3d3bce666a4"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_003.npz",
+      "sha256": "9a529abb75416d1f4d656ce2f0a492619d5621a399fb9b152cb72471a0a4b736"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_004.npz",
+      "sha256": "85686fe89d9e34779d7c96208d7607cde139205659376be88bbf708b0eeb1880"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/evaluation/physics_005.npz",
+      "sha256": "51434982aecdff52f6ffa47e62a753216465c41233c0e04a8417026b4d1f1bbb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/training/result.json",
+      "sha256": "9500d698733213def6b46706c94cb365da6dea9f51e1836ee44740844f727dc3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace10m_v3/training/training/stage1_tb/events.out.tfevents.1791477195.rw-ubuntu-24.04.2621877.0",
+      "sha256": "c5d4b88dfbc6b7f8948df88248d635b12223fd973b2e51c4da7a9a98f9218ac9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/result.json",
+      "sha256": "fe0ead5b36c1a8f3a6aa0656c6c68cea947b11b1750aa532c49e21739361c40a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/control_inputs.npz",
+      "sha256": "2580d1952b6ef6e88d8cf124a9ec58ef6431c6eeb4fe94fbc95507a072661ad0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_final.pth",
+      "sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_000.npz",
+      "sha256": "b63e6302bf6b4ea2f440efc317f1729a6ee97684b04360b22c1c6a89286e0616"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_001.npz",
+      "sha256": "74e440a21de1063deac10d14481ac46896cdba2da7f4435f9e7593a069c004f9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_002.npz",
+      "sha256": "b22cae04dbccc2e119ee18cff3394a9a307570dd34da6acceb238cdc9971bfda"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_003.npz",
+      "sha256": "9ba2db01477d2a379d82643b4e4fda23fc168fdc27ae9887dd9ed169b7b93f5b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_004.npz",
+      "sha256": "2bd728e9872a3d9348f84a34ba76b4660de2db77dcae6656637bd0401f479c71"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_005.npz",
+      "sha256": "4aa84b414951d97c1ac57b04283e22927cc194b4ff9adcf76f9cf1520c0e72d6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_006.npz",
+      "sha256": "6e74c71bde9dc4ce7c9f72bb55c7373f3c791dca9a24d5672fde691eb35f1287"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_007.npz",
+      "sha256": "0f4bd4468a80102ace71a84e38ad83cf0cd3233d7cfe77656ad147d277256cf3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_008.npz",
+      "sha256": "f59bfc6df03ccd8883ec287f900562c61a8769da00019b81849d00cef1f7c3f1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_009.npz",
+      "sha256": "dedbf339035396ade84c79a486de99e05e89d129b57fbb7969db10e10c3f4122"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_010.npz",
+      "sha256": "0e4725eddcd0bce3c31308633553dbba19a15b1cbd8505228837f1bd5b3ad4e7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_011.npz",
+      "sha256": "0702e8fcc89782c77f8ecfed7d4906cb45021137ad3d1a27d48db033a942704e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_012.npz",
+      "sha256": "f497e8c8570e04ec43825e0c5e49dbc15f84bde3272971fe20cb1f43bad06453"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_013.npz",
+      "sha256": "0965b9c29115f1735e8d6aaf9645fff41c683e9c299e5e239b5f9b97da4488de"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_014.npz",
+      "sha256": "52af2c274165c7d8edeb1977330cec93512bd92e5182d5f2a6749d62b02124a1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_015.npz",
+      "sha256": "d8ae790f7406b93635702b88b2464fbb3c3da1a6a856fac4a6033e5a5ff1cb3b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_016.npz",
+      "sha256": "d003fe9e8aac8b6bf436b63645935ff06a3ca70ceefc62838df36e59c012f4ba"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_017.npz",
+      "sha256": "1e3fe5964e6be00c55fd6cece4137efd3275102528e1ea96b43c6168b7db26b7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_018.npz",
+      "sha256": "7512ee0efebd7141d1a3197ae06e715d167559cf5f3e97bcb02c0655c898655f"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_019.npz",
+      "sha256": "b0d428b765f7dd5fb17b846cd5c8e6e22eaaad10f98a29e90ca3a70f991438fb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_020.npz",
+      "sha256": "51087d9ce5fc7a7d94b8b8d9ed065c7eaa727827be74de2e11926601a6a22224"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_021.npz",
+      "sha256": "59e9f0c93090e53d35fefe7a3c74e98376a03b175804862ad99f502974528f4e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_022.npz",
+      "sha256": "ebbc44d20ed3aaae75eef669618a84730acb85e632eaaaf2140f8f6cf61e8f98"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_023.npz",
+      "sha256": "0dd7898c377d0440372ccb839022cea6976ebbfaf6a50c05ad10741d277197fe"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_024.npz",
+      "sha256": "ccee9600c3f8503de607a7113308a6a64ad539d51e50a89fd118255e8e4b50d8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_025.npz",
+      "sha256": "5a4f493d306d77dfc1917ab8bd860188b68ae227f5ca7b18efe9c224bb2d6929"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_026.npz",
+      "sha256": "d0d6960449e0fa9a4364c8bc04d4d294b86a9f23ab7f4628421efce3310acd8f"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_027.npz",
+      "sha256": "8a0fe8529d1391eb4349be867b5044e435b2c2331e047fa75da9e8919b961d31"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_028.npz",
+      "sha256": "150ae2477cbed739f1b3919c8bec21b0623079adc6f96031ac2434f6d6a43bc8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_029.npz",
+      "sha256": "61323ae38ac95664093c54df4eb27417225e8618fbed0483e6219f4e094b595a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_030.npz",
+      "sha256": "d910d82a75f5875e3fd73b648dd4139c1c9dd0f646ba8247e9acaac3e9f1e47c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_031.npz",
+      "sha256": "3d99d8b435f748a45441f1c37cfa5e618a98345e47e6783d473d5a0be96e52d8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_032.npz",
+      "sha256": "510f0828593d22ea76b533ef5b778b614b1c599272f322357a3778eaa369ca9d"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_033.npz",
+      "sha256": "3e5c5bdee642bdd219d300d4bfa26cf42988e501c456117c784941db9f7bf280"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_034.npz",
+      "sha256": "a7187a42098326ec43088421f73faa0b217311747d8f00c905474a64a91c5692"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_035.npz",
+      "sha256": "0eb3124cf51cb90813c0da544253760a25c6d754689c77d698586b706c1a8c93"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_036.npz",
+      "sha256": "77d8d87bdf2f2613ada5c935b2f418f31e6fc8a7979c9b1b12f49e1df4368f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_037.npz",
+      "sha256": "5ea1f1399060a080dcc6249ea78b9481e6326e1440a3475d40380195ae794a15"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_038.npz",
+      "sha256": "3ded8673fa09e588f33b61fbb05d4040f09b581083e479e01adb7124894f9896"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_039.npz",
+      "sha256": "186838bbf7f2400aa401475e9cc9c9ddd726f68a277b7a1f38ec5eca1932c93b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_040.npz",
+      "sha256": "7eddc30957f63722f1e1fa7e401a1a5b73305ab22e7d0eafa0ab9c0e51b06bf5"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_041.npz",
+      "sha256": "31c05785b4edab789a6876d40801deacbd4891e47ccff38bdf6882572d9f40e9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_042.npz",
+      "sha256": "30cfd61cd5022150e260ca6789d30c6a96076ca4e72c999943a471f8113f03c0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_043.npz",
+      "sha256": "111c250476f6b2ba329ed28639bc74eb6d4cec7b7ed8ca273f488959b4c2f9b5"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_044.npz",
+      "sha256": "8809ccb7a817f31d65d14146958971275af1797f615d18a41a6d6b96eae1d93d"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_045.npz",
+      "sha256": "7234db739089fde46ebc94bb8ebef6fa62615bb4af8020e2a15d1b1d95d24d75"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_046.npz",
+      "sha256": "585a9b5a143b0910cce039374550f2fd1cef643b1c224e93d144dd733816456e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_047.npz",
+      "sha256": "5e6188917404b62768bfcc9b5ca6c73b4c14f2e6f08bd08333dfd6cff5f02dca"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_048.npz",
+      "sha256": "81175a7dbf09b22f953222f327442eed8f5c94a3be60f3c5ba675c87357ae190"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_049.npz",
+      "sha256": "38e22d3304db46d1979b27c9412e5e11a021766d9d21a79ef3425a8827521eb3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_050.npz",
+      "sha256": "74b9e39b07d52566bcd5efc2fa2f1268daff57a666b4ecc5864093ae786bd281"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_051.npz",
+      "sha256": "86971c06fcc85061f5b7e9c45a1cc80565cffed9eec794ab6cd8ff61afe9a2cc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_052.npz",
+      "sha256": "ec5572c136f96853a6423c4c9380fa59c4c4eb46b4d75d8632ba1fb5c3bd6a28"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_053.npz",
+      "sha256": "de58ce7c1b46b6312ac140b18b66207999269581ff98d479213f3f37ebddb813"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_054.npz",
+      "sha256": "e4f1f1c81e8a039046d54defc700e0137588cc4f1748dbe7570171cf44f32bd8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_055.npz",
+      "sha256": "78ca87288663cb7d059c848c22d5dda8a00692bde53e263e2505f0e12bc73ef0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_056.npz",
+      "sha256": "9b17b677f820c3b8e8b991b9e298bdb6c42ab632ad2ffd25e71c2f62f022e5fc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_057.npz",
+      "sha256": "1503e4a74559b3647f58275d45282ad293c7c749563a3ea0bd3b5046d3b21429"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_058.npz",
+      "sha256": "c93235f97aedb800d8257658b8a17e870d12cb4f6af762e2bc70f73d8000dd7e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_059.npz",
+      "sha256": "0be78cdb861bcbcc6cff65756e339a6743e1a024743ec58bc930ad469b8a82e7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_060.npz",
+      "sha256": "f8c7304fc21229fa457bc87c300e749340d08e37b4151dcf9ffbf68372e13ff9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_061.npz",
+      "sha256": "457850ec914ec8089150669785e4219ea775d70e26b98be27853c89932dc2f62"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_062.npz",
+      "sha256": "a7ee283ec76dff1116deafaa6bfb0c6ece8b9fb7fdeab0ba9a6b48359ac2be8b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_063.npz",
+      "sha256": "1d555f3ba9f85c0b2fe4de082fde48d061737511c528ae7c708193a9271109ad"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_064.npz",
+      "sha256": "370730559a4c4890e73697197cd506fb07b9e9f1ea847c50ed91fd8f23ab30f3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_065.npz",
+      "sha256": "934c593182cddc352addff55bee5e31614c10b20a47711dd5d74942e7b0cf6d1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_066.npz",
+      "sha256": "5843b1cdc4abb6356419cc68382ab5255ded45ca730a69db34b09715759d6c74"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_067.npz",
+      "sha256": "af38c6dbbc0e3fb0dc234e7d3ded35d5629c37d459a13193b65a3797d338f30f"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_068.npz",
+      "sha256": "ea327bc4701497640f78a157b5a08261e44cfb904cbcfd0dd3cc068c7d0961b3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_069.npz",
+      "sha256": "c5accb22d15a2154dfa77b67f60fa07ef85279a426b3048d5731c9d35faa14e3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_070.npz",
+      "sha256": "e0b1b898af66a000d53b2a465182db574521d309e63355a785200361450d1963"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_071.npz",
+      "sha256": "4df4693bb96b1d6fd0c4c5c05646da38a91549ce1c214a793773d1f75a4ea567"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_072.npz",
+      "sha256": "14dc9279249ecf1d08c9f0fd424667fca085dcdb02f96da8ef490a04f64216c6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_073.npz",
+      "sha256": "4c0a074216a866863d47ca06f853c692bb450e5555bdae4d84316723b2fb0933"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_074.npz",
+      "sha256": "b00dadf3e40804af1fc2b8f05cd55144c4aa6e0a64e06d72cfc83372e64fcad1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_075.npz",
+      "sha256": "f43f5ad0f36d532dd03ac8da36cd21d9b0f71618e16c6161b2a8ae76fffa3065"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_076.npz",
+      "sha256": "3c80aa346b14d31413c1cb79e94d75920d6795d21ecce6557ba6e3ac64431ae0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_077.npz",
+      "sha256": "1cc237740a259405701440a8974b5e246a74c58cfd5368d57e6e67de75992fa3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_078.npz",
+      "sha256": "4f128ce45ca79d0169b02e74e55acdccc153a11d06b392ea38126c62c6972e03"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_079.npz",
+      "sha256": "a6a41fd272514c68fcdcbf8b0a0e33546d1e8e036c3643aa0ca2caaca4565b20"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_080.npz",
+      "sha256": "e42db7c7bf864bc37752ddbb6541630bbde4a381e5169c1f75a9f2936798e7c6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_081.npz",
+      "sha256": "a1d1735e194834e2a54f052a48eb0fd698ce98be5644739f964b3a53a5461bb8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_082.npz",
+      "sha256": "cc955ba2a9ed90545531ee31468ba6372dcbcef0a9f36f942ed0dae49291cbf2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_083.npz",
+      "sha256": "94fe0a77e784549da0e5316ce70c096988b90b119786da43706df26754b2ff26"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_084.npz",
+      "sha256": "ceef7072dff6d3e533b47e78a6f8addfa0ace696940523a1e5aa0135b01fefcb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/result.json",
+      "sha256": "f72a7dd83ab40a1f9c294cb19a5e0727d3f5bc681d2078f8bed1894627f29dae"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/training/stage1_tb/events.out.tfevents.1791507602.rw-ubuntu-24.04.3453686.0",
+      "sha256": "aa989284fd2b3564d06c4be37c42770aa8b2437cb0b126852452f07517f83f9c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/result.json",
+      "sha256": "5b15a7124969451532f0f51904b8385a509ee4c6e22893cf601e22ad16003ca2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/control_inputs.npz",
+      "sha256": "d8e15cf0f9b6713b2f265b1ff4e3bc7453d9e430c73ceb849924c21b781dd0e2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/training/teacher_final.pth",
+      "sha256": "df01d82403d14f7e025ca5eef6dff6bc37c0de774e57d154cdd603eb5f43eaaf"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_000.npz",
+      "sha256": "d707fbe299c1ae84af89a6aa671f89cc537508f680aa1793a9c6a95b82678e84"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_001.npz",
+      "sha256": "6841f0a48bfe51936faedfda5dd10576443824812f8dd928a1e3530c77765b0a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_002.npz",
+      "sha256": "0eda78de6f269eebdf6b368aab467aa96cb01b1b470200be8beaa4cc5a4fda84"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_003.npz",
+      "sha256": "c9ee65cd171cec3b6502ebe97d6a81ac099e072d78c7c23d7ba13903a46105a3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_004.npz",
+      "sha256": "462ed783f928da03b075d5feae6c922b0d536b2a734f1aa550f5cddbaff4cd47"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_005.npz",
+      "sha256": "47c61c15993039d7a69676459d665c6fa39053efa2eccb5af2958a47c1133d87"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_006.npz",
+      "sha256": "d4cc3f7b284bbc8a74841412c688706cffec493792a22044845496395c6dd3c9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_007.npz",
+      "sha256": "3e3161df4101975087c974f830cbf8086b3738161e4ac347d2126a197e0ec9d3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_008.npz",
+      "sha256": "af6e4b607ddb8b8f8c110afbb8c9d95a2f5f741c13f6d9a5d87f5834f7b8cdb0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_009.npz",
+      "sha256": "803adb5c6c51935c3d1a1832bbaaf37e3b409446059841e30d7a6f0e3b92beae"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_010.npz",
+      "sha256": "f472018f4f9463f052422e5cd9f0649e909432233d52576a36416ea7952ffeb3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_011.npz",
+      "sha256": "0eb2295840f54e54ade7d90a98cf40c6e1118ff4d5fe9d2467474ac3237aa0eb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_012.npz",
+      "sha256": "5d8f180bf3e6ad7fceee6682fe3b2ed926da6b4b441b92480374ef29cb66dfb0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_013.npz",
+      "sha256": "208357fafb05bfe9a09b57a9d35869c8d6059550a2c1aaff0f611c964ddab36a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_014.npz",
+      "sha256": "26c729a3a1bcbe087278fcbb88542fcb42845ce7e8f777715caebd6123519339"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_015.npz",
+      "sha256": "40652154380b6226d922cff83cba973a10e1413265dfbd67eefbdd4287e4d761"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_016.npz",
+      "sha256": "4e175c926fed38db42c8c14111c12f9f2d46cd4b6a8ebad8468e73521d1e237a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_017.npz",
+      "sha256": "fa7fe1859a7ab51f4e85c9a8a073827f7991b1072989acb5a67907cfe664eaa3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_018.npz",
+      "sha256": "f5f606de0d7fa6817616851fdd46ce72e4eca49886504cfa09b9cf198e978d31"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_019.npz",
+      "sha256": "5d4fd412b488652f61b165fa4a1d58368e6ba10d1aa26d32bfa151e77b869b74"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_020.npz",
+      "sha256": "c438eb7f436d977ce4f2d84e84518c8b6dc2c13cb092b4ebd29e7db2e25b136c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_021.npz",
+      "sha256": "4d0bffabea0ca74abdaee45b08671de4e97e45cab06316c936cb6da608a3cd3d"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_022.npz",
+      "sha256": "a2feabd3ce45663df62ffb90a0fadc4a41c6c077d443a7d71f3dd336e1e02b5b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_023.npz",
+      "sha256": "4001917225fca3e3c14b011cf1ca0ad126d2d978b7ec7bd0168edc3e13d0046a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_024.npz",
+      "sha256": "19b5b8f6d46c0c7aeb19fcc0594b67cc35146160895c86259b0cca55319ecbf0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_025.npz",
+      "sha256": "bb30964658e0573dc4ab28643522859040096aefd6afa5828b6e947b0da422c9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_026.npz",
+      "sha256": "f9b169122d4f81c3eb5aef310978c43af3e2950f45dd0baa1fec604cec3c996c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_027.npz",
+      "sha256": "1b923631892d2cc7a4dd1f1e9009c048051c5c28e40c03cdc28140f6987469e3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_028.npz",
+      "sha256": "28e47010f27a52224789e04714f39dd3acdb211f0918d8205e0da40121bd7467"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_029.npz",
+      "sha256": "0f81cd73c85a030683d18c44ea2eed6c1e6e2f24dd13cecea35f241db2cbd6e6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_030.npz",
+      "sha256": "8bf2f5a47241e39fb958ef7dbc2c7f14fa3a8d78a4ccf097dea4040ca36b2139"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_031.npz",
+      "sha256": "0ae06e9508a866b8aeb31e64afaf53b8aed32610440e658129519b5dc73919a2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_032.npz",
+      "sha256": "f0bad29f20e918ae2bd55f6d18e64a3371528e64936ae323f60e2ac7b03e9fd5"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_033.npz",
+      "sha256": "711d5b53ceb1e0c3ad10b69dd6c87d0bae3e212f8cde4bad05c054e53e054df1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_034.npz",
+      "sha256": "e3601f64aa889d9e99cf1e57ad601ad1a4f521710aa974d5b27a580f18825052"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_035.npz",
+      "sha256": "d1ce93c7ff254d5e43eaa01f639811e5a1d9e95f364e9e72468ae5e6c964078d"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_036.npz",
+      "sha256": "76329164933149a537b2f0f83fc8a60fb9cc243622b439c21355e2494ffe6e30"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_037.npz",
+      "sha256": "6253b0d9b58b78dee8507c83491ca2e3449e85d16fa706dcfb03d8d40d738946"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_038.npz",
+      "sha256": "437c68c2aea95666a3b2d6bd97105ff1b09679fc8d8131bb68f215215aea003a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_039.npz",
+      "sha256": "8200bfc23f137c5fee8ef01cd1b1972d02a26532bede3ed271425c27fdcd3833"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_040.npz",
+      "sha256": "7af6c9ee1e6dfed87c5276c2638b2bf82fff33b93a8741ae6d04d46606d77b59"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_041.npz",
+      "sha256": "f5fbf1a2924ed74702ed27b126847a661c4ebc32cd7a3be485939f1da7faf128"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_042.npz",
+      "sha256": "26e6b4573aab78ed99d6502431f94089ad102e4476f1f45b051645814d65e567"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_043.npz",
+      "sha256": "9423e8f92417ae456d23e36d3b4e56a84f3cd1a9c8da32d1d9d5a46f5c52534c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_044.npz",
+      "sha256": "fa58c0203177d1db65defd0e04bf262d17c0bdf7924d66dbb7611731efe74596"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_045.npz",
+      "sha256": "296e9789531c72a6d7317b4773cd74dfd27960d576e1480c036f92bd750183b3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_046.npz",
+      "sha256": "7367c9140ca4681dba7c593abd328b12500470d988f5c39e4ff49b11f0c509b3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_047.npz",
+      "sha256": "be08e7c2b6f7d6ea9f8491724d957b49e8b6860bbcadc9a608f7ee92009254d7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_048.npz",
+      "sha256": "b0f279938ab6bd98d61eee3fd77d06de29ffc324b555948db29df6dc6cf158b3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_049.npz",
+      "sha256": "5811df1fb0ad1389c4de5f1a03c815f3c3985ccdff0e264bc0b3a10f1d025a65"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_050.npz",
+      "sha256": "a1a059f948a6f22728e96ee5a2a66251573a81eefddce06b7c154df74953306c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_051.npz",
+      "sha256": "51acaf18bf3eff7eb1339e1b110e8563b93480c769a5c1a9b45df278315b7bec"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_052.npz",
+      "sha256": "dedd9ff55ab167efe70bdbe4786f921feb689bf6781966a34354680b8c7e47a6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_053.npz",
+      "sha256": "fd94d9a961925b3f6d51dfe414f7b9611f0e324a51cd74ccd1f853bc7e3f0ac2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_054.npz",
+      "sha256": "84cee5a3084539260abbc03dfa23c4f048321ca98661d7f6c74daf6111336ab7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_055.npz",
+      "sha256": "3591b056b369dcf5fc90cfcefbe148734e876a88783b6ed14dc39d155f48d0d3"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_056.npz",
+      "sha256": "b3580b856f85ae9d66dbfbd9addf83ff321ca13207794fa955b5412edbb2f77c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_057.npz",
+      "sha256": "b91fccf71754734b22adb61f3ecc58375a9924e2ff2aa0259d09eef4adc173e7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_058.npz",
+      "sha256": "d94cddd393c756c83ca7b2c1675cd339e9bf931300202f6727a38b1e52055108"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_059.npz",
+      "sha256": "4b72388b40b7bf10548e2aa842c0e26f91aa06956a4b41c315fc1b8e2199f8a1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_060.npz",
+      "sha256": "4d27150943739846603ac94968014f1328b3dec0496bfd8726d4bce3c4f3c441"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_061.npz",
+      "sha256": "f20b5575b82860c421d49a131a9a8e38d3c1a8398ea810ca6f393737ef66f4f8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_062.npz",
+      "sha256": "8ac3e4bf44553d8224ca57b47ad918424bc7f557626cbb61204e7f706d9e276b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_063.npz",
+      "sha256": "e358f0462ed1f6593eddd28abc1ae5e2cc6028ee6d565a2296609ff37f2435c6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_064.npz",
+      "sha256": "b2e89cb1aec81549e9377255edb7c78fcee7bb6867a634be20abb1eb6d5fa3ab"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_065.npz",
+      "sha256": "08164de5b265ba3e53d11ce33bf6a6fda73f1adaf41e2ee08f550fbdbf362fa6"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_066.npz",
+      "sha256": "a2fb1f7f29d33b608cdef765c1ca649b495162626b44906417b315e98541cc21"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_067.npz",
+      "sha256": "9db01f0ad715193008e2bc21b0c2167e238e51687cbef6fc81c26c5d9b7360f2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_068.npz",
+      "sha256": "b49f9e04443fdb8bc4b64a0730c91a1448fae29177a450a0dea83bc7db05eafb"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_069.npz",
+      "sha256": "cc48906baa2e26c716ea59d82d7eb86729d2292261691c284b66eb6acdcf62f0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_070.npz",
+      "sha256": "55b05bb31c00a69efad970431d6f6d0c9bd6f2e7086b0ce8cf39caa3cd66a9d0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_071.npz",
+      "sha256": "aa563f5faa8361252839b73126b544620cef66f704671ae561fc5373e66f69f0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_072.npz",
+      "sha256": "55b952ef9b82c79ac68848fde59deefb980010a1eea25158ed0cf20a77fb8576"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_073.npz",
+      "sha256": "f028fd2943424ad6a3d8d2e7d39b51acec4617e6d1e365554a904a48ae396702"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_074.npz",
+      "sha256": "d238c0ab4d5eb001a99be327d675861388bd4b795e595087172a53d3894b7f69"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_075.npz",
+      "sha256": "4f8483d4ad67a87e851e0dab3e7fd46482d3c56cd6ecc44c59fed0756683cbca"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_076.npz",
+      "sha256": "2c8547707e0a3b84d761687bf5bbe8601013b94dd50c054985cd83e48241897e"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_077.npz",
+      "sha256": "74106132df5048b96a296d00a0718ec040bb77c62b7d74cc4c9b1f4805915301"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_078.npz",
+      "sha256": "d8abb7376d8402590d20c9c08e4c506e8b8259d26ec4e591885a2e7db00078dc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_079.npz",
+      "sha256": "bcb1cc1107c163f3d330dab6fa41c35915e7478027b795dcce66a155913fdd5b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_080.npz",
+      "sha256": "94a025bf1c79adf08f6a93cb94253fecc31220442b804c5a49c080fd53d9b302"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_081.npz",
+      "sha256": "d660665f85ecd47205ed387bc68bb9364522fe5a8c5883cb5668f5ebb4b1c71b"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_082.npz",
+      "sha256": "01e5615103d00e53168653ea5e3cd932ab59e246af0a9bd6daaed2d226a2b7e9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/training/result.json",
+      "sha256": "98a4bb2986db58b0d76f4597b70062c6bb0293e63a82c5e4f1537d0d7aa330af"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_030000000/training/training/stage1_tb/events.out.tfevents.1791522320.rw-ubuntu-24.04.3869992.0",
+      "sha256": "216aa0bb8028ec44b3f071c1fb442abd3af5dd8a53242817f203cb94950640cc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/result.json",
+      "sha256": "cc5d27eb6aceb0a8da8d4c817800b212d2b0ecb8f5963bfa3d166d3c366fb94a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/control_inputs.npz",
+      "sha256": "90d163f38db39d9948c028409e81cdd1c50958f7644c563a0ba1a90f83386aca"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/training/teacher_final.pth",
+      "sha256": "b7d460b94ee020d89844574e48c2e063cfb227bb1fc5581088ca5e46e44db862"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_000.npz",
+      "sha256": "561edee3de7709c5cd76fc31417b45f1272c697478613f1652c0b25deeee34ea"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_001.npz",
+      "sha256": "0f3642d179626139c131d2c800b67bcb7e2117bd2f007e3d00775acb58ad6091"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_002.npz",
+      "sha256": "fb40f938dfa728f67171990a916f8cf89615a3aed49d56514794a75cc60e8095"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_003.npz",
+      "sha256": "d7f4166395e7187f1c1bf2a3aed564b40a6166d0b8d536fac366365b8e704528"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_004.npz",
+      "sha256": "5031436759e5591844d9751bdf5c6397d4e85ab5a5a289960f02ca1628d07d35"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_005.npz",
+      "sha256": "e19c0e2b892e040524326b7640d52e7a934c8d4c18fc0d60f6b67832adb6baf0"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_006.npz",
+      "sha256": "343b59e53c17a970d6df020a5e3cb3ff7a49d0e608cd73ca82f720a9b46abf15"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/evaluation/physics_007.npz",
+      "sha256": "19ad813fe92dee52a80c4715d9724070e9f24537cc4edc76c97042bc96ed6042"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/training/result.json",
+      "sha256": "746fd9d537ea54b2df1022a2222bd911f3b4709f591a396dc2a93198f4c8f8b1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_040000000/training/training/stage1_tb/events.out.tfevents.1791536416.rw-ubuntu-24.04.71600.0",
+      "sha256": "381f344093690bf46e2eb07fd3a7908c21c3841a6289e3d936222f3d8686b18c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/result.json",
+      "sha256": "3cae35f0907911f6190af641d88f21e68899b1707a1b51f21d5ec8ddcf9f2b39"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/control_inputs.npz",
+      "sha256": "f7416846cdd055c571f8fdf96f7dad4cd215425d0bd47c395596910fd3484cd7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/training/teacher_final.pth",
+      "sha256": "221927f6f2fd7e5c7f01efb5d7bfcdc9ccd969e9aa04f06724c7524fd30b9bae"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_000.npz",
+      "sha256": "a3e1d244ee2b9a427e27174d421a020b91983f02984f68204926a64e9313fabd"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_001.npz",
+      "sha256": "62692e4169196cff97a21f48158432b6982dc1f23fe4211c6444af1316cdb817"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_002.npz",
+      "sha256": "c4925aa4ab3a8bbff839376e0f7cf3deffa46bf94b6a4c09da339975d9e3f8da"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_003.npz",
+      "sha256": "f425260d8552cd0ec3e22e25bd3936650edc3d669445206fdddef8e0846333a9"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_004.npz",
+      "sha256": "812ad73e007d889dde279def473f65f3ee5c8640a311c62fd3ca7644be663dad"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_005.npz",
+      "sha256": "4124306374034a3ba61ecaac1d0be2b9cb94e4de2ed1618b6a7c21f898024b62"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_006.npz",
+      "sha256": "c5bb720a3612f50e2c117c69ab47d7e1f636530958736b3139844e759ebba3c2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_007.npz",
+      "sha256": "3149bd7e28eb75e1cecdf09b21f37431cba7b64bb3fe668cb0bade2c7246902d"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_008.npz",
+      "sha256": "136c805673e19cb8fd58726e40030cba4427452404a675dad84ef19027fa106f"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_009.npz",
+      "sha256": "c65998f7bbe1a16677ca01ad2003218b3a558ebb883e1756f471e09f9929a45c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_010.npz",
+      "sha256": "d274a47e2da057bf804915fb1fd1fcfc8f0eaf0d288ed403bef0b2affecf9fba"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_011.npz",
+      "sha256": "133fc2ae084e2baca23acc9fe7eced1616ac7383d60232653938ff82e7f2b8b1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_012.npz",
+      "sha256": "49bf5a71673dbc64420128687fb59c9e55fc6c066db066c9836d72d6451d23df"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_013.npz",
+      "sha256": "d6642296e0d60affb36e0d273f4490b08f8419cd45fc1d0cf7951beb44c08fdc"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_014.npz",
+      "sha256": "7b3405485e01744f7a24ed4bcf1e36841418ee6adce945a9e71593734a19a716"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_015.npz",
+      "sha256": "c88d0affc4b140114d5c4708c68847ad888d9e32e9c8998c3ee8aebba9ccb1a2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_016.npz",
+      "sha256": "0b090115b1078c4d18b6faac16ba1671ed664c441ae124f1fd19f48b96e8ef07"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_017.npz",
+      "sha256": "928062893920c7a665dd697facdd4153b1e301cc8405159859540027ad3f5c93"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_018.npz",
+      "sha256": "ebe023844c719f4ac0495cd3cd70ccc9072d1f7a9014551407eed7002ad8e0ec"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_019.npz",
+      "sha256": "71e4ca4f3ae3b402050a6465ef17f1b6fdcc23ebe4f81da49f487ae3964c8943"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_020.npz",
+      "sha256": "adc0c9317376ea005930afef986bbb4dff8061e4a45c730c5e08517898f8d993"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_021.npz",
+      "sha256": "9b01b680edf7121b1997e5db190ab2b3f511f434585f767fda3f281427040702"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_022.npz",
+      "sha256": "eab6100eb81ee86c6596e702e6f35a1d939cfb6ed62969b5fc524cc9d361c3b7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_023.npz",
+      "sha256": "0555961296f8ebc22975d3d1f89f20bc03c3a453fd3e1a2c9db27b53a50a1cf2"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_024.npz",
+      "sha256": "c9c741bdc6b76fde3cf1c0087ead0c91e52363ed5c31e9b2db44fde4edb749a8"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_025.npz",
+      "sha256": "797e3bb86206b9268f82ab4fca58351491820f137cf28322568f44ee9b160873"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_026.npz",
+      "sha256": "20b01890ed9a2e91da2d17220c45b011367ac2ac604d7d2e032f39364f2dcbfe"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_027.npz",
+      "sha256": "6c7109be15f14bbe4728797067582be766b2091f8c6abd082e9f7f18a96f1283"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_028.npz",
+      "sha256": "6c1025a3df00c4d952449d17c0f6431e6184fcb9c7ee8a90251572974fb7c84c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_029.npz",
+      "sha256": "0210703502194d4e244a1271058b1ab8a79f76b84ba330c645d7348cd37bad6c"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_030.npz",
+      "sha256": "af8d440554e0ecd79dd8d5b14109a2b6cda1820a67d1a1b93892c5bbee724de7"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_031.npz",
+      "sha256": "4ed21bc5f3d2760a69056456d9507009ecf6ba6b29921c258eae9f78911a8397"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_032.npz",
+      "sha256": "1e45b82fcc2e0611d41a2836bfea35f876ff63ec7abb92cd7eeff41a00d2d705"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_033.npz",
+      "sha256": "edf8bfd7b173d7c65616dfb6bad2ff72368a55737798cec321f8a362e03264aa"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_034.npz",
+      "sha256": "03c922d51fd55729687c11d9a50a09dad31242b1fba7b45ab2eb858961ecfb46"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_035.npz",
+      "sha256": "9f13a8e70c423f0c2d0735c7936ab1918643e7f1d43e274cd0f8b5c18ca828a1"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/training/result.json",
+      "sha256": "6f6ce972b93eb3686caf18096329983aee1df9ebdadfc4fa69b619cb33d9c2ad"
+    },
+    {
+      "path": "outputs/boya_hora1024_workspace50m_v1/actions_050000000/training/training/stage1_tb/events.out.tfevents.1791549831.rw-ubuntu-24.04.453831.0",
+      "sha256": "93354e2595dfc2f26e3497f859aae87f0a17ad758ad17fd51abf21f4adb4ca16"
+    }
+  ],
+  "same_observation_behavior_drift": [
+    {
+      "observations_from": 10,
+      "compared_to10M": 20,
+      "observations": 100,
+      "bounded_action_rmse": 0.6707572937011719,
+      "old_to_current_gaussian_KL_mean": 61.37531280517578,
+      "weights_changed_old_normalizer_action_rmse": 0.6987431645393372,
+      "old_weights_changed_normalizer_action_rmse": 0.33396321535110474
+    },
+    {
+      "observations_from": 10,
+      "compared_to10M": 30,
+      "observations": 100,
+      "bounded_action_rmse": 0.7837955355644226,
+      "old_to_current_gaussian_KL_mean": 163.51211547851562,
+      "weights_changed_old_normalizer_action_rmse": 0.8439195156097412,
+      "old_weights_changed_normalizer_action_rmse": 0.4531596899032593
+    },
+    {
+      "observations_from": 10,
+      "compared_to10M": 40,
+      "observations": 100,
+      "bounded_action_rmse": 0.860508382320404,
+      "old_to_current_gaussian_KL_mean": 269.5674133300781,
+      "weights_changed_old_normalizer_action_rmse": 0.9440189003944397,
+      "old_weights_changed_normalizer_action_rmse": 0.47989410161972046
+    },
+    {
+      "observations_from": 10,
+      "compared_to10M": 50,
+      "observations": 100,
+      "bounded_action_rmse": 0.838891327381134,
+      "old_to_current_gaussian_KL_mean": 338.29571533203125,
+      "weights_changed_old_normalizer_action_rmse": 0.9074227809906006,
+      "old_weights_changed_normalizer_action_rmse": 0.5136308670043945
+    },
+    {
+      "observations_from": 20,
+      "compared_to10M": 20,
+      "observations": 100,
+      "bounded_action_rmse": 0.849808394908905,
+      "old_to_current_gaussian_KL_mean": 259.3173522949219,
+      "weights_changed_old_normalizer_action_rmse": 0.9029973149299622,
+      "old_weights_changed_normalizer_action_rmse": 0.25101014971733093
+    },
+    {
+      "observations_from": 20,
+      "compared_to10M": 30,
+      "observations": 100,
+      "bounded_action_rmse": 0.9509302377700806,
+      "old_to_current_gaussian_KL_mean": 486.4829406738281,
+      "weights_changed_old_normalizer_action_rmse": 0.950402021408081,
+      "old_weights_changed_normalizer_action_rmse": 0.3356704115867615
+    },
+    {
+      "observations_from": 20,
+      "compared_to10M": 40,
+      "observations": 100,
+      "bounded_action_rmse": 0.808975875377655,
+      "old_to_current_gaussian_KL_mean": 572.2890625,
+      "weights_changed_old_normalizer_action_rmse": 0.9007343649864197,
+      "old_weights_changed_normalizer_action_rmse": 0.30856531858444214
+    },
+    {
+      "observations_from": 20,
+      "compared_to10M": 50,
+      "observations": 100,
+      "bounded_action_rmse": 0.8261125087738037,
+      "old_to_current_gaussian_KL_mean": 791.2313842773438,
+      "weights_changed_old_normalizer_action_rmse": 0.8564669489860535,
+      "old_weights_changed_normalizer_action_rmse": 0.2705438733100891
+    },
+    {
+      "observations_from": 30,
+      "compared_to10M": 20,
+      "observations": 100,
+      "bounded_action_rmse": 0.513863742351532,
+      "old_to_current_gaussian_KL_mean": 59.084964752197266,
+      "weights_changed_old_normalizer_action_rmse": 0.5427514910697937,
+      "old_weights_changed_normalizer_action_rmse": 0.244033545255661
+    },
+    {
+      "observations_from": 30,
+      "compared_to10M": 30,
+      "observations": 100,
+      "bounded_action_rmse": 0.7069033980369568,
+      "old_to_current_gaussian_KL_mean": 216.7935791015625,
+      "weights_changed_old_normalizer_action_rmse": 0.7670932412147522,
+      "old_weights_changed_normalizer_action_rmse": 0.3632921278476715
+    },
+    {
+      "observations_from": 30,
+      "compared_to10M": 40,
+      "observations": 100,
+      "bounded_action_rmse": 0.9096073508262634,
+      "old_to_current_gaussian_KL_mean": 355.771240234375,
+      "weights_changed_old_normalizer_action_rmse": 0.9509105086326599,
+      "old_weights_changed_normalizer_action_rmse": 0.3936798572540283
+    },
+    {
+      "observations_from": 30,
+      "compared_to10M": 50,
+      "observations": 100,
+      "bounded_action_rmse": 0.9982556104660034,
+      "old_to_current_gaussian_KL_mean": 559.96337890625,
+      "weights_changed_old_normalizer_action_rmse": 1.0312464237213135,
+      "old_weights_changed_normalizer_action_rmse": 0.4415495693683624
+    },
+    {
+      "observations_from": 40,
+      "compared_to10M": 20,
+      "observations": 100,
+      "bounded_action_rmse": 0.44092774391174316,
+      "old_to_current_gaussian_KL_mean": 27.925521850585938,
+      "weights_changed_old_normalizer_action_rmse": 0.4521262049674988,
+      "old_weights_changed_normalizer_action_rmse": 0.2537981867790222
+    },
+    {
+      "observations_from": 40,
+      "compared_to10M": 30,
+      "observations": 100,
+      "bounded_action_rmse": 0.7040024995803833,
+      "old_to_current_gaussian_KL_mean": 165.29376220703125,
+      "weights_changed_old_normalizer_action_rmse": 0.7273374795913696,
+      "old_weights_changed_normalizer_action_rmse": 0.3738931715488434
+    },
+    {
+      "observations_from": 40,
+      "compared_to10M": 40,
+      "observations": 100,
+      "bounded_action_rmse": 0.7809576392173767,
+      "old_to_current_gaussian_KL_mean": 269.7036437988281,
+      "weights_changed_old_normalizer_action_rmse": 0.8781944513320923,
+      "old_weights_changed_normalizer_action_rmse": 0.4098515510559082
+    },
+    {
+      "observations_from": 40,
+      "compared_to10M": 50,
+      "observations": 100,
+      "bounded_action_rmse": 0.9651404619216919,
+      "old_to_current_gaussian_KL_mean": 453.7001953125,
+      "weights_changed_old_normalizer_action_rmse": 1.0325075387954712,
+      "old_weights_changed_normalizer_action_rmse": 0.471447616815567
+    },
+    {
+      "observations_from": 50,
+      "compared_to10M": 20,
+      "observations": 100,
+      "bounded_action_rmse": 0.6071408987045288,
+      "old_to_current_gaussian_KL_mean": 81.42280578613281,
+      "weights_changed_old_normalizer_action_rmse": 0.5496135950088501,
+      "old_weights_changed_normalizer_action_rmse": 0.21013180911540985
+    },
+    {
+      "observations_from": 50,
+      "compared_to10M": 30,
+      "observations": 100,
+      "bounded_action_rmse": 0.5402976870536804,
+      "old_to_current_gaussian_KL_mean": 178.35226440429688,
+      "weights_changed_old_normalizer_action_rmse": 0.6078276634216309,
+      "old_weights_changed_normalizer_action_rmse": 0.31535401940345764
+    },
+    {
+      "observations_from": 50,
+      "compared_to10M": 40,
+      "observations": 100,
+      "bounded_action_rmse": 0.687120258808136,
+      "old_to_current_gaussian_KL_mean": 356.8155822753906,
+      "weights_changed_old_normalizer_action_rmse": 0.8115418553352356,
+      "old_weights_changed_normalizer_action_rmse": 0.3147437572479248
+    },
+    {
+      "observations_from": 50,
+      "compared_to10M": 50,
+      "observations": 100,
+      "bounded_action_rmse": 0.791854977607727,
+      "old_to_current_gaussian_KL_mean": 609.5099487304688,
+      "weights_changed_old_normalizer_action_rmse": 0.8555538058280945,
+      "old_weights_changed_normalizer_action_rmse": 0.3193085193634033
+    }
+  ],
+  "action_names": [
+    "THJ4",
+    "THJ3",
+    "THJ2",
+    "THJ1",
+    "FFJ4",
+    "FFJ3",
+    "FFJ2",
+    "MFJ4",
+    "MFJ3",
+    "MFJ2",
+    "RFJ4",
+    "RFJ3",
+    "RFJ2",
+    "LFJ4",
+    "LFJ3",
+    "LFJ2"
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "torch": "2.11.0+cu130"
+  },
+  "wall_s": 5.614009995013475,
+  "analysis_script_sha256": "46e770d4b37a098f496b7a04dc46172043f618231141fb3cfb70da4d7391eedb",
+  "figure_provenance": {
+    "size_inches": [
+      13,
+      10
+    ],
+    "dpi": 160,
+    "pixels": [
+      2080,
+      1600
+    ],
+    "matplotlib": "3.10.8",
+    "formats": [
+      "png",
+      "svg"
+    ],
+    "transformations": "Every20th physics sample (100Hz), always retain terminal sample; control/reward curves at20Hz. Pose-rate diagnostic is the signed quaternion increment summed over each complete50ms control interval divided by .05s; no other smoothing.",
+    "uncertainty": "None: five different checkpoints, one trajectory each, no replicate estimate",
+    "description": "A/B compare full observed angle histories and common first5s. C/D align terminal50M angle and object height on separate axes; vertical line marks last sensor-visible hand contact. E shows software target saturation. F contrasts reported20M angular velocities at control endpoints with actual quaternion motion over complete50ms control intervals. Crosses mark actual observed endpoints, including wall-budget censoring."
+  }
+}

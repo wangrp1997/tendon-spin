@@ -611,3 +611,28 @@ newsession57344actions andcheckpoint observed. Targets20/30/40/50M
 sequentialtrain+originalgrasp120seval, then stop. TBworkspace_continue50m added;
 10Mbaseline reused, no latermetricsyet.3CPUtests+compilepassed,no extraGPUprobe.
 Coretraining/physics/evaluator unchanged; neworchestrator only. Supersedeslaunchpending.
+
+
+[Workspace50M COMPLETED; authorized offline diagnosis completed](research/2026-10-10-workspace50m-diagnosis/README.md):
+Final50,003,968actions/6104updates,normalbudgetcompletion;orchestratorcompleted,
+fourmilestoneevaluationscompleted. Eachfrozenowncheckpoint/normalizer,originalgrasp44,
+0resets/0switches/0training. 10/20/30/40/50M netdeg182.935623/26.488664/67.009596/
+115.525333/226.888668; validseconds5.5995/85/82.7/7.8495/35.8495;
+peakdeg182.935623/35.822706/67.031312/115.525333/226.888668;
+backwarddeg1.266059/85.410726/45.670142/2.004248/43.489802.
+20/30Mstop1500swallbudget,not120scompletion;othersbelowworkspace.
+50Mfirst30snet35.059deg,last.2s172.271deg,lastvisiblehandcontact35.722s,
+114.649degafterlastcontact. Originalprimaryscoresretained,notfiltered/replaced.
+Offline0newphysics/learning: commonfirst5s10M129.051degvs50M42.097deg.
+20M20-30sactualpose-2.462degbutreconstructedrotationreward+.36769/control;
+allphysicsreportedmoving-axisomega+.32288rad/svsactualpose-.00430rad/s.
+Persistentvelocity/posemismatch,fixed/movingaxisdifferenceandtargetboundsare
+directdiagnosticevidence;enginecause/forgettingcausalitynotestablished.
+50M20-30s4/16targetscontinuouslyoutwardblocked. Last100trainingupdates
+10M->50Mmeanvalid4.527->16.243s,net99.133->53.216deg,rotationreward.3453->.2465,
+cumulativereward15.427->38.471. Ownmodel+normalizeractionreplaymaxerror1.88e-6.
+Recommendreward/poseconsistencybeforeboundedshortcomparison;nochangetoengine,
+grasp,observations,reward,criteriaorbudget;nonewtraininglaunched.
+Weights/logs/rawtracespreserved.Smallscript/evidence/CSV/figurearchived;
+supersedespreviousRUNNINGstatus. Oneepisodepercheckpoint,notindefiniterotation,
+matchedSOTAorhardwarevalidation.
