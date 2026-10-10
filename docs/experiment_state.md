@@ -682,3 +682,24 @@ Smallprotocol/scripts/results/hashes/execution/failureevidencearchived;
 rawtrajectoriesandweightslocal. Necessarysyntax/source/initial/configcheckspassed.
 Recommendvelocity/poseinputconsistencybeforeanyshorttrainingvariant; nofollowon
 traininglaunched. Singleseedconfigurationdiagnostic,notsolvercausal/SOTA/hardwareproof.
+
+
+[PhysX official-document web follow-up](research/2026-10-10-workspace50m-diagnosis/PHYSX_WEB_FOLLOWUP.md):
+User requests internet search to distinguish engine/API causes. OfficialPhysX5.4.1
+SolverIterations explicitly says reportedbodyvelocity neednotmatch finite-difference
+bodymotion undercontacts/constraints; splitimpulse andTGSsubstep semantics documented.
+Thus previous blanket wording velocitycorruption/numericalcontradiction was too strong:
+documentedsolver/API semantics can explain a difference, notproof ofalocalenginebug.
+Raw/Labexactagreement andmeasuredangle/rewardmismatch remainvalid observations;
+specificcause/magnitude ofthisBoya contactcase stillunverified.
+Newreferenceconfigurationfinding: vendoredHoraTGS yamlposition8/velocity0,
+Boya scene16/4 plusarticulation16/4; recentdiagnosticB scene16/16.
+Referenceyaml isnotanexecutedoriginalbaseline. Scene minimum0alone doesnotforce
+effective0whenactors/articulationrequestmore. No0iterationtriallaunched.
+FixedofficialCHANGELOGcommit517a007/v5.3.0 explainsformerTGS>4velocityiterations
+wereconvertedtopositioniterations,nowhonoredliterally;matchesdiagnosticwarning.
+Relatedpublicissues543/549notestablishedlocalhits;549requiresoppositeflags
+fromouractualcontactlastfalse/externalforceseveryiterationtrue.
+Officialpagesreadinfull;quotes/URLs/versions/hashesandaccesslimitsarchived.
+0newphysics/training, nocore/configuration/rewardchanges. Prioritizematched
+effective-solver/input-semantics verification beforechoosingafix orrewardvariant.

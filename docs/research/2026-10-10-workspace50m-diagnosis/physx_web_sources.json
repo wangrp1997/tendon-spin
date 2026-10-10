@@ -1,0 +1,214 @@
+{
+  "retrieved_at_utc": "2026-10-10T04:02:33.300212+00:00",
+  "new_physics_steps": 0,
+  "training_actions": 0,
+  "conclusion": "Reported PhysX velocity need not equal finite-difference pose motion under constraints. This is documented solver/API semantics, not proof of a local engine bug. Lab getter agreement remains exact.",
+  "official_manual": {
+    "version": "5.4.1",
+    "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/RigidBodyDynamics.html#solver-iterations",
+    "local_path": "outputs/boya_physx_web_20261010/physx_rigidbody.txt",
+    "sha256": "084f4f5fc36b0ddf21ee117731602cccc426d8a9621cd9502b4ecd491be81a94",
+    "quote": "In general, and in particular when the bodies are subject to contact or other constraints, one cannot expect that the reported body velocity will match the position difference between two simulation steps.\nThis is because the solver uses a split impulse strategy for resolving geometric (position) and velocity error separately:\nPosition iterations solve for both geometric and velocity error.\nThey do so by including the geometric error in the velocity-level constraint equation as a bias term, which\nbiases\nthe post-solve velocities towards values that reduce the geometric error after integration.\nThese post-solve velocities resulting from the position iterations are used for integrating the body transforms at the end of a time step.\nOn the contrary, velocity iterations only solve for velocity error, i.e., their bias is zero except in some specific cases (see e.g.,\nPx1DConstraintFlag::eKEEPBIAS\n,\nCompliant Contacts\n).\nDue to the absence of the geometric bias in the velocity iterations, they do not operate on the same constraint equations as the position iterations.\nThe velocity iterations’ post-solve velocities are the velocities that are carried across frames and they are reported in the corresponding body velocity fields (e.g.,\nPxRigidBody::getLinearVelocity()\n).",
+    "tgs_url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/RigidBodyDynamics.html#projected-gauss-seidel-and-temporal-gauss-seidel",
+    "tgs_quote": "TGS velocity iterations do not integrate velocities at every iteration anymore, they merely solve the unbiased constraint equations for the last substep.\nAfter the velocity iterations are complete, the final transformations of all objects are computed based on the velocity after the last velocity iteration (see split impulse strategy above).\nUnless the scene exhibits significant geometrical errors before simulation begins, it is often sufficient to run TGS without any velocity iterations because the increased time resolution should keep the effect of geometric errors small throughout all substeps.\n"
+  },
+  "changelog": {
+    "commit": "517a0073715120e114ee055b63b26c95e00d9039",
+    "url": "https://github.com/NVIDIA-Omniverse/PhysX/blob/517a0073715120e114ee055b63b26c95e00d9039/physx/CHANGELOG.md",
+    "local_path": "outputs/boya_physx_web_20261010/physx_changelog_pinned.txt",
+    "sha256": "17c43cc2fdefaeb946e26aa3629870cfc42c246d788d62c0881022f679dc79f1",
+    "entries": [
+      {
+        "version": "# v5.4.0-106.0",
+        "line": 957,
+        "quote": "* TGS articulation drive reported velocity that was inconsistent with joint movement when using a high stiffness. This was fixed by adjusting the target position during the substep iteration."
+      },
+      {
+        "version": "# v5.3.0-105.1",
+        "line": 1227,
+        "quote": "* The TGS solver on CPU and GPU now computes the number of position and velocity iteration according to the requested numbers by the actors in each island, matching the behavior of the PGS solver. Previously TGS velocity iterations in excess of 4 were silently converted to position iterations. To preserve the old behavior any actor requesting more than 4 velocity iterations should convert excess velocity iteration counts to position iteration counts, e.g., formerly 10 position and 10 velocity iterations should become 16 position and 4 velocity iterations."
+      },
+      {
+        "version": "# v4.1.2",
+        "line": 2194,
+        "quote": "* It is now legal to set the number of velocity iterations to zero. In some difficult configurations involving large mass ratios, the TGS solver's convergence can be negatively impacted by velocity iterations."
+      }
+    ]
+  },
+  "source_configuration_comparison": {
+    "hora_yaml": {
+      "solver_type": 1,
+      "position_iterations": 8,
+      "velocity_iterations": 0,
+      "scope": "Reference declarations only; original baseline not executed here"
+    },
+    "boya": {
+      "scene_position_minimum": 16,
+      "scene_velocity_minimum": 4,
+      "articulation_position_request": 16,
+      "articulation_velocity_request": 4
+    },
+    "note": "A scene minimum of 0 alone does not override actor/articulation requests; do not claim effective zero without checking the island configuration."
+  },
+  "related_reports": [
+    {
+      "url": "https://github.com/NVIDIA-Omniverse/PhysX/issues/549",
+      "kind": "Public bug report, not evidence of a local hit",
+      "reported_conditions": {
+        "solve_articulation_contact_last": true,
+        "enable_external_forces_every_iteration": false
+      },
+      "local_frozen_configuration": {
+        "solve_articulation_contact_last": false,
+        "enable_external_forces_every_iteration": true
+      }
+    },
+    {
+      "url": "https://github.com/NVIDIA-Omniverse/PhysX/issues/543",
+      "kind": "Public bug report, not evidence of a local hit",
+      "conditions": "GPU TGS multiple velocity iterations plus partition/body-count conditions; internal trigger conditions were not measured in this search"
+    }
+  ],
+  "local_sources": [
+    {
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+    },
+    {
+      "path": "third_party/hora/configs/config.yaml",
+      "sha256": "1b9817484271f173c0f60b77aa3f06af4ddf8b19297b658924a165596250f48f"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76"
+    },
+    {
+      "path": "docs/experiments/2026-10-10-boya-velocity-diagnostic/comparison.json",
+      "sha256": "bcae2ee9947e9bd9f1a7d1481ee15d60588dfe5a022c4d55582122b15604bcd2"
+    }
+  ],
+  "requests": [
+    {
+      "key": "physx_simulation",
+      "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/Simulation.html",
+      "final_url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/Simulation.html",
+      "bytes": 84605,
+      "status": "ok"
+    },
+    {
+      "key": "physx_rigidbody",
+      "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/RigidBodyDynamics.html",
+      "final_url": "https://nvidia-omniverse.github.io/PhysX/physx/5.4.1/docs/RigidBodyDynamics.html",
+      "bytes": 127302,
+      "status": "ok"
+    },
+    {
+      "key": "physx_changelog",
+      "url": "https://raw.githubusercontent.com/NVIDIA-Omniverse/PhysX/main/physx/CHANGELOG.md",
+      "final_url": "https://raw.githubusercontent.com/NVIDIA-Omniverse/PhysX/main/physx/CHANGELOG.md",
+      "bytes": 387686,
+      "status": "ok"
+    },
+    {
+      "key": "search_warning",
+      "url": "https://www.google.com/search?q=%22TGS%22%20%22more%20than%204%22%20%22velocity%22",
+      "final_url": "https://www.google.com.hk/search?q=%22TGS%22%20%22more%20than%204%22%20%22velocity%22",
+      "bytes": 93332,
+      "status": "ok",
+      "usable_search_results": false,
+      "note": "Google returned a JavaScript redirect page, not usable search results"
+    },
+    {
+      "key": "search_tgs",
+      "url": "https://www.google.com/search?q=PhysX%20TGS%20angular%20velocity%20pose%20inconsistent%20contact",
+      "final_url": "https://www.google.com.hk/search?q=PhysX%20TGS%20angular%20velocity%20pose%20inconsistent%20contact",
+      "bytes": 93203,
+      "status": "ok",
+      "usable_search_results": false,
+      "note": "Google returned a JavaScript redirect page, not usable search results"
+    },
+    {
+      "key": "tensors_api",
+      "url": "https://docs.omniverse.nvidia.com/kit/docs/omni_physics/110.0/extensions/runtime/source/omni.physics.tensors/docs/api/python.html",
+      "status": "error",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "key": "changelog_commit",
+      "url": "https://api.github.com/repos/NVIDIA-Omniverse/PhysX/commits?path=physx/CHANGELOG.md&per_page=1",
+      "status": "error",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "key": "bing_related",
+      "url": "https://www.bing.com/search?format=rss&q=PhysX%20reported%20velocity%20position%20difference%20split%20impulse%20TGS",
+      "final_url": "https://www.bing.com/search?format=rss&q=PhysX%20reported%20velocity%20position%20difference%20split%20impulse%20TGS",
+      "bytes": 5670,
+      "status": "ok"
+    },
+    {
+      "key": "github_angular_issues",
+      "url": "https://api.github.com/search/issues?q=repo%3ANVIDIA-Omniverse/PhysX%20angular%20velocity%20inconsistent&per_page=8",
+      "final_url": "https://api.github.com/search/issues?q=repo%3ANVIDIA-Omniverse/PhysX%20angular%20velocity%20inconsistent&per_page=8",
+      "bytes": 79,
+      "status": "ok",
+      "total_count": 0,
+      "issues": []
+    },
+    {
+      "key": "github_tgs_issues",
+      "url": "https://api.github.com/search/issues?q=repo%3ANVIDIA-Omniverse/PhysX%20TGS%20velocity%20position&per_page=8",
+      "final_url": "https://api.github.com/search/issues?q=repo%3ANVIDIA-Omniverse/PhysX%20TGS%20velocity%20position&per_page=8",
+      "bytes": 103037,
+      "status": "ok",
+      "total_count": 20,
+      "issues": [
+        {
+          "title": "Launch the GPU TGS velocity-iteration propagate for all bodies",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/pull/544"
+        },
+        {
+          "title": "Flush GPU TGS articulation velocities after the contact-last first pass",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/pull/550"
+        },
+        {
+          "title": "Use the remap id in the GPU TGS substep force kernel",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/pull/554"
+        },
+        {
+          "title": "Clamp articulation joint velocities per DOF instead of scaling all DOFs",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/pull/534"
+        },
+        {
+          "title": "GPU TGS contact-last: articulation joints and contacts after partition 0 can read stale link velocities",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/issues/549"
+        },
+        {
+          "title": "GPU TGS rigid bodies lose velocity-iteration impulses with more than 2 × gpuMaxNumPartitions partitions",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/issues/543"
+        },
+        {
+          "title": "Articulation joint friction: `setFrictionParams()` with zeroed parameters does not disable the deprecated friction model",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/issues/498"
+        },
+        {
+          "title": "Report the edges that IslandSim::setDynamic deactivates",
+          "url": "https://github.com/NVIDIA-Omniverse/PhysX/pull/548"
+        }
+      ]
+    },
+    {
+      "key": "physx_rigidbody_591",
+      "url": "https://nvidia-omniverse.github.io/PhysX/physx/5.9.1/docs/RigidBodyDynamics.html",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "key": "physx_changelog_pinned",
+      "url": "https://raw.githubusercontent.com/NVIDIA-Omniverse/PhysX/517a0073715120e114ee055b63b26c95e00d9039/physx/CHANGELOG.md",
+      "final_url": "https://raw.githubusercontent.com/NVIDIA-Omniverse/PhysX/517a0073715120e114ee055b63b26c95e00d9039/physx/CHANGELOG.md",
+      "status": "ok",
+      "bytes": 364662
+    }
+  ]
+}
