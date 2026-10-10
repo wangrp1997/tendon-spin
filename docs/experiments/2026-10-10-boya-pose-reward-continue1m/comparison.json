@@ -1,0 +1,87 @@
+{
+  "status": "completed and stopped",
+  "rows": [
+    {
+      "label": "Parent20M reused30s diagnostic",
+      "checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+      "cumulative_training_actions": 20004864,
+      "reward_profile": "hora_reported_velocity",
+      "requested_eval_s": 30.0,
+      "actual_s": 30.0,
+      "valid_s": 30.0,
+      "net_deg": 30.42674739742352,
+      "peak_deg": 35.82270588149602,
+      "backward_deg": 37.24068213907233,
+      "complete_requested_window": true,
+      "stop_reason": "time limit"
+    },
+    {
+      "label": "Pose-reward branch after additional1,007,616actions",
+      "checkpoint_sha256": "472f8e679ed4037096a083c67b16cf40b896e3917437c0d00a6cae6848ade2e2",
+      "cumulative_training_actions": 21012480,
+      "reward_profile": "hora_pose_delta",
+      "requested_eval_s": 30.0,
+      "actual_s": 2.0,
+      "valid_s": 1.9995,
+      "net_deg": 25.428426210355894,
+      "peak_deg": 34.13918503557062,
+      "backward_deg": 10.944127614342221,
+      "complete_requested_window": false,
+      "stop_reason": "object below Boya manipulation region"
+    }
+  ],
+  "new_training_actions": 1007616,
+  "new_updates": 123,
+  "training_wall_s": 1379.2338505811058,
+  "total_wall_s": 1423.1655102458317,
+  "train_eval_analysis_exit_codes": {
+    "training": 0,
+    "evaluation": 0,
+    "analysis": 0
+  },
+  "initial_state_max_errors": {
+    "joint_pos": 0.0,
+    "joint_vel": 0.0,
+    "object_state": 0.0,
+    "commands": 0.0
+  },
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "evaluation_training_actions": 0,
+  "task_engine_conditions": "Same declared original4 engine/task/controller/cache/object/grasp/actions/observations/timing; explicit reward migration preserves full parent learner. New branch has additional1,007,616 training actions and a changed reward, not an independent equal-total-budget control.",
+  "acceptance": {
+    "retained_full30s": false,
+    "increased_valid_prefix_endpoint": false,
+    "holding_regressed": true,
+    "conclusion": "This bounded continuation did not improve stable rotation. It drops below the manipulation region at2.0s; the parent completed30s. Smaller backward angle over the shorter prefix is not evidence of less reversal over30s."
+  },
+  "observed_signal_windows": {
+    "first5s": "partial0-1.9995s",
+    "five_to_twenty_s": null,
+    "twenty_to_thirty_s": null
+  },
+  "next_stage": "No follow-on training/retry/route change; awaiting discussion after reporting this completed result.",
+  "limits": "One frozen episode per checkpoint; no statistical or causal attribution to forgetting, critic adaptation, optimizer state or reward weights. No sustained-rotation or hardware claim.",
+  "sources": [
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/training/result.json",
+      "sha256": "aabae5ec67bc9c751dcbaaf92525c36c1d1829b0be4f50f8af7ab517bf4d9dff"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/evaluation/result.json",
+      "sha256": "f2734d4fcf478039f509496dc1d7360c466558ab998deb1a97dac29a1dfc3ff2"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/analysis/result.json",
+      "sha256": "056d61324580493702c3576e945af58daa56c33f0effcab760412723b9976449"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/stage.json",
+      "sha256": "db54c89ca3e761da2f5bdae38442e5fb0c6cd64d58257f8acd456c6472d3b818"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v2/velocity_04/result.json",
+      "sha256": "a81616d318faeb9dac75134508a50e907bcec6e366e1f288faa15cf3443cf42a"
+    }
+  ]
+}

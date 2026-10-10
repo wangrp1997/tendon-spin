@@ -115,4 +115,8 @@ Final cumulative21,012,480/2565updates -> ONE frozen originalgrasp44/requested30
 evaluation with full trace and offline analysis -> STOP, no retries/extensions.
 Read docs/experiments/2026-10-10-boya-pose-reward-continue1m/ before follow-up.
 Keep all old weights/results, summary training logs, TensorBoard/checkpoints,
-no resourcewatchdog and milestonepush. New reward effectiveness remains pending.
+no resourcewatchdog and milestonepush. This bounded run has now completed and
+stopped:1,007,616 new actions, final21,012,480/2565updates; ONE requested30s
+evaluation valid1.9995s/net+25.428426deg/peak34.139185/backward10.944128, actual2.0s
+below-region stop. Parent20M completed30s; holding regressed, no stable rotation
+improvement. No follow-on budget/route change is authorized by this result.

@@ -37,11 +37,12 @@ Pose-derived rotation reward is implemented, with explicit original/pose profile
 and checkpoint identity. Existing20M30s offline data confirms the20-30s reward
 changes from+.367686 to-.004294 when actual turning slightly reverses.
 [Change and verification](docs/experiments/2026-10-10-boya-pose-reward/README.md).
-The user-approved20M teacher migration and additional1,007,616-action background
-continuation started on2026-10-10, with original4 engine/task/PPO retained and
-one automatic final30s evaluation. First actual update/checkpoint verified;
-new rotation/retention outcome is pending.
-[Continuation and launch evidence](docs/experiments/2026-10-10-boya-pose-reward-continue1m/README.md).
+The user-approved20M migration and additional1,007,616-action continuation
+completed and stopped, with original4 engine/task/PPO retained. Its single frozen
+requested30s evaluation dropped at2.0s: valid1.9995s/net+25.428deg/peak34.139deg/
+backward10.944deg. The parent completed30s; holding regressed and stable rotation
+did not improve in this trial.
+[Continuation and final evidence](docs/experiments/2026-10-10-boya-pose-reward-continue1m/README.md).
 
 Run migration verification:
 

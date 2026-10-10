@@ -860,7 +860,7 @@ runtime/throughputnotvalidatedhere. Smallprotocol/codeidentity/offlineevidence s
 alloldweights/rawtraces/scoresretained. Newtrainingnotstarted,nogpu/video/broadtests.
 
 
-[Pose-reward20M branch continuation STARTED; final outcome pending](experiments/2026-10-10-boya-pose-reward-continue1m/README.md):
+[Pose-reward20M branch continuation LAUNCH HISTORY; completed below](experiments/2026-10-10-boya-pose-reward-continue1m/README.md):
 User approves20Mteacher/newreward/additional1M andonefinal30soriginalstateeval.
 ExplicitCPU migration fromparentSHA2569781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e,
 20,004,864actions/2442updates. Allserializedlearnerfields exactaftercopy:policy/critic,
@@ -893,3 +893,27 @@ improvementorreset/contact-filteredsums. Singleancestrybranch feasibility,notmat
 total-budgetstatisticalsuperiority/SOTA/indefiniterotation/hardware. Noresultyet.
 Migrationplan/result/protocol/command/sourcehashes/actuallaunchsnapshotarchived;
 alloldweights/historyandnewweights/raw/TensorBoardremainlocal. Milestonepushauthorized.
+
+
+[Pose-reward20M+1M continuation COMPLETED and STOPPED; holding regressed](experiments/2026-10-10-boya-pose-reward-continue1m/README.md):
+New1,007,616actions/123updates completed normally, final21,012,480actions/2565updates;
+trainingwall1379.23s,total1423.17s,train/eval/analysisexit0,stagecompleted.
+2026-10-10 15:23:48Shanghai read:supervisor/lastchildbothnotalive,nofollow-ontraining.
+FinalSHA256472f8e679ed4037096a083c67b16cf40b896e3917437c0d00a6cae6848ade2e2.
+ExactlyONEfrozenfinalmodel/ownnormalizer/originalgrasp44evaluation,initialq/qdot/object/
+commandsmaxerrorsall0,0resets/switches/training. Requested30s,actual2.0000s,
+valid1.9995s/net+25.428426deg/peak34.139185/backward10.944128,
+stopobjectbelowBoyamanipulationregion. Reused20Mreferencevalid30s/net+30.426747/
+peak35.822706/backward37.240682,normal30sstop. Holdingclearlyregressedandvalid-prefix
+netdidnotincrease;smallerbackwardover2sisnot30sbackwardimprovement. Newrewardinput
+verificationdoesnotestablishstablelearning;thisboundedcontinuationfaileditsgoal.
+Maxvaliddrift71.974mm/tilt38.234deg/normal59.735N,SciPyangle+25.428332deg;
+5-20/20-30sunobserved,null. Last.2snet-6.760degposthoconly,nofilteredscore.
+Observedprefixfixedaxisactualmean+.233365rad/s,selectedposerewardrotation+.280245;
+axis/clipping/windowdifferencesremain,norewardmean-as-netprogressclaim.
+Lastupdate113trainingresetsallbelowregion,meanvalid3.7203s,notstandaloneevidence.
+Singleancestrybranch/oneevaluationcannotisolateforgetting/critic/Adam/rewardweight
+causation,notindependentmatchedbudget/statistical/SOTA/hardwareproof.
+Smallfinalcomparison/eval/signal/training-summary/config/stageevidencearchived;
+weights/raw/fullupdates/TensorBoardlocal,oldhistorypreserved. Nofurtherphysics,
+tests/video/audits/retries/extensionsorconfigurationchanges. Awaitdiscussion.
