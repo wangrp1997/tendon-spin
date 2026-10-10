@@ -55,7 +55,8 @@ New approved fresh A/B comparison: each arm starts from zero for10M actions,
 with original-grasp30s evaluations at1/3/5/10M. A uses pose reward; B adds the
 fixed terminal cost16. Latest steering starts A first and measures actual GPU
 memory before deciding concurrent B execution. A launched2026-10-10 16:47:59
-Shanghai; B has not launched. No current learning-improvement claim.
+Shanghai; user then approved concurrent B, launched16:57:27. Both independent
+1024-env fresh learners are running. No current learning-improvement claim.
 [Protocol and actual launch evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/README.md).
 
 Run migration verification:

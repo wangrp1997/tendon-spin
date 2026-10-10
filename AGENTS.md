@@ -158,3 +158,18 @@ Keep all oldweights/history, summarytraining/TensorBoard/pairedcheckpoints,
 headless/noresourcewatchdog, necessary checks only. User explicitly requests
 launch milestone push and an acceptance ETA after startup. One seed and one
 initial state per checkpoint support trend evaluation,not statistical superiority.
+
+Latest2026-10-10 user now explicitly authorizes START B CONCURRENTLY after
+reviewing A's memory. B launched2026-10-10 16:57:27Shanghai,outerPID2527031;
+same fresh1024/seed43/10M schedule and shared immutableprotocol,onlyrewardprofile
+hora_pose_delta_drop16 differs fromA. Keep A running and its pinned code/protocol
+unchanged. Independent per-arm milestone evaluations may overlap peertraining;
+recordactualwallstop if any,do not silentlychange budgets/physics/envcount.
+See docs/experiments/2026-10-10-boya-pose-ab-fresh10m/CONCURRENT_LAUNCH.md.
+Verify actualinitialpolicy/bothnormalizers equality and BfreshAdam/counts,save
+one-off concurrentmemory/throughput evidence andpush;no extra tests/GPUtrials.
+B first actualupdate has been verified:zeroancestry,8192actions/update1/Adamstep80,
+initialpolicy/critic/bothnormalizers exactlyequalA;contractdiffonlyrewardconfiguration,
+allsourcesidentical. BtrainingPID2527033,AtrainingPID2511383. Keep both running
+to their fixed budgets unless manualstop/executionerror;do not change pinned
+code/protocol. Actualsource/config/first-updateevidence retained in experimentdocs.

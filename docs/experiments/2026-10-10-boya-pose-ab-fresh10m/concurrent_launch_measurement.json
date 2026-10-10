@@ -1,0 +1,81 @@
+{
+  "start": {
+    "captured_at": "2026-10-10T08:59:47.729058+00:00",
+    "arms": {
+      "a": {
+        "status": "update completed",
+        "actions_executed": 499712,
+        "completed_updates": 61,
+        "wall_s": 692.3245153659955,
+        "training_actions_per_wall_s": 741.7011183803968,
+        "training_pid": 2511383
+      },
+      "b": {
+        "status": "update completed",
+        "actions_executed": 49152,
+        "completed_updates": 6,
+        "wall_s": 133.78228023299016,
+        "training_actions_per_wall_s": 432.6227817861481,
+        "training_pid": 2527033
+      }
+    },
+    "gpu_csv": "index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\n0, NVIDIA GeForce RTX 5080, 16303 MiB, 7279 MiB, 95 %",
+    "process_csv": "pid, used_gpu_memory [MiB]\n2511383, 3252 MiB\n2527033, 3252 MiB"
+  },
+  "end": {
+    "captured_at": "2026-10-10T09:01:46.382078+00:00",
+    "arms": {
+      "a": {
+        "status": "update completed",
+        "actions_executed": 548864,
+        "completed_updates": 67,
+        "wall_s": 807.4620256321505,
+        "training_actions_per_wall_s": 695.7590224097189,
+        "training_pid": 2511383
+      },
+      "b": {
+        "status": "update completed",
+        "actions_executed": 98304,
+        "completed_updates": 12,
+        "wall_s": 248.60386606189422,
+        "training_actions_per_wall_s": 430.3369841361596,
+        "training_pid": 2527033
+      }
+    },
+    "gpu_csv": "index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\n0, NVIDIA GeForce RTX 5080, 16303 MiB, 7279 MiB, 95 %",
+    "process_csv": "pid, used_gpu_memory [MiB]\n2511383, 3252 MiB\n2527033, 3252 MiB"
+  },
+  "concurrent_interval_rates": {
+    "a": {
+      "update_boundary_interval_s": 115.137510266155,
+      "actions_in_interval": 49152,
+      "updates_in_interval": 6,
+      "actions_per_s": 426.8982357389777
+    },
+    "b": {
+      "update_boundary_interval_s": 114.82158582890406,
+      "actions_in_interval": 49152,
+      "updates_in_interval": 6,
+      "actions_per_s": 428.07281962854546
+    }
+  },
+  "total_interval_actions_per_s": 854.9710553675231,
+  "estimates": {
+    "a": {
+      "remaining_training_hours": 6.151328094775132,
+      "estimated_final_training_utc": "2026-10-10T15:10:51.163219+00:00",
+      "first_node_training_minutes_remaining": 17.91027937473522,
+      "estimated_first_node_training_utc": "2026-10-10T09:19:40.998840+00:00"
+    },
+    "b": {
+      "remaining_training_hours": 6.42681931792338,
+      "estimated_final_training_utc": "2026-10-10T15:27:22.931623+00:00",
+      "first_node_training_minutes_remaining": 35.40332229724542,
+      "estimated_first_node_training_utc": "2026-10-10T09:37:10.581416+00:00"
+    }
+  },
+  "forecast_scope": "Short initial concurrent interval only; excludes future evaluation/analysis/startup times and changes in throughput. Both arms continue authorized budgets; this is not an extra test or stop rule.",
+  "evaluation_overhead": "Historical full30s episodes approximately8\u201310min each at solo evaluation speed; concurrent evaluation may take longer. Four evaluations per arm remain,1500s wall cap unchanged.",
+  "initial_equality_verified": true,
+  "no_resource_watchdog": true
+}

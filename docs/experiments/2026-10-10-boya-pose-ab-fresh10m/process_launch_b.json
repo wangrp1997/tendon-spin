@@ -1,0 +1,66 @@
+{
+  "arm": "B",
+  "pid": 2527031,
+  "launched_at": "2026-10-10T08:57:27.938126+00:00",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-u",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_fresh_milestones.py",
+    "--arm",
+    "B",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b",
+    "--protocol",
+    "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/PROTOCOL.md"
+  ],
+  "output": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b",
+  "log": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1.arm_b.supervisor.log",
+  "initialization": "fresh policy/critic/both normalizers/Adam/adaptiveLR/RNG seed43; zero counts; no initialization or resume checkpoint",
+  "reward_profile": "hora_pose_delta_drop16",
+  "terminal_failure_raw_cost": 16,
+  "terminal_failure_codes": [
+    9,
+    10
+  ],
+  "timeout_cost": 0,
+  "num_envs": 1024,
+  "requested_total_actions": 10000000,
+  "rounded_final_actions": 10002432,
+  "final_updates": 1221,
+  "targets": [
+    {
+      "requested_actions": 1000000,
+      "rounded_actions": 1007616
+    },
+    {
+      "requested_actions": 3000000,
+      "rounded_actions": 3006464
+    },
+    {
+      "requested_actions": 5000000,
+      "rounded_actions": 5005312
+    },
+    {
+      "requested_actions": 10000000,
+      "rounded_actions": 10002432
+    }
+  ],
+  "evaluation_seconds": 30,
+  "evaluations": 4,
+  "concurrency": "A and B independent processes on the same RTX5080; no environment/PPO/physics changes",
+  "A_at_B_start": {
+    "actions_executed": 434176,
+    "completed_updates": 53,
+    "wall_s": 563.5694692530669,
+    "training_actions_per_wall_s": 796.6750347084576,
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_001000000/training"
+  },
+  "A_status_at_B_start": "training_then_evaluation",
+  "A_pinned_sources_verified": true,
+  "automatic_retry": false,
+  "automatic_extension": false,
+  "automatic_resource_stop": false,
+  "resource_watchdog": false,
+  "source_code_changed": false,
+  "additional_tests": "none; existing unchanged runner tests passed at A launch"
+}

@@ -1029,3 +1029,34 @@ GPU4017/16303MiB,available12286MiB,idle761MiB,instantGPUutil70%. Two-process
 current-residencyestimate7265MiB leavesroom totry B;notpeak/concurrentthroughput
 measurement. Bnotlaunched. No watchdog/memory cutoff added. FirstA1Mresultabout
 17:20,fullAabout20:50–21:50Shanghai,conditionalonobservedthroughput/evalduration.
+
+
+[Fresh A/B comparison; concurrent B LAUNCHED by explicit user approval](experiments/2026-10-10-boya-pose-ab-fresh10m/CONCURRENT_LAUNCH.md):
+User says START B after memory discussion. B detachedstart2026-10-10 16:57:27
+Shanghai,outerPID2527031,outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b.
+Acontinues,atBstart434,176actions/53updates/~796.68actions/s cumulative soloavg.
+Bothindependent1024env freshseed43 learners;B terminal16profile,A poseonly.
+No algorithm/physical/interface/cache/task/engine/schedule/source changes, original
+sharedprotocolremainsimmutable forA's sourceguard. Bcommand/provenance/newconcurrent
+authorization archived. Each own1/3/5/10M node triggers own30s-or-failure evaluation;
+mayoverlappeertraining,retain1500swallcap/actualstop,nocommonwallbarrier.
+No resourcewatchdog/memorycutoff/cgroup/trainingwalllimit/retries/extensions/GPUtrial.
+ActualBfirstupdate/initialA-Bstateequality/concurrentmemory/speedchecks pending.
+PriorA-soloETA superseded;newestimatewilluseconcurrentintervals,notmixedsoloavg.
+16:59:47actualBfirstupdate verificationpassed:8192actions/update1/Adamsteps80,
+noresume/migration,initialmodel/bothnormalizersexacttensor-equalA,pairedcontracts
+equalexceptreward_configuration,allruntime sourcehashesequalA. B6updates/49,152
+actions/trainingPID2527033;A61updates/499,712actions/PID2511383. Independent
+TensorBoard/pairedcheckpointswriting. SharedGPU7279/16303MiB,eachprocess3252MiB,
+instantutil95%;one-offmeasurementonly,nowatchdog/stopthreshold. SmallBactualplan/
+config/initialhashes/launchsnapshotarchived;noadditionaltests/auxiliaryGPUepisodes.
+17:01:46 concurrentintervalevidence:from16:59:47 each+49,152actions/+6updates,
+updateboundaryelapsedA115.137510s/B114.821586s,actualA426.898236/B428.072820
+actions/s,total854.971055. A67updates/548,864actions,B12updates/98,304actions;
+GPUstill7279/16303MiB,eachprocess3252MiB,instantutil95%. Noresourcecontrol added.
+Initialshortintervalforecast remainingpuretrainingA6.1513h/B6.4268h,plusfuture
+4evals/analysis/segmentstartup each. Firstmatched1Mresultsabout17:45–18:00,
+bothfinal10M/evalsabout2026-10-11 00:00–01:00Shanghai (~7–8hremaining),subjectto
+throughput/evalchanges;priorA-soloETA superseded. Actualsource/equalityproof/
+counterinterval/memory/provenancearchived. Bothformalrunscontinuefixedbudgets;
+nostablelearningclaim or extra tests/physics/parameterchanges.

@@ -1,0 +1,70 @@
+{
+  "arm": "B",
+  "reward_profile": "hora_pose_delta_drop16",
+  "initialization": "fresh network/normalizers/Adam/RNG seed43; zero actions",
+  "targets": [
+    {
+      "requested_actions": 1000000,
+      "rounded_actions": 1007616
+    },
+    {
+      "requested_actions": 3000000,
+      "rounded_actions": 3006464
+    },
+    {
+      "requested_actions": 5000000,
+      "rounded_actions": 5005312
+    },
+    {
+      "requested_actions": 10000000,
+      "rounded_actions": 10002432
+    }
+  ],
+  "protocol": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/PROTOCOL.md",
+  "sources": [
+    {
+      "path": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/PROTOCOL.md",
+      "sha256": "892c85208c8e2b6c563a64f09fdd09adfd3a7f8aa71149677ecc2982998b86cf"
+    },
+    {
+      "path": "scripts/run_boya_hora_fresh_milestones.py",
+      "sha256": "e6c091f5c6beaefda8ee1d7b6252740356aaae1e4823895c7b4c58bd0b22f53f"
+    },
+    {
+      "path": "scripts/run_boya_hora_milestones.py",
+      "sha256": "db1a2f344c19c5f03a46ca14e5ff21fc18ee28d4af2562f7dd36f60143fc0633"
+    },
+    {
+      "path": "scripts/run_boya_hora_background.py",
+      "sha256": "51bbfaef1f569a2b1036a5958ed31763e0a12a6d8a7c6c5afb89179df1c59e84"
+    },
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "5213c4a96672f9454fd13092061d9c1102c1277390e6aa2801b03dcf900b80ab"
+    },
+    {
+      "path": "scripts/analyze_boya_small_budget.py",
+      "sha256": "df292d18d153c756538dc76701e9188426e5cb896b9e5bdf3e243465bc50522c"
+    },
+    {
+      "path": "tendonspin/evaluation/comparison.py",
+      "sha256": "f4943b399a0a106900e2ffe500ef06205b7c09ed4a04f3dbc1e6c88d3f496dab"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    }
+  ],
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca",
+  "initial_reference": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/initial_state.npz",
+  "initial_reference_sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a",
+  "evaluation_window_s": 30.0,
+  "new_frozen_episodes": 4,
+  "num_envs": 1024,
+  "seed": 43,
+  "resume_environment": "At each later milestone restore full own-arm learner; reset physics from same28-state cache",
+  "resource_watchdog": false,
+  "training_wall_limit": false,
+  "auto_retry": false,
+  "auto_extension": false
+}
