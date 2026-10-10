@@ -1,0 +1,145 @@
+{
+  "status": "completed and stopped; acceptance failed",
+  "rows": [
+    {
+      "label": "Parent20M reused30s diagnostic",
+      "checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+      "cumulative_training_actions": 20004864,
+      "reward_profile": "hora_reported_velocity",
+      "requested_eval_s": 30.0,
+      "actual_s": 30.0,
+      "valid_s": 30.0,
+      "net_deg": 30.42674739742352,
+      "peak_deg": 35.82270588149602,
+      "backward_deg": 37.24068213907233,
+      "complete_requested_window": true,
+      "stop_reason": "time limit"
+    },
+    {
+      "label": "Pose-reward branch after additional1,007,616actions",
+      "checkpoint_sha256": "472f8e679ed4037096a083c67b16cf40b896e3917437c0d00a6cae6848ade2e2",
+      "cumulative_training_actions": 21012480,
+      "reward_profile": "hora_pose_delta",
+      "requested_eval_s": 30.0,
+      "actual_s": 2.0,
+      "valid_s": 1.9995,
+      "net_deg": 25.428426210355894,
+      "peak_deg": 34.13918503557062,
+      "backward_deg": 10.944127614342221,
+      "complete_requested_window": false,
+      "stop_reason": "object below Boya manipulation region",
+      "new_training_actions": 1007616
+    },
+    {
+      "label": "Pose-reward plus terminal16 branch after additional204,800actions",
+      "checkpoint_sha256": "54820396b3300396720ed0b73b1da6fdd968bfbccbc89da92d0f5c64be85fbea",
+      "cumulative_training_actions": 20209664,
+      "new_training_actions": 204800,
+      "reward_profile": "hora_pose_delta_drop16",
+      "requested_eval_s": 30.0,
+      "actual_s": 5.95,
+      "valid_s": 5.9495000000000005,
+      "net_deg": -0.6594886546906906,
+      "peak_deg": 68.65387290696275,
+      "backward_deg": 75.38838466951967,
+      "complete_requested_window": false,
+      "stop_reason": "object below Boya manipulation region"
+    }
+  ],
+  "new_training_actions": 204800,
+  "new_updates": 25,
+  "training_wall_s": 260.8821428529918,
+  "total_wall_s": 359.40311179100536,
+  "train_eval_analysis_exit_codes": {
+    "training": 0,
+    "evaluation": 0,
+    "analysis": 0
+  },
+  "initial_state_max_errors": {
+    "joint_pos": 0.0,
+    "joint_vel": 0.0,
+    "object_state": 0.0,
+    "commands": 0.0
+  },
+  "episode_resets": 0,
+  "controller_switches": 0,
+  "evaluation_training_actions": 0,
+  "task_engine_conditions": "Same original20M ancestry/original4 engine/task/cache/grasp/actions/observations/PPO; explicit pose-plus-terminal16 reward branch. Original20M full learner preserved at migration; physics reset from cache.",
+  "acceptance": {
+    "retained_full30s": false,
+    "increased_valid_prefix_endpoint": false,
+    "passed": false,
+    "holding_regressed_vs_parent": true,
+    "conclusion": "This bounded terminal-cost trial failed both declared acceptance conditions:5.95s below-region failure and signed net-0.659489deg versus parent30s/+30.426747deg. Peak68.653873deg was lost to reversal; stable rotation is unresolved."
+  },
+  "terminal_failure_reward": {
+    "charged_controls": 1,
+    "raw_terminal_cost_sum": -16.0,
+    "total_raw_reward_all_complete_controls": -11.413594227458816,
+    "last_complete_control": {
+      "elapsed_s": 5.95,
+      "reward": -16.9875431060791,
+      "terminal_failure_cost": -16.0
+    },
+    "includes_invalid_terminal_control": true,
+    "valid_prefix_window_means": "Below exclude the invalid terminal sample; terminal costs are reported here"
+  },
+  "observed_signal_windows": {
+    "first5s": {
+      "start_s": 0.0,
+      "requested_end_s": 5.0,
+      "actual_end_s": 5.0,
+      "complete_window_observed": true
+    },
+    "5to20s": {
+      "start_s": 5.0,
+      "requested_end_s": 20.0,
+      "actual_end_s": 5.9495000000000005,
+      "complete_window_observed": false
+    },
+    "20to30s": null,
+    "whole_valid_prefix": {
+      "start_s": 0.0,
+      "requested_end_s": 5.9495000000000005,
+      "actual_end_s": 5.9495000000000005,
+      "complete_window_observed": true
+    }
+  },
+  "next_stage": "STOP. No further training, retry, coefficient scan, evaluation or alternate route launched.",
+  "limits": "One seed/one frozen episode; previous pose-only branch used1,007,616 new actions while this branch used204,800. Unequal training budgets cannot identify a causal terminal-cost improvement or isolate forgetting/critic/optimizer effects. No stable rotation, statistical superiority, SOTA or hardware claim.",
+  "completion_observation": {
+    "captured_at": "2026-10-10T08:10:56.626026+00:00",
+    "supervisor_pid": 2438036,
+    "supervisor_alive": false,
+    "last_child_pid": 2448154,
+    "last_child_alive": false,
+    "stage_phase": "completed",
+    "follow_on_training_launched": false
+  },
+  "sources": [
+    {
+      "path": "outputs/boya_hora1024_pose_drop16_continue200k_v1/training/result.json",
+      "sha256": "538916af1be44f7d1c95b90dd9f0399fbb3785da1a29242c63fccde73e5b595b"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_drop16_continue200k_v1/evaluation/result.json",
+      "sha256": "2de71e1d22268eed2af908060b0386d0681b946754fb23b0a8ff29ee6d868181"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_drop16_continue200k_v1/analysis/result.json",
+      "sha256": "345e2c718e62b73643c702bd394c5b37a2e35a5cdbc7b863deebcb6164da807e"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_drop16_continue200k_v1/stage.json",
+      "sha256": "614feb3423636117ed6029fc6be0e51b6cdb5fb8b18b64029060d7acf9504cfa"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v2/velocity_04/result.json",
+      "sha256": "a81616d318faeb9dac75134508a50e907bcec6e366e1f288faa15cf3443cf42a"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/evaluation/result.json",
+      "sha256": "f2734d4fcf478039f509496dc1d7360c466558ab998deb1a97dac29a1dfc3ff2"
+    }
+  ]
+}

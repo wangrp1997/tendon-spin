@@ -1,0 +1,9 @@
+{
+  "captured_at": "2026-10-10T08:10:56.626026+00:00",
+  "supervisor_pid": 2438036,
+  "supervisor_alive": false,
+  "last_child_pid": 2448154,
+  "last_child_alive": false,
+  "stage_phase": "completed",
+  "follow_on_training_launched": false
+}

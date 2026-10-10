@@ -937,7 +937,7 @@ Estimatedtraining5min+eval9minifcomplete. Proposal/evidence written,NOrewardcode
 edited/NOnewtraininglaunched. Requiresuserdecisionbeforenewrewardstage.
 
 
-[Terminal-cost16 final bounded trial APPROVED and LAUNCHED](experiments/2026-10-10-boya-pose-drop16-200k/README.md):
+[Terminal-cost16 final bounded trial LAUNCH HISTORY; completed below](experiments/2026-10-10-boya-pose-drop16-200k/README.md):
 Latestuser explicitly approves the recorded proposal and requests start; this
 supersedes proposal-only status above. Original20M checkpoint preserved,
 20,004,864actions/2442updates, fullserializedlearner copied exactly into a new
@@ -965,3 +965,27 @@ Protocol/migrationplan/result/launchcommand archived, oldweights/history preserv
 2443checkpoint strictcontract/provenancematch, initialmodel/bothnormalizersexact
 parentmatch, Adamsteps+80perparameter andmodelchanged;TensorBoardevents writing.
 InheritedLR5.7805099719442054e-5 ->first3.85367331462947e-5 by unchangedHora scheduler.
+
+
+[Terminal-cost16 final bounded trial COMPLETED and STOPPED; acceptance failed](experiments/2026-10-10-boya-pose-drop16-200k/README.md):
+Exactly204,800newactions/25updates completed, final20,209,664/2467;trainingwall
+260.882143s,total359.403112s,train/eval/analysisexit0,stagecompleted. FinalSHA256
+54820396b3300396720ed0b73b1da6fdd968bfbccbc89da92d0f5c64be85fbea.
+2026-10-10 16:10:56Shanghai observation:supervisor/lastchildbothnotalive,nofollow-on.
+ExactlyONEfrozenfinalmodel/ownnormalizer/originalgrasp44evaluation,initialq/qdot/
+object/commandsmaxerrorsall0,0resets/switches/learning. Requested30s,actual5.95s,
+valid5.9495s/net-0.659489deg/peak68.653873/backward75.388385,
+stopobjectbelowBoyamanipulationregion. Parent20M same30s reference completed30s/
+net+30.426747/peak35.822706/backward37.240682. Both30sretentionandnetimprovement
+failed;stable rotation andforgettingrepair remainunverified. Previouspose1M
+valid1.9995s/net+25.428426 hadunequalnewtrainingbudget,notcausalpenaltycontrol.
+First5sSciPyangle+49.345436,nextobserved5-5.9495s-50.004860;whole-0.659424deg,
+primaryscoreunchanged.20-30sunobserved. Last.2s-35.194530posthoconly,nofilter.
+TerminalcostactuallychargedONCEraw-16,lasttotalreward-16.987543,all119complete
+controlsrawsum-11.413594includinginvalidterminalcontrol;validprefixmeans exclude
+thatsampleandcostreportedseparately. Lastupdate64trainingresetsallbelowregion,
+meanvalid4.547938s,notstandalonecontinuousmotion. Singleepisodecannotisolate
+forgetting/critic/Adam/weightcausation;nostable/SOTA/statistical/hardwareclaim.
+Smallcomparison/eval/signal/training-summary/config/stage/exitproofarchived;
+weights/raw/TensorBoardlocal,old20M/allhistorypreserved. Noautomaticretry,
+extension,coefficientscan,alternateroute,newtests/video/physics/audits. STOP.

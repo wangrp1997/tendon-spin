@@ -44,12 +44,12 @@ backward10.944deg. The parent completed30s; holding regressed and stable rotatio
 did not improve in this trial.
 [Continuation and final evidence](docs/experiments/2026-10-10-boya-pose-reward-continue1m/README.md).
 
-Latest approved bounded trial: restore original20M full learner and continue
-204,800 actions with pose reward plus one raw terminal cost16 for existing
-Boya workspace failures (ordinary timeouts cost0). Then exactly one frozen
-original-grasp30s evaluation and stop; no retry or extension. This additional
-reward shaping is a single feasibility trial, not a verified improvement.
-[Protocol and actual progress](docs/experiments/2026-10-10-boya-pose-drop16-200k/README.md).
+Latest bounded terminal-cost trial completed and stopped: original20M full
+learner plus204,800 actions with pose reward and terminal cost16. Its sole frozen
+original-grasp30s-requested evaluation dropped at5.95s: valid5.9495s/net-0.659deg/
+peak68.654deg/backward75.388deg. Both full30s retention and increased net angle
+failed; stable rotation remains unresolved. No retry or extension launched.
+[Protocol and final evidence](docs/experiments/2026-10-10-boya-pose-drop16-200k/README.md).
 
 Run migration verification:
 

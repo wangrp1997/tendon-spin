@@ -134,3 +134,8 @@ peak/backward/actual stop. This is additional Boya reward shaping, absent from
 original Hora, not a proven repair or matched-budget superiority claim.
 Keep all prior weights/history, summary training/TensorBoard/checkpoints,
 no resourcewatchdog, necessary checks only, and milestone commits/pushes.
+This final trial has COMPLETED and STOPPED:204,800newactions/25updates,
+soleevaluationactual5.95s/valid5.9495s/net-0.659489deg/peak68.653873/
+backward75.388385,below-regionfailure. Bothdeclaredacceptanceconditionsfailed;
+stable rotation unresolved. Original20M remains preserved. No follow-on budget,
+retry, coefficient scan or alternate route is authorized by this result.
