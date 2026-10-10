@@ -917,3 +917,21 @@ causation,notindependentmatchedbudget/statistical/SOTA/hardwareproof.
 Smallfinalcomparison/eval/signal/training-summary/config/stageevidencearchived;
 weights/raw/fullupdates/TensorBoardlocal,oldhistorypreserved. Nofurtherphysics,
 tests/video/audits/retries/extensionsorconfigurationchanges. Awaitdiscussion.
+
+
+[Next-step terminal-cost PROPOSAL ONLY; not implemented/launched](experiments/2026-10-10-boya-drop-penalty-proposal/PLAN.md):
+User asks how to decide the next plan. Existing reward arrays only,0newphysics/
+training/actions/episodes. gamma.99 rawdiscounted40control/2s dropreturn+6.696855;
+original20M first400control/20s counterfactual pose-rewardreturn-3.763435.
+Include actualterminalreward-.565460; terminaldiscountgamma^39=.675729.
+Cost15.480006 ties these two finite paths; propose integer16, giving dropreturn
+-4.114809. Parenttruncation hasnotimeoutcriticbootstrap;thisisNOTproof ofoptimal
+dropbehavior ortruePPOvalue,onlyonecandidatecalibration,nopenaltyscan.
+Recommend original20M/newseparatebranch/fulllearnerpreserved,pose-reward plus
+ONEcost16 at existingbelow/lateral workspace terminal codes9/10,noordinarytimeout
+penalty;allotherterms/PPO/task/engine/interfacesunchanged. Requested200k/newrounded
+204,800actions/25updates,final20,209,664/2467cumulative,thenONEsame30soriginalstate
+evaluation andSTOP. Preliminarygoal30sretentionANDnet>parent30.426747deg,
+reportpeak/backward/actualstop;notmatchedtrainingbudgetcausal/statisticalproof.
+Estimatedtraining5min+eval9minifcomplete. Proposal/evidence written,NOrewardcode
+edited/NOnewtraininglaunched. Requiresuserdecisionbeforenewrewardstage.

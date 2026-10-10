@@ -1,0 +1,58 @@
+{
+  "status": "proposal only; no new training authorized",
+  "new_physics_steps": 0,
+  "new_training_actions": 0,
+  "new_policy_episodes": 0,
+  "gamma": 0.99,
+  "control_dt": 0.05,
+  "drop_controls": 40,
+  "drop_actual_s": 2.0,
+  "drop_terminal_raw_reward": -0.5654600262641907,
+  "include_terminal_control_reward": true,
+  "drop_discounted_raw_return": 6.696855393284978,
+  "parent_hold_window_s": 20.0,
+  "parent_hold_controls": 400,
+  "parent_discounted_pose_raw_return": -3.7634346497199402,
+  "terminal_discount": 0.6757290490602831,
+  "raw_penalty_to_tie_observed_paths": 15.48000645754647,
+  "proposed_raw_terminal_penalty": 16,
+  "drop_return_with_proposed_penalty": -4.114809391679551,
+  "upstream_ppo_reward_scale": 0.01,
+  "terminal_training_reward_cost": 0.16,
+  "formulas": {
+    "discounted_return": "sum(gamma**t * raw_reward[t]) for t=0..T-1",
+    "tie_penalty": "(observed_drop_return - truncated_parent_pose_return) / gamma**(drop_controls-1)",
+    "selected_penalty": "max(0, floor(tie_penalty)+1)"
+  },
+  "proposed_requested_new_actions": 200000,
+  "proposed_rounded_new_actions": 204800,
+  "proposed_new_updates": 25,
+  "proposed_cumulative_actions": 20209664,
+  "limits": "Two finite recorded trajectories of different lengths. Parent truncated at training20s timeout without critic bootstrap; no matched-state intervention, expected PPO value, new policy prediction or proof of reward exploitation. Calibrates exactly one candidate, not a sweep or verified fix.",
+  "sources": [
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/evaluation/reconstructed_control_reward.npz",
+      "sha256": "2d0c2c75ea7fc73c22d5d015be68570bc0e187ad6cc5452eab30657d68500b95"
+    },
+    {
+      "path": "outputs/boya_pose_reward_verification_v1/rescored_control_reward.npz",
+      "sha256": "ba436d95353a2727c9ee5d7893fea881519f3da410e66f4e24c74d5071b0e199"
+    },
+    {
+      "path": "outputs/boya_hora1024_pose_reward_continue1m_v1/evaluation/result.json",
+      "sha256": "f2734d4fcf478039f509496dc1d7360c466558ab998deb1a97dac29a1dfc3ff2"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v2/velocity_04/result.json",
+      "sha256": "a81616d318faeb9dac75134508a50e907bcec6e366e1f288faa15cf3443cf42a"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    }
+  ]
+}
