@@ -81,7 +81,7 @@ def main():
         primary_30s_metrics=record['metrics']['30.0'],actual_stop_reason=record['stop_reason'],
         valid_prefix_maxima={key:float(d[key][valid].max()) if valid.any() else None
             for key in ('drift_mm','tilt_deg','max_normal')},posthoc_endpoint_motion=terminal,
-        interpretation='Single fresh1M feasibility trial; no matched-budget original4 evaluation, superiority, stable rotation or hardware claim',
+        interpretation='Single-seed fresh1M trial; compare only declared matched conditions and label each valid duration; no statistical superiority or hardware claim',
         sources=sources+[identity(path) for path in (args.training,folder/'result.json',folder/'initial_state.npz',
             folder/'reconstructed_control_reward.npz',Path(__file__))])
     (out/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')

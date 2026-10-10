@@ -1,0 +1,141 @@
+{
+  "pid": 2171808,
+  "launched_at": "2026-10-10T05:20:32.360741+00:00",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-u",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_background.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1",
+    "--total-actions",
+    "1000000",
+    "--termination-profile",
+    "boya_workspace",
+    "--engine-profile",
+    "original_tgs16_4",
+    "--eval-seconds",
+    "30",
+    "--reward-diagnostics",
+    "--initial-reference",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/initial_state.npz",
+    "--controller",
+    "hora_boya1024_velocity4_fresh1m_v1",
+    "--protocol",
+    "docs/experiments/2026-10-10-boya-velocity-four-1m/PROTOCOL.md"
+  ],
+  "output": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1",
+  "log": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1.supervisor.log",
+  "initialization": "fresh network/normalizers/Adam/RNG seed43",
+  "requested_actions": 1000000,
+  "rounded_actions": 1007616,
+  "updates": 123,
+  "engine_profile": "original_tgs16_4",
+  "eval_seconds": 30,
+  "automatic_retry": false,
+  "automatic_resource_stop": false,
+  "comparison_reference": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity0_small1m_v1",
+  "core_source_hashes_match": true,
+  "matched_core_sources": [
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "4e575684956a7b260f23b6484b7eaf3176fcf51ed256cd1bc33a55a14e13cb5d"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "f5b37f618228b447609cfb2ef09de430762cf2db0be8841e22baa433991579fc"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+      "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "3f349e9c20e01a73ca86668cc0a171ef598816a54b308b94d85bb3d921738a14"
+    },
+    {
+      "path": "tendonspin/rl/termination.py",
+      "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+    },
+    {
+      "path": "assets/grasp/rotation_workspace.json",
+      "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+    },
+    {
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+    },
+    {
+      "path": "tendonspin/rl/checkpoint.py",
+      "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+    },
+    {
+      "path": "tendonspin/rl/native_video.py",
+      "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+    },
+    {
+      "path": "tendonspin/rl/resource_guard.py",
+      "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+    },
+    {
+      "path": "scripts/guarded_boya_entry.py",
+      "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+    },
+    {
+      "path": "tendonspin/physics/solver_profiles.py",
+      "sha256": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a"
+    }
+  ],
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca"
+}

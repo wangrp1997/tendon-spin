@@ -27,6 +27,11 @@ evaluation dropped at1.15s: signed valid-prefix net+47.309deg, peak60.646deg,
 backward14.923deg. Stable holding and rotation remain unresolved.
 [Results and signal analysis](docs/experiments/2026-10-10-boya-velocity-zero-1m/README.md).
 
+The user-approved original4-iteration fresh1M control started on2026-10-10 at
+13:20Shanghai, with matching seed43/task/reward/code/action/evaluation budgets.
+It automatically evaluates once and stops; comparison results are pending.
+[Matched control protocol and launch](docs/experiments/2026-10-10-boya-velocity-four-1m/README.md).
+
 Run migration verification:
 
 ```bash

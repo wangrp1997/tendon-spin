@@ -1,0 +1,368 @@
+{
+  "status": "update completed",
+  "controller": "hora_boya1024_velocity4_fresh1m_v1",
+  "seed": 43,
+  "requested_updates": 123,
+  "requested_total_actions": 1000000,
+  "rounded_target_actions": 1007616,
+  "actions_executed": 81920,
+  "completed_updates": 10,
+  "wall_s": 135.9923043390736,
+  "training_actions_per_wall_s": 698.0287285844681,
+  "num_envs": 1024,
+  "trace_mode": "summary",
+  "resume_from": null,
+  "environment_resume": "fresh seed43 initialization",
+  "cache_sha256": "7b575ca1203b1a03129aa7189c693680c3443095925d98afbf300eda22321eca",
+  "cache_size": 28,
+  "engine_configuration": {
+    "profile": "original_tgs16_4",
+    "solver_type": "TGS",
+    "position_min": 16,
+    "position_max": 255,
+    "velocity_min": 4,
+    "velocity_max": 255,
+    "articulation_position": 16,
+    "articulation_velocity": 4,
+    "rigid_body_position": 16,
+    "rigid_body_velocity": 1,
+    "effective_velocity_iterations": 4,
+    "evidence": "composed USD plus documented max-actor request clamped to scene bounds",
+    "direct_kernel_iteration_counter": false
+  },
+  "termination": {
+    "profile": "boya_workspace",
+    "nominal_height_m": 0.10606109973956034,
+    "reset_height_m": 0.06680125319373637,
+    "episode_control_steps": 400,
+    "reference_nominal_height_m": 0.65,
+    "reference_reset_height_m": 0.645,
+    "task_check_timing": "control boundary (20 Hz)",
+    "numerical_check_timing": "each physics step",
+    "workspace": {
+      "schema": 1,
+      "basis": "Boya nominal palm and middle/distal CAD meshes transformed by original grasp44 body frames; task-region approximation, not a proven controllability boundary.",
+      "nominal_object_position_m": [
+        -0.36543899035183314,
+        0.01834018831507308,
+        0.10606109973956034
+      ],
+      "palm_top_z_m": 0.04118875624400497,
+      "object_bounding_radius_m": 0.025612496949731396,
+      "reset_height_m": 0.06680125319373637,
+      "xy_lower_m": [
+        -0.4598660913130383,
+        -0.0691499734867364
+      ],
+      "xy_upper_m": [
+        -0.25905495451026683,
+        0.0765354088213197
+      ],
+      "confirmation_control_steps": 2,
+      "control_hz": 20,
+      "height_basis": "Palm top plus cylinder circumsphere radius: even a palm-supported cylinder is below this center-height plane. No claim that every position above is recoverable.",
+      "lateral_basis": "Fixed nominal middle/distal mesh XY envelope expanded by cylinder circumsphere radius; all five fingers included.",
+      "contact_policy": "Per-finger simulation contact diagnostics only; fewer than two fingers does not terminate. No tactile array or new actor input.",
+      "sources": [
+        {
+          "path": "docs/data/boya_native_contract.json",
+          "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+        },
+        {
+          "path": "assets/hand/meshes/palm.stl",
+          "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6"
+        },
+        {
+          "path": "assets/hand/meshes/thmiddle.stl",
+          "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391"
+        },
+        {
+          "path": "assets/hand/meshes/thdistal.stl",
+          "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111"
+        },
+        {
+          "path": "assets/hand/meshes/ffmiddle.stl",
+          "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53"
+        },
+        {
+          "path": "assets/hand/meshes/ffdistal.stl",
+          "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630"
+        },
+        {
+          "path": "assets/hand/meshes/mfmiddle.stl",
+          "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371"
+        },
+        {
+          "path": "assets/hand/meshes/mfdistal.stl",
+          "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f"
+        },
+        {
+          "path": "assets/hand/meshes/rfmiddle.stl",
+          "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4"
+        },
+        {
+          "path": "assets/hand/meshes/rfdistal.stl",
+          "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15"
+        },
+        {
+          "path": "assets/hand/meshes/lfmiddle.stl",
+          "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e"
+        },
+        {
+          "path": "assets/hand/meshes/lfdistal.stl",
+          "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "4e575684956a7b260f23b6484b7eaf3176fcf51ed256cd1bc33a55a14e13cb5d"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "f5b37f618228b447609cfb2ef09de430762cf2db0be8841e22baa433991579fc"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+    },
+    {
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/experience.py",
+      "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+      "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+      "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+    },
+    {
+      "path": "tendonspin/baselines/reference_models.py",
+      "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+    },
+    {
+      "path": "tendonspin/evaluation/rotation.py",
+      "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+    },
+    {
+      "path": "tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "3f349e9c20e01a73ca86668cc0a171ef598816a54b308b94d85bb3d921738a14"
+    },
+    {
+      "path": "tendonspin/rl/termination.py",
+      "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+    },
+    {
+      "path": "assets/grasp/rotation_workspace.json",
+      "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+    },
+    {
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+    },
+    {
+      "path": "tendonspin/rl/checkpoint.py",
+      "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+    },
+    {
+      "path": "tendonspin/rl/native_video.py",
+      "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+    },
+    {
+      "path": "tendonspin/rl/resource_guard.py",
+      "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+    },
+    {
+      "path": "scripts/guarded_boya_entry.py",
+      "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+    },
+    {
+      "path": "tendonspin/physics/solver_profiles.py",
+      "sha256": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a"
+    },
+    {
+      "path": "docs/experiments/2026-10-10-boya-velocity-four-1m/PROTOCOL.md",
+      "sha256": "46e096410e1f7a44bdd8a2f8950a1df8b83bc55b6d531a4664103eb4804613b0"
+    }
+  ],
+  "observed_at": "2026-10-10T05:22:48.628829+00:00",
+  "stage": {
+    "supervisor_pid": 2171808,
+    "phase": "training",
+    "training": null,
+    "evaluation": null,
+    "process_nice": 10,
+    "requested_total_actions": 1000000,
+    "resume_checkpoint": null,
+    "initialization": "fresh network/normalizers/Adam/RNG seed43",
+    "automatic_resource_stop": false,
+    "termination_profile": "boya_workspace",
+    "engine_profile": "original_tgs16_4",
+    "evaluation_requested_s": 30.0,
+    "automatic_retry": false,
+    "wall_s": 0.0005018650554120541,
+    "training_command": [
+      "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+      "/home/rw/Projects/tendon-spin/scripts/train_boya_hora.py",
+      "--out",
+      "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1/training",
+      "--cache",
+      "/home/rw/Projects/tendon-spin/outputs/boya_settled_cache_v2/grasp_cache.npz",
+      "--total-actions",
+      "1000000",
+      "--num-envs",
+      "1024",
+      "--trace-mode",
+      "summary",
+      "--wall-s",
+      "0",
+      "--max-gpu-memory-mib",
+      "0",
+      "--save-every",
+      "16",
+      "--minibatch-size",
+      "512",
+      "--seed",
+      "43",
+      "--termination-profile",
+      "boya_workspace",
+      "--engine-profile",
+      "original_tgs16_4",
+      "--controller",
+      "hora_boya1024_velocity4_fresh1m_v1",
+      "--protocol",
+      "docs/experiments/2026-10-10-boya-velocity-four-1m/PROTOCOL.md"
+    ],
+    "child_pid": 2171842
+  },
+  "last_update": {
+    "update": 10,
+    "actions": 81920,
+    "learning_rate": 5.7805099719442054e-05,
+    "completed_episodes": 1915,
+    "training_episode_summary": {
+      "count": 246,
+      "stop_counts": {
+        "object below Boya manipulation region": 243,
+        "object outside Boya lateral region": 3
+      },
+      "net_deg": {
+        "mean": 70.25489094154152,
+        "median": 66.78285598754883,
+        "p90": 156.32025909423828,
+        "max": 492.0226745605469
+      },
+      "peak_deg": {
+        "mean": 95.16176656881969,
+        "median": 85.55611801147461,
+        "p90": 156.77629852294922,
+        "max": 492.0226745605469
+      },
+      "backward_deg": {
+        "mean": 32.92866097286167,
+        "median": 20.82808017730713,
+        "p90": 80.23117446899414,
+        "max": 203.58497619628906
+      },
+      "valid_prefix_s": {
+        "mean": 1.6549878823078745,
+        "median": 1.499500036239624,
+        "p90": 2.6495001316070557,
+        "max": 3.94950008392334
+      },
+      "episode_max_drift_mm": {
+        "mean": 79.52756849149378,
+        "median": 74.70132064819336,
+        "p90": 120.42926406860352,
+        "max": 201.7921142578125
+      },
+      "episode_max_tilt_deg": {
+        "mean": 129.10815200185388,
+        "median": 138.44324493408203,
+        "p90": 173.97042846679688,
+        "max": 179.96043395996094
+      },
+      "episode_max_normal_N": {
+        "mean": 32.5686719572641,
+        "median": 29.53334140777588,
+        "p90": 58.62268829345703,
+        "max": 88.1034927368164
+      },
+      "legacy_strict_net_deg": {
+        "mean": 12.127180744689412,
+        "median": 8.982715129852295,
+        "p90": 31.503365516662598,
+        "max": 52.2125244140625
+      },
+      "legacy_strict_valid_s": {
+        "mean": 0.29160570419522197,
+        "median": 0.21050000935792923,
+        "p90": 0.6392500400543213,
+        "max": 1.2990000247955322
+      }
+    },
+    "mean_recent_episode_reward": -4.50584191550401,
+    "actor_loss": -0.0017332673305645585,
+    "critic_loss": 0.2710781693458557,
+    "bounds_loss": 121.41357421875,
+    "entropy": 22.979202270507812,
+    "kl": 0.03694474324584007
+  },
+  "latest_checkpoint": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1/training/teacher_u000001.pth",
+    "sha256": "817a90dcbe652f613be541465d33f4b120bf7ed0e8f81067dd5af3ab5b98e92c",
+    "actions_executed": 8192,
+    "completed_updates": 1,
+    "completed_episodes": 24,
+    "episode_stop_counts": {
+      "nonfinite": 0,
+      "drift >5mm": 0,
+      "tilt >15deg": 0,
+      "speed >100rad/s": 0,
+      "link normal >12N": 0,
+      "mimic error >.05rad": 0,
+      "episode time limit": 0,
+      "object below Hora height": 0,
+      "object below Boya manipulation region": 24,
+      "object outside Boya lateral region": 0
+    },
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_velocity4_small1m_v1/training"
+  },
+  "ppo_network_task_config_matches_velocity0": true
+}

@@ -782,3 +782,28 @@ completedtrainingepisodes allbelowregion,meanvalid1.749949s;notstandaloneevidenc
 Old20M/50Marenotmatchedbudgetcontrols. Finalsmallresults/stage/training-summary/
 solveridentitiesarchived,weights/TensorBoard/rawtraceslocal,oldhistorypreserved.
 Noadditionaltests/GPUepisodes/video/training;nofollow-onbudgetstarted.
+
+
+[Original4 small-budget matched control STARTED](experiments/2026-10-10-boya-velocity-four-1m/README.md):
+Latestuser explicitly approves original4 fresh1M control and requests prompt execution.
+Started2026-10-10 13:20:32Shanghai;supervisor2171808/training2171842. Output
+outputs/boya_hora1024_velocity4_small1m_v1;freshnetwork/normalizers/Adam/RNGseed43,
+1024envs,requested1M/rounded1,007,616actions/123updates. Noresumefrom0oroldweights.
+Reuse unchanged common25training/environment/controller/reward/evaluation sources,
+allSHA256match completed0run;cachehashmatch. Only protocol/experiment/output identity
+and declaredvelocityiterationfieldsdiffer. original_tgs16_4 scenevelocity4/255,
+articulation16/4,rigidbody16/1,position16/255;effective4 bydocumentedaggregation,
+notnativekernelcounter. Sameobject/grasp44/28cache/actions/privilegedobservations/
+HoraPPO/reward/PD/collision/dt/workspace/numericalrules/evaluationbudget.
+Summarytraining/TensorBoard/first-every16-finalpairedcheckpoints;noresourcewatchdog,
+memoryquota/trainingwallcutoff/video/auxiliaryGPUtrial/newtests. AutomaticallyONE
+frozenfinaloriginalstate30s-or-firstfailure/1500swalleval,exactinitialreference,
+fullphysics/rewardrecording,existingofflineanalysis,thenSTOP;noretry/extension.
+Comparevaliddurationandrealnet/peak/backward/stopreasonwithcompleted0fresh1M,
+notold20M/50M. Labelsignalwindowsbyactualobservationduration. Single-seedcontrol
+informsconfigurationchoice,notstatisticalsuperiorityorSOTA/hardwarevalidation.
+Ifbothfailearly,reportnoidentifiedworkingconfigurationandaskbeforechangedroute.
+Actualsnapshot10updates/81,920actions;first8192-actionpairedcheckpointgenerated,
+actualPPO/network/taskconfigexactlymatches0run. Offlineanalysisinterpretationtext
+madeconfiguration-neutral;analysiscalculationsandtrain/evalcodeunchanged.
+Protocol/sourceidentity/launchevidencearchived;finalcomparisonpending.
