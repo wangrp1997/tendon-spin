@@ -21,6 +21,12 @@ First completed trial: final teacher ran120s with18.397394deg net rotation;
 most progress was early and final30s reversed. Sustained rotation is unresolved.
 [Actual results/video](docs/experiments/2026-10-08-teacher-v2/README.md).
 
+Latest bounded teacher trial (2026-10-10): fresh1,007,616 actions with effective0
+velocity iterations completed and stopped. Its single frozen original-grasp
+evaluation dropped at1.15s: signed valid-prefix net+47.309deg, peak60.646deg,
+backward14.923deg. Stable holding and rotation remain unresolved.
+[Results and signal analysis](docs/experiments/2026-10-10-boya-velocity-zero-1m/README.md).
+
 Run migration verification:
 
 ```bash

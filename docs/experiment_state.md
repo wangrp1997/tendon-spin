@@ -738,7 +738,7 @@ retained firstanalysis output/log, rerananalysisonly, no physicsreplay.
 sourcehashes/comparison/execution archived. NoextraGPUtrials/tests/watchdog/video.
 
 
-[Effective-zero small-budget teacher RUNNING](experiments/2026-10-10-boya-velocity-zero-1m/README.md):
+[Effective-zero small-budget teacher LAUNCH HISTORY; completed below](experiments/2026-10-10-boya-velocity-zero-1m/README.md):
 Latestuser explicitly approves smallbudget freshteacher training with originalHora
 reward under effective0 velocityiterations. New requested1,000,000/rounded1,007,616
 actions,123updates,1024envs/seed43/newnetwork/normalizers/Adam/RNG, no resume.
@@ -762,3 +762,23 @@ evaluation orsuperiorityclaim; old20M/50M arehistory,not equaltrainingbudgetcont
 Necessarysyntax/1CPUpairedlearnernextupdaterestore+engineprofilemismatchrejection
 andactualfirstupdate/checkpoint validation passed. Startupisnotfinalrotationevidence;
 finalevaluationpending. Smallprotocol/implementation/launchprovenance saved andpushed.
+
+
+[Effective-zero small-budget teacher COMPLETED and STOPPED](experiments/2026-10-10-boya-velocity-zero-1m/README.md):
+Fresh1,007,616actions/123updates completed normally; training/evaluation/analysis
+exit0, totalwall1321.55s, noautomaticextension. FinalcheckpointSHA256
+9b5b4ddb3ecb31fcfd1ba5ce4315bb5ad6320dca913c143bca0c481023fca5d4.
+ONE frozenownmodel/normalizer/originalgrasp44 episode,0resets/switches/training;
+requested30s,actual1.1500s,valid1.1495s,net+47.308647deg,peak60.645683,
+backward14.923018,stopobjectbelowBoyamanipulationregion. Maxvaliddrift90.503mm,
+tilt129.050deg,normal40.849N. Last.2snet-13.055deg isposthoc,notfilteredscore.
+Observed0-1.1495sonly:fixed-original-axis reported/pose means1.266862/1.263919rad/s,
+fullvectorRMSE.418496/contactRMSE.438184,visiblehandcontact91.214%; independent
+SciPyposeintegral47.308632deg. OriginalHora rotation/totalrewardmeans+.430300/
++.320276percontrol. First5swindowpartial;5-20/20-30sunobserved,null.
+Meanaxialagreementdoesnotestablishfullvelocityconsistencyorstableholding;
+shortturnthenearlydropremains,nostable/sustainedrotationclaim. Lastupdate223
+completedtrainingepisodes allbelowregion,meanvalid1.749949s;notstandaloneevidence.
+Old20M/50Marenotmatchedbudgetcontrols. Finalsmallresults/stage/training-summary/
+solveridentitiesarchived,weights/TensorBoard/rawtraceslocal,oldhistorypreserved.
+Noadditionaltests/GPUepisodes/video/training;nofollow-onbudgetstarted.
