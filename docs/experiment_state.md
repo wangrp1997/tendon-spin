@@ -858,3 +858,38 @@ Primarymovingcylinderaxis remains distinct fromfixedrewardaxis; clippingstillmea
 rewardmeanisnotnetprogress. No learnedrotation/stabilityimprovementclaim, native
 runtime/throughputnotvalidatedhere. Smallprotocol/codeidentity/offlineevidence saved;
 alloldweights/rawtraces/scoresretained. Newtrainingnotstarted,nogpu/video/broadtests.
+
+
+[Pose-reward20M branch continuation STARTED; final outcome pending](experiments/2026-10-10-boya-pose-reward-continue1m/README.md):
+User approves20Mteacher/newreward/additional1M andonefinal30soriginalstateeval.
+ExplicitCPU migration fromparentSHA2569781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e,
+20,004,864actions/2442updates. Allserializedlearnerfields exactaftercopy:policy/critic,
+obs/value normalizers,Adam/LR/scheduler,RNG,counters/times/best_rewards preserved;
+originalfileunchanged. Reviewedtwoadapter-sourceupdates/twonewprofilehelpers,
+samePPO/network/cache/termination/unaffectedsourcehashes verified. Legacycontract
+gets explicitoriginal4engine/newpose-rewardidentity,newlineage andparentprovenance;
+ordinarystrictresumeequality remainsenabled. Nooldaction countedaspose-trained.
+InheritedLR5.7805099719442054e-5;oldcritic/Adamdistributionmustadapt,noconvergencepromise.
+Migration0physics/actions;simulationresetfromsame28cache,notcontinuousparentepisode.
+
+Detachedstart2026-10-10 14:46:08Shanghai;supervisor2311583/training2311585,
+outputs/boya_hora1024_pose_reward_continue1m_v1.14:47:55snapshot2450updates/
+20,070,400cumulativeactions,65,536newposeactions/8updates. Firstnew2443checkpoint
+8192newactionsverified:initialmodel/bothnormalizersexactparentmatch,strictcontract
+equalmigrationtarget,Adamstepsold+80perparameter,modelchangedafteractualPPOupdate,
+branchprovenancepersisted. ThreeeditedPythonfilessyntaxpassed;noauxiliaryGPUtrial/
+newtestcampaign. IndependentTensorBoardeventsandpairedcheckpointswriting.
+
+Requested+1M,rounded+1,007,616/123updates;final21,012,480/2565cumulativetarget.
+Onlyrewardinputchanges;original4engine,grasp44/40x32mm/50g,16fingeractions/heldwrists/
+4passivemimics,v3PD/collision/dt,privileged96+9/8latent,1024envs/PPO/workspace/numerical
+rulesunchanged. Summarytraining/headless/first-every16-finalpairedcheckpoints,
+noresourcewatchdog/memoryquota/trainingwallcutoff. BudgetthenONEfrozenownnormalizer/
+originalgrasp44/30s-or-firstfailure/1500swalleval,exactinitialreference/fullphysics/
+poserewarddiagnostics/offlineanalysis,thenSTOP;error/manualstopnoretry/extension.
+Reuse20Moriginal4same30sreference:valid30s/net+30.426747/peak35.822706/backward37.240682,
+normal30sstop. Compareactualretention/net/backwardandobservedtail,noreturn-only
+improvementorreset/contact-filteredsums. Singleancestrybranch feasibility,notmatched-
+total-budgetstatisticalsuperiority/SOTA/indefiniterotation/hardware. Noresultyet.
+Migrationplan/result/protocol/command/sourcehashes/actuallaunchsnapshotarchived;
+alloldweights/historyandnewweights/raw/TensorBoardremainlocal. Milestonepushauthorized.

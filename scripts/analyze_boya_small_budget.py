@@ -1,8 +1,8 @@
 # Sources: TendonSpin analyze_boya_velocity_probe.py, commit86cf44f; SciPy
 # float64 world rotation vectors. Hora v0.0.1 reward reconstructed by the evaluator.
 # The recorded reward-input profile distinguishes original and pose-delta rewards.
-# This analyzes ONE new frozen episode; prior20M/4 results are not matched-budget
-# learning controls. No simulation, training, plotting or modified primary score.
+# This analyzes ONE new frozen episode. Training ancestry and reward-branch actions
+# distinguish a continuation from a fresh1M run. No physics or modified primary score.
 """Report actual rotation/retention and reported-velocity agreement after1M."""
 import argparse
 import hashlib
@@ -86,7 +86,10 @@ def main():
         primary_30s_metrics=record['metrics']['30.0'],actual_stop_reason=record['stop_reason'],
         valid_prefix_maxima={key:float(d[key][valid].max()) if valid.any() else None
             for key in ('drift_mm','tilt_deg','max_normal')},posthoc_endpoint_motion=terminal,
-        interpretation='Single-seed fresh1M trial; compare only declared matched conditions and label each valid duration; no statistical superiority or hardware claim',
+        training_initialization='continuation' if training.get('resume_from') else 'fresh',
+        session_training_actions=training.get('session_actions_executed'),
+        reward_branch_training_actions=training.get('reward_branch_actions_executed'),
+        interpretation='Single-seed trial; compare only declared matched conditions and label training ancestry and each valid duration; no statistical superiority or hardware claim',
         sources=sources+[identity(path) for path in (args.training,folder/'result.json',folder/'initial_state.npz',
             folder/'reconstructed_control_reward.npz',Path(__file__))])
     (out/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')

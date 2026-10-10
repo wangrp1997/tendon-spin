@@ -67,7 +67,8 @@ files=('scripts/train_boya_hora.py','tendonspin/rl/isaac_hora.py','tendonspin/ba
        'tendonspin/physics/coordinates.py','scripts/evaluate_boya_hora.py',
        'tendonspin/rl/termination.py','assets/grasp/rotation_workspace.json','third_party/hora/configs/task/AllegroHandHora.yaml',
        'tendonspin/rl/checkpoint.py','tendonspin/rl/native_video.py','tendonspin/rl/resource_guard.py','scripts/guarded_boya_entry.py',
-       'tendonspin/physics/solver_profiles.py','tendonspin/rl/rotation_reward.py',args.protocol)
+       'tendonspin/physics/solver_profiles.py','tendonspin/rl/rotation_reward.py',
+       'scripts/migrate_boya_pose_reward.py',args.protocol)
 for name in files:
     source=root/name;content=source.read_bytes()
     snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(content)
@@ -76,6 +77,9 @@ record['cache_sha256']=hashlib.sha256(args.cache.read_bytes()).hexdigest()
 
 def save(status):
     record['status']=status;record['wall_s']=time.monotonic()-started
+    if 'reward_branch_migration' in record:
+        record['reward_branch_actions_executed']=(record['actions_executed']-
+            record['reward_branch_migration']['reward_start_actions'])
     atomic_json(out/'result.json',record)
     print('BOYA_HORA '+json.dumps(dict(status=status,updates=record['completed_updates'],
         actions=record['actions_executed'],wall_s=record['wall_s'],stop_reason=record['stop_reason'],
@@ -133,6 +137,8 @@ try:
         record.update(actions_executed=base_actions,completed_updates=previous['completed_updates'],
             completed_episodes=base_episodes,lineage_id=previous['lineage_id'],
             resumed_checkpoint_sha256=hashlib.sha256(args.resume.read_bytes()).hexdigest())
+        if 'reward_branch_migration' in previous:
+            record['reward_branch_migration']=previous['reward_branch_migration']
         if agent.agent_steps!=base_actions or agent.epoch_num!=previous['completed_updates']:
             raise ValueError('Checkpoint is not a completed PPO-update boundary')
         if target_updates<=agent.epoch_num:raise ValueError('Cumulative target is already reached by checkpoint')
@@ -157,6 +163,8 @@ try:
         path=out/(name+'.pth')
         progress={k:record[k] for k in ('actions_executed','completed_updates','completed_episodes',
                                         'episode_stop_counts','lineage_id')}
+        if 'reward_branch_migration' in record:
+            progress['reward_branch_migration']=record['reward_branch_migration']
         save_checkpoint(agent,path,contract=contract,progress=progress)
         record['checkpoint']=str(path.relative_to(root))
         record['checkpoint_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()

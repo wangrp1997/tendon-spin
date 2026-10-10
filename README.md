@@ -33,11 +33,15 @@ Both configurations dropped within1.5s;0 did not improve retention and rotation
 together. No stable configuration was identified at this budget.
 [Matched control results](docs/experiments/2026-10-10-boya-velocity-four-1m/README.md).
 
-Pose-derived rotation reward is implemented for new training, with explicit
-original/pose reward profiles and checkpoint identity. Existing20M30s data confirms
-the20-30s rotation reward changes from+.367686 to-.004294 when actual turning
-slightly reverses. This is offline input verification; no new training has started.
+Pose-derived rotation reward is implemented, with explicit original/pose profiles
+and checkpoint identity. Existing20M30s offline data confirms the20-30s reward
+changes from+.367686 to-.004294 when actual turning slightly reverses.
 [Change and verification](docs/experiments/2026-10-10-boya-pose-reward/README.md).
+The user-approved20M teacher migration and additional1,007,616-action background
+continuation started on2026-10-10, with original4 engine/task/PPO retained and
+one automatic final30s evaluation. First actual update/checkpoint verified;
+new rotation/retention outcome is pending.
+[Continuation and launch evidence](docs/experiments/2026-10-10-boya-pose-reward-continue1m/README.md).
 
 Run migration verification:
 

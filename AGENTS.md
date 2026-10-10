@@ -105,3 +105,14 @@ error/manualstop; no automatic retries or algorithm/criterion changes. Preserve
 current10Mweights, logs and completedhistory; firststrictweights already deleted.
 Keep no-watchdog/headless/TensorBoard/checkpoint/push preferences. Video requests
 should deliver video without per-frame image clutter by default.
+
+Latest2026-10-10 authorization: implement pose-derived rotation reward (completed,
+0bdb2d3), explicitly migrate the preserved20M teacher to a separate reward branch
+and START additional requested1M/rounded1,007,616 actions, same1024envs/original4
+engine/task/cache/PPO/actions/observations. Preserve full learner state and label
+ancestral actions separately; strict unchanged-contract resume stays enabled.
+Final cumulative21,012,480/2565updates -> ONE frozen originalgrasp44/requested30s
+evaluation with full trace and offline analysis -> STOP, no retries/extensions.
+Read docs/experiments/2026-10-10-boya-pose-reward-continue1m/ before follow-up.
+Keep all old weights/results, summary training logs, TensorBoard/checkpoints,
+no resourcewatchdog and milestonepush. New reward effectiveness remains pending.

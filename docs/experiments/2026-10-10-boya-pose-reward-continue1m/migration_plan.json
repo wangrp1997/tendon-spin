@@ -1,0 +1,31 @@
+{
+  "schema": "tendonspin-boya20m-pose-reward-migration-plan-v1",
+  "parent_checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+  "source_record_sha256": "f72a7dd83ab40a1f9c294cb19a5e0727d3f5bc681d2078f8bed1894627f29dae",
+  "updated_sources": {
+    "tendonspin/rl/isaac_hora.py": {
+      "before": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d",
+      "after": "e26f3a94ade37167706ec4db0a24f48044a63487ba9dd394ef2c86c6a9602227",
+      "reason": "Explicit engine/reward profiles and per-physics pose-reward accumulator; observations/actions/termination/PPO unchanged."
+    },
+    "tendonspin/physics/isaac_parallel.py": {
+      "before": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76",
+      "after": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a",
+      "reason": "Optional effective0 engine route added earlier; selecting original_tgs16_4 retains parent scene/articulation/body requests and dynamics."
+    }
+  },
+  "added_sources": {
+    "tendonspin/physics/solver_profiles.py": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a",
+    "tendonspin/rl/rotation_reward.py": "4fac7a04d3f18c55736fd41dfaffe7e71450fd12da95ee2b1851c01249b5515c"
+  },
+  "engine_profile": "original_tgs16_4",
+  "parent_reward_profile": "hora_reported_velocity",
+  "branch_reward_profile": "hora_pose_delta",
+  "parent_actions": 20004864,
+  "requested_additional_actions": 1000000,
+  "rounded_additional_actions": 1007616,
+  "requested_cumulative_actions": 21004864,
+  "rounded_cumulative_actions": 21012480,
+  "new_updates": 123,
+  "learner_state": "preserve all serialized learner fields; change contract and progress lineage/provenance only"
+}

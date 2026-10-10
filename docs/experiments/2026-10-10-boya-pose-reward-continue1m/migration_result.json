@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "schema": "tendonspin-explicit-reward-branch-v1",
+  "created_at": "2026-10-10T06:45:06.367970+00:00",
+  "parent_checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_final.pth",
+  "parent_checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+  "source_record": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/result.json",
+  "source_record_sha256": "f72a7dd83ab40a1f9c294cb19a5e0727d3f5bc681d2078f8bed1894627f29dae",
+  "plan": "docs/experiments/2026-10-10-boya-pose-reward-continue1m/migration_plan.json",
+  "plan_sha256": "edd345aadc0f771021cbb366d1aae972bc5dfa0d7cdc41b48d7db83d6d4d5ab4",
+  "parent_lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace10m_v3/training",
+  "branch_lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_reward_continue1m_v1/training",
+  "parent_reward_profile": "hora_reported_velocity",
+  "branch_reward_profile": "hora_pose_delta",
+  "reward_start_actions": 20004864,
+  "reward_start_update": 2442,
+  "pose_reward_training_actions_at_migration": 0,
+  "source_contract_sha256": "50c2408de3896867494bb9869a26563c1fffffddcdee6d821a1bcc3349aacda2",
+  "target_contract_sha256": "c3ed68c0b44a48ae5ac0718ee3b34123e45f6fad82d0c995d38b2a3dc7273df4",
+  "updated_sources": {
+    "tendonspin/rl/isaac_hora.py": {
+      "before": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d",
+      "after": "e26f3a94ade37167706ec4db0a24f48044a63487ba9dd394ef2c86c6a9602227",
+      "reason": "Explicit engine/reward profiles and per-physics pose-reward accumulator; observations/actions/termination/PPO unchanged."
+    },
+    "tendonspin/physics/isaac_parallel.py": {
+      "before": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76",
+      "after": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a",
+      "reason": "Optional effective0 engine route added earlier; selecting original_tgs16_4 retains parent scene/articulation/body requests and dynamics."
+    }
+  },
+  "added_sources": {
+    "tendonspin/physics/solver_profiles.py": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a",
+    "tendonspin/rl/rotation_reward.py": "4fac7a04d3f18c55736fd41dfaffe7e71450fd12da95ee2b1851c01249b5515c"
+  },
+  "engine_change": false,
+  "task_change": false,
+  "ppo_change": false,
+  "learner_fields_preserved": [
+    "schema",
+    "model",
+    "running_mean_std",
+    "value_mean_std",
+    "optimizer",
+    "learning_rate",
+    "scheduler",
+    "agent_steps",
+    "epoch_num",
+    "data_collect_time",
+    "rl_train_time",
+    "best_rewards",
+    "torch_rng",
+    "cuda_rng",
+    "numpy_rng",
+    "python_rng",
+    "resume_environment"
+  ],
+  "environment_resume": "reset from the same28-state cache; unfinished episodes/rollout are discarded",
+  "critic_and_adam": "preserved from old objective; must adapt to changed reward, no reset or LR change",
+  "migrated_checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_pose_reward_migration_v1/teacher_20m_pose_branch.pth",
+  "migrated_checkpoint_sha256": "9810adaa94638c2520dc32969b1965d92c58c6ad92c3ca286fdd7b624ec46fee",
+  "serialized_learner_equality": true,
+  "original_checkpoint_unchanged": true,
+  "new_physics_steps": 0,
+  "new_training_actions": 0
+}
