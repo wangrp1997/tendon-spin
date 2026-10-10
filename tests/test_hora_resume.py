@@ -10,6 +10,7 @@ from omegaconf import OmegaConf
 from tendonspin.baselines.hora_training import ROOT,load_ppo
 from tendonspin.rl.checkpoint import save_checkpoint,restore_checkpoint
 from tendonspin.physics.solver_profiles import configuration,ORIGINAL,VELOCITY_ZERO
+from tendonspin.rl.rotation_reward import configuration as reward_configuration,POSE_DELTA,REPORTED
 
 
 class ToyEnv:
@@ -31,7 +32,8 @@ class HoraResumeTests(unittest.TestCase):
             task=dict(env=dict(numEnvs=4)),train=OmegaConf.load(ROOT/'third_party/hora/configs/train/AllegroHandHora.yaml')))
         cfg.train.ppo.priv_info=True;cfg.train.ppo.minibatch_size=16
         PPO=load_ppo();contract={'test':'CPU original PPO; not robot physics',
-            'engine_configuration':configuration(VELOCITY_ZERO)}
+            'engine_configuration':configuration(VELOCITY_ZERO),
+            'reward_configuration':reward_configuration(POSE_DELTA,.0005,100)}
         with tempfile.TemporaryDirectory() as directory:
             a=PPO(ToyEnv(),directory+'/a',cfg);b=PPO(ToyEnv(),directory+'/b',cfg)
             try:
@@ -58,6 +60,8 @@ class HoraResumeTests(unittest.TestCase):
                 self.assertEqual(b.agent_steps,64);self.assertEqual(b.last_lr,a.last_lr)
                 with self.assertRaisesRegex(ValueError,'contract mismatch'):
                     restore_checkpoint(b,file,contract={**contract,'engine_configuration':configuration(ORIGINAL)})
+                with self.assertRaisesRegex(ValueError,'contract mismatch'):
+                    restore_checkpoint(b,file,contract={**contract,'reward_configuration':reward_configuration(REPORTED,.0005,100)})
             finally:a.writer.close();b.writer.close()
 
 

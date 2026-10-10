@@ -1,0 +1,95 @@
+{
+  "status": "implemented_offline_verified_no_training",
+  "observed_at": "2026-10-10T06:32:11.243941+00:00",
+  "source_basis_commit": "0c48392",
+  "training_cli_default": "hora_pose_delta",
+  "original_profile": "hora_reported_velocity",
+  "low_level_api_default": "hora_reported_velocity",
+  "new_physics_steps": 0,
+  "new_training_actions": 0,
+  "new_policy_episodes": 0,
+  "checks": {
+    "final_syntax": {
+      "files": 9,
+      "status": "passed"
+    },
+    "rotation_tests": {
+      "command": "python -m unittest tests.test_rotation_reward",
+      "cases": 3,
+      "status": "passed"
+    },
+    "paired_restore_test": {
+      "command": "python -m unittest tests.test_rotation_reward tests.test_hora_resume",
+      "paired_restore_case_status": "passed, including reward-configuration mismatch rejection",
+      "initial_combined_suite": "3 passed,1 stationary exact-zero assertion failed at1.8965e-19rad/s; stationary test tolerance changed to1e-12, then all3 rotation cases passed"
+    },
+    "offline": {
+      "command": "PYTHONPATH=. python scripts/verify_boya_pose_reward.py --evaluation outputs/boya_velocity_diagnostic_v2/velocity_04 --out outputs/boya_pose_reward_verification_v1",
+      "status": "passed"
+    }
+  },
+  "native_runtime_validation": "not run; no claim of trained-policy improvement or measured GPU throughput",
+  "continuation": "Old20M to new reward requires a separately recorded explicit branch migration; not executed.",
+  "sources": [
+    {
+      "path": "tendonspin/rl/rotation_reward.py",
+      "sha256": "4fac7a04d3f18c55736fd41dfaffe7e71450fd12da95ee2b1851c01249b5515c"
+    },
+    {
+      "path": "tendonspin/rl/isaac_hora.py",
+      "sha256": "e26f3a94ade37167706ec4db0a24f48044a63487ba9dd394ef2c86c6a9602227"
+    },
+    {
+      "path": "scripts/train_boya_hora.py",
+      "sha256": "4e04907949023b3dd8f80a6b81924d1b9e70ac69bfe6e416238a2d3221f15417"
+    },
+    {
+      "path": "scripts/run_boya_hora_background.py",
+      "sha256": "51bbfaef1f569a2b1036a5958ed31763e0a12a6d8a7c6c5afb89179df1c59e84"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora.py",
+      "sha256": "43d777d463933077d774fcc12f69416d778d2bdc23a03c77f802d63c69628c88"
+    },
+    {
+      "path": "scripts/analyze_boya_small_budget.py",
+      "sha256": "fda52782b67e4ae82a628c2405afb759f3568e091cb8171abccb1deb95787527"
+    },
+    {
+      "path": "scripts/verify_boya_pose_reward.py",
+      "sha256": "6c77b1d24030892c9841ba26da16e502639ef8a886d002ee19af9d6666fa18d5"
+    },
+    {
+      "path": "tests/test_rotation_reward.py",
+      "sha256": "f87624978fc96e2019f21bba0c3ed3e6239ee193ae0039a12023369c9e9c10ae"
+    },
+    {
+      "path": "tests/test_hora_resume.py",
+      "sha256": "91b9eb1f95aa6abccd0e1c73938f4cc871d5a157a70bb0594e6fb10642c1bef8"
+    },
+    {
+      "path": "tendonspin/rl/checkpoint.py",
+      "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+    },
+    {
+      "path": "tendonspin/baselines/hora_training.py",
+      "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+    },
+    {
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    },
+    {
+      "path": "third_party/hora/hora/algo/ppo/ppo.py",
+      "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+    },
+    {
+      "path": "third_party/hora/hora/algo/models/models.py",
+      "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+    },
+    {
+      "path": "docs/experiments/2026-10-10-boya-pose-reward/PROTOCOL.md",
+      "sha256": "be1f6ba87333b848cf62ca715784aacca572c15dde0f90e7875c397e1f189077"
+    }
+  ]
+}

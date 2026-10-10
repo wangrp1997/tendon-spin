@@ -2,7 +2,7 @@
 # physical runner and declared signed-prefix scoring. New frozen-policy runner;
 # no learning, cache starts, controller switches or reset after restoration.
 # Train-record solver identity is shared with learning; optional reward diagnostics
-# reuse the original Hora formula without changing frozen policy actions.
+# reuse the recorded reward-input profile and original Hora formula, without changing policy actions.
 """One original-state Isaac episode from one frozen Hora Boya checkpoint."""
 import argparse
 import hashlib
@@ -57,13 +57,19 @@ try:
     from tendonspin.physics.isaac_parallel import tensor
     from tendonspin.baselines.reference_models import build_model,reference_module
     from tendonspin.evaluation.rotation import score_prefix
+    from tendonspin.rl.rotation_reward import REPORTED,require_checkpoint_configuration
     torch.set_num_threads(4);torch.manual_seed(43);np.random.seed(43)
     if args.video:
         from tendonspin.rl.native_video import NativePolicyVideo
         video=NativePolicyVideo(out,record['training_actions_in_checkpoint'])
     env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None,
         termination_profile=training.get('termination',{}).get('profile','legacy_strict'),
-        engine_profile=training.get('engine_profile','original_tgs16_4'))
+        engine_profile=training.get('engine_profile','original_tgs16_4'),
+        reward_profile=training.get('reward_profile',REPORTED))
+    record['reward_profile']=env.reward_configuration['profile']
+    record['reward_configuration']=env.reward_configuration
+    if 'reward_configuration' in training and env.reward_configuration!=training['reward_configuration']:
+        raise ValueError('Evaluation reward configuration differs from training')
     record['termination']=env.termination.spec.to_dict()
     if 'termination' in training and record['termination']!=training['termination']:
         raise ValueError('Evaluation termination differs from the training contract')
@@ -75,6 +81,7 @@ try:
     p.reset_nominal()
     env.history[:]=env._frame(noise=False)[:,None,:]
     weights=torch.load(args.checkpoint,map_location=p.device,weights_only=False)
+    require_checkpoint_configuration(weights.get('contract',{}),env.reward_configuration)
     if training.get('engine_profile')=='tgs16_velocity0' and weights['contract']['engine_configuration']!=p.engine_configuration:
         raise ValueError('Checkpoint engine contract differs from evaluation')
     model=build_model().to(p.device);model.load_state_dict(weights['model']);model.eval()
@@ -106,8 +113,10 @@ try:
             controls.append(dict(step=step,obs=obs['obs'].cpu().numpy()[0],
                 priv_info=obs['priv_info'].cpu().numpy()[0],action=action.cpu().numpy()[0]))
             p.adapter.set_action(action)
+            if args.reward_diagnostics:env.rotation_reward_signal.begin(prev)
         q,v,effort=p.advance()
         m=p.measure()
+        if args.reward_diagnostics:env.rotation_reward_signal.advance(m['object_state'][:,3:7])
         code=int(env.termination.failure_codes(m,p.origins,
             control_boundary=(step+1)%p.adapter.steps_per_control==0)[0])
         valid=code==0
@@ -136,9 +145,11 @@ try:
             velocity=(m['joint_pos'][:,active]-q[:,active])/p.dt
             pose=((m['joint_pos'][:,active]-env.init_q)**2).sum(-1)
             torque=tau.square().sum(-1);work=(tau*velocity).sum(-1).square()
-            reward,rot,lin=env.reward_fn(m['object_state'][:,7:10],-.3,m['object_state'][:,10:13],
+            rotation_velocity=env.rotation_reward_signal.angular_velocity(m['object_state'][:,10:13])
+            reward,rot,lin=env.reward_fn(m['object_state'][:,7:10],-.3,rotation_velocity,
                 env.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
             reward_rows.append(dict(elapsed_s=(step+1)*p.dt,valid=valid,reward=float(reward[0]),
+                rotation_velocity=rotation_velocity[0].cpu().numpy().copy(),
                 rotation=float(rot[0]),linear_cost=float(-.3*lin[0]),pose_cost=float(-.3*pose[0]),
                 torque_cost=float(-.1*torque[0]),work_cost=float(-2*work[0])))
         if len(frames)>=2000:

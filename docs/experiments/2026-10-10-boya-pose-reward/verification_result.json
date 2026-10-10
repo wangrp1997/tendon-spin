@@ -1,0 +1,270 @@
+{
+  "status": "completed",
+  "new_physics_steps": 0,
+  "new_training_actions": 0,
+  "new_policy_episodes": 0,
+  "source_evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04",
+  "source_checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+  "source_actual_s": 30.0,
+  "source_valid_s": 30.0,
+  "reward_configuration": {
+    "profile": "hora_pose_delta",
+    "physics_dt": 0.0005,
+    "steps_per_control": 100,
+    "control_dt": 0.05,
+    "frame": "world",
+    "target_axis": "negative original-grasp cylinder Z; fixed, unchanged from the Hora port",
+    "velocity_source": "measured XYZW pose increments",
+    "aggregation": "sum shortest world rotation vectors / control_dt",
+    "pose_arithmetic": "float64; cast velocity to native tensor dtype before Hora reward",
+    "rotation_scale": 1.0,
+    "angular_velocity_clip": [
+      -0.5,
+      0.5
+    ],
+    "remaining_terms": "original Hora linear/pose/torque/work penalties, unchanged"
+  },
+  "controls_rescored": 600,
+  "max_control_velocity_error_vs_scipy_rad_s": 2.83350107821434e-08,
+  "max_original_rotation_reward_reproduction_error": 5.960464477539063e-08,
+  "windows": {
+    "first5s": {
+      "start_s": 0.0,
+      "requested_end_s": 5.0,
+      "observed_last_control_s": 5.0,
+      "complete_window_observed": true,
+      "controls": 100,
+      "reported_target_axis_rate_mean_rad_s": 0.250194787979126,
+      "pose_target_axis_rate_mean_rad_s": 0.06787263602018356,
+      "original_rotation_reward_mean": 0.23868234053254128,
+      "pose_rotation_reward_mean": 0.06787263602018356,
+      "original_total_reward_mean": 0.1592875136528164,
+      "pose_total_reward_mean": -0.01152219709707424
+    },
+    "5to20s": {
+      "start_s": 5.0,
+      "requested_end_s": 20.0,
+      "observed_last_control_s": 20.0,
+      "complete_window_observed": true,
+      "controls": 300,
+      "reported_target_axis_rate_mean_rad_s": 0.37271758913993835,
+      "pose_target_axis_rate_mean_rad_s": 0.01349055115133524,
+      "original_rotation_reward_mean": 0.3479282559889058,
+      "pose_rotation_reward_mean": 0.005197752732783556,
+      "original_total_reward_mean": 0.20945984336237114,
+      "pose_total_reward_mean": -0.13327066033147275
+    },
+    "20to30s": {
+      "start_s": 20.0,
+      "requested_end_s": 30.0,
+      "observed_last_control_s": 30.0,
+      "complete_window_observed": true,
+      "controls": 200,
+      "reported_target_axis_rate_mean_rad_s": 0.367750346660614,
+      "pose_target_axis_rate_mean_rad_s": -0.004293580073863268,
+      "original_rotation_reward_mean": 0.36768565883859994,
+      "pose_rotation_reward_mean": -0.004293580073863268,
+      "original_total_reward_mean": 0.23312219649553298,
+      "pose_total_reward_mean": -0.13885704265674575
+    },
+    "whole_valid_prefix": {
+      "start_s": 0.0,
+      "requested_end_s": 30.0,
+      "observed_last_control_s": 30.0,
+      "complete_window_observed": true,
+      "controls": 600,
+      "reported_target_axis_rate_mean_rad_s": 0.3506413698196411,
+      "pose_target_axis_rate_mean_rad_s": 0.016626186668872833,
+      "original_rotation_reward_mean": 0.3363064043627431,
+      "pose_rotation_reward_mean": 0.012479787692427635,
+      "original_total_reward_mean": 0.20898523945516595,
+      "pose_total_reward_mean": -0.114841377234164
+    }
+  },
+  "source_primary_metrics_unchanged": {
+    "window_s": 30.0,
+    "valid_seconds": 30.0,
+    "complete_window_observed": true,
+    "net_deg": 30.42674739742352,
+    "peak_deg": 35.82270588149602,
+    "forward_deg": 67.66742953649585,
+    "backward_deg": 37.24068213907233,
+    "net_deg_per_budget_second": 1.0142249132474506,
+    "net_deg_per_valid_second": 1.0142249132474506,
+    "valid_prefix_last_tail_s": 30.0,
+    "valid_prefix_last_tail_net_deg": 30.42674739742352,
+    "full_window_final_tail_net_deg": 30.42674739742352,
+    "goals": [
+      {
+        "target_deg": 90.0,
+        "reached": false,
+        "first_sampled_time_s": null,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      },
+      {
+        "target_deg": 360.0,
+        "reached": false,
+        "first_sampled_time_s": null,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      },
+      {
+        "target_deg": 720.0,
+        "reached": false,
+        "first_sampled_time_s": null,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      }
+    ],
+    "stalled": null,
+    "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+  },
+  "interpretation": "Offline reward-input verification only. Fixed original target axis is retained; primary moving-cylinder-axis evaluation metrics remain distinct. Clipping is unchanged, so mean clipped reward is not identical to net angular progress. No learned improvement is established.",
+  "sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_000.npz",
+      "sha256": "a821a78a97c35457249d9dbad0e7743cfa103b4a5e5d580195098f45965ba04d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_001.npz",
+      "sha256": "55624a91a9f17d7f91ad902d6cdbc0604f949c3d82dab6ec1d12314b5f29104f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_002.npz",
+      "sha256": "f126fe91d5b1516d70228b6e1c1f0f959f3cbd4fefec7c0c6f50dfdba263e816"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_003.npz",
+      "sha256": "416cfda830153154eb3ab65523f821f1b4f2d6adc1caa069098d9ccbd8137ff1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_004.npz",
+      "sha256": "91514caff10327137aa7d8ed2aa9be739aad426907b4164807d408bf63c3cc99"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_005.npz",
+      "sha256": "bc21b836ce28789be610de452eb1d7eeb11016340787c4018041f974f97a0c49"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_006.npz",
+      "sha256": "a791af6f47a4cb8c2a644a80c86da98e62ffb3e8db9e16d80a6e5f3f8ff0fe96"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_007.npz",
+      "sha256": "27667b7e60654589ee699f7bf66989035fa6b02e071fbef1220414f874663492"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_008.npz",
+      "sha256": "d4eb017b117afbea30d1920d3c0374c3f4e52c429243ec5a8fb7c2d9697cc7c7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_009.npz",
+      "sha256": "58bf2940e175a9bd2e796acf5bbbd0ee22fe3b4c593b4586f51add189158b8e5"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_010.npz",
+      "sha256": "8ac410add0e12dda7b109a39a047c7338316d40e613a74990a103634ab9f3c79"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_011.npz",
+      "sha256": "5684c0fb50cc9a9afef91cee13997f7242e3571c461c3d792ec0f308d62d7bb0"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_012.npz",
+      "sha256": "2198ac2f4123f35eca58cbf8c844f9bb97eaa26e1809ecf5ab829920d849221f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_013.npz",
+      "sha256": "f74713d9522ce6a716d1e34bca3696ef4e34a9c57a99e78b5d2b4e9b5608cf22"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_014.npz",
+      "sha256": "2d75abac9c9e54571fdc1dec28b1a66c5dfc289c237f6470540e2a6dfe667edb"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_015.npz",
+      "sha256": "449b691b59adf71c67cea868c5b4aa233408c9ec8d23f3bc75f8795f42b0c139"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_016.npz",
+      "sha256": "2e97c887ac8ba0f42602c764cdc9f2563efe86439e8e16d1d1c4faa008296479"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_017.npz",
+      "sha256": "4ede2c6eaaa8e3f15389ac85390674870b67ee7bdee0828ef8292a4ab0fba1db"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_018.npz",
+      "sha256": "35cf42710b3a48ba1947978f766903c5e9d224252378aefffd01ab0fde08017b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_019.npz",
+      "sha256": "25029ece700c4e390c0846f3920596af2d3b30c4ec322bef29b6beee8c87c1ca"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_020.npz",
+      "sha256": "9ea22781663ef09f493cdca6752a50c5575e6811801e3f364ca5b7ac37e6bcf9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_021.npz",
+      "sha256": "8cc521a2bc30f0f52e8727e04f5936f51e71034c7521a1044d1a2957002b4fbc"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_022.npz",
+      "sha256": "7b6476c2180f3a23139c7248d923c72202effb13a888b221e8c39899dadc6765"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_023.npz",
+      "sha256": "77e6fc56028dc0b1424daa9c2027a22f1a611b47b357e4f71c1479590818729f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_024.npz",
+      "sha256": "76917c1b5b0d91fe92af5433d315887d6ee7a54fea1dcc96d5be80992933bc7b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_025.npz",
+      "sha256": "344429397032558eb9fee689c412736874bc0b2bae579ac29c2774a02ce07d83"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_026.npz",
+      "sha256": "3d65d3dd07aed9415fe49a3542eb7ae0a30ea90fe3b56461dfdb71224fa2822c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_027.npz",
+      "sha256": "a6476e2dc3cbc7a94985e95b0530cd97eaffbd775d31efa98e7ceae5ab8d2130"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_028.npz",
+      "sha256": "6c4f344cc3a4f8c926dd70afbfdd606d5800d617c3090c60dcdc979313528aad"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_029.npz",
+      "sha256": "407a56e1a335ed00b7eaacd5c829084d0586e6b1a85acb54ecf3c142ed9b0dce"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/result.json",
+      "sha256": "a81616d318faeb9dac75134508a50e907bcec6e366e1f288faa15cf3443cf42a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/reconstructed_control_reward.npz",
+      "sha256": "4e9d1938ab56ac46c5387afe37fdd8ca5cf73a7437e878a89cc56a94435ea31f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/verify_boya_pose_reward.py",
+      "sha256": "6c77b1d24030892c9841ba26da16e502639ef8a886d002ee19af9d6666fa18d5"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/rl/rotation_reward.py",
+      "sha256": "ea4b3238a3dd441dc35af24111a2d56449ab35b1343901d470958bae6ad61308"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    }
+  ]
+}

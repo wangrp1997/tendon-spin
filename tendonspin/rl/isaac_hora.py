@@ -1,6 +1,7 @@
 # References: Hora v0.0.1 allegro_hand_hora.py (MIT): obs/history, cache reset,
 # reward, action-target structure. Boya physics/rate limits from native contract.
 # Rotation increment: TendonSpin SpinTracker, moving-axis quaternion integration.
+# Reward input variant: rotation_reward.py; pose-delta is a declared Boya adaptation.
 # Port differences are declared in docs/experiments/2026-10-08-boya-hora-pilot/PROTOCOL.md.
 """Nominal Boya task for the original Hora teacher PPO; no robustness claim."""
 from collections import Counter
@@ -10,6 +11,7 @@ from gymnasium.spaces import Box
 from tendonspin.physics.isaac_parallel import BoyaParallel, tensor, axis_z
 from tendonspin.baselines.hora_training import load_reward
 from tendonspin.rl.termination import REASONS, TaskTermination, make_termination_spec, legacy_failure_codes
+from tendonspin.rl.rotation_reward import RotationRewardSignal, REPORTED
 
 
 def spin_increment(previous,current):
@@ -31,7 +33,8 @@ class HoraBoyaEnv:
     reasons=REASONS
 
     def __init__(self,root,out,cache,num_envs=64,trace_mode="full",scene_setup=None,
-                 termination_profile="legacy_strict",engine_profile="original_tgs16_4"):
+                 termination_profile="legacy_strict",engine_profile="original_tgs16_4",
+                 reward_profile=REPORTED):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
         self.trace_mode=trace_mode
         self.physics=BoyaParallel(root,out,num_envs,scene_setup=scene_setup,engine_profile=engine_profile)
@@ -43,6 +46,8 @@ class HoraBoyaEnv:
         with np.load(cache) as saved:
             self.cache={k:torch.as_tensor(saved[k],device=self.device) for k in ('q','object_state','commands')}
         self.reward_fn=load_reward()
+        self.rotation_reward_signal=RotationRewardSignal(reward_profile,p.dt,p.adapter.steps_per_control)
+        self.reward_configuration=self.rotation_reward_signal.configuration
         self.history=torch.zeros((num_envs,30,32),device=self.device)
         self.progress=torch.zeros(num_envs,dtype=torch.long,device=self.device)
         self.net=torch.zeros(num_envs,device=self.device)
@@ -128,9 +133,11 @@ class HoraBoyaEnv:
         p.adapter.set_action(actions)
         first=torch.zeros(self.num_envs,dtype=torch.long,device=self.device)
         prev=tensor(p.object.data.root_state_w)[:,3:7].clone()
+        self.rotation_reward_signal.begin(prev)
         for substep in range(p.adapter.steps_per_control):
             q,v,effort=p.advance()
             m=p.measure()
+            self.rotation_reward_signal.advance(m['object_state'][:,3:7])
             codes=self.termination.failure_codes(m,p.origins,
                 control_boundary=substep==p.adapter.steps_per_control-1)
             first=torch.where(first==0,codes,first)
@@ -161,7 +168,8 @@ class HoraBoyaEnv:
         pose=((m['joint_pos'][:,active]-self.init_q)**2).sum(-1)
         torque=(tau**2).sum(-1)
         work=((tau*velocity).sum(-1))**2
-        reward,rot,lin=self.reward_fn(m['object_state'][:,7:10],-.3,m['object_state'][:,10:13],
+        rotation_velocity=self.rotation_reward_signal.angular_velocity(m['object_state'][:,10:13])
+        reward,rot,lin=self.reward_fn(m['object_state'][:,7:10],-.3,rotation_velocity,
             self.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
         # Nonfinite physics cannot enter the network/optimizer; it is a hard blocker.
         if (first==1).any() or not m['finite'].all() or not torch.isfinite(reward).all():
@@ -172,6 +180,7 @@ class HoraBoyaEnv:
         done=first!=0
         if self.trace_mode=='full':
             self.control_trace[-1].update(reward=reward.cpu().numpy(),done=done.cpu().numpy(),
+                rotation_velocity=rotation_velocity.cpu().numpy(),
                 rotation_reward=rot.cpu().numpy(),linear_penalty=lin.cpu().numpy(),
                 pose_penalty=pose.cpu().numpy(),torque_penalty=torque.cpu().numpy(),work_penalty=work.cpu().numpy())
         info=dict(time_outs=timeout,rotation_reward=float(rot.mean()),object_linvel_penalty=float(lin.mean()))

@@ -832,3 +832,29 @@ matched-timeRMSEcomparison. Lastupdate234resettrainingepisodesmeanvalid1.838175s
 230below/4lateral;notstandalonemotion. Single-seed/oneepisodeeach,nosuperiority/
 SOTA/hardwareclaim. Smallfinalevidence/two-runsummaryarchived;weights/raw/TBlocal.
 Noadditionalphysics/tests/video/learning;noautomaticextensionorroutechange.
+
+
+[Pose-derived rotation reward IMPLEMENTED; OFFLINE verification completed](experiments/2026-10-10-boya-pose-reward/README.md):
+User explicitly approves replacing rotation reward velocity input with actual pose
+changes and requests recording/push. New training/background defaults hora_pose_delta;
+original hora_reported_velocity retained explicitly, low-level API legacy default
+retained, legacy evaluation records interpreted as reported velocity. Shared train/eval
+accumulator: shortest WORLD XYZW rotation vectors each.0005s, sum100/.05s, float64
+arithmetic then native velocity dtype. Fixed original target axis, Hora formula,
+clip[-.5,.5]/scale1 and all other penalty terms retained. PPO/architecture/obs/actions/
+engine/physical/numericalrules/primarymetrics unchanged; reward objective/advantages/
+value targets and resulting behavior change. Vendored Hora source remains untouched.
+Rewardconfiguration and helperhash in results/pairedresumecontract; mismatches rejected,
+legacy weights never silently relabeled pose-trained; strict sourceguard retained.
+Old20M->newreward requires explicit recorded branch migration, not performed here.
+Existing frozen20M/original4/30s trace only,600controls offline rescored;0newphysics/
+learning/policyepisodes.20-30s originalrotationmean+.367686 ->pose-.004294, actual
+fixedtargetaxismean-.004294rad/s; total+.233122 ->-.138857, othertermsretained.
+Torch accumulator/SciPy controlvelocitymaxerror2.84e-8rad/s, originalreward reproduction
+maxerror5.97e-8. Three rotationCPUcases plus existingpairednextupdaterestore passed;
+rewardidentitymismatch rejected.9editedPythonfilessyntaxpassed. Stationary1.90e-19rad/s
+roundoff uses1e-12testtolerance; no rewarddeadzone ornewphysicalthreshold introduced.
+Primarymovingcylinderaxis remains distinct fromfixedrewardaxis; clippingstillmeans
+rewardmeanisnotnetprogress. No learnedrotation/stabilityimprovementclaim, native
+runtime/throughputnotvalidatedhere. Smallprotocol/codeidentity/offlineevidence saved;
+alloldweights/rawtraces/scoresretained. Newtrainingnotstarted,nogpu/video/broadtests.

@@ -4,12 +4,14 @@
 import argparse,json,os,signal,subprocess,sys,time,traceback
 from pathlib import Path
 from tendonspin.rl.resource_guard import atomic_json
+from tendonspin.rl.rotation_reward import PROFILES as REWARD_PROFILES, POSE_DELTA
 parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--resume',type=Path,help='Omit for a fresh learner; supply only for deliberate continuation')
 parser.add_argument('--total-actions',type=int,default=10000000)
 parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height','boya_workspace'),default='legacy_strict')
 parser.add_argument('--engine-profile',choices=('original_tgs16_4','tgs16_velocity0'),default='original_tgs16_4')
+parser.add_argument('--reward-profile',choices=REWARD_PROFILES,default=POSE_DELTA)
 parser.add_argument('--eval-seconds',type=float,default=120.)
 parser.add_argument('--reward-diagnostics',action='store_true',help='Record rewards and analyze the final30s-or-failure episode')
 parser.add_argument('--initial-reference',type=Path)
@@ -22,7 +24,7 @@ state=dict(supervisor_pid=os.getpid(),phase='starting',training=None,evaluation=
     process_nice=os.getpriority(os.PRIO_PROCESS,0),requested_total_actions=args.total_actions,
     resume_checkpoint=str(args.resume.resolve()) if args.resume else None,
     initialization='resume' if args.resume else 'fresh network/normalizers/Adam/RNG seed43',automatic_resource_stop=False,
-    termination_profile=args.termination_profile,engine_profile=args.engine_profile,
+    termination_profile=args.termination_profile,engine_profile=args.engine_profile,reward_profile=args.reward_profile,
     evaluation_requested_s=args.eval_seconds,automatic_retry=False)
 (out/'run_boya_hora_background.py').write_bytes(Path(__file__).read_bytes())
 environment=os.environ.copy();environment.update(OMNI_KIT_ACCEPT_EULA='YES',PYTHONPATH=str(root),
@@ -56,6 +58,7 @@ try:
         '--num-envs','1024','--trace-mode','summary','--wall-s','0','--max-gpu-memory-mib','0',
         '--save-every','16','--minibatch-size','512','--seed','43','--termination-profile',args.termination_profile,
         '--engine-profile',args.engine_profile,
+        '--reward-profile',args.reward_profile,
         '--controller',(args.controller or ('hora_boya1024_nominal_teacher_resume10m_v1' if args.resume else 'hora_boya1024_nominal_teacher_fresh10m_v1')),'--protocol',args.protocol])
     if requested is not None or state['training'].get('stop_reason')!='update budget':
         state['phase']='stopped';state['evaluation']='not launched after requested/non-budget stop'

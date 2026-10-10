@@ -1,5 +1,6 @@
 # Sources: TendonSpin analyze_boya_velocity_probe.py, commit86cf44f; SciPy
 # float64 world rotation vectors. Hora v0.0.1 reward reconstructed by the evaluator.
+# The recorded reward-input profile distinguishes original and pose-delta rewards.
 # This analyzes ONE new frozen episode; prior20M/4 results are not matched-budget
 # learning controls. No simulation, training, plotting or modified primary score.
 """Report actual rotation/retention and reported-velocity agreement after1M."""
@@ -9,6 +10,7 @@ import json
 from pathlib import Path
 import numpy as np
 from scipy.spatial.transform import Rotation
+from tendonspin.rl.rotation_reward import REPORTED
 
 
 def identity(path):
@@ -27,6 +29,7 @@ def main():
     assert record['status']=='completed'
     assert record['episode_resets']==record['controller_switches']==record['training_actions']==0
     assert record['engine_configuration']==training['engine_configuration']
+    assert record.get('reward_profile',REPORTED)==training.get('reward_profile',REPORTED)
     assert max(record['initial_state_max_errors'].values())==0
     keys=('elapsed_s','valid','object_state','support_groups','net_angle_deg','drift_mm','tilt_deg','max_normal')
     blocks={k:[] for k in keys};sources=[]
@@ -66,7 +69,8 @@ def main():
                 reported_fixed_axis_mean_rad_s=float(fixed_reported[mask].mean()),
                 pose_fixed_axis_mean_rad_s=float(fixed_pose[mask].mean()),
                 pose_moving_axis_mean_rad_s=float(moving[mask].mean()),
-                original_reward_means={k:float(rewards[k][control].mean()) for k in
+                reward_profile=record.get('reward_profile',REPORTED),
+                selected_reward_means={k:float(rewards[k][control].mean()) for k in
                     ('rotation','linear_cost','pose_cost','torque_cost','work_cost','reward')} if control.any() else None)
         windows[label]=entry
     terminal=None
@@ -77,7 +81,8 @@ def main():
             last_0p2s_net_deg=float(record['net_deg']-(d['net_angle_deg'][before] if before>=0 else 0.)),
             last_0p2s_visible_hand_contact_fraction=float((d['support_groups'][tail]>0).mean()))
     result=dict(status='completed',training_actions=training['actions_executed'],new_frozen_episodes=1,
-        engine_configuration=record['engine_configuration'],evaluation=record,windows=windows,
+        engine_configuration=record['engine_configuration'],
+        reward_profile=record.get('reward_profile',REPORTED),evaluation=record,windows=windows,
         primary_30s_metrics=record['metrics']['30.0'],actual_stop_reason=record['stop_reason'],
         valid_prefix_maxima={key:float(d[key][valid].max()) if valid.any() else None
             for key in ('drift_mm','tilt_deg','max_normal')},posthoc_endpoint_motion=terminal,

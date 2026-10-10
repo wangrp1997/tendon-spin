@@ -14,6 +14,7 @@ import subprocess
 import time
 import traceback
 from tendonspin.rl.resource_guard import TrainingPulse,TrainingStopRequested,atomic_json
+from tendonspin.rl.rotation_reward import PROFILES as REWARD_PROFILES, POSE_DELTA
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
@@ -24,6 +25,7 @@ parser.add_argument('--resume',type=Path,help='Paired learner checkpoint; simula
 parser.add_argument('--trace-mode',choices=('full','summary'),default='full')
 parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height','boya_workspace'),default='legacy_strict')
 parser.add_argument('--engine-profile',choices=('original_tgs16_4','tgs16_velocity0'),default='original_tgs16_4')
+parser.add_argument('--reward-profile',choices=REWARD_PROFILES,default=POSE_DELTA)
 parser.add_argument('--num-envs',type=int,default=64)
 parser.add_argument('--wall-s',type=float,default=240.,help='0 disables the optional wall limit')
 parser.add_argument('--seed',type=int,default=43)
@@ -48,6 +50,7 @@ record=dict(controller=args.controller,seed=args.seed,requested_updates=args.upd
     requested_total_actions=args.total_actions,requested_wall_s=args.wall_s,
     max_gpu_memory_mib=args.max_gpu_memory_mib,save_every=args.save_every,protocol=args.protocol,
     headless=True,enable_cameras=False,trace_mode=args.trace_mode,engine_profile=args.engine_profile,
+    reward_profile=args.reward_profile,
     num_envs=args.num_envs,updates=[],actions_executed=0,session_actions_executed=0,physics_steps=0,
     completed_updates=0,completed_episodes=0,stop_reason=None,
     full_hora_reproduction=False,benchmark_validated=False,domain_randomization=False,
@@ -64,7 +67,7 @@ files=('scripts/train_boya_hora.py','tendonspin/rl/isaac_hora.py','tendonspin/ba
        'tendonspin/physics/coordinates.py','scripts/evaluate_boya_hora.py',
        'tendonspin/rl/termination.py','assets/grasp/rotation_workspace.json','third_party/hora/configs/task/AllegroHandHora.yaml',
        'tendonspin/rl/checkpoint.py','tendonspin/rl/native_video.py','tendonspin/rl/resource_guard.py','scripts/guarded_boya_entry.py',
-       'tendonspin/physics/solver_profiles.py',args.protocol)
+       'tendonspin/physics/solver_profiles.py','tendonspin/rl/rotation_reward.py',args.protocol)
 for name in files:
     source=root/name;content=source.read_bytes()
     snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(content)
@@ -107,14 +110,17 @@ try:
         ppo=ppo_contract,network=OmegaConf.to_container(cfg.train.network,resolve=True),
         sources={x['path']:x['sha256'] for x in record['sources'] if
                  x['path'].startswith(('tendonspin/physics/','tendonspin/baselines/','third_party/')) or
-                 x['path'] in ('tendonspin/rl/isaac_hora.py','tendonspin/rl/termination.py','assets/grasp/rotation_workspace.json','tendonspin/interfaces.py','tendonspin/evaluation/rotation.py')})
+                 x['path'] in ('tendonspin/rl/isaac_hora.py','tendonspin/rl/rotation_reward.py','tendonspin/rl/termination.py','assets/grasp/rotation_workspace.json','tendonspin/interfaces.py','tendonspin/evaluation/rotation.py')})
     PPO=load_ppo();pulse.check('constructing scene')
     env=HoraBoyaEnv(root,out,args.cache,args.num_envs,trace_mode=args.trace_mode,
-        termination_profile=args.termination_profile,engine_profile=args.engine_profile);env.stop_check=pulse.check
+        termination_profile=args.termination_profile,engine_profile=args.engine_profile,
+        reward_profile=args.reward_profile);env.stop_check=pulse.check
     record['termination']=env.termination.spec.to_dict()
     contract['termination']=record['termination']
     record['engine_configuration']=env.physics.engine_configuration
     contract['engine_configuration']=record['engine_configuration']
+    record['reward_configuration']=env.reward_configuration
+    contract['reward_configuration']=record['reward_configuration']
     if args.engine_profile=='tgs16_velocity0':record['engine_audit']=env.physics.engine_audit
     record.update(cache_size=len(env.cache['q']),joint_names=env.physics.names,
         body_names=list(env.physics.hand.body_names),filter_names=env.physics.filter_names,reason_codes=env.reasons)
