@@ -173,3 +173,14 @@ initialpolicy/critic/bothnormalizers exactlyequalA;contractdiffonlyrewardconfigu
 allsourcesidentical. BtrainingPID2527033,AtrainingPID2511383. Keep both running
 to their fixed budgets unless manualstop/executionerror;do not change pinned
 code/protocol. Actualsource/config/first-updateevidence retained in experimentdocs.
+
+Fresh A/B10M has now COMPLETED and STOPPED: each10,002,432actions/1221updates,
+all four frozen originalstate/requested30s evaluations plus offlineanalysis.
+A completed2026-10-10 23:06:16Shanghai, finalvalid2.5495s/net+149.587268deg/
+peak156.025928/backward6.731557, actual2.55s below-regionstop.
+B completed23:19:14, finalvalid8.9495s/net+47.259685deg/peak302.394167/
+backward281.898073, actual8.95s below-regionstop. Neither completed30s;
+stable rotation unresolved. No automatic extension, retry, coefficient scan or
+new route authorized by these results. Preserve all weights/history. Read
+docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md for fulltrend,
+source evidence and the fixed-axis reward versus moving-axis score distinction.

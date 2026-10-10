@@ -1,0 +1,156 @@
+{
+  "recorded_at": "2026-10-10T23:32:52.753616+08:00",
+  "scope": "Existing completed runs only; no new simulation, training, evaluation or tests.",
+  "files": [
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/status.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_status.json",
+      "sha256": "2bd798f795808749c2602e369e4fdf1862a55a786d310b2189ffbaab1c9b239c",
+      "bytes": 2794
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_evaluations.csv",
+      "sha256": "84692d486bf4b9b083381476f5647768cccc8a8db42b286fca3b4326d37d243a",
+      "bytes": 2309
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_001000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_001000000_evaluation.json",
+      "sha256": "bb4e81316d999212060d0850a65741cfe3cb5fbb413dafd31485900d39f258d7",
+      "bytes": 16438
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_001000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_001000000_stage.json",
+      "sha256": "3dd4077068d9bb0de9c3f908c10ec86f08f0e22bfa4d633ca7e97d75754a76ec",
+      "bytes": 3724
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_003000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_003000000_evaluation.json",
+      "sha256": "6617789b8dfb98c7083b3be018da5675579c9b19e9b32b6ff466d82b9fc1475e",
+      "bytes": 16467
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_003000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_003000000_stage.json",
+      "sha256": "2590dafe3fdc99825690cad442ca6b48889fbc2cf4cc482be7ff7c841f70819b",
+      "bytes": 3955
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_005000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_005000000_evaluation.json",
+      "sha256": "3176f35843b5c5d789c5d743d516295c0f7d6f440cc3b624a75c19a9b1231bf5",
+      "bytes": 16535
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_005000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_005000000_stage.json",
+      "sha256": "0ace436656e7c563d8ef7cd6d9e0bc920debe474807024f40ac2c24892bd203e",
+      "bytes": 3953
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_010000000_evaluation.json",
+      "sha256": "14df54f778297ba705d35b84d299c48b8dcbc7627be2a830ac2481143f5254e9",
+      "bytes": 16444
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_010000000_stage.json",
+      "sha256": "80e0506d1b87fbf674f84514720603ffa9e6e3dc8025c1b2359286a4c976e53a",
+      "bytes": 3973
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/a_final_analysis.json",
+      "sha256": "79d6dd9778edba754863468712b3acc8c16d29c8c3b1624ebe0746440f50c959",
+      "bytes": 24184
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/status.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_status.json",
+      "sha256": "ac17460343b20d7ee477971ce4cd788a12d027625b3ed2772ee572145f6fd374",
+      "bytes": 2801
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_evaluations.csv",
+      "sha256": "cae6a36ac8f48a3808b20b8321c5091bd076d9f7d12a6ba0d00384a33850e2cb",
+      "bytes": 2347
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_001000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_001000000_evaluation.json",
+      "sha256": "f0976d9c73e7f93c5d5328579de972242e324861fb747b454dae10bd662a5b04",
+      "bytes": 16903
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_001000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_001000000_stage.json",
+      "sha256": "0cde7d0ce25da89926ca0ea416dcc36833c7396cabf71edbbdd6d913f5db0422",
+      "bytes": 3753
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_003000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_003000000_evaluation.json",
+      "sha256": "54ee569359b0885c5e177efdcd3b14f9919ef1ef56c3638c1cf5442c714e3113",
+      "bytes": 16978
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_003000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_003000000_stage.json",
+      "sha256": "ad12e78cf2f3903c5fa4b9e394ef125a7deaef9379524a6f32c8fab76c47d80a",
+      "bytes": 3967
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_005000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_005000000_evaluation.json",
+      "sha256": "8c71c2a15cd41529e708e09e75baeb3ff12f64b2140e19a78e049022e47b64ac",
+      "bytes": 16889
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_005000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_005000000_stage.json",
+      "sha256": "2a68852b4520f886f77c8616221f6cdd359d381e6916119b2431b37d0e901db5",
+      "bytes": 3969
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_010000000_evaluation.json",
+      "sha256": "db39cba8a281bad4010f291c221624fbfc43f9a243b06b93579eadc63099cafc",
+      "bytes": 16899
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_010000000_stage.json",
+      "sha256": "8dea62c22d2fbb04557ea71f7ec59b732d440eae0ddfa94906c8803a5de8b1e7",
+      "bytes": 3985
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_010000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/data/b_final_analysis.json",
+      "sha256": "4fe5b48a269b245579a94124c7558e04a884dc081a11f48d5f9986d300a9f84c",
+      "bytes": 26970
+    }
+  ],
+  "arms": {
+    "A": {
+      "phase": "completed",
+      "completed_at": "2026-10-10T23:06:16.115685+08:00",
+      "actions": 10002432,
+      "updates": 1221,
+      "checkpoint_sha256": "f3b360c3efa128f1eb2296e0e562565e882f0e8025c7a08ea98b51cf28eeb3f1",
+      "outer_wall_s": 22696.488428240875
+    },
+    "B": {
+      "phase": "completed",
+      "completed_at": "2026-10-10T23:19:14.182108+08:00",
+      "actions": 10002432,
+      "updates": 1221,
+      "checkpoint_sha256": "b6093e4bd328e92adf1fdbfb638ff1e9f8727edb9d4984bb5ed31b3f1eecdf21",
+      "outer_wall_s": 22906.203006068943
+    }
+  }
+}

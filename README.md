@@ -51,13 +51,15 @@ peak68.654deg/backward75.388deg. Both full30s retention and increased net angle
 failed; stable rotation remains unresolved. No retry or extension launched.
 [Protocol and final evidence](docs/experiments/2026-10-10-boya-pose-drop16-200k/README.md).
 
-New approved fresh A/B comparison: each arm starts from zero for10M actions,
-with original-grasp30s evaluations at1/3/5/10M. A uses pose reward; B adds the
-fixed terminal cost16. Latest steering starts A first and measures actual GPU
-memory before deciding concurrent B execution. A launched2026-10-10 16:47:59
-Shanghai; user then approved concurrent B, launched16:57:27. Both independent
-1024-env fresh learners are running. No current learning-improvement claim.
-[Protocol and actual launch evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/README.md).
+Fresh A/B comparison completed and stopped2026-10-10: each independent1024-env
+learner executed10,002,432 actions/1221 updates from zero, with original-grasp
+30s-requested evaluations at1/3/5/10M. A uses pose reward; B adds terminal cost16.
+Final A: valid2.5495s/net+149.587deg/peak156.026deg/backward6.732deg.
+Final B: valid8.9495s/net+47.260deg/peak302.394deg/backward281.898deg.
+Both fell below the manipulation region (actual2.55/8.95s). A's short turning
+increased and B failed later than at5M, but neither completed30s; stable rotation
+remains unresolved. No automatic extension launched.
+[Protocol, learning trend and final evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md).
 
 Run migration verification:
 

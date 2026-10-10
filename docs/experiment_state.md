@@ -1060,3 +1060,31 @@ bothfinal10M/evalsabout2026-10-11 00:00–01:00Shanghai (~7–8hremaining),subje
 throughput/evalchanges;priorA-soloETA superseded. Actualsource/equalityproof/
 counterinterval/memory/provenancearchived. Bothformalrunscontinuefixedbudgets;
 nostablelearningclaim or extra tests/physics/parameterchanges.
+
+
+[Fresh A/B10M comparison COMPLETED and STOPPED; stable rotation unresolved](experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md):
+Both zero-state1024-env/seed43 learners completed10,002,432actions/1221updates,
+all1/3/5/10M frozen originalgrasp44/requested30s evaluations and existing offline
+analysis. A completed2026-10-10 23:06:16Shanghai; B23:19:14. Update-budget stop,
+no execution error or automatic extension. Own fulllearner segment resumes reset
+physics from the same28cache; every evaluation is a separate uninterrupted frozen
+episode, not continuous training physics or accumulated angles across resets.
+All node initial physical-state errors0; zero evaluation resets/switches/learning.
+Final A actual2.55s/valid2.5495s/net+149.587267796253deg/peak156.025927610439/
+backward6.731557210989. Final B actual8.95s/valid8.9495s/net+47.259684763302deg/
+peak302.394166606725/backward281.898072611148. Both stopped below Boya
+manipulation-region lower bound; no complete30s/20–30s metrics observed.
+A's5M->10M short net rose94.096571->149.587268deg and valid1.5495->2.5495s.
+B valid1.3495->8.9495s, but large backward motion erased most peak progress;
+existing offline0–5s+205.943724deg,5–8.9495s−158.684082deg. Neither satisfies the
+declared full30s preliminary signal. Single seed/state supports a learning trend,
+not statistical superiority/causal penalty proof/convergence/method invalidity.
+Fixed original-axis pose reward and moving-cylinder-axis score remain distinct;
+B5–8.9495s fixed-axis mean+1.634224rad/s, moving-axis mean−.701243rad/s, clipped
+rotation rewardmean+.331745. No reward/task/engine/metric change was made.
+Final checkpointSHA A f3b360c3efa128f1eb2296e0e562565e882f0e8025c7a08ea98b51cf28eeb3f1;
+B b6093e4bd328e92adf1fdbfb638ff1e9f8727edb9d4984bb5ed31b3f1eecdf21.
+All eight node eval/stage records, both final analyses/training summaries/status,
+CSV and source hashes archived as small evidence; weights/fulltraces/TensorBoard
+staylocal, oldhistory preserved. Recording only: no extra tests/physics/audits/
+parameter scans or follow-on budget. Stable sustained rotation remains unresolved.
