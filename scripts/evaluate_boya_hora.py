@@ -117,8 +117,9 @@ try:
         q,v,effort=p.advance()
         m=p.measure()
         if args.reward_diagnostics:env.rotation_reward_signal.advance(m['object_state'][:,3:7])
-        code=int(env.termination.failure_codes(m,p.origins,
-            control_boundary=(step+1)%p.adapter.steps_per_control==0)[0])
+        failure_codes=env.termination.failure_codes(m,p.origins,
+            control_boundary=(step+1)%p.adapter.steps_per_control==0)
+        code=int(failure_codes[0])
         valid=code==0
         legacy_code=int(legacy_failure_codes(m)[0])
         if not legacy_stopped:
@@ -148,7 +149,10 @@ try:
             rotation_velocity=env.rotation_reward_signal.angular_velocity(m['object_state'][:,10:13])
             reward,rot,lin=env.reward_fn(m['object_state'][:,7:10],-.3,rotation_velocity,
                 env.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
-            reward_rows.append(dict(elapsed_s=(step+1)*p.dt,valid=valid,reward=float(reward[0]),
+            terminal_cost=env.rotation_reward_signal.terminal_cost(failure_codes,reward)
+            reward_rows.append(dict(elapsed_s=(step+1)*p.dt,valid=valid,
+                reward=float((reward+terminal_cost)[0]),base_reward=float(reward[0]),
+                terminal_failure_cost=float(terminal_cost[0]),failure_code=code,
                 rotation_velocity=rotation_velocity[0].cpu().numpy().copy(),
                 rotation=float(rot[0]),linear_cost=float(-.3*lin[0]),pose_cost=float(-.3*pose[0]),
                 torque_cost=float(-.1*torque[0]),work_cost=float(-2*work[0])))

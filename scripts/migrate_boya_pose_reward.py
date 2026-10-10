@@ -1,7 +1,7 @@
 # Sources: TendonSpin checkpoint.py and train_boya_hora.py, commit0bdb2d3;
 # github.com/wangrp1997/tendon-spin. Hora v0.0.1 paired PPO state (MIT),
 # github.com/HaozhiQi/hora, arXiv:2210.04887. No upstream algorithm edits.
-# Port: one explicit, hash-pinned legacy20M -> pose-reward branch migration.
+# Port: one explicit, hash-pinned legacy20M -> selected pose-reward variant branch.
 """Copy the declared learner intact, updating only its contract and branch provenance."""
 import argparse
 from copy import deepcopy
@@ -16,7 +16,7 @@ import torch
 
 from tendonspin.rl.checkpoint import SCHEMA
 from tendonspin.rl.resource_guard import atomic_json
-from tendonspin.rl.rotation_reward import configuration as reward_configuration, POSE_DELTA, REPORTED
+from tendonspin.rl.rotation_reward import configuration as reward_configuration, POSE_DELTA, POSE_DROP, REPORTED
 from tendonspin.rl.termination import make_termination_spec
 from tendonspin.physics.solver_profiles import configuration as engine_configuration, ORIGINAL
 
@@ -65,9 +65,12 @@ def main():
     parser.add_argument('--plan', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--lineage-id', required=True)
+    parser.add_argument('--reward-profile', choices=(POSE_DELTA, POSE_DROP), default=POSE_DELTA)
     args = parser.parse_args()
     require(not args.out.exists(), 'Refuse to overwrite a checkpoint')
     plan = json.loads(args.plan.read_text())
+    require(plan.get('branch_reward_profile',POSE_DELTA)==args.reward_profile,
+            'Selected reward differs from the explicit migration plan')
     require(digest(args.checkpoint) == PARENT_SHA256 == plan['parent_checkpoint_sha256'],
             'Only the explicitly declared20M parent is authorized for this migration')
     require(digest(args.source_record) == plan['source_record_sha256'], 'Parent record changed')
@@ -126,14 +129,15 @@ def main():
             OmegaConf.to_container(cfg.train.network, resolve=True) == original['network'],
             'PPO/network configuration changed')
     target['engine_configuration'] = engine_configuration(ORIGINAL)
-    target['reward_configuration'] = reward_configuration(POSE_DELTA, .0005, 100)
+    target['reward_configuration'] = reward_configuration(args.reward_profile, .0005, 100)
     migration = dict(schema='tendonspin-explicit-reward-branch-v1',
         created_at=datetime.now(timezone.utc).isoformat(),
         parent_checkpoint=str(args.checkpoint.resolve()), parent_checkpoint_sha256=PARENT_SHA256,
         source_record=str(args.source_record.resolve()), source_record_sha256=digest(args.source_record),
         plan=str(args.plan), plan_sha256=digest(args.plan),
         parent_lineage_id=state['progress']['lineage_id'], branch_lineage_id=args.lineage_id,
-        parent_reward_profile=REPORTED, branch_reward_profile=POSE_DELTA,
+        parent_reward_profile=REPORTED, branch_reward_profile=args.reward_profile,
+        target_reward_configuration=target['reward_configuration'],
         reward_start_actions=state['agent_steps'], reward_start_update=state['epoch_num'],
         pose_reward_training_actions_at_migration=0,
         source_contract_sha256=json_digest(original), target_contract_sha256=json_digest(target),

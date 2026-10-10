@@ -5,12 +5,15 @@
 # Boya port: replace the reported angular-velocity input with the mean of actual
 # per-physics-step world rotation vectors. Keep Hora's fixed target axis,
 # clipping, scaling and other reward terms. This is not original Hora reward input.
+# Authorized Boya variant: one raw terminal cost16 on existing workspace failures;
+# no timeout cost or modification of the upstream Hora function/physical gates.
 """Explicit, shared rotation-reward signals for training and frozen evaluation."""
 import math
 
 REPORTED = 'hora_reported_velocity'
 POSE_DELTA = 'hora_pose_delta'
-PROFILES = (REPORTED, POSE_DELTA)
+POSE_DROP = 'hora_pose_delta_drop16'
+PROFILES = (REPORTED, POSE_DELTA, POSE_DROP)
 
 
 def configuration(profile, physics_dt, steps_per_control):
@@ -18,14 +21,21 @@ def configuration(profile, physics_dt, steps_per_control):
         raise ValueError('Unknown rotation reward profile: '+str(profile))
     if not math.isfinite(physics_dt) or physics_dt <= 0 or steps_per_control < 1:
         raise ValueError('Positive physics interval and control step count required')
-    return dict(profile=profile, physics_dt=physics_dt, steps_per_control=steps_per_control,
+    pose = profile != REPORTED
+    result = dict(profile=profile, physics_dt=physics_dt, steps_per_control=steps_per_control,
         control_dt=physics_dt*steps_per_control, frame='world',
         target_axis='negative original-grasp cylinder Z; fixed, unchanged from the Hora port',
-        velocity_source='measured XYZW pose increments' if profile == POSE_DELTA else 'engine-reported angular velocity',
-        aggregation='sum shortest world rotation vectors / control_dt' if profile == POSE_DELTA else 'last physics sample of control',
-        pose_arithmetic='float64; cast velocity to native tensor dtype before Hora reward' if profile == POSE_DELTA else None,
+        velocity_source='measured XYZW pose increments' if pose else 'engine-reported angular velocity',
+        aggregation='sum shortest world rotation vectors / control_dt' if pose else 'last physics sample of control',
+        pose_arithmetic='float64; cast velocity to native tensor dtype before Hora reward' if pose else None,
         rotation_scale=1., angular_velocity_clip=[-.5, .5],
         remaining_terms='original Hora linear/pose/torque/work penalties, unchanged')
+    if profile == POSE_DROP:
+        result['terminal_failure_cost'] = dict(raw_reward_cost=16., failure_codes=[9, 10],
+            failure_reasons=['object below Boya manipulation region', 'object outside Boya lateral region'],
+            applies='once on terminal control before reset/stop', ordinary_timeout_cost=0.,
+            reference='User-authorized Boya adaptation; absent from original Hora v0.0.1')
+    return result
 
 
 def world_rotation_increment_xyzw(previous, current):
@@ -66,13 +76,13 @@ class RotationRewardSignal:
 
     def begin(self, orientation):
         self.steps=0
-        if self.profile == POSE_DELTA:
+        if self.profile != REPORTED:
             import torch
             self.previous=orientation.clone()
             self.total_rotation=torch.zeros_like(orientation[...,:3],dtype=torch.float64)
 
     def advance(self, orientation):
-        if self.profile == POSE_DELTA:
+        if self.profile != REPORTED:
             if self.previous is None:
                 raise RuntimeError('Begin a control interval before recording poses')
             self.total_rotation+=world_rotation_increment_xyzw(self.previous,orientation)
@@ -85,6 +95,15 @@ class RotationRewardSignal:
         if self.profile == REPORTED:
             return reported_velocity
         return (self.total_rotation/self.configuration['control_dt']).to(reported_velocity.dtype)
+
+    def terminal_cost(self, failure_codes, reward):
+        """Called once per completed control, before failed episodes reset or stop."""
+        import torch
+        cost=torch.zeros_like(reward)
+        if self.profile == POSE_DROP:
+            failed=(failure_codes==9)|(failure_codes==10)
+            cost=torch.where(failed,-self.configuration['terminal_failure_cost']['raw_reward_cost'],cost)
+        return cost
 
 
 def require_checkpoint_configuration(contract, expected):

@@ -11,7 +11,7 @@ from gymnasium.spaces import Box
 from tendonspin.physics.isaac_parallel import BoyaParallel, tensor, axis_z
 from tendonspin.baselines.hora_training import load_reward
 from tendonspin.rl.termination import REASONS, TaskTermination, make_termination_spec, legacy_failure_codes
-from tendonspin.rl.rotation_reward import RotationRewardSignal, REPORTED
+from tendonspin.rl.rotation_reward import RotationRewardSignal, REPORTED, POSE_DROP
 
 
 def spin_increment(previous,current):
@@ -36,6 +36,8 @@ class HoraBoyaEnv:
                  termination_profile="legacy_strict",engine_profile="original_tgs16_4",
                  reward_profile=REPORTED):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
+        if reward_profile==POSE_DROP and termination_profile!='boya_workspace':
+            raise ValueError('Drop16 reward requires the existing Boya workspace failure rules')
         self.trace_mode=trace_mode
         self.physics=BoyaParallel(root,out,num_envs,scene_setup=scene_setup,engine_profile=engine_profile)
         p=self.physics
@@ -178,12 +180,16 @@ class HoraBoyaEnv:
         timeout=self.termination.timeouts(self.progress,first)
         first[timeout]=7
         done=first!=0
+        terminal_cost=self.rotation_reward_signal.terminal_cost(first,reward)
+        reward=reward+terminal_cost
         if self.trace_mode=='full':
             self.control_trace[-1].update(reward=reward.cpu().numpy(),done=done.cpu().numpy(),
                 rotation_velocity=rotation_velocity.cpu().numpy(),
+                terminal_failure_cost=terminal_cost.cpu().numpy(),
                 rotation_reward=rot.cpu().numpy(),linear_penalty=lin.cpu().numpy(),
                 pose_penalty=pose.cpu().numpy(),torque_penalty=torque.cpu().numpy(),work_penalty=work.cpu().numpy())
-        info=dict(time_outs=timeout,rotation_reward=float(rot.mean()),object_linvel_penalty=float(lin.mean()))
+        info=dict(time_outs=timeout,rotation_reward=float(rot.mean()),object_linvel_penalty=float(lin.mean()),
+            terminal_failure_cost=float(terminal_cost.mean()))
         for key,values in self.diagnostic_max.items():info['diagnostics/episode_max_'+key]=float(values.mean())
         ids=torch.where(done)[0]
         if len(ids):

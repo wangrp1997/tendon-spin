@@ -5,7 +5,7 @@ import torch
 from scipy.spatial.transform import Rotation
 from tendonspin.baselines.hora_training import load_reward
 from tendonspin.rl.rotation_reward import (
-    POSE_DELTA, REPORTED, RotationRewardSignal, configuration,
+    POSE_DELTA, POSE_DROP, REPORTED, RotationRewardSignal, configuration,
     require_checkpoint_configuration,
 )
 
@@ -13,6 +13,30 @@ from tendonspin.rl.rotation_reward import (
 class RotationRewardTests(unittest.TestCase):
     dt=.0005
     steps=100
+
+    def test_drop_variant_keeps_pose_signal_and_only_costs_workspace_termination(self):
+        signal=RotationRewardSignal(POSE_DROP,self.dt,self.steps)
+        q=torch.tensor([[0.,0.,0.,1.]])
+        signal.begin(q)
+        for i in range(1,self.steps+1):
+            q=torch.tensor(Rotation.from_rotvec([0.,0.,.2*self.dt*i]).as_quat(),dtype=torch.float32)[None]
+            signal.advance(q)
+        torch.testing.assert_close(signal.angular_velocity(torch.ones(1,3)*99),
+            torch.tensor([[0.,0.,.2]]),rtol=1e-6,atol=1e-6)
+        codes=torch.tensor([0,7,9,10,5,6])
+        base=torch.full((6,),.25)
+        cost=signal.terminal_cost(codes,base)
+        torch.testing.assert_close(cost,torch.tensor([0.,0.,-16.,-16.,0.,0.]),rtol=0,atol=0)
+        torch.testing.assert_close(base+cost,torch.tensor([.25,.25,-15.75,-15.75,.25,.25]),rtol=0,atol=0)
+        # The following control is from reset; no cost carries into its valid start.
+        torch.testing.assert_close(signal.terminal_cost(torch.zeros_like(codes),base),torch.zeros_like(base))
+        for profile in (REPORTED,POSE_DELTA):
+            torch.testing.assert_close(RotationRewardSignal(profile,self.dt,self.steps).terminal_cost(codes,base),
+                torch.zeros_like(base),rtol=0,atol=0)
+        require_checkpoint_configuration({'reward_configuration':signal.configuration},signal.configuration)
+        with self.assertRaisesRegex(ValueError,'differs'):
+            require_checkpoint_configuration({'reward_configuration':configuration(POSE_DELTA,self.dt,self.steps)},
+                signal.configuration)
 
     def test_stationary_pose_ignores_reported_spin_and_reset_jump(self):
         q=torch.tensor(Rotation.from_euler('xyz',[.4,-.7,1.2]).as_quat(),dtype=torch.float32)[None]

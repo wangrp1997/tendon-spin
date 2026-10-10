@@ -935,3 +935,33 @@ evaluation andSTOP. Preliminarygoal30sretentionANDnet>parent30.426747deg,
 reportpeak/backward/actualstop;notmatchedtrainingbudgetcausal/statisticalproof.
 Estimatedtraining5min+eval9minifcomplete. Proposal/evidence written,NOrewardcode
 edited/NOnewtraininglaunched. Requiresuserdecisionbeforenewrewardstage.
+
+
+[Terminal-cost16 final bounded trial APPROVED and LAUNCHED](experiments/2026-10-10-boya-pose-drop16-200k/README.md):
+Latestuser explicitly approves the recorded proposal and requests start; this
+supersedes proposal-only status above. Original20M checkpoint preserved,
+20,004,864actions/2442updates, fullserializedlearner copied exactly into a new
+hash-pinned branch: policy/critic,bothnormalizers,Adam/LR/scheduler,RNG,counters.
+Migration verifies serialized equality, unaffected source/PPO/task/cache identity
+and unchanged parent. Same28cache reset, not uninterrupted ancestral physics.
+New hora_pose_delta_drop16 retains measuredpose rotation reward plus ONE raw-16
+at existing below/lateral-region terminal codes9/10, ordinary timeout7cost0.
+Additional Boya reward shaping, absent from original Hora v0.0.1; no physical
+criterion/engine/controller/observation/action/PPO change. FourfocusedCPUreward
+tests and sixeditedPython syntax checks passed in preparation, no broadtests.
+
+Detachedstart2026-10-10 16:02:27Shanghai, supervisor2438036/training2438038,
+outputs/boya_hora1024_pose_drop16_continue200k_v1. Requested200k/newrounded204,800
+actions/25updates, final20,209,664/2467;1024envs,summarytraining/TensorBoard/
+first-every16-finalpairedcheckpoints,noresourcewatchdog/memoryquota/wallcutoff.
+Budget -> exactlyONEfrozenoriginalgrasp44/requested30s-or-firstfailure evaluation,
+exactinitialreference/fullphysics/rewarddiagnostics/offlineanalysis -> STOP.
+Error/manualstop:noautomaticretry/extension/coefficientscan/alternateroute.
+Acceptancefull30sANDnet>parent+30.426747deg;reportpeak/backward/actualstop.
+No result yet. Singlebranch/oneepisode and unequal additional budgets versus old
+pose1M do not prove causation/statisticalsuperiority/SOTA/hardware readiness.
+Protocol/migrationplan/result/launchcommand archived, oldweights/history preserved.
+16:05:08snapshot2455updates/20,111,360cumulative/106,496newactions. Actualfirst
+2443checkpoint strictcontract/provenancematch, initialmodel/bothnormalizersexact
+parentmatch, Adamsteps+80perparameter andmodelchanged;TensorBoardevents writing.
+InheritedLR5.7805099719442054e-5 ->first3.85367331462947e-5 by unchangedHora scheduler.

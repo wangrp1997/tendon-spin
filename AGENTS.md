@@ -120,3 +120,17 @@ stopped:1,007,616 new actions, final21,012,480/2565updates; ONE requested30s
 evaluation valid1.9995s/net+25.428426deg/peak34.139185/backward10.944128, actual2.0s
 below-region stop. Parent20M completed30s; holding regressed, no stable rotation
 improvement. No follow-on budget/route change is authorized by this result.
+
+Latest2026-10-10 user explicitly approves the single terminal-cost proposal and
+says to start the final bounded trial. Restore ORIGINAL20M full learner state,
+keep pose-derived rotation reward, add ONE raw cost16 at existing workspace
+terminal codes9/10 only (no ordinary timeout cost). New separate branch,
+requested200k/rounded204,800actions/25updates, cumulative20,209,664/2467updates;
+then exactly ONE frozen originalgrasp44/requested30s evaluation plus offline
+analysis and STOP. No retry, extension, coefficient scan or alternate route.
+Read docs/experiments/2026-10-10-boya-pose-drop16-200k/PROTOCOL.md.
+Acceptance: full30s and signed net angle above parent+30.426747deg; also report
+peak/backward/actual stop. This is additional Boya reward shaping, absent from
+original Hora, not a proven repair or matched-budget superiority claim.
+Keep all prior weights/history, summary training/TensorBoard/checkpoints,
+no resourcewatchdog, necessary checks only, and milestone commits/pushes.

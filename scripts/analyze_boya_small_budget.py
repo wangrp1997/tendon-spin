@@ -52,6 +52,14 @@ def main():
     fixed_reported=reported@axis0;fixed_pose=omega_pose@axis0
     with np.load(folder/'reconstructed_control_reward.npz') as data:
         rewards={k:data[k].copy() for k in data.files}
+    terminal_cost=rewards.get('terminal_failure_cost',np.zeros_like(rewards['reward']))
+    terminal_summary=dict(charged_controls=int(np.count_nonzero(terminal_cost)),
+        raw_terminal_cost_sum=float(terminal_cost.sum()),
+        total_raw_reward_all_complete_controls=float(rewards['reward'].sum()),
+        last_complete_control=dict(elapsed_s=float(rewards['elapsed_s'][-1]),
+            reward=float(rewards['reward'][-1]),terminal_failure_cost=float(terminal_cost[-1])),
+        includes_invalid_terminal_control=True,
+        valid_prefix_window_means='Below exclude the invalid terminal sample; terminal costs are reported here')
     valid=d['valid'];windows={}
     for label,start,end in [('first5s',0.,5.),('5to20s',5.,20.),('20to30s',20.,30.),
                              ('whole_valid_prefix',0.,record['valid_s'])]:
@@ -83,6 +91,7 @@ def main():
     result=dict(status='completed',training_actions=training['actions_executed'],new_frozen_episodes=1,
         engine_configuration=record['engine_configuration'],
         reward_profile=record.get('reward_profile',REPORTED),evaluation=record,windows=windows,
+        terminal_failure_reward=terminal_summary,
         primary_30s_metrics=record['metrics']['30.0'],actual_stop_reason=record['stop_reason'],
         valid_prefix_maxima={key:float(d[key][valid].max()) if valid.any() else None
             for key in ('drift_mm','tilt_deg','max_normal')},posthoc_endpoint_motion=terminal,
