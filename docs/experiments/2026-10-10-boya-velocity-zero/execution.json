@@ -1,0 +1,93 @@
+{
+  "phase": "completed",
+  "pid": 2065447,
+  "requested_physics_seconds": 30.0,
+  "training_actions": 0,
+  "new_episode_count": 1,
+  "reused_reference_episodes": 1,
+  "automatic_retry": false,
+  "automatic_resource_stop": false,
+  "runs": [
+    {
+      "velocity_iterations": 0,
+      "output": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_zero_v1/velocity_00",
+      "command": [
+        "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+        "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_velocity_probe.py",
+        "--out",
+        "/home/rw/Projects/tendon-spin/outputs/boya_velocity_zero_v1/velocity_00",
+        "--velocity-iterations",
+        "0"
+      ],
+      "pid": 2065463,
+      "exit_code": 0,
+      "status": "completed",
+      "actual_s": 9.1,
+      "valid_s": 9.0995,
+      "net_deg": 254.3608296526359,
+      "stop_reason": "object below Boya manipulation region"
+    }
+  ],
+  "wall_s": 154.00857784808613,
+  "analysis_exit_code": 0,
+  "post_run_analysis_correction": {
+    "reason": "Early failure at9.1s leaves25s unobserved; net_at25s is now null, not a clamped endpoint. Original offline output/log retained locally. No physics replay.",
+    "command": [
+      "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+      "/home/rw/Projects/tendon-spin/scripts/analyze_boya_velocity_probe.py",
+      "--out",
+      "/home/rw/Projects/tendon-spin/outputs/boya_velocity_zero_v1",
+      "--reference-four",
+      "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04"
+    ],
+    "exit_code": 0,
+    "previous_analysis_source": {
+      "path": "/home/rw/Projects/tendon-spin/scripts/analyze_boya_velocity_probe.py",
+      "sha256": "8a00d1e4c7fe4aca5ea4e5cfe2840911ad54f419863c7aa62649411600188c7e"
+    },
+    "final_analysis_source": {
+      "path": "/home/rw/Projects/tendon-spin/scripts/analyze_boya_velocity_probe.py",
+      "sha256": "f2db751650278fa7f6b83ff6fa7a46935ac2c8212a0aebd275393476dcb24d05"
+    }
+  },
+  "final_sources": [
+    {
+      "path": "scripts/evaluate_boya_velocity_probe.py",
+      "sha256": "4ecb0c2d84efc3e327f3e1067aac3fa1193c8c3503ba0c84db59dd9b050834ee"
+    },
+    {
+      "path": "scripts/run_boya_velocity_diagnostic.py",
+      "sha256": "eea61c99b1105cad3fe2e2aa43b0f24fe28c606724b547a2359b8373e9d48fb5"
+    },
+    {
+      "path": "scripts/analyze_boya_velocity_probe.py",
+      "sha256": "f2db751650278fa7f6b83ff6fa7a46935ac2c8212a0aebd275393476dcb24d05"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "outputs/boya_velocity_zero_v1/status.json",
+      "sha256": "74d700e0af15b3e7f5880b9dd74f43006f7f54e28460450ab19de1beb8d8bf0d"
+    },
+    {
+      "path": "outputs/boya_velocity_zero_v1/velocity_00.log",
+      "sha256": "b783f99114e3b2f9b0578133b66fe3397433b75205a05a2f13a4fbebb32a4769"
+    },
+    {
+      "path": "outputs/boya_velocity_zero_v1/analysis_missing25_correction.log",
+      "sha256": "7d2a936ca25e3a17f478ac39da78a69e838853e09d1919d008ccbb15434f2515"
+    },
+    {
+      "path": "outputs/boya_velocity_zero_v1/comparison.json",
+      "sha256": "7e91a63af174de7564fd32e9b8538cb659cdd098a280c2ccd9e7c76b5b153ef7"
+    },
+    {
+      "path": "outputs/boya_velocity_zero_v1/comparison_before_missing25_fix.json",
+      "sha256": "527077a3a08b5a94df30a05597fe8d5ba9e1eb62790d440d267bf1bdbca245e2"
+    },
+    {
+      "path": "docs/experiments/2026-10-10-boya-velocity-zero/source_check.json",
+      "sha256": "d0261272723eb635e4fac4e642488127b24d147be4bd8da2ba1ebbaef2563be8"
+    }
+  ]
+}

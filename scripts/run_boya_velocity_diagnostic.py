@@ -1,6 +1,7 @@
 # Source: TendonSpin run_boya_hora_background.py process sequencing. New bounded
-# user-authorized two-episode diagnostic, no retries, learner or resource watcher.
-"""Run4/16 velocity-iteration probes sequentially and analyze their archives."""
+# user-authorized4/16 pair or separately approved single effective-zero episode;
+# no retries, learner or resource watcher. Zero mode reuses archived4, never reruns it.
+"""Run the declared bounded iteration diagnostic and analyze its archives."""
 import argparse
 import json
 import os
@@ -17,13 +18,17 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, default=ROOT/'outputs/boya_velocity_diagnostic_v1')
+    parser.add_argument('--effective-zero', action='store_true',
+        help='Run only the approved effective0 episode, reusing archived4')
     args = parser.parse_args()
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     environment = os.environ.copy()
     environment.update(PYTHONPATH=str(ROOT), OMNI_KIT_ACCEPT_EULA='YES', OMP_NUM_THREADS='4', MKL_NUM_THREADS='4')
     started = time.monotonic()
-    state = dict(phase='starting', pid=os.getpid(), requested_physics_seconds=60., training_actions=0,
+    iterations_pair = (0,) if args.effective_zero else (4, 16)
+    state = dict(phase='starting', pid=os.getpid(), requested_physics_seconds=30. if args.effective_zero else 60., training_actions=0,
+        new_episode_count=len(iterations_pair), reused_reference_episodes=1 if args.effective_zero else 0,
         automatic_retry=False, automatic_resource_stop=False, runs=[])
     child = None
     requested = None
@@ -43,7 +48,7 @@ def main():
     signal.signal(signal.SIGINT, stop)
     save()
     try:
-        for iterations in (4, 16):
+        for iterations in iterations_pair:
             if requested is not None:
                 raise RuntimeError('Manual stop; no next episode')
             run = out/f'velocity_{iterations:02d}'
@@ -68,6 +73,8 @@ def main():
         state['phase'] = 'analyzing'
         save()
         command = [sys.executable, str(ROOT/'scripts/analyze_boya_velocity_probe.py'), '--out', str(out)]
+        if args.effective_zero:
+            command += ['--reference-four', str(ROOT/'outputs/boya_velocity_diagnostic_v2/velocity_04')]
         with (out/'analysis.log').open('x') as log:
             child = subprocess.Popen(command, cwd=ROOT, env=environment, stdout=log, stderr=subprocess.STDOUT)
             state['analysis_exit_code'] = child.wait()

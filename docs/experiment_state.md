@@ -703,3 +703,36 @@ fromouractualcontactlastfalse/externalforceseveryiterationtrue.
 Officialpagesreadinfull;quotes/URLs/versions/hashesandaccesslimitsarchived.
 0newphysics/training, nocore/configuration/rewardchanges. Prioritizematched
 effective-solver/input-semantics verification beforechoosingafix orrewardvariant.
+
+
+[Effective-zero velocity iteration diagnostic COMPLETED](experiments/2026-10-10-boya-velocity-zero/README.md):
+User approved source/config verification plus exactly ONE originalgrasp44/frozen20M/
+requested30s episode at position16/effectivevelocity0, reusing completed4; no rerun4.
+Hora v0.0.1 default TGS8/0 transmits through taskdict/VecTask setattr to gym.create_sim;
+no later vendored-source override found. Source audit only, not executed IsaacGym baseline.
+Installed PhysxCfg max-actor/clamp semantics: scene velocitymin/max0/0 plus all25rigid
+bodies and1articulation requests0, authored before reset and unchanged after initialization.
+Position scene16/255 and all actor requests16 retained; only declared velocity fields differ.
+No exposed native tensor iteration counter; effective0 established by composed configuration
+and documented aggregation, not a claimed kernel measurement. Core/runtime hashes match4;
+initialq/qdot/object/commands exactly match archived20M and4. Ownmodel/normalizer/seed43,
+same observations/controller/reward/task/engine package/collision/dt, no resets/switches.
+Zero valid9.0995s/net+254.360830deg/peak254.360830/backward6.129595;
+actual9.1000s stop belowBoya manipulationregion, not complete30s. Maxdrift73.342mm/
+tilt114.329deg/normal46.516N. Lastvalid.2s adds78.860580deg, visiblecontact68%,
+finalvalidsample hascontact; preserveprimaryscore, no contactfiltering/successclaim.
+Reused4:30.0000s/net+30.426747/peak35.822706/backward37.240682, normal30sstop.
+Matched0-5s4->0: independent actualnet19.850709->32.176620deg;
+fullomega/poseRMSE.549631->.273469rad/s, contactRMSE.548774->.194413;
+raw/pose fixedaxis means .230851/.067873 -> .105176/.103940rad/s;
+contact99.91%/99.97%, originalHora rotationterm+.238682->+.115013/control.
+Common0-9.0995s fullRMSE.603245->.372778/contactRMSE.602842->.267102.
+Rawbefore/afterLab andrawversusLab maxdifferences all0. Residualvectorerror remains;
+0improvesagreement in thispair, notfullmechanism/enginebug/physicalfidelity proof.
+Largerangle with earlydrop isnotstablecontinuousrotation. Old4-trainedpolicy under
+newconfiguration isnota0-trainedpolicy. Candidateforfuture shortbudget matchedtraining,
+not authorization tolaunch one.0trainingactions,1newphysicalepisode,0automaticretries.
+25s/20-30s unobservedfor0. Correctedoffline25sfield fromclampedendpoint tonull;
+retained firstanalysis output/log, rerananalysisonly, no physicsreplay.
+10rawchunks/18200physicalsteps,18199valid; allraw/weightslocal; smallcode/protocol/
+sourcehashes/comparison/execution archived. NoextraGPUtrials/tests/watchdog/video.

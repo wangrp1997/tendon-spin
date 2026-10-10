@@ -3,7 +3,8 @@
 # reward (HaozhiQi/hora, MIT; Qi et al., CoRL2022, arXiv:2210.04887).
 # Reuse BoyaParallel.advance/measure and declared termination/scoring unchanged.
 # Port change: raw PhysX getter instrumentation and one explicit scene velocity
-# iteration lower-bound override, only for the user-approved diagnostic pair.
+# iteration override for the approved pair, or separately approved effective-zero
+# trial (scene bounds and all actor requests, before solver initialization).
 """One frozen original-state30s episode, with raw velocity/pose provenance."""
 import argparse
 import hashlib
@@ -18,6 +19,8 @@ import traceback
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 PROTOCOL = ROOT/'docs/experiments/2026-10-10-boya-velocity-diagnostic/PROTOCOL.md'
+ZERO_PROTOCOL = ROOT/'docs/experiments/2026-10-10-boya-velocity-zero/PROTOCOL.md'
+REFERENCE_FOUR = ROOT/'outputs/boya_velocity_diagnostic_v2/velocity_04'
 EXPECTED_CHECKPOINT = '9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e'
 
 
@@ -38,11 +41,50 @@ def configuration_json(value):
     return str(value)
 
 
+def iteration_requests(stage):
+    return {str(prim.GetPath()): {
+        a.GetName(): a.Get() for a in prim.GetAttributes() if 'IterationCount' in a.GetName()}
+        for prim in stage.Traverse() if any('IterationCount' in a.GetName() for a in prim.GetAttributes())}
+
+
+def actor_requests(requests):
+    return {path: {k: v for k, v in attributes.items() if not k.startswith('physxScene:')}
+        for path, attributes in requests.items() if any(not k.startswith('physxScene:') for k in attributes)}
+
+
+def zero_configuration_differences(record, reference):
+    differences = {}
+    for key in ('physics_cfg', 'scene_physics_attributes'):
+        differences[key] = {k: [reference[key].get(k), record[key].get(k)]
+            for k in reference[key].keys() | record[key].keys() if reference[key].get(k) != record[key].get(k)}
+    assert differences['physics_cfg'] == {
+        'min_velocity_iteration_count': [4, 0], 'max_velocity_iteration_count': [255, 0]}, differences
+    assert differences['scene_physics_attributes'] == {
+        'physxScene:minVelocityIterationCount': [4, 0], 'physxScene:maxVelocityIterationCount': [255, 0]}, differences
+    old = actor_requests(reference['actor_iteration_requests'])
+    new = actor_requests(record['actor_iteration_requests'])
+    assert old.keys() == new.keys()
+    changes = {}
+    for path in old:
+        assert old[path].keys() == new[path].keys()
+        changes[path] = {}
+        for key, value in old[path].items():
+            if key.endswith('solverVelocityIterationCount'):
+                assert new[path][key] == 0
+                changes[path][key] = [value, 0]
+            else:
+                assert new[path][key] == value == 16, (path, key, value, new[path][key])
+    differences['actor_velocity_requests'] = changes
+    return differences
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--velocity-iterations', type=int, choices=(4, 16), required=True)
+    parser.add_argument('--velocity-iterations', type=int, choices=(0, 4, 16), required=True)
     args = parser.parse_args()
+    zero = args.velocity_iterations == 0
+    protocol = ZERO_PROTOCOL if zero else PROTOCOL
     run = ROOT/'outputs/boya_hora1024_workspace50m_v1/actions_020000000'
     checkpoint = run/'training/teacher_final.pth'
     cache = ROOT/'outputs/boya_settled_cache_v2/grasp_cache.npz'
@@ -51,6 +93,13 @@ def main():
     for source in training['sources']:
         if sha(ROOT/source['path']) != source['sha256']:
             raise RuntimeError('Original source identity mismatch: '+source['path'])
+    reference = None
+    if zero:
+        reference = json.loads((REFERENCE_FOUR/'result.json').read_text())
+        assert reference['status'] == 'completed'
+        assert reference['checkpoint_sha256'] == EXPECTED_CHECKPOINT
+        for source in reference['runtime_sources']:
+            assert sha(source['path']) == source['sha256'], source['path']
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     os.nice(10)
@@ -58,16 +107,19 @@ def main():
     record = dict(controller='frozen20M_raw_velocity_probe_v1',
         checkpoint=str(checkpoint), checkpoint_sha256=sha(checkpoint),
         training_actions_in_checkpoint=training['actions_executed'],
-        configuration=f'TGS_position16_velocity_min{args.velocity_iterations}',
+        configuration='TGS_position16_velocity_effective0' if zero else f'TGS_position16_velocity_min{args.velocity_iterations}',
         requested_s=30., wall_budget_s=1500., seed=43, headless=True, enable_cameras=False,
         initial_state='original grasp44, not cache', physics_steps=0, valid_steps=0,
         actual_s=0., valid_s=0., net_deg=0., episode_resets=0, controller_switches=0,
         training_actions=0, benchmark_validated=False, automatic_resource_stop=False,
         stop_reason='time limit', phase='setup', sources=training['sources'],
         diagnostic_sources=[dict(path=str(p.relative_to(ROOT)), sha256=sha(p)) for p in
-            (Path(__file__), PROTOCOL, ROOT/'scripts/evaluate_boya_hora.py')])
+            (Path(__file__), protocol, ROOT/'scripts/evaluate_boya_hora.py')])
+    if zero:
+        record['reused_reference'] = dict(path=str(REFERENCE_FOUR),
+            result_sha256=sha(REFERENCE_FOUR/'result.json'), new_reference_episodes=0)
     source_out = out/'sources'
-    for p in (Path(__file__), PROTOCOL):
+    for p in (Path(__file__), protocol):
         target = source_out/p.relative_to(ROOT)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(p.read_bytes())
@@ -105,11 +157,35 @@ def main():
             if kwargs.get('min_velocity_iteration_count') != 4:
                 raise RuntimeError('Unexpected original iteration request')
             kwargs['min_velocity_iteration_count'] = args.velocity_iterations
+            if zero:
+                kwargs['max_velocity_iteration_count'] = 0
             return original_factory(*factory_args, **kwargs)
+
+        def zero_scene_setup(physics):
+            # Existing hook runs after spawning and BEFORE sim.reset initializes
+            # PhysX actors. Override only velocity-iteration attributes; inherited
+            # per-link/body position16 and all other physical properties persist.
+            from pxr import PhysxSchema, UsdPhysics
+            stage = physics.sim.stage
+            before = iteration_requests(stage)
+            assert actor_requests(before) == actor_requests(reference['actor_iteration_requests'])
+            counts = dict(rigid_bodies=0, articulations=0)
+            for prim in stage.Traverse():
+                if prim.HasAPI(UsdPhysics.RigidBodyAPI):
+                    PhysxSchema.PhysxRigidBodyAPI.Apply(prim).CreateSolverVelocityIterationCountAttr().Set(0)
+                    counts['rigid_bodies'] += 1
+                if prim.HasAPI(UsdPhysics.ArticulationRootAPI):
+                    PhysxSchema.PhysxArticulationAPI.Apply(prim).CreateSolverVelocityIterationCountAttr().Set(0)
+                    counts['articulations'] += 1
+            assert counts['rigid_bodies'] > 0 and counts['articulations'] == 1, counts
+            record['zero_authoring'] = dict(phase='before sim.reset/PhysX actor initialization',
+                actor_requests_before=actor_requests(before), counts=counts,
+                iteration_requests_after=iteration_requests(stage))
 
         parallel.PhysxCfg = declared_factory
         from tendonspin.rl.isaac_hora import HoraBoyaEnv, spin_increment
-        env = HoraBoyaEnv(ROOT, out, cache, num_envs=1, termination_profile='boya_workspace')
+        env = HoraBoyaEnv(ROOT, out, cache, num_envs=1, termination_profile='boya_workspace',
+            scene_setup=zero_scene_setup if zero else None)
         p = env.physics
         parallel.PhysxCfg = original_factory
         record['termination'] = env.termination.spec.to_dict()
@@ -121,10 +197,17 @@ def main():
         assert record['scene_physics_attributes']['physxScene:minVelocityIterationCount'] == args.velocity_iterations
         assert record['scene_physics_attributes']['physxScene:minPositionIterationCount'] == 16
         record['scene_physics_attributes'] = configuration_json(record['scene_physics_attributes'])
-        record['actor_iteration_requests'] = configuration_json({str(prim.GetPath()): {
-            a.GetName(): a.Get() for a in prim.GetAttributes() if 'IterationCount' in a.GetName()}
-            for prim in stage.Traverse() if any('IterationCount' in a.GetName() for a in prim.GetAttributes())})
+        record['actor_iteration_requests'] = configuration_json(iteration_requests(stage))
         record['physics_cfg'] = configuration_json(p.cfg.physics.to_dict())
+        if zero:
+            assert record['actor_iteration_requests'] == record['zero_authoring']['iteration_requests_after']
+            record['configuration_differences_vs_four'] = zero_configuration_differences(record, reference)
+            record['effective_velocity_iterations'] = dict(value=0,
+                evidence='All composed rigid-body/articulation requests are0; scene min/max are0/0 before and after PhysX initialization; documented max-request clamp therefore yields0',
+                direct_kernel_counter_available=False,
+                exposed_tensor_solver_iteration_methods={name: [n for n in dir(view)
+                    if 'iteration' in n.lower() or 'solver' in n.lower()]
+                    for name, view in (('hand', p.hand.root_view), ('object', p.object.root_view))})
         record['timing'] = dict(physics_dt=p.dt, control_steps=p.adapter.steps_per_control, control_hz=20)
         manager_type = p.sim.physics_manager if inspect.isclass(p.sim.physics_manager) else type(p.sim.physics_manager)
         runtime_paths = {
@@ -133,6 +216,8 @@ def main():
             Path(inspect.getfile(manager_type)), Path(inspect.getfile(p.object.root_view.__class__)),
         }
         record['runtime_sources'] = [dict(path=str(path), sha256=sha(path)) for path in sorted(runtime_paths)]
+        if zero:
+            assert record['runtime_sources'] == reference['runtime_sources']
         p.reset_nominal()
         env.history[:] = env._frame(noise=False)[:, None, :]
         weights = torch.load(checkpoint, map_location=p.device, weights_only=False)
@@ -151,6 +236,11 @@ def main():
             record['initial_state_max_errors'] = {k: float(np.max(np.abs(initial_np[k]-original[k])))
                 for k in ('joint_pos', 'joint_vel', 'object_state', 'commands')}
         assert max(record['initial_state_max_errors'].values()) == 0, record['initial_state_max_errors']
+        if zero:
+            with np.load(REFERENCE_FOUR/'initial_state.npz') as original:
+                record['initial_state_max_errors_vs_four'] = {k: float(np.max(np.abs(initial_np[k]-original[k])))
+                    for k in ('joint_pos', 'joint_vel', 'object_state', 'commands')}
+            assert max(record['initial_state_max_errors_vs_four'].values()) == 0, record['initial_state_max_errors_vs_four']
         prev = initial['object_state'][:, 3:7].clone()
         net, legacy_steps, legacy_stopped, legacy_reason = 0., 0, False, 'time limit'
         record['phase'] = 'episode'

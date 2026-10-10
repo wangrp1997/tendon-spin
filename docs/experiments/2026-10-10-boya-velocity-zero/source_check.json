@@ -1,0 +1,172 @@
+{
+  "date": "2026-10-10",
+  "scope": "read-only source/configuration verification; not original IsaacGym runtime execution or internal kernel instrumentation",
+  "hora_source": "HaozhiQi/hora v0.0.1; vendored provenance headers retained",
+  "hora_transmission": "Hydra config.task -> resolved dict -> AllegroHandHora -> VecTask._parse_sim_params -> setattr(sim_params.physx,opt,value) -> gym.create_sim(...,sim_params). No later source override of position8/velocity0 found in vendored task path.",
+  "local_aggregation": "max actor request clamped to scene min/max per installed PhysxCfg; scene0/0 plus all actor requests0 establishes effective0 by documented configuration semantics",
+  "new_trial": "position16 remains; one effective0 episode vs reused archived4; not Hora8/0 reproduction",
+  "sources": [
+    {
+      "purpose": "Hora declaration",
+      "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+      "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50",
+      "excerpts": [
+        {
+          "start_line": 92,
+          "end_line": 113,
+          "text": "  dt: 0.0083333 # 120 Hz\n  substeps: 1\n  up_axis: 'z'\n  use_gpu_pipeline: ${eq:${...pipeline},'gpu'}\n  gravity: [0.0, 0.0, -9.81]\n  physx:\n    num_threads: ${....num_threads}\n    solver_type: ${....solver_type}\n    use_gpu: ${contains:'cuda',${....sim_device}} # set to False to run on CPU\n    num_position_iterations: 8\n    num_velocity_iterations: 0\n    max_gpu_contact_pairs: 8388608 # 8*1024*1024\n    num_subscenes: ${....num_subscenes}\n    contact_offset: 0.002\n    rest_offset: 0.0\n    bounce_threshold_velocity: 0.2\n    max_depenetration_velocity: 1000.0\n    default_buffer_size_multiplier: 5.0\n    contact_collection: 2 # 0: CC_NEVER (don't collect contact info), 1: CC_LAST_SUBSTEP (collect only contacts on last substep), 2: CC_ALL_SUBSTEPS (default - all contacts)"
+        }
+      ]
+    },
+    {
+      "purpose": "Hora default solver",
+      "path": "third_party/hora/configs/config.yaml",
+      "sha256": "1b9817484271f173c0f60b77aa3f06af4ddf8b19297b658924a165596250f48f",
+      "excerpts": [
+        {
+          "start_line": 10,
+          "end_line": 25,
+          "text": "## Device config\n#  'physx' or 'flex'\nphysics_engine: 'physx'\n# whether to use cpu or gpu pipeline\npipeline: 'gpu'\n# device for running physics simulation\nsim_device: 'cuda:0'\n# device to run RL\nrl_device: 'cuda:0'\ngraphics_device_id: 0\n\n## PhysX arguments\nnum_threads: 4 # Number of worker threads per scene used by PhysX - for CPU PhysX only.\nsolver_type: 1 # 0: pgs, 1: tgs\nnum_subscenes: 4 # Splits the simulation into N physics scenes and runs each one in a separate thread\n"
+        }
+      ]
+    },
+    {
+      "purpose": "Hora Hydra task transmission",
+      "path": "third_party/hora/train.py",
+      "sha256": "c171cc0a67fe704cef12421ca6ffb1c6f321224eee10d72987b6d36485f90757",
+      "excerpts": [
+        {
+          "start_line": 44,
+          "end_line": 64,
+          "text": "def main(config: DictConfig):\n    if config.checkpoint:\n        config.checkpoint = to_absolute_path(config.checkpoint)\n\n    # set numpy formatting for printing only\n    set_np_formatting()\n\n    # sets seed. if seed is -1 will pick a random one\n    config.seed = set_seed(config.seed)\n\n    cprint('Start Building the Environment', 'green', attrs=['bold'])\n    env = isaacgym_task_map[config.task_name](\n        config=omegaconf_to_dict(config.task),\n        sim_device=config.sim_device,\n        graphics_device_id=config.graphics_device_id,\n        headless=config.headless,\n    )\n\n    output_dif = os.path.join('outputs', config.train.ppo.output_name)\n    os.makedirs(output_dif, exist_ok=True)\n    agent = eval(config.train.algo)(env, output_dif, full_config=config)"
+        }
+      ]
+    },
+    {
+      "purpose": "Hora resolved dictionary",
+      "path": "third_party/hora/hora/utils/reformat.py",
+      "sha256": "f8817c0685f44624c5b58694cbb720d1b4eae360b352527dfc484ffaa2896bfe",
+      "excerpts": [
+        {
+          "start_line": 40,
+          "end_line": 52,
+          "text": "        if isinstance(v, DictConfig):\n            ret[k] = omegaconf_to_dict(v)\n        else:\n            ret[k] = v\n    return ret\n\n\ndef print_dict(val, nesting: int = -4, start: bool = True):\n    \"\"\"Outputs a nested dictionory.\"\"\"\n    if type(val) == dict:\n        if not start:\n            print('')\n        nesting += 4"
+        }
+      ]
+    },
+    {
+      "purpose": "Hora task base constructor",
+      "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26",
+      "excerpts": [
+        {
+          "start_line": 20,
+          "end_line": 49,
+          "text": "\n\nclass AllegroHandHora(VecTask):\n    def __init__(self, config, sim_device, graphics_device_id, headless):\n        self.config = config\n        # before calling init in VecTask, need to do\n        # 1. setup randomization\n        self._setup_domain_rand_config(config['env']['randomization'])\n        # 2. setup privileged information\n        self._setup_priv_option_config(config['env']['privInfo'])\n        # 3. setup object assets\n        self._setup_object_info(config['env']['object'])\n        # 4. setup reward\n        self._setup_reward_config(config['env']['reward'])\n        self.base_obj_scale = config['env']['baseObjScale']\n        self.save_init_pose = config['env']['genGrasps']\n        self.aggregate_mode = self.config['env']['aggregateMode']\n        self.up_axis = 'z'\n        self.reset_z_threshold = self.config['env']['reset_height_threshold']\n        self.grasp_cache_name = self.config['env']['grasp_cache_name']\n        self.evaluate = self.config['on_evaluation']\n        self.priv_info_dict = {\n            'obj_position': (0, 3),\n            'obj_scale': (3, 4),\n            'obj_mass': (4, 5),\n            'obj_friction': (5, 6),\n            'obj_com': (6, 9),\n        }\n\n        super().__init__(config, sim_device, graphics_device_id, headless)"
+        }
+      ]
+    },
+    {
+      "purpose": "Hora parser and native creation",
+      "path": "third_party/hora/hora/tasks/base/vec_task.py",
+      "sha256": "5e6a0761c78c1d8d394d6799a9f03fc641dc72a1aab181aac2facc159debdbb9",
+      "excerpts": [
+        {
+          "start_line": 137,
+          "end_line": 159,
+          "text": "            headless: Set to False to disable viewer rendering.\n        \"\"\"\n        super().__init__(config, sim_device, graphics_device_id, headless)\n\n        self.sim_params = self._parse_sim_params(config['physics_engine'], config['sim'])\n        if config['physics_engine'] == 'physx':\n            self.physics_engine = gymapi.SIM_PHYSX\n        elif config['physics_engine'] == 'flex':\n            self.physics_engine = gymapi.SIM_FLEX\n        else:\n            msg = f\"Invalid physics engine backend: {config['physics_engine']}\"\n            raise ValueError(msg)\n\n        # optimization flags for pytorch JIT\n        torch._C._jit_set_profiling_mode(False)  # noqa\n        torch._C._jit_set_profiling_executor(False)  # noqa\n\n        self.gym = gymapi.acquire_gym()\n        self._allocate_buffers()\n        # create envs, sim and viewer\n        self.create_sim()\n        self.gym.prepare_sim(self.sim)\n        self._set_viewer()"
+        },
+        {
+          "start_line": 224,
+          "end_line": 231,
+          "text": "    def create_sim(self):\n        self.dt = self.sim_params.dt\n        self.up_axis_idx = self.set_sim_params_up_axis(self.sim_params, self.up_axis)\n        self.sim = self.gym.create_sim(self.device_id, self.graphics_device_id, self.physics_engine, self.sim_params)\n        if self.sim is None:\n            print('*** Failed to create sim')\n            quit()\n        self._create_envs(self.num_envs, self.config['env']['envSpacing'], int(np.sqrt(self.num_envs)))"
+        },
+        {
+          "start_line": 346,
+          "end_line": 393,
+          "text": "    def _parse_sim_params(self, physics_engine: str, config_sim: Dict[str, Any]) -> gymapi.SimParams:\n        \"\"\"Parse the config dictionary for physics stepping settings.\n\n        Args:\n            physics_engine: which physics engine to use. \"physx\" or \"flex\"\n            config_sim: dict of sim configuration parameters\n        Returns\n            IsaacGym SimParams object with updated settings.\n        \"\"\"\n        sim_params = gymapi.SimParams()\n\n        # check correct up-axis\n        if config_sim['up_axis'] not in ['z', 'y']:\n            msg = f\"Invalid physics up-axis: {config_sim['up_axis']}\"\n            print(msg)\n            raise ValueError(msg)\n\n        # assign general sim parameters\n        sim_params.dt = config_sim['dt']\n        sim_params.num_client_threads = config_sim.get('num_client_threads', 0)\n        sim_params.use_gpu_pipeline = config_sim['use_gpu_pipeline']\n        sim_params.substeps = config_sim.get('substeps', 2)\n\n        # assign up-axis\n        if config_sim['up_axis'] == 'z':\n            sim_params.up_axis = gymapi.UP_AXIS_Z\n        else:\n            sim_params.up_axis = gymapi.UP_AXIS_Y\n\n        # assign gravity\n        sim_params.gravity = gymapi.Vec3(*config_sim['gravity'])\n\n        # configure physics parameters\n        if physics_engine == 'physx':\n            # set the parameters\n            if 'physx' in config_sim:\n                for opt in config_sim['physx'].keys():\n                    if opt == 'contact_collection':\n                        setattr(sim_params.physx, opt, gymapi.ContactCollection(config_sim['physx'][opt]))\n                    else:\n                        setattr(sim_params.physx, opt, config_sim['physx'][opt])\n        else:\n            # set the parameters\n            if 'flex' in config_sim:\n                for opt in config_sim['flex'].keys():\n                    setattr(sim_params.flex, opt, config_sim['flex'][opt])\n\n        return sim_params"
+        }
+      ]
+    },
+    {
+      "purpose": "Boya requested iterations and pre-reset hook",
+      "path": "tendonspin/physics/isaac_parallel.py",
+      "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76",
+      "excerpts": [
+        {
+          "start_line": 60,
+          "end_line": 109,
+          "text": "        del stage, original\n        self.parameters = motor_parameters(c)\n        self.cfg = sim_utils.SimulationCfg(dt=self.dt,device=self.device,gravity=tuple(c['gravity']),\n            visualizer_cfgs=[],use_newton_actuators=False,\n            physics=PhysxCfg(solver_type=1,min_position_iteration_count=16,min_velocity_iteration_count=4,\n                             enable_ccd=False))\n        self.sim = sim_utils.SimulationContext(self.cfg)\n        material = sim_utils.RigidBodyMaterialCfg(static_friction=.5,dynamic_friction=.5,restitution=0.)\n        collision = sim_utils.CollisionPropertiesCfg(contact_offset=.0001,rest_offset=0.)\n        hand_cfg = ArticulationCfg(prim_path='{ENV_REGEX_NS}/Hand',\n            spawn=sim_utils.UsdFileCfg(usd_path=str(self.asset_path),activate_contact_sensors=True,\n                collision_props=collision,physics_material=material,\n                articulation_props=sim_utils.ArticulationRootPropertiesCfg(enabled_self_collisions=True,\n                    solver_position_iteration_count=16,solver_velocity_iteration_count=4)),\n            init_state=ArticulationCfg.InitialStateCfg(pos=tuple(c['hand_root']['pos']),\n                rot=tuple(wxyz_to_xyzw(c['hand_root']['quat'])),\n                joint_pos={j['name']:j['qpos'] for j in c['joints']},\n                joint_vel={j['name']:j['qvel'] for j in c['joints']}),\n            actuators=actuator_configuration(self.parameters))\n        o = c['object']\n        object_cfg = RigidObjectCfg(prim_path='{ENV_REGEX_NS}/Cylinder',\n            spawn=sim_utils.CylinderCfg(radius=o['diameter_m']/2,height=o['length_m'],\n                mass_props=sim_utils.MassPropertiesCfg(mass=o['mass_kg']),\n                rigid_props=sim_utils.RigidBodyPropertiesCfg(disable_gravity=False,enable_gyroscopic_forces=True),\n                collision_props=collision,physics_material=material,activate_contact_sensors=True),\n            init_state=RigidObjectCfg.InitialStateCfg(pos=tuple(o['pos']),rot=tuple(wxyz_to_xyzw(o['quat'])),\n                lin_vel=tuple(o['lin_vel_world']),ang_vel=tuple(o['ang_vel_world'])))\n        scene_cfg = InteractiveSceneCfg(num_envs=num_envs,env_spacing=1.,replicate_physics=True,filter_collisions=True)\n        scene_cfg.hand = hand_cfg\n        scene_cfg.cylinder = object_cfg\n        scene_cfg.contact = ContactSensorCfg(prim_path='{ENV_REGEX_NS}/Cylinder',update_period=0.,\n            filter_prim_paths_expr=filters,max_contact_data_count_per_prim=64,\n            track_contact_points=False,track_friction_forces=True)\n        self.scene = InteractiveScene(scene_cfg)\n        self.hand = self.scene.articulations['hand']\n        self.object = self.scene.rigid_objects['cylinder']\n        self.contact = self.scene.sensors['contact']\n        if scene_setup is not None:scene_setup(self)\n        self.sim.reset()\n        self.origins = tensor(self.scene.env_origins)\n        self.adapter = SharpaPositionAdapter(self.hand,c,self.parameters)\n        self.names = list(self.hand.joint_names)\n        self.active_joint_ids = torch.tensor([self.names.index(n) for n in ACTION_NAMES],device=self.device)\n        self.slaves = torch.tensor([self.names.index(p['slave']) for p in c['couplings']],device=self.device)\n        self.masters = torch.tensor([self.names.index(p['master']) for p in c['couplings']],device=self.device)\n        self.q0 = tensor(self.hand.data.default_joint_pos).clone()\n        self.v0 = tensor(self.hand.data.default_joint_vel).clone()\n        self.commands0 = self.adapter.commands.clone()\n        self.object0 = tensor(self.object.data.default_root_state).clone()\n        self.object0[:,:3] += self.origins"
+        }
+      ]
+    },
+    {
+      "purpose": "Installed max-actor/clamp rule",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/physics/physx_manager_cfg.py",
+      "sha256": "b28ec403c4d534101eab541aff92952b96eb63f0526b0dc0a53277638ca732b2",
+      "excerpts": [
+        {
+          "start_line": 77,
+          "end_line": 115,
+          "text": "    min_position_iteration_count: int = 1\n    \"\"\"Minimum number of solver position iterations (rigid bodies, cloth, particles etc.). Default is 1.\n\n    .. note::\n\n        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_position_iteration_count, max_position_iteration_count]``.\n    \"\"\"\n\n    max_position_iteration_count: int = 255\n    \"\"\"Maximum number of solver position iterations (rigid bodies, cloth, particles etc.). Default is 255.\n\n    .. note::\n\n        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_position_iteration_count, max_position_iteration_count]``.\n    \"\"\"\n\n    min_velocity_iteration_count: int = 0\n    \"\"\"Minimum number of solver velocity iterations (rigid bodies, cloth, particles etc.). Default is 0.\n\n    .. note::\n\n        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_velocity_iteration_count, max_velocity_iteration_count]``.\n    \"\"\"\n\n    max_velocity_iteration_count: int = 255\n    \"\"\"Maximum number of solver velocity iterations (rigid bodies, cloth, particles etc.). Default is 255.\n\n    .. note::\n\n        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_velocity_iteration_count, max_velocity_iteration_count]``.\n    \"\"\""
+        }
+      ]
+    },
+    {
+      "purpose": "Installed config to scene USD",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/physics/physx_manager.py",
+      "sha256": "a20f98c841ea031329d0d083303e1fb4c84cb13a7ba3f4cc6bbeee028302bd35",
+      "excerpts": [
+        {
+          "start_line": 757,
+          "end_line": 768,
+          "text": "            sim.set_setting(\"/physics/suppressReadback\", False)  # type: ignore[union-attr]\n            PhysicsManager._device = \"cpu\"\n\n        # physx scene api (use sim.cfg for shared parameters like physics_prim_path, dt, physics_material)\n        # apply schema and set attributes by name\n        sim_cfg = sim.cfg\n        stage = sim.stage\n        scene_prim = stage.GetPrimAtPath(sim_cfg.physics_prim_path)\n        if \"PhysxSceneAPI\" not in scene_prim.GetAppliedSchemas():\n            scene_prim.AddAppliedSchema(\"PhysxSceneAPI\")\n\n        # timestep and frame rate"
+        },
+        {
+          "start_line": 788,
+          "end_line": 795,
+          "text": "        # solver\n        sim_utils.safe_set_attribute_on_usd_prim(\n            scene_prim, \"physxScene:solverType\", \"TGS\" if cfg.solver_type == 1 else \"PGS\", camel_case=False\n        )\n        scene_prim.CreateAttribute(\"physxScene:solveArticulationContactLast\", Sdf.ValueTypeNames.Bool).Set(\n            cfg.solve_articulation_contact_last\n        )\n"
+        },
+        {
+          "start_line": 807,
+          "end_line": 832,
+          "text": "        # apply remaining cfg attributes to scene (physxScene:*)\n        skip = {\n            # generic request, translated above; PhysX has no physxScene:deterministic attribute\n            \"deterministic\",\n            \"solver_type\",\n            \"enable_ccd\",\n            \"solve_articulation_contact_last\",\n            \"dt\",\n            \"device\",\n            \"render_interval\",\n            \"gravity\",\n            \"physics_prim_path\",\n            \"use_fabric\",\n            \"physics_material\",\n            \"class_type\",\n        }\n        for key, value in cfg.to_dict().items():  # type: ignore\n            if key not in skip:\n                attr_name = \"bounce_threshold\" if key == \"bounce_threshold_velocity\" else key\n                sim_utils.safe_set_attribute_on_usd_prim(\n                    scene_prim,\n                    f\"physxScene:{to_camel_case(attr_name, 'cC')}\",\n                    value,\n                    camel_case=False,\n                )\n"
+        }
+      ]
+    },
+    {
+      "purpose": "Installed PhysX USD defaults",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.schema.physx-110.3.2+110.3.0.lx64.r.cp312.u7f4/plugins/PhysxSchema/resources/generatedSchema.usda",
+      "sha256": "4a7638c3890522bbe7c25600c0090e6cb7f403550ccb8be7641bf84034213b83",
+      "excerpts": [
+        {
+          "start_line": 195,
+          "end_line": 222,
+          "text": "        }\n        displayGroup = \"Advanced\"\n        displayName = \"Maximum Bias Coefficient\"\n    )\n    uniform uint physxScene:maxPositionIterationCount = 255 (\n        customData = {\n            string userDocBrief = \"Maximum position iteration count for all actors (rigid bodies, deformables, particles etc).\"\n        }\n        displayName = \"Maximum Position Iteration Count\"\n    )\n    uniform uint physxScene:maxVelocityIterationCount = 255 (\n        customData = {\n            string userDocBrief = \"Maximum velocity iteration count for all actors (rigid bodies, deformables, particles etc).\"\n        }\n        displayName = \"Maximum Velocity Iteration Count\"\n    )\n    uniform uint physxScene:minPositionIterationCount = 1 (\n        customData = {\n            string userDocBrief = \"Minimum position iteration count for all actors (rigid bodies, deformables, particles etc).\"\n        }\n        displayName = \"Minimum Position Iteration Count\"\n    )\n    uniform uint physxScene:minVelocityIterationCount = 0 (\n        customData = {\n            string userDocBrief = \"Minimum velocity iteration count for all actors (rigid bodies, deformables, particles etc).\"\n        }\n        displayName = \"Minimum Velocity Iteration Count\"\n    )"
+        },
+        {
+          "start_line": 380,
+          "end_line": 396,
+          "text": "        displayGroup = \"Advanced\"\n        displayName = \"Solve Contact\"\n    )\n    int physxRigidBody:solverPositionIterationCount = 16 (\n        customData = {\n            string userDocBrief = \"Solver position iteration counts for the body.\"\n        }\n        displayGroup = \"Advanced\"\n        displayName = \"Solver Position Iteration Count\"\n    )\n    int physxRigidBody:solverVelocityIterationCount = 1 (\n        customData = {\n            string userDocBrief = \"Solver velocity iteration counts for the body.\"\n        }\n        displayGroup = \"Advanced\"\n        displayName = \"Solver Velocity Iteration Count\"\n    )"
+        },
+        {
+          "start_line": 1240,
+          "end_line": 1255,
+          "text": "            string userDocBrief = \"Mass-normalized kinetic energy threshold below which the articulation may go to sleep.\"\n        }\n        displayName = \"Sleep Threshold\"\n    )\n    int physxArticulation:solverPositionIterationCount = 32 (\n        customData = {\n            string userDocBrief = \"Solver position iteration counts for the body.\"\n        }\n        displayName = \"Solver Position Iteration Count\"\n    )\n    int physxArticulation:solverVelocityIterationCount = 1 (\n        customData = {\n            string userDocBrief = \"Solver velocity iteration counts for the body.\"\n        }\n        displayName = \"Solver Velocity Iteration Count\"\n    )"
+        }
+      ]
+    },
+    {
+      "purpose": "Native tensor API, no iteration getter in declaration",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "sha256": "1ba654210857a63b98236512e5f225723c3eb1dee64e867eaa4fade0578ccb7b",
+      "excerpts": []
+    },
+    {
+      "purpose": "Native PhysX binding declaration, no solver iteration counter getter",
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physx-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physx/bindings/_physx.pyi",
+      "sha256": "23ea6ea0070a56fccee5d90843186e2b1a430f5112800a9549b8becdb88480b4",
+      "excerpts": []
+    }
+  ]
+}

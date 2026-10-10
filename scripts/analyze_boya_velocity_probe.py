@@ -1,6 +1,6 @@
 # Sources: TendonSpin archived diagnostic pair; original score_prefix (unchanged),
 # independent SciPy Rotation world-vector calculation. No simulation or learning.
-"""Compare rawPhysX/Lab/pose signals for the two user-approved configurations."""
+"""Compare4/16 archives, or one new effective-zero episode against archived4."""
 import argparse
 import hashlib
 import json
@@ -19,15 +19,22 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--reference-four', type=Path,
+        help='Reuse this completed4 episode and compare with out/velocity_00; no physics')
     args = parser.parse_args()
     out = args.out.resolve()
-    result = dict(schema=1, training_actions=0, new_evaluation_episodes=2,
+    zero = args.reference_four is not None
+    iterations_pair = (4, 0) if zero else (4, 16)
+    folders = {i: (args.reference_four.resolve() if zero and i == 4 else out/f'velocity_{i:02d}')
+        for i in iterations_pair}
+    result = dict(schema=1, training_actions=0, new_evaluation_episodes=1 if zero else 2,
+        reused_evaluation_episodes=1 if zero else 0,
         interpretation='Two separately evaluated configurations, one closed-loop episode each; no pooled angles, no statistical/causal solver proof',
         records={}, sources=[], analysis_source=dict(path=str(Path(__file__)), sha256=sha(Path(__file__))))
     traces = {}
     initials = {}
-    for iterations in (4, 16):
-        folder = out/f'velocity_{iterations:02d}'
+    for iterations in iterations_pair:
+        folder = folders[iterations]
         record = json.loads((folder/'result.json').read_text())
         assert record['status'] == 'completed'
         assert record['episode_resets'] == record['controller_switches'] == record['training_actions'] == 0
@@ -87,20 +94,20 @@ def main():
         tail = valid & (d['elapsed_s'] > valid_end-.2+1e-10)
         entry['posthoc_endpoint_motion'] = dict(
             purpose='Explain observed terminal motion; no contact-based score filtering',
-            valid_end_s=valid_end, net_at25s_deg=angle_at(min(25., valid_end)),
+            valid_end_s=valid_end, net_at25s_deg=angle_at(25.) if valid_end >= 25. else None,
             last_0p2s_net_deg=final_angle-angle_at(max(0., valid_end-.2)),
             last_0p2s_visible_contact_fraction=float((d['support_groups'][tail] > 0).mean()),
             last_visible_contact_s=float(d['elapsed_s'][last_contact]) if last_contact is not None else None,
             net_at_last_visible_contact_deg=float(d['net_angle_deg'][last_contact]) if last_contact is not None else None,
             net_after_last_visible_contact_deg=final_angle-float(d['net_angle_deg'][last_contact]) if last_contact is not None else None)
-        log = out/f'velocity_{iterations:02d}.log'
+        log = folder.parent/f'velocity_{iterations:02d}.log'
         entry['runtime_iteration_warnings'] = [line for line in log.read_text(errors='replace').splitlines()
             if 'more than 4 velocity iterations' in line]
         result['sources'].append(dict(path=str(log), sha256=sha(log)))
         result['records'][iterations] = entry
         for path in (folder/'result.json', folder/'initial_state.npz', folder/'control_inputs.npz', folder/'reconstructed_control_reward.npz'):
             result['sources'].append(dict(path=str(path), sha256=sha(path)))
-    a, b = (result['records'][i]['record'] for i in (4, 16))
+    a, b = (result['records'][i]['record'] for i in iterations_pair)
     assert a['checkpoint_sha256'] == b['checkpoint_sha256']
     assert a['runtime_sources'] == b['runtime_sources']
     assert a['termination'] == b['termination']
@@ -110,16 +117,23 @@ def main():
         return {path: {k: v for k, v in attributes.items() if not k.startswith('physxScene:')}
             for path, attributes in record['actor_iteration_requests'].items()
             if any(not k.startswith('physxScene:') for k in attributes)}
-    assert actor_requests(a) == actor_requests(b)
-    result['authored_actor_iteration_requests_unchanged'] = True
-    differences = {}
-    for key in ('physics_cfg', 'scene_physics_attributes'):
-        differences[key] = {k: [a[key].get(k), b[key].get(k)] for k in a[key].keys() | b[key].keys()
-                            if a[key].get(k) != b[key].get(k)}
-    assert differences['physics_cfg'] == {'min_velocity_iteration_count': [4, 16]}, differences
-    assert differences['scene_physics_attributes'] == {'physxScene:minVelocityIterationCount': [4, 16]}, differences
+    if zero:
+        from evaluate_boya_velocity_probe import zero_configuration_differences
+        differences = zero_configuration_differences(b, a)
+        assert differences == b['configuration_differences_vs_four']
+        result['authored_actor_iteration_requests_unchanged'] = False
+        result['actor_position_iterations_unchanged'] = True
+    else:
+        assert actor_requests(a) == actor_requests(b)
+        result['authored_actor_iteration_requests_unchanged'] = True
+        differences = {}
+        for key in ('physics_cfg', 'scene_physics_attributes'):
+            differences[key] = {k: [a[key].get(k), b[key].get(k)] for k in a[key].keys() | b[key].keys()
+                                if a[key].get(k) != b[key].get(k)}
+        assert differences['physics_cfg'] == {'min_velocity_iteration_count': [4, 16]}, differences
+        assert differences['scene_physics_attributes'] == {'physxScene:minVelocityIterationCount': [4, 16]}, differences
     result['configuration_differences'] = differences
-    result['initial_state_max_errors'] = {k: float(np.max(np.abs(initials[4][k]-initials[16][k])))
+    result['initial_state_max_errors'] = {k: float(np.max(np.abs(initials[iterations_pair[0]][k]-initials[iterations_pair[1]][k])))
         for k in ('joint_pos', 'joint_vel', 'object_state', 'commands')}
     assert max(result['initial_state_max_errors'].values()) == 0
     common = min(a['valid_s'], b['valid_s'])
