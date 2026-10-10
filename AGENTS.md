@@ -139,3 +139,22 @@ soleevaluationactual5.95s/valid5.9495s/net-0.659489deg/peak68.653873/
 backward75.388385,below-regionfailure. Bothdeclaredacceptanceconditionsfailed;
 stable rotation unresolved. Original20M remains preserved. No follow-on budget,
 retry, coefficient scan or alternate route is authorized by this result.
+
+Latest2026-10-10 authorization supersedes the prior final-trial stop for NEW
+fresh A/B experiments: each arm starts ZERO learner/network/normalizers/Adam/
+adaptiveLR/RNGseed43, no20M/pilot/migration initialization. A=hora_pose_delta;
+B=same plus existing workspace failure terminalcost16. Same1024envs/original4
+engine/task/cache/PPO/16actions/privilegedobservations. Each requested10M,
+rounded10,002,432actions/1221updates, with frozen originalgrasp44/requested30s
+evaluations at cumulative1/3/5/10M and existingofflineanalysis. Continue the
+fixed budget after ordinary physical evaluation failure; stop dependentchain
+on manualstop/execution/source/resumeerror, no retry/extension/parameter scan.
+Latest steering explicitly says START A FIRST and inspect actual GPU memory
+before deciding simultaneous B execution. A is formal10M, not a short test;
+B is currently not launched. No environment-count reduction or added memory
+watchdog/cutoff. One-off memory readings are authorized for concurrency discussion.
+See docs/experiments/2026-10-10-boya-pose-ab-fresh10m/PROTOCOL.md.
+Keep all oldweights/history, summarytraining/TensorBoard/pairedcheckpoints,
+headless/noresourcewatchdog, necessary checks only. User explicitly requests
+launch milestone push and an acceptance ETA after startup. One seed and one
+initial state per checkpoint support trend evaluation,not statistical superiority.

@@ -1,0 +1,52 @@
+{
+  "arm": "A",
+  "pid": 2511381,
+  "launched_at": "2026-10-10T08:47:59.594657+00:00",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "-u",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_fresh_milestones.py",
+    "--arm",
+    "A",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a",
+    "--protocol",
+    "docs/experiments/2026-10-10-boya-pose-ab-fresh10m/PROTOCOL.md"
+  ],
+  "output": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a",
+  "log": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1.arm_a.supervisor.log",
+  "initialization": "fresh network/critic/both normalizers/Adam/adaptiveLR/RNG seed43, zero counts; no initialization or resume checkpoint",
+  "reward_profile": "hora_pose_delta",
+  "num_envs": 1024,
+  "requested_total_actions": 10000000,
+  "rounded_final_actions": 10002432,
+  "final_updates": 1221,
+  "targets": [
+    {
+      "requested_actions": 1000000,
+      "rounded_actions": 1007616
+    },
+    {
+      "requested_actions": 3000000,
+      "rounded_actions": 3006464
+    },
+    {
+      "requested_actions": 5000000,
+      "rounded_actions": 5005312
+    },
+    {
+      "requested_actions": 10000000,
+      "rounded_actions": 10002432
+    }
+  ],
+  "evaluation_seconds": 30,
+  "evaluations": 4,
+  "B_status": "not launched; latest user requests A first and a memory reading",
+  "automatic_retry": false,
+  "automatic_extension": false,
+  "automatic_resource_stop": false,
+  "resource_watchdog": false,
+  "focused_cpu_scheduler_tests": "2 passed",
+  "new_python_syntax_checks": "2 passed",
+  "gpu_baseline_csv": "index, name, memory.total [MiB], memory.used [MiB]\n0, NVIDIA GeForce RTX 5080, 16303 MiB, 761 MiB"
+}

@@ -989,3 +989,43 @@ forgetting/critic/Adam/weightcausation;nostable/SOTA/statistical/hardwareclaim.
 Smallcomparison/eval/signal/training-summary/config/stage/exitproofarchived;
 weights/raw/TensorBoardlocal,old20M/allhistorypreserved. Noautomaticretry,
 extension,coefficientscan,alternateroute,newtests/video/physics/audits. STOP.
+
+
+[Fresh pose-reward A/B10M comparison; A LAUNCHED, B pending memory discussion](experiments/2026-10-10-boya-pose-ab-fresh10m/README.md):
+User explicitly approves two NEW zero-state learners with same seed43/network/
+normalizers/Adam/PPO/task/engine/actions/observations,each10M and1/3/5/10M frozen
+originalstate30s evaluations. Lateststeering START A FIRST toreadactualmemory;
+B not launched. A=hora_pose_delta;B=hora_pose_delta_drop16 (raw-16onexisting9/10,
+timeout7cost0). No20M/21M/pilotcheckpoint initialization, oldweights/history kept.
+1024envs/original_tgs16_4/grasp44/40x32mm50g/16fingeractions/heldwrists/
+4passivemimics/privileged96+9/8latent/v3PD/CADconvex/28cache/workspace/PPOunchanged.
+Fullsetup/config/source andacceptance limits declared in shared immutableprotocol.
+Each requested10M->actual10,002,432actions/1221updates. Nodesrequested1/3/5/10M
+->1,007,616/3,006,464/5,005,312/10,002,432actualactions. Each node trainbudget
+completion ->ONEfrozenownmodel/normalizer/originalgrasp44/requested30s-or-failure
+evaluation/exactinitialreference/fulltrace/rewarddiagnostics/existinganalysis.
+LatersegmentsrestoreOWNfulllearner/RNGandcounts;physicsresetfromsame28cache,
+notcontinuousphysics. No change after one earlydrop; fixedbudget continues.
+Manual/execution/source/resumeerrorstopchain,noretry/extension/coefficientscan.
+Summarytraining/TensorBoard/first-every16-finalpairedcheckpoints,noresourcewatchdog/
+cgroup/memoryquota/trainingwallcutoff/video/GPUauxiliarytrial. Twofocusednewwrapper
+CPUtests andtwonewPythonsyntaxchecks passed. No reward/PPO/physicscodechanges.
+
+DetachedAstart2026-10-10 16:47:59Shanghai, outer supervisor2511381,
+outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a. Same-directoryarm_b reserved,
+not started automatically byA. Idle5080memory761/16303MiB recorded;actualtraining
+allocationpending. Prior throughputestimate first1M+evaluation30–40min,
+A10M+4evaluations4–5h;concurrentETArequiresactualthroughput,notassumed2xspeed.
+Assess30sretention/net/peak/backward/final20–30snetandactualstopreason atallnodes.
+Finitelearningtrendonly;10Mnotguaranteedconvergence andoneearlydropcannotprove
+rewardmethodinvalidity. Old20Mhistory isnotmatchedfreshbudgetcontrol.
+16:51:18snapshot A15updates/122,880actions/~708.53actions/s,trainingPID2511383,
+segment supervisor2511382. Firstcheckpoint8192actions/update1/Adamsteps80 proves
+zero-countfreshstate,noresume/migration;initialmodel/bothnormalizerhashes retained,
+modelchanged,strictrewardcontractmatch,TensorBoardevent exists. InitialLR.005 ->
+firstupdated.0006584362139917696 by originaladaptiveLR. Actualsources/plan/config
+andlaunchsnapshot archived. One-offactualupdate8NVIDIAreading: A3252MiB,
+GPU4017/16303MiB,available12286MiB,idle761MiB,instantGPUutil70%. Two-process
+current-residencyestimate7265MiB leavesroom totry B;notpeak/concurrentthroughput
+measurement. Bnotlaunched. No watchdog/memory cutoff added. FirstA1Mresultabout
+17:20,fullAabout20:50–21:50Shanghai,conditionalonobservedthroughput/evalduration.
