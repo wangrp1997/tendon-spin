@@ -31,10 +31,10 @@ class HoraBoyaEnv:
     reasons=REASONS
 
     def __init__(self,root,out,cache,num_envs=64,trace_mode="full",scene_setup=None,
-                 termination_profile="legacy_strict"):
+                 termination_profile="legacy_strict",engine_profile="original_tgs16_4"):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
         self.trace_mode=trace_mode
-        self.physics=BoyaParallel(root,out,num_envs,scene_setup=scene_setup)
+        self.physics=BoyaParallel(root,out,num_envs,scene_setup=scene_setup,engine_profile=engine_profile)
         p=self.physics
         self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]))
         self.device=p.device;self.num_envs=num_envs

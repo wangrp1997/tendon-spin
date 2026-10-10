@@ -736,3 +736,29 @@ not authorization tolaunch one.0trainingactions,1newphysicalepisode,0automaticre
 retained firstanalysis output/log, rerananalysisonly, no physicsreplay.
 10rawchunks/18200physicalsteps,18199valid; allraw/weightslocal; smallcode/protocol/
 sourcehashes/comparison/execution archived. NoextraGPUtrials/tests/watchdog/video.
+
+
+[Effective-zero small-budget teacher RUNNING](experiments/2026-10-10-boya-velocity-zero-1m/README.md):
+Latestuser explicitly approves smallbudget freshteacher training with originalHora
+reward under effective0 velocityiterations. New requested1,000,000/rounded1,007,616
+actions,123updates,1024envs/seed43/newnetwork/normalizers/Adam/RNG, no resume.
+Output outputs/boya_hora1024_velocity0_small1m_v1; start2026-10-10 12:41:56Shanghai,
+supervisorPID2107045/trainingPID2107046. Launchsnapshot10updates/81,920actions;
+first8192-action pairedcheckpoint verified, modelchanged/Adamstate nonempty.
+New shared engineprofile tgs16_velocity0 in environment/train/eval/checkpointcontract;
+default original_tgs16_4 retained forexplicitoriginalconfiguration. Sources/identity
+versioned separately; alloldweights/results/source snapshots retained unchanged.
+Actualall1024envs/25,600rigidbodies/1,024articulations pass composed0velocity/16position
+requests before/after initialization,scenevelocitybounds0/0. Nointernalcounterclaim.
+Reuse same28cache generatedunder4,originalHoraPPO/reward,privileged96+9/8latent,
+16fingeractions/heldwrists/4passivemimics,object/grasp/collision/PD/timing/workspace
+termination/numericalrules unchanged. Summarytraining/TensorBoard/pairedfirst-every16-final
+checkpoints,noresourcewatchdog/memoryquota/trainingwallcutoff/video/extraGPUpreview.
+Budgetcompletion autoexecutes ONE frozenfinal/originalgrasp44/30s-or-firstfailure/
+1500swall evaluation,exactinitialstate check,fullphysics trace andoriginalreward
+reconstruction; offlineSciPy velocity/pose/contact/reward analysis, thenSTOP.
+Error/manualstop haltsdependentstages,noretry/automaticextension. No matchedbudget4
+evaluation orsuperiorityclaim; old20M/50M arehistory,not equaltrainingbudgetcontrols.
+Necessarysyntax/1CPUpairedlearnernextupdaterestore+engineprofilemismatchrejection
+andactualfirstupdate/checkpoint validation passed. Startupisnotfinalrotationevidence;
+finalevaluationpending. Smallprotocol/implementation/launchprovenance saved andpushed.

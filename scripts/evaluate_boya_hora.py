@@ -1,6 +1,8 @@
 # References: Hora v0.0.1 ActorCritic/RunningMeanStd (MIT), TendonSpin Boya
 # physical runner and declared signed-prefix scoring. New frozen-policy runner;
 # no learning, cache starts, controller switches or reset after restoration.
+# Train-record solver identity is shared with learning; optional reward diagnostics
+# reuse the original Hora formula without changing frozen policy actions.
 """One original-state Isaac episode from one frozen Hora Boya checkpoint."""
 import argparse
 import hashlib
@@ -17,6 +19,8 @@ parser.add_argument('--source-record',type=Path,required=True)
 parser.add_argument('--video',action='store_true',help='Record actual evaluation with an Isaac RTX camera')
 parser.add_argument('--seconds',type=float,default=120.)
 parser.add_argument('--wall-s',type=float,default=1500.)
+parser.add_argument('--initial-reference',type=Path,help='Require exact original q/qdot/object/commands')
+parser.add_argument('--reward-diagnostics',action='store_true')
 args=parser.parse_args()
 root=Path(__file__).resolve().parents[1]
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
@@ -44,7 +48,7 @@ def save(status):
 save('launching')
 from isaaclab.app import AppLauncher
 app=AppLauncher(headless=True,enable_cameras=args.video,device='cuda:0').app
-failed=False;env=None;frames=[];angles=[];controls=[];chunks=0;video=None
+failed=False;env=None;frames=[];angles=[];controls=[];reward_rows=[];chunks=0;video=None
 try:
     import numpy as np
     import torch
@@ -58,20 +62,35 @@ try:
         from tendonspin.rl.native_video import NativePolicyVideo
         video=NativePolicyVideo(out,record['training_actions_in_checkpoint'])
     env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None,
-        termination_profile=training.get('termination',{}).get('profile','legacy_strict'))
+        termination_profile=training.get('termination',{}).get('profile','legacy_strict'),
+        engine_profile=training.get('engine_profile','original_tgs16_4'))
     record['termination']=env.termination.spec.to_dict()
     if 'termination' in training and record['termination']!=training['termination']:
         raise ValueError('Evaluation termination differs from the training contract')
     p=env.physics
+    record['engine_configuration']=p.engine_configuration
+    if 'engine_configuration' in training and p.engine_configuration!=training['engine_configuration']:
+        raise ValueError('Evaluation engine configuration differs from training')
+    if training.get('engine_profile')=='tgs16_velocity0':record['engine_audit']=p.engine_audit
     p.reset_nominal()
     env.history[:]=env._frame(noise=False)[:,None,:]
     weights=torch.load(args.checkpoint,map_location=p.device,weights_only=False)
+    if training.get('engine_profile')=='tgs16_velocity0' and weights['contract']['engine_configuration']!=p.engine_configuration:
+        raise ValueError('Checkpoint engine contract differs from evaluation')
     model=build_model().to(p.device);model.load_state_dict(weights['model']);model.eval()
     norm=reference_module('hora_normalizer').RunningMeanStd((96,)).to(p.device)
     norm.load_state_dict(weights['running_mean_std']);norm.eval()
     record.update(joint_names=p.names,body_names=list(p.hand.body_names),filter_names=p.filter_names)
     initial=p.measure()
-    np.savez(out/'initial_state.npz',**{k:v.cpu().numpy() for k,v in initial.items()},commands=p.adapter.commands.cpu().numpy())
+    initial_np={k:v.cpu().numpy().copy() for k,v in initial.items()}
+    initial_np['commands']=p.adapter.commands.cpu().numpy().copy()
+    np.savez(out/'initial_state.npz',**initial_np)
+    if args.initial_reference:
+        with np.load(args.initial_reference) as expected:
+            record['initial_state_max_errors']={k:float(np.max(np.abs(initial_np[k]-expected[k])))
+                for k in ('joint_pos','joint_vel','object_state','commands')}
+        if max(record['initial_state_max_errors'].values())!=0:
+            raise ValueError('Original evaluation initial state mismatch: '+str(record['initial_state_max_errors']))
     if video:
         video.attach(p);video.capture(0.,0.,float(initial['drift_mm'][0]),initial=True)
     prev=initial['object_state'][:,3:7].clone()
@@ -112,6 +131,16 @@ try:
         frames.append(frame)
         record.update(physics_steps=step+1,actual_s=(step+1)*p.dt,
             valid_s=record['valid_steps']*p.dt,net_deg=net)
+        if args.reward_diagnostics and (step+1)%p.adapter.steps_per_control==0:
+            active=p.active_joint_ids;tau=effort[:,active]
+            velocity=(m['joint_pos'][:,active]-q[:,active])/p.dt
+            pose=((m['joint_pos'][:,active]-env.init_q)**2).sum(-1)
+            torque=tau.square().sum(-1);work=(tau*velocity).sum(-1).square()
+            reward,rot,lin=env.reward_fn(m['object_state'][:,7:10],-.3,m['object_state'][:,10:13],
+                env.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
+            reward_rows.append(dict(elapsed_s=(step+1)*p.dt,valid=valid,reward=float(reward[0]),
+                rotation=float(rot[0]),linear_cost=float(-.3*lin[0]),pose_cost=float(-.3*pose[0]),
+                torque_cost=float(-.1*torque[0]),work_cost=float(-2*work[0])))
         if len(frames)>=2000:
             np.savez(out/f'physics_{chunks:03d}.npz',**{k:np.asarray([f[k] for f in frames]) for k in frames[0]})
             frames=[];chunks+=1
@@ -141,6 +170,8 @@ finally:
         chunks+=1
     if controls:
         np.savez(out/'control_inputs.npz',**{k:np.asarray([f[k] for f in controls]) for k in controls[0]})
+    if reward_rows:
+        np.savez(out/'reconstructed_control_reward.npz',**{k:np.asarray([f[k] for f in reward_rows]) for k in reward_rows[0]})
     if angles:np.save(out/'angles_deg.npy',np.asarray(angles))
     record['physics_trace_chunks']=chunks
     save('error' if failed else 'completed')

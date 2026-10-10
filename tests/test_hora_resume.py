@@ -9,6 +9,7 @@ from gymnasium.spaces import Box
 from omegaconf import OmegaConf
 from tendonspin.baselines.hora_training import ROOT,load_ppo
 from tendonspin.rl.checkpoint import save_checkpoint,restore_checkpoint
+from tendonspin.physics.solver_profiles import configuration,ORIGINAL,VELOCITY_ZERO
 
 
 class ToyEnv:
@@ -29,7 +30,8 @@ class HoraResumeTests(unittest.TestCase):
         cfg=OmegaConf.create(dict(seed=43,rl_device='cpu',test=False,checkpoint=None,
             task=dict(env=dict(numEnvs=4)),train=OmegaConf.load(ROOT/'third_party/hora/configs/train/AllegroHandHora.yaml')))
         cfg.train.ppo.priv_info=True;cfg.train.ppo.minibatch_size=16
-        PPO=load_ppo();contract={'test':'CPU original PPO; not robot physics'}
+        PPO=load_ppo();contract={'test':'CPU original PPO; not robot physics',
+            'engine_configuration':configuration(VELOCITY_ZERO)}
         with tempfile.TemporaryDirectory() as directory:
             a=PPO(ToyEnv(),directory+'/a',cfg);b=PPO(ToyEnv(),directory+'/b',cfg)
             try:
@@ -55,7 +57,7 @@ class HoraResumeTests(unittest.TestCase):
                 torch.testing.assert_close(b.optimizer.state_dict(),a.optimizer.state_dict(),rtol=0,atol=0)
                 self.assertEqual(b.agent_steps,64);self.assertEqual(b.last_lr,a.last_lr)
                 with self.assertRaisesRegex(ValueError,'contract mismatch'):
-                    restore_checkpoint(b,file,contract={'different':'task'})
+                    restore_checkpoint(b,file,contract={**contract,'engine_configuration':configuration(ORIGINAL)})
             finally:a.writer.close();b.writer.close()
 
 

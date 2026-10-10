@@ -2,6 +2,8 @@
 # sharpa_wave_env.py::_setup_scene/reset and Isaac Lab3 InteractiveScene (BSD-3-Clause).
 # Reuse: TendonSpin Boya v3 dynamics and v4 16-input adapter. New batched scene,
 # explicit source excludes in a derived USD layer, no original asset mutations.
+# Optional solver profile reuses the declared effective-zero diagnostic86cf44f;
+# default original16/4 dynamics are retained, and0 is separately recorded.
 """Batched original-size Boya hands with independent environments and 16 inputs."""
 from pathlib import Path
 import json
@@ -18,6 +20,7 @@ from isaaclab_physx.physics import PhysxCfg
 from tendonspin.interfaces import finger_action_contract, ACTION_NAMES
 from .coordinates import wxyz_to_xyzw
 from .isaac_boya_sharpa import motor_parameters, actuator_configuration, configure_constraints, SharpaPositionAdapter
+from .solver_profiles import ORIGINAL, VELOCITY_ZERO, configuration, author_zero_velocity, audit_zero_velocity
 
 
 def tensor(value):
@@ -35,8 +38,10 @@ def axis_z(quat):
 
 
 class BoyaParallel:
-    def __init__(self, root, out, num_envs=64, scene_setup=None):
+    def __init__(self, root, out, num_envs=64, scene_setup=None, engine_profile=ORIGINAL):
         self.root, self.out = Path(root), Path(out)
+        self.engine_configuration = configuration(engine_profile)
+        zero_velocity = engine_profile == VELOCITY_ZERO
         self.contract = finger_action_contract(json.loads((self.root/'docs/data/boya_native_contract.json').read_text()))
         c = self.contract
         self.num_envs = num_envs
@@ -61,7 +66,9 @@ class BoyaParallel:
         self.parameters = motor_parameters(c)
         self.cfg = sim_utils.SimulationCfg(dt=self.dt,device=self.device,gravity=tuple(c['gravity']),
             visualizer_cfgs=[],use_newton_actuators=False,
-            physics=PhysxCfg(solver_type=1,min_position_iteration_count=16,min_velocity_iteration_count=4,
+            physics=PhysxCfg(solver_type=1,min_position_iteration_count=16,
+                             min_velocity_iteration_count=0 if zero_velocity else 4,
+                             max_velocity_iteration_count=0 if zero_velocity else 255,
                              enable_ccd=False))
         self.sim = sim_utils.SimulationContext(self.cfg)
         material = sim_utils.RigidBodyMaterialCfg(static_friction=.5,dynamic_friction=.5,restitution=0.)
@@ -94,8 +101,17 @@ class BoyaParallel:
         self.hand = self.scene.articulations['hand']
         self.object = self.scene.rigid_objects['cylinder']
         self.contact = self.scene.sensors['contact']
+        if zero_velocity:author_zero_velocity(self.sim.stage)
         if scene_setup is not None:scene_setup(self)
+        if zero_velocity:
+            before = audit_zero_velocity(self.sim.stage,self.cfg.physics_prim_path,num_envs)
         self.sim.reset()
+        if zero_velocity:
+            after = audit_zero_velocity(self.sim.stage,self.cfg.physics_prim_path,num_envs)
+            if any(before[k]!=after[k] for k in before if k!='scene_physics_attributes'):
+                raise RuntimeError('Actor solver requests changed during PhysX initialization')
+            self.engine_audit = dict(configuration=self.engine_configuration,before_reset=before,after_reset=after)
+            (self.out/'solver_configuration.json').write_text(json.dumps(self.engine_audit,indent=2,allow_nan=False)+'\n')
         self.origins = tensor(self.scene.env_origins)
         self.adapter = SharpaPositionAdapter(self.hand,c,self.parameters)
         self.names = list(self.hand.joint_names)
