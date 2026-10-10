@@ -1,0 +1,72 @@
+{
+  "classification": "pre-episode diagnostic setup failure; preserved, not a completed evaluation",
+  "recorded_episode_steps": 0,
+  "physics_trace_files": 0,
+  "initial_state_files": 0,
+  "second_configuration_launched": false,
+  "observed_error": "result JSON serialization rejected authored infinite configuration metadata during cleanup; earlier caught exception was masked",
+  "repair": "encode non-finite configuration metadata as strings only; inspect manager proxy class safely; print original exceptions; always close app",
+  "scope": "No reward/task/physics-setting/policy change. Physical-state and metric non-finites are not sanitized.",
+  "manual_relaunch_output": "outputs/boya_velocity_diagnostic_v2",
+  "status": {
+    "phase": "error",
+    "pid": 1939045,
+    "requested_physics_seconds": 60.0,
+    "training_actions": 0,
+    "automatic_retry": false,
+    "automatic_resource_stop": false,
+    "runs": [
+      {
+        "velocity_iterations": 4,
+        "output": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v1/velocity_04",
+        "command": [
+          "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+          "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_velocity_probe.py",
+          "--out",
+          "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v1/velocity_04",
+          "--velocity-iterations",
+          "4"
+        ],
+        "pid": 1939046,
+        "exit_code": 1,
+        "status": "launching",
+        "actual_s": 0.0,
+        "valid_s": 0.0,
+        "net_deg": 0.0,
+        "stop_reason": "time limit"
+      }
+    ],
+    "wall_s": 5.892693524016067,
+    "error": {
+      "type": "RuntimeError",
+      "message": "Episode error/manual stop; chain stopped without retry",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/rw/Projects/tendon-spin/scripts/run_boya_velocity_diagnostic.py\", line 67, in main\n    raise RuntimeError('Episode error/manual stop; chain stopped without retry')\nRuntimeError: Episode error/manual stop; chain stopped without retry\n"
+    }
+  },
+  "sources": [
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/status.json",
+      "sha256": "9b04192ef750dfda1dd7674cacf6e9e178e856b7f7cad3c67adf756ca7f3280f"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/velocity_04/boya_parallel.usda",
+      "sha256": "5addc335281321cd2f43a5f8fd589653a88e5ffff8092a3e05f0a8d75faca05c"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/velocity_04/result.json",
+      "sha256": "5b343d59820e5c329c2bc08bb867c0739df25d9bc5ccf0d29ec7a55b205858c4"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/velocity_04/sources/docs/experiments/2026-10-10-boya-velocity-diagnostic/PROTOCOL.md",
+      "sha256": "e47013fb5b6edd5c0746336752eda860dbc95a0d9ab573dc95b30d2286b18be2"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/velocity_04/sources/scripts/evaluate_boya_velocity_probe.py",
+      "sha256": "ac8621305902d94a5a33f6a0b00eaef9466beb9cfcda17b64a52baa64f399408"
+    },
+    {
+      "path": "outputs/boya_velocity_diagnostic_v1/velocity_04.log",
+      "sha256": "797b61c92405db4766bfdf7a31ae63e0760a309ccce5d2a393577bc053194d37"
+    }
+  ]
+}

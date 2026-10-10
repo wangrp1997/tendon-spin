@@ -652,3 +652,33 @@ adaptation/enginefix orseparatelydeclaredrewardvariant. OriginalHoraformulareuse
 no basis to claimHora/Sharpaoriginalmethoddefect. Currentruntimehashesarchivednow,
 notretroactivetrainingdependencyhashes.0newphysics/training/configurationchanges;
 oldmetrics/weights/rawtracesretained. Sourcechain script+smallevidence saved.
+
+
+[Frozen20M raw-velocity / iteration diagnostic COMPLETED](experiments/2026-10-10-boya-velocity-diagnostic/README.md):
+User approved exactly two originalgrasp44/frozen20M/30s episodes, no learning.
+Same20,004,864-action checkpoint/normalizer/seed43; initialq/qdot/object/commands
+exactlymatch archived20M andeachother, corehashesverified. ActualUSD/config
+onlydifference scene minvelocityiterations4->16; actor/articulationrequests
+unchanged, TGSposition16, originalreward/observations/termination retained.
+Original4:30.0000svalid/net30.426747deg/peak35.822706/backward37.240682,
+normal30stime.16:28.3995svalid/net226.507333deg/peak226.507333/backward33.963902,
+actual28.4000sstopbelowBoya manipulationregion.16at25s15.934230deg;
+lastvalid.2s177.071443deg, visiblehandcontact21.25% ofsamples, finalvalidsample
+hascontactagain;notallafterlastcontact. Keepprimaryscore,nocontactfiltering.
+Maxdrift/tilt/normal4:18.488mm/14.889deg/85.236N;
+16:154.888mm/119.923deg/100.203N. Oldstrictshadow4:8.755371deg/.7015s;
+16:8.562029deg/.7025s,both5mmdrift.
+Allrawbefore/afterLabandraw-versusLabpose/velocitymaxdifferences0.
+Predeclared5-20s/both100%visiblecontact:fullomega/poseRMSE.585356->.859179rad/s,
+actualnet13.038095->-1.769584deg, originalHora rotationterm+.347928->+.246675.
+Original20-30sreproduces-2.461895degbutrotationterm+.367686/RMSE.469447.
+16doesnoteliminatediscrepancy; rawvelocity/posemismatchalreadybelowLabreading,
+specificsolvermechanismnotproven,noevidenceHora/Sharpaoriginalformuladefect.
+16logsTGS>4velocityiterationrecentbehaviorchangewarning,verbatimretained.
+V1setupfailureproduced0recordedepisodesteps/noinitialortracefiles;preserved,
+fixednewloggeronlythenmanuallylaunchedV2. Exactly2actualepisodes,0training,
+0resets/switches,normalchildexits,noextraGPUtrial/retry/video/watchdog.
+Smallprotocol/scripts/results/hashes/execution/failureevidencearchived;
+rawtrajectoriesandweightslocal. Necessarysyntax/source/initial/configcheckspassed.
+Recommendvelocity/poseinputconsistencybeforeanyshorttrainingvariant; nofollowon
+traininglaunched. Singleseedconfigurationdiagnostic,notsolvercausal/SOTA/hardwareproof.

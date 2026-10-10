@@ -1,0 +1,50 @@
+{
+  "phase": "completed",
+  "pid": 1946695,
+  "requested_physics_seconds": 60.0,
+  "training_actions": 0,
+  "automatic_retry": false,
+  "automatic_resource_stop": false,
+  "runs": [
+    {
+      "velocity_iterations": 4,
+      "output": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04",
+      "command": [
+        "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+        "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_velocity_probe.py",
+        "--out",
+        "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04",
+        "--velocity-iterations",
+        "4"
+      ],
+      "pid": 1946729,
+      "exit_code": 0,
+      "status": "completed",
+      "actual_s": 30.0,
+      "valid_s": 30.0,
+      "net_deg": 30.42674739742352,
+      "stop_reason": "time limit"
+    },
+    {
+      "velocity_iterations": 16,
+      "output": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16",
+      "command": [
+        "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+        "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_velocity_probe.py",
+        "--out",
+        "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16",
+        "--velocity-iterations",
+        "16"
+      ],
+      "pid": 1964215,
+      "exit_code": 0,
+      "status": "completed",
+      "actual_s": 28.400000000000002,
+      "valid_s": 28.3995,
+      "net_deg": 226.5073330577613,
+      "stop_reason": "object below Boya manipulation region"
+    }
+  ],
+  "wall_s": 1245.9228350280318,
+  "analysis_exit_code": 0
+}

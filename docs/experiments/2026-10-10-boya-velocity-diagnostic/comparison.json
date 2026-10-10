@@ -1,0 +1,1740 @@
+{
+  "schema": 1,
+  "training_actions": 0,
+  "new_evaluation_episodes": 2,
+  "interpretation": "Two separately evaluated configurations, one closed-loop episode each; no pooled angles, no statistical/causal solver proof",
+  "records": {
+    "4": {
+      "record": {
+        "controller": "frozen20M_raw_velocity_probe_v1",
+        "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_final.pth",
+        "checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+        "training_actions_in_checkpoint": 20004864,
+        "configuration": "TGS_position16_velocity_min4",
+        "requested_s": 30.0,
+        "wall_budget_s": 1500.0,
+        "seed": 43,
+        "headless": true,
+        "enable_cameras": false,
+        "initial_state": "original grasp44, not cache",
+        "physics_steps": 60000,
+        "valid_steps": 60000,
+        "actual_s": 30.0,
+        "valid_s": 30.0,
+        "net_deg": 30.42674739742352,
+        "episode_resets": 0,
+        "controller_switches": 0,
+        "training_actions": 0,
+        "benchmark_validated": false,
+        "automatic_resource_stop": false,
+        "stop_reason": "time limit",
+        "phase": "episode",
+        "sources": [
+          {
+            "path": "scripts/train_boya_hora.py",
+            "sha256": "16c5c9a28dc3a09896826a6a7231c03000b495e8d345167cf505587abde6e2cc"
+          },
+          {
+            "path": "tendonspin/rl/isaac_hora.py",
+            "sha256": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d"
+          },
+          {
+            "path": "tendonspin/baselines/hora_training.py",
+            "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+          },
+          {
+            "path": "tendonspin/physics/isaac_parallel.py",
+            "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76"
+          },
+          {
+            "path": "tendonspin/physics/isaac_boya.py",
+            "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+          },
+          {
+            "path": "tendonspin/physics/isaac_boya_sharpa.py",
+            "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+          },
+          {
+            "path": "tendonspin/interfaces.py",
+            "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+          },
+          {
+            "path": "third_party/hora/hora/algo/ppo/ppo.py",
+            "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+          },
+          {
+            "path": "third_party/hora/hora/algo/ppo/experience.py",
+            "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+          },
+          {
+            "path": "third_party/hora/hora/algo/models/models.py",
+            "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+          },
+          {
+            "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+            "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+          },
+          {
+            "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+            "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+          },
+          {
+            "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+            "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+          },
+          {
+            "path": "tendonspin/baselines/reference_models.py",
+            "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+          },
+          {
+            "path": "tendonspin/evaluation/rotation.py",
+            "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+          },
+          {
+            "path": "tendonspin/physics/coordinates.py",
+            "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+          },
+          {
+            "path": "scripts/evaluate_boya_hora.py",
+            "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+          },
+          {
+            "path": "tendonspin/rl/termination.py",
+            "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+          },
+          {
+            "path": "assets/grasp/rotation_workspace.json",
+            "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+          },
+          {
+            "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+            "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+          },
+          {
+            "path": "tendonspin/rl/checkpoint.py",
+            "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+          },
+          {
+            "path": "tendonspin/rl/native_video.py",
+            "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+          },
+          {
+            "path": "tendonspin/rl/resource_guard.py",
+            "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+          },
+          {
+            "path": "scripts/guarded_boya_entry.py",
+            "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+          },
+          {
+            "path": "docs/experiments/2026-10-09-boya-workspace-50m/PROTOCOL.md",
+            "sha256": "1dfdc670d045e0729096077578c9587a4a79fce6c550e8061c28de75f64482cb"
+          }
+        ],
+        "diagnostic_sources": [
+          {
+            "path": "scripts/evaluate_boya_velocity_probe.py",
+            "sha256": "1b858ec0a126107728334c49af7a9aadc0a33e76b88adbfb718ed6872df43e31"
+          },
+          {
+            "path": "docs/experiments/2026-10-10-boya-velocity-diagnostic/PROTOCOL.md",
+            "sha256": "e47013fb5b6edd5c0746336752eda860dbc95a0d9ab573dc95b30d2286b18be2"
+          },
+          {
+            "path": "scripts/evaluate_boya_hora.py",
+            "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+          }
+        ],
+        "status": "completed",
+        "wall_s": 546.6147191720083,
+        "termination": {
+          "profile": "boya_workspace",
+          "nominal_height_m": 0.10606109973956034,
+          "reset_height_m": 0.06680125319373637,
+          "episode_control_steps": 400,
+          "reference_nominal_height_m": 0.65,
+          "reference_reset_height_m": 0.645,
+          "task_check_timing": "control boundary (20 Hz)",
+          "numerical_check_timing": "each physics step",
+          "workspace": {
+            "schema": 1,
+            "basis": "Boya nominal palm and middle/distal CAD meshes transformed by original grasp44 body frames; task-region approximation, not a proven controllability boundary.",
+            "nominal_object_position_m": [
+              -0.36543899035183314,
+              0.01834018831507308,
+              0.10606109973956034
+            ],
+            "palm_top_z_m": 0.04118875624400497,
+            "object_bounding_radius_m": 0.025612496949731396,
+            "reset_height_m": 0.06680125319373637,
+            "xy_lower_m": [
+              -0.4598660913130383,
+              -0.0691499734867364
+            ],
+            "xy_upper_m": [
+              -0.25905495451026683,
+              0.0765354088213197
+            ],
+            "confirmation_control_steps": 2,
+            "control_hz": 20,
+            "height_basis": "Palm top plus cylinder circumsphere radius: even a palm-supported cylinder is below this center-height plane. No claim that every position above is recoverable.",
+            "lateral_basis": "Fixed nominal middle/distal mesh XY envelope expanded by cylinder circumsphere radius; all five fingers included.",
+            "contact_policy": "Per-finger simulation contact diagnostics only; fewer than two fingers does not terminate. No tactile array or new actor input.",
+            "sources": [
+              {
+                "path": "docs/data/boya_native_contract.json",
+                "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+              },
+              {
+                "path": "assets/hand/meshes/palm.stl",
+                "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6"
+              },
+              {
+                "path": "assets/hand/meshes/thmiddle.stl",
+                "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391"
+              },
+              {
+                "path": "assets/hand/meshes/thdistal.stl",
+                "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111"
+              },
+              {
+                "path": "assets/hand/meshes/ffmiddle.stl",
+                "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53"
+              },
+              {
+                "path": "assets/hand/meshes/ffdistal.stl",
+                "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630"
+              },
+              {
+                "path": "assets/hand/meshes/mfmiddle.stl",
+                "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371"
+              },
+              {
+                "path": "assets/hand/meshes/mfdistal.stl",
+                "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f"
+              },
+              {
+                "path": "assets/hand/meshes/rfmiddle.stl",
+                "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4"
+              },
+              {
+                "path": "assets/hand/meshes/rfdistal.stl",
+                "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15"
+              },
+              {
+                "path": "assets/hand/meshes/lfmiddle.stl",
+                "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e"
+              },
+              {
+                "path": "assets/hand/meshes/lfdistal.stl",
+                "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+              }
+            ]
+          }
+        },
+        "scene_physics_attributes": {
+          "physxScene:bounceThreshold": 0.5,
+          "physxScene:broadphaseType": "GPU",
+          "physxScene:collisionSystem": "PCM",
+          "physxScene:disableSleeping": false,
+          "physxScene:enableCCD": false,
+          "physxScene:enableEnhancedDeterminism": false,
+          "physxScene:enableExternalForcesEveryIteration": true,
+          "physxScene:enableGPUDynamics": true,
+          "physxScene:enableSceneQuerySupport": false,
+          "physxScene:enableStabilization": false,
+          "physxScene:envIdInBoundsBitCount": 4,
+          "physxScene:frictionCorrelationDistance": 0.02500000037252903,
+          "physxScene:frictionOffsetThreshold": 0.03999999910593033,
+          "physxScene:frictionType": "patch",
+          "physxScene:gpuCollisionStackSize": 67108864,
+          "physxScene:gpuFoundLostAggregatePairsCapacity": 33554432,
+          "physxScene:gpuFoundLostPairsCapacity": 2097152,
+          "physxScene:gpuHeapCapacity": 67108864,
+          "physxScene:gpuMaxDeformableSurfaceContacts": 1048576,
+          "physxScene:gpuMaxDeformableVolumeContacts": 1048576,
+          "physxScene:gpuMaxNumPartitions": 8,
+          "physxScene:gpuMaxParticleContacts": 1048576,
+          "physxScene:gpuMaxRigidContactCount": 8388608,
+          "physxScene:gpuMaxRigidPatchCount": 163840,
+          "physxScene:gpuMaxSoftBodyContacts": 1048576,
+          "physxScene:gpuTempBufferCapacity": 16777216,
+          "physxScene:gpuTotalAggregatePairsCapacity": 2097152,
+          "physxScene:invertCollisionGroupFilter": true,
+          "physxScene:maxBiasCoefficient": "inf",
+          "physxScene:maxPositionIterationCount": 255,
+          "physxScene:maxVelocityIterationCount": 255,
+          "physxScene:minPositionIterationCount": 16,
+          "physxScene:minVelocityIterationCount": 4,
+          "physxScene:reportKinematicKinematicPairs": false,
+          "physxScene:reportKinematicStaticPairs": false,
+          "physxScene:solveArticulationContactLast": false,
+          "physxScene:solverType": "TGS",
+          "physxScene:timeStepsPerSecond": 2000,
+          "physxScene:updateType": "Synchronous"
+        },
+        "actor_iteration_requests": {
+          "/physicsScene": {
+            "physxScene:maxPositionIterationCount": 255,
+            "physxScene:maxVelocityIterationCount": 255,
+            "physxScene:minPositionIterationCount": 16,
+            "physxScene:minVelocityIterationCount": 4
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase": {
+            "physxArticulation:solverPositionIterationCount": 16,
+            "physxArticulation:solverVelocityIterationCount": 4,
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Cylinder": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          }
+        },
+        "physics_cfg": {
+          "class_type": "isaaclab_physx.physics.physx_manager:PhysxManager",
+          "deterministic": false,
+          "solver_type": 1,
+          "solve_articulation_contact_last": false,
+          "min_position_iteration_count": 16,
+          "max_position_iteration_count": 255,
+          "min_velocity_iteration_count": 4,
+          "max_velocity_iteration_count": 255,
+          "enable_scene_query_support": false,
+          "enable_ccd": false,
+          "enable_stabilization": false,
+          "enable_external_forces_every_iteration": true,
+          "enable_enhanced_determinism": false,
+          "bounce_threshold_velocity": 0.5,
+          "friction_offset_threshold": 0.04,
+          "friction_correlation_distance": 0.025,
+          "gpu_max_rigid_contact_count": 8388608,
+          "gpu_max_rigid_patch_count": 163840,
+          "gpu_found_lost_pairs_capacity": 2097152,
+          "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+          "gpu_total_aggregate_pairs_capacity": 2097152,
+          "gpu_collision_stack_size": 67108864,
+          "gpu_heap_capacity": 67108864,
+          "gpu_temp_buffer_capacity": 16777216,
+          "gpu_max_num_partitions": 8,
+          "gpu_max_soft_body_contacts": 1048576,
+          "gpu_max_particle_contacts": 1048576
+        },
+        "timing": {
+          "physics_dt": 0.0005,
+          "control_steps": 100,
+          "control_hz": 20
+        },
+        "runtime_sources": [
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/scene/interactive_scene.py",
+            "sha256": "f78f2a7859beb3384da460bfaca7a6069647163680e53e6e8472cc258199d606"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/sim/simulation_context.py",
+            "sha256": "c3c17f084bc21ddfd80649f8179a6aa916d857a1dcaa1cc1c7f2b7c3945936b2"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/utils/string.py",
+            "sha256": "84bb781584f3039badc4feed31b8741abdd02a6e6a05f9967f145b05977b941e"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object.py",
+            "sha256": "0fd17152d133805412776d8cc90eebe85159a383a2e052dafc2eafdd14e54390"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object_data.py",
+            "sha256": "6e03c85172da8712bdebc6e19c89cea7868afb02f9e96259c82a281cca4270b4"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+            "sha256": "1ba654210857a63b98236512e5f225723c3eb1dee64e867eaa4fade0578ccb7b"
+          }
+        ],
+        "joint_names": [
+          "FAJ1",
+          "FAJ3",
+          "THJ4",
+          "FFJ4",
+          "MFJ4",
+          "RFJ4",
+          "LFJ4",
+          "THJ3",
+          "FFJ3",
+          "MFJ3",
+          "RFJ3",
+          "LFJ3",
+          "THJ2",
+          "FFJ2",
+          "MFJ2",
+          "RFJ2",
+          "LFJ2",
+          "THJ1",
+          "FFJ1",
+          "MFJ1",
+          "RFJ1",
+          "LFJ1"
+        ],
+        "body_names": [
+          "fabase",
+          "falink1",
+          "pmbase",
+          "palm",
+          "thbase",
+          "ffbase",
+          "mfbase",
+          "rfbase",
+          "lfbase",
+          "thproximal",
+          "ffproximal",
+          "mfproximal",
+          "rfproximal",
+          "lfproximal",
+          "thmiddle",
+          "ffmiddle",
+          "mfmiddle",
+          "rfmiddle",
+          "lfmiddle",
+          "thdistal",
+          "ffdistal",
+          "mfdistal",
+          "rfdistal",
+          "lfdistal"
+        ],
+        "filter_names": [
+          "fabase",
+          "falink1",
+          "pmbase",
+          "palm",
+          "thbase",
+          "thproximal",
+          "thmiddle",
+          "thdistal",
+          "ffbase",
+          "ffproximal",
+          "ffmiddle",
+          "ffdistal",
+          "mfbase",
+          "mfproximal",
+          "mfmiddle",
+          "mfdistal",
+          "rfbase",
+          "rfproximal",
+          "rfmiddle",
+          "rfdistal",
+          "lfbase",
+          "lfproximal",
+          "lfmiddle",
+          "lfdistal"
+        ],
+        "initial_state_max_errors": {
+          "joint_pos": 0.0,
+          "joint_vel": 0.0,
+          "object_state": 0.0,
+          "commands": 0.0
+        },
+        "metrics": {
+          "window_s": 30.0,
+          "valid_seconds": 30.0,
+          "complete_window_observed": true,
+          "net_deg": 30.42674739742352,
+          "peak_deg": 35.82270588149602,
+          "forward_deg": 67.66742953649585,
+          "backward_deg": 37.24068213907233,
+          "net_deg_per_budget_second": 1.0142249132474506,
+          "net_deg_per_valid_second": 1.0142249132474506,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": 30.42674739742352,
+          "full_window_final_tail_net_deg": 30.42674739742352,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 30.0,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "legacy_strict_shadow": {
+          "stop_reason": "drift >5mm",
+          "metrics": {
+            "window_s": 30.0,
+            "valid_seconds": 0.7015,
+            "complete_window_observed": false,
+            "net_deg": 8.755370803577819,
+            "peak_deg": 8.755370803577819,
+            "forward_deg": 8.825197602280241,
+            "backward_deg": 0.06982679870242237,
+            "net_deg_per_budget_second": 0.291845693452594,
+            "net_deg_per_valid_second": 12.480927731401025,
+            "valid_prefix_last_tail_s": 30.0,
+            "valid_prefix_last_tail_net_deg": null,
+            "full_window_final_tail_net_deg": null,
+            "goals": [
+              {
+                "target_deg": 90.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7015,
+                "time_resolution_s": 0.0005
+              },
+              {
+                "target_deg": 360.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7015,
+                "time_resolution_s": 0.0005
+              },
+              {
+                "target_deg": 720.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7015,
+                "time_resolution_s": 0.0005
+              }
+            ],
+            "stalled": null,
+            "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+          }
+        },
+        "physics_trace_chunks": 30
+      },
+      "raw_read_agreement": {
+        "raw_before_after_pose_max_abs": 0.0,
+        "raw_before_after_velocity_max_abs": 0.0,
+        "raw_vs_lab_pose_max_abs": 0.0,
+        "raw_vs_lab_velocity_max_abs": 0.0
+      },
+      "raw_lab_read_agreement_within1e_6": true,
+      "independent_pose_net_deg": 30.42690972906119,
+      "valid_prefix_drift_max_mm": 18.487516403198242,
+      "valid_prefix_tilt_max_deg": 14.888814926147461,
+      "valid_prefix_normal_max_N": 85.23622131347656,
+      "windows": {
+        "first5s": {
+          "start_s": 0,
+          "actual_end_s": 5.0,
+          "requested_end_s": 5,
+          "samples": 10000,
+          "visible_contact_fraction": 0.9991,
+          "net_deg": 19.850709437191473,
+          "omega_pose_vector_rmse_rad_s": 0.5496307590875376,
+          "contact_omega_pose_vector_rmse_rad_s": 0.5487742257292276,
+          "raw_fixed_axis_mean_rad_s": 0.2308505818489164,
+          "pose_fixed_axis_mean_rad_s": 0.06787263005593841,
+          "pose_moving_axis_mean_rad_s": 0.06929204770714033,
+          "reconstructed_reward_means": {
+            "rotation": 0.23868234053254128,
+            "linear_cost": -0.003912346787983551,
+            "pose_cost": -0.03671070489945123,
+            "torque_cost": -0.035665029212832454,
+            "work_cost": -0.003106745977545966,
+            "reward": 0.1592875136528164
+          }
+        },
+        "5to20s": {
+          "start_s": 5,
+          "actual_end_s": 20.0,
+          "requested_end_s": 20,
+          "samples": 30000,
+          "visible_contact_fraction": 1.0,
+          "net_deg": 13.038094956512653,
+          "omega_pose_vector_rmse_rad_s": 0.5853564034276302,
+          "contact_omega_pose_vector_rmse_rad_s": 0.5853564034276302,
+          "raw_fixed_axis_mean_rad_s": 0.36940317194133554,
+          "pose_fixed_axis_mean_rad_s": 0.013490551540717549,
+          "pose_moving_axis_mean_rad_s": 0.01517051234525418,
+          "reconstructed_reward_means": {
+            "rotation": 0.3479282559889058,
+            "linear_cost": -0.0034403933526482434,
+            "pose_cost": -0.08139371822277705,
+            "torque_cost": -0.045835056751966474,
+            "work_cost": -0.0077992442960415406,
+            "reward": 0.20945984336237114
+          }
+        },
+        "20to30s": {
+          "start_s": 20,
+          "actual_end_s": 30.0,
+          "requested_end_s": 30,
+          "samples": 20000,
+          "visible_contact_fraction": 1.0,
+          "net_deg": -2.461894664642943,
+          "omega_pose_vector_rmse_rad_s": 0.46944732944672,
+          "contact_omega_pose_vector_rmse_rad_s": 0.46944732944672,
+          "raw_fixed_axis_mean_rad_s": 0.3688893555467697,
+          "pose_fixed_axis_mean_rad_s": -0.00429358032362869,
+          "pose_moving_axis_mean_rad_s": -0.004296816773530098,
+          "reconstructed_reward_means": {
+            "rotation": 0.36768565883859994,
+            "linear_cost": -0.002424726173048839,
+            "pose_cost": -0.09204762008041144,
+            "torque_cost": -0.03976858112961054,
+            "work_cost": -0.000322535583335975,
+            "reward": 0.23312219649553298
+          }
+        },
+        "common_prefix": {
+          "start_s": 0,
+          "actual_end_s": 28.3995,
+          "requested_end_s": 28.3995,
+          "samples": 56799,
+          "visible_contact_fraction": 0.9998415465061005,
+          "net_deg": 31.188885323551844,
+          "omega_pose_vector_rmse_rad_s": 0.5459204504434555,
+          "contact_omega_pose_vector_rmse_rad_s": 0.5457682443517248,
+          "raw_fixed_axis_mean_rad_s": 0.344320222761488,
+          "pose_fixed_axis_mean_rad_s": 0.01803073157654464,
+          "pose_moving_axis_mean_rad_s": 0.019167546573809983,
+          "reconstructed_reward_means": {
+            "rotation": 0.3338014983737963,
+            "linear_cost": -0.003213489855634709,
+            "pose_cost": -0.07671452834661203,
+            "torque_cost": -0.042240065307318636,
+            "work_cost": -0.004784748013303975,
+            "reward": 0.20684866696707838
+          }
+        }
+      },
+      "posthoc_endpoint_motion": {
+        "purpose": "Explain observed terminal motion; no contact-based score filtering",
+        "valid_end_s": 30.0,
+        "net_at25s_deg": 31.567295401984005,
+        "last_0p2s_net_deg": -0.3224043466443618,
+        "last_0p2s_visible_contact_fraction": 1.0,
+        "last_visible_contact_s": 30.0,
+        "net_at_last_visible_contact_deg": 30.42674739742352,
+        "net_after_last_visible_contact_deg": 0.0
+      },
+      "runtime_iteration_warnings": []
+    },
+    "16": {
+      "record": {
+        "controller": "frozen20M_raw_velocity_probe_v1",
+        "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/training/teacher_final.pth",
+        "checkpoint_sha256": "9781442fbfe0865946b7d3268a1ad379f796ca967aa8997f6dc427b8263f226e",
+        "training_actions_in_checkpoint": 20004864,
+        "configuration": "TGS_position16_velocity_min16",
+        "requested_s": 30.0,
+        "wall_budget_s": 1500.0,
+        "seed": 43,
+        "headless": true,
+        "enable_cameras": false,
+        "initial_state": "original grasp44, not cache",
+        "physics_steps": 56800,
+        "valid_steps": 56799,
+        "actual_s": 28.400000000000002,
+        "valid_s": 28.3995,
+        "net_deg": 226.5073330577613,
+        "episode_resets": 0,
+        "controller_switches": 0,
+        "training_actions": 0,
+        "benchmark_validated": false,
+        "automatic_resource_stop": false,
+        "stop_reason": "object below Boya manipulation region",
+        "phase": "episode",
+        "sources": [
+          {
+            "path": "scripts/train_boya_hora.py",
+            "sha256": "16c5c9a28dc3a09896826a6a7231c03000b495e8d345167cf505587abde6e2cc"
+          },
+          {
+            "path": "tendonspin/rl/isaac_hora.py",
+            "sha256": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d"
+          },
+          {
+            "path": "tendonspin/baselines/hora_training.py",
+            "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+          },
+          {
+            "path": "tendonspin/physics/isaac_parallel.py",
+            "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76"
+          },
+          {
+            "path": "tendonspin/physics/isaac_boya.py",
+            "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+          },
+          {
+            "path": "tendonspin/physics/isaac_boya_sharpa.py",
+            "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+          },
+          {
+            "path": "tendonspin/interfaces.py",
+            "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+          },
+          {
+            "path": "third_party/hora/hora/algo/ppo/ppo.py",
+            "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+          },
+          {
+            "path": "third_party/hora/hora/algo/ppo/experience.py",
+            "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+          },
+          {
+            "path": "third_party/hora/hora/algo/models/models.py",
+            "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+          },
+          {
+            "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+            "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+          },
+          {
+            "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+            "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+          },
+          {
+            "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+            "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+          },
+          {
+            "path": "tendonspin/baselines/reference_models.py",
+            "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+          },
+          {
+            "path": "tendonspin/evaluation/rotation.py",
+            "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+          },
+          {
+            "path": "tendonspin/physics/coordinates.py",
+            "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+          },
+          {
+            "path": "scripts/evaluate_boya_hora.py",
+            "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+          },
+          {
+            "path": "tendonspin/rl/termination.py",
+            "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+          },
+          {
+            "path": "assets/grasp/rotation_workspace.json",
+            "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+          },
+          {
+            "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+            "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+          },
+          {
+            "path": "tendonspin/rl/checkpoint.py",
+            "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+          },
+          {
+            "path": "tendonspin/rl/native_video.py",
+            "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+          },
+          {
+            "path": "tendonspin/rl/resource_guard.py",
+            "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+          },
+          {
+            "path": "scripts/guarded_boya_entry.py",
+            "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+          },
+          {
+            "path": "docs/experiments/2026-10-09-boya-workspace-50m/PROTOCOL.md",
+            "sha256": "1dfdc670d045e0729096077578c9587a4a79fce6c550e8061c28de75f64482cb"
+          }
+        ],
+        "diagnostic_sources": [
+          {
+            "path": "scripts/evaluate_boya_velocity_probe.py",
+            "sha256": "1b858ec0a126107728334c49af7a9aadc0a33e76b88adbfb718ed6872df43e31"
+          },
+          {
+            "path": "docs/experiments/2026-10-10-boya-velocity-diagnostic/PROTOCOL.md",
+            "sha256": "e47013fb5b6edd5c0746336752eda860dbc95a0d9ab573dc95b30d2286b18be2"
+          },
+          {
+            "path": "scripts/evaluate_boya_hora.py",
+            "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+          }
+        ],
+        "status": "completed",
+        "wall_s": 698.3284523650073,
+        "termination": {
+          "profile": "boya_workspace",
+          "nominal_height_m": 0.10606109973956034,
+          "reset_height_m": 0.06680125319373637,
+          "episode_control_steps": 400,
+          "reference_nominal_height_m": 0.65,
+          "reference_reset_height_m": 0.645,
+          "task_check_timing": "control boundary (20 Hz)",
+          "numerical_check_timing": "each physics step",
+          "workspace": {
+            "schema": 1,
+            "basis": "Boya nominal palm and middle/distal CAD meshes transformed by original grasp44 body frames; task-region approximation, not a proven controllability boundary.",
+            "nominal_object_position_m": [
+              -0.36543899035183314,
+              0.01834018831507308,
+              0.10606109973956034
+            ],
+            "palm_top_z_m": 0.04118875624400497,
+            "object_bounding_radius_m": 0.025612496949731396,
+            "reset_height_m": 0.06680125319373637,
+            "xy_lower_m": [
+              -0.4598660913130383,
+              -0.0691499734867364
+            ],
+            "xy_upper_m": [
+              -0.25905495451026683,
+              0.0765354088213197
+            ],
+            "confirmation_control_steps": 2,
+            "control_hz": 20,
+            "height_basis": "Palm top plus cylinder circumsphere radius: even a palm-supported cylinder is below this center-height plane. No claim that every position above is recoverable.",
+            "lateral_basis": "Fixed nominal middle/distal mesh XY envelope expanded by cylinder circumsphere radius; all five fingers included.",
+            "contact_policy": "Per-finger simulation contact diagnostics only; fewer than two fingers does not terminate. No tactile array or new actor input.",
+            "sources": [
+              {
+                "path": "docs/data/boya_native_contract.json",
+                "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+              },
+              {
+                "path": "assets/hand/meshes/palm.stl",
+                "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6"
+              },
+              {
+                "path": "assets/hand/meshes/thmiddle.stl",
+                "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391"
+              },
+              {
+                "path": "assets/hand/meshes/thdistal.stl",
+                "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111"
+              },
+              {
+                "path": "assets/hand/meshes/ffmiddle.stl",
+                "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53"
+              },
+              {
+                "path": "assets/hand/meshes/ffdistal.stl",
+                "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630"
+              },
+              {
+                "path": "assets/hand/meshes/mfmiddle.stl",
+                "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371"
+              },
+              {
+                "path": "assets/hand/meshes/mfdistal.stl",
+                "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f"
+              },
+              {
+                "path": "assets/hand/meshes/rfmiddle.stl",
+                "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4"
+              },
+              {
+                "path": "assets/hand/meshes/rfdistal.stl",
+                "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15"
+              },
+              {
+                "path": "assets/hand/meshes/lfmiddle.stl",
+                "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e"
+              },
+              {
+                "path": "assets/hand/meshes/lfdistal.stl",
+                "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+              }
+            ]
+          }
+        },
+        "scene_physics_attributes": {
+          "physxScene:bounceThreshold": 0.5,
+          "physxScene:broadphaseType": "GPU",
+          "physxScene:collisionSystem": "PCM",
+          "physxScene:disableSleeping": false,
+          "physxScene:enableCCD": false,
+          "physxScene:enableEnhancedDeterminism": false,
+          "physxScene:enableExternalForcesEveryIteration": true,
+          "physxScene:enableGPUDynamics": true,
+          "physxScene:enableSceneQuerySupport": false,
+          "physxScene:enableStabilization": false,
+          "physxScene:envIdInBoundsBitCount": 4,
+          "physxScene:frictionCorrelationDistance": 0.02500000037252903,
+          "physxScene:frictionOffsetThreshold": 0.03999999910593033,
+          "physxScene:frictionType": "patch",
+          "physxScene:gpuCollisionStackSize": 67108864,
+          "physxScene:gpuFoundLostAggregatePairsCapacity": 33554432,
+          "physxScene:gpuFoundLostPairsCapacity": 2097152,
+          "physxScene:gpuHeapCapacity": 67108864,
+          "physxScene:gpuMaxDeformableSurfaceContacts": 1048576,
+          "physxScene:gpuMaxDeformableVolumeContacts": 1048576,
+          "physxScene:gpuMaxNumPartitions": 8,
+          "physxScene:gpuMaxParticleContacts": 1048576,
+          "physxScene:gpuMaxRigidContactCount": 8388608,
+          "physxScene:gpuMaxRigidPatchCount": 163840,
+          "physxScene:gpuMaxSoftBodyContacts": 1048576,
+          "physxScene:gpuTempBufferCapacity": 16777216,
+          "physxScene:gpuTotalAggregatePairsCapacity": 2097152,
+          "physxScene:invertCollisionGroupFilter": true,
+          "physxScene:maxBiasCoefficient": "inf",
+          "physxScene:maxPositionIterationCount": 255,
+          "physxScene:maxVelocityIterationCount": 255,
+          "physxScene:minPositionIterationCount": 16,
+          "physxScene:minVelocityIterationCount": 16,
+          "physxScene:reportKinematicKinematicPairs": false,
+          "physxScene:reportKinematicStaticPairs": false,
+          "physxScene:solveArticulationContactLast": false,
+          "physxScene:solverType": "TGS",
+          "physxScene:timeStepsPerSecond": 2000,
+          "physxScene:updateType": "Synchronous"
+        },
+        "actor_iteration_requests": {
+          "/physicsScene": {
+            "physxScene:maxPositionIterationCount": 255,
+            "physxScene:maxVelocityIterationCount": 255,
+            "physxScene:minPositionIterationCount": 16,
+            "physxScene:minVelocityIterationCount": 16
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase": {
+            "physxArticulation:solverPositionIterationCount": 16,
+            "physxArticulation:solverVelocityIterationCount": 4,
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/thbase/thproximal/thmiddle/thdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/ffbase/ffproximal/ffmiddle/ffdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/mfbase/mfproximal/mfmiddle/mfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/rfbase/rfproximal/rfmiddle/rfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Hand/Geometry/world/fabase/falink1/pmbase/palm/lfbase/lfproximal/lfmiddle/lfdistal": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          },
+          "/World/envs/env_0/Cylinder": {
+            "physxRigidBody:solverPositionIterationCount": 16,
+            "physxRigidBody:solverVelocityIterationCount": 1
+          }
+        },
+        "physics_cfg": {
+          "class_type": "isaaclab_physx.physics.physx_manager:PhysxManager",
+          "deterministic": false,
+          "solver_type": 1,
+          "solve_articulation_contact_last": false,
+          "min_position_iteration_count": 16,
+          "max_position_iteration_count": 255,
+          "min_velocity_iteration_count": 16,
+          "max_velocity_iteration_count": 255,
+          "enable_scene_query_support": false,
+          "enable_ccd": false,
+          "enable_stabilization": false,
+          "enable_external_forces_every_iteration": true,
+          "enable_enhanced_determinism": false,
+          "bounce_threshold_velocity": 0.5,
+          "friction_offset_threshold": 0.04,
+          "friction_correlation_distance": 0.025,
+          "gpu_max_rigid_contact_count": 8388608,
+          "gpu_max_rigid_patch_count": 163840,
+          "gpu_found_lost_pairs_capacity": 2097152,
+          "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+          "gpu_total_aggregate_pairs_capacity": 2097152,
+          "gpu_collision_stack_size": 67108864,
+          "gpu_heap_capacity": 67108864,
+          "gpu_temp_buffer_capacity": 16777216,
+          "gpu_max_num_partitions": 8,
+          "gpu_max_soft_body_contacts": 1048576,
+          "gpu_max_particle_contacts": 1048576
+        },
+        "timing": {
+          "physics_dt": 0.0005,
+          "control_steps": 100,
+          "control_hz": 20
+        },
+        "runtime_sources": [
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/scene/interactive_scene.py",
+            "sha256": "f78f2a7859beb3384da460bfaca7a6069647163680e53e6e8472cc258199d606"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/sim/simulation_context.py",
+            "sha256": "c3c17f084bc21ddfd80649f8179a6aa916d857a1dcaa1cc1c7f2b7c3945936b2"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/utils/string.py",
+            "sha256": "84bb781584f3039badc4feed31b8741abdd02a6e6a05f9967f145b05977b941e"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object.py",
+            "sha256": "0fd17152d133805412776d8cc90eebe85159a383a2e052dafc2eafdd14e54390"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object_data.py",
+            "sha256": "6e03c85172da8712bdebc6e19c89cea7868afb02f9e96259c82a281cca4270b4"
+          },
+          {
+            "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+            "sha256": "1ba654210857a63b98236512e5f225723c3eb1dee64e867eaa4fade0578ccb7b"
+          }
+        ],
+        "joint_names": [
+          "FAJ1",
+          "FAJ3",
+          "THJ4",
+          "FFJ4",
+          "MFJ4",
+          "RFJ4",
+          "LFJ4",
+          "THJ3",
+          "FFJ3",
+          "MFJ3",
+          "RFJ3",
+          "LFJ3",
+          "THJ2",
+          "FFJ2",
+          "MFJ2",
+          "RFJ2",
+          "LFJ2",
+          "THJ1",
+          "FFJ1",
+          "MFJ1",
+          "RFJ1",
+          "LFJ1"
+        ],
+        "body_names": [
+          "fabase",
+          "falink1",
+          "pmbase",
+          "palm",
+          "thbase",
+          "ffbase",
+          "mfbase",
+          "rfbase",
+          "lfbase",
+          "thproximal",
+          "ffproximal",
+          "mfproximal",
+          "rfproximal",
+          "lfproximal",
+          "thmiddle",
+          "ffmiddle",
+          "mfmiddle",
+          "rfmiddle",
+          "lfmiddle",
+          "thdistal",
+          "ffdistal",
+          "mfdistal",
+          "rfdistal",
+          "lfdistal"
+        ],
+        "filter_names": [
+          "fabase",
+          "falink1",
+          "pmbase",
+          "palm",
+          "thbase",
+          "thproximal",
+          "thmiddle",
+          "thdistal",
+          "ffbase",
+          "ffproximal",
+          "ffmiddle",
+          "ffdistal",
+          "mfbase",
+          "mfproximal",
+          "mfmiddle",
+          "mfdistal",
+          "rfbase",
+          "rfproximal",
+          "rfmiddle",
+          "rfdistal",
+          "lfbase",
+          "lfproximal",
+          "lfmiddle",
+          "lfdistal"
+        ],
+        "initial_state_max_errors": {
+          "joint_pos": 0.0,
+          "joint_vel": 0.0,
+          "object_state": 0.0,
+          "commands": 0.0
+        },
+        "metrics": {
+          "window_s": 30.0,
+          "valid_seconds": 28.3995,
+          "complete_window_observed": false,
+          "net_deg": 226.5073330577613,
+          "peak_deg": 226.5073330577613,
+          "forward_deg": 260.4712355500376,
+          "backward_deg": 33.96390249227627,
+          "net_deg_per_budget_second": 7.550244435258709,
+          "net_deg_per_valid_second": 7.975750737082036,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": true,
+              "first_sampled_time_s": 28.268,
+              "observed_until_s": 28.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 28.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 28.3995,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "legacy_strict_shadow": {
+          "stop_reason": "drift >5mm",
+          "metrics": {
+            "window_s": 30.0,
+            "valid_seconds": 0.7025,
+            "complete_window_observed": false,
+            "net_deg": 8.562029388875374,
+            "peak_deg": 8.562029388875374,
+            "forward_deg": 8.623631414860938,
+            "backward_deg": 0.061602025985564524,
+            "net_deg_per_budget_second": 0.2854009796291791,
+            "net_deg_per_valid_second": 12.187942190569926,
+            "valid_prefix_last_tail_s": 30.0,
+            "valid_prefix_last_tail_net_deg": null,
+            "full_window_final_tail_net_deg": null,
+            "goals": [
+              {
+                "target_deg": 90.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7025,
+                "time_resolution_s": 0.0005
+              },
+              {
+                "target_deg": 360.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7025,
+                "time_resolution_s": 0.0005
+              },
+              {
+                "target_deg": 720.0,
+                "reached": false,
+                "first_sampled_time_s": null,
+                "observed_until_s": 0.7025,
+                "time_resolution_s": 0.0005
+              }
+            ],
+            "stalled": null,
+            "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+          }
+        },
+        "physics_trace_chunks": 29
+      },
+      "raw_read_agreement": {
+        "raw_before_after_pose_max_abs": 0.0,
+        "raw_before_after_velocity_max_abs": 0.0,
+        "raw_vs_lab_pose_max_abs": 0.0,
+        "raw_vs_lab_velocity_max_abs": 0.0
+      },
+      "raw_lab_read_agreement_within1e_6": true,
+      "independent_pose_net_deg": 226.5074001533288,
+      "valid_prefix_drift_max_mm": 154.88800048828125,
+      "valid_prefix_tilt_max_deg": 119.92283630371094,
+      "valid_prefix_normal_max_N": 100.20311737060547,
+      "windows": {
+        "first5s": {
+          "start_s": 0,
+          "actual_end_s": 5.0,
+          "requested_end_s": 5,
+          "samples": 10000,
+          "visible_contact_fraction": 0.9998,
+          "net_deg": 22.68330491232769,
+          "omega_pose_vector_rmse_rad_s": 0.5225448006623364,
+          "contact_omega_pose_vector_rmse_rad_s": 0.5225970629818342,
+          "raw_fixed_axis_mean_rad_s": 0.2196120650108878,
+          "pose_fixed_axis_mean_rad_s": 0.07644287056852338,
+          "pose_moving_axis_mean_rad_s": 0.07917967119078437,
+          "reconstructed_reward_means": {
+            "rotation": 0.20992016811389477,
+            "linear_cost": -0.004749928516102955,
+            "pose_cost": -0.03697828437812859,
+            "torque_cost": -0.03433287912979722,
+            "work_cost": -0.000950133764859683,
+            "reward": 0.13290894255042077
+          }
+        },
+        "5to20s": {
+          "start_s": 5,
+          "actual_end_s": 20.0,
+          "requested_end_s": 20,
+          "samples": 30000,
+          "visible_contact_fraction": 1.0,
+          "net_deg": -1.7695841220341868,
+          "omega_pose_vector_rmse_rad_s": 0.8591786985575913,
+          "contact_omega_pose_vector_rmse_rad_s": 0.8591786985575913,
+          "raw_fixed_axis_mean_rad_s": 0.24304267002019708,
+          "pose_fixed_axis_mean_rad_s": -0.004800809190027446,
+          "pose_moving_axis_mean_rad_s": -0.0020590046213673128,
+          "reconstructed_reward_means": {
+            "rotation": 0.24667458655312657,
+            "linear_cost": -0.00635097042657435,
+            "pose_cost": -0.051490358921388785,
+            "torque_cost": -0.04945496833572785,
+            "work_cost": -0.0033695699982327592,
+            "reward": 0.13600871911476134
+          }
+        },
+        "20to30s": {
+          "start_s": 20,
+          "actual_end_s": 28.3995,
+          "requested_end_s": 30,
+          "samples": 16799,
+          "visible_contact_fraction": 0.9733912732900768,
+          "net_deg": 205.5936793630353,
+          "omega_pose_vector_rmse_rad_s": 0.5340195886800592,
+          "contact_omega_pose_vector_rmse_rad_s": 0.5412682494716459,
+          "raw_fixed_axis_mean_rad_s": 0.6028358190908666,
+          "pose_fixed_axis_mean_rad_s": 0.292868090476209,
+          "pose_moving_axis_mean_rad_s": 0.42720240802124937,
+          "reconstructed_reward_means": {
+            "rotation": 0.2860131152197272,
+            "linear_cost": -0.013309037872983287,
+            "pose_cost": -0.05477021001056283,
+            "torque_cost": -0.03260297910558124,
+            "work_cost": -0.0038169604269758842,
+            "reward": 0.18151392648275383
+          }
+        },
+        "common_prefix": {
+          "start_s": 0,
+          "actual_end_s": 28.3995,
+          "requested_end_s": 28.3995,
+          "samples": 56799,
+          "visible_contact_fraction": 0.9920949312487896,
+          "net_deg": 226.5074001533288,
+          "omega_pose_vector_rmse_rad_s": 0.722712286410543,
+          "contact_omega_pose_vector_rmse_rad_s": 0.7255856339078334,
+          "raw_fixed_axis_mean_rad_s": 0.3453307219426796,
+          "pose_fixed_axis_mean_rad_s": 0.0975421307046646,
+          "pose_moving_axis_mean_rad_s": 0.13920315191492444,
+          "reconstructed_reward_means": {
+            "rotation": 0.251778806030021,
+            "linear_cost": -0.008117977609119593,
+            "pose_cost": -0.04989693330863049,
+            "torque_cost": -0.04182447252968279,
+            "work_cost": -0.0030746327464916557,
+            "reward": 0.14886478961567967
+          }
+        }
+      },
+      "posthoc_endpoint_motion": {
+        "purpose": "Explain observed terminal motion; no contact-based score filtering",
+        "valid_end_s": 28.3995,
+        "net_at25s_deg": 15.934230005828546,
+        "last_0p2s_net_deg": 177.0714433863759,
+        "last_0p2s_visible_contact_fraction": 0.2125,
+        "last_visible_contact_s": 28.3995,
+        "net_at_last_visible_contact_deg": 226.5073330577613,
+        "net_after_last_visible_contact_deg": 0.0
+      },
+      "runtime_iteration_warnings": [
+        "2026-10-10T03:26:01Z [4,689ms] [Warning] [omni.physx.plugin] Detected a rigid at /World/envs/env_0/Cylinder with more than 4 velocity iterations being added to a TGS scene.The related behavior changed recently, please consult the changelog. This warning will only print once.",
+        "2026-10-10T03:26:02Z [4,950ms] [Warning] [omni.physx.plugin] Detected an articulation at /World/envs/env_0/Hand/Geometry/world/fabase with more than 4 velocity iterations being added to a TGS scene.The related behavior changed recently, please consult the changelog. This warning will only print once."
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_000.npz",
+      "sha256": "a821a78a97c35457249d9dbad0e7743cfa103b4a5e5d580195098f45965ba04d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_001.npz",
+      "sha256": "55624a91a9f17d7f91ad902d6cdbc0604f949c3d82dab6ec1d12314b5f29104f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_002.npz",
+      "sha256": "f126fe91d5b1516d70228b6e1c1f0f959f3cbd4fefec7c0c6f50dfdba263e816"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_003.npz",
+      "sha256": "416cfda830153154eb3ab65523f821f1b4f2d6adc1caa069098d9ccbd8137ff1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_004.npz",
+      "sha256": "91514caff10327137aa7d8ed2aa9be739aad426907b4164807d408bf63c3cc99"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_005.npz",
+      "sha256": "bc21b836ce28789be610de452eb1d7eeb11016340787c4018041f974f97a0c49"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_006.npz",
+      "sha256": "a791af6f47a4cb8c2a644a80c86da98e62ffb3e8db9e16d80a6e5f3f8ff0fe96"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_007.npz",
+      "sha256": "27667b7e60654589ee699f7bf66989035fa6b02e071fbef1220414f874663492"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_008.npz",
+      "sha256": "d4eb017b117afbea30d1920d3c0374c3f4e52c429243ec5a8fb7c2d9697cc7c7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_009.npz",
+      "sha256": "58bf2940e175a9bd2e796acf5bbbd0ee22fe3b4c593b4586f51add189158b8e5"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_010.npz",
+      "sha256": "8ac410add0e12dda7b109a39a047c7338316d40e613a74990a103634ab9f3c79"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_011.npz",
+      "sha256": "5684c0fb50cc9a9afef91cee13997f7242e3571c461c3d792ec0f308d62d7bb0"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_012.npz",
+      "sha256": "2198ac2f4123f35eca58cbf8c844f9bb97eaa26e1809ecf5ab829920d849221f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_013.npz",
+      "sha256": "f74713d9522ce6a716d1e34bca3696ef4e34a9c57a99e78b5d2b4e9b5608cf22"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_014.npz",
+      "sha256": "2d75abac9c9e54571fdc1dec28b1a66c5dfc289c237f6470540e2a6dfe667edb"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_015.npz",
+      "sha256": "449b691b59adf71c67cea868c5b4aa233408c9ec8d23f3bc75f8795f42b0c139"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_016.npz",
+      "sha256": "2e97c887ac8ba0f42602c764cdc9f2563efe86439e8e16d1d1c4faa008296479"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_017.npz",
+      "sha256": "4ede2c6eaaa8e3f15389ac85390674870b67ee7bdee0828ef8292a4ab0fba1db"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_018.npz",
+      "sha256": "35cf42710b3a48ba1947978f766903c5e9d224252378aefffd01ab0fde08017b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_019.npz",
+      "sha256": "25029ece700c4e390c0846f3920596af2d3b30c4ec322bef29b6beee8c87c1ca"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_020.npz",
+      "sha256": "9ea22781663ef09f493cdca6752a50c5575e6811801e3f364ca5b7ac37e6bcf9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_021.npz",
+      "sha256": "8cc521a2bc30f0f52e8727e04f5936f51e71034c7521a1044d1a2957002b4fbc"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_022.npz",
+      "sha256": "7b6476c2180f3a23139c7248d923c72202effb13a888b221e8c39899dadc6765"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_023.npz",
+      "sha256": "77e6fc56028dc0b1424daa9c2027a22f1a611b47b357e4f71c1479590818729f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_024.npz",
+      "sha256": "76917c1b5b0d91fe92af5433d315887d6ee7a54fea1dcc96d5be80992933bc7b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_025.npz",
+      "sha256": "344429397032558eb9fee689c412736874bc0b2bae579ac29c2774a02ce07d83"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_026.npz",
+      "sha256": "3d65d3dd07aed9415fe49a3542eb7ae0a30ea90fe3b56461dfdb71224fa2822c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_027.npz",
+      "sha256": "a6476e2dc3cbc7a94985e95b0530cd97eaffbd775d31efa98e7ceae5ab8d2130"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_028.npz",
+      "sha256": "6c4f344cc3a4f8c926dd70afbfdd606d5800d617c3090c60dcdc979313528aad"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/physics_029.npz",
+      "sha256": "407a56e1a335ed00b7eaacd5c829084d0586e6b1a85acb54ecf3c142ed9b0dce"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04.log",
+      "sha256": "e59d41e3ea2b2ca8cf3b8b4dcc73d998068d6795b231e03fd7c012b70e4c8d3d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/result.json",
+      "sha256": "a81616d318faeb9dac75134508a50e907bcec6e366e1f288faa15cf3443cf42a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/control_inputs.npz",
+      "sha256": "4f08ab4e8797b763b40f1d6924cd976cdda790d4f76bdfdb669c092b0447864a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_04/reconstructed_control_reward.npz",
+      "sha256": "4e9d1938ab56ac46c5387afe37fdd8ca5cf73a7437e878a89cc56a94435ea31f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_000.npz",
+      "sha256": "5ade91acf8b35cf664715701b6b44834cf4e63237a8c8547ca390f6df30141be"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_001.npz",
+      "sha256": "25c53ce1b069de9e304cb95db9cbeceba0f39479df76639c4cc18741c806ea97"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_002.npz",
+      "sha256": "501b04eb85116f0cee4a1e0b2a9c43db363e7a73e9bdc51a1e60ca3c663176a1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_003.npz",
+      "sha256": "5ccea64030acce552149e9d3db3037d98ce5442ef836403967e4388ca22345bb"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_004.npz",
+      "sha256": "defd7d99170d69ec443a395c8b52a3a46021fc4c83d5bd8a97533ad8a89dfc89"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_005.npz",
+      "sha256": "b1475ffaaff0419cbb4b2c3e861159f9d3522b2f9245d87ada80dd434b0613fd"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_006.npz",
+      "sha256": "5d5189b68fa8b2ba0c277ef5c2f469f70a506ca75855b2c7adcdcc64cc7413d7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_007.npz",
+      "sha256": "f2a873f1e467380a58a0051c5c41a2507e89e76d08253c8aef633ea197546ea0"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_008.npz",
+      "sha256": "af257f14c1a0130a7fd1903e3dea3b1c0ee4a903ff50a303d37121bb8aa35198"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_009.npz",
+      "sha256": "19d74636773a9524f937882771c951f4cbbe5cd885b03d2aa3c3aa2d0bbbe4ae"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_010.npz",
+      "sha256": "d0a119fbd41f5e304a10d9c570cf7ace08dd6607dcbb6b857fdc3fdc5d74bdf1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_011.npz",
+      "sha256": "1d1f786a17cb08a1ed1d9a3a9d2c089d951eec0c9a2e006f315ac9bbbc9ce28d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_012.npz",
+      "sha256": "113a894e4afe9022ca837939bbc0e849e409dc48ef3ac4954b606f774a995805"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_013.npz",
+      "sha256": "fcfd07bb9d0c5ea16c259c58ea1f3d75181002ce206af79734bd8e0713973493"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_014.npz",
+      "sha256": "a173e488de2c7341e289d85f8cf8fc1f55145d141b68e75b6b3b664b88e38ad8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_015.npz",
+      "sha256": "dc8497efea12205307497b500f49a4102eea3c9591b2727c9b50aa92f005e943"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_016.npz",
+      "sha256": "278818cce28ed6213b2edb56f36261feab1c29f8e2081c1cdbf313685c6ee68e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_017.npz",
+      "sha256": "c078b4772d3635cfca324de2ff9f6eb9d57439c57984fdf1649e551ce10faaaa"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_018.npz",
+      "sha256": "203431afce1cb9f944ec6cc6644a5f3af09aecbe70c8778b37c3fb81ec21af43"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_019.npz",
+      "sha256": "42ed67d7e99be72fa3bcc55be9a37806eebe25ea0332cddc1ac9c01e8697b31e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_020.npz",
+      "sha256": "af19dfe4f2635822c5dedc1f5b8a706d6c8e0e98d1e16c07cb6c188eb25506fd"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_021.npz",
+      "sha256": "98807badf37ba95ff32ed749d81b0760541d8d8829982690f441cc2bc7a4898e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_022.npz",
+      "sha256": "cd55bdb5144016e477afacb9b9ba3aa91579706bde233da1dabf2bc69012a045"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_023.npz",
+      "sha256": "f7da7a67c72f4518b2a11ddb9008773385944646563d1d16fc41da9302104f2a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_024.npz",
+      "sha256": "6b8297fbaa81b16810d780f0d3bcf6a8710ee7a9e6b44786db6891e81b302c0b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_025.npz",
+      "sha256": "2e2e330efba7e68e12b8d21156aea77e7ffb067f3f5d79943772e0f00affca68"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_026.npz",
+      "sha256": "c353139ca3eed8084ab1d93bdae038c99ff68f1e13007ac6dd6665ec86d12d41"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_027.npz",
+      "sha256": "8257d80d430606bafe6f3efda2e5dfbfba0cfe8066bb81bf02af4929ced203ca"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/physics_028.npz",
+      "sha256": "1edd467359265ae98f71604fc4a30ed6fd0097ba9f19de7c4dc879cf974a7be8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16.log",
+      "sha256": "477181729e4b1f3a2ed5040228b56b9cd6caa99a945c93d1fe4af9aa3d4027bb"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/result.json",
+      "sha256": "d481ec896bff6d6bb4fb865306472815123cac997d120a5f8d14e4ce7689d9aa"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/control_inputs.npz",
+      "sha256": "b956069aa7bcbadf5eebb229b3517cf0d3f70cdb7f46bbe70ef62f8130c19bdc"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_velocity_diagnostic_v2/velocity_16/reconstructed_control_reward.npz",
+      "sha256": "07507613a8b7ec60ae116c819d53cfa6c77ee2c8eb13311b5d3549abb6d1d711"
+    }
+  ],
+  "analysis_source": {
+    "path": "/home/rw/Projects/tendon-spin/scripts/analyze_boya_velocity_probe.py",
+    "sha256": "deede00279861434d195d88527ff23d9afe16ba3b50f3f654cc5573b6a2c350e"
+  },
+  "authored_actor_iteration_requests_unchanged": true,
+  "configuration_differences": {
+    "physics_cfg": {
+      "min_velocity_iteration_count": [
+        4,
+        16
+      ]
+    },
+    "scene_physics_attributes": {
+      "physxScene:minVelocityIterationCount": [
+        4,
+        16
+      ]
+    }
+  },
+  "initial_state_max_errors": {
+    "joint_pos": 0.0,
+    "joint_vel": 0.0,
+    "object_state": 0.0,
+    "commands": 0.0
+  }
+}
