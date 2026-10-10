@@ -784,7 +784,7 @@ solveridentitiesarchived,weights/TensorBoard/rawtraceslocal,oldhistorypreserved.
 Noadditionaltests/GPUepisodes/video/training;nofollow-onbudgetstarted.
 
 
-[Original4 small-budget matched control STARTED](experiments/2026-10-10-boya-velocity-four-1m/README.md):
+[Original4 small-budget matched control LAUNCH HISTORY; completed below](experiments/2026-10-10-boya-velocity-four-1m/README.md):
 Latestuser explicitly approves original4 fresh1M control and requests prompt execution.
 Started2026-10-10 13:20:32Shanghai;supervisor2171808/training2171842. Output
 outputs/boya_hora1024_velocity4_small1m_v1;freshnetwork/normalizers/Adam/RNGseed43,
@@ -807,3 +807,28 @@ Actualsnapshot10updates/81,920actions;first8192-actionpairedcheckpointgenerated,
 actualPPO/network/taskconfigexactlymatches0run. Offlineanalysisinterpretationtext
 madeconfiguration-neutral;analysiscalculationsandtrain/evalcodeunchanged.
 Protocol/sourceidentity/launchevidencearchived;finalcomparisonpending.
+
+
+[Original4 fresh1M control COMPLETED; both configurations stopped](experiments/2026-10-10-boya-velocity-four-1m/README.md):
+Original4 completed1,007,616actions/123updates normally;train/eval/analysisexit0,
+trainingwall1440.27s,total1472.25s. FinalcheckpointSHA256
+5db6e8c9140835ff3d6c7ba237072eaccccf818e916594ead97518dc751e213c.
+2026-10-10 14:00Shanghai read:supervisor/lastchildbothnotalive,nofollow-ontraining.
+ONE frozenownmodel/normalizer/originalgrasp44 episode;initialq/qdot/object/commands
+exactlymatchcommonreference,0resets/switches/learning. Requested30s,actual1.5000s,
+valid1.4995s,net+23.791725deg,peak66.298258,backward42.506534;
+stopobjectbelowBoyamanipulationregion. Maxvaliddrift76.293mm/tilt108.280deg/
+normal61.376N,last.2snet-38.212618deg(posthoconly,primaryscoreunchanged).
+Matchedfresh0reference:same1,007,616actions/seed43/task/reward/PPO/config/corecode/
+cache/evalbudget,valid1.1495s,net+47.308647deg,peak60.645683,backward14.923018,
+samebelowregionstop. Original4retains.35slongerbutlessnet/morebackward;
+0doesnotsimultaneouslyimproveretentionandrotation. Bothdropwithin1.5s;
+noverifiedworkingstableconfigurationidentifiedat1M,nolong-termconvergenceclaim.
+4observed0-1.4995sonly:reported/posefixedaxismeans.770223/.666301rad/s,
+fullvectorRMSE.199096/contactRMSE.201243,visiblehandcontact97.866%;SciPypose
+integral23.791692deg,originalrotation/totalreward+.427745/+.310150percontrol.
+First5spartial;5-20/20-30sunobserved. Unequalvalidprefixsignalstatisticsarenot
+matched-timeRMSEcomparison. Lastupdate234resettrainingepisodesmeanvalid1.838175s,
+230below/4lateral;notstandalonemotion. Single-seed/oneepisodeeach,nosuperiority/
+SOTA/hardwareclaim. Smallfinalevidence/two-runsummaryarchived;weights/raw/TBlocal.
+Noadditionalphysics/tests/video/learning;noautomaticextensionorroutechange.
