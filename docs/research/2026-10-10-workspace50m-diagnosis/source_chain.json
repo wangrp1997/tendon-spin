@@ -1,0 +1,358 @@
+{
+  "date": "2026-10-10",
+  "new_physics_steps": 0,
+  "new_training_actions": 0,
+  "method": "Independent float64 SciPy world rotation vectors; same archived physics samples, no smoothing",
+  "findings": "Mismatch is large during hand contact and small during the observed final contact-free interval; no causal solver intervention",
+  "source_chain": "PhysX get_transforms/get_velocities -> timestamped Lab buffers -> root_state_w concatenation -> Boya measure -> unchanged original Hora reward function",
+  "limits": "Current installed runtime source audit; runtime file hashes collected now are not a retroactive hash pin of training-time dependencies. Solver internals/cause not established.",
+  "rows": [
+    {
+      "milestone_M": 20,
+      "window_s": [
+        20,
+        30
+      ],
+      "samples": 20000,
+      "sensor_visible_hand_contact_fraction": 1.0,
+      "geometric_endpoint_deg": -2.461894664642943,
+      "archived_endpoint_deg": -2.4619349860022908,
+      "independent_angle_error_deg": 4.032135934783909e-05,
+      "geometric_spin_mean_rad_s": -0.004296816773530098,
+      "reported_world_omega_mean_rad_s": [
+        -0.37865907726949083,
+        -0.17953833521595225,
+        0.1830127442367433
+      ],
+      "geometric_world_omega_mean_rad_s": [
+        0.0020272759225948224,
+        0.0018972011947548633,
+        -0.0034692842661386693
+      ],
+      "reported_omega_norm_mean_rad_s": 0.4627788281453637,
+      "geometric_omega_norm_mean_rad_s": 0.05137393686789456,
+      "omega_pose_vector_rmse_rad_s": 0.46944732944672,
+      "one_step_shift_rmse_rad_s": {
+        "-1": 0.46701091271351713,
+        "0": 0.46944732944672,
+        "1": 0.46857444344300514
+      }
+    },
+    {
+      "milestone_M": 30,
+      "window_s": [
+        20,
+        30
+      ],
+      "samples": 20000,
+      "sensor_visible_hand_contact_fraction": 1.0,
+      "geometric_endpoint_deg": -0.051661584526936644,
+      "archived_endpoint_deg": -0.05151348189198757,
+      "independent_angle_error_deg": -0.0001481026349490766,
+      "geometric_spin_mean_rad_s": -9.016647467924015e-05,
+      "reported_world_omega_mean_rad_s": [
+        0.10703617976740251,
+        -0.2476769066123292,
+        0.27636681812391617
+      ],
+      "geometric_world_omega_mean_rad_s": [
+        -0.0017252488501669095,
+        0.0026109683606297678,
+        -0.004347558803764351
+      ],
+      "reported_omega_norm_mean_rad_s": 0.3964423786135734,
+      "geometric_omega_norm_mean_rad_s": 0.054848505515906594,
+      "omega_pose_vector_rmse_rad_s": 0.42260243750643567,
+      "one_step_shift_rmse_rad_s": {
+        "-1": 0.41730776537215547,
+        "0": 0.42260243750643567,
+        "1": 0.42220874166860023
+      }
+    },
+    {
+      "milestone_M": 50,
+      "window_s": [
+        20,
+        30
+      ],
+      "samples": 20000,
+      "sensor_visible_hand_contact_fraction": 0.99995,
+      "geometric_endpoint_deg": -4.582774361169013,
+      "archived_endpoint_deg": -4.582768958289606,
+      "independent_angle_error_deg": -5.402879406979366e-06,
+      "geometric_spin_mean_rad_s": -0.007998450147837904,
+      "reported_world_omega_mean_rad_s": [
+        -0.10262609893695844,
+        -0.2272960958296012,
+        -0.005519289166505541
+      ],
+      "geometric_world_omega_mean_rad_s": [
+        0.002702514059785129,
+        0.0027517225801071774,
+        -0.007532472711586598
+      ],
+      "reported_omega_norm_mean_rad_s": 0.31079188985238054,
+      "geometric_omega_norm_mean_rad_s": 0.06820211996505741,
+      "omega_pose_vector_rmse_rad_s": 0.4043237281962345,
+      "one_step_shift_rmse_rad_s": {
+        "-1": 0.36786903564784973,
+        "0": 0.4043237281962345,
+        "1": 0.4266699496706475
+      }
+    },
+    {
+      "milestone_M": 50,
+      "window_s": [
+        35.73,
+        35.8495
+      ],
+      "samples": 239,
+      "sensor_visible_hand_contact_fraction": 0.0,
+      "geometric_endpoint_deg": 107.43326122001626,
+      "archived_endpoint_deg": 107.43326634168626,
+      "independent_angle_error_deg": -5.12167000010777e-06,
+      "geometric_spin_mean_rad_s": 15.690913258949154,
+      "reported_world_omega_mean_rad_s": [
+        -6.90094619415794,
+        2.8022343144755983,
+        17.99156133101076
+      ],
+      "geometric_world_omega_mean_rad_s": [
+        -6.899091964426828,
+        2.8014798255686046,
+        17.986737772741684
+      ],
+      "reported_omega_norm_mean_rad_s": 19.477476847217773,
+      "geometric_omega_norm_mean_rad_s": 19.47225292665731,
+      "omega_pose_vector_rmse_rad_s": 0.006268212469632553,
+      "one_step_shift_rmse_rad_s": {
+        "-1": 0.00979896372167834,
+        "0": 0.006268212469632553,
+        "1": 0.009252869912404614
+      }
+    }
+  ],
+  "archived_sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_019.npz",
+      "sha256": "b0d428b765f7dd5fb17b846cd5c8e6e22eaaad10f98a29e90ca3a70f991438fb"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_020.npz",
+      "sha256": "51087d9ce5fc7a7d94b8b8d9ed065c7eaa727827be74de2e11926601a6a22224"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_021.npz",
+      "sha256": "59e9f0c93090e53d35fefe7a3c74e98376a03b175804862ad99f502974528f4e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_022.npz",
+      "sha256": "ebbc44d20ed3aaae75eef669618a84730acb85e632eaaaf2140f8f6cf61e8f98"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_023.npz",
+      "sha256": "0dd7898c377d0440372ccb839022cea6976ebbfaf6a50c05ad10741d277197fe"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_024.npz",
+      "sha256": "ccee9600c3f8503de607a7113308a6a64ad539d51e50a89fd118255e8e4b50d8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_025.npz",
+      "sha256": "5a4f493d306d77dfc1917ab8bd860188b68ae227f5ca7b18efe9c224bb2d6929"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_026.npz",
+      "sha256": "d0d6960449e0fa9a4364c8bc04d4d294b86a9f23ab7f4628421efce3310acd8f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_027.npz",
+      "sha256": "8a0fe8529d1391eb4349be867b5044e435b2c2331e047fa75da9e8919b961d31"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_028.npz",
+      "sha256": "150ae2477cbed739f1b3919c8bec21b0623079adc6f96031ac2434f6d6a43bc8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_029.npz",
+      "sha256": "61323ae38ac95664093c54df4eb27417225e8618fbed0483e6219f4e094b595a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/physics_030.npz",
+      "sha256": "d910d82a75f5875e3fd73b648dd4139c1c9dd0f646ba8247e9acaac3e9f1e47c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_019.npz",
+      "sha256": "5d4fd412b488652f61b165fa4a1d58368e6ba10d1aa26d32bfa151e77b869b74"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_020.npz",
+      "sha256": "c438eb7f436d977ce4f2d84e84518c8b6dc2c13cb092b4ebd29e7db2e25b136c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_021.npz",
+      "sha256": "4d0bffabea0ca74abdaee45b08671de4e97e45cab06316c936cb6da608a3cd3d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_022.npz",
+      "sha256": "a2feabd3ce45663df62ffb90a0fadc4a41c6c077d443a7d71f3dd336e1e02b5b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_023.npz",
+      "sha256": "4001917225fca3e3c14b011cf1ca0ad126d2d978b7ec7bd0168edc3e13d0046a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_024.npz",
+      "sha256": "19b5b8f6d46c0c7aeb19fcc0594b67cc35146160895c86259b0cca55319ecbf0"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_025.npz",
+      "sha256": "bb30964658e0573dc4ab28643522859040096aefd6afa5828b6e947b0da422c9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_026.npz",
+      "sha256": "f9b169122d4f81c3eb5aef310978c43af3e2950f45dd0baa1fec604cec3c996c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_027.npz",
+      "sha256": "1b923631892d2cc7a4dd1f1e9009c048051c5c28e40c03cdc28140f6987469e3"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_028.npz",
+      "sha256": "28e47010f27a52224789e04714f39dd3acdb211f0918d8205e0da40121bd7467"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_029.npz",
+      "sha256": "0f81cd73c85a030683d18c44ea2eed6c1e6e2f24dd13cecea35f241db2cbd6e6"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_030000000/evaluation/physics_030.npz",
+      "sha256": "8bf2f5a47241e39fb958ef7dbc2c7f14fa3a8d78a4ccf097dea4040ca36b2139"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_019.npz",
+      "sha256": "71e4ca4f3ae3b402050a6465ef17f1b6fdcc23ebe4f81da49f487ae3964c8943"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_020.npz",
+      "sha256": "adc0c9317376ea005930afef986bbb4dff8061e4a45c730c5e08517898f8d993"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_021.npz",
+      "sha256": "9b01b680edf7121b1997e5db190ab2b3f511f434585f767fda3f281427040702"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_022.npz",
+      "sha256": "eab6100eb81ee86c6596e702e6f35a1d939cfb6ed62969b5fc524cc9d361c3b7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_023.npz",
+      "sha256": "0555961296f8ebc22975d3d1f89f20bc03c3a453fd3e1a2c9db27b53a50a1cf2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_024.npz",
+      "sha256": "c9c741bdc6b76fde3cf1c0087ead0c91e52363ed5c31e9b2db44fde4edb749a8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_025.npz",
+      "sha256": "797e3bb86206b9268f82ab4fca58351491820f137cf28322568f44ee9b160873"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_026.npz",
+      "sha256": "20b01890ed9a2e91da2d17220c45b011367ac2ac604d7d2e032f39364f2dcbfe"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_027.npz",
+      "sha256": "6c7109be15f14bbe4728797067582be766b2091f8c6abd082e9f7f18a96f1283"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_028.npz",
+      "sha256": "6c1025a3df00c4d952449d17c0f6431e6184fcb9c7ee8a90251572974fb7c84c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_029.npz",
+      "sha256": "0210703502194d4e244a1271058b1ab8a79f76b84ba330c645d7348cd37bad6c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_030.npz",
+      "sha256": "af8d440554e0ecd79dd8d5b14109a2b6cda1820a67d1a1b93892c5bbee724de7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_034.npz",
+      "sha256": "03c922d51fd55729687c11d9a50a09dad31242b1fba7b45ab2eb858961ecfb46"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_050000000/evaluation/physics_035.npz",
+      "sha256": "9f13a8e70c423f0c2d0735c7936ab1918643e7f1d43e274cd0f8b5c18ca828a1"
+    }
+  ],
+  "local_sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/isaac_parallel.py",
+      "sha256": "87400d83e55013fdc2a893f3e664e86d3ebda05ea4446df51b8d6b5d7c3a0e76"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/rl/isaac_hora.py",
+      "sha256": "8847bceb973984fc579165d042b14cde0d5c56d658b187eb9d4505e29b7d102d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/evaluate_boya_hora.py",
+      "sha256": "20ca88e5ab981aef20e25ef729ca9f610cf0ae5cfab94d9e102083816d899d4e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/third_party/hora/hora/tasks/allegro_hand_hora.py",
+      "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+    }
+  ],
+  "installed_runtime_sources": [
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/assets/rigid_object/base_rigid_object_data.py",
+      "sha256": "841ca674429d5bd405d212f93494c42ff32ae162e4add373474193adbec746f7"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/scene/interactive_scene.py",
+      "sha256": "f78f2a7859beb3384da460bfaca7a6069647163680e53e6e8472cc258199d606"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab/source/isaaclab/isaaclab/sim/simulation_context.py",
+      "sha256": "c3c17f084bc21ddfd80649f8179a6aa916d857a1dcaa1cc1c7f2b7c3945936b2"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object_data.py",
+      "sha256": "6e03c85172da8712bdebc6e19c89cea7868afb02f9e96259c82a281cca4270b4"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/rigid_object/rigid_object.py",
+      "sha256": "0fd17152d133805412776d8cc90eebe85159a383a2e052dafc2eafdd14e54390"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/assets/kernels.py",
+      "sha256": "fbd3614cfc121ecfa948c7e3a897c96668d350f4d6a89c23555e0385fc89f9f3"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/physics/physx_manager.py",
+      "sha256": "a20f98c841ea031329d0d083303e1fb4c84cb13a7ba3f4cc6bbeee028302bd35"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaaclab_physx/physics/physx_manager_cfg.py",
+      "sha256": "b28ec403c4d534101eab541aff92952b96eb63f0526b0dc0a53277638ca732b2"
+    },
+    {
+      "path": "/home/rw/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "sha256": "1ba654210857a63b98236512e5f225723c3eb1dee64e867eaa4fade0578ccb7b"
+    }
+  ],
+  "script": {
+    "path": "/home/rw/Projects/tendon-spin/docs/research/2026-10-10-workspace50m-diagnosis/source_chain.py",
+    "sha256": "9f87ee602884674ff690d6de56e7cba313e15c827cf76c5665378a85a32ea72f"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.17.0"
+  }
+}

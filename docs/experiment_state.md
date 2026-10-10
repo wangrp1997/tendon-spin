@@ -636,3 +636,19 @@ grasp,observations,reward,criteriaorbudget;nonewtraininglaunched.
 Weights/logs/rawtracespreserved.Smallscript/evidence/CSV/figurearchived;
 supersedespreviousRUNNINGstatus. Oneepisodepercheckpoint,notindefiniterotation,
 matchedSOTAorhardwarevalidation.
+
+
+[Velocity/pose source-chain follow-up](research/2026-10-10-workspace50m-diagnosis/SOURCE_CHAIN.md):
+User challenges premature reward-change recommendation. CurrentinstalledAPI/source
+audit finds XYZW/worldomega/linear-angularordering/directstateconcatenation and
+perstepfetch/update path consistent; no evidence of simple order/frame/refresh error.
+Independent float64SciPy worldrotvec matchesarchivedspin within.000149deg.
+20/30/50M20-30sfullomega-versusposerateRMSE.46945/.42260/.40432rad/s duringcontact;
+50M35.73-35.8495s239no-visible-contactsamplesRMSE.00627rad/s at19.5rad/s.
+Plus/minusonephysicsstep doesnotresolve20Mdiscrepancy. Localizescontact-associated
+velocity/poseoutput mismatch,NOT causalproof ofTGS/positioncorrection/enginebug.
+Prioradvice to immediatelychange rewardwaspremature: firstlocalizecause,thenchoose
+adaptation/enginefix orseparatelydeclaredrewardvariant. OriginalHoraformulareused;
+no basis to claimHora/Sharpaoriginalmethoddefect. Currentruntimehashesarchivednow,
+notretroactivetrainingdependencyhashes.0newphysics/training/configurationchanges;
+oldmetrics/weights/rawtracesretained. Sourcechain script+smallevidence saved.
