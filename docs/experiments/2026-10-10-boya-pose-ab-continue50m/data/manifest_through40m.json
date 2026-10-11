@@ -1,0 +1,98 @@
+{
+  "recorded_at": "2026-10-11T19:25:23.171782+08:00",
+  "scope": "Existing40M milestone results; no added training, evaluations, physics or tests.",
+  "files": [
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_evaluations_through40m.csv",
+      "sha256": "3bd0b2d5fd0c8a07080cf9aeb2f8f17dceb483fbf0042d97d0f20f111be9d83f",
+      "bytes": 2340
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_040000000_evaluation.json",
+      "sha256": "d98c3cfe243bf23014f8acbc056403c4ab7b3dfb87d682eb635545e23d795aed",
+      "bytes": 16445
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_040000000_analysis.json",
+      "sha256": "7e6466055a8478a1fdfbd12990977e848b0b3fd714f5cb88b77e7742cd45ad79",
+      "bytes": 23956
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_040000000_stage.json",
+      "sha256": "cc66ed107ecf4e59b295f25531d2d0667a34ef9a70040bc2f9522b39dc703608",
+      "bytes": 3994
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_evaluations_through40m.csv",
+      "sha256": "64f010691448464392dbf8f693af30be11fbb32765789721c9e2967517d53c6a",
+      "bytes": 2330
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_040000000_evaluation.json",
+      "sha256": "ae6a5c038025cca0d24943ca1da1dfefd0440eb28eb73fa3512aa46730eec2c9",
+      "bytes": 16897
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_040000000_analysis.json",
+      "sha256": "a55f88d076801be854a9de58606dfd21ff0d3e6032db9929a2de624975c521b9",
+      "bytes": 32843
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_040000000_stage.json",
+      "sha256": "892f288feed72980d6f1681b839db0a87b0319f6f64d4daa916d007072984fdd",
+      "bytes": 3980
+    }
+  ],
+  "identities": {
+    "A": {
+      "status": "completed",
+      "checkpoint_sha256": "6d14c38bf8fcb2de46691a21afb9e9ef8b9c906b613fb92d2c24630c288067d6",
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "episode_resets": 0,
+      "controller_switches": 0,
+      "training_actions": 0,
+      "training_actions_in_checkpoint": 40001536,
+      "stop_reason": "object below Boya manipulation region",
+      "stage_phase": "completed",
+      "stage_exit_codes": {
+        "training": 0,
+        "evaluation": 0,
+        "analysis": 0
+      }
+    },
+    "B": {
+      "status": "completed",
+      "checkpoint_sha256": "2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc",
+      "initial_state_max_errors": {
+        "joint_pos": 0.0,
+        "joint_vel": 0.0,
+        "object_state": 0.0,
+        "commands": 0.0
+      },
+      "episode_resets": 0,
+      "controller_switches": 0,
+      "training_actions": 0,
+      "training_actions_in_checkpoint": 40001536,
+      "stop_reason": "time limit",
+      "stage_phase": "completed",
+      "stage_exit_codes": {
+        "training": 0,
+        "evaluation": 0,
+        "analysis": 0
+      }
+    }
+  }
+}

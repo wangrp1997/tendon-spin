@@ -1158,3 +1158,28 @@ Continue alreadyauthorized40/50M schedule even if later physical evals fail;
 no newbudget/route/algorithm change. Archived small20/30Meval/stage/30Manalysis/
 CSV/sourcehash evidence only; fulltraces/weights/TensorBoard staylocal. No extra
 physics/evaluations/tests/previews/audit campaign or pinned source/protocol edits.
+
+
+[A/B40M completed: B repeats and improves the30s finite-motion signal](experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_40M.md):
+2026-10-11 19:24Shanghai read: both normally train toward final50M, actual
+A41,934,848actions/5119updates, B40,484,864/4942; noerrors, finite losses,
+liveprocesses. Each40Mcheckpoint40,001,536actions/4883updates, one frozenownmodel/
+normalizer/originalgrasp44/requested30s evaluation; initialstateerrors0, zero
+evaluationresets/switches/learning, train/eval/analysisexit0. Same configuration.
+A actual1.5s/valid1.4995s/net+9.579395544459deg/peak57.906078244303/
+backward50.935932557879, objectbelowmanipulationregion stop,20–30sunobserved.
+B actualvalid30s/net+1155.299400292827deg/peak1155.299400292827/
+backward11.469393190635/final20–30snet+384.291420844809, normal30stime-limitstop.
+B meets all three declared finite-motion criteria again. Versus30M, net
+994.812913->1155.299400, last10s343.901530->384.291421, backward12.423861->11.469393.
+Two separate original-state episodes/checkpoints, not a summedcontinuous60s;
+single seed/state supports observed trend, not statisticalsuperiority/indefinite
+rotation/originalbaseline/SOTA/hardware claims. Preserve all B30M/B40M weights.
+B40McheckpointSHA2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc;
+A40MSHA6d14c38bf8fcb2de46691a21afb9e9ef8b9c906b613fb92d2c24630c288067d6.
+CurrentsegmentratesA496.98/B483.58actions/s, puretrainingfinishforecast
+Oct11 23:55/Oct12 00:52; finaleval/analysisstillrequired. Both50Mresults tentatively
+Oct12 01–02hShanghai, conditionalonactualrates/evalduration. Fixed50Mbudget,
+no automaticextension. Small40Meval/stage/analysis/CSV/sourcehashes archived;
+fulltrace/weights/TensorBoard remainlocal. No newphysics/evaluations/tests/
+auditcampaign/parameterscan or edits to pinned source/protocol.
