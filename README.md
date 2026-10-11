@@ -68,6 +68,13 @@ remain fixed; each segment resets physics from the same28-state cache. Summary
 training, TensorBoard and paired checkpoints continue without a resource watchdog
 or automatic extension. [Protocol and actual launch](docs/experiments/2026-10-10-boya-pose-ab-continue50m/README.md).
 
+At30M, B completes its first frozen original-grasp30s episode: signed net
++994.812913deg, peak994.812913deg, backward12.423861deg, final10s+343.901530deg;
+normal requested-window stop. This meets the declared finite30s motion signal.
+A drops at1.8s/net+14.628842deg. Both continue toward40/50M; this single-seed,
+single-state result does not establish indefinite rotation or statistical superiority.
+[30M progress and archived evidence](docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_30M.md).
+
 Run migration verification:
 
 ```bash

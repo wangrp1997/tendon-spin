@@ -1,0 +1,78 @@
+{
+  "recorded_at": "2026-10-11T14:43:59.850641+08:00",
+  "scope": "Existing20M/30M results only; no new training, physics, evaluation or tests.",
+  "files": [
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_evaluations_through30m.csv",
+      "sha256": "97b51813920097df3a3315e786ef0b6222b72a7529616c77ab2baafc870a4671",
+      "bytes": 1821
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_020000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_020000000_evaluation.json",
+      "sha256": "69afb12f8fd05efc2a74c1b64d4fd930b8a15e53abed24f4efc22fbc5741d816",
+      "bytes": 16445
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_020000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_020000000_stage.json",
+      "sha256": "3f95627b7aec6657986b1014a8dc65acb1561f6c09c411825c9072664a83a18b",
+      "bytes": 4005
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_030000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_030000000_evaluation.json",
+      "sha256": "91d50797fd4a17e99e9fb2c0042ecea3f229d01523aa155dcbf9539039b2b235",
+      "bytes": 16542
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_030000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_030000000_stage.json",
+      "sha256": "b02a3db8a9053b74059f561f5b35d4a4cf54efb28bd034807c3fe18eaa262cd6",
+      "bytes": 3996
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_030000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_030000000_analysis.json",
+      "sha256": "f72443f0ab14e7b4be67156b825b38399e0639a735f86cbffc7f2968834c3d36",
+      "bytes": 24060
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_evaluations_through30m.csv",
+      "sha256": "84563580a4cdd374f9d361d538d6a9a888ce58f5b53bd9f548ac5048f2faa963",
+      "bytes": 1815
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_020000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_020000000_evaluation.json",
+      "sha256": "96fc487369553998d2612e0c63d6a9e138d2db288e18d7cd68d3d5c0da095830",
+      "bytes": 17015
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_020000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_020000000_stage.json",
+      "sha256": "d4318209d3ee86613dcdebd140a14771b42fb9193404605be44fbc38c121bd87",
+      "bytes": 4007
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_030000000_evaluation.json",
+      "sha256": "07d681d41d64f0a5d763093ae6e2e436728fd4b24a333a38d572dc065ddae6bd",
+      "bytes": 16898
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_030000000_stage.json",
+      "sha256": "17228ff0ef37fac95562adaa6b63c995772f35c348fe765de436e7132e7127e7",
+      "bytes": 3982
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_030000000_analysis.json",
+      "sha256": "ed6a5c7e2258955da681ef895efc1672630b1520e7d96295ef28a19f4eb4f59c",
+      "bytes": 32858
+    }
+  ]
+}

@@ -1,0 +1,835 @@
+{
+  "status": "completed",
+  "training_actions": 30007296,
+  "new_frozen_episodes": 1,
+  "engine_configuration": {
+    "profile": "original_tgs16_4",
+    "solver_type": "TGS",
+    "position_min": 16,
+    "position_max": 255,
+    "velocity_min": 4,
+    "velocity_max": 255,
+    "articulation_position": 16,
+    "articulation_velocity": 4,
+    "rigid_body_position": 16,
+    "rigid_body_velocity": 1,
+    "effective_velocity_iterations": 4,
+    "evidence": "composed USD plus documented max-actor request clamped to scene bounds",
+    "direct_kernel_iteration_counter": false
+  },
+  "reward_profile": "hora_pose_delta_drop16",
+  "evaluation": {
+    "controller": "frozen_hora_boya_pose_ab_fresh10m_b",
+    "requested_s": 30.0,
+    "physics_steps": 60000,
+    "valid_steps": 60000,
+    "actual_s": 30.0,
+    "valid_s": 30.0,
+    "episode_resets": 0,
+    "controller_switches": 0,
+    "training_actions": 0,
+    "benchmark_validated": false,
+    "initial_state": "original grasp44, not cache",
+    "headless": true,
+    "seed": 43,
+    "enable_cameras": false,
+    "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/training/teacher_final.pth",
+    "checkpoint_sha256": "fe881d605f8fc898144aab6a0ff2df8194650bbb5e06840e407f0e9ecff5864f",
+    "stop_reason": "time limit",
+    "training_actions_in_checkpoint": 30007296,
+    "sources": [
+      {
+        "path": "scripts/train_boya_hora.py",
+        "sha256": "5213c4a96672f9454fd13092061d9c1102c1277390e6aa2801b03dcf900b80ab"
+      },
+      {
+        "path": "tendonspin/rl/isaac_hora.py",
+        "sha256": "ea9f76c2f89487d8b89d6251ad8696139ccc0bc91dda829221f90f4498b30365"
+      },
+      {
+        "path": "tendonspin/baselines/hora_training.py",
+        "sha256": "5e79fa434308cb8063b2c08db199199529e8e7aebcd313765efdc2fb46f127bb"
+      },
+      {
+        "path": "tendonspin/physics/isaac_parallel.py",
+        "sha256": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a"
+      },
+      {
+        "path": "tendonspin/physics/isaac_boya.py",
+        "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+      },
+      {
+        "path": "tendonspin/physics/isaac_boya_sharpa.py",
+        "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+      },
+      {
+        "path": "tendonspin/interfaces.py",
+        "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+      },
+      {
+        "path": "third_party/hora/hora/algo/ppo/ppo.py",
+        "sha256": "b13d9f0c1738ee50190ec472a5b040f1ff65363896e494f7c5127fa4eeec6263"
+      },
+      {
+        "path": "third_party/hora/hora/algo/ppo/experience.py",
+        "sha256": "3a32b693ab3a0248b7348bad7e3c53344e23de185069342f0a98766074c4c988"
+      },
+      {
+        "path": "third_party/hora/hora/algo/models/models.py",
+        "sha256": "039c8bd6377c7135313e0ca4d6cf7e89c7189ff751c0fafd34663339d3b955f8"
+      },
+      {
+        "path": "third_party/hora/hora/algo/models/running_mean_std.py",
+        "sha256": "13fcdbe43311aa9d3290abf59db67cf2103c027eafe20064ccbfb62a09825c63"
+      },
+      {
+        "path": "third_party/hora/hora/tasks/allegro_hand_hora.py",
+        "sha256": "e13b31c65736ebc354c0ee9ae0d1e68829abf96c3df12b792de09a863288ee26"
+      },
+      {
+        "path": "third_party/hora/configs/train/AllegroHandHora.yaml",
+        "sha256": "637d0555f462e0d1b370dc5635d66fb5281bfb99161b2b1d6988cf5a9be97240"
+      },
+      {
+        "path": "tendonspin/baselines/reference_models.py",
+        "sha256": "e89d85f33a037eeacebf62d73ca1c228aa46bc29ead39c30ee29cccf6572d019"
+      },
+      {
+        "path": "tendonspin/evaluation/rotation.py",
+        "sha256": "7b60f24004fc69c5f6e3c2d0627ca67cb8d2d3c4f6501d2e91972f77a35fc18d"
+      },
+      {
+        "path": "tendonspin/physics/coordinates.py",
+        "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+      },
+      {
+        "path": "scripts/evaluate_boya_hora.py",
+        "sha256": "d54723e2f4e075d76da0b0cb7f762921a43affaff29447c4f070b16f6db24849"
+      },
+      {
+        "path": "tendonspin/rl/termination.py",
+        "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+      },
+      {
+        "path": "assets/grasp/rotation_workspace.json",
+        "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+      },
+      {
+        "path": "third_party/hora/configs/task/AllegroHandHora.yaml",
+        "sha256": "2d0996728348a0654e95a8f6b062e20b6d5d4ab4c63a8a3c1aff5b13c22c6c50"
+      },
+      {
+        "path": "tendonspin/rl/checkpoint.py",
+        "sha256": "48d0bff630e07fded95fb1910bb3fbf12cde8adef0ae12cc5719a4d2203975c2"
+      },
+      {
+        "path": "tendonspin/rl/native_video.py",
+        "sha256": "dc3c7c7606c4aa0c3ac3b9b9329d2fcc2e8c194cf95e55219b139cd0021fc0a3"
+      },
+      {
+        "path": "tendonspin/rl/resource_guard.py",
+        "sha256": "2565c4ea836237298c975f3675d54303f73d40db125797e176db13969cb53d29"
+      },
+      {
+        "path": "scripts/guarded_boya_entry.py",
+        "sha256": "7eb3b838b66d6caa16b394c36f3a20100889709732d67df4587bd735ba184f12"
+      },
+      {
+        "path": "tendonspin/physics/solver_profiles.py",
+        "sha256": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a"
+      },
+      {
+        "path": "tendonspin/rl/rotation_reward.py",
+        "sha256": "7b1bbd8b8aa251635b43396cabb6857be84119e6b3f5ab5ae3f829317dde8092"
+      },
+      {
+        "path": "scripts/migrate_boya_pose_reward.py",
+        "sha256": "def9d8301b47356dd2f66768b8422578f7b3c27edddb2675542ab710b5fe5b0c"
+      },
+      {
+        "path": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROTOCOL.md",
+        "sha256": "a5c9b7a0d3206269996252b44e5228e5e2ce1d6dcf916986cdc322b7b2f51ccb"
+      }
+    ],
+    "status": "completed",
+    "wall_s": 1101.0997459220234,
+    "reward_profile": "hora_pose_delta_drop16",
+    "reward_configuration": {
+      "profile": "hora_pose_delta_drop16",
+      "physics_dt": 0.0005,
+      "steps_per_control": 100,
+      "control_dt": 0.05,
+      "frame": "world",
+      "target_axis": "negative original-grasp cylinder Z; fixed, unchanged from the Hora port",
+      "velocity_source": "measured XYZW pose increments",
+      "aggregation": "sum shortest world rotation vectors / control_dt",
+      "pose_arithmetic": "float64; cast velocity to native tensor dtype before Hora reward",
+      "rotation_scale": 1.0,
+      "angular_velocity_clip": [
+        -0.5,
+        0.5
+      ],
+      "remaining_terms": "original Hora linear/pose/torque/work penalties, unchanged",
+      "terminal_failure_cost": {
+        "raw_reward_cost": 16.0,
+        "failure_codes": [
+          9,
+          10
+        ],
+        "failure_reasons": [
+          "object below Boya manipulation region",
+          "object outside Boya lateral region"
+        ],
+        "applies": "once on terminal control before reset/stop",
+        "ordinary_timeout_cost": 0.0,
+        "reference": "User-authorized Boya adaptation; absent from original Hora v0.0.1"
+      }
+    },
+    "termination": {
+      "profile": "boya_workspace",
+      "nominal_height_m": 0.10606109973956034,
+      "reset_height_m": 0.06680125319373637,
+      "episode_control_steps": 400,
+      "reference_nominal_height_m": 0.65,
+      "reference_reset_height_m": 0.645,
+      "task_check_timing": "control boundary (20 Hz)",
+      "numerical_check_timing": "each physics step",
+      "workspace": {
+        "schema": 1,
+        "basis": "Boya nominal palm and middle/distal CAD meshes transformed by original grasp44 body frames; task-region approximation, not a proven controllability boundary.",
+        "nominal_object_position_m": [
+          -0.36543899035183314,
+          0.01834018831507308,
+          0.10606109973956034
+        ],
+        "palm_top_z_m": 0.04118875624400497,
+        "object_bounding_radius_m": 0.025612496949731396,
+        "reset_height_m": 0.06680125319373637,
+        "xy_lower_m": [
+          -0.4598660913130383,
+          -0.0691499734867364
+        ],
+        "xy_upper_m": [
+          -0.25905495451026683,
+          0.0765354088213197
+        ],
+        "confirmation_control_steps": 2,
+        "control_hz": 20,
+        "height_basis": "Palm top plus cylinder circumsphere radius: even a palm-supported cylinder is below this center-height plane. No claim that every position above is recoverable.",
+        "lateral_basis": "Fixed nominal middle/distal mesh XY envelope expanded by cylinder circumsphere radius; all five fingers included.",
+        "contact_policy": "Per-finger simulation contact diagnostics only; fewer than two fingers does not terminate. No tactile array or new actor input.",
+        "sources": [
+          {
+            "path": "docs/data/boya_native_contract.json",
+            "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+          },
+          {
+            "path": "assets/hand/meshes/palm.stl",
+            "sha256": "e20de01c6a55dc419d86cb5f94b83db2a16b341ff9f8c0f3431998b43f3329b6"
+          },
+          {
+            "path": "assets/hand/meshes/thmiddle.stl",
+            "sha256": "bdb9328ddd124d1855d0d89cbb49d810d0eb76936b0a8eada4219fae272c8391"
+          },
+          {
+            "path": "assets/hand/meshes/thdistal.stl",
+            "sha256": "d6a3639576ed92f25bacdba830fa72928b752b909f7432f798cbedda2157a111"
+          },
+          {
+            "path": "assets/hand/meshes/ffmiddle.stl",
+            "sha256": "eaea40eb5dd9c21a8f20e4eb840748292e8240d2a2f127ddea13056a6acfbd53"
+          },
+          {
+            "path": "assets/hand/meshes/ffdistal.stl",
+            "sha256": "55c99e7dd89d2725cd8c27a550065e2fad79273e5badd26c71efc7674852c630"
+          },
+          {
+            "path": "assets/hand/meshes/mfmiddle.stl",
+            "sha256": "c8200dab19b90c01a491a2bffb1d378380ebf75c7a70e0a1843c71da4d9c0371"
+          },
+          {
+            "path": "assets/hand/meshes/mfdistal.stl",
+            "sha256": "428d52b6cfcd4bc638890ee8e07e76775e9e7c7acd9649f6ef090401f086bf3f"
+          },
+          {
+            "path": "assets/hand/meshes/rfmiddle.stl",
+            "sha256": "3c6ce167ab427a7d1fd3ebe5ead2003ed33f0e388296e9f98ecaaf38b59136f4"
+          },
+          {
+            "path": "assets/hand/meshes/rfdistal.stl",
+            "sha256": "667cc40e2c5097fca8ccf2ec9ca2fa1f24b58d44b586ca6a4837440f30080d15"
+          },
+          {
+            "path": "assets/hand/meshes/lfmiddle.stl",
+            "sha256": "640f21ba6d56dd0267cbeef8ee6ae95d28afbef1cb7beb2ef88987a1dc6e1f5e"
+          },
+          {
+            "path": "assets/hand/meshes/lfdistal.stl",
+            "sha256": "b6e80c18cc2cf3fd74762cc99c29ad782b00ebf89f1cc273b7b80b33f4b0c53a"
+          }
+        ]
+      }
+    },
+    "engine_configuration": {
+      "profile": "original_tgs16_4",
+      "solver_type": "TGS",
+      "position_min": 16,
+      "position_max": 255,
+      "velocity_min": 4,
+      "velocity_max": 255,
+      "articulation_position": 16,
+      "articulation_velocity": 4,
+      "rigid_body_position": 16,
+      "rigid_body_velocity": 1,
+      "effective_velocity_iterations": 4,
+      "evidence": "composed USD plus documented max-actor request clamped to scene bounds",
+      "direct_kernel_iteration_counter": false
+    },
+    "joint_names": [
+      "FAJ1",
+      "FAJ3",
+      "THJ4",
+      "FFJ4",
+      "MFJ4",
+      "RFJ4",
+      "LFJ4",
+      "THJ3",
+      "FFJ3",
+      "MFJ3",
+      "RFJ3",
+      "LFJ3",
+      "THJ2",
+      "FFJ2",
+      "MFJ2",
+      "RFJ2",
+      "LFJ2",
+      "THJ1",
+      "FFJ1",
+      "MFJ1",
+      "RFJ1",
+      "LFJ1"
+    ],
+    "body_names": [
+      "fabase",
+      "falink1",
+      "pmbase",
+      "palm",
+      "thbase",
+      "ffbase",
+      "mfbase",
+      "rfbase",
+      "lfbase",
+      "thproximal",
+      "ffproximal",
+      "mfproximal",
+      "rfproximal",
+      "lfproximal",
+      "thmiddle",
+      "ffmiddle",
+      "mfmiddle",
+      "rfmiddle",
+      "lfmiddle",
+      "thdistal",
+      "ffdistal",
+      "mfdistal",
+      "rfdistal",
+      "lfdistal"
+    ],
+    "filter_names": [
+      "fabase",
+      "falink1",
+      "pmbase",
+      "palm",
+      "thbase",
+      "thproximal",
+      "thmiddle",
+      "thdistal",
+      "ffbase",
+      "ffproximal",
+      "ffmiddle",
+      "ffdistal",
+      "mfbase",
+      "mfproximal",
+      "mfmiddle",
+      "mfdistal",
+      "rfbase",
+      "rfproximal",
+      "rfmiddle",
+      "rfdistal",
+      "lfbase",
+      "lfproximal",
+      "lfmiddle",
+      "lfdistal"
+    ],
+    "initial_state_max_errors": {
+      "joint_pos": 0.0,
+      "joint_vel": 0.0,
+      "object_state": 0.0,
+      "commands": 0.0
+    },
+    "net_deg": 994.8129130089042,
+    "metrics": {
+      "30.0": {
+        "window_s": 30.0,
+        "valid_seconds": 30.0,
+        "complete_window_observed": true,
+        "net_deg": 994.8129130089042,
+        "peak_deg": 994.8129130089042,
+        "forward_deg": 1007.2367740443644,
+        "backward_deg": 12.42386103546022,
+        "net_deg_per_budget_second": 33.16043043363014,
+        "net_deg_per_valid_second": 33.16043043363014,
+        "valid_prefix_last_tail_s": 30.0,
+        "valid_prefix_last_tail_net_deg": 994.8129130089042,
+        "full_window_final_tail_net_deg": 994.8129130089042,
+        "goals": [
+          {
+            "target_deg": 90.0,
+            "reached": true,
+            "first_sampled_time_s": 3.1675,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          },
+          {
+            "target_deg": 360.0,
+            "reached": true,
+            "first_sampled_time_s": 11.515,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          },
+          {
+            "target_deg": 720.0,
+            "reached": true,
+            "first_sampled_time_s": 22.094,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          }
+        ],
+        "stalled": null,
+        "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+      },
+      "120.0": {
+        "window_s": 120.0,
+        "valid_seconds": 30.0,
+        "complete_window_observed": false,
+        "net_deg": 994.8129130089042,
+        "peak_deg": 994.8129130089042,
+        "forward_deg": 1007.2367740443644,
+        "backward_deg": 12.42386103546022,
+        "net_deg_per_budget_second": 8.290107608407535,
+        "net_deg_per_valid_second": 33.16043043363014,
+        "valid_prefix_last_tail_s": 30.0,
+        "valid_prefix_last_tail_net_deg": 994.8129130089042,
+        "full_window_final_tail_net_deg": null,
+        "goals": [
+          {
+            "target_deg": 90.0,
+            "reached": true,
+            "first_sampled_time_s": 3.1675,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          },
+          {
+            "target_deg": 360.0,
+            "reached": true,
+            "first_sampled_time_s": 11.515,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          },
+          {
+            "target_deg": 720.0,
+            "reached": true,
+            "first_sampled_time_s": 22.094,
+            "observed_until_s": 30.0,
+            "time_resolution_s": 0.0005
+          }
+        ],
+        "stalled": null,
+        "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+      }
+    },
+    "legacy_strict_shadow": {
+      "interpretation": "Offline prefix of this same execution under old rules; not a second rollout or primary score",
+      "stop_reason": "drift >5mm",
+      "metrics": {
+        "30.0": {
+          "window_s": 30.0,
+          "valid_seconds": 0.3995,
+          "complete_window_observed": false,
+          "net_deg": 18.716272252064584,
+          "peak_deg": 18.716272252064584,
+          "forward_deg": 18.716272903140634,
+          "backward_deg": 6.510760499622847e-07,
+          "net_deg_per_budget_second": 0.6238757417354861,
+          "net_deg_per_valid_second": 46.84924218289007,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        },
+        "120.0": {
+          "window_s": 120.0,
+          "valid_seconds": 0.3995,
+          "complete_window_observed": false,
+          "net_deg": 18.716272252064584,
+          "peak_deg": 18.716272252064584,
+          "forward_deg": 18.716272903140634,
+          "backward_deg": 6.510760499622847e-07,
+          "net_deg_per_budget_second": 0.15596893543387153,
+          "net_deg_per_valid_second": 46.84924218289007,
+          "valid_prefix_last_tail_s": 30.0,
+          "valid_prefix_last_tail_net_deg": null,
+          "full_window_final_tail_net_deg": null,
+          "goals": [
+            {
+              "target_deg": 90.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 360.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            },
+            {
+              "target_deg": 720.0,
+              "reached": false,
+              "first_sampled_time_s": null,
+              "observed_until_s": 0.3995,
+              "time_resolution_s": 0.0005
+            }
+          ],
+          "stalled": null,
+          "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+        }
+      }
+    },
+    "physics_trace_chunks": 30
+  },
+  "windows": {
+    "first5s": {
+      "start_s": 0.0,
+      "requested_end_s": 5.0,
+      "actual_end_s": 5.0,
+      "complete_window_observed": true,
+      "actual_pose_net_deg": 151.72886518515386,
+      "visible_hand_contact_fraction": 0.9998,
+      "omega_pose_vector_rmse_rad_s": 0.34569085398427274,
+      "contact_omega_pose_vector_rmse_rad_s": 0.34572542825582714,
+      "reported_fixed_axis_mean_rad_s": 0.5387363097507839,
+      "pose_fixed_axis_mean_rad_s": 0.5202271660555502,
+      "pose_moving_axis_mean_rad_s": 0.5296336535591061,
+      "reward_profile": "hora_pose_delta_drop16",
+      "selected_reward_means": {
+        "rotation": 0.3922081719338894,
+        "linear_cost": -0.007183321232441813,
+        "pose_cost": -0.07022557861404494,
+        "torque_cost": -0.03300782650243491,
+        "work_cost": -0.015698248226429002,
+        "reward": 0.2660931970598176
+      }
+    },
+    "5to20s": {
+      "start_s": 5.0,
+      "requested_end_s": 20.0,
+      "actual_end_s": 20.0,
+      "complete_window_observed": true,
+      "actual_pose_net_deg": 499.18228679338165,
+      "visible_hand_contact_fraction": 0.9999666666666667,
+      "omega_pose_vector_rmse_rad_s": 0.4305464638704234,
+      "contact_omega_pose_vector_rmse_rad_s": 0.43055363589713525,
+      "reported_fixed_axis_mean_rad_s": 0.5960333459435677,
+      "pose_fixed_axis_mean_rad_s": 0.5719655948860294,
+      "pose_moving_axis_mean_rad_s": 0.580824964811941,
+      "reward_profile": "hora_pose_delta_drop16",
+      "selected_reward_means": {
+        "rotation": 0.4585238273441792,
+        "linear_cost": -0.00745257996992829,
+        "pose_cost": -0.09156704441954693,
+        "torque_cost": -0.03414791916807493,
+        "work_cost": -0.0417450796230182,
+        "reward": 0.28361120566104847
+      }
+    },
+    "20to30s": {
+      "start_s": 20.0,
+      "requested_end_s": 30.0,
+      "actual_end_s": 30.0,
+      "complete_window_observed": true,
+      "actual_pose_net_deg": 343.9015049037493,
+      "visible_hand_contact_fraction": 0.99995,
+      "omega_pose_vector_rmse_rad_s": 0.44508405605403295,
+      "contact_omega_pose_vector_rmse_rad_s": 0.4135281071054107,
+      "reported_fixed_axis_mean_rad_s": 0.5799184920875989,
+      "pose_fixed_axis_mean_rad_s": 0.5917544614428796,
+      "pose_moving_axis_mean_rad_s": 0.6002213563133849,
+      "reward_profile": "hora_pose_delta_drop16",
+      "selected_reward_means": {
+        "rotation": 0.46885908547788857,
+        "linear_cost": -0.007334492830559611,
+        "pose_cost": -0.0892678888887167,
+        "torque_cost": -0.0348472392000258,
+        "work_cost": -0.022595502658282987,
+        "reward": 0.31481396216899155
+      }
+    },
+    "whole_valid_prefix": {
+      "start_s": 0.0,
+      "requested_end_s": 30.0,
+      "actual_end_s": 30.0,
+      "complete_window_observed": true,
+      "actual_pose_net_deg": 994.8126568822846,
+      "visible_hand_contact_fraction": 0.9999333333333333,
+      "omega_pose_vector_rmse_rad_s": 0.4226528467291197,
+      "contact_omega_pose_vector_rmse_rad_s": 0.411840313754041,
+      "reported_fixed_axis_mean_rad_s": 0.5811122219594475,
+      "pose_fixed_axis_mean_rad_s": 0.5699388122665663,
+      "pose_moving_axis_mean_rad_s": 0.5787585434369498,
+      "reward_profile": "hora_pose_delta_drop16",
+      "selected_reward_means": {
+        "rotation": 0.45091630415370065,
+        "linear_cost": -0.007368341133890984,
+        "pose_cost": -0.08724374827501985,
+        "torque_cost": -0.03419101040111855,
+        "work_cost": -0.031020748735341594,
+        "reward": 0.29109245639682435
+      }
+    }
+  },
+  "terminal_failure_reward": {
+    "charged_controls": 0,
+    "raw_terminal_cost_sum": 0.0,
+    "total_raw_reward_all_complete_controls": 174.65547383809462,
+    "last_complete_control": {
+      "elapsed_s": 30.0,
+      "reward": 0.3467772305011749,
+      "terminal_failure_cost": 0.0
+    },
+    "includes_invalid_terminal_control": true,
+    "valid_prefix_window_means": "Below exclude the invalid terminal sample; terminal costs are reported here"
+  },
+  "primary_30s_metrics": {
+    "window_s": 30.0,
+    "valid_seconds": 30.0,
+    "complete_window_observed": true,
+    "net_deg": 994.8129130089042,
+    "peak_deg": 994.8129130089042,
+    "forward_deg": 1007.2367740443644,
+    "backward_deg": 12.42386103546022,
+    "net_deg_per_budget_second": 33.16043043363014,
+    "net_deg_per_valid_second": 33.16043043363014,
+    "valid_prefix_last_tail_s": 30.0,
+    "valid_prefix_last_tail_net_deg": 994.8129130089042,
+    "full_window_final_tail_net_deg": 994.8129130089042,
+    "goals": [
+      {
+        "target_deg": 90.0,
+        "reached": true,
+        "first_sampled_time_s": 3.1675,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      },
+      {
+        "target_deg": 360.0,
+        "reached": true,
+        "first_sampled_time_s": 11.515,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      },
+      {
+        "target_deg": 720.0,
+        "reached": true,
+        "first_sampled_time_s": 22.094,
+        "observed_until_s": 30.0,
+        "time_resolution_s": 0.0005
+      }
+    ],
+    "stalled": null,
+    "stall_definition": "Pending calibrated observation resolution and agreed window; no guessed threshold"
+  },
+  "actual_stop_reason": "time limit",
+  "valid_prefix_maxima": {
+    "drift_mm": 10.430540084838867,
+    "tilt_deg": 19.149919509887695,
+    "max_normal": 18.383817672729492
+  },
+  "posthoc_endpoint_motion": {
+    "purpose": "Posthoc endpoint interpretation; no primary angle filtering",
+    "last_0p2s_net_deg": 6.171379261184484,
+    "last_0p2s_visible_hand_contact_fraction": 1.0
+  },
+  "training_initialization": "continuation",
+  "session_training_actions": 10002432,
+  "reward_branch_training_actions": null,
+  "interpretation": "Single-seed trial; compare only declared matched conditions and label training ancestry and each valid duration; no statistical superiority or hardware claim",
+  "sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_000.npz",
+      "sha256": "ef5f938aac51a617af17471a6efd64b29a7c314aaae5597dad1cf57c85de16e9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_001.npz",
+      "sha256": "8679ce8ce9bfd1d724b30ac8fe1b69527eee1c667d342231bf1d002fff34c973"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_002.npz",
+      "sha256": "fbb0f4d7bc96445ee5295252e5fd47bfb4e0ab0b0517ae7c03ea25bf8d024e97"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_003.npz",
+      "sha256": "27cb90fe3a2aecc78128aa7681fc7db06e554fef527c2a4599cba70fcdb8c7be"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_004.npz",
+      "sha256": "1b6c5e59d822f2b168826a5a37beb948ba712ca09bb187f26189ef25f77709f8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_005.npz",
+      "sha256": "2b03e2052495c9fcb4c82087284bccc74907f40a1b6ec87bf4d3400c6c418d66"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_006.npz",
+      "sha256": "ce54e9fd68600f020778cc9d05d578da46e0c2c59f2caf6e9a073b8f39343022"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_007.npz",
+      "sha256": "94b468327f6f41f55ea3769f0f8c9ab4a2b7cc7cc888525dcf29d979523e8a0f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_008.npz",
+      "sha256": "48ee475911344cc3848788bbf9c28c51ebad9821b5e8d20ce812fe1989078804"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_009.npz",
+      "sha256": "da061d06db6c8269f5c8f86e534256b9b55b1d68d548676479a93b58bbc11845"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_010.npz",
+      "sha256": "c9ab0f6c037bfff3b339fb83c0abec28ec5a43dd55bbef31208bb8c85a0e41d1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_011.npz",
+      "sha256": "8dea9c1a9a58052a36745bbab71308332f1e49e1258dd359284e944c6b38da7e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_012.npz",
+      "sha256": "504574dbb82ee352fabe7d623924c104a4c34b0e95c63a273019a85c9359ac83"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_013.npz",
+      "sha256": "72d298d7091c2ae149f2785f9cb058638e4c9e81664d946a84503e87c1f2d15a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_014.npz",
+      "sha256": "4b741c8eca7c5c5fa0e73578591b7503ecdb335faa5ee950d736d454e1bc5354"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_015.npz",
+      "sha256": "545b53554b2513472a19bdf579ebd5585bb473deddb8c0656f4d899a372c90e5"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_016.npz",
+      "sha256": "840bcacf91d6018aa372058095ee375d9fc2669e220c783ecae24a58e313af23"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_017.npz",
+      "sha256": "36dcf22d7e7f4fa5885d4a2f3f64753c37a6d8741e293fb307e4eb3f5e31025f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_018.npz",
+      "sha256": "6cddced59390f782d8b88313f9bc62ef7ba839cf64bc05897bf68a9de4095fe6"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_019.npz",
+      "sha256": "6fe660e8862dc11f2911d5760e75dbef33cf2fbab28a6f13de5ec552639e047b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_020.npz",
+      "sha256": "41589e7656b4b47cc42dd02da73d00916168e621c2f716dc371222e525487900"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_021.npz",
+      "sha256": "a7d3232b1f0aaccbf99bb770f3256da74225f6006e91a354fe0475f2e4a04569"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_022.npz",
+      "sha256": "c3b5ba5d19e6e11223644a0dc71b81b8d40bd0607adf3e55f0cdfa76ead4d543"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_023.npz",
+      "sha256": "66b60efbf500bd60a87101d79f4dfeeb818534138c13092ad57d504c77e16809"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_024.npz",
+      "sha256": "ae105b27ebf3dee3235b0d575fa177f1989ada2799dbf0f3466e880bc914dd2a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_025.npz",
+      "sha256": "86771f2eb8d3a3d153f7cb30a79e7c29d01a4a8310eae371f0fe11b6b42c77cc"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_026.npz",
+      "sha256": "89bb70fcff8761d05694824c8593d4a822e35dc48090e859def96ba5e8b9e5ec"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_027.npz",
+      "sha256": "88041b6044afd49f947674ab2ae6e3d9b65a57673b15737ee15ec480345469a6"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_028.npz",
+      "sha256": "f6ca34f33699c9c9a47e81108e575fd140e1e192899c476b529e55a4f269843a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/physics_029.npz",
+      "sha256": "982a6fadfb76dbcc844283bd370ed1c45a09557da8b700a014375289ec82ff3c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/training/result.json",
+      "sha256": "d05df5fb83e081d883e5b1c1a50b39ce016f1bc02558c323138155df48278647"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/result.json",
+      "sha256": "07d681d41d64f0a5d763093ae6e2e436728fd4b24a333a38d572dc065ddae6bd"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/initial_state.npz",
+      "sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_030000000/evaluation/reconstructed_control_reward.npz",
+      "sha256": "497bb82a065eaa3d6722189f92aad97db87fd06e2aca5c05b113f892c39620af"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/analyze_boya_small_budget.py",
+      "sha256": "df292d18d153c756538dc76701e9188426e5cb896b9e5bdf3e243465bc50522c"
+    }
+  ]
+}

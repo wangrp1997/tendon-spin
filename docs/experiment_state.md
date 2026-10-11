@@ -1132,3 +1132,29 @@ actions/s, remainingpuretraining~24.63h excludingfourevals/analysis/segmentstart
 One-offGPU7290/16303MiB, each3252MiB, instant95%; no watchdog/threshold.
 Actualplans/configs/initialequality/Adamadvance/counts/provenance archived;
 TensorBoard/pairedcheckpoints writing. No auxiliaryGPUtrial/extraeval/testcampaign.
+
+
+[A/B20/30M completed: B first complete30s finite-rotation signal](experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_30M.md):
+2026-10-11 14:42Shanghai read, both chains normally training toward40M, actual
+A33,972,224actions/4147updates, B33,054,720/4035; noerrors, liveprocesses,
+finite losses. Same own-arm ancestry/config/task/engine/cache/16actions/PPO.
+Each20Mcheckpoint20,004,864actions/2442updates and30M30,007,296/3663.
+Each node exactlyONE frozenownmodel/normalizer/originalgrasp44/requested30s episode,
+zeroresets/switches/learning; all initialstateerrors0. Train/eval/analysisexit0.
+A20M actual1.15s/valid1.1495/net+43.045273deg/peak49.158806/backward6.133280;
+A30M actual1.8s/valid1.7995/net+14.628842/peak40.716825/backward27.184674,
+both below-regionstop,20–30sunobserved. B20M actual22.7s/valid22.6995/
+net+649.225988/peak654.896947/backward46.169490,below-regionstop.
+B30M actualvalid30s/net+994.812913008904deg/peak994.812913008904/
+backward12.423861035460,final20–30snet+343.901530425786,normal30stime-limitstop.
+B30M FIRST satisfies all declared preliminary finite-motion conditions: complete30s,
+positive wholewindow net and positive final10s net. No contactfilter/angle summing.
+Existing independent SciPy pose analysis agrees net+994.812657/last10s+343.901505;
+primary score unchanged. B is better in this matched30M pair; one seed/state per
+node is a trend, not statisticalsuperiority/indefiniterotation/SOTA/hardware proof.
+Preserve B30McheckpointSHAfe881d605f8fc898144aab6a0ff2df8194650bbb5e06840e407f0e9ecff5864f;
+A30MSHAa1c6a180a3928f866e28e5d4bab7bcce788a4e5f7b16b021d8f0a8a652a6d759.
+Continue alreadyauthorized40/50M schedule even if later physical evals fail;
+no newbudget/route/algorithm change. Archived small20/30Meval/stage/30Manalysis/
+CSV/sourcehash evidence only; fulltraces/weights/TensorBoard staylocal. No extra
+physics/evaluations/tests/previews/audit campaign or pinned source/protocol edits.
