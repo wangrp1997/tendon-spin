@@ -1230,3 +1230,22 @@ RTX, normal speed20fps/12.1s including1s initial+2s terminal holds, zero render-
 physics. Small evaluation/analysis/render/provenance archived; raw traces/video staylocal.
 RootREADME now holds project/use/docs links and clickable official references;
 experiment chronology remains underdocs. No optional tests/render reviews/audits.
+
+
+[Fixed48x60mm five-finger planning completed; no physical hold launched](experiments/2026-10-12-fivefinger-sharpa-fixed/README.md):
+User approved redesigning center/orientation/finger posture at the official Sharpa
+README recommended48mm diameter/60mm height; retain50g and all old configurations.
+Two deterministic bounded CAD surface-coordinate/static-force solves, MuJoCo3.11.0
+forward-position only,0integration/Isaac episodes/training actions. Five-finger16motor
+layout/wrist hold/passive1:1 mimics retained. First plan distal gapsTH/FF/MF/RF/LF
+.04775/.04092/.04635/.04658/.04405mm passes CAD geometry screen, but min planned
+normal.699149N<.7 and friction-cone excess up to.024803N; three crossfinger distance
+queries return0, below.3mm positive-clearance planning target. These are proposed
+forces, not measured contact. Second planLFgap.463537mm and friction excess.026205N,
+also fails. Least-squares38/43nfev, eachSLSQP200iteration limit,~30s totalCPUwall;
+no complete accepted candidate, no dependentIsaachold/cache/video/training.
+No rotation score exists for this0physics diagnostic. Oldsize/grasp/cache/allweights
+preserved. Local bounded failure does not prove five-finger48x60mm impossible.
+Record actual executed-sourcehashes, both candidate postures/contacts/forces and
+constraint diagnosis. Next choice is improving friction/clearance grasp solve at
+fixedsize versus pausing redesign; no automaticretry/extension/config/routechange.

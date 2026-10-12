@@ -1,0 +1,100 @@
+{
+  "planning_result": "outputs/boya_fivefinger_sharpa_fixed_v1/planning/result.json",
+  "planning_only": true,
+  "physics_steps": 0,
+  "stages": [
+    {
+      "seed": 0,
+      "cad_geometry_pass": true,
+      "normal_force_min_N": 0.6991492721474153,
+      "normal_force_upper_N": 2.494685028269301,
+      "friction_excess_N": [
+        -0.287728101812318,
+        0.024490006394010833,
+        0.00854650832022974,
+        0.006169294164326489,
+        0.024803397939714145
+      ],
+      "crossfinger_below_planning_target": [
+        {
+          "bodies": [
+            "mfbase",
+            "rfproximal"
+          ],
+          "gap_mm": 0.0
+        },
+        {
+          "bodies": [
+            "mfmiddle",
+            "lfmiddle"
+          ],
+          "gap_mm": 0.0
+        },
+        {
+          "bodies": [
+            "rfdistal",
+            "lfmiddle"
+          ],
+          "gap_mm": 0.0
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "cad_geometry_pass": false,
+      "normal_force_min_N": 0.6754750189266023,
+      "normal_force_upper_N": 2.511500298487451,
+      "friction_excess_N": [
+        0.0033525183547395976,
+        0.026205041557667064,
+        0.024584158026484948,
+        0.015996600725423304,
+        0.019356662714629214
+      ],
+      "crossfinger_below_planning_target": [
+        {
+          "bodies": [
+            "ffdistal",
+            "mfdistal"
+          ],
+          "gap_mm": 0.1266179491576356
+        },
+        {
+          "bodies": [
+            "mfmiddle",
+            "rfmiddle"
+          ],
+          "gap_mm": -0.14342942190489247
+        },
+        {
+          "bodies": [
+            "mfmiddle",
+            "rfdistal"
+          ],
+          "gap_mm": -0.0129681303565997
+        },
+        {
+          "bodies": [
+            "mfdistal",
+            "rfdistal"
+          ],
+          "gap_mm": 0.17520298966643374
+        },
+        {
+          "bodies": [
+            "rfmiddle",
+            "lfmiddle"
+          ],
+          "gap_mm": -0.14706620343320753
+        },
+        {
+          "bodies": [
+            "rfmiddle",
+            "lfdistal"
+          ],
+          "gap_mm": 0.12838426840666675
+        }
+      ]
+    }
+  ]
+}
