@@ -34,13 +34,25 @@ class HoraBoyaEnv:
 
     def __init__(self,root,out,cache,num_envs=64,trace_mode="full",scene_setup=None,
                  termination_profile="legacy_strict",engine_profile="original_tgs16_4",
-                 reward_profile=REPORTED):
+                 reward_profile=REPORTED,scene_configuration=None):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
         if reward_profile==POSE_DROP and termination_profile!='boya_workspace':
             raise ValueError('Drop16 reward requires the existing Boya workspace failure rules')
         self.trace_mode=trace_mode
-        self.physics=BoyaParallel(root,out,num_envs,scene_setup=scene_setup,engine_profile=engine_profile)
+        setup=scene_setup
+        if scene_configuration is not None:
+            from tendonspin.physics.object_geometry import configure_object_scene
+            def setup(physics):
+                self.geometry_application=configure_object_scene(physics,scene_configuration['geometry'])
+                if scene_setup is not None:scene_setup(physics)
+        self.physics=BoyaParallel(root,out,num_envs,scene_setup=setup,engine_profile=engine_profile)
         p=self.physics
+        if scene_configuration is not None:
+            from tendonspin.physics.learning_scene import configure_nominal
+            self.nominal_initial_state_errors=configure_nominal(p,scene_configuration)
+            with np.load(cache,allow_pickle=False) as saved:
+                if saved['joint_names'].tolist()!=p.names or saved['motor_names'].tolist()!=scene_configuration['nominal_state']['motor_names']:
+                    raise ValueError('Migrated cache joint/motor order differs')
         self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]))
         self.device=p.device;self.num_envs=num_envs
         self.action_space=Box(-1.,1.,shape=(16,),dtype=np.float32)

@@ -1269,3 +1269,19 @@ endpoint+0.013094/peak0.021782/backward0.021034deg, normal time-limit stop.
 Optional profile fivefinger_sharpa_side_v2 exported; top-view from recorded final
 state with MuJoCo renderer,0render physics. No reload/cache/Isaac/training.
 Original assets/cache/weights/defaults preserved; source/validation evidence saved.
+
+
+[Fresh new-grasp B50M launched](experiments/2026-10-12-boya-uniform48p8-b50m/README.md):
+2026-10-12 18:30:24Shanghai, outerPID3215548/trainingPID3215550. User explicitly
+approved launch after reviewing24/53Isaac migration survivors. Optional frozen
+48.7735468437×32mm/50g geometry, new nominal posture/canonical reward reference,
+24-state cacheSHA25f790e6080a55db19654128bebf97a78545b3bea189ea9bbdf889d1b93d1c52;
+not24 simultaneous-five-contact holds. Same B pose-delta/drop16,1024envs/16actions/
+privilegedteacher/original_tgs16_4/PPO/workspace bounds. Fresh seed43 learner,
+zero ancestry; first8192/update1/Adam80 and initialnormalizers verified, model
+updated; nominal readback errors0. Actual49,152/update6,finite losses/~715actions/s,
+pairedcheckpoints/TensorBoard present.10/20/30/40/50M exactly one frozen newnominal
+30s-or-failure evaluation each; final50,003,968/6104updates. Later ownlearner
+resume resets physics from same24-cache. No retries/extensions/watchdog, summary
+training/full eval traces. All oldconfigurations/weights/history preserved.
+No learned rotation result yet; expected firstnode~4h,total20–22h from initialrate.

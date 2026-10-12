@@ -30,7 +30,8 @@ def main():
     assert record['episode_resets']==record['controller_switches']==record['training_actions']==0
     assert record['engine_configuration']==training['engine_configuration']
     assert record.get('reward_profile',REPORTED)==training.get('reward_profile',REPORTED)
-    assert max(record['initial_state_max_errors'].values())==0
+    limits=record.get('initial_state_atol',{key:0. for key in record['initial_state_max_errors']})
+    assert all(value<=limits[key] for key,value in record['initial_state_max_errors'].items())
     keys=('elapsed_s','valid','object_state','support_groups','net_angle_deg','drift_mm','tilt_deg','max_normal')
     blocks={k:[] for k in keys};sources=[]
     for path in sorted(folder.glob('physics_*.npz')):
@@ -45,7 +46,7 @@ def main():
     previous=Rotation.concatenate([Rotation.from_quat(initial[3:7]),rotation[:-1]])
     omega_pose=(rotation*previous.inv()).as_rotvec()/dt
     axes=rotation.apply([0,0,1])+previous.apply([0,0,1]);axes/=np.linalg.norm(axes,axis=1)[:,None]
-    axis0=-Rotation.from_quat(initial[3:7]).apply([0,0,1])
+    axis0=np.asarray(record['fixed_reward_axis']) if 'fixed_reward_axis' in record else -Rotation.from_quat(initial[3:7]).apply([0,0,1])
     reported=d['object_state'][:,10:13]
     error=np.linalg.norm(reported-omega_pose,axis=1)
     moving=-(omega_pose*axes).sum(-1)

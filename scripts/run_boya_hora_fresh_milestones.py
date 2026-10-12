@@ -92,10 +92,13 @@ def evaluation_row(arm, run, target, previous):
           training['session_actions_executed'] != target['rounded_actions']-previous['actions_executed']):
         raise ValueError('Continuation did not preserve its own arm and cumulative counts')
     result = read_json(run/'evaluation/result.json')
-    validate_result(result, dict(requested_s=30., seed=43, initial_state='original grasp44, not cache',
+    initial_state=training.get('scene_configuration',{}).get('evaluation_initial_state','original grasp44, not cache')
+    validate_result(result, dict(requested_s=30., seed=43, initial_state=initial_state,
         termination=training['termination'], expected_training_actions=target['rounded_actions'],
         runtime_sources=training['sources']), identity['checkpoint_sha256'], 'frozen_'+training['controller'])
-    if max(result['initial_state_max_errors'].values()) != 0:
+    limits=training.get('scene_configuration',{}).get('initial_state_atol',
+        {key:0. for key in result['initial_state_max_errors']})
+    if any(value>limits[key] for key,value in result['initial_state_max_errors'].items()):
         raise ValueError('Frozen evaluation original state differs from reference')
     analysis = read_json(run/'analysis/result.json')
     metric = result['metrics']['30.0']
@@ -107,7 +110,8 @@ def evaluation_row(arm, run, target, previous):
         final_10s_net_deg=tail, complete_window=metric['complete_window_observed'],
         stop_reason=result['stop_reason'], **analysis['valid_prefix_maxima'],
         checkpoint=identity['checkpoint'], checkpoint_sha256=identity['checkpoint_sha256'],
-        evaluation=str(run/'evaluation/result.json'), initial_state_max_error=0.), training
+        evaluation=str(run/'evaluation/result.json'),
+        initial_state_max_error=max(result['initial_state_max_errors'].values())), training
 
 
 def report(out, rows):

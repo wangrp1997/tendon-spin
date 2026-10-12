@@ -19,6 +19,7 @@ from tendonspin.rl.rotation_reward import PROFILES as REWARD_PROFILES, POSE_DELT
 parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--cache',type=Path,required=True)
+parser.add_argument('--scene-config',type=Path,help='Optional frozen geometry, nominal grasp and rotation reference')
 parser.add_argument('--updates',type=int,default=16)
 parser.add_argument('--total-actions',type=int,help='Cumulative target, rounded up to a complete PPO rollout')
 parser.add_argument('--resume',type=Path,help='Paired learner checkpoint; simulation resets from the same cache')
@@ -69,6 +70,9 @@ files=('scripts/train_boya_hora.py','tendonspin/rl/isaac_hora.py','tendonspin/ba
        'tendonspin/rl/checkpoint.py','tendonspin/rl/native_video.py','tendonspin/rl/resource_guard.py','scripts/guarded_boya_entry.py',
        'tendonspin/physics/solver_profiles.py','tendonspin/rl/rotation_reward.py',
        'scripts/migrate_boya_pose_reward.py',args.protocol)
+if args.scene_config:
+    files+=('tendonspin/physics/learning_scene.py','tendonspin/physics/object_geometry.py',
+            str(args.scene_config.resolve().relative_to(root)))
 for name in files:
     source=root/name;content=source.read_bytes()
     snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(content)
@@ -116,9 +120,23 @@ try:
                  x['path'].startswith(('tendonspin/physics/','tendonspin/baselines/','third_party/')) or
                  x['path'] in ('tendonspin/rl/isaac_hora.py','tendonspin/rl/rotation_reward.py','tendonspin/rl/termination.py','assets/grasp/rotation_workspace.json','tendonspin/interfaces.py','tendonspin/evaluation/rotation.py')})
     PPO=load_ppo();pulse.check('constructing scene')
+    scene_configuration=None
+    if args.scene_config:
+        from tendonspin.physics.learning_scene import load_scene_configuration
+        scene_configuration=load_scene_configuration(args.scene_config)
+        if record['cache_sha256']!=scene_configuration['training_cache_sha256']:
+            raise ValueError('Scene configuration requires its declared migrated cache')
     env=HoraBoyaEnv(root,out,args.cache,args.num_envs,trace_mode=args.trace_mode,
         termination_profile=args.termination_profile,engine_profile=args.engine_profile,
-        reward_profile=args.reward_profile);env.stop_check=pulse.check
+        reward_profile=args.reward_profile,scene_configuration=scene_configuration);env.stop_check=pulse.check
+    if scene_configuration is not None:
+        record['scene_configuration']=scene_configuration
+        contract['scene_configuration']=scene_configuration
+        record['nominal_initial_state_errors']=env.nominal_initial_state_errors
+        record['geometry_application']=dict(before_physics_start=True,
+            authored_body_count=len(env.geometry_application['authored']),geometry=env.geometry_application['geometry'],
+            first_authored=env.geometry_application['authored'][0])
+        record['fixed_reward_axis']=env.rotation_axis[0].cpu().tolist()
     record['termination']=env.termination.spec.to_dict()
     contract['termination']=record['termination']
     record['engine_configuration']=env.physics.engine_configuration
@@ -128,6 +146,8 @@ try:
     if args.engine_profile=='tgs16_velocity0':record['engine_audit']=env.physics.engine_audit
     record.update(cache_size=len(env.cache['q']),joint_names=env.physics.names,
         body_names=list(env.physics.hand.body_names),filter_names=env.physics.filter_names,reason_codes=env.reasons)
+    if scene_configuration is not None and record['cache_size']!=scene_configuration['training_cache_size']:
+        raise ValueError('Migrated cache size differs from scene configuration')
     if args.trace_mode=='full':record['origins']=env.physics.origins.cpu().tolist()
     agent=PPO(env,str(out/'training'),cfg)
     if args.resume:

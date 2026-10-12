@@ -7,6 +7,8 @@ from tendonspin.rl.resource_guard import atomic_json
 from tendonspin.rl.rotation_reward import PROFILES as REWARD_PROFILES, POSE_DELTA
 parser=argparse.ArgumentParser()
 parser.add_argument('--out',type=Path,required=True)
+parser.add_argument('--cache',type=Path,help='Optional migrated cache; original28-cache remains the default')
+parser.add_argument('--scene-config',type=Path)
 parser.add_argument('--resume',type=Path,help='Omit for a fresh learner; supply only for deliberate continuation')
 parser.add_argument('--total-actions',type=int,default=10000000)
 parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height','boya_workspace'),default='legacy_strict')
@@ -29,7 +31,7 @@ state=dict(supervisor_pid=os.getpid(),phase='starting',training=None,evaluation=
 (out/'run_boya_hora_background.py').write_bytes(Path(__file__).read_bytes())
 environment=os.environ.copy();environment.update(OMNI_KIT_ACCEPT_EULA='YES',PYTHONPATH=str(root),
     OMP_NUM_THREADS='4',MKL_NUM_THREADS='4')
-cache=root/'outputs/boya_settled_cache_v2/grasp_cache.npz'
+cache=args.cache.resolve() if args.cache else root/'outputs/boya_settled_cache_v2/grasp_cache.npz'
 def stop(signum,frame):
     global requested
     requested=signum
@@ -59,6 +61,7 @@ try:
         '--save-every','16','--minibatch-size','512','--seed','43','--termination-profile',args.termination_profile,
         '--engine-profile',args.engine_profile,
         '--reward-profile',args.reward_profile,
+        *(['--scene-config',str(args.scene_config.resolve())] if args.scene_config else []),
         '--controller',(args.controller or ('hora_boya1024_nominal_teacher_resume10m_v1' if args.resume else 'hora_boya1024_nominal_teacher_fresh10m_v1')),'--protocol',args.protocol])
     if requested is not None or state['training'].get('stop_reason')!='update budget':
         state['phase']='stopped';state['evaluation']='not launched after requested/non-budget stop'

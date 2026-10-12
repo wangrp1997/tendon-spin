@@ -34,6 +34,8 @@ record=dict(controller='frozen_hora_boya_cache28_teacher_v2',requested_s=args.se
 training=json.loads(args.source_record.read_text())
 record['controller']='frozen_'+training['controller']
 record['training_actions_in_checkpoint']=training['actions_executed']
+if 'scene_configuration' in training:
+    record['initial_state']=training['scene_configuration']['evaluation_initial_state']
 record['sources']=training['sources']
 for source in training['sources']:
     path=root/source['path']
@@ -65,7 +67,11 @@ try:
     env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None,
         termination_profile=training.get('termination',{}).get('profile','legacy_strict'),
         engine_profile=training.get('engine_profile','original_tgs16_4'),
-        reward_profile=training.get('reward_profile',REPORTED))
+        reward_profile=training.get('reward_profile',REPORTED),
+        scene_configuration=training.get('scene_configuration'))
+    if 'scene_configuration' in training:
+        record['scene_configuration']=training['scene_configuration']
+        record['fixed_reward_axis']=env.rotation_axis[0].cpu().tolist()
     record['reward_profile']=env.reward_configuration['profile']
     record['reward_configuration']=env.reward_configuration
     if 'reward_configuration' in training and env.reward_configuration!=training['reward_configuration']:
@@ -82,6 +88,9 @@ try:
     env.history[:]=env._frame(noise=False)[:,None,:]
     weights=torch.load(args.checkpoint,map_location=p.device,weights_only=False)
     require_checkpoint_configuration(weights.get('contract',{}),env.reward_configuration)
+    if 'scene_configuration' in training:
+        if weights['contract']['scene_configuration']!=training['scene_configuration']:
+            raise ValueError('Checkpoint scene contract differs from evaluation')
     if training.get('engine_profile')=='tgs16_velocity0' and weights['contract']['engine_configuration']!=p.engine_configuration:
         raise ValueError('Checkpoint engine contract differs from evaluation')
     model=build_model().to(p.device);model.load_state_dict(weights['model']);model.eval()
@@ -92,6 +101,10 @@ try:
     initial_np={k:v.cpu().numpy().copy() for k,v in initial.items()}
     initial_np['commands']=p.adapter.commands.cpu().numpy().copy()
     np.savez(out/'initial_state.npz',**initial_np)
+    if 'scene_configuration' in training:
+        from tendonspin.physics.learning_scene import nominal_errors
+        record['initial_state_max_errors']=nominal_errors(p)
+        record['initial_state_atol']=training['scene_configuration']['initial_state_atol']
     if args.initial_reference:
         with np.load(args.initial_reference) as expected:
             record['initial_state_max_errors']={k:float(np.max(np.abs(initial_np[k]-expected[k])))
