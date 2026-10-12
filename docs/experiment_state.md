@@ -1213,3 +1213,20 @@ status/stage/eval/analysis/training-summary/CSV and originalsourcehash evidence
 archived; fulltraces/weights/TensorBoard/updatehistory local. No newphysics/tests/
 previews/auditcampaign/parameterscan/pinnedsource or protocolchanges. STOP at50M;
 further budget or route not authorized by these results.
+
+
+[User-requested B40M Sharpa-size transfer and video completed](experiments/2026-10-12-b40m-sharpa-size/README.md):
+ONE frozen40,001,536-action checkpoint episode, cylinder48x60mm versus original40x32mm,
+unchanged50g mass/originalgrasp44/center/orientation/16actions/privilegedobs/original
+Isaac GPUPhysX/workspace planes/timing. All original initial-state errors0.
+Actual9.15s/valid9.1495s/net+215.274036deg/peak215.274036/backward160.720398,
+below-regionstop; no full30s or20-30s tail. Last.2s contributes+192.562995deg
+with38% visible-hand-contact samples, so endpoint angle is dominated by loss-of-hold
+motion and is not stable in-hand rotation. Existing offline analysis only; no retry,
+regrasp, criterion/backend change or learning. Original profile/cache/allweights/history
+retained; new evaluation-only profiles and cylinder/sphere/box size parameters added.
+Video is this NEW PhysX trajectory replayed with matching48x60mm geometry in Isaac
+RTX, normal speed20fps/12.1s including1s initial+2s terminal holds, zero render-stage
+physics. Small evaluation/analysis/render/provenance archived; raw traces/video staylocal.
+RootREADME now holds project/use/docs links and clickable official references;
+experiment chronology remains underdocs. No optional tests/render reviews/audits.

@@ -1,0 +1,1382 @@
+{
+  "motion_source": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/result.json",
+  "motion_source_sha256": "6aa8c7c72d75c61458306575b0f4fe13b0c7c6db2eccc4c5213ce0735b19a801",
+  "renderer": "Isaac Sim RTX; archived measured world-body poses",
+  "new_training_actions": 0,
+  "new_physics_steps": 0,
+  "controller_reexecuted": false,
+  "interpolation": false,
+  "source_actual_s": 9.15,
+  "source_net_deg": 215.27403597886678,
+  "source_stop_reason": "object below Boya manipulation region",
+  "floor_collision": false,
+  "style": "dark slate checker floor, dome/key light, orange object and painted marker",
+  "object_geometry": {
+    "shape": "cylinder",
+    "diameter_m": 0.048,
+    "height_m": 0.06,
+    "mass_kg": 0.05,
+    "source": "Sharpa RL Lab README at95ccda3d948801bb5da4cb7ffea766e03067a63b: radius24mm, height60mm; mass remains Boya50g, not a measured hardware mass",
+    "profile": "sharpa_recommended",
+    "dimensions_m": [
+      0.048,
+      0.048,
+      0.06
+    ],
+    "overrides": {}
+  },
+  "geometry_source_sha256": "abccf06f8adc832e639fc5355d95e612049f5ea1f2eae155c777a025f1e2a879",
+  "hand_asset": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "initial_state_sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a",
+  "trajectory_sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_000.npz",
+      "sha256": "c8af49c6be91c2f52e44dd3836d12cc794e522de1c561b378eeeb912819d1f15"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_001.npz",
+      "sha256": "340e9d0d24a810d2fbf691aa5db128ef9cae3db137e7164c165493fedcc601f2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_002.npz",
+      "sha256": "9fd5a4240f86503f6e777cc688ccd0f38c3e1b7daae846611e8ec98346ccd300"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_003.npz",
+      "sha256": "34fb086fbadc1cabea9b0ca968be43ae894bbad0203941e85906a59ce55f9151"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_004.npz",
+      "sha256": "2463675f983ed3696044cf4a7752d83edf8d579ff7331331730cfce6aaa0c4e1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_005.npz",
+      "sha256": "1ee845609e0ce62f07b7bf362f97695756b0fb6d064a7fc777e41d8ce822cb39"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_006.npz",
+      "sha256": "77d51b47c100bdea9e963c4d216cf631415c23598e64dfda01392896ab9e1990"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_007.npz",
+      "sha256": "60c3e405e2548f351009c2750b31b88c66db0152cb616b629c60fb2c851558bd"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_008.npz",
+      "sha256": "5de58a637baa6a439b59c4aaf4e247008c78d13257092944d5622179911f3d81"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/evaluation/physics_009.npz",
+      "sha256": "43c25f1dee656f371821f9d9038577db1c644990dd34f79a174fc72c95929fa2"
+    }
+  ],
+  "max_authored_body_world_matrix_error": 5.551115123125783e-16,
+  "floor_has_collision_api": false,
+  "video": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_b40m_sharpa_size_v1/video/isaac_native.mp4",
+    "engine": "Isaac Sim RTX native camera",
+    "encoder_exit_code": 0,
+    "fps": 20,
+    "frames": 242,
+    "duration_s": 12.1,
+    "motion_playback_speed": 1.0,
+    "initial_still_s": 1,
+    "terminal_still_s": 2,
+    "physics_sample_times": [
+      {
+        "physics_s": 0.0,
+        "valid_net_deg": 0.0,
+        "drift_mm": 0.0,
+        "repeated_frames": 20,
+        "phase": "\u521d\u59cb\u72b6\u6001\u5b9a\u683c"
+      },
+      {
+        "physics_s": 0.05,
+        "valid_net_deg": 0.33013703962933505,
+        "drift_mm": 3.1013565063476562,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.1,
+        "valid_net_deg": 1.8427694766796776,
+        "drift_mm": 3.8300600051879883,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.15,
+        "valid_net_deg": 3.0130482316963025,
+        "drift_mm": 4.189009666442871,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.2,
+        "valid_net_deg": 4.4743262418560334,
+        "drift_mm": 4.548705101013184,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.25,
+        "valid_net_deg": 5.65975039787736,
+        "drift_mm": 4.766654968261719,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.3,
+        "valid_net_deg": 6.889956236445869,
+        "drift_mm": 5.226028919219971,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.35000000000000003,
+        "valid_net_deg": 8.225230216608907,
+        "drift_mm": 5.797309398651123,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.4,
+        "valid_net_deg": 8.968876475417346,
+        "drift_mm": 6.398430824279785,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.45,
+        "valid_net_deg": 8.853703514243534,
+        "drift_mm": 6.387294769287109,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.5,
+        "valid_net_deg": 8.872546147256344,
+        "drift_mm": 6.344395637512207,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.55,
+        "valid_net_deg": 8.472472369954176,
+        "drift_mm": 6.206909656524658,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.6,
+        "valid_net_deg": 7.7905787961130954,
+        "drift_mm": 5.916458606719971,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.65,
+        "valid_net_deg": 7.982085860341158,
+        "drift_mm": 6.211476802825928,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.7000000000000001,
+        "valid_net_deg": 8.743417339086136,
+        "drift_mm": 6.529911518096924,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.75,
+        "valid_net_deg": 25.95140622711142,
+        "drift_mm": 10.818796157836914,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.8,
+        "valid_net_deg": 41.214755244821845,
+        "drift_mm": 17.174123764038086,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.85,
+        "valid_net_deg": 36.53150649763802,
+        "drift_mm": 14.221780776977539,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.9,
+        "valid_net_deg": 37.87936826142641,
+        "drift_mm": 14.490453720092773,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 0.9500000000000001,
+        "valid_net_deg": 38.6873330703379,
+        "drift_mm": 14.350735664367676,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.0,
+        "valid_net_deg": 39.885479845237114,
+        "drift_mm": 14.726847648620605,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.05,
+        "valid_net_deg": 42.8778482490593,
+        "drift_mm": 15.878178596496582,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.1,
+        "valid_net_deg": 42.44942991902599,
+        "drift_mm": 15.826944351196289,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.1500000000000001,
+        "valid_net_deg": 40.59559215792933,
+        "drift_mm": 15.074342727661133,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.2,
+        "valid_net_deg": 38.604523501838685,
+        "drift_mm": 14.028285026550293,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.25,
+        "valid_net_deg": 37.41971833609523,
+        "drift_mm": 12.790450096130371,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.3,
+        "valid_net_deg": 37.126852172877534,
+        "drift_mm": 11.972419738769531,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.35,
+        "valid_net_deg": 37.09459406252017,
+        "drift_mm": 11.26697826385498,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.4000000000000001,
+        "valid_net_deg": 37.456130596881394,
+        "drift_mm": 10.435662269592285,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.45,
+        "valid_net_deg": 39.17589532777447,
+        "drift_mm": 10.050079345703125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.5,
+        "valid_net_deg": 39.63107078855637,
+        "drift_mm": 9.73711109161377,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.55,
+        "valid_net_deg": 42.40523363517377,
+        "drift_mm": 10.347175598144531,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.6,
+        "valid_net_deg": 44.13110366331193,
+        "drift_mm": 10.726893424987793,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.6500000000000001,
+        "valid_net_deg": 45.82859638387117,
+        "drift_mm": 11.007044792175293,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.7,
+        "valid_net_deg": 47.45693247819099,
+        "drift_mm": 11.052226066589355,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.75,
+        "valid_net_deg": 48.5482723559976,
+        "drift_mm": 11.214941024780273,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.8,
+        "valid_net_deg": 50.43765286922235,
+        "drift_mm": 11.687638282775879,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.85,
+        "valid_net_deg": 51.91111917614717,
+        "drift_mm": 12.256135940551758,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.9000000000000001,
+        "valid_net_deg": 53.33045796870965,
+        "drift_mm": 12.752880096435547,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 1.95,
+        "valid_net_deg": 54.43531883445348,
+        "drift_mm": 12.819043159484863,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.0,
+        "valid_net_deg": 54.94577869512386,
+        "drift_mm": 12.74580192565918,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.05,
+        "valid_net_deg": 55.75089327846899,
+        "drift_mm": 12.620513916015625,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.1,
+        "valid_net_deg": 56.147093862924066,
+        "drift_mm": 12.276236534118652,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.15,
+        "valid_net_deg": 55.461937426712666,
+        "drift_mm": 11.684438705444336,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.2,
+        "valid_net_deg": 52.806081056718085,
+        "drift_mm": 10.278016090393066,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.25,
+        "valid_net_deg": 50.66193986603275,
+        "drift_mm": 9.111627578735352,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.3000000000000003,
+        "valid_net_deg": 50.79691384927128,
+        "drift_mm": 9.271500587463379,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.35,
+        "valid_net_deg": 51.76025579930274,
+        "drift_mm": 9.81527328491211,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.4,
+        "valid_net_deg": 53.24544352819203,
+        "drift_mm": 10.34305477142334,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.45,
+        "valid_net_deg": 55.74989898283957,
+        "drift_mm": 10.566986083984375,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.5,
+        "valid_net_deg": 58.740711586223824,
+        "drift_mm": 10.48925495147705,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.5500000000000003,
+        "valid_net_deg": 61.7193240445572,
+        "drift_mm": 10.255032539367676,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.6,
+        "valid_net_deg": 65.04594333437262,
+        "drift_mm": 10.256914138793945,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.65,
+        "valid_net_deg": 67.70845919162957,
+        "drift_mm": 10.436354637145996,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.7,
+        "valid_net_deg": 67.30394816425678,
+        "drift_mm": 10.563106536865234,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.75,
+        "valid_net_deg": 66.3417557254229,
+        "drift_mm": 10.69696044921875,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.8000000000000003,
+        "valid_net_deg": 66.17348479465136,
+        "drift_mm": 10.902510643005371,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.85,
+        "valid_net_deg": 66.68767687390346,
+        "drift_mm": 11.26941967010498,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.9,
+        "valid_net_deg": 67.98394299650818,
+        "drift_mm": 12.277119636535645,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 2.95,
+        "valid_net_deg": 70.13002012370407,
+        "drift_mm": 13.451921463012695,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.0,
+        "valid_net_deg": 73.6338108561772,
+        "drift_mm": 14.378704071044922,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.0500000000000003,
+        "valid_net_deg": 77.98891638292253,
+        "drift_mm": 15.672396659851074,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.1,
+        "valid_net_deg": 81.47692124245941,
+        "drift_mm": 16.720191955566406,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.15,
+        "valid_net_deg": 85.40950441805899,
+        "drift_mm": 18.19728660583496,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.2,
+        "valid_net_deg": 87.83630370235323,
+        "drift_mm": 19.859018325805664,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.25,
+        "valid_net_deg": 87.12666861552998,
+        "drift_mm": 20.275527954101562,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.3000000000000003,
+        "valid_net_deg": 84.77421347171321,
+        "drift_mm": 20.014986038208008,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.35,
+        "valid_net_deg": 81.1051278368409,
+        "drift_mm": 19.345827102661133,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.4,
+        "valid_net_deg": 75.66729227014139,
+        "drift_mm": 18.639720916748047,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.45,
+        "valid_net_deg": 72.98340663433328,
+        "drift_mm": 18.630258560180664,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.5,
+        "valid_net_deg": 69.78901143584653,
+        "drift_mm": 18.209991455078125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.5500000000000003,
+        "valid_net_deg": 64.76753791634246,
+        "drift_mm": 16.774049758911133,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.6,
+        "valid_net_deg": 43.8872488274078,
+        "drift_mm": 9.693451881408691,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.65,
+        "valid_net_deg": 40.11054608972472,
+        "drift_mm": 8.564810752868652,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.7,
+        "valid_net_deg": 41.59516518727605,
+        "drift_mm": 9.44976806640625,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.75,
+        "valid_net_deg": 43.73566341657852,
+        "drift_mm": 10.403388977050781,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.8000000000000003,
+        "valid_net_deg": 45.41576057464545,
+        "drift_mm": 10.84304428100586,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.85,
+        "valid_net_deg": 46.76040765365315,
+        "drift_mm": 11.010642051696777,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.9,
+        "valid_net_deg": 47.46249653127006,
+        "drift_mm": 11.048437118530273,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 3.95,
+        "valid_net_deg": 47.41191436125655,
+        "drift_mm": 10.994166374206543,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.0,
+        "valid_net_deg": 47.15779018646799,
+        "drift_mm": 11.171293258666992,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.05,
+        "valid_net_deg": 46.76980514189245,
+        "drift_mm": 11.717277526855469,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.1,
+        "valid_net_deg": 45.58472841622324,
+        "drift_mm": 12.550921440124512,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.15,
+        "valid_net_deg": 43.95079579873027,
+        "drift_mm": 13.19394302368164,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.2,
+        "valid_net_deg": 42.21120711316371,
+        "drift_mm": 13.163509368896484,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.25,
+        "valid_net_deg": 42.7571917674436,
+        "drift_mm": 13.603211402893066,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.3,
+        "valid_net_deg": 43.43439285993418,
+        "drift_mm": 13.3240966796875,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.3500000000000005,
+        "valid_net_deg": 45.293233771583346,
+        "drift_mm": 12.999510765075684,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.4,
+        "valid_net_deg": 46.78341095499536,
+        "drift_mm": 12.7108793258667,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.45,
+        "valid_net_deg": 47.231915851087706,
+        "drift_mm": 12.394631385803223,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.5,
+        "valid_net_deg": 46.54584446326089,
+        "drift_mm": 12.476777076721191,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.55,
+        "valid_net_deg": 45.239138745332184,
+        "drift_mm": 12.952345848083496,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.6000000000000005,
+        "valid_net_deg": 44.184834125546786,
+        "drift_mm": 13.535642623901367,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.65,
+        "valid_net_deg": 42.667649645220536,
+        "drift_mm": 13.657093048095703,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.7,
+        "valid_net_deg": 42.658299191033166,
+        "drift_mm": 14.021102905273438,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.75,
+        "valid_net_deg": 42.016195292344946,
+        "drift_mm": 13.74311351776123,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.8,
+        "valid_net_deg": 40.98041709767904,
+        "drift_mm": 13.822125434875488,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.8500000000000005,
+        "valid_net_deg": 39.55712412832554,
+        "drift_mm": 14.962268829345703,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.9,
+        "valid_net_deg": 37.95148165220644,
+        "drift_mm": 15.58028507232666,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 4.95,
+        "valid_net_deg": 36.22770405629899,
+        "drift_mm": 16.271312713623047,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.0,
+        "valid_net_deg": 34.43598949605848,
+        "drift_mm": 16.795494079589844,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.05,
+        "valid_net_deg": 32.432130395195145,
+        "drift_mm": 17.259063720703125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.1000000000000005,
+        "valid_net_deg": 30.1336423193502,
+        "drift_mm": 17.547149658203125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.15,
+        "valid_net_deg": 27.45387547998007,
+        "drift_mm": 16.85841941833496,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.2,
+        "valid_net_deg": 26.41728234669472,
+        "drift_mm": 16.652294158935547,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.25,
+        "valid_net_deg": 27.037393374776457,
+        "drift_mm": 17.151399612426758,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.3,
+        "valid_net_deg": 26.773751301740504,
+        "drift_mm": 16.754913330078125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.3500000000000005,
+        "valid_net_deg": 28.021120159713064,
+        "drift_mm": 15.310425758361816,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.4,
+        "valid_net_deg": 29.365869160567854,
+        "drift_mm": 14.183080673217773,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.45,
+        "valid_net_deg": 30.61804548354212,
+        "drift_mm": 12.731586456298828,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.5,
+        "valid_net_deg": 31.757635863309588,
+        "drift_mm": 11.903741836547852,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.55,
+        "valid_net_deg": 32.8831649527574,
+        "drift_mm": 12.37647819519043,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.6000000000000005,
+        "valid_net_deg": 32.47033656057556,
+        "drift_mm": 12.885322570800781,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.65,
+        "valid_net_deg": 32.88210583793352,
+        "drift_mm": 12.860025405883789,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.7,
+        "valid_net_deg": 34.368713290322376,
+        "drift_mm": 12.818674087524414,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.75,
+        "valid_net_deg": 34.17557800538725,
+        "drift_mm": 13.183868408203125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.8,
+        "valid_net_deg": 32.89590087603665,
+        "drift_mm": 14.774898529052734,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.8500000000000005,
+        "valid_net_deg": 31.518644618577127,
+        "drift_mm": 15.572870254516602,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.9,
+        "valid_net_deg": 30.33402397554255,
+        "drift_mm": 16.541532516479492,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 5.95,
+        "valid_net_deg": 29.10041973717398,
+        "drift_mm": 17.55141258239746,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.0,
+        "valid_net_deg": 27.519629264491414,
+        "drift_mm": 18.44379425048828,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.05,
+        "valid_net_deg": 25.522166862393533,
+        "drift_mm": 19.106708526611328,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.1000000000000005,
+        "valid_net_deg": 22.758758093471442,
+        "drift_mm": 18.75560188293457,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.15,
+        "valid_net_deg": 20.25269062375537,
+        "drift_mm": 18.09712028503418,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.2,
+        "valid_net_deg": 18.68113412545881,
+        "drift_mm": 18.247676849365234,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.25,
+        "valid_net_deg": 17.49136176674665,
+        "drift_mm": 18.200786590576172,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.3,
+        "valid_net_deg": 17.68293194197622,
+        "drift_mm": 16.96656036376953,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.3500000000000005,
+        "valid_net_deg": 18.79150588418861,
+        "drift_mm": 15.777013778686523,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.4,
+        "valid_net_deg": 19.88886472191234,
+        "drift_mm": 14.665533065795898,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.45,
+        "valid_net_deg": 21.141471892404752,
+        "drift_mm": 13.10543155670166,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.5,
+        "valid_net_deg": 22.377938414733308,
+        "drift_mm": 11.489949226379395,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.55,
+        "valid_net_deg": 24.296921078856485,
+        "drift_mm": 12.73066520690918,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.6000000000000005,
+        "valid_net_deg": 24.47886002118321,
+        "drift_mm": 13.62364387512207,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.65,
+        "valid_net_deg": 25.467378110341087,
+        "drift_mm": 14.099204063415527,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.7,
+        "valid_net_deg": 27.063475869312242,
+        "drift_mm": 14.604817390441895,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.75,
+        "valid_net_deg": 28.315809526196972,
+        "drift_mm": 14.960214614868164,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.8,
+        "valid_net_deg": 27.602953674468154,
+        "drift_mm": 15.333503723144531,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.8500000000000005,
+        "valid_net_deg": 26.312898749697524,
+        "drift_mm": 16.37441062927246,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.9,
+        "valid_net_deg": 25.037541530772614,
+        "drift_mm": 18.242860794067383,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 6.95,
+        "valid_net_deg": 24.06148260631835,
+        "drift_mm": 19.906002044677734,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.0,
+        "valid_net_deg": 22.41977824629521,
+        "drift_mm": 20.344249725341797,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.05,
+        "valid_net_deg": 20.564169113386924,
+        "drift_mm": 20.336034774780273,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.1000000000000005,
+        "valid_net_deg": 18.232655948821957,
+        "drift_mm": 19.821189880371094,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.15,
+        "valid_net_deg": 16.081853971679266,
+        "drift_mm": 19.873430252075195,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.2,
+        "valid_net_deg": 14.076332704958077,
+        "drift_mm": 20.080158233642578,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.25,
+        "valid_net_deg": 11.542001844246442,
+        "drift_mm": 19.95525550842285,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.3,
+        "valid_net_deg": 11.459553715868424,
+        "drift_mm": 18.9891300201416,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.3500000000000005,
+        "valid_net_deg": 12.669665848466138,
+        "drift_mm": 18.118528366088867,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.4,
+        "valid_net_deg": 13.992359980570654,
+        "drift_mm": 18.045591354370117,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.45,
+        "valid_net_deg": 15.495513076727548,
+        "drift_mm": 17.939863204956055,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.5,
+        "valid_net_deg": 17.241896960717895,
+        "drift_mm": 17.660871505737305,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.55,
+        "valid_net_deg": 18.906430042182365,
+        "drift_mm": 16.480321884155273,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.6000000000000005,
+        "valid_net_deg": 20.742939410099098,
+        "drift_mm": 15.917875289916992,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.65,
+        "valid_net_deg": 22.15588698816373,
+        "drift_mm": 15.932366371154785,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.7,
+        "valid_net_deg": 23.537105416887243,
+        "drift_mm": 15.66380786895752,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.75,
+        "valid_net_deg": 23.998770901301214,
+        "drift_mm": 15.59611988067627,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.8,
+        "valid_net_deg": 23.11239372543878,
+        "drift_mm": 16.020145416259766,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.8500000000000005,
+        "valid_net_deg": 21.927143928835903,
+        "drift_mm": 17.468578338623047,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.9,
+        "valid_net_deg": 20.74387248908988,
+        "drift_mm": 18.70733642578125,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 7.95,
+        "valid_net_deg": 19.763077002259706,
+        "drift_mm": 19.613649368286133,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.0,
+        "valid_net_deg": 18.403190822989018,
+        "drift_mm": 20.497507095336914,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.05,
+        "valid_net_deg": 16.31212454074648,
+        "drift_mm": 20.254159927368164,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.1,
+        "valid_net_deg": 13.885575202942164,
+        "drift_mm": 20.32039451599121,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.15,
+        "valid_net_deg": 11.733169611260564,
+        "drift_mm": 20.41890525817871,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.2,
+        "valid_net_deg": 9.970786034228695,
+        "drift_mm": 20.19401741027832,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.25,
+        "valid_net_deg": 10.97016253192578,
+        "drift_mm": 19.127521514892578,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.3,
+        "valid_net_deg": 12.29008513466124,
+        "drift_mm": 18.896631240844727,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.35,
+        "valid_net_deg": 14.060609363584263,
+        "drift_mm": 19.538785934448242,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.4,
+        "valid_net_deg": 15.67617377881561,
+        "drift_mm": 19.17226219177246,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.45,
+        "valid_net_deg": 16.703820726351296,
+        "drift_mm": 19.083616256713867,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.5,
+        "valid_net_deg": 17.72124647300825,
+        "drift_mm": 18.93409538269043,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.55,
+        "valid_net_deg": 18.87230936465221,
+        "drift_mm": 17.674652099609375,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.6,
+        "valid_net_deg": 19.87114143771487,
+        "drift_mm": 17.547935485839844,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.65,
+        "valid_net_deg": 20.96720775057929,
+        "drift_mm": 17.662302017211914,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.700000000000001,
+        "valid_net_deg": 20.700809076713085,
+        "drift_mm": 17.56910514831543,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.75,
+        "valid_net_deg": 20.070771252540908,
+        "drift_mm": 18.18595314025879,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.8,
+        "valid_net_deg": 19.23607561438348,
+        "drift_mm": 20.45339012145996,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.85,
+        "valid_net_deg": 24.19894067521909,
+        "drift_mm": 24.77878189086914,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.9,
+        "valid_net_deg": 25.019896417486052,
+        "drift_mm": 27.669221878051758,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 8.950000000000001,
+        "valid_net_deg": 22.685449012185018,
+        "drift_mm": 28.805070877075195,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 9.0,
+        "valid_net_deg": 22.98217712695714,
+        "drift_mm": 35.2288703918457,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 9.05,
+        "valid_net_deg": 77.3459773545992,
+        "drift_mm": 74.81239318847656,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 9.1,
+        "valid_net_deg": 146.74859004075643,
+        "drift_mm": 129.61495971679688,
+        "repeated_frames": 1,
+        "phase": "\u539f\u901f\u64ad\u653e"
+      },
+      {
+        "physics_s": 9.15,
+        "valid_net_deg": 215.27403597886678,
+        "drift_mm": 196.40176391601562,
+        "repeated_frames": 40,
+        "phase": "\u7ec8\u6b62\u72b6\u6001\u5b9a\u683c"
+      }
+    ],
+    "interpolated": false
+  },
+  "status": "completed",
+  "wall_s": 5.342670009937137
+}
