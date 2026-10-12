@@ -2,6 +2,8 @@
 # sharpa_wave_env.py::_setup_scene (ground + dome light); TendonSpin native_video.py
 # (camera/encoding), render_isaac_pose_replay.py (recorded world-body pose rendering).
 # This is native Isaac RTX rendering of archived PhysX poses, without physics stepping.
+# Delivery update: optional normal-speed replay and opt-in per-frame image export;
+# the archived episode, physics, controller and metrics are never reexecuted.
 """Render a readable floor/grid studio from an already executed Boya episode."""
 import argparse,hashlib,json,os,time
 from pathlib import Path
@@ -10,6 +12,8 @@ os.environ['ISAAC_LAB_ENABLE_ISAAC_RTX_PER_ENV_SCENE_PARTITION']='0'
 parser=argparse.ArgumentParser()
 parser.add_argument('--record',type=Path,required=True)
 parser.add_argument('--out',type=Path,required=True)
+parser.add_argument('--playback-speed',type=float,choices=(.2,1.),default=.2)
+parser.add_argument('--save-frames',action='store_true',help='Also export every sampled frame as PNG')
 args=parser.parse_args();root=Path(__file__).resolve().parents[1]
 source=args.record.resolve();episode=json.loads(source.read_text())
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
@@ -95,16 +99,22 @@ try:
             frame=Image.new('RGB',(960,660),(18,23,31));frame.paste(Image.fromarray(rgb),(0,76))
             draw=ImageDraw.Draw(frame)
             draw.text((12,4),'伯牙手 / Isaac RTX 原生渲染 / 已执行物理轨迹回放',font=self.font,fill='white')
-            label='初始状态定格' if initial else ('终止状态定格' if reason else '0.2倍速慢放')
+            label='初始状态定格' if initial else ('终止状态定格' if reason else ('原速播放' if args.playback_speed==1. else '0.2倍速慢放'))
             draw.text((12,39),f'训练 {self.training_actions:,} 次动作 | {label} | 地面仅作视觉参考',font=self.font,fill='white')
             text=f'实际仿真 {elapsed:.4f}s | 有效净转角 {net:+.2f}° | 漂移 {drift:.2f}mm'
-            if reason:text+=' | 终止：漂移超过5毫米' if reason=='drift >5mm' else ' | '+reason
+            stops={'drift >5mm':'终止：漂移超过5毫米','time limit':'到达评估时限',
+                   'object below Boya manipulation region':'物体低于操作区',
+                   'object outside Boya lateral region':'物体超出操作区横向边界'}
+            if reason:text+=' | '+stops.get(reason,reason)
             draw.text((12,622),text,font=self.font,fill='white')
-            repeats=20 if initial else (40 if reason else 5)
+            repeats=20 if initial else (40 if reason else round(1/args.playback_speed))
             for _ in range(repeats):self.encoder.stdin.write(np.asarray(frame).tobytes())
             self.frames+=repeats;self.last=frame
             self.samples.append(dict(physics_s=elapsed,valid_net_deg=net,drift_mm=drift,repeated_frames=repeats,phase=label))
-            frame.save(out/('initial.png' if initial else ('final.png' if reason else f'frame_{len(self.samples):03d}.png')))
+            if args.save_frames or initial or reason:
+                frame.save(out/('initial.png' if initial else ('final.png' if reason else f'frame_{len(self.samples):03d}.png')))
+            if len(self.samples)%100==0:
+                print(f'RENDER_PROGRESS physics_s={elapsed:.2f}/{episode["actual_s"]:.2f}',flush=True)
 
     with np.load(source.parent/'initial_state.npz') as d:initial={k:d[k].copy() for k in d.files}
     manifest['initial_state_sha256']=hashlib.sha256((source.parent/'initial_state.npz').read_bytes()).hexdigest()
@@ -152,7 +162,9 @@ except BaseException as error:
     import traceback
     manifest['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
 finally:
-    if video is not None:manifest['video']=video.close()
+    if video is not None:
+        manifest['video']=video.close()
+        if manifest['video'] is not None:manifest['video']['motion_playback_speed']=args.playback_speed
     if manifest.get('video',{}).get('encoder_exit_code',0):failed=True
     manifest.update(status='error' if failed else 'completed',wall_s=time.monotonic()-started)
     (out/'render.json').write_text(json.dumps(manifest,indent=2)+'\n')

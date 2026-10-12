@@ -1,0 +1,4387 @@
+{
+  "motion_source": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/result.json",
+  "motion_source_sha256": "ae6a5c038025cca0d24943ca1da1dfefd0440eb28eb73fa3512aa46730eec2c9",
+  "renderer": "Isaac Sim RTX; archived measured world-body poses",
+  "new_training_actions": 0,
+  "new_physics_steps": 0,
+  "controller_reexecuted": false,
+  "interpolation": false,
+  "source_actual_s": 30.0,
+  "source_net_deg": 1155.299400292827,
+  "source_stop_reason": "time limit",
+  "floor_collision": false,
+  "style": "dark slate checker floor, dome/key light, orange cylinder and painted marker",
+  "hand_asset": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/isaac_boya_import/boya/boya.usda",
+    "sha256": "e2a7cbb5a071a6902b8b737f51ed1516c1161267a2ece42c6c8b5b7c72e0abe6"
+  },
+  "initial_state_sha256": "13ec7f54370d78e1a964fbd10463444d38975209bbb516dde6fcf459e5da7f1a",
+  "trajectory_sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_000.npz",
+      "sha256": "52e5506fc5b16befd375bf94f1ca14b30993e537731dd09a0c96facc82f1449b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_001.npz",
+      "sha256": "465d8a11290191a743782303fdd5271129c03f9072cc7a1d6d031218bf3ffc47"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_002.npz",
+      "sha256": "b9098b1143b2ff178c1ef387dcc4af2120e27f028b87bff90ba495a4a2f64350"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_003.npz",
+      "sha256": "1ac92db6fa4b0f6eb9409e63805357556c2afb2d45d368d730cdfe9b6725cd0d"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_004.npz",
+      "sha256": "6c1340ea6683e5efaca2c13661cc7872725dcde64084a9be2355b05e1f0d1fc1"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_005.npz",
+      "sha256": "d8da320686bdb88b2a8065d7c7cbc3d9d221bd6b6da96c2ffce55f65af740f57"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_006.npz",
+      "sha256": "6db6656456c2e6d64fcb6772c55cbf3507ad175b8c6d69a909b09f7da10876cc"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_007.npz",
+      "sha256": "7e06b277a23186b65e8faa7b8ebe438151317ee78f2c8ef812613b5de62e5028"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_008.npz",
+      "sha256": "ee97629c9e55faad85f01c7494acc2a928bf1c28bea1c587ecd76f7d8122e894"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_009.npz",
+      "sha256": "283f6cd186887e7fc508c08615148e97a6044fae008ceb7ef98855a9ced73f3a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_010.npz",
+      "sha256": "20670babaf539350f91f004da2efdcee548819fe4bbdcfd9af5a2923693126d2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_011.npz",
+      "sha256": "cc9e045b267db0984328099e758cc995d2104253e1e50e47e357ebe9d70b8250"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_012.npz",
+      "sha256": "ebfc9e9d2026db0d95a97ece6977fb6ebc43ad0373a59513ab77b656d9a10cd9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_013.npz",
+      "sha256": "1a9acd17d2b7b3c316a51380d420c045cd4691c9b6f3bade83d58e16b7e93e88"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_014.npz",
+      "sha256": "44c739d6342419d62f3bff1766035c0f52ffec40f403e8795565743b86476913"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_015.npz",
+      "sha256": "a61d0593d7d2e589067f7a61df2f2675ad6d529026d4e98a1baa4d60b94a0f99"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_016.npz",
+      "sha256": "7f8261c6eb66bcc64b095cd830cc05f869338ce902c31ee61cc5f1f0979c9acd"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_017.npz",
+      "sha256": "ec82aa514ff19f845de488b11be3f7aa97ee97d66d62cc60710070e1d6368cce"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_018.npz",
+      "sha256": "1abeb01b5daee17c56d20bcbcea6dd407cc2fe8c75d69771049e7caa7b46fd63"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_019.npz",
+      "sha256": "2593787f2412ba9bcfe4c496a54458489310a99698eb3594f3979dfe815f3ec2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_020.npz",
+      "sha256": "f24cb4409b70285881d7fa8c56bdcb46c5e63afeea345f08b7096fdaa304ada9"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_021.npz",
+      "sha256": "98d8d4f42ee241e405b474d09c22b2903988d053a1d5fda5d286ef8e3e55565e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_022.npz",
+      "sha256": "dc4b41940a4b51378d14a8c45d30e23f955625865dd56d39a0dd07959769e470"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_023.npz",
+      "sha256": "4423670f8760374e0107466fbedb8dda6967ebeae657baa01f4ccb378bf5bfe4"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_024.npz",
+      "sha256": "8e257a50bb9c7b0308931bb5bdcdeb4301118511e0aadffccb3dfffceef5ab28"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_025.npz",
+      "sha256": "3539315c23932c4c6bb27f4610586b8fa544ff27a17e828855284aa6a64561ca"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_026.npz",
+      "sha256": "7f9d9ab51bb58a88538d94b814a9a3c9af6d75db7dc82d47d767837abd98d2d4"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_027.npz",
+      "sha256": "dc4506e713ad91a484bfe2dbc6eae826504171d5737aff19907cbb510a722ac7"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_028.npz",
+      "sha256": "db2d459bad5422676cd7e3c04d4fbe998b703571dc1d97c59e1ca51ce61db2b8"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/evaluation/physics_029.npz",
+      "sha256": "78ce914f8af5430ade92a196de7acb8802a85870ab5350731823a06ec3b01040"
+    }
+  ],
+  "max_authored_body_world_matrix_error": 5.551115123125783e-16,
+  "floor_has_collision_api": false,
+  "video": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora_b40m_evaluation_video_v1/isaac_native.mp4",
+    "engine": "Isaac Sim RTX native camera",
+    "encoder_exit_code": 0,
+    "fps": 20,
+    "frames": 659,
+    "duration_s": 32.95,
+    "motion_playback_speed": 1.0,
+    "initial_still_s": 1,
+    "terminal_still_s": 2,
+    "physics_sample_times": [
+      {
+        "physics_s": 0.0,
+        "valid_net_deg": 0.0,
+        "drift_mm": 0.0,
+        "repeated_frames": 20,
+        "phase": "初始状态定格"
+      },
+      {
+        "physics_s": 0.05,
+        "valid_net_deg": 0.7224531110026078,
+        "drift_mm": 0.6593772172927856,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.1,
+        "valid_net_deg": 2.9319430945091085,
+        "drift_mm": 1.1108300685882568,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.15,
+        "valid_net_deg": 5.767792258562906,
+        "drift_mm": 1.4040002822875977,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.2,
+        "valid_net_deg": 8.18648399055229,
+        "drift_mm": 1.7812528610229492,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.25,
+        "valid_net_deg": 10.015260011108978,
+        "drift_mm": 2.3781633377075195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.3,
+        "valid_net_deg": 11.12234323230797,
+        "drift_mm": 2.868044376373291,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.35000000000000003,
+        "valid_net_deg": 12.202140362386046,
+        "drift_mm": 3.291475772857666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.4,
+        "valid_net_deg": 13.180227375769675,
+        "drift_mm": 3.766326427459717,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.45,
+        "valid_net_deg": 13.796700915502072,
+        "drift_mm": 3.949517011642456,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.5,
+        "valid_net_deg": 14.813161494467124,
+        "drift_mm": 4.257884979248047,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.55,
+        "valid_net_deg": 15.718651955680173,
+        "drift_mm": 4.537439823150635,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.6,
+        "valid_net_deg": 17.767419821315627,
+        "drift_mm": 5.131292343139648,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.65,
+        "valid_net_deg": 19.03519776064269,
+        "drift_mm": 5.255992412567139,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.7000000000000001,
+        "valid_net_deg": 23.732471046702187,
+        "drift_mm": 6.176635265350342,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.75,
+        "valid_net_deg": 27.196389151004325,
+        "drift_mm": 6.587862491607666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.8,
+        "valid_net_deg": 31.18920320571698,
+        "drift_mm": 7.18940544128418,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.85,
+        "valid_net_deg": 36.69851001651324,
+        "drift_mm": 8.187250137329102,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.9,
+        "valid_net_deg": 39.500438844052326,
+        "drift_mm": 8.520867347717285,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 0.9500000000000001,
+        "valid_net_deg": 41.930276119348775,
+        "drift_mm": 8.805534362792969,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.0,
+        "valid_net_deg": 43.5246017451521,
+        "drift_mm": 9.1048583984375,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.05,
+        "valid_net_deg": 43.31444418530219,
+        "drift_mm": 9.120038986206055,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.1,
+        "valid_net_deg": 43.95795985510114,
+        "drift_mm": 9.259347915649414,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.1500000000000001,
+        "valid_net_deg": 44.01870102364256,
+        "drift_mm": 9.238608360290527,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.2,
+        "valid_net_deg": 43.61633042652676,
+        "drift_mm": 9.183304786682129,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.25,
+        "valid_net_deg": 42.66047802811073,
+        "drift_mm": 8.99584674835205,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.3,
+        "valid_net_deg": 42.172016370334234,
+        "drift_mm": 8.857723236083984,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.35,
+        "valid_net_deg": 42.8142664307,
+        "drift_mm": 8.610733985900879,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.4000000000000001,
+        "valid_net_deg": 44.19232741687148,
+        "drift_mm": 8.251147270202637,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.45,
+        "valid_net_deg": 46.033806750920405,
+        "drift_mm": 8.005365371704102,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.5,
+        "valid_net_deg": 47.48803125451951,
+        "drift_mm": 7.811991214752197,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.55,
+        "valid_net_deg": 50.003686521571865,
+        "drift_mm": 7.885207653045654,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.6,
+        "valid_net_deg": 52.447299598154416,
+        "drift_mm": 7.812376499176025,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.6500000000000001,
+        "valid_net_deg": 54.902220387381305,
+        "drift_mm": 7.677640438079834,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.7,
+        "valid_net_deg": 57.36854465901553,
+        "drift_mm": 7.636387348175049,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.75,
+        "valid_net_deg": 60.0205285627365,
+        "drift_mm": 7.414543628692627,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.8,
+        "valid_net_deg": 62.577914882820835,
+        "drift_mm": 7.129627704620361,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.85,
+        "valid_net_deg": 65.45295706614553,
+        "drift_mm": 6.697082042694092,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.9000000000000001,
+        "valid_net_deg": 66.2408623165523,
+        "drift_mm": 5.8673930168151855,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 1.95,
+        "valid_net_deg": 66.39894107227002,
+        "drift_mm": 5.016819477081299,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.0,
+        "valid_net_deg": 66.81632755707716,
+        "drift_mm": 4.727824687957764,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.05,
+        "valid_net_deg": 65.94095100217265,
+        "drift_mm": 4.233422756195068,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.1,
+        "valid_net_deg": 66.03910182593273,
+        "drift_mm": 4.075998306274414,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.15,
+        "valid_net_deg": 68.29985073758172,
+        "drift_mm": 4.5300798416137695,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.2,
+        "valid_net_deg": 70.15248962109791,
+        "drift_mm": 5.037794589996338,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.25,
+        "valid_net_deg": 71.66751863891142,
+        "drift_mm": 5.56366491317749,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.3000000000000003,
+        "valid_net_deg": 73.1772919864382,
+        "drift_mm": 6.083641529083252,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.35,
+        "valid_net_deg": 74.76355168772744,
+        "drift_mm": 6.619754314422607,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.4,
+        "valid_net_deg": 76.22086928775417,
+        "drift_mm": 6.959442615509033,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.45,
+        "valid_net_deg": 77.8804142548691,
+        "drift_mm": 7.450328826904297,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.5,
+        "valid_net_deg": 79.47400647578644,
+        "drift_mm": 7.896092891693115,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.5500000000000003,
+        "valid_net_deg": 80.5065795443009,
+        "drift_mm": 8.18613338470459,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.6,
+        "valid_net_deg": 81.37412763936328,
+        "drift_mm": 8.410942077636719,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.65,
+        "valid_net_deg": 82.11570471566694,
+        "drift_mm": 7.606528282165527,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.7,
+        "valid_net_deg": 83.32558696548978,
+        "drift_mm": 6.404216766357422,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.75,
+        "valid_net_deg": 83.7529065699203,
+        "drift_mm": 5.825613021850586,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.8000000000000003,
+        "valid_net_deg": 85.12758673093077,
+        "drift_mm": 5.272347927093506,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.85,
+        "valid_net_deg": 87.19663557404448,
+        "drift_mm": 4.9050068855285645,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.9,
+        "valid_net_deg": 88.951403780666,
+        "drift_mm": 4.8663506507873535,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 2.95,
+        "valid_net_deg": 90.19510170113091,
+        "drift_mm": 5.168644905090332,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.0,
+        "valid_net_deg": 91.58447679033299,
+        "drift_mm": 5.537367820739746,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.0500000000000003,
+        "valid_net_deg": 93.9352575484084,
+        "drift_mm": 6.1248393058776855,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.1,
+        "valid_net_deg": 98.08421904774178,
+        "drift_mm": 6.965543746948242,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.15,
+        "valid_net_deg": 102.5117007307129,
+        "drift_mm": 7.081851959228516,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.2,
+        "valid_net_deg": 105.3887569857182,
+        "drift_mm": 7.214481353759766,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.25,
+        "valid_net_deg": 108.15672469878365,
+        "drift_mm": 7.4018874168396,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.3000000000000003,
+        "valid_net_deg": 110.3429265533926,
+        "drift_mm": 7.140760898590088,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.35,
+        "valid_net_deg": 111.69303638342564,
+        "drift_mm": 6.2691240310668945,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.4,
+        "valid_net_deg": 113.35953670128976,
+        "drift_mm": 5.893165588378906,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.45,
+        "valid_net_deg": 114.86103421862964,
+        "drift_mm": 5.767902374267578,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.5,
+        "valid_net_deg": 116.96140040591155,
+        "drift_mm": 5.310427665710449,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.5500000000000003,
+        "valid_net_deg": 119.38865960337017,
+        "drift_mm": 4.716983318328857,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.6,
+        "valid_net_deg": 121.12635607592557,
+        "drift_mm": 3.804929733276367,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.65,
+        "valid_net_deg": 124.00123912974988,
+        "drift_mm": 3.106201410293579,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.7,
+        "valid_net_deg": 126.90196657687221,
+        "drift_mm": 3.336992025375366,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.75,
+        "valid_net_deg": 128.55943072255496,
+        "drift_mm": 3.779696226119995,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.8000000000000003,
+        "valid_net_deg": 129.44571954285522,
+        "drift_mm": 4.189187049865723,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.85,
+        "valid_net_deg": 130.9830921347605,
+        "drift_mm": 4.230234622955322,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.9,
+        "valid_net_deg": 132.52850613830407,
+        "drift_mm": 4.050562381744385,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 3.95,
+        "valid_net_deg": 134.847709841037,
+        "drift_mm": 3.892115354537964,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.0,
+        "valid_net_deg": 136.77443970082123,
+        "drift_mm": 4.005375385284424,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.05,
+        "valid_net_deg": 138.90722361480613,
+        "drift_mm": 4.262110233306885,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.1,
+        "valid_net_deg": 140.64005332806875,
+        "drift_mm": 5.038351058959961,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.15,
+        "valid_net_deg": 142.16167909646202,
+        "drift_mm": 6.352068901062012,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.2,
+        "valid_net_deg": 143.8035035319047,
+        "drift_mm": 5.99429178237915,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.25,
+        "valid_net_deg": 145.84925892384518,
+        "drift_mm": 5.522342205047607,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.3,
+        "valid_net_deg": 147.7202078308331,
+        "drift_mm": 4.782526969909668,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.3500000000000005,
+        "valid_net_deg": 150.0474700303169,
+        "drift_mm": 4.102589130401611,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.4,
+        "valid_net_deg": 151.5259262928742,
+        "drift_mm": 3.99680757522583,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.45,
+        "valid_net_deg": 151.96159942186233,
+        "drift_mm": 4.543970108032227,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.5,
+        "valid_net_deg": 152.50957680707535,
+        "drift_mm": 4.653267860412598,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.55,
+        "valid_net_deg": 152.8342536734711,
+        "drift_mm": 4.801685333251953,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.6000000000000005,
+        "valid_net_deg": 153.97485705468017,
+        "drift_mm": 5.362224578857422,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.65,
+        "valid_net_deg": 157.4187984653111,
+        "drift_mm": 5.89499568939209,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.7,
+        "valid_net_deg": 161.75405810776311,
+        "drift_mm": 6.214088439941406,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.75,
+        "valid_net_deg": 166.39438189569074,
+        "drift_mm": 6.688034534454346,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.8,
+        "valid_net_deg": 169.59299923482496,
+        "drift_mm": 6.845059871673584,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.8500000000000005,
+        "valid_net_deg": 172.097882679693,
+        "drift_mm": 6.766188621520996,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.9,
+        "valid_net_deg": 174.17652676816243,
+        "drift_mm": 6.538424015045166,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 4.95,
+        "valid_net_deg": 175.82931624449003,
+        "drift_mm": 5.977922439575195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.0,
+        "valid_net_deg": 177.60374193722993,
+        "drift_mm": 5.637030601501465,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.05,
+        "valid_net_deg": 179.07411071090638,
+        "drift_mm": 5.362643241882324,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.1000000000000005,
+        "valid_net_deg": 180.38742549865884,
+        "drift_mm": 4.809536933898926,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.15,
+        "valid_net_deg": 182.2976346775834,
+        "drift_mm": 4.0676445960998535,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.2,
+        "valid_net_deg": 183.84332622992252,
+        "drift_mm": 3.4134836196899414,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.25,
+        "valid_net_deg": 185.68215356240427,
+        "drift_mm": 2.699049472808838,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.3,
+        "valid_net_deg": 188.03519103894388,
+        "drift_mm": 2.879405975341797,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.3500000000000005,
+        "valid_net_deg": 190.03727816729253,
+        "drift_mm": 3.246532917022705,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.4,
+        "valid_net_deg": 190.90768012040672,
+        "drift_mm": 3.6752960681915283,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.45,
+        "valid_net_deg": 191.714218387004,
+        "drift_mm": 3.5785927772521973,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.5,
+        "valid_net_deg": 192.98740837126599,
+        "drift_mm": 3.4351541996002197,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.55,
+        "valid_net_deg": 195.4923315398358,
+        "drift_mm": 3.362226963043213,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.6000000000000005,
+        "valid_net_deg": 197.42752874604986,
+        "drift_mm": 3.655959129333496,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.65,
+        "valid_net_deg": 199.14953552893923,
+        "drift_mm": 3.7069177627563477,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.7,
+        "valid_net_deg": 201.09293698668108,
+        "drift_mm": 4.0200276374816895,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.75,
+        "valid_net_deg": 202.7835344854705,
+        "drift_mm": 4.744307994842529,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.8,
+        "valid_net_deg": 204.50606127697603,
+        "drift_mm": 5.248188495635986,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.8500000000000005,
+        "valid_net_deg": 206.37494280710445,
+        "drift_mm": 6.2586259841918945,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.9,
+        "valid_net_deg": 208.41570517848805,
+        "drift_mm": 5.267922401428223,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 5.95,
+        "valid_net_deg": 210.033090136569,
+        "drift_mm": 4.99290657043457,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.0,
+        "valid_net_deg": 212.0184394545816,
+        "drift_mm": 3.94498610496521,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.05,
+        "valid_net_deg": 213.0207810191153,
+        "drift_mm": 3.698698043823242,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.1000000000000005,
+        "valid_net_deg": 213.33428631103226,
+        "drift_mm": 4.151533126831055,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.15,
+        "valid_net_deg": 213.93226893003367,
+        "drift_mm": 4.371623516082764,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.2,
+        "valid_net_deg": 215.25773861164845,
+        "drift_mm": 5.060042381286621,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.25,
+        "valid_net_deg": 216.89973472336925,
+        "drift_mm": 5.711512088775635,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.3,
+        "valid_net_deg": 220.18455378430582,
+        "drift_mm": 6.140867710113525,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.3500000000000005,
+        "valid_net_deg": 224.72093075046934,
+        "drift_mm": 6.207487106323242,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.4,
+        "valid_net_deg": 228.41776239218808,
+        "drift_mm": 6.529120445251465,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.45,
+        "valid_net_deg": 230.93836433904863,
+        "drift_mm": 6.732962131500244,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.5,
+        "valid_net_deg": 233.19038521776594,
+        "drift_mm": 7.001396179199219,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.55,
+        "valid_net_deg": 235.5746471723417,
+        "drift_mm": 6.97432279586792,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.6000000000000005,
+        "valid_net_deg": 237.9308085450778,
+        "drift_mm": 6.6256866455078125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.65,
+        "valid_net_deg": 239.86371482022724,
+        "drift_mm": 6.055563449859619,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.7,
+        "valid_net_deg": 241.55815570520855,
+        "drift_mm": 5.415568828582764,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.75,
+        "valid_net_deg": 243.3772620616822,
+        "drift_mm": 4.71746826171875,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.8,
+        "valid_net_deg": 245.48066094539746,
+        "drift_mm": 4.055621147155762,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.8500000000000005,
+        "valid_net_deg": 246.42501485230088,
+        "drift_mm": 3.015500545501709,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.9,
+        "valid_net_deg": 249.37374710919022,
+        "drift_mm": 3.1896092891693115,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 6.95,
+        "valid_net_deg": 252.77470414595365,
+        "drift_mm": 3.654768228530884,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.0,
+        "valid_net_deg": 254.7308723532936,
+        "drift_mm": 4.220107078552246,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.05,
+        "valid_net_deg": 256.5716234759769,
+        "drift_mm": 4.764599323272705,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.1000000000000005,
+        "valid_net_deg": 257.816394221258,
+        "drift_mm": 5.054503440856934,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.15,
+        "valid_net_deg": 259.99303890600487,
+        "drift_mm": 5.363847732543945,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.2,
+        "valid_net_deg": 262.44703369423434,
+        "drift_mm": 5.483945846557617,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.25,
+        "valid_net_deg": 264.5609745534478,
+        "drift_mm": 5.681469440460205,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.3,
+        "valid_net_deg": 266.31955291073456,
+        "drift_mm": 6.486454486846924,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.3500000000000005,
+        "valid_net_deg": 267.75362291581615,
+        "drift_mm": 7.131833553314209,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.4,
+        "valid_net_deg": 269.28007763459965,
+        "drift_mm": 7.575811386108398,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.45,
+        "valid_net_deg": 271.0825165503068,
+        "drift_mm": 7.5475077629089355,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.5,
+        "valid_net_deg": 272.6825036259709,
+        "drift_mm": 7.3916192054748535,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.55,
+        "valid_net_deg": 273.91204780362233,
+        "drift_mm": 7.496891021728516,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.6000000000000005,
+        "valid_net_deg": 275.29334162523656,
+        "drift_mm": 6.481160640716553,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.65,
+        "valid_net_deg": 276.5592154633362,
+        "drift_mm": 5.385495662689209,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.7,
+        "valid_net_deg": 278.52222083589214,
+        "drift_mm": 4.7669997215271,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.75,
+        "valid_net_deg": 279.5540735418729,
+        "drift_mm": 4.575138092041016,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.8,
+        "valid_net_deg": 280.4965413266439,
+        "drift_mm": 4.847067356109619,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.8500000000000005,
+        "valid_net_deg": 282.11753118918233,
+        "drift_mm": 5.252884864807129,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.9,
+        "valid_net_deg": 283.75806991471865,
+        "drift_mm": 5.667028903961182,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 7.95,
+        "valid_net_deg": 285.82114031440534,
+        "drift_mm": 6.203763961791992,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.0,
+        "valid_net_deg": 290.21435263282575,
+        "drift_mm": 6.484592914581299,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.05,
+        "valid_net_deg": 294.08806631034196,
+        "drift_mm": 6.918598175048828,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.1,
+        "valid_net_deg": 296.9382038556035,
+        "drift_mm": 7.169713497161865,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.15,
+        "valid_net_deg": 299.43956302963153,
+        "drift_mm": 7.2655816078186035,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.2,
+        "valid_net_deg": 301.501513651758,
+        "drift_mm": 7.163323402404785,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.25,
+        "valid_net_deg": 303.47044433206275,
+        "drift_mm": 6.874965667724609,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.3,
+        "valid_net_deg": 305.2957338701929,
+        "drift_mm": 6.427950859069824,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.35,
+        "valid_net_deg": 306.9129381237547,
+        "drift_mm": 6.056421756744385,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.4,
+        "valid_net_deg": 308.42425534147725,
+        "drift_mm": 5.468932151794434,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.45,
+        "valid_net_deg": 310.27678868565664,
+        "drift_mm": 4.821177005767822,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.5,
+        "valid_net_deg": 311.8928061326554,
+        "drift_mm": 4.012049198150635,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.55,
+        "valid_net_deg": 312.92359821368547,
+        "drift_mm": 2.9640040397644043,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.6,
+        "valid_net_deg": 315.97542938646467,
+        "drift_mm": 3.076293706893921,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.65,
+        "valid_net_deg": 318.96422813050987,
+        "drift_mm": 3.474846601486206,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.700000000000001,
+        "valid_net_deg": 320.92175994776727,
+        "drift_mm": 4.001042366027832,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.75,
+        "valid_net_deg": 322.51845117714794,
+        "drift_mm": 4.55619478225708,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.8,
+        "valid_net_deg": 323.917687577294,
+        "drift_mm": 4.876884937286377,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.85,
+        "valid_net_deg": 325.33325147498937,
+        "drift_mm": 5.089131832122803,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.9,
+        "valid_net_deg": 327.4532290721366,
+        "drift_mm": 4.8854079246521,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 8.950000000000001,
+        "valid_net_deg": 328.918624751834,
+        "drift_mm": 4.952179908752441,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.0,
+        "valid_net_deg": 330.26757269222827,
+        "drift_mm": 4.982967853546143,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.05,
+        "valid_net_deg": 331.80868976805897,
+        "drift_mm": 5.403582572937012,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.1,
+        "valid_net_deg": 333.5033818433115,
+        "drift_mm": 6.695481300354004,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.15,
+        "valid_net_deg": 335.01568653211535,
+        "drift_mm": 7.372293472290039,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.200000000000001,
+        "valid_net_deg": 337.3488965924883,
+        "drift_mm": 7.455058574676514,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.25,
+        "valid_net_deg": 339.3137593200484,
+        "drift_mm": 7.10546350479126,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.3,
+        "valid_net_deg": 340.73027220611067,
+        "drift_mm": 6.3127665519714355,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.35,
+        "valid_net_deg": 341.5689653191769,
+        "drift_mm": 5.688239574432373,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.4,
+        "valid_net_deg": 342.48465171070376,
+        "drift_mm": 5.033244609832764,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.450000000000001,
+        "valid_net_deg": 344.02990532815994,
+        "drift_mm": 4.632339000701904,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.5,
+        "valid_net_deg": 344.67711625503927,
+        "drift_mm": 4.78689432144165,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.55,
+        "valid_net_deg": 345.7902289983429,
+        "drift_mm": 5.110373020172119,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.6,
+        "valid_net_deg": 347.73997135745213,
+        "drift_mm": 5.774280548095703,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.65,
+        "valid_net_deg": 350.94913276383505,
+        "drift_mm": 6.2820353507995605,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.700000000000001,
+        "valid_net_deg": 355.11890911409483,
+        "drift_mm": 6.5089216232299805,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.75,
+        "valid_net_deg": 359.08918535807953,
+        "drift_mm": 7.142529487609863,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.8,
+        "valid_net_deg": 361.9705367582463,
+        "drift_mm": 7.42100715637207,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.85,
+        "valid_net_deg": 364.49139912897573,
+        "drift_mm": 7.520510673522949,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.9,
+        "valid_net_deg": 366.40054534287975,
+        "drift_mm": 7.284432411193848,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 9.950000000000001,
+        "valid_net_deg": 368.24336923175343,
+        "drift_mm": 6.740867614746094,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.0,
+        "valid_net_deg": 370.2767231769938,
+        "drift_mm": 6.30808687210083,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.05,
+        "valid_net_deg": 372.2311375996176,
+        "drift_mm": 5.8925886154174805,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.1,
+        "valid_net_deg": 373.92189066443444,
+        "drift_mm": 5.271190166473389,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.15,
+        "valid_net_deg": 375.8488213089839,
+        "drift_mm": 4.591136455535889,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.200000000000001,
+        "valid_net_deg": 376.95879608770684,
+        "drift_mm": 3.4984235763549805,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.25,
+        "valid_net_deg": 379.53473564009965,
+        "drift_mm": 3.276825189590454,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.3,
+        "valid_net_deg": 383.4125967133403,
+        "drift_mm": 3.5582351684570312,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.35,
+        "valid_net_deg": 385.5430322490245,
+        "drift_mm": 3.9788410663604736,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.4,
+        "valid_net_deg": 386.5883943378538,
+        "drift_mm": 4.231863021850586,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.450000000000001,
+        "valid_net_deg": 388.30388413142265,
+        "drift_mm": 4.5064005851745605,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.5,
+        "valid_net_deg": 389.41254102257864,
+        "drift_mm": 4.494846820831299,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.55,
+        "valid_net_deg": 390.95904054218755,
+        "drift_mm": 4.325109481811523,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.6,
+        "valid_net_deg": 393.0693090307139,
+        "drift_mm": 4.254941463470459,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.65,
+        "valid_net_deg": 394.6223307913713,
+        "drift_mm": 4.326905727386475,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.700000000000001,
+        "valid_net_deg": 396.02342505106554,
+        "drift_mm": 4.649145603179932,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.75,
+        "valid_net_deg": 397.9092122549735,
+        "drift_mm": 5.041469573974609,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.8,
+        "valid_net_deg": 399.44356996105836,
+        "drift_mm": 5.874576568603516,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.85,
+        "valid_net_deg": 402.09859947958813,
+        "drift_mm": 6.016105651855469,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.9,
+        "valid_net_deg": 404.58585533039496,
+        "drift_mm": 5.672265529632568,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 10.950000000000001,
+        "valid_net_deg": 406.07246042979733,
+        "drift_mm": 4.706999778747559,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.0,
+        "valid_net_deg": 407.05188954487295,
+        "drift_mm": 3.824248790740967,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.05,
+        "valid_net_deg": 408.18682886875087,
+        "drift_mm": 3.83254337310791,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.1,
+        "valid_net_deg": 409.220359134484,
+        "drift_mm": 4.199075222015381,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.15,
+        "valid_net_deg": 410.35969131973235,
+        "drift_mm": 4.592165946960449,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.200000000000001,
+        "valid_net_deg": 411.2013309864922,
+        "drift_mm": 4.994782447814941,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.25,
+        "valid_net_deg": 412.52086248310644,
+        "drift_mm": 5.4626851081848145,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.3,
+        "valid_net_deg": 416.41091961289186,
+        "drift_mm": 5.887213706970215,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.35,
+        "valid_net_deg": 421.232474357508,
+        "drift_mm": 6.393556594848633,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.4,
+        "valid_net_deg": 424.87811657289404,
+        "drift_mm": 6.770348072052002,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.450000000000001,
+        "valid_net_deg": 428.2041545143946,
+        "drift_mm": 6.980812072753906,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.5,
+        "valid_net_deg": 430.0009808574467,
+        "drift_mm": 6.658668041229248,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.55,
+        "valid_net_deg": 431.99725603467215,
+        "drift_mm": 6.427117347717285,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.6,
+        "valid_net_deg": 433.68877581196267,
+        "drift_mm": 6.110390663146973,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.65,
+        "valid_net_deg": 435.3020965248941,
+        "drift_mm": 5.688736915588379,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.700000000000001,
+        "valid_net_deg": 437.0424849802292,
+        "drift_mm": 5.140115261077881,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.75,
+        "valid_net_deg": 438.71228093855444,
+        "drift_mm": 4.465381622314453,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.8,
+        "valid_net_deg": 440.57719322495524,
+        "drift_mm": 3.822434186935425,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.85,
+        "valid_net_deg": 441.34842225086305,
+        "drift_mm": 2.833542823791504,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.9,
+        "valid_net_deg": 444.54536294719566,
+        "drift_mm": 3.2883999347686768,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 11.950000000000001,
+        "valid_net_deg": 447.24425880765904,
+        "drift_mm": 3.795632839202881,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.0,
+        "valid_net_deg": 448.8971365109681,
+        "drift_mm": 4.399837017059326,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.05,
+        "valid_net_deg": 450.66372095855314,
+        "drift_mm": 4.835311412811279,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.1,
+        "valid_net_deg": 452.0121410038917,
+        "drift_mm": 5.069868564605713,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.15,
+        "valid_net_deg": 454.4452802200465,
+        "drift_mm": 4.994388580322266,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.200000000000001,
+        "valid_net_deg": 456.17057661774,
+        "drift_mm": 4.978711128234863,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.25,
+        "valid_net_deg": 457.6634223877116,
+        "drift_mm": 4.987809658050537,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.3,
+        "valid_net_deg": 459.38533399036515,
+        "drift_mm": 5.5868964195251465,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.35,
+        "valid_net_deg": 460.9358027667402,
+        "drift_mm": 6.509918689727783,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.4,
+        "valid_net_deg": 462.5588253100066,
+        "drift_mm": 6.904252052307129,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.450000000000001,
+        "valid_net_deg": 464.57862583423395,
+        "drift_mm": 6.740626335144043,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.5,
+        "valid_net_deg": 466.24021004761,
+        "drift_mm": 6.792130470275879,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.55,
+        "valid_net_deg": 467.52998186523456,
+        "drift_mm": 6.508718013763428,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.6,
+        "valid_net_deg": 468.5577004949226,
+        "drift_mm": 5.365142345428467,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.65,
+        "valid_net_deg": 469.6827819889075,
+        "drift_mm": 4.514186859130859,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.700000000000001,
+        "valid_net_deg": 470.7189402325419,
+        "drift_mm": 4.436211585998535,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.75,
+        "valid_net_deg": 471.8122798636285,
+        "drift_mm": 4.712859153747559,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.8,
+        "valid_net_deg": 473.60253135568547,
+        "drift_mm": 5.136604309082031,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.85,
+        "valid_net_deg": 475.73600306460486,
+        "drift_mm": 5.869598388671875,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.9,
+        "valid_net_deg": 479.2857486839019,
+        "drift_mm": 6.326102256774902,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 12.950000000000001,
+        "valid_net_deg": 483.7586576687716,
+        "drift_mm": 6.905971050262451,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.0,
+        "valid_net_deg": 487.17575161443875,
+        "drift_mm": 7.181700706481934,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.05,
+        "valid_net_deg": 489.9851825694166,
+        "drift_mm": 7.288609027862549,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.1,
+        "valid_net_deg": 492.8059254922517,
+        "drift_mm": 7.333044528961182,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.15,
+        "valid_net_deg": 494.97590483311416,
+        "drift_mm": 7.118338108062744,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.200000000000001,
+        "valid_net_deg": 496.62063821055546,
+        "drift_mm": 6.643611431121826,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.25,
+        "valid_net_deg": 497.8767966341655,
+        "drift_mm": 6.033107280731201,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.3,
+        "valid_net_deg": 499.36250613838985,
+        "drift_mm": 5.373691082000732,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.35,
+        "valid_net_deg": 501.30765910469546,
+        "drift_mm": 4.668030261993408,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.4,
+        "valid_net_deg": 502.5678593798037,
+        "drift_mm": 3.8918135166168213,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.450000000000001,
+        "valid_net_deg": 504.2931760807949,
+        "drift_mm": 3.30792236328125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.5,
+        "valid_net_deg": 508.4029740949589,
+        "drift_mm": 3.8417117595672607,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.55,
+        "valid_net_deg": 510.934261368351,
+        "drift_mm": 4.358341693878174,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.6,
+        "valid_net_deg": 513.3005852510648,
+        "drift_mm": 4.9560980796813965,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.65,
+        "valid_net_deg": 515.2722056421878,
+        "drift_mm": 5.52427864074707,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.700000000000001,
+        "valid_net_deg": 516.4117950366306,
+        "drift_mm": 5.914586067199707,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.75,
+        "valid_net_deg": 518.3397841646763,
+        "drift_mm": 5.8297505378723145,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.8,
+        "valid_net_deg": 520.1499899567532,
+        "drift_mm": 6.1597089767456055,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.85,
+        "valid_net_deg": 522.2081961592155,
+        "drift_mm": 6.3852458000183105,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.9,
+        "valid_net_deg": 524.1548059068116,
+        "drift_mm": 7.3423285484313965,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 13.950000000000001,
+        "valid_net_deg": 525.3634470489303,
+        "drift_mm": 8.360158920288086,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.0,
+        "valid_net_deg": 526.9633898625577,
+        "drift_mm": 8.700613021850586,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.05,
+        "valid_net_deg": 528.8983424918513,
+        "drift_mm": 7.677579879760742,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.1,
+        "valid_net_deg": 530.1745058906051,
+        "drift_mm": 6.596664905548096,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.15,
+        "valid_net_deg": 531.1902655875563,
+        "drift_mm": 5.613944053649902,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.200000000000001,
+        "valid_net_deg": 532.212963126625,
+        "drift_mm": 5.078598499298096,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.25,
+        "valid_net_deg": 533.4649185716078,
+        "drift_mm": 4.9622907638549805,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.3,
+        "valid_net_deg": 535.4130341116431,
+        "drift_mm": 5.250000953674316,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.35,
+        "valid_net_deg": 537.2980907492854,
+        "drift_mm": 5.746550559997559,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.4,
+        "valid_net_deg": 539.5568018920565,
+        "drift_mm": 6.354654312133789,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.450000000000001,
+        "valid_net_deg": 543.8139393098497,
+        "drift_mm": 6.671812534332275,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.5,
+        "valid_net_deg": 548.218769341878,
+        "drift_mm": 7.151001453399658,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.55,
+        "valid_net_deg": 551.2088964611137,
+        "drift_mm": 7.261678218841553,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.6,
+        "valid_net_deg": 553.8446149613553,
+        "drift_mm": 7.294724464416504,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.65,
+        "valid_net_deg": 556.297538954004,
+        "drift_mm": 7.19193172454834,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.700000000000001,
+        "valid_net_deg": 557.9610039612123,
+        "drift_mm": 6.669825077056885,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.75,
+        "valid_net_deg": 559.6649884692704,
+        "drift_mm": 6.03940486907959,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.8,
+        "valid_net_deg": 561.2818811470022,
+        "drift_mm": 5.571410655975342,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.85,
+        "valid_net_deg": 562.9851019549494,
+        "drift_mm": 4.966069221496582,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.9,
+        "valid_net_deg": 564.9527269787466,
+        "drift_mm": 4.324429988861084,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 14.950000000000001,
+        "valid_net_deg": 565.9341607475033,
+        "drift_mm": 3.3174901008605957,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.0,
+        "valid_net_deg": 568.6417213342463,
+        "drift_mm": 3.240787982940674,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.05,
+        "valid_net_deg": 571.9515229667848,
+        "drift_mm": 3.51446533203125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.1,
+        "valid_net_deg": 573.9674989263838,
+        "drift_mm": 3.979661464691162,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.15,
+        "valid_net_deg": 575.8676251526301,
+        "drift_mm": 4.444808006286621,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.200000000000001,
+        "valid_net_deg": 577.28050063358,
+        "drift_mm": 4.710918426513672,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.25,
+        "valid_net_deg": 579.1899652638783,
+        "drift_mm": 4.5088300704956055,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.3,
+        "valid_net_deg": 581.4219473981609,
+        "drift_mm": 4.516308307647705,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.35,
+        "valid_net_deg": 583.7198656265934,
+        "drift_mm": 4.685908317565918,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.4,
+        "valid_net_deg": 585.7633303803702,
+        "drift_mm": 4.9908366203308105,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.450000000000001,
+        "valid_net_deg": 587.9455235180756,
+        "drift_mm": 6.1324238777160645,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.5,
+        "valid_net_deg": 589.5434407358368,
+        "drift_mm": 6.730459213256836,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.55,
+        "valid_net_deg": 591.2302949399998,
+        "drift_mm": 6.982001781463623,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.6,
+        "valid_net_deg": 593.3033666544904,
+        "drift_mm": 6.532135963439941,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.65,
+        "valid_net_deg": 594.9822743310904,
+        "drift_mm": 5.594676494598389,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.700000000000001,
+        "valid_net_deg": 595.939026841075,
+        "drift_mm": 4.241520881652832,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.75,
+        "valid_net_deg": 597.3579297263884,
+        "drift_mm": 3.785956621170044,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.8,
+        "valid_net_deg": 598.0505737857409,
+        "drift_mm": 4.0430073738098145,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.85,
+        "valid_net_deg": 599.2684340540825,
+        "drift_mm": 4.481053829193115,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.9,
+        "valid_net_deg": 600.663393885751,
+        "drift_mm": 5.032148838043213,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 15.950000000000001,
+        "valid_net_deg": 602.7004732621524,
+        "drift_mm": 5.626739978790283,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.0,
+        "valid_net_deg": 606.2779258016187,
+        "drift_mm": 5.943087100982666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.05,
+        "valid_net_deg": 611.0844608910072,
+        "drift_mm": 6.5725555419921875,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.1,
+        "valid_net_deg": 614.7546827915746,
+        "drift_mm": 7.0166473388671875,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.15,
+        "valid_net_deg": 617.6102488214772,
+        "drift_mm": 7.178965091705322,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.2,
+        "valid_net_deg": 620.0085345249779,
+        "drift_mm": 7.230740547180176,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.25,
+        "valid_net_deg": 621.8370413011096,
+        "drift_mm": 6.972257614135742,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.3,
+        "valid_net_deg": 623.6132901501066,
+        "drift_mm": 6.550175666809082,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.35,
+        "valid_net_deg": 624.9397363294072,
+        "drift_mm": 6.142770767211914,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.4,
+        "valid_net_deg": 626.2211175425134,
+        "drift_mm": 5.631539821624756,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.45,
+        "valid_net_deg": 628.2027962630771,
+        "drift_mm": 4.886395454406738,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.5,
+        "valid_net_deg": 629.7470351652398,
+        "drift_mm": 4.083987236022949,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.55,
+        "valid_net_deg": 631.3915249774388,
+        "drift_mm": 3.175661325454712,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.6,
+        "valid_net_deg": 635.1571097238145,
+        "drift_mm": 3.355807304382324,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.65,
+        "valid_net_deg": 638.2221687430672,
+        "drift_mm": 3.8118338584899902,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.7,
+        "valid_net_deg": 639.9570516351766,
+        "drift_mm": 4.300266265869141,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.75,
+        "valid_net_deg": 642.1728229601092,
+        "drift_mm": 4.747403621673584,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.8,
+        "valid_net_deg": 643.3550771627731,
+        "drift_mm": 5.032464981079102,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.85,
+        "valid_net_deg": 645.0011495998285,
+        "drift_mm": 4.818165302276611,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.9,
+        "valid_net_deg": 646.9707354217924,
+        "drift_mm": 4.718698024749756,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 16.95,
+        "valid_net_deg": 648.7012652842484,
+        "drift_mm": 4.803036689758301,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.0,
+        "valid_net_deg": 650.4691692296572,
+        "drift_mm": 5.3849897384643555,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.05,
+        "valid_net_deg": 651.8124236077226,
+        "drift_mm": 6.577699661254883,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.1,
+        "valid_net_deg": 653.6154280075959,
+        "drift_mm": 7.058566093444824,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.150000000000002,
+        "valid_net_deg": 655.3679333556599,
+        "drift_mm": 7.798214912414551,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.2,
+        "valid_net_deg": 657.3868184829287,
+        "drift_mm": 6.778519153594971,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.25,
+        "valid_net_deg": 658.7621975898899,
+        "drift_mm": 5.1250834465026855,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.3,
+        "valid_net_deg": 660.2668069278977,
+        "drift_mm": 3.7535765171051025,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.35,
+        "valid_net_deg": 660.7658917153956,
+        "drift_mm": 3.8024966716766357,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.400000000000002,
+        "valid_net_deg": 662.001406714108,
+        "drift_mm": 4.162619590759277,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.45,
+        "valid_net_deg": 663.9959530445547,
+        "drift_mm": 4.739527225494385,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.5,
+        "valid_net_deg": 665.6539468431645,
+        "drift_mm": 5.136798858642578,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.55,
+        "valid_net_deg": 667.4911899759234,
+        "drift_mm": 5.691645622253418,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.6,
+        "valid_net_deg": 670.5278066347153,
+        "drift_mm": 6.264853000640869,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.650000000000002,
+        "valid_net_deg": 675.3061263325424,
+        "drift_mm": 6.975193023681641,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.7,
+        "valid_net_deg": 678.7994921716661,
+        "drift_mm": 7.2740159034729,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.75,
+        "valid_net_deg": 681.6741723201037,
+        "drift_mm": 7.531826019287109,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.8,
+        "valid_net_deg": 684.3155526967519,
+        "drift_mm": 7.741434574127197,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.85,
+        "valid_net_deg": 686.0095541571707,
+        "drift_mm": 7.163561820983887,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.900000000000002,
+        "valid_net_deg": 687.6034521089375,
+        "drift_mm": 6.6472392082214355,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 17.95,
+        "valid_net_deg": 689.1362552467242,
+        "drift_mm": 6.3220696449279785,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.0,
+        "valid_net_deg": 690.4776328766227,
+        "drift_mm": 5.911737442016602,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.05,
+        "valid_net_deg": 692.4228950432941,
+        "drift_mm": 5.30600643157959,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.1,
+        "valid_net_deg": 694.6388834837333,
+        "drift_mm": 4.736846923828125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.150000000000002,
+        "valid_net_deg": 695.7797656698592,
+        "drift_mm": 3.7455480098724365,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.2,
+        "valid_net_deg": 698.982111836455,
+        "drift_mm": 3.1789917945861816,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.25,
+        "valid_net_deg": 702.493913228295,
+        "drift_mm": 3.5743629932403564,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.3,
+        "valid_net_deg": 704.2357264267837,
+        "drift_mm": 3.9731693267822266,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.35,
+        "valid_net_deg": 705.4743011234884,
+        "drift_mm": 4.484928607940674,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.400000000000002,
+        "valid_net_deg": 707.0864717731808,
+        "drift_mm": 4.718092918395996,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.45,
+        "valid_net_deg": 708.661312445495,
+        "drift_mm": 4.428074359893799,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.5,
+        "valid_net_deg": 710.4726427211051,
+        "drift_mm": 4.1930952072143555,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.55,
+        "valid_net_deg": 712.6765693123077,
+        "drift_mm": 4.128812313079834,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.6,
+        "valid_net_deg": 714.5092176966925,
+        "drift_mm": 4.248037815093994,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.650000000000002,
+        "valid_net_deg": 716.5745373633315,
+        "drift_mm": 4.538934707641602,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.7,
+        "valid_net_deg": 717.9681502710653,
+        "drift_mm": 5.683764457702637,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.75,
+        "valid_net_deg": 719.5733671825935,
+        "drift_mm": 5.90077018737793,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.8,
+        "valid_net_deg": 721.1645440789496,
+        "drift_mm": 5.867635250091553,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.85,
+        "valid_net_deg": 722.9994572507774,
+        "drift_mm": 4.537095546722412,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.900000000000002,
+        "valid_net_deg": 725.4224029848908,
+        "drift_mm": 3.75449538230896,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 18.95,
+        "valid_net_deg": 726.6170790066305,
+        "drift_mm": 4.033947467803955,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.0,
+        "valid_net_deg": 727.04541904135,
+        "drift_mm": 4.586868762969971,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.05,
+        "valid_net_deg": 727.9213046572902,
+        "drift_mm": 4.835653781890869,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.1,
+        "valid_net_deg": 728.7258965564604,
+        "drift_mm": 5.093794822692871,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.150000000000002,
+        "valid_net_deg": 730.1103897175697,
+        "drift_mm": 5.589112281799316,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.2,
+        "valid_net_deg": 732.0570358766188,
+        "drift_mm": 6.200347423553467,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.25,
+        "valid_net_deg": 734.9948843151276,
+        "drift_mm": 6.638562202453613,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.3,
+        "valid_net_deg": 739.4135822050218,
+        "drift_mm": 6.907195091247559,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.35,
+        "valid_net_deg": 742.8221613570993,
+        "drift_mm": 7.294864177703857,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.400000000000002,
+        "valid_net_deg": 745.4187146678512,
+        "drift_mm": 7.393409252166748,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.45,
+        "valid_net_deg": 747.6326448332463,
+        "drift_mm": 7.268438816070557,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.5,
+        "valid_net_deg": 749.7971596822088,
+        "drift_mm": 7.152777194976807,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.55,
+        "valid_net_deg": 752.036870175222,
+        "drift_mm": 6.985179424285889,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.6,
+        "valid_net_deg": 754.0817079350297,
+        "drift_mm": 6.7538886070251465,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.650000000000002,
+        "valid_net_deg": 755.6278231872191,
+        "drift_mm": 6.275172710418701,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.7,
+        "valid_net_deg": 757.4218322990407,
+        "drift_mm": 5.547313213348389,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.75,
+        "valid_net_deg": 759.4362999165376,
+        "drift_mm": 4.978480339050293,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.8,
+        "valid_net_deg": 760.5657982947948,
+        "drift_mm": 4.047677040100098,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.85,
+        "valid_net_deg": 763.2637500381741,
+        "drift_mm": 3.542604446411133,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.900000000000002,
+        "valid_net_deg": 766.3484167243066,
+        "drift_mm": 3.710641622543335,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 19.95,
+        "valid_net_deg": 769.1768464381519,
+        "drift_mm": 4.083162784576416,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.0,
+        "valid_net_deg": 771.0079794480177,
+        "drift_mm": 4.5944976806640625,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.05,
+        "valid_net_deg": 772.18879982463,
+        "drift_mm": 4.930192470550537,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.1,
+        "valid_net_deg": 773.2179543418522,
+        "drift_mm": 5.082923889160156,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.150000000000002,
+        "valid_net_deg": 775.5531460247646,
+        "drift_mm": 4.993068218231201,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.2,
+        "valid_net_deg": 777.5659875847111,
+        "drift_mm": 5.132166385650635,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.25,
+        "valid_net_deg": 779.6043306650306,
+        "drift_mm": 5.275447845458984,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.3,
+        "valid_net_deg": 781.1638834751855,
+        "drift_mm": 5.512930870056152,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.35,
+        "valid_net_deg": 782.5591466800022,
+        "drift_mm": 6.425487995147705,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.400000000000002,
+        "valid_net_deg": 784.2681865068796,
+        "drift_mm": 6.731374740600586,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.45,
+        "valid_net_deg": 786.285713813332,
+        "drift_mm": 6.9000725746154785,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.5,
+        "valid_net_deg": 787.8029641919481,
+        "drift_mm": 7.147425174713135,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.55,
+        "valid_net_deg": 789.5577521622824,
+        "drift_mm": 6.813871383666992,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.6,
+        "valid_net_deg": 790.6624399563941,
+        "drift_mm": 6.078346252441406,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.650000000000002,
+        "valid_net_deg": 791.1526221034062,
+        "drift_mm": 5.459576606750488,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.7,
+        "valid_net_deg": 792.4370153305997,
+        "drift_mm": 4.670204162597656,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.75,
+        "valid_net_deg": 793.620469525288,
+        "drift_mm": 4.292604923248291,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.8,
+        "valid_net_deg": 794.1658704786194,
+        "drift_mm": 4.430020809173584,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.85,
+        "valid_net_deg": 795.1313968752609,
+        "drift_mm": 4.69675350189209,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.900000000000002,
+        "valid_net_deg": 797.0101998569542,
+        "drift_mm": 5.2552032470703125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 20.95,
+        "valid_net_deg": 801.026461231532,
+        "drift_mm": 5.8310627937316895,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.0,
+        "valid_net_deg": 805.4639252936565,
+        "drift_mm": 6.328169345855713,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.05,
+        "valid_net_deg": 809.6354613816463,
+        "drift_mm": 6.70995569229126,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.1,
+        "valid_net_deg": 812.2240203996287,
+        "drift_mm": 6.727958679199219,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.150000000000002,
+        "valid_net_deg": 815.0640410380536,
+        "drift_mm": 6.8956193923950195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.2,
+        "valid_net_deg": 817.4332646038481,
+        "drift_mm": 6.718928813934326,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.25,
+        "valid_net_deg": 818.8708581216731,
+        "drift_mm": 5.7457427978515625,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.3,
+        "valid_net_deg": 820.4235985120856,
+        "drift_mm": 5.457429885864258,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.35,
+        "valid_net_deg": 821.770515817693,
+        "drift_mm": 5.022904872894287,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.400000000000002,
+        "valid_net_deg": 823.3618605963518,
+        "drift_mm": 4.493941307067871,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.45,
+        "valid_net_deg": 825.4412818418448,
+        "drift_mm": 3.997248649597168,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.5,
+        "valid_net_deg": 826.9698125913371,
+        "drift_mm": 2.928576707839966,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.55,
+        "valid_net_deg": 829.3409958004584,
+        "drift_mm": 2.7397875785827637,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.6,
+        "valid_net_deg": 831.9877332698186,
+        "drift_mm": 3.0422658920288086,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.650000000000002,
+        "valid_net_deg": 833.2951662016665,
+        "drift_mm": 3.4679481983184814,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.7,
+        "valid_net_deg": 833.8501900260987,
+        "drift_mm": 3.8169572353363037,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.75,
+        "valid_net_deg": 835.3931416476796,
+        "drift_mm": 3.533745765686035,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.8,
+        "valid_net_deg": 836.6393375185969,
+        "drift_mm": 3.50784969329834,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.85,
+        "valid_net_deg": 838.6649069891962,
+        "drift_mm": 3.444969892501831,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.900000000000002,
+        "valid_net_deg": 840.7995834773126,
+        "drift_mm": 3.4595258235931396,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 21.95,
+        "valid_net_deg": 842.8988792573753,
+        "drift_mm": 3.7136824131011963,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.0,
+        "valid_net_deg": 844.8158797802123,
+        "drift_mm": 3.9987828731536865,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.05,
+        "valid_net_deg": 846.7310643152985,
+        "drift_mm": 4.339628219604492,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.1,
+        "valid_net_deg": 847.850450487919,
+        "drift_mm": 4.329690456390381,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.150000000000002,
+        "valid_net_deg": 849.522326908186,
+        "drift_mm": 4.462568759918213,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.2,
+        "valid_net_deg": 851.1463178257643,
+        "drift_mm": 4.55068302154541,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.25,
+        "valid_net_deg": 852.6030780022218,
+        "drift_mm": 4.952521800994873,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.3,
+        "valid_net_deg": 853.7978644474595,
+        "drift_mm": 4.31960916519165,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.35,
+        "valid_net_deg": 854.142499221022,
+        "drift_mm": 4.316382884979248,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.400000000000002,
+        "valid_net_deg": 854.7950434690154,
+        "drift_mm": 4.382219314575195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.45,
+        "valid_net_deg": 855.3579385560749,
+        "drift_mm": 4.583234786987305,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.5,
+        "valid_net_deg": 856.3571351558146,
+        "drift_mm": 5.07042932510376,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.55,
+        "valid_net_deg": 857.7169773511794,
+        "drift_mm": 5.640791893005371,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.6,
+        "valid_net_deg": 860.8354494076427,
+        "drift_mm": 5.9755401611328125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.650000000000002,
+        "valid_net_deg": 865.0468897585031,
+        "drift_mm": 6.28837776184082,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.7,
+        "valid_net_deg": 868.0316960595753,
+        "drift_mm": 6.452912330627441,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.75,
+        "valid_net_deg": 870.6689553939011,
+        "drift_mm": 6.669305801391602,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.8,
+        "valid_net_deg": 873.05542909058,
+        "drift_mm": 6.751628398895264,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.85,
+        "valid_net_deg": 875.1895451571997,
+        "drift_mm": 6.553232669830322,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.900000000000002,
+        "valid_net_deg": 876.8505129700732,
+        "drift_mm": 5.990250587463379,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 22.95,
+        "valid_net_deg": 878.4234217701685,
+        "drift_mm": 5.587076663970947,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.0,
+        "valid_net_deg": 879.789345587438,
+        "drift_mm": 5.175755500793457,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.05,
+        "valid_net_deg": 881.7267729545217,
+        "drift_mm": 4.67816162109375,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.1,
+        "valid_net_deg": 883.6008797807824,
+        "drift_mm": 4.087143898010254,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.150000000000002,
+        "valid_net_deg": 884.3297327745911,
+        "drift_mm": 2.9673001766204834,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.2,
+        "valid_net_deg": 886.2664698817041,
+        "drift_mm": 2.758639335632324,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.25,
+        "valid_net_deg": 889.7015710629728,
+        "drift_mm": 3.283491373062134,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.3,
+        "valid_net_deg": 891.3747496691738,
+        "drift_mm": 3.684206962585449,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.35,
+        "valid_net_deg": 892.8349043906871,
+        "drift_mm": 4.116876125335693,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.400000000000002,
+        "valid_net_deg": 894.6940527673084,
+        "drift_mm": 4.238292217254639,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.45,
+        "valid_net_deg": 896.5493760940824,
+        "drift_mm": 3.8976659774780273,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.5,
+        "valid_net_deg": 898.8035521985237,
+        "drift_mm": 3.91290020942688,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.55,
+        "valid_net_deg": 900.6561269809697,
+        "drift_mm": 3.8632566928863525,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.6,
+        "valid_net_deg": 902.4389017869923,
+        "drift_mm": 4.207923889160156,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.650000000000002,
+        "valid_net_deg": 904.1421495790798,
+        "drift_mm": 5.413331985473633,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.7,
+        "valid_net_deg": 905.8446000631172,
+        "drift_mm": 6.443850517272949,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.75,
+        "valid_net_deg": 907.6061428583432,
+        "drift_mm": 6.879018306732178,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.8,
+        "valid_net_deg": 909.4550508124028,
+        "drift_mm": 6.509623050689697,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.85,
+        "valid_net_deg": 911.4674906705711,
+        "drift_mm": 5.327591419219971,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.900000000000002,
+        "valid_net_deg": 913.6498142465223,
+        "drift_mm": 3.726909637451172,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 23.95,
+        "valid_net_deg": 914.7340083413089,
+        "drift_mm": 3.832228183746338,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.0,
+        "valid_net_deg": 915.0887509886686,
+        "drift_mm": 4.1884307861328125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.05,
+        "valid_net_deg": 916.172458023955,
+        "drift_mm": 4.524044513702393,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.1,
+        "valid_net_deg": 916.9733286210846,
+        "drift_mm": 4.825568199157715,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.150000000000002,
+        "valid_net_deg": 918.7842831674077,
+        "drift_mm": 5.475581169128418,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.2,
+        "valid_net_deg": 920.7954916988544,
+        "drift_mm": 6.02944803237915,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.25,
+        "valid_net_deg": 923.6311451585077,
+        "drift_mm": 6.264342308044434,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.3,
+        "valid_net_deg": 928.1687746212863,
+        "drift_mm": 6.6257004737854,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.35,
+        "valid_net_deg": 931.764458520063,
+        "drift_mm": 7.041402339935303,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.400000000000002,
+        "valid_net_deg": 934.5319329357751,
+        "drift_mm": 7.355776786804199,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.45,
+        "valid_net_deg": 936.8360685228415,
+        "drift_mm": 7.450394153594971,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.5,
+        "valid_net_deg": 938.8714913890742,
+        "drift_mm": 7.285233497619629,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.55,
+        "valid_net_deg": 940.9541141973621,
+        "drift_mm": 6.941221237182617,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.6,
+        "valid_net_deg": 942.803332189638,
+        "drift_mm": 6.617244243621826,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.650000000000002,
+        "valid_net_deg": 944.134236635249,
+        "drift_mm": 6.118810653686523,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.7,
+        "valid_net_deg": 945.5510741738415,
+        "drift_mm": 5.539876461029053,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.75,
+        "valid_net_deg": 947.5057986272311,
+        "drift_mm": 4.8751540184021,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.8,
+        "valid_net_deg": 949.0733061973749,
+        "drift_mm": 4.092416286468506,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.85,
+        "valid_net_deg": 950.21015653464,
+        "drift_mm": 3.1339492797851562,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.900000000000002,
+        "valid_net_deg": 953.0676925916503,
+        "drift_mm": 3.1962947845458984,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 24.95,
+        "valid_net_deg": 956.0939506802986,
+        "drift_mm": 3.58284592628479,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.0,
+        "valid_net_deg": 958.0612233139852,
+        "drift_mm": 4.118405818939209,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.05,
+        "valid_net_deg": 959.5525016242916,
+        "drift_mm": 4.555737495422363,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.1,
+        "valid_net_deg": 960.9709702905545,
+        "drift_mm": 4.860504150390625,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.150000000000002,
+        "valid_net_deg": 963.0809645595307,
+        "drift_mm": 4.65055513381958,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.2,
+        "valid_net_deg": 965.3127803894038,
+        "drift_mm": 4.676771640777588,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.25,
+        "valid_net_deg": 966.8417609928454,
+        "drift_mm": 4.686080455780029,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.3,
+        "valid_net_deg": 968.3667799838165,
+        "drift_mm": 4.98751163482666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.35,
+        "valid_net_deg": 969.6266715604158,
+        "drift_mm": 5.923817157745361,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.400000000000002,
+        "valid_net_deg": 971.2955765624808,
+        "drift_mm": 6.615403652191162,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.45,
+        "valid_net_deg": 973.1742756733017,
+        "drift_mm": 6.967738628387451,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.5,
+        "valid_net_deg": 975.181307484703,
+        "drift_mm": 6.899727821350098,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.55,
+        "valid_net_deg": 976.6610989797207,
+        "drift_mm": 6.437667369842529,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.6,
+        "valid_net_deg": 978.1401686149927,
+        "drift_mm": 4.872627258300781,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.650000000000002,
+        "valid_net_deg": 979.3071049641164,
+        "drift_mm": 3.892014265060425,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.7,
+        "valid_net_deg": 980.3902852780463,
+        "drift_mm": 3.8882534503936768,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.75,
+        "valid_net_deg": 981.3202821855682,
+        "drift_mm": 4.2312822341918945,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.8,
+        "valid_net_deg": 982.8561849455889,
+        "drift_mm": 4.678438663482666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.85,
+        "valid_net_deg": 984.3190741731539,
+        "drift_mm": 5.090028285980225,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.900000000000002,
+        "valid_net_deg": 986.0863002433196,
+        "drift_mm": 5.702876567840576,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 25.95,
+        "valid_net_deg": 988.7794350559577,
+        "drift_mm": 6.207798480987549,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.0,
+        "valid_net_deg": 993.7196019614801,
+        "drift_mm": 6.934255599975586,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.05,
+        "valid_net_deg": 997.2464529300794,
+        "drift_mm": 7.286013126373291,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.1,
+        "valid_net_deg": 1000.1323388299659,
+        "drift_mm": 7.446476936340332,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.150000000000002,
+        "valid_net_deg": 1002.7695549462676,
+        "drift_mm": 7.466935157775879,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.2,
+        "valid_net_deg": 1004.9903753059787,
+        "drift_mm": 7.266221523284912,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.25,
+        "valid_net_deg": 1006.5487176114564,
+        "drift_mm": 6.77468204498291,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.3,
+        "valid_net_deg": 1007.9037013212089,
+        "drift_mm": 6.1635026931762695,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.35,
+        "valid_net_deg": 1009.2440839772914,
+        "drift_mm": 5.645627975463867,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.400000000000002,
+        "valid_net_deg": 1011.1366059143782,
+        "drift_mm": 4.9899797439575195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.45,
+        "valid_net_deg": 1013.0029340103954,
+        "drift_mm": 4.337923049926758,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.5,
+        "valid_net_deg": 1013.710059860359,
+        "drift_mm": 3.4797823429107666,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.55,
+        "valid_net_deg": 1017.0970993817189,
+        "drift_mm": 3.5911643505096436,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.6,
+        "valid_net_deg": 1020.2927727207878,
+        "drift_mm": 4.057401180267334,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.650000000000002,
+        "valid_net_deg": 1022.0315660836511,
+        "drift_mm": 4.590236663818359,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.7,
+        "valid_net_deg": 1024.3976059949362,
+        "drift_mm": 5.138286590576172,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.75,
+        "valid_net_deg": 1025.6846277147868,
+        "drift_mm": 5.42236328125,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.8,
+        "valid_net_deg": 1026.895330686342,
+        "drift_mm": 5.454331874847412,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.85,
+        "valid_net_deg": 1029.0529099798166,
+        "drift_mm": 5.452854156494141,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.900000000000002,
+        "valid_net_deg": 1031.1716428885572,
+        "drift_mm": 5.592974662780762,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 26.95,
+        "valid_net_deg": 1032.9204498447814,
+        "drift_mm": 6.541782855987549,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.0,
+        "valid_net_deg": 1034.5831288762727,
+        "drift_mm": 7.721765041351318,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.05,
+        "valid_net_deg": 1036.0566840518602,
+        "drift_mm": 7.974946022033691,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.1,
+        "valid_net_deg": 1037.4709317900576,
+        "drift_mm": 8.183343887329102,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.150000000000002,
+        "valid_net_deg": 1038.9175068747588,
+        "drift_mm": 7.413913249969482,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.2,
+        "valid_net_deg": 1040.337416709155,
+        "drift_mm": 6.461843967437744,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.25,
+        "valid_net_deg": 1041.495815581862,
+        "drift_mm": 5.471278667449951,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.3,
+        "valid_net_deg": 1042.9196255050936,
+        "drift_mm": 4.775672435760498,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.35,
+        "valid_net_deg": 1044.1447622952853,
+        "drift_mm": 4.713035583496094,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.400000000000002,
+        "valid_net_deg": 1045.7742596341802,
+        "drift_mm": 4.934830188751221,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.45,
+        "valid_net_deg": 1047.7533757398876,
+        "drift_mm": 5.348638534545898,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.5,
+        "valid_net_deg": 1049.7147734136404,
+        "drift_mm": 6.033347129821777,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.55,
+        "valid_net_deg": 1052.3335641919718,
+        "drift_mm": 6.65774393081665,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.6,
+        "valid_net_deg": 1057.115242071365,
+        "drift_mm": 7.0483245849609375,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.650000000000002,
+        "valid_net_deg": 1060.7977969999508,
+        "drift_mm": 7.403807640075684,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.7,
+        "valid_net_deg": 1063.5555932781742,
+        "drift_mm": 7.5318379402160645,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.75,
+        "valid_net_deg": 1065.8879237211393,
+        "drift_mm": 7.547513008117676,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.8,
+        "valid_net_deg": 1067.756498356847,
+        "drift_mm": 7.2187113761901855,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.85,
+        "valid_net_deg": 1069.5490121473874,
+        "drift_mm": 6.736900329589844,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.900000000000002,
+        "valid_net_deg": 1071.6235316410045,
+        "drift_mm": 6.432528972625732,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 27.95,
+        "valid_net_deg": 1073.1347153657432,
+        "drift_mm": 5.9383463859558105,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.0,
+        "valid_net_deg": 1074.721409654742,
+        "drift_mm": 5.310986042022705,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.05,
+        "valid_net_deg": 1076.6235605911668,
+        "drift_mm": 4.724717140197754,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.1,
+        "valid_net_deg": 1077.5346083508655,
+        "drift_mm": 3.682716131210327,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.150000000000002,
+        "valid_net_deg": 1080.3137985894307,
+        "drift_mm": 3.1544201374053955,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.2,
+        "valid_net_deg": 1083.4444850848838,
+        "drift_mm": 3.351922035217285,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.25,
+        "valid_net_deg": 1085.8640962529778,
+        "drift_mm": 3.8478877544403076,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.3,
+        "valid_net_deg": 1086.9218357529342,
+        "drift_mm": 4.3749494552612305,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.35,
+        "valid_net_deg": 1088.160666119106,
+        "drift_mm": 4.527158737182617,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.400000000000002,
+        "valid_net_deg": 1089.7685918778031,
+        "drift_mm": 4.271358966827393,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.45,
+        "valid_net_deg": 1092.0050303067862,
+        "drift_mm": 4.167675018310547,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.5,
+        "valid_net_deg": 1094.2995894502699,
+        "drift_mm": 4.199014663696289,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.55,
+        "valid_net_deg": 1096.0170734988376,
+        "drift_mm": 4.349556922912598,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.6,
+        "valid_net_deg": 1098.1017370035722,
+        "drift_mm": 4.691637992858887,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.650000000000002,
+        "valid_net_deg": 1099.8934449896067,
+        "drift_mm": 6.2358903884887695,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.7,
+        "valid_net_deg": 1101.8485303267687,
+        "drift_mm": 6.532159805297852,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.75,
+        "valid_net_deg": 1103.5579302467256,
+        "drift_mm": 6.579446792602539,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.8,
+        "valid_net_deg": 1105.3880238819718,
+        "drift_mm": 5.357027530670166,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.85,
+        "valid_net_deg": 1107.555963068068,
+        "drift_mm": 3.8273210525512695,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.900000000000002,
+        "valid_net_deg": 1109.1685416320277,
+        "drift_mm": 3.499812126159668,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 28.95,
+        "valid_net_deg": 1109.2964067663077,
+        "drift_mm": 3.871894359588623,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.0,
+        "valid_net_deg": 1110.1093081406095,
+        "drift_mm": 4.1525983810424805,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.05,
+        "valid_net_deg": 1111.3842966218024,
+        "drift_mm": 4.555163383483887,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.1,
+        "valid_net_deg": 1112.884064274748,
+        "drift_mm": 5.016202449798584,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.150000000000002,
+        "valid_net_deg": 1114.789983286896,
+        "drift_mm": 5.625057697296143,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.2,
+        "valid_net_deg": 1119.111133558118,
+        "drift_mm": 6.0905327796936035,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.25,
+        "valid_net_deg": 1123.9210391169424,
+        "drift_mm": 6.810198783874512,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.3,
+        "valid_net_deg": 1127.3268091952439,
+        "drift_mm": 7.081515312194824,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.35,
+        "valid_net_deg": 1130.1423065603256,
+        "drift_mm": 7.135552883148193,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.400000000000002,
+        "valid_net_deg": 1132.2899875013634,
+        "drift_mm": 6.852797508239746,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.45,
+        "valid_net_deg": 1134.1979225785715,
+        "drift_mm": 6.522974967956543,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.5,
+        "valid_net_deg": 1135.9866360309777,
+        "drift_mm": 6.229012489318848,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.55,
+        "valid_net_deg": 1137.471457764065,
+        "drift_mm": 5.842703819274902,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.6,
+        "valid_net_deg": 1138.9687646436748,
+        "drift_mm": 5.335458278656006,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.650000000000002,
+        "valid_net_deg": 1140.906710634498,
+        "drift_mm": 4.791384220123291,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.7,
+        "valid_net_deg": 1142.3533380404358,
+        "drift_mm": 4.0787248611450195,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.75,
+        "valid_net_deg": 1144.022530484969,
+        "drift_mm": 3.280308485031128,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.8,
+        "valid_net_deg": 1147.8514044732099,
+        "drift_mm": 3.6712334156036377,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.85,
+        "valid_net_deg": 1150.4100767188017,
+        "drift_mm": 4.162280559539795,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.900000000000002,
+        "valid_net_deg": 1152.1394591639062,
+        "drift_mm": 4.740266799926758,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 29.95,
+        "valid_net_deg": 1153.958525902616,
+        "drift_mm": 5.102118492126465,
+        "repeated_frames": 1,
+        "phase": "原速播放"
+      },
+      {
+        "physics_s": 30.0,
+        "valid_net_deg": 1155.299400292827,
+        "drift_mm": 5.385127067565918,
+        "repeated_frames": 40,
+        "phase": "终止状态定格"
+      }
+    ],
+    "interpolated": false,
+    "sha256": "6264283a4aabc56dcde572e58386c287a78eb471c4b5ff24b9624f01691a3f6f",
+    "bytes": 1574319
+  },
+  "status": "completed",
+  "wall_s": 12.875909167109057,
+  "render_result": {
+    "path": "outputs/boya_hora_b40m_evaluation_video_v1/render.json",
+    "sha256": "4989509b048636388f699b7307cab68cacb45cbc1e7837a93cec17155deab2ca"
+  },
+  "renderer_source_sha256": "a345c39bb4d4de0b90c4b2c706cc69aff4a0cb2d5b39537e90158e07a100030e",
+  "checkpoint": {
+    "path": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/training/teacher_final.pth",
+    "sha256": "2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc",
+    "training_actions": 40001536
+  },
+  "gpu_before_render": {
+    "observed_local": "2026-10-12 11:07:04 Asia/Shanghai",
+    "model": "NVIDIA GeForce RTX 5080",
+    "used_memory_mib": 795,
+    "total_memory_mib": 16303,
+    "instant_utilization_percent": 5,
+    "compute_processes": [],
+    "graphics_processes_only": true
+  }
+}
