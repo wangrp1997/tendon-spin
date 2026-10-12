@@ -1,0 +1,176 @@
+{
+  "status": "passed",
+  "scope": "CPU syntax/CLI and USD geometry plus pinned training source/checkpoint/cache identities; no physics episode",
+  "usd_version": [
+    0,
+    25,
+    5
+  ],
+  "checkpoint_sha256": "2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc",
+  "training_source_count": 28,
+  "geometry_cases": [
+    {
+      "options": [],
+      "bounds_m": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03200000151991844
+      ],
+      "body_pose_unchanged": true,
+      "material_unchanged": true,
+      "before_physics_start": true,
+      "authored": [
+        {
+          "body_path": "/World/envs/env_0/Cylinder",
+          "geometry_path": "/World/envs/env_0/Cylinder/geometry/mesh",
+          "geometry_type": "Cylinder",
+          "mass_kg": 0.05000000074505806,
+          "collision_enabled": true
+        }
+      ],
+      "geometry": {
+        "shape": "cylinder",
+        "diameter_m": 0.04,
+        "height_m": 0.032,
+        "mass_kg": 0.05,
+        "source": "Original Boya grasp44 object; preserved without modification",
+        "profile": "boya_original",
+        "dimensions_m": [
+          0.04,
+          0.04,
+          0.032
+        ],
+        "overrides": {}
+      }
+    },
+    {
+      "options": [
+        "--object-profile",
+        "sharpa_recommended"
+      ],
+      "bounds_m": [
+        0.04800000041723251,
+        0.04800000041723251,
+        0.05999999865889549
+      ],
+      "body_pose_unchanged": true,
+      "material_unchanged": true,
+      "before_physics_start": true,
+      "authored": [
+        {
+          "body_path": "/World/envs/env_0/Cylinder",
+          "geometry_path": "/World/envs/env_0/Cylinder/geometry/mesh",
+          "geometry_type": "Cylinder",
+          "mass_kg": 0.05000000074505806,
+          "collision_enabled": true
+        }
+      ],
+      "geometry": {
+        "shape": "cylinder",
+        "diameter_m": 0.048,
+        "height_m": 0.06,
+        "mass_kg": 0.05,
+        "source": "Sharpa RL Lab README at95ccda3d948801bb5da4cb7ffea766e03067a63b: radius24mm, height60mm; mass remains Boya50g, not a measured hardware mass",
+        "profile": "sharpa_recommended",
+        "dimensions_m": [
+          0.048,
+          0.048,
+          0.06
+        ],
+        "overrides": {}
+      }
+    },
+    {
+      "options": [
+        "--object-shape",
+        "sphere",
+        "--object-diameter-mm",
+        "48"
+      ],
+      "bounds_m": [
+        0.04800000041723251,
+        0.04800000041723251,
+        0.04800000041723251
+      ],
+      "body_pose_unchanged": true,
+      "material_unchanged": true,
+      "before_physics_start": true,
+      "authored": [
+        {
+          "body_path": "/World/envs/env_0/Cylinder",
+          "geometry_path": "/World/envs/env_0/Cylinder/geometry/mesh",
+          "geometry_type": "Sphere",
+          "mass_kg": 0.05000000074505806,
+          "collision_enabled": true
+        }
+      ],
+      "geometry": {
+        "shape": "sphere",
+        "diameter_m": 0.048,
+        "mass_kg": 0.05,
+        "source": "Original Boya grasp44 object; preserved without modification",
+        "profile": "boya_original",
+        "dimensions_m": [
+          0.048,
+          0.048,
+          0.048
+        ],
+        "overrides": {
+          "shape": "sphere",
+          "diameter_mm": 48.0
+        }
+      }
+    },
+    {
+      "options": [
+        "--object-shape",
+        "box",
+        "--object-size-mm",
+        "40",
+        "50",
+        "60"
+      ],
+      "bounds_m": [
+        0.04,
+        0.05,
+        0.06
+      ],
+      "body_pose_unchanged": true,
+      "material_unchanged": true,
+      "before_physics_start": true,
+      "authored": [
+        {
+          "body_path": "/World/envs/env_0/Cylinder",
+          "geometry_path": "/World/envs/env_0/Cylinder/geometry/mesh",
+          "geometry_type": "Cube",
+          "mass_kg": 0.05000000074505806,
+          "collision_enabled": true
+        }
+      ],
+      "geometry": {
+        "shape": "box",
+        "mass_kg": 0.05,
+        "source": "Original Boya grasp44 object; preserved without modification",
+        "profile": "boya_original",
+        "size_m": [
+          0.04,
+          0.05,
+          0.06
+        ],
+        "dimensions_m": [
+          0.04,
+          0.05,
+          0.06
+        ],
+        "overrides": {
+          "shape": "box",
+          "size_mm": [
+            40.0,
+            50.0,
+            60.0
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "profiles": {
+    "boya_original": {
+      "shape": "cylinder",
+      "diameter_m": 0.04,
+      "height_m": 0.032,
+      "mass_kg": 0.05,
+      "source": "Original Boya grasp44 object; preserved without modification"
+    },
+    "sharpa_recommended": {
+      "shape": "cylinder",
+      "diameter_m": 0.048,
+      "height_m": 0.06,
+      "mass_kg": 0.05,
+      "source": "Sharpa RL Lab README at95ccda3d948801bb5da4cb7ffea766e03067a63b: radius24mm, height60mm; mass remains Boya50g, not a measured hardware mass"
+    }
+  }
+}

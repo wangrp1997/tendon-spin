@@ -4,6 +4,8 @@
 # This is native Isaac RTX rendering of archived PhysX poses, without physics stepping.
 # Delivery update: optional normal-speed replay and opt-in per-frame image export;
 # the archived episode, physics, controller and metrics are never reexecuted.
+# Object geometry: TendonSpin object_geometry.py; replay uses the episode's
+# declared dimensions/shape, with the original Boya profile for older records.
 """Render a readable floor/grid studio from an already executed Boya episode."""
 import argparse,hashlib,json,os,time
 from pathlib import Path
@@ -16,13 +18,18 @@ parser.add_argument('--playback-speed',type=float,choices=(.2,1.),default=.2)
 parser.add_argument('--save-frames',action='store_true',help='Also export every sampled frame as PNG')
 args=parser.parse_args();root=Path(__file__).resolve().parents[1]
 source=args.record.resolve();episode=json.loads(source.read_text())
+from tendonspin.physics.object_geometry import resolve_object_geometry,author_primitive
+geometry=episode.get('object_geometry') or resolve_object_geometry(root)
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
 manifest=dict(motion_source=str(source),motion_source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
     renderer='Isaac Sim RTX; archived measured world-body poses',new_training_actions=0,
     new_physics_steps=0,controller_reexecuted=False,interpolation=False,
     source_actual_s=episode['actual_s'],source_net_deg=episode['net_deg'],source_stop_reason=episode['stop_reason'],
-    floor_collision=False,style='dark slate checker floor, dome/key light, orange cylinder and painted marker')
+    floor_collision=False,style='dark slate checker floor, dome/key light, orange object and painted marker',
+    object_geometry=geometry,
+    geometry_source_sha256=hashlib.sha256((root/'tendonspin/physics/object_geometry.py').read_bytes()).hexdigest())
 (out/'render_boya_isaac_studio.py').write_bytes(Path(__file__).read_bytes())
+(out/'object_geometry.py').write_bytes((root/'tendonspin/physics/object_geometry.py').read_bytes())
 from isaaclab.app import AppLauncher
 app=AppLauncher(headless=True,enable_cameras=True,device='cuda:0').app
 video=None;failed=False;started=time.monotonic()
@@ -59,15 +66,22 @@ try:
         s.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(roughness)
         m.CreateSurfaceOutput().ConnectToSource(s.ConnectableAPI(),'surface')
         return m
-    cylinder=UsdGeom.Cylinder.Define(stage,'/World/Cylinder')
-    contract=json.loads((root/'docs/data/boya_native_contract.json').read_text())['object']
-    cylinder.CreateRadiusAttr(contract['diameter_m']/2);cylinder.CreateHeightAttr(contract['length_m']);cylinder.CreateAxisAttr('Z')
+    object_root=UsdGeom.Xform.Define(stage,'/World/Cylinder')
+    object_prim=author_primitive(stage,'/World/Cylinder/Geometry',geometry)
     orange=material('/World/Looks/Orange',(0.95,.20,.025),.38)
-    UsdShade.MaterialBindingAPI.Apply(cylinder.GetPrim()).Bind(orange)
+    UsdShade.MaterialBindingAPI.Apply(object_prim).Bind(orange)
     # A thin painted radial wedge makes axial rotation visible; purely visual.
     marker=UsdGeom.Mesh.Define(stage,'/World/Cylinder/PaintedMarker')
-    rad=contract['diameter_m']/2*.94;z=contract['length_m']/2+.00003
-    marker.CreatePointsAttr([(0,0,z),(rad,0,z),(rad*np.cos(.22),rad*np.sin(.22),z)])
+    rad=min(geometry['dimensions_m'][:2])/2*.94;z=geometry['dimensions_m'][2]/2+.00003
+    if geometry['shape']=='sphere':
+        # Small surface patch near the pole, projected onto the sphere.
+        radius=geometry['diameter_m']/2
+        points=[(0,0,radius+.00003)]
+        for angle in (0.,.4):
+            x=.35*radius*np.cos(angle);y=.35*radius*np.sin(angle)
+            points.append((x,y,float(np.sqrt(radius*radius-x*x-y*y))+.00003))
+    else:points=[(0,0,z),(rad,0,z),(rad*np.cos(.22),rad*np.sin(.22),z)]
+    marker.CreatePointsAttr(points)
     marker.CreateFaceVertexCountsAttr([3]);marker.CreateFaceVertexIndicesAttr([0,1,2]);marker.CreateDoubleSidedAttr(True)
     UsdShade.MaterialBindingAPI.Apply(marker.GetPrim()).Bind(material('/World/Looks/Marker',(.97,.98,1.)))
     floor=UsdGeom.Mesh.Define(stage,'/World/ReferenceFloor');points=[];indices=[];colors=[]
@@ -100,7 +114,9 @@ try:
             draw=ImageDraw.Draw(frame)
             draw.text((12,4),'伯牙手 / Isaac RTX 原生渲染 / 已执行物理轨迹回放',font=self.font,fill='white')
             label='初始状态定格' if initial else ('终止状态定格' if reason else ('原速播放' if args.playback_speed==1. else '0.2倍速慢放'))
-            draw.text((12,39),f'训练 {self.training_actions:,} 次动作 | {label} | 地面仅作视觉参考',font=self.font,fill='white')
+            shape_name={'cylinder':'圆柱','sphere':'球','box':'长方体'}[geometry['shape']]
+            dimensions='×'.join(f'{v*1000:g}' for v in geometry['dimensions_m'])
+            draw.text((12,39),f'{shape_name} {dimensions}mm | 训练 {self.training_actions:,} | {label}',font=self.font,fill='white')
             text=f'实际仿真 {elapsed:.4f}s | 有效净转角 {net:+.2f}° | 漂移 {drift:.2f}mm'
             stops={'drift >5mm':'终止：漂移超过5毫米','time limit':'到达评估时限',
                    'object below Boya manipulation region':'物体低于操作区',
@@ -130,7 +146,7 @@ try:
     body_rows={name:i for i,name in enumerate(episode['body_names'])}
     prim_order=sorted(bodies.values(),key=lambda p:p.GetPath().pathElementCount)
     ops={str(p.GetPath()):UsdGeom.Xformable(p).MakeMatrixXform() for p in prim_order}
-    object_op=UsdGeom.Xformable(cylinder).MakeMatrixXform()
+    object_op=UsdGeom.Xformable(object_root).MakeMatrixXform()
     cache=UsdGeom.XformCache();max_pose_error=0.
     def matrix(pose):
         x,y,z,w=map(float,pose[3:7]);m=Gf.Matrix4d().SetRotate(Gf.Quatd(w,Gf.Vec3d(x,y,z)))

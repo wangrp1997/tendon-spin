@@ -1,115 +1,39 @@
 # TendonSpin
 
-Independent learning project for continuous cylinder rotation on the Boya
-tendon-driven dexterous hand. Initial scope: privileged PPO teacher, then calibrated
-dynamics randomization and observation-history/tactile student for deployment.
-Hora, AnyRotate and SharpaWave are comparison targets; outperforming them and
-hardware robustness are goals to be evaluated, not current claims.
+伯牙腱驱灵巧手的手内物体旋转项目。使用 [Hora](https://github.com/HaozhiQi/hora) PPO 训练教师策略，
+研究触觉与动作历史驱动的学生策略；参考 [Hora](https://haozhi.io/hora)、
+[AnyRotate](https://maxyang27896.github.io/anyrotate/) 和
+[Sharpa RL Lab](https://github.com/sharpa-robotics/sharpa-rl-lab)。
 
-The original botyard-inhand repository is read-only. Packaged assets are local:
-24 CAD meshes, original stable grasp, actuator/collision model, source manifests,
-selected research history, baseline reference code and original learned pilot.
-There are no symlinks into the old repository. Existing Python/Isaac/Torch
-environments are reused; no new environment installation is required on this host.
+代码和模型资源独立保存在本仓库。仿真使用现有 Isaac Sim/Lab 环境，
+同时保留原始 MuJoCo 模型与工具。
 
-Native MuJoCo is the initial backend to preserve the verified motor/contact model.
-Available Isaac Sim/Lab is assessed separately for GPU training; environment
-availability alone does not validate a transferred tendon-driven hand model.
-See docs/backend_decision.md, docs/baselines.md and docs/deployment.md.
+## 目录
 
-First completed trial: final teacher ran120s with18.397394deg net rotation;
-most progress was early and final30s reversed. Sustained rotation is unresolved.
-[Actual results/video](docs/experiments/2026-10-08-teacher-v2/README.md).
+| 目录 | 内容 |
+| --- | --- |
+| `tendonspin/` | 手模型接口、仿真环境、策略和评价指标 |
+| `scripts/` | 训练、冻结策略评估和视频渲染入口 |
+| `assets/` | CAD、原始抓取状态和可选物体配置 |
+| `third_party/` | 参考算法源码及许可证 |
+| `docs/` | 适配说明、实验协议和结果 |
+| `outputs/` | 本地权重、TensorBoard、轨迹和视频，不提交到 Git |
 
-Latest bounded teacher trial (2026-10-10): fresh1,007,616 actions with effective0
-velocity iterations completed and stopped. Its single frozen original-grasp
-evaluation dropped at1.15s: signed valid-prefix net+47.309deg, peak60.646deg,
-backward14.923deg. Stable holding and rotation remain unresolved.
-[Results and signal analysis](docs/experiments/2026-10-10-boya-velocity-zero-1m/README.md).
+## 使用
 
-The original4-iteration matched fresh1M control also completed and stopped:
-valid1.4995s/net+23.792deg/peak66.298deg/backward42.507deg, below-region failure.
-Both configurations dropped within1.5s;0 did not improve retention and rotation
-together. No stable configuration was identified at this budget.
-[Matched control results](docs/experiments/2026-10-10-boya-velocity-four-1m/README.md).
-
-Pose-derived rotation reward is implemented, with explicit original/pose profiles
-and checkpoint identity. Existing20M30s offline data confirms the20-30s reward
-changes from+.367686 to-.004294 when actual turning slightly reverses.
-[Change and verification](docs/experiments/2026-10-10-boya-pose-reward/README.md).
-The user-approved20M migration and additional1,007,616-action continuation
-completed and stopped, with original4 engine/task/PPO retained. Its single frozen
-requested30s evaluation dropped at2.0s: valid1.9995s/net+25.428deg/peak34.139deg/
-backward10.944deg. The parent completed30s; holding regressed and stable rotation
-did not improve in this trial.
-[Continuation and final evidence](docs/experiments/2026-10-10-boya-pose-reward-continue1m/README.md).
-
-Latest bounded terminal-cost trial completed and stopped: original20M full
-learner plus204,800 actions with pose reward and terminal cost16. Its sole frozen
-original-grasp30s-requested evaluation dropped at5.95s: valid5.9495s/net-0.659deg/
-peak68.654deg/backward75.388deg. Both full30s retention and increased net angle
-failed; stable rotation remains unresolved. No retry or extension launched.
-[Protocol and final evidence](docs/experiments/2026-10-10-boya-pose-drop16-200k/README.md).
-
-Fresh A/B comparison completed and stopped2026-10-10: each independent1024-env
-learner executed10,002,432 actions/1221 updates from zero, with original-grasp
-30s-requested evaluations at1/3/5/10M. A uses pose reward; B adds terminal cost16.
-Final A: valid2.5495s/net+149.587deg/peak156.026deg/backward6.732deg.
-Final B: valid8.9495s/net+47.260deg/peak302.394deg/backward281.898deg.
-Both fell below the manipulation region (actual2.55/8.95s). A's short turning
-increased and B failed later than at5M, but neither completed30s; stable rotation
-remains unresolved. No automatic extension launched.
-[Protocol, learning trend and final evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md).
-
-User-approved A/B continuation completed and stopped2026-10-12 (A00:22:19,
-B00:54:32Shanghai). Each restored its OWN10M learner and reached50,003,968
-cumulative actions/6104updates with frozen original-grasp30s evaluations at
-20/30/40/50M. Runtime/reward/task/PPO remained fixed; segment resumes reset physics
-from the same28-state cache. All weights/history/TensorBoard are preserved.
-[Protocol and final results](docs/experiments/2026-10-10-boya-pose-ab-continue50m/RESULTS.md).
-
-At40M, B again completes a frozen original-grasp30s episode: signed net
-+1155.299400deg, peak1155.299400deg, backward11.469393deg, final10s+384.291421deg;
-normal requested-window stop. It improves its30M result and meets the finite30s
-motion signal at both independently executed nodes. A drops at1.5s/net+9.579396deg.
-At50M, A drops at3.35s (valid3.3495s/net+124.265787deg/peak124.265787deg/
-backward15.046098deg); B drops at7.25s (valid7.2495s/net+258.927618deg/
-peak258.927618deg/backward59.004045deg), both below the manipulation region.
-B50M regresses; neither final checkpoint completes30s. B40M remains the best
-observed milestone candidate and is preserved alongside all other weights.
-Single-seed/state checkpoint selection does not establish statistical superiority,
-the cause of regression, indefinite rotation or hardware readiness. No extension
-launched. [40M evidence](docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_40M.md).
-
-Run migration verification:
+在已有 Isaac Lab Python 环境中运行，项目根目录加入 `PYTHONPATH`：
 
 ```bash
-PYTHONPATH=runtime/mujoco-patched:. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  /home/rw/miniconda3/envs/free/bin/python scripts/verify_migration.py
+PYTHONPATH=. python scripts/train_boya_hora.py --help
+PYTHONPATH=. python scripts/evaluate_boya_hora_object.py --help
 ```
 
-Run the bounded teacher-v2 trial:
+物体默认使用原始 40×32 毫米圆柱，也可选择命名配置或指定圆柱、球、长方体的尺寸。
+参数见[物体配置说明](docs/object_geometry.md)。
 
-```bash
-/home/rw/miniconda3/envs/env_isaaclab/bin/python -u -m tendonspin.rl.train \
-  --initialize outputs/imported/ppo_v1/checkpoints/update_0064.pt \
-  --out outputs/teacher_v2/NEW_RUN
-```
+## 文档
 
-Check results in docs/experiment_state.md and docs/experiments before rerunning.
-Large runtime/checkpoints/raw logs stay under ignored runtime/outputs. Small
-results, provenance and model assets are versioned. Training resets are never
-reported as a continuous rotation episode; every evaluation uses one frozen policy.
-
-Reference networks are reused directly through
-[tendonspin/baselines/reference_models.py](tendonspin/baselines/reference_models.py).
-Every added adapter declares repositories, versions, papers and changes in its
-header. [Virtual-touch notes](docs/reference_reuse.md) explain why a full raw
-force-point grid is unnecessary for the initial teacher/student baseline.
-The hardware array is real sensing; its ROS message capacity is not a measured
-taxel count. Baseline ports and hardware student execution remain pending.
-
-Remote repository: [wangrp1997/tendon-spin](https://github.com/wangrp1997/tendon-spin).
-The user created this remote and authorized milestone pushes on2026-10-08.
-Training checkpoints, TensorBoard events and large raw logs remain local under
-ignored outputs/; code, packaged model assets and small evidence are versioned.
+- [Hora 到 Boya 的适配](docs/hora_boya_port.md)
+- [参考代码与触觉接口](docs/reference_reuse.md)
+- [实验记录与索引](docs/experiment_state.md)
+- [部署接口](docs/deployment.md)
