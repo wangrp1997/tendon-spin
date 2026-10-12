@@ -1,0 +1,172 @@
+{
+  "status": "completed",
+  "source_native_cache": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_small2deg_v1/grasp_cache_with_nominal.npz",
+  "source_cache_sha256": "68cee194f9db1a4ea808c08e75ed9b1515e522c47c8f250216cbd513faec784e",
+  "grasp_profile": "fivefinger_uniform48p8_side2deg_v1",
+  "object": {
+    "shape": "cylinder",
+    "radius": 0.024386773421853702,
+    "height": 0.032,
+    "mass": 0.05
+  },
+  "engine": "IsaacSim6.1.0.0/Lab3.0.0rc1/GPUPhysX original_tgs16_4",
+  "initial_transfer_passed": true,
+  "initial_transfer_max_errors": {
+    "joint_rad": 5.802871805293819e-08,
+    "joint_velocity_rad_s": 0.0,
+    "object_position_mm": 0.00014790618697844998,
+    "object_orientation_deg": 2.4148365394514667e-06,
+    "object_velocity": 0.0,
+    "commands_rad": 5.9150655928874585e-08
+  },
+  "random_states": 53,
+  "accepted_random": 24,
+  "nominal_passed": true,
+  "random_stop_reasons": {
+    "completed": 24,
+    "drift >5mm": 29
+  },
+  "cache_path": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_isaac_transfer_v1/grasp_cache.npz",
+  "cache_sha256": "25f790e6080a55db19654128bebf97a78545b3bea189ea9bbdf889d1b93d1c52",
+  "distinct_accepted_states": 24,
+  "accepted_candidate_ids": [
+    1,
+    4,
+    5,
+    9,
+    13,
+    18,
+    19,
+    29,
+    30,
+    32,
+    33,
+    34,
+    35,
+    36,
+    41,
+    42,
+    44,
+    50,
+    51,
+    52,
+    55,
+    57,
+    59,
+    63
+  ],
+  "wall_s": 30.24767314409837,
+  "limitation": "Migration screens are1s, not30s Isaac holding. Training entry must explicitly apply this geometry AND canonical reference; no training launched.",
+  "stop_reason": "existing54-state migration batch completed; awaiting user review before any training",
+  "b_task_first_code_counts": {
+    "0": 29,
+    "9": 24
+  },
+  "cache_passed_b_task_failed": [],
+  "cache_passed_b_task_ok": [
+    1,
+    4,
+    5,
+    9,
+    13,
+    18,
+    19,
+    29,
+    30,
+    32,
+    33,
+    34,
+    35,
+    36,
+    41,
+    42,
+    44,
+    50,
+    51,
+    52,
+    55,
+    57,
+    59,
+    63
+  ],
+  "failed_initialization_first_reasons": {
+    "drift >5mm": 28,
+    "completed": 1
+  },
+  "training_started": false,
+  "awaiting_user_confirmation": true,
+  "sources": [
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/verify_boya_native_cache_isaac.py",
+      "sha256": "1c6ad33ca4e150cfff611ed709e78a68e476dace01b05d05dee5a1b3d25ce948"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_small2deg_v1/grasp_cache_with_nominal.npz",
+      "sha256": "68cee194f9db1a4ea808c08e75ed9b1515e522c47c8f250216cbd513faec784e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/profiles.json",
+      "sha256": "74d3c1211f2ca852205a3f35115d84161b2e114e08b90da4b365080e08ff2aaf"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/fivefinger_uniform48p8_side2deg_v1/scene.xml",
+      "sha256": "b9152811a155164557cf0ce9889c0674d9ed10c271b0a6fccd48c190f036781c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/fivefinger_uniform48p8_side2deg_v1/state.json",
+      "sha256": "1a7408cad6bbc4fbc3840388ace6f1460e3e8de345e440c3d0c9855ebfe7fd7f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/fivefinger_uniform48p8_side2deg_v1/plan.json",
+      "sha256": "c436d2f2bd3b994ba0fa4d4d1e4335aac2614e816cb8eddd5a8a99be84aac16e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/fivefinger_uniform48p8_side2deg_v1/validation.json",
+      "sha256": "974fdaafc99d40c909819a8b093e8b1201bb50b650e647cafc52b5901d5fc721"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/isaac_parallel.py",
+      "sha256": "bd7aa58e1f8f3b1ba29ef520acbe6d0c9ae8b3d8c17cda8aa065bbced1b82a5a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/isaac_boya.py",
+      "sha256": "3cc7cd828cca444f0b15e1cd0aebbdb036efa5e11762ca2accbe52dbb709238b"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/isaac_boya_sharpa.py",
+      "sha256": "564ef09ef62d60cfd3254957c641dbe5a5362977157a3825319419f4d6d43faa"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/object_geometry.py",
+      "sha256": "b4d29c76c27f689c5ca8e212df4b4a03bf87e071bbbff41323673f16f36cd83c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/coordinates.py",
+      "sha256": "587c4d61c49ef3698051ebfeddc49798677e79faca5d202b7dc50d9de74339c2"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/physics/solver_profiles.py",
+      "sha256": "95dbb41eb541465ee0217930a561363ec9632a4f7055548de4484521d5b9e02a"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/rl/isaac_hora.py",
+      "sha256": "ea9f76c2f89487d8b89d6251ad8696139ccc0bc91dda829221f90f4498b30365"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/tendonspin/rl/termination.py",
+      "sha256": "c1a153bdd25a7249401b1625f6cf2207e639976331a4fb6b5ec18c9fd693078f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/rotation_workspace.json",
+      "sha256": "8e01f685ce71b65e0bb824b3baab12d8063a521860b921c8eb736625aaa1180f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/docs/experiments/2026-10-08-boya-settled-cache/PROTOCOL.md",
+      "sha256": "34505ff2d0fd4de70216664dc982b725563629129fd4670432dc5ec76eaaeb74"
+    }
+  ]
+}
