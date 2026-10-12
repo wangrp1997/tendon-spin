@@ -215,7 +215,7 @@ def portable(m,d,plan,scene_path):
 def main():
     p=argparse.ArgumentParser();add_object_arguments(p)
     selection=p.add_mutually_exclusive_group()
-    selection.add_argument('--grasp-profile',choices=('boya_original','fivefinger_sharpa_cache28_v1'),default='boya_original')
+    selection.add_argument('--grasp-profile',choices=tuple(json.loads((ROOT/'assets/grasp/profiles.json').read_text())['profiles']),default='boya_original')
     selection.add_argument('--grasp-plan',type=Path,help='Explicit geometric proposal; otherwise restore selected frozen grasp profile')
     p.add_argument('--acceptance-profile',choices=('cache28',),default='cache28')
     p.add_argument('--out',type=Path,required=True);a=p.parse_args();out=a.out.resolve();out.mkdir(parents=True,exist_ok=False)

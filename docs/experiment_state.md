@@ -1259,3 +1259,13 @@ backward4.44e-9deg, normal time-limit. Fixed504random+8anchors completed:
 none all-five≥90%tail; anchors8/8pass. Random states screened1s,not30s.
 Separate native cache; no Isaactransfer/training, no retries/extensions. Original
 28cache/evaluations/weights retained. Small evidence linked; raw outputs local.
+
+
+[User-directed LF-side adjustment completed](experiments/2026-10-12-fivefinger-side/RESULTS.md):
+Original-pose side-v1 passed30s with4contacts. User then approved0.15mm towardLF
+and1.72deg LFJ3/LFJ2 flexion at48x60mm/50g. ONE native0.5init+30sformal episode
+passed old rules; each/all-five touch100%, maxdrift0.049620mm/tilt0.393813deg,
+endpoint+0.013094/peak0.021782/backward0.021034deg, normal time-limit stop.
+Optional profile fivefinger_sharpa_side_v2 exported; top-view from recorded final
+state with MuJoCo renderer,0render physics. No reload/cache/Isaac/training.
+Original assets/cache/weights/defaults preserved; source/validation evidence saved.
