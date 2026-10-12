@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "default": "boya_original",
+  "profiles": {
+    "boya_original": {
+      "scene": "assets/grasp/scene.xml",
+      "scene_sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e",
+      "state": "assets/grasp/stable_state.npz",
+      "state_format": "npz",
+      "state_source_scene_sha256": "c5323edb48642c373f02e500da23dc2adc2119be11f504babe3bdad0f007f9bc",
+      "mujoco_version": "3.13.0",
+      "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+      "object_profile": "boya_original",
+      "description": "Preserved original grasp44; default. Historical four-pad state."
+    },
+    "fivefinger_sharpa_cache28_v1": {
+      "scene": "assets/grasp/fivefinger_sharpa_cache28_v1/scene.xml",
+      "scene_sha256": "a2a368b6d998c2b5037cd15cb57d77e64d66b6ede2aa04067d6a66bcb27ac1e7",
+      "state": "assets/grasp/fivefinger_sharpa_cache28_v1/state.json",
+      "state_format": "json",
+      "plan": "assets/grasp/fivefinger_sharpa_cache28_v1/plan.json",
+      "mujoco_version": "3.13.0",
+      "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+      "object_profile": "sharpa_recommended",
+      "description": "New48x60mm50g five-finger state. Two separate1s cache28 screens passed; no long-hold/Isaac/rotation validation.",
+      "evidence": "assets/grasp/fivefinger_sharpa_cache28_v1/validation.json"
+    }
+  }
+}

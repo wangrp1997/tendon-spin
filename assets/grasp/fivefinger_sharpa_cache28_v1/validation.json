@@ -1,0 +1,415 @@
+{
+  "protocol": "docs/experiments/2026-10-12-fivefinger-mujoco/PROTOCOL_CACHE28.md",
+  "engine": "native patched MuJoCo3.13.0",
+  "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+  "object_geometry": {
+    "shape": "cylinder",
+    "diameter_m": 0.048,
+    "height_m": 0.06,
+    "mass_kg": 0.05,
+    "source": "Sharpa RL Lab README at95ccda3d948801bb5da4cb7ffea766e03067a63b: radius24mm, height60mm; mass remains Boya50g, not a measured hardware mass",
+    "profile": "sharpa_recommended",
+    "dimensions_m": [
+      0.048,
+      0.048,
+      0.06
+    ],
+    "overrides": {}
+  },
+  "grasp_plan": "outputs/boya_fivefinger_mujoco_v2/planning/plan.json",
+  "grasp_plan_sha256": "75992d220d1701e031c53fcff597e39c1c4a3f01dd9349d6940be4516a54971e",
+  "training_actions": 0,
+  "episode_resets": 0,
+  "original_evaluation_modified": false,
+  "sources": [
+    {
+      "path": "scripts/verify_boya_mujoco_grasp.py",
+      "sha256": "ddad6fa23637edc1bae33f7a2598eb31925260359f4abaff0f0688e87b3d4b49"
+    },
+    {
+      "path": "docs/experiments/2026-10-12-fivefinger-mujoco/PROTOCOL_CACHE28.md",
+      "sha256": "06966c48b0ab76891286d9f81262c64baeadb941f42d43076c9adc9b925268fd"
+    },
+    {
+      "path": "assets/grasp/scene.xml",
+      "sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "tendonspin/physics/metrics.py",
+      "sha256": "6915e2efda34586fbf80049a47cb9efe1be295198dc509bdaa0118de0e675a41"
+    },
+    {
+      "path": "tendonspin/physics/object_geometry.py",
+      "sha256": "abccf06f8adc832e639fc5355d95e612049f5ea1f2eae155c777a025f1e2a879"
+    }
+  ],
+  "preload": {
+    "method": "fixed q+(native gravity+contact J-transpose force)/kp; slave reflected; original wrists",
+    "desired_commands": {
+      "FAJ3": 0.0,
+      "FAJ1": 0.0,
+      "THJ4": 0.5018827457152826,
+      "THJ3": -0.4172459671657233,
+      "THJ2": 0.024785189497869377,
+      "THJ1": 0.05817442583857856,
+      "FFJ4": 0.1056779597582618,
+      "FFJ3": 0.8517567246489631,
+      "FFJ2": 0.4209047586707834,
+      "MFJ4": 0.2125107549835937,
+      "MFJ3": 0.9223165560107731,
+      "MFJ2": 0.2491481567538396,
+      "RFJ4": 0.26069891193166417,
+      "RFJ3": 0.9356532097889936,
+      "RFJ2": 0.006591533987518349,
+      "LFJ4": 0.2572250389155934,
+      "LFJ3": 0.8784296699141849,
+      "LFJ2": 0.007586565804312987
+    },
+    "commands": {
+      "FAJ3": 0.0,
+      "FAJ1": 0.0,
+      "THJ4": 0.5018827457152826,
+      "THJ3": -0.4172459671657233,
+      "THJ2": 0.024785189497869377,
+      "THJ1": 0.05817442583857856,
+      "FFJ4": 0.1056779597582618,
+      "FFJ3": 0.8517567246489631,
+      "FFJ2": 0.4209047586707834,
+      "MFJ4": 0.2125107549835937,
+      "MFJ3": 0.9223165560107731,
+      "MFJ2": 0.2491481567538396,
+      "RFJ4": 0.26069891193166417,
+      "RFJ3": 0.9356532097889936,
+      "RFJ2": 0.006591533987518349,
+      "LFJ4": 0.2572250389155934,
+      "LFJ3": 0.8784296699141849,
+      "LFJ2": 0.007586565804312987
+    },
+    "torque_Nm": [
+      0.25967937880369224,
+      8.478128980719812e-05,
+      0.08023619813258781,
+      0.049990521738026025,
+      0.12888105020249543,
+      0.04749077036808642,
+      -0.02317293862499519,
+      0.06504998935323969,
+      0.03852269914703103,
+      0.009821439940283788,
+      -0.023534850996164265,
+      0.055087479587379445,
+      0.04324863300037224,
+      0.013988404368562506,
+      0.014474910903868038,
+      0.06779323133085358,
+      0.045488999316225194,
+      0.01323259623070991,
+      0.030553325771929644,
+      0.07026704561063125,
+      0.05514114605189918,
+      0.01858164776553199,
+      0.0,
+      0.0,
+      0.49050000000000005,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "scene_sha256": "8031e8d20ef76a9b8e534b0f9c41b8d8903c088aea177f0f4b255ff03316f28f",
+  "nominal": {
+    "accepted": true,
+    "stop_reason": "time limit",
+    "physics_steps": 2000,
+    "actual_s": 1.0,
+    "initialization_s": 0.5,
+    "formal_s": 0.5,
+    "valid_formal_s": 0.5,
+    "initialization_maxima": [
+      0.12808815068404936,
+      0.13252204358545605,
+      1.2360131764289246,
+      2.1121791173899562,
+      0.0027429198004235234
+    ],
+    "formal_maxima": [
+      0.10883287851916722,
+      0.12272261425737598,
+      0.0003158580650304342,
+      2.0913702029434784,
+      0.0016378316591220419
+    ],
+    "metric_order": [
+      "drift_mm",
+      "axis_tilt_deg",
+      "joint_speed_rad_s",
+      "link_normal_N",
+      "mimic_error_rad"
+    ],
+    "initialization_violations": {
+      "nonfinite": false,
+      "drift >5mm": false,
+      "axis tilt >15deg": false,
+      "speed >100rad/s": false,
+      "link normal >12N": false,
+      "mimic error >.05rad": false
+    },
+    "last_point1s_two_group_fraction": 1.0,
+    "group_order": [
+      "th",
+      "ff",
+      "mf",
+      "rf",
+      "lf",
+      "palm"
+    ],
+    "formal_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "formal_allfive_contact_fraction": 1.0,
+    "final_point1s_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_point1s_allfive_contact_fraction": 1.0,
+    "formal_mean_group_normal_N": [
+      2.0912866246385877,
+      0.666745198849168,
+      0.6173116055180891,
+      0.5687988332315536,
+      0.5635214181617622,
+      0.0
+    ],
+    "formal_min_group_normal_N": [
+      2.0912363351680225,
+      0.6666869406989822,
+      0.6171784691896914,
+      0.5684530704212194,
+      0.5632303485088923,
+      0.0
+    ],
+    "net_deg": 0.0002752297873833068,
+    "peak_deg": 0.0002752297873833068,
+    "backward_deg": 7.677829226600764e-05,
+    "raw_trace": "/home/rw/Projects/tendon-spin/outputs/boya_fivefinger_mujoco_v2/holding/nominal_execution.npz",
+    "wall_s": 0.8610976301133633,
+    "warning": "one-second cache screen only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry"
+  },
+  "reload_initial_state_max_error": 0.0,
+  "reload": {
+    "accepted": true,
+    "stop_reason": "time limit",
+    "physics_steps": 2000,
+    "actual_s": 1.0,
+    "initialization_s": 0.5,
+    "formal_s": 0.5,
+    "valid_formal_s": 0.5,
+    "initialization_maxima": [
+      0.10881353356629332,
+      0.1227893517696688,
+      1.1447820906893783e-05,
+      2.091255467253355,
+      0.0016330954027411013
+    ],
+    "formal_maxima": [
+      0.10882894380773524,
+      0.12289043854352996,
+      1.2020392996737577e-05,
+      2.091190788735366,
+      0.0016348358872294063
+    ],
+    "metric_order": [
+      "drift_mm",
+      "axis_tilt_deg",
+      "joint_speed_rad_s",
+      "link_normal_N",
+      "mimic_error_rad"
+    ],
+    "initialization_violations": {
+      "nonfinite": false,
+      "drift >5mm": false,
+      "axis tilt >15deg": false,
+      "speed >100rad/s": false,
+      "link normal >12N": false,
+      "mimic error >.05rad": false
+    },
+    "last_point1s_two_group_fraction": 1.0,
+    "group_order": [
+      "th",
+      "ff",
+      "mf",
+      "rf",
+      "lf",
+      "palm"
+    ],
+    "formal_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "formal_allfive_contact_fraction": 1.0,
+    "final_point1s_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_point1s_allfive_contact_fraction": 1.0,
+    "formal_mean_group_normal_N": [
+      2.091157847133867,
+      0.6668484535090007,
+      0.6176819465162489,
+      0.5700069731829975,
+      0.5623149385234611,
+      0.0
+    ],
+    "formal_min_group_normal_N": [
+      2.09112439760511,
+      0.6668029712979018,
+      0.6175882543007921,
+      0.5696958345755139,
+      0.5619961140999326,
+      0.0
+    ],
+    "net_deg": 0.000285312686287004,
+    "peak_deg": 0.000285312686287004,
+    "backward_deg": 2.7054463919279238e-09,
+    "raw_trace": "/home/rw/Projects/tendon-spin/outputs/boya_fivefinger_mujoco_v2/holding/reload_execution.npz",
+    "wall_s": 0.8465723372064531,
+    "warning": "one-second cache screen only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry"
+  },
+  "accepted": true,
+  "status": "completed",
+  "export": {
+    "export_physical_arrays_equal": {
+      "body_mass": true,
+      "body_inertia": true,
+      "body_ipos": true,
+      "body_iquat": true,
+      "body_pos": true,
+      "body_quat": true,
+      "jnt_axis": true,
+      "jnt_pos": true,
+      "jnt_range": true,
+      "dof_damping": true,
+      "geom_size": true,
+      "geom_pos": true,
+      "geom_quat": true,
+      "geom_friction": true,
+      "geom_condim": true,
+      "geom_solref": true,
+      "geom_solimp": true,
+      "mesh_vert": true,
+      "eq_data": true,
+      "actuator_gainprm": true,
+      "actuator_biasprm": true,
+      "actuator_ctrlrange": true,
+      "actuator_forcerange": true
+    },
+    "model_export_changes": "mesh paths only",
+    "files": [
+      {
+        "path": "assets/grasp/fivefinger_sharpa_cache28_v1/scene.xml",
+        "sha256": "a2a368b6d998c2b5037cd15cb57d77e64d66b6ede2aa04067d6a66bcb27ac1e7"
+      },
+      {
+        "path": "assets/grasp/fivefinger_sharpa_cache28_v1/state.json",
+        "sha256": "db4dc7f29de4efd111c9958bed3e0bb330da22e521d83d1111c2e9c11b733f16"
+      },
+      {
+        "path": "assets/grasp/fivefinger_sharpa_cache28_v1/plan.json",
+        "sha256": "a8e0292708d819d08dc4abf72159b5ab7ce6320aa910df7914888c9997bb6ed5"
+      }
+    ],
+    "profiles": {
+      "boya_original": {
+        "restored_without_physics_step": true,
+        "time_s": 7.210499999998723,
+        "object_size_m": [
+          0.02,
+          0.016
+        ],
+        "support_active": false
+      },
+      "fivefinger_sharpa_cache28_v1": {
+        "restored_without_physics_step": true,
+        "time_s": 0.9999999999999453,
+        "object_size_m": [
+          0.024,
+          0.03
+        ],
+        "support_active": false
+      }
+    },
+    "nominal_distal_geometry_contact": {
+      "formal_fractions": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "formal_allfive_fraction": 1.0,
+      "max_floor_force_N": 0.0,
+      "max_nonpad_force_N": 0.0,
+      "max_self_penetration_m": -0.0,
+      "max_object_penetration_m": 0.00025001194175735294,
+      "support_steps": 0,
+      "external_force_steps": 0,
+      "solver_warning_max": 0
+    },
+    "reload_distal_geometry_contact": {
+      "formal_fractions": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "formal_allfive_fraction": 1.0,
+      "max_floor_force_N": 0.0,
+      "max_nonpad_force_N": 0.0,
+      "max_self_penetration_m": -0.0,
+      "max_object_penetration_m": 0.00012152735079920004,
+      "support_steps": 0,
+      "external_force_steps": 0,
+      "solver_warning_max": 0
+    }
+  },
+  "planning": {
+    "path": "outputs/boya_fivefinger_mujoco_v2/planning/result.json",
+    "sha256": "14fc3e5c67e575356ab9343a83499e200646645adbb9a845d2edd8e830375023",
+    "acceptance_profile": "cache28",
+    "force_feasibility_is_gate": false
+  },
+  "static_gate_attempt": {
+    "path": "outputs/boya_fivefinger_mujoco_v1/planning",
+    "stop_reason": "user correction: remove added per-finger bearing-load admission",
+    "physics_steps": 0,
+    "status": "interrupted_by_SIGINT"
+  },
+  "handoff_usage": {
+    "python": "from tendonspin.physics.grasp_profiles import load_native_grasp; model, data, metadata = load_native_grasp(root, name=\"fivefinger_sharpa_cache28_v1\")",
+    "cli": "PYTHONPATH=runtime/mujoco-patched:. /home/rw/miniconda3/envs/free/bin/python scripts/verify_boya_mujoco_grasp.py --grasp-profile fivefinger_sharpa_cache28_v1 --object-profile sharpa_recommended --out outputs/CHOOSE_NEW_OUTPUT",
+    "default_grasp": "boya_original",
+    "original_evaluation_entries_unchanged": [
+      "scripts/evaluate_boya_hora.py",
+      "scripts/evaluate_boya_hora_object.py"
+    ],
+    "validation_limit": "Two separate1s episodes(.5s initialization+.5s formal holding); no long-hold/Isaac/rotation verification"
+  }
+}
