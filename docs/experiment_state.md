@@ -1249,3 +1249,13 @@ preserved. Local bounded failure does not prove five-finger48x60mm impossible.
 Record actual executed-sourcehashes, both candidate postures/contacts/forces and
 constraint diagnosis. Next choice is improving friction/clearance grasp solve at
 fixedsize versus pausing redesign; no automaticretry/extension/config/routechange.
+
+
+[Native five-finger30s hold and bounded cache completed](experiments/2026-10-12-fivefinger-mujoco/RESULTS.md):
+Optional48×60mm/50g grasp, patchedMuJoCo3.13.0, fixed targets. Nominal30s passed,
+all-five contact100%, maxdrift0.111439mm/tilt0.143300deg, endpoint/peak+0.026383deg,
+backward4.44e-9deg, normal time-limit. Fixed504random+8anchors completed:
+26distinct random states accepted under old admission; tailmin3fingers20/4fingers6,
+none all-five≥90%tail; anchors8/8pass. Random states screened1s,not30s.
+Separate native cache; no Isaactransfer/training, no retries/extensions. Original
+28cache/evaluations/weights retained. Small evidence linked; raw outputs local.

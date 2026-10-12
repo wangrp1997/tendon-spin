@@ -1,0 +1,176 @@
+{
+  "protocol": "docs/experiments/2026-10-12-fivefinger-mujoco/PROTOCOL_HOLD30_CACHE.md",
+  "status": "completed",
+  "grasp_profile": "fivefinger_sharpa_cache28_v1",
+  "object_profile": "sharpa_recommended",
+  "scene_sha256": "a2a368b6d998c2b5037cd15cb57d77e64d66b6ede2aa04067d6a66bcb27ac1e7",
+  "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+  "state_sha256": "db4dc7f29de4efd111c9958bed3e0bb330da22e521d83d1111c2e9c11b733f16",
+  "seed": 42,
+  "workers": 4,
+  "batches": 8,
+  "candidates_per_batch": 64,
+  "requested_random": 504,
+  "requested_anchors": 8,
+  "training_actions": 0,
+  "sources": [
+    {
+      "path": "scripts/collect_boya_mujoco_grasps.py",
+      "sha256": "3de34390522dd19e1627d26cf79af3bdba0e650e75adb48a03dd9d1a30eab28c"
+    },
+    {
+      "path": "scripts/verify_boya_mujoco_grasp.py",
+      "sha256": "09b91eb1bae22306bce0c9d8cc435b82de4ed71a4c27640f7c97a9c77005f1ee"
+    },
+    {
+      "path": "tendonspin/physics/grasp_profiles.py",
+      "sha256": "6a14bb7c2c89c0e6c1092990b69186476a81d77bfe43ecb1b085f33299308543"
+    },
+    {
+      "path": "tendonspin/physics/metrics.py",
+      "sha256": "6915e2efda34586fbf80049a47cb9efe1be295198dc509bdaa0118de0e675a41"
+    },
+    {
+      "path": "tendonspin/interfaces.py",
+      "sha256": "601f3f1d3b48d62fb7e74a413ac50e0e0f3786109a6eb996263ff20d7584dd53"
+    },
+    {
+      "path": "docs/experiments/2026-10-12-fivefinger-mujoco/PROTOCOL_HOLD30_CACHE.md",
+      "sha256": "9e1e37c6310e1256a2b643981deb26fd74c89062d56666f5da0394cd2afb25d1"
+    },
+    {
+      "path": "assets/grasp/profiles.json",
+      "sha256": "00d0d31831e8f0e5fa63b4be9fbc38fe2be10bfbb6a4b0940abe615e7a064ac6"
+    },
+    {
+      "path": "assets/grasp/fivefinger_sharpa_cache28_v1/scene.xml",
+      "sha256": "a2a368b6d998c2b5037cd15cb57d77e64d66b6ede2aa04067d6a66bcb27ac1e7"
+    },
+    {
+      "path": "assets/grasp/fivefinger_sharpa_cache28_v1/state.json",
+      "sha256": "db4dc7f29de4efd111c9958bed3e0bb330da22e521d83d1111c2e9c11b733f16"
+    },
+    {
+      "path": "assets/grasp/fivefinger_sharpa_cache28_v1/plan.json",
+      "sha256": "a8e0292708d819d08dc4abf72159b5ab7ce6320aa910df7914888c9997bb6ed5"
+    }
+  ],
+  "accepted_random": 26,
+  "completed_candidates": 512,
+  "original_evaluation_modified": false,
+  "stop_reason": "fixed candidate budget completed",
+  "wall_s": 78.31772123789415,
+  "hold30": {
+    "accepted": true,
+    "stop_reason": "time limit",
+    "physics_steps": 60000,
+    "actual_s": 30.0,
+    "initialization_s": 0.0,
+    "formal_s": 30.0,
+    "valid_formal_s": 30.0,
+    "initialization_maxima": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "formal_maxima": [
+      0.11143905956768695,
+      0.14330019431800026,
+      2.030755282823928e-05,
+      2.091255467253355,
+      0.0016790310401814787
+    ],
+    "metric_order": [
+      "drift_mm",
+      "axis_tilt_deg",
+      "joint_speed_rad_s",
+      "link_normal_N",
+      "mimic_error_rad"
+    ],
+    "initialization_violations": {
+      "nonfinite": false,
+      "drift >5mm": false,
+      "axis tilt >15deg": false,
+      "speed >100rad/s": false,
+      "link normal >12N": false,
+      "mimic error >.05rad": false
+    },
+    "last_point1s_two_group_fraction": 1.0,
+    "group_order": [
+      "th",
+      "ff",
+      "mf",
+      "rf",
+      "lf",
+      "palm"
+    ],
+    "formal_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "formal_allfive_contact_fraction": 1.0,
+    "final_point1s_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_point1s_allfive_contact_fraction": 1.0,
+    "final_point1s_min_finger_count": 5,
+    "formal_mean_group_normal_N": [
+      2.0900049677134716,
+      0.6701660072796266,
+      0.623748233747281,
+      0.5789015971620798,
+      0.5501878195928733,
+      0.0
+    ],
+    "formal_min_group_normal_N": [
+      2.08957042595893,
+      0.6667719347615219,
+      0.6174037723005262,
+      0.5690913971557936,
+      0.5454288872644737,
+      0.0
+    ],
+    "net_deg": 0.026382663932152103,
+    "peak_deg": 0.026382663932152103,
+    "backward_deg": 4.4397010135765445e-09,
+    "raw_trace": "/home/rw/Projects/tendon-spin/outputs/boya_fivefinger_mujoco_hold30_cache_v1/hold30/hold30_execution.npz",
+    "wall_s": 27.646126098930836,
+    "requested_s": 30.0,
+    "requested_initialization_s": 0.0,
+    "formal_start_violations": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "warning": "nominal holding only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry"
+  },
+  "random_stop_reasons": {
+    "formal-start drift >5mm": 476,
+    "time limit": 26,
+    "formal-start axis tilt >15deg": 2
+  },
+  "nominal_anchors_passed": 8,
+  "accepted_min_finger_count_distribution": {
+    "4": 6,
+    "3": 20
+  },
+  "accepted_final_point1s_allfive_90percent_count": 0,
+  "cache_path": "/home/rw/Projects/tendon-spin/outputs/boya_fivefinger_mujoco_hold30_cache_v1/grasp_cache.npz",
+  "cache_sha256": "a60a5843b81550aeaae1436152756c75f804cf530938fac9741174d872a5c77d",
+  "distinct_accepted_joint_states": 26,
+  "native_cache_schema": "full native integration state; q/v named22, commands named18, object_state_wxyz; not Isaac cache schema",
+  "raw_result_path": "outputs/boya_fivefinger_mujoco_hold30_cache_v1/result.json",
+  "validation_scope": "One nominal 30s hold; 26 distinct random final states screened for 1s each; no Isaac transfer or training"
+}

@@ -120,15 +120,25 @@ def measure(m,d,plan,owner):
         external_force=bool(np.any(d.xfrc_applied) or np.any(d.qfrc_applied)))
 
 
-def screen(m,d,plan,out,label):
-    dt=m.opt.timestep;planned=round(1./dt);settle=round(.5/dt);tail=round(.1/dt)
+def screen(m,d,plan,out,label,*,seconds=1.,initialization_s=.5,quiet=False):
+    if not 0<=initialization_s<seconds:raise ValueError('Initialization must be shorter than the episode')
+    dt=m.opt.timestep;planned=round(seconds/dt);settle=round(initialization_s/dt);tail=round(.1/dt)
     owner=owners(m);reasons=['nonfinite','drift >5mm','axis tilt >15deg','speed >100rad/s','link normal >12N','mimic error >.05rad']
     qa=m.joint('cylinder_free').qposadr[0];records=[];raw=[];offsets=[0]
     initial_max=np.zeros(5);formal_max=np.zeros(5);init_bad=np.zeros(6,dtype=bool)
     tracker=None;peak=0.;valid_steps=0;support_steps=0;stop='time limit';first_failure=None
+    formal_start=None
+    formal_start_state=None
     start=time.monotonic()
     for step in range(planned):
-        if step==settle:tracker=SpinTracker(d.qpos[qa+3:qa+7].copy())
+        if step==settle:
+            tracker=SpinTracker(d.qpos[qa+3:qa+7].copy())
+            formal_start=measure(m,d,plan,owner)
+            formal_start_state=dict(qpos=d.qpos.copy(),qvel=d.qvel.copy(),ctrl=d.ctrl.copy())
+            formal_max=np.maximum(formal_max,formal_start['metrics'])
+            if formal_start['violations'].any():
+                first_failure=reasons[int(np.flatnonzero(formal_start['violations'])[0])]
+                stop='formal-start '+first_failure;break
         before=d.qpos.copy();mujoco.mj_step(m,d);v=measure(m,d,plan,owner)
         formal=step>=settle
         if formal:
@@ -154,9 +164,15 @@ def screen(m,d,plan,out,label):
     support_fraction=support_steps/tail
     accepted=bool(completed and first_failure is None and not init_bad[0] and support_fraction>=.9)
     if completed and not accepted and first_failure is None:stop='insufficient observed support'
-    arrays={k:np.array([r[k] for r in records]) for k in records[0]}
-    np.savez_compressed(out/f'{label}_execution.npz',**arrays,contact_offsets=np.array(offsets),contacts=np.concatenate(raw,axis=0))
-    forces=arrays['group_normals_N'];contacts=forces>1e-6;formal_contacts=contacts[settle:]
+    if formal_start is not None:
+        np.savez_compressed(out/f'{label}_formal_start.npz',
+            **formal_start_state,
+            metrics=formal_start['metrics'],violations=formal_start['violations'],
+            group_normals_N=formal_start['group_normals_N'])
+    arrays={k:np.array([r[k] for r in records]) for k in records[0]} if records else {}
+    np.savez_compressed(out/f'{label}_execution.npz',**arrays,contact_offsets=np.array(offsets),
+        contacts=np.concatenate(raw,axis=0) if raw else np.empty((0,21)))
+    forces=arrays.get('group_normals_N',np.empty((0,6)));contacts=forces>1e-6;formal_contacts=contacts[settle:]
     result=dict(accepted=accepted,stop_reason=stop,physics_steps=len(records),actual_s=len(records)*dt,
         initialization_s=min(len(records),settle)*dt,formal_s=max(0,len(records)-settle)*dt,
         valid_formal_s=valid_steps*dt,initialization_maxima=initial_max.tolist(),formal_maxima=formal_max.tolist(),
@@ -167,13 +183,17 @@ def screen(m,d,plan,out,label):
         formal_allfive_contact_fraction=float(formal_contacts[:,:5].all(1).mean()) if len(formal_contacts) else None,
         final_point1s_finger_contact_fractions=contacts[-tail:,:5].mean(0).tolist() if completed else None,
         final_point1s_allfive_contact_fraction=float(contacts[-tail:,:5].all(1).mean()) if completed else None,
+        final_point1s_min_finger_count=int(contacts[-tail:,:5].sum(1).min()) if completed else None,
         formal_mean_group_normal_N=forces[settle:].mean(0).tolist() if len(formal_contacts) else None,
         formal_min_group_normal_N=forces[settle:].min(0).tolist() if len(formal_contacts) else None,
         net_deg=float(np.degrees(tracker.net)) if tracker else None,peak_deg=peak if tracker else None,
         backward_deg=float(np.degrees(tracker.backward)) if tracker else None,
         raw_trace=str(out/f'{label}_execution.npz'),wall_s=time.monotonic()-start,
-        warning='one-second cache screen only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry')
-    write(out/f'{label}_result.json',result);print(json.dumps(dict(phase=label,**result)),flush=True)
+        requested_s=seconds,requested_initialization_s=initialization_s,
+        formal_start_violations=formal_start['violations'].tolist() if formal_start is not None else None,
+        warning='nominal holding only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry')
+    write(out/f'{label}_result.json',result)
+    if not quiet:print(json.dumps(dict(phase=label,**result)),flush=True)
     return result
 
 
