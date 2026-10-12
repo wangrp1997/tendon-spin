@@ -1,0 +1,69 @@
+{
+  "pid": 3216699,
+  "arm": "A",
+  "phase": "completed",
+  "completed_milestones": [
+    {
+      "requested_actions": 20000000,
+      "rounded_actions": 20004864,
+      "run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_020000000",
+      "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_020000000/evaluation/result.json"
+    },
+    {
+      "requested_actions": 30000000,
+      "rounded_actions": 30007296,
+      "run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_030000000",
+      "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_030000000/evaluation/result.json"
+    },
+    {
+      "requested_actions": 40000000,
+      "rounded_actions": 40001536,
+      "run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000",
+      "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/evaluation/result.json"
+    },
+    {
+      "requested_actions": 50000000,
+      "rounded_actions": 50003968,
+      "run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000",
+      "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000/evaluation/result.json"
+    }
+  ],
+  "start_actions": 10002432,
+  "requested_total_actions": 50000000,
+  "rounded_final_actions": 50003968,
+  "reused_origin_evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_010000000/evaluation/result.json",
+  "wall_s": 88085.76622127509,
+  "updated_unix_s": 1791735739.5551703,
+  "current_target": {
+    "requested_actions": 50000000,
+    "rounded_actions": 50003968
+  },
+  "current_run": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000",
+  "resume_checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/training/teacher_final.pth",
+  "command": [
+    "/home/rw/miniconda3/envs/env_isaaclab/bin/python",
+    "/home/rw/Projects/tendon-spin/scripts/run_boya_hora_background.py",
+    "--out",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000",
+    "--total-actions",
+    "50000000",
+    "--termination-profile",
+    "boya_workspace",
+    "--engine-profile",
+    "original_tgs16_4",
+    "--reward-profile",
+    "hora_pose_delta",
+    "--eval-seconds",
+    "30",
+    "--reward-diagnostics",
+    "--initial-reference",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_workspace50m_v1/actions_020000000/evaluation/initial_state.npz",
+    "--controller",
+    "hora_boya_pose_ab_fresh10m_a",
+    "--protocol",
+    "docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROTOCOL.md",
+    "--resume",
+    "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_040000000/training/teacher_final.pth"
+  ],
+  "child_pid": 835287
+}

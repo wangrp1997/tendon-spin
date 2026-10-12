@@ -206,3 +206,17 @@ exact OWNparentmatch, corecontracts equal, first10,010,624/update1222/Adamstep97
 from97680, modelupdated and parenthashes preserved. Both were10,059,776/update1228
 at2026-10-10 23:56:48Shanghai; trainingPIDsA3216719/B3216718, noerrors. Keep the
 formal fixedbudget chains running; no additional launch approval is needed.
+
+A/B50M has now COMPLETED and STOPPED: both50,003,968actions/6104updates,
+all20/30/40/50M frozen30s-or-failure evaluations andofflineanalysiscompleted.
+A finished2026-10-12 00:22:19Shanghai, finalactual3.35s/valid3.3495s/
+net+124.265787deg/peak124.265787/backward15.046098; B00:54:32,
+actual7.25s/valid7.2495s/net+258.927618/peak258.927618/backward59.004045.
+Both below-regionstop; neither finalcheckpoint completed30s. B50M regressed;
+best observed milestone remains B40M30s/net+1155.299400/peak1155.299400/
+backward11.469393/final10s+384.291421, normal30stime-limitstop. Preserve B30M,
+B40M and ALL other parent/intermediate/finalweights. One seed/state pernode;
+do not infer forgetting cause or statisticalsuperiority from these episodes.
+No automaticextension/newtraining/evaluation/route change is authorized by this
+completion. Read docs/experiments/2026-10-10-boya-pose-ab-continue50m/RESULTS.md.
+Maintain existing no-extra-tests/GPUtrials/audits preference for result delivery.

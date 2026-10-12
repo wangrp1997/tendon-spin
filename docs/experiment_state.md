@@ -1183,3 +1183,33 @@ Oct12 01–02hShanghai, conditionalonactualrates/evalduration. Fixed50Mbudget,
 no automaticextension. Small40Meval/stage/analysis/CSV/sourcehashes archived;
 fulltrace/weights/TensorBoard remainlocal. No newphysics/evaluations/tests/
 auditcampaign/parameterscan or edits to pinned source/protocol.
+
+
+[A/B50M COMPLETED and STOPPED: final B regresses; preserve B40M](experiments/2026-10-10-boya-pose-ab-continue50m/RESULTS.md):
+Both fixedbudget chains completed normally, A2026-10-12 00:22:19Shanghai,
+B00:54:32. Each final50,003,968actions/6104updates, new40,001,536/4883 since own10M.
+All four continuation train/eval/analysis stages perarmexit0, trainingupdatebudget
+stop; no executionerror/retry/extension. At08:55:56 recordedouter/latestchild
+processes no longer alive. No further training/evaluation launched. Full ownlearner
+ancestry retained; each segment reset physics from same28cache, not uninterrupted
+trainingphysics. Same task/reward/engine/16actions/privilegedobservations/PPO.
+Final exactlyONE frozenownmodel/normalizer/originalgrasp44/requested30s episode
+perarm, initialstateerrors0, zeroresets/switches/learning. Aactual3.35s/valid3.3495s/
+net+124.265787363755deg/peak124.265787363755/backward15.046098058564;
+Bactual7.25s/valid7.2495s/net+258.927617741553deg/peak258.927617741553/
+backward59.004045081956. Both objectbelowmanipulationregion stop,20–30sunobserved;
+neither finalcheckpoint meets full30s/positivewhole/positivetail criterion.
+B30M and40M passed their original finite-motion signal; B50M recordedperformance
+regresses. Best observed milestone candidate remains B40M valid30s/net+1155.299400/
+peak1155.299400/backward11.469393/final10s+384.291421, normal30stime-limitstop.
+Checkpoint selection uses the same milestone episodes, not independentvalidation.
+Single seed/state does not establish cause as forgetting/PPOinstability, statistical
+superiority, indefinite rotation, originalbaseline/SOTA/hardware readiness.
+FinalASHAcff1976562394b666039d34e09fbc784344ba00216c9617dec118e229873f4a8;
+finalBSHA7fdcedcebbcaa16ff492c2c2fccbd5a5e61f410bef3a161b866f0453f959023f.
+B40MSHA2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc.
+All parent/intermediate/finalweights preserved, especially B30M/B40M. Small final
+status/stage/eval/analysis/training-summary/CSV and originalsourcehash evidence
+archived; fulltraces/weights/TensorBoard/updatehistory local. No newphysics/tests/
+previews/auditcampaign/parameterscan/pinnedsource or protocolchanges. STOP at50M;
+further budget or route not authorized by these results.

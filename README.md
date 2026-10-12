@@ -61,20 +61,25 @@ increased and B failed later than at5M, but neither completed30s; stable rotatio
 remains unresolved. No automatic extension launched.
 [Protocol, learning trend and final evidence](docs/experiments/2026-10-10-boya-pose-ab-fresh10m/RESULTS.md).
 
-User-approved A/B continuation launched2026-10-10 23:54:13Shanghai. Both arms
-restore their OWN full10M learners and run concurrently to50M cumulative, with
-one frozen original-grasp30s evaluation at20/30/40/50M. Runtime/reward/task/PPO
-remain fixed; each segment resets physics from the same28-state cache. Summary
-training, TensorBoard and paired checkpoints continue without a resource watchdog
-or automatic extension. [Protocol and actual launch](docs/experiments/2026-10-10-boya-pose-ab-continue50m/README.md).
+User-approved A/B continuation completed and stopped2026-10-12 (A00:22:19,
+B00:54:32Shanghai). Each restored its OWN10M learner and reached50,003,968
+cumulative actions/6104updates with frozen original-grasp30s evaluations at
+20/30/40/50M. Runtime/reward/task/PPO remained fixed; segment resumes reset physics
+from the same28-state cache. All weights/history/TensorBoard are preserved.
+[Protocol and final results](docs/experiments/2026-10-10-boya-pose-ab-continue50m/RESULTS.md).
 
 At40M, B again completes a frozen original-grasp30s episode: signed net
 +1155.299400deg, peak1155.299400deg, backward11.469393deg, final10s+384.291421deg;
 normal requested-window stop. It improves its30M result and meets the finite30s
 motion signal at both independently executed nodes. A drops at1.5s/net+9.579396deg.
-Both continue toward the final50M budget; this single-seed, single-state trend
-does not establish indefinite rotation or statistical superiority.
-[40M progress and archived evidence](docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_40M.md).
+At50M, A drops at3.35s (valid3.3495s/net+124.265787deg/peak124.265787deg/
+backward15.046098deg); B drops at7.25s (valid7.2495s/net+258.927618deg/
+peak258.927618deg/backward59.004045deg), both below the manipulation region.
+B50M regresses; neither final checkpoint completes30s. B40M remains the best
+observed milestone candidate and is preserved alongside all other weights.
+Single-seed/state checkpoint selection does not establish statistical superiority,
+the cause of regression, indefinite rotation or hardware readiness. No extension
+launched. [40M evidence](docs/experiments/2026-10-10-boya-pose-ab-continue50m/PROGRESS_40M.md).
 
 Run migration verification:
 

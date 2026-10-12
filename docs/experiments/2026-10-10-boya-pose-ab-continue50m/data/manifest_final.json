@@ -1,0 +1,98 @@
+{
+  "recorded_at": "2026-10-12T08:58:00.414268+08:00",
+  "scope": "Completed fixed50M A/B results only; no new simulation, training, evaluation or tests.",
+  "files": [
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/status.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_final_status.json",
+      "sha256": "dfa6ac487e72395c07096751e9241b5012b9be243413319a7de0e54d358b984f",
+      "bytes": 3139
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_evaluations_final.csv",
+      "sha256": "bdff1d86ebffaa3786d350b93cce53b9c766630d212dbcbeacf9d277869ad2ff",
+      "bytes": 2860
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_050000000_stage.json",
+      "sha256": "9fc0298d26747cdaa4f8c89f886c8416816ee6b1623a73ed22e7cdc53365c0a4",
+      "bytes": 3998
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_050000000_evaluation.json",
+      "sha256": "e763777754579892f90d364d70af2bbbc74a6326b924e8849f38f5d2afe91012",
+      "bytes": 16443
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_a/actions_050000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/a_050000000_analysis.json",
+      "sha256": "43784d8c30ae2e95a789f5d04a1f1b44a640f1eef85bb1571964e9de33831aaf",
+      "bytes": 24436
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/status.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_final_status.json",
+      "sha256": "5660ae558a632cf4fd5ec6b3a6fd10cfce45982b5ee45570e8a53d8c40bc0cdb",
+      "bytes": 3145
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/evaluations.csv",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_evaluations_final.csv",
+      "sha256": "20044c1d43b4ca28722265979358dd0c6abb610048584d7a203496f3d7dffee7",
+      "bytes": 2858
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_050000000/stage.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_050000000_stage.json",
+      "sha256": "68950348dd74a240ec899a8c67f031631f315eed8542cb5e8f1ee6e68afe35cf",
+      "bytes": 4010
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_050000000/evaluation/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_050000000_evaluation.json",
+      "sha256": "151465ff658cde526d1609b0df1aa45c772692241303e577ebcc42aaf92dd805",
+      "bytes": 16908
+    },
+    {
+      "source": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_050000000/analysis/result.json",
+      "archived": "docs/experiments/2026-10-10-boya-pose-ab-continue50m/data/b_050000000_analysis.json",
+      "sha256": "9d8b6c8c08e404008c0e3c75eb942707407a7f21a2a54efc18876bdddaa57ab4",
+      "bytes": 26781
+    }
+  ],
+  "arms": {
+    "A": {
+      "phase": "completed",
+      "completed_at": "2026-10-12T00:22:19.555170+08:00",
+      "actions": 50003968,
+      "updates": 6104,
+      "new_actions_since10m": 40001536,
+      "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_a/actions_001000000/training",
+      "checkpoint_sha256": "cff1976562394b666039d34e09fbc784344ba00216c9617dec118e229873f4a8",
+      "resumed_checkpoint_sha256": "6d14c38bf8fcb2de46691a21afb9e9ef8b9c906b613fb92d2c24630c288067d6",
+      "outer_wall_s": 88085.76622127509
+    },
+    "B": {
+      "phase": "completed",
+      "completed_at": "2026-10-12T00:54:32.870682+08:00",
+      "actions": 50003968,
+      "updates": 6104,
+      "new_actions_since10m": 40001536,
+      "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_hora1024_pose_ab_fresh10m_v1/arm_b/actions_001000000/training",
+      "checkpoint_sha256": "7fdcedcebbcaa16ff492c2c2fccbd5a5e61f410bef3a161b866f0453f959023f",
+      "resumed_checkpoint_sha256": "2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc",
+      "outer_wall_s": 90019.07890458009
+    }
+  },
+  "best_observed_checkpoint": {
+    "arm": "B",
+    "requested_actions": 40000000,
+    "actual_actions": 40001536,
+    "checkpoint": "outputs/boya_hora1024_pose_ab_continue50m_v1/arm_b/actions_040000000/training/teacher_final.pth",
+    "checkpoint_sha256": "2edabd00a4232b02398e3bb2d45a08fc931dc6949aca16c31ba36865101330fc",
+    "selection": "Best among observed milestone episodes on the declared duration/net/tail metrics; not independently validated."
+  }
+}
