@@ -49,6 +49,19 @@
       "description": "52.9882x32mm50g upright cylinder; FF/LF planned side0deg, settled about-0.162/+0.149deg. ONE30s native hold, allfive touch100%; no Isaac/rotation validation.",
       "evidence": "assets/grasp/fivefinger_uniform53_zero_side_v1/validation.json",
       "visual_scene": "assets/grasp/fivefinger_uniform53_zero_side_v1/scene_visual.xml"
+    },
+    "fivefinger_uniform48p8_side2deg_v1": {
+      "scene": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/scene.xml",
+      "scene_sha256": "b9152811a155164557cf0ce9889c0674d9ed10c271b0a6fccd48c190f036781c",
+      "state": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/state.json",
+      "state_format": "json",
+      "plan": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/plan.json",
+      "mujoco_version": "3.13.0",
+      "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+      "object_profile": "boya_uniform48p8",
+      "description": "48.7735x32mm50g upright cylinder, planned long side<=1.8deg; actual loaded side max2.074deg. ONE30s MuJoCo hold/all-five100%; no Isaac/rotation validation.",
+      "evidence": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/validation.json",
+      "visual_scene": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/scene_visual.xml"
     }
   }
 }

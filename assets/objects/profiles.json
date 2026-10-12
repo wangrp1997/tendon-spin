@@ -21,6 +21,13 @@
       "height_m": 0.032,
       "mass_kg": 0.05,
       "source": "TendonSpin local CAD fit at planned FF/LFside0deg; ONE30s MuJoCo nominal hold passed. Diameter is52.9881972084mm, rounded53mm; not a Sharpa/Hora original object."
+    },
+    "boya_uniform48p8": {
+      "shape": "cylinder",
+      "diameter_m": 0.048773546843707404,
+      "height_m": 0.032,
+      "mass_kg": 0.05,
+      "source": "TendonSpin local small-side CAD fit and ONE30s MuJoCo hold; planned side1.8deg, observed max2.074deg. Diameter48.7735468437mm, rounded48.8mm; not an original Hora/Sharpa object."
     }
   }
 }
