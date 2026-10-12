@@ -36,6 +36,19 @@
       "object_profile": "sharpa_recommended",
       "description": "Original-pose reference,0.15mm LF-side shift and1.72deg LF flexion; ONE30s formal hold, all-five touch100%. No reload/Isaac/rotation validation.",
       "evidence": "assets/grasp/fivefinger_sharpa_side_v2/validation.json"
+    },
+    "fivefinger_uniform53_zero_side_v1": {
+      "scene": "assets/grasp/fivefinger_uniform53_zero_side_v1/scene.xml",
+      "scene_sha256": "5669e3458b27472a2bd40778f510cbabc7477588950b5bafabd8e769dcc8ea33",
+      "state": "assets/grasp/fivefinger_uniform53_zero_side_v1/state.json",
+      "state_format": "json",
+      "plan": "assets/grasp/fivefinger_uniform53_zero_side_v1/plan.json",
+      "mujoco_version": "3.13.0",
+      "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+      "object_profile": "boya_uniform53",
+      "description": "52.9882x32mm50g upright cylinder; FF/LF planned side0deg, settled about-0.162/+0.149deg. ONE30s native hold, allfive touch100%; no Isaac/rotation validation.",
+      "evidence": "assets/grasp/fivefinger_uniform53_zero_side_v1/validation.json",
+      "visual_scene": "assets/grasp/fivefinger_uniform53_zero_side_v1/scene_visual.xml"
     }
   }
 }

@@ -14,7 +14,8 @@ SHAPES = ('cylinder', 'sphere', 'box')
 
 
 def add_object_arguments(parser):
-    parser.add_argument('--object-profile', choices=('boya_original', 'sharpa_recommended'), default='boya_original')
+    profiles=json.loads((Path(__file__).resolve().parents[2]/'assets/objects/profiles.json').read_text())['profiles']
+    parser.add_argument('--object-profile', choices=tuple(profiles), default='boya_original')
     parser.add_argument('--object-shape', choices=SHAPES)
     parser.add_argument('--object-diameter-mm', type=float)
     parser.add_argument('--object-height-mm', type=float)

@@ -14,6 +14,13 @@
       "height_m": 0.06,
       "mass_kg": 0.05,
       "source": "Sharpa RL Lab README at95ccda3d948801bb5da4cb7ffea766e03067a63b: radius24mm, height60mm; mass remains Boya50g, not a measured hardware mass"
+    },
+    "boya_uniform53": {
+      "shape": "cylinder",
+      "diameter_m": 0.05298819720841191,
+      "height_m": 0.032,
+      "mass_kg": 0.05,
+      "source": "TendonSpin local CAD fit at planned FF/LFside0deg; ONE30s MuJoCo nominal hold passed. Diameter is52.9881972084mm, rounded53mm; not a Sharpa/Hora original object."
     }
   }
 }

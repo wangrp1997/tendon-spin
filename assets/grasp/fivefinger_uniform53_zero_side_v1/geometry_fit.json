@@ -1,0 +1,54 @@
+{
+  "kind": "single bounded local CAD geometry fit; no stability claim",
+  "diameter_mm": 52.988197208411904,
+  "height_mm": 32.0,
+  "mass_kg": 0.05,
+  "source_state_sha256": "1c3444914e2d945812d14af9a4d8f11e29dd1fe0669afe4616de689fff8a5edf",
+  "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+  "physics_steps": 0,
+  "training_actions": 0,
+  "hard_zero_joints": [
+    "FFJ4",
+    "LFJ4"
+  ],
+  "side_angles_deg": {
+    "FFJ4": 0.0,
+    "MFJ4": 0.11883001335472092,
+    "RFJ4": -0.007686653026249665,
+    "LFJ4": 0.0
+  },
+  "q": [
+    0.3216171214274005,
+    -0.12001013926032919,
+    0.09381018660304848,
+    0.034989978002928974,
+    0.0,
+    1.0375337935875069,
+    0.2681483884438531,
+    0.0020739749832287126,
+    0.7261757681417951,
+    0.40026012109484543,
+    -0.00013415740376644276,
+    0.5819359381825332,
+    0.4583442670963726,
+    0.0,
+    0.9700796751493235,
+    0.30411683623771435
+  ],
+  "gaps_mm": [
+    0.019798152622906667,
+    0.023656125283543054,
+    -0.12344729765762066,
+    -0.22851586799398227,
+    0.027746651158099527
+  ],
+  "min_nonpad_gap_mm": 1.8498573499906628,
+  "min_interfinger_gap_mm": 4.268221734313118,
+  "wall_s": 0.3768188829999417,
+  "solve_stop": "`xtol` termination condition is satisfied.",
+  "stability_tested": false,
+  "geometry_objective": "distal proximity and collision clearance, natural uniform flexion, middle/ring side near zero, seed proximity; no minimum finger load",
+  "image": "/home/rw/Projects/tendon-spin/outputs/boya_uniform32_zero_side_fit_v1/grasp_top.png",
+  "renderer": "native patched MuJoCo3.13.0 EGL",
+  "source_pose": "optimized CAD qpos, zero dynamics"
+}

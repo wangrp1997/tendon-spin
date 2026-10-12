@@ -1,0 +1,300 @@
+{
+  "status": "completed",
+  "source_plan": "/home/rw/Projects/tendon-spin/outputs/boya_uniform32_zero_side_fit_v1/plan.json",
+  "source_plan_sha256": "0e07b1baeed9ef5454ab7c8fe44c190ac5895bc423ad71587ecd1f11add6038f",
+  "object": {
+    "shape": "cylinder",
+    "radius": 0.026494098604205953,
+    "height": 0.032,
+    "mass": 0.05
+  },
+  "orientation": "same fitted upright palm-normal WXYZ",
+  "object_quat_wxyz": [
+    0.003222110442343188,
+    4.151487908826083e-11,
+    0.9999948089886754,
+    -1.2884308072898637e-08
+  ],
+  "engine": "native patched MuJoCo3.13.0",
+  "engine_sha256": "c0b309bba9a0913718f86fa375ed5003be09ca2131165cee51f9130fbafbf088",
+  "actuator_interface": "16 active finger motors, two held wrists, four passive1:1 mimics; same original position actuators and fixed preload formula",
+  "observations": "privileged CAD/state/contact used for initialization and diagnostics only; no learned policy",
+  "collision": "same packaged CAD mesh collision/excludes/friction/solver as original native scene; inactive object weld; no support",
+  "timing": "dt0.0005s; frozen targets at original20Hz; uninterrupted0.5s initialization plus30s formal hold",
+  "budgets": {
+    "episodes": 1,
+    "initialization_s": 0.5,
+    "formal_s": 30.0,
+    "training_actions": 0,
+    "resets": 0,
+    "controller_switches": 0
+  },
+  "acceptance": "full30s formal; finite, drift<=5mm, axis tilt<=15deg, joint speed<=100rad/s, link normal<=12N, mimic error<=.05rad; >=2contact groups in >=90% final0.1s; five-finger contact diagnostic only",
+  "force_initializer_diagnostic": {
+    "success": true,
+    "optimizer_success": true,
+    "message": "Optimization terminated successfully",
+    "iterations": 16,
+    "forces": [
+      [
+        -0.5399662259045088,
+        -0.4455168565519438,
+        -0.2799128532427853
+      ],
+      [
+        -0.29897445188566163,
+        -1.8717121771360714,
+        0.13812113452382968
+      ],
+      [
+        0.647937598843409,
+        -0.27170151481182364,
+        0.273413889285002
+      ],
+      [
+        0.6571245601861354,
+        0.23651352129963454,
+        0.2839870888660353
+      ],
+      [
+        -0.46612148123937397,
+        2.3524170272002047,
+        0.07489074056791828
+      ]
+    ],
+    "normal_forces_N": [
+      0.7000000000000095,
+      1.764538047567087,
+      0.6999999999999666,
+      0.6999999999999804,
+      2.2899911947914102
+    ],
+    "friction_margins_N": [
+      2.4980018054066022e-14,
+      -1.1901590823981678e-13,
+      -1.3322676295501878e-14,
+      -2.09277040141842e-14,
+      0.19997688605132857
+    ],
+    "equilibrium_error_N": [
+      -5.551115123125783e-17,
+      4.440892098500626e-16,
+      -5.551115123125783e-17,
+      3.3306690738754696e-16,
+      -5.551115123125783e-17,
+      1.1102230246251565e-16
+    ]
+  },
+  "force_initializer_is_admission_gate": false,
+  "retries": 0,
+  "sources": [
+    {
+      "path": "/tmp/tendonspin_zero_side_hold30.py",
+      "sha256": "03cee35e44b4bdd42bfc70fe7fe6e4fff383471b341ec46361b6c159221ab18c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/verify_boya_mujoco_grasp.py",
+      "sha256": "96d13d19a0b2af60653e26eb0d0082839168dc4ccdb68bae0e5bd2ff12201f11"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/scripts/plan_boya_fivefinger_decoupled.py",
+      "sha256": "8afb50a3631003d8b4851d0398f51ff3bd088cd830090bd04c07e45b70b9bf2f"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/assets/grasp/scene.xml",
+      "sha256": "08627d514b8d73e91b55cfc8381f95cc478a59245cf470d15fead1ea912c647e"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/docs/data/boya_native_contract.json",
+      "sha256": "2cb8d1d91bf0cab6fc00eb12c925e95803cc88a3d7ceda737f57047c5a70396c"
+    },
+    {
+      "path": "/home/rw/Projects/tendon-spin/outputs/boya_uniform32_zero_side_fit_v1/plan.json",
+      "sha256": "0e07b1baeed9ef5454ab7c8fe44c190ac5895bc423ad71587ecd1f11add6038f"
+    }
+  ],
+  "preload": {
+    "method": "fixed q+(native gravity+contact J-transpose force)/kp; slave reflected; original wrists",
+    "desired_commands": {
+      "FAJ3": 0.0,
+      "FAJ1": 0.0,
+      "THJ4": 0.32192839967991244,
+      "THJ3": -0.12457040425113021,
+      "THJ2": 0.09712868918402966,
+      "THJ1": 0.03653604606957153,
+      "FFJ4": -0.00813414481043638,
+      "FFJ3": 1.036101309502311,
+      "FFJ2": 0.26691482310525133,
+      "MFJ4": 0.0002984289222745125,
+      "MFJ3": 0.7323948628479344,
+      "MFJ2": 0.40418494158891427,
+      "RFJ4": 0.001599550228002993,
+      "RFJ3": 0.588543532006429,
+      "RFJ2": 0.4632325081622519,
+      "LFJ4": 0.011347905109738024,
+      "LFJ3": 0.9671418388063746,
+      "LFJ2": 0.30162458106595536
+    },
+    "commands": {
+      "FAJ3": 0.0,
+      "FAJ1": 0.0,
+      "THJ4": 0.32192839967991244,
+      "THJ3": -0.12457040425113021,
+      "THJ2": 0.09712868918402966,
+      "THJ1": 0.03653604606957153,
+      "FFJ4": -0.00813414481043638,
+      "FFJ3": 1.036101309502311,
+      "FFJ2": 0.26691482310525133,
+      "MFJ4": 0.0002984289222745125,
+      "MFJ3": 0.7323948628479344,
+      "MFJ2": 0.40418494158891427,
+      "RFJ4": 0.001599550228002993,
+      "RFJ3": 0.588543532006429,
+      "RFJ2": 0.4632325081622519,
+      "LFJ4": 0.011347905109738024,
+      "LFJ3": 0.9671418388063746,
+      "LFJ2": 0.30162458106595536
+    },
+    "torque_Nm": [
+      0.2562189806689805,
+      5.893623352876132e-05,
+      0.003112782525119039,
+      -0.04560264990801018,
+      0.03318502580981185,
+      0.015460680666425584,
+      -0.0813414481043638,
+      -0.014324840851957437,
+      -0.012335653386017298,
+      -0.003330633863075008,
+      -0.017755460609542,
+      0.062190947061393526,
+      0.039248204940688224,
+      0.010316766782564496,
+      0.017337076317694357,
+      0.06607593823895755,
+      0.04888241065879327,
+      0.014967454782219202,
+      0.11347905109738024,
+      -0.029378363429488404,
+      -0.02492255171758985,
+      -0.007501489725157351,
+      0.0,
+      0.0,
+      0.49050000000000005,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "hold": {
+    "accepted": true,
+    "stop_reason": "time limit",
+    "physics_steps": 61000,
+    "actual_s": 30.5,
+    "initialization_s": 0.5,
+    "formal_s": 30.0,
+    "valid_formal_s": 30.0,
+    "initialization_maxima": [
+      0.1381005147962928,
+      0.2063889898379362,
+      1.4478271089618477,
+      1.765202308517199,
+      0.0031237099650212596
+    ],
+    "formal_maxima": [
+      0.14265507332290267,
+      0.21741498371830917,
+      8.388337235556966e-05,
+      1.7726712521051415,
+      0.0015464978213331482
+    ],
+    "metric_order": [
+      "drift_mm",
+      "axis_tilt_deg",
+      "joint_speed_rad_s",
+      "link_normal_N",
+      "mimic_error_rad"
+    ],
+    "initialization_violations": {
+      "nonfinite": false,
+      "drift >5mm": false,
+      "axis tilt >15deg": false,
+      "speed >100rad/s": false,
+      "link normal >12N": false,
+      "mimic error >.05rad": false
+    },
+    "last_point1s_two_group_fraction": 1.0,
+    "group_order": [
+      "th",
+      "ff",
+      "mf",
+      "rf",
+      "lf",
+      "palm"
+    ],
+    "formal_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "formal_allfive_contact_fraction": 1.0,
+    "final_point1s_finger_contact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_point1s_allfive_contact_fraction": 1.0,
+    "final_point1s_min_finger_count": 5,
+    "formal_mean_group_normal_N": [
+      0.6314335088040256,
+      1.1885746828288397,
+      0.6367857470331315,
+      0.7237047713728345,
+      1.758527465659709,
+      0.0
+    ],
+    "formal_min_group_normal_N": [
+      0.6251040223257013,
+      1.1559252358595171,
+      0.6355629613849119,
+      0.717118157173933,
+      1.747388534347598,
+      0.0
+    ],
+    "net_deg": -0.004142005715373861,
+    "peak_deg": 3.82523172382543e-06,
+    "backward_deg": 0.004167886414389999,
+    "raw_trace": "/home/rw/Projects/tendon-spin/outputs/boya_uniform32_zero_side_fit_v1/hold30_native/hold30_execution.npz",
+    "wall_s": 25.290988110005856,
+    "requested_s": 30.5,
+    "requested_initialization_s": 0.5,
+    "formal_start_violations": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "warning": "nominal holding only; five-finger touch is diagnostic; raw contacts refer to mj_step pre-integration geometry"
+  },
+  "wall_s": 25.439508022973314,
+  "final_side_angles_deg": {
+    "FFJ4": -0.1619699978149372,
+    "MFJ4": 0.15023475250366103,
+    "RFJ4": 0.004376225399088188,
+    "LFJ4": 0.14874321442542462
+  },
+  "export": {
+    "profile": "fivefinger_uniform53_zero_side_v1",
+    "scene_sha256": "5669e3458b27472a2bd40778f510cbabc7477588950b5bafabd8e769dcc8ea33",
+    "state_sha256": "489f8ac0f586a796bfff77a08d599c9f40e8efe065c1f1ac8d70df3752054a40",
+    "source_scene_sha256": "7497c12bcc93c8fbffb4892d7d54ff53f770381e5f3742540f0e62d000a5b99d",
+    "changes": "Mesh paths only; original physical parameters/state retained",
+    "independent_reload_episode_executed": false
+  }
+}

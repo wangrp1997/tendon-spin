@@ -3,6 +3,8 @@
 # grasp restore/measurement at0a610bf. Hora v0.0.1 grasp task is MIT licensed.
 # Changes: native patchedMuJoCo execution, one30s antecedent hold, four CPU
 # processes, explicit native-state cache and per-candidate raw physics archives.
+# Additional port: parameterized small-angle sampling/initial-joint exclusions
+# and explicit reuse of an already executed, identity-bound profile30s hold.
 """Verify one frozen30s grasp, then collect one bounded native grasp cache."""
 import argparse
 from collections import Counter
@@ -77,11 +79,20 @@ def candidate(task):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--grasp-profile',default='boya_original')
-    p.add_argument('--object-profile',choices=('boya_original','sharpa_recommended'),default='boya_original')
+    object_profiles=json.loads((ROOT/'assets/objects/profiles.json').read_text())['profiles']
+    p.add_argument('--object-profile',choices=tuple(object_profiles),default='boya_original')
     p.add_argument('--batches',type=int,default=8);p.add_argument('--candidates-per-batch',type=int,default=64)
     p.add_argument('--workers',type=int,default=4);p.add_argument('--seed',type=int,default=42)
     p.add_argument('--hold-seconds',type=float,default=30.);p.add_argument('--out',type=Path,required=True)
-    a=p.parse_args();out=a.out.resolve();out.mkdir(parents=True,exist_ok=False)
+    p.add_argument('--perturb-degrees',type=float,default=float(np.degrees(.25)))
+    p.add_argument('--fixed-initial-joints',nargs='*',choices=ACTION_NAMES,default=(),
+        help='Exclude joints from INITIAL sampling only; their actuators remain active')
+    p.add_argument('--reuse-profile-hold',action='store_true',
+        help='Reuse an executed profile hold with matching exported-state/scene hashes; no additional hold episode')
+    a=p.parse_args()
+    if not np.isfinite(a.perturb_degrees) or a.perturb_degrees<=0:raise ValueError('Perturbation must be finite and positive')
+    if a.batches<1 or a.candidates_per_batch<2 or a.workers<1:raise ValueError('Invalid fixed candidate budget/workers')
+    out=a.out.resolve();out.mkdir(parents=True,exist_ok=False)
     spec=grasp_profile(ROOT,a.grasp_profile)
     if spec['object_profile']!=a.object_profile:raise ValueError('Explicit object and grasp profiles must agree')
     if 'plan' not in spec:raise ValueError('This collection route requires an explicit geometry plan')
@@ -90,11 +101,15 @@ def main():
         scene_sha256=spec['scene_sha256'],engine_sha256=ENGINE_SHA,state_sha256=digest(ROOT/spec['state']),
         seed=a.seed,workers=a.workers,batches=a.batches,candidates_per_batch=a.candidates_per_batch,
         requested_random=a.batches*(a.candidates_per_batch-1),requested_anchors=a.batches,
+        perturb_degrees=a.perturb_degrees,fixed_initial_joints=list(a.fixed_initial_joints),
+        reuse_profile_hold=a.reuse_profile_hold,
+        protocol_overrides='Explicit runtime sampling parameters; optional identity-bound antecedent reuse. Physical gates/controller unchanged.',
         training_actions=0,sources=[],candidates=[],accepted_random=0,completed_candidates=0,
         original_evaluation_modified=False,stop_reason=None)
     sources=['scripts/collect_boya_mujoco_grasps.py','scripts/verify_boya_mujoco_grasp.py',
         'tendonspin/physics/grasp_profiles.py','tendonspin/physics/metrics.py','tendonspin/interfaces.py',
         PROTOCOL,'assets/grasp/profiles.json',spec['scene'],spec['state'],spec['plan']]
+    if a.reuse_profile_hold:sources.append(spec['evidence'])
     for name in sources:
         path=ROOT/name;rec['sources'].append(dict(path=name,sha256=digest(path)))
         snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(path.read_bytes())
@@ -103,8 +118,16 @@ def main():
         print(json.dumps({k:rec.get(k) for k in ('status','completed_candidates','accepted_random','stop_reason','wall_s')}),flush=True)
     save('hold30 starting')
     m,d,_=load_native_grasp(ROOT,a.grasp_profile)
-    hold_dir=out/'hold30';hold_dir.mkdir();write(hold_dir/'initial_state.json',portable(m,d,plan,ROOT/spec['scene']))
-    rec['hold30']=screen(m,d,plan,hold_dir,'hold30',seconds=a.hold_seconds,initialization_s=0.)
+    if a.reuse_profile_hold:
+        evidence=json.loads((ROOT/spec['evidence']).read_text());export=evidence['export'];hold=evidence['hold']
+        if export['state_sha256']!=rec['state_sha256'] or export['scene_sha256']!=spec['scene_sha256']:
+            raise RuntimeError('Prior hold evidence does not identify this exported state/scene')
+        if not hold['accepted'] or hold['valid_formal_s']<a.hold_seconds:
+            raise RuntimeError('Prior hold is not an accepted requested-duration antecedent')
+        rec['hold30']=dict(hold,reused=True,evidence=spec['evidence'],new_antecedent_physics_steps=0)
+    else:
+        hold_dir=out/'hold30';hold_dir.mkdir();write(hold_dir/'initial_state.json',portable(m,d,plan,ROOT/spec['scene']))
+        rec['hold30']=screen(m,d,plan,hold_dir,'hold30',seconds=a.hold_seconds,initialization_s=0.)
     if not rec['hold30']['accepted']:
         rec['stop_reason']='30s antecedent hold failed; collection not launched';save('completed');return
     save('hold30 passed; collecting fixed candidate budget')
@@ -113,7 +136,10 @@ def main():
         if digest(ROOT/item['path'])!=item['sha256']:raise RuntimeError('Source/config changed before collection')
     rng=np.random.default_rng(a.seed);tasks=[]
     for batch in range(a.batches):
-        perturb=rng.uniform(-.25,.25,(a.candidates_per_batch,16));perturb[0]=0.
+        span=np.radians(a.perturb_degrees)
+        perturb=rng.uniform(-span,span,(a.candidates_per_batch,16));perturb[0]=0.
+        fixed=[ACTION_NAMES.index(name) for name in a.fixed_initial_joints]
+        if fixed:perturb[:,fixed]=0.
         for local in range(a.candidates_per_batch):
             index=batch*a.candidates_per_batch+local
             tasks.append(dict(candidate_id=index,batch_id=batch,anchor=local==0,
