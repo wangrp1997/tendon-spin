@@ -1,0 +1,260 @@
+# Derived from github.com/wangrp1997/tendon-spin scripts/evaluate_boya_hora.py,
+# commit f58b489 (MIT); original evaluator remains unchanged and source-pinned.
+# Reference learner: github.com/HaozhiQi/hora v0.0.1 (MIT), arXiv:2210.04887.
+# Port addition: one explicit cache-index initial state, zero velocities as in
+# training reset; preserve canonical geometry/axis, policy, inference, full traces
+# and all physical stop rules. Cache samples are training-distribution evaluations.
+# References: Hora v0.0.1 ActorCritic/RunningMeanStd (MIT), TendonSpin Boya
+# physical runner and declared signed-prefix scoring. New frozen-policy runner;
+# no learning, cache starts, controller switches or reset after restoration.
+# Train-record solver identity is shared with learning; optional reward diagnostics
+# reuse the recorded reward-input profile and original Hora formula, without changing policy actions.
+"""One frozen Isaac episode from a nominal or explicit cached initial state."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import time
+import traceback
+
+parser=argparse.ArgumentParser()
+parser.add_argument('--out',type=Path,required=True)
+parser.add_argument('--checkpoint',type=Path,required=True)
+parser.add_argument('--cache',type=Path,required=True,help='Task construction only; evaluation never calls cache reset')
+parser.add_argument('--source-record',type=Path,required=True)
+parser.add_argument('--cache-index',type=int,help='Explicit training-cache initial state; omit for frozen nominal')
+parser.add_argument('--video',action='store_true',help='Record actual evaluation with an Isaac RTX camera')
+parser.add_argument('--seconds',type=float,default=120.)
+parser.add_argument('--wall-s',type=float,default=1500.)
+parser.add_argument('--initial-reference',type=Path,help='Require exact original q/qdot/object/commands')
+parser.add_argument('--reward-diagnostics',action='store_true')
+args=parser.parse_args()
+if args.cache_index is not None and (args.cache_index<0 or args.initial_reference):
+    parser.error('Cache index must be nonnegative and cannot use a nominal initial-reference')
+root=Path(__file__).resolve().parents[1]
+out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
+started=time.monotonic()
+record=dict(controller='frozen_hora_boya_cache28_teacher_v2',requested_s=args.seconds,
+    physics_steps=0,valid_steps=0,actual_s=0.,valid_s=0.,episode_resets=0,
+    controller_switches=0,training_actions=0,benchmark_validated=False,
+    initial_state='original grasp44, not cache',headless=True,seed=43,enable_cameras=args.video,
+    checkpoint=str(args.checkpoint),checkpoint_sha256=hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
+    stop_reason='time limit')
+training=json.loads(args.source_record.read_text())
+record['controller']='frozen_'+training['controller']
+record['training_actions_in_checkpoint']=training['actions_executed']
+if 'scene_configuration' in training:
+    record['initial_state']=training['scene_configuration']['evaluation_initial_state']
+record['sources']=training['sources']
+record['initial_state_selection']=dict(kind='nominal' if args.cache_index is None else 'training_cache',
+    cache_index=args.cache_index,cache_sha256=hashlib.sha256(args.cache.read_bytes()).hexdigest(),
+    unseen_grasp_validation=False)
+if record['initial_state_selection']['cache_sha256']!=training['cache_sha256']:
+    raise ValueError('Evaluation cache differs from the frozen teacher training cache')
+if record['checkpoint_sha256']!=training['checkpoint_sha256']:
+    raise ValueError('Frozen checkpoint differs from its source record')
+if args.cache_index is not None:
+    record['initial_state']='explicit training-cache index '+str(args.cache_index)+'; zero velocities'
+record['evaluation_sources']=[]
+for name in ('scripts/evaluate_boya_hora_initial_state.py',
+             'docs/experiments/2026-10-13-boya-b40m-validation/PROTOCOL.md'):
+    content=(root/name).read_bytes()
+    snapshot=out/'sources'/name;snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(content)
+    record['evaluation_sources'].append(dict(path=name,sha256=hashlib.sha256(content).hexdigest()))
+for source in training['sources']:
+    path=root/source['path']
+    if hashlib.sha256(path.read_bytes()).hexdigest()!=source['sha256']:
+        raise RuntimeError('Source changed since training; refuse silent substitution: '+source['path'])
+
+def save(status):
+    record['status']=status;record['wall_s']=time.monotonic()-started
+    (out/'result.json').write_text(json.dumps(record,indent=2,allow_nan=False)+'\n')
+    print('BOYA_EVAL '+json.dumps({k:record.get(k) for k in ('status','actual_s','valid_s','net_deg','wall_s','stop_reason')}),flush=True)
+
+save('launching')
+from isaaclab.app import AppLauncher
+app=AppLauncher(headless=True,enable_cameras=args.video,device='cuda:0').app
+failed=False;env=None;frames=[];angles=[];controls=[];reward_rows=[];chunks=0;video=None
+try:
+    import numpy as np
+    import torch
+    from tendonspin.rl.isaac_hora import HoraBoyaEnv,spin_increment
+    from tendonspin.rl.termination import legacy_failure_codes
+    from tendonspin.physics.isaac_parallel import tensor
+    from tendonspin.baselines.reference_models import build_model,reference_module
+    from tendonspin.evaluation.rotation import score_prefix
+    from tendonspin.rl.rotation_reward import REPORTED,require_checkpoint_configuration
+    torch.set_num_threads(4);torch.manual_seed(43);np.random.seed(43)
+    if args.video:
+        from tendonspin.rl.native_video import NativePolicyVideo
+        video=NativePolicyVideo(out,record['training_actions_in_checkpoint'])
+    env=HoraBoyaEnv(root,out,args.cache,num_envs=1,scene_setup=video.setup if video else None,
+        termination_profile=training.get('termination',{}).get('profile','legacy_strict'),
+        engine_profile=training.get('engine_profile','original_tgs16_4'),
+        reward_profile=training.get('reward_profile',REPORTED),
+        scene_configuration=training.get('scene_configuration'))
+    if 'scene_configuration' in training:
+        record['scene_configuration']=training['scene_configuration']
+        record['fixed_reward_axis']=env.rotation_axis[0].cpu().tolist()
+    record['reward_profile']=env.reward_configuration['profile']
+    record['reward_configuration']=env.reward_configuration
+    if 'reward_configuration' in training and env.reward_configuration!=training['reward_configuration']:
+        raise ValueError('Evaluation reward configuration differs from training')
+    record['termination']=env.termination.spec.to_dict()
+    if 'termination' in training and record['termination']!=training['termination']:
+        raise ValueError('Evaluation termination differs from the training contract')
+    p=env.physics
+    record['engine_configuration']=p.engine_configuration
+    if 'engine_configuration' in training and p.engine_configuration!=training['engine_configuration']:
+        raise ValueError('Evaluation engine configuration differs from training')
+    if training.get('engine_profile')=='tgs16_velocity0':record['engine_audit']=p.engine_audit
+    p.reset_nominal()
+    env.history[:]=env._frame(noise=False)[:,None,:]
+    weights=torch.load(args.checkpoint,map_location=p.device,weights_only=False)
+    require_checkpoint_configuration(weights.get('contract',{}),env.reward_configuration)
+    if 'scene_configuration' in training:
+        if weights['contract']['scene_configuration']!=training['scene_configuration']:
+            raise ValueError('Checkpoint scene contract differs from evaluation')
+    if training.get('engine_profile')=='tgs16_velocity0' and weights['contract']['engine_configuration']!=p.engine_configuration:
+        raise ValueError('Checkpoint engine contract differs from evaluation')
+    selected_expected=None
+    if args.cache_index is not None:
+        with np.load(args.cache,allow_pickle=False) as cached:
+            index=args.cache_index
+            if not 0<=index<len(cached['q']):raise ValueError('Cache index outside stored states')
+            if cached['joint_names'].tolist()!=p.names:
+                raise ValueError('Cache joint order differs from frozen scene')
+            if cached['motor_names'].tolist()!=[a['joint'] for a in p.contract['actuators']]:
+                raise ValueError('Cache motor order differs from frozen scene')
+            selected_q=torch.as_tensor(cached['q'][index:index+1].copy(),device=p.device)
+            selected_v=torch.zeros_like(selected_q)
+            selected_object=torch.as_tensor(cached['object_state'][index:index+1].copy(),device=p.device)
+            selected_object[:,:3]+=p.origins;selected_object[:,7:]=0.
+            selected_commands=torch.as_tensor(cached['commands'][index:index+1].copy(),device=p.device)
+            record['initial_state_selection']['candidate_id']=int(cached['candidate_id'][index])
+        p._write_state(selected_q,selected_v,selected_object,selected_commands)
+        env.init_q=selected_q[:,p.active_joint_ids].clone()
+        env.termination.reset(torch.arange(p.num_envs,device=p.device))
+        env.history[:]=env._frame(noise=False)[:,None,:]
+        selected_expected=dict(joint_pos=selected_q,joint_vel=selected_v,
+            object_state=selected_object,commands=selected_commands)
+        np.savez(out/'selected_initial_state_expected.npz',
+            **{key:value.cpu().numpy() for key,value in selected_expected.items()})
+    model=build_model().to(p.device);model.load_state_dict(weights['model']);model.eval()
+    norm=reference_module('hora_normalizer').RunningMeanStd((96,)).to(p.device)
+    norm.load_state_dict(weights['running_mean_std']);norm.eval()
+    record.update(joint_names=p.names,body_names=list(p.hand.body_names),filter_names=p.filter_names)
+    initial=p.measure()
+    initial_np={k:v.cpu().numpy().copy() for k,v in initial.items()}
+    initial_np['commands']=p.adapter.commands.cpu().numpy().copy()
+    np.savez(out/'initial_state.npz',**initial_np)
+    if 'scene_configuration' in training:
+        from tendonspin.physics.learning_scene import nominal_errors
+        if selected_expected is None:
+            record['initial_state_max_errors']=nominal_errors(p)
+        else:
+            record['initial_state_max_errors']={key:float(np.max(np.abs(
+                initial_np[key]-value.cpu().numpy()))) for key,value in selected_expected.items()}
+            if any(error>training['scene_configuration']['initial_state_atol'][key]
+                   for key,error in record['initial_state_max_errors'].items()):
+                raise ValueError('Selected cache initial state readback differs')
+        record['initial_state_atol']=training['scene_configuration']['initial_state_atol']
+    if args.initial_reference:
+        with np.load(args.initial_reference) as expected:
+            record['initial_state_max_errors']={k:float(np.max(np.abs(initial_np[k]-expected[k])))
+                for k in ('joint_pos','joint_vel','object_state','commands')}
+        if max(record['initial_state_max_errors'].values())!=0:
+            raise ValueError('Original evaluation initial state mismatch: '+str(record['initial_state_max_errors']))
+    if video:
+        video.attach(p);video.capture(0.,0.,float(initial['drift_mm'][0]),initial=True)
+    prev=initial['object_state'][:,3:7].clone()
+    net=0.;legacy_steps=0;legacy_stopped=False;legacy_reason='time limit'
+    planned=round(args.seconds/p.dt)
+    save('evaluating frozen original-state policy')
+    for step in range(planned):
+        if step%p.adapter.steps_per_control==0:
+            if time.monotonic()-started>=args.wall_s:
+                record['stop_reason']='wall budget';break
+            obs=env.observe()
+            with torch.no_grad():action=model.act_inference(dict(obs=norm(obs['obs']),priv_info=obs['priv_info'])).clamp(-1,1)
+            controls.append(dict(step=step,obs=obs['obs'].cpu().numpy()[0],
+                priv_info=obs['priv_info'].cpu().numpy()[0],action=action.cpu().numpy()[0]))
+            p.adapter.set_action(action)
+            if args.reward_diagnostics:env.rotation_reward_signal.begin(prev)
+        q,v,effort=p.advance()
+        m=p.measure()
+        if args.reward_diagnostics:env.rotation_reward_signal.advance(m['object_state'][:,3:7])
+        failure_codes=env.termination.failure_codes(m,p.origins,
+            control_boundary=(step+1)%p.adapter.steps_per_control==0)
+        code=int(failure_codes[0])
+        valid=code==0
+        legacy_code=int(legacy_failure_codes(m)[0])
+        if not legacy_stopped:
+            if legacy_code:
+                legacy_stopped=True;legacy_reason=env.reasons[legacy_code]
+            else:legacy_steps+=1
+        if valid:
+            net+=float(torch.rad2deg(spin_increment(prev,m['object_state'][:,3:7]))[0])
+            record['valid_steps']+=1
+        prev=m['object_state'][:,3:7].clone()
+        angles.append(net)
+        frame={k:v.detach().cpu().numpy()[0].copy() for k,v in m.items()}
+        frame.update(joint_pos_before=q.cpu().numpy()[0].copy(),joint_vel_before=v.cpu().numpy()[0].copy(),
+            action=action.cpu().numpy()[0].copy(),commands=p.adapter.commands.cpu().numpy()[0].copy(),
+            motor_effort_requested=effort.cpu().numpy()[0].copy(),
+            actuator_effort_forwarded=tensor(p.hand.actuators.applied_effort).cpu().numpy()[0].copy(),
+            valid=valid,failure_code=code,legacy_strict_code=legacy_code,
+            legacy_strict_valid=not legacy_stopped,net_angle_deg=net,elapsed_s=(step+1)*p.dt)
+        frames.append(frame)
+        record.update(physics_steps=step+1,actual_s=(step+1)*p.dt,
+            valid_s=record['valid_steps']*p.dt,net_deg=net)
+        if args.reward_diagnostics and (step+1)%p.adapter.steps_per_control==0:
+            active=p.active_joint_ids;tau=effort[:,active]
+            velocity=(m['joint_pos'][:,active]-q[:,active])/p.dt
+            pose=((m['joint_pos'][:,active]-env.init_q)**2).sum(-1)
+            torque=tau.square().sum(-1);work=(tau*velocity).sum(-1).square()
+            rotation_velocity=env.rotation_reward_signal.angular_velocity(m['object_state'][:,10:13])
+            reward,rot,lin=env.reward_fn(m['object_state'][:,7:10],-.3,rotation_velocity,
+                env.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
+            terminal_cost=env.rotation_reward_signal.terminal_cost(failure_codes,reward)
+            reward_rows.append(dict(elapsed_s=(step+1)*p.dt,valid=valid,
+                reward=float((reward+terminal_cost)[0]),base_reward=float(reward[0]),
+                terminal_failure_cost=float(terminal_cost[0]),failure_code=code,
+                rotation_velocity=rotation_velocity[0].cpu().numpy().copy(),
+                rotation=float(rot[0]),linear_cost=float(-.3*lin[0]),pose_cost=float(-.3*pose[0]),
+                torque_cost=float(-.1*torque[0]),work_cost=float(-2*work[0])))
+        if len(frames)>=2000:
+            np.savez(out/f'physics_{chunks:03d}.npz',**{k:np.asarray([f[k] for f in frames]) for k in frames[0]})
+            frames=[];chunks+=1
+        if not valid:
+            record['stop_reason']=env.reasons[code];break
+        if video and (step+1)%100==0:video.capture(record['actual_s'],net,float(m['drift_mm'][0]))
+        if (step+1)%p.adapter.steps_per_control==0:
+            env.history=torch.roll(env.history,-1,dims=1);env.history[:,-1]=env._frame()
+        if (step+1)%20000==0:save('evaluating')
+    if video:video.capture(record['actual_s'],net,float(m['drift_mm'][0]),reason=record['stop_reason'])
+    record['metrics']={str(window):score_prefix(angles,p.dt,record['valid_steps'],window_s=window) for window in (30.,120.)}
+    legacy_steps=min(legacy_steps,record['valid_steps'])
+    record['legacy_strict_shadow']=dict(
+        interpretation='Offline prefix of this same execution under old rules; not a second rollout or primary score',
+        stop_reason=legacy_reason if legacy_stopped else record['stop_reason'],
+        metrics={str(window):score_prefix(angles,p.dt,legacy_steps,window_s=window) for window in (30.,120.)})
+except BaseException as error:
+    failed=True;record['stop_reason']='process error'
+    record['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
+finally:
+    if video is not None:
+        record['video']=video.close()
+        if record['video'] and record['video']['encoder_exit_code']:
+            failed=True;record['video_error']='ffmpeg did not complete successfully'
+    if frames:
+        np.savez(out/f'physics_{chunks:03d}.npz',**{k:np.asarray([f[k] for f in frames]) for k in frames[0]})
+        chunks+=1
+    if controls:
+        np.savez(out/'control_inputs.npz',**{k:np.asarray([f[k] for f in controls]) for k in controls[0]})
+    if reward_rows:
+        np.savez(out/'reconstructed_control_reward.npz',**{k:np.asarray([f[k] for f in reward_rows]) for k in reward_rows[0]})
+    if angles:np.save(out/'angles_deg.npy',np.asarray(angles))
+    record['physics_trace_chunks']=chunks
+    save('error' if failed else 'completed')
+    app.close(exit_code=1 if failed else 0)

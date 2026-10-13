@@ -1,0 +1,251 @@
+{
+  "created": "2026-10-13T12:46:49+08:00",
+  "checkpoint": {
+    "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_b50m_v1/actions_040000000/training/teacher_final.pth",
+    "checkpoint_sha256": "c400562ff3d04497b451aa6594c6fa09c4268f8bc2c2203d312ce281ac0400e6",
+    "actions": 40001536,
+    "lineage_id": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_b50m_v1/actions_010000000/training"
+  },
+  "training_record": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_b50m_v1/actions_040000000/training/result.json",
+  "training_record_sha256": "8fe87750aff7dc6a39f742d49e3fc1d87731821b46ad3f99a3a667a69ae5b2ad",
+  "cache": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_isaac_transfer_v1/grasp_cache.npz",
+  "cache_sha256": "25f790e6080a55db19654128bebf97a78545b3bea189ea9bbdf889d1b93d1c52",
+  "cases": [
+    {
+      "name": "cache_000_30s",
+      "cache_index": 0,
+      "seconds": 30.0,
+      "wall_s": 1500.0
+    },
+    {
+      "name": "cache_007_30s",
+      "cache_index": 7,
+      "seconds": 30.0,
+      "wall_s": 1500.0
+    },
+    {
+      "name": "cache_015_30s",
+      "cache_index": 15,
+      "seconds": 30.0,
+      "wall_s": 1500.0
+    },
+    {
+      "name": "cache_023_30s",
+      "cache_index": 23,
+      "seconds": 30.0,
+      "wall_s": 1500.0
+    },
+    {
+      "name": "nominal_120s",
+      "cache_index": null,
+      "seconds": 120.0,
+      "wall_s": 6000.0
+    }
+  ],
+  "maximum_new_episodes": 5,
+  "maximum_physics_steps": 480000,
+  "maximum_control_actions": 4800,
+  "training_actions": 0,
+  "unseen_grasp_validation": false,
+  "sources": [
+    {
+      "path": "scripts/run_boya_teacher_validation.py",
+      "sha256": "1e6e687226406d4495f07087eaff0527de0263480a094476878dfda6a8153903"
+    },
+    {
+      "path": "scripts/evaluate_boya_hora_initial_state.py",
+      "sha256": "e8c1302b393a35e855eeb6cd5735d37ef1409333880c0124a35e03bb7893e6f9"
+    },
+    {
+      "path": "scripts/analyze_boya_small_budget.py",
+      "sha256": "6e9d71eccead8cfa0135350d978612ccd3f8816089c57099042b9e05af3753f9"
+    },
+    {
+      "path": "docs/experiments/2026-10-13-boya-b40m-validation/PROTOCOL.md",
+      "sha256": "baf09e50cd6a1039077aa9baaa9a81a163807a787bb11f395b574a9659959007"
+    }
+  ],
+  "same_teacher_contract": {
+    "schema": "tendonspin-learning-scene-v1",
+    "name": "fivefinger_uniform48p8_side2deg_isaac_v1",
+    "geometry": {
+      "shape": "cylinder",
+      "diameter_m": 0.048773546843707404,
+      "height_m": 0.032,
+      "mass_kg": 0.05,
+      "dimensions_m": [
+        0.048773546843707404,
+        0.048773546843707404,
+        0.032
+      ]
+    },
+    "canonical_reference": {
+      "pos": [
+        -0.3611774719566041,
+        5.8964475209412104e-05,
+        0.0968662040083447
+      ],
+      "quat_xyzw": [
+        4.151487908826083e-11,
+        0.9999948089886754,
+        -1.2884308072898637e-08,
+        0.003222110442343188
+      ]
+    },
+    "nominal_state": {
+      "joint_names": [
+        "FAJ1",
+        "FAJ3",
+        "THJ4",
+        "FFJ4",
+        "MFJ4",
+        "RFJ4",
+        "LFJ4",
+        "THJ3",
+        "FFJ3",
+        "MFJ3",
+        "RFJ3",
+        "LFJ3",
+        "THJ2",
+        "FFJ2",
+        "MFJ2",
+        "RFJ2",
+        "LFJ2",
+        "THJ1",
+        "FFJ1",
+        "MFJ1",
+        "RFJ1",
+        "LFJ1"
+      ],
+      "motor_names": [
+        "FAJ3",
+        "FAJ1",
+        "THJ4",
+        "THJ3",
+        "THJ2",
+        "THJ1",
+        "FFJ4",
+        "FFJ3",
+        "FFJ2",
+        "MFJ4",
+        "MFJ3",
+        "MFJ2",
+        "RFJ4",
+        "RFJ3",
+        "RFJ2",
+        "LFJ4",
+        "LFJ3",
+        "LFJ2"
+      ],
+      "joint_pos": [
+        -0.006394361502560447,
+        -1.344570021954906e-06,
+        0.3348818654939676,
+        -0.03579858031089538,
+        0.00864669900573563,
+        -0.019386375823757098,
+        0.035457389325790456,
+        -0.16407137352445564,
+        1.1383519461043126,
+        0.7430138726404937,
+        0.6025274520913796,
+        1.0136738207103877,
+        0.1200911221100521,
+        0.21681134437801777,
+        0.4004483130399517,
+        0.4576752565041431,
+        0.2798866404893161,
+        0.049965407446126056,
+        0.2176901140653286,
+        0.3995561914400736,
+        0.45562004729888267,
+        0.2808646811627649
+      ],
+      "joint_vel": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "object_state_xyzw_world_twist": [
+        -0.3610036447785259,
+        7.820073405310483e-05,
+        0.09703606458776728,
+        0.00013527960726039524,
+        0.9999806070202195,
+        0.0011973484471551363,
+        0.006110125988629294,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commands": [
+        0.0,
+        0.0,
+        0.33521727814768015,
+        -0.16850344829262745,
+        0.12305665971605935,
+        0.05131291395497048,
+        -0.040891022397232926,
+        1.1343600015201165,
+        0.2142874307546728,
+        0.006040531507611525,
+        0.7473467772098685,
+        0.4031598981154589,
+        -0.015775805694057513,
+        0.6156430302326406,
+        0.465890656150428,
+        0.043301448678092144,
+        1.009119057231198,
+        0.2766347411523532
+      ]
+    },
+    "evaluation_initial_state": "fixed nominal fivefinger_uniform48p8_side2deg_v1, not cache; velocities zero",
+    "initial_state_atol": {
+      "joint_pos": 1e-06,
+      "joint_vel": 1e-06,
+      "object_state": 1e-06,
+      "commands": 1e-06
+    },
+    "training_cache": "outputs/boya_uniform48p8_isaac_transfer_v1/grasp_cache.npz",
+    "training_cache_size": 24,
+    "training_cache_sha256": "25f790e6080a55db19654128bebf97a78545b3bea189ea9bbdf889d1b93d1c52",
+    "admission": "Isaac 0.5s initialization +0.5s formal old cache gates; five simultaneous fingers not required",
+    "provenance": [
+      {
+        "path": "outputs/boya_uniform48p8_small2deg_v1/grasp_cache_with_nominal.npz",
+        "sha256": "68cee194f9db1a4ea808c08e75ed9b1515e522c47c8f250216cbd513faec784e"
+      },
+      {
+        "path": "outputs/boya_uniform48p8_isaac_transfer_v1/result.json",
+        "sha256": "644a753bb472b7ad0f0e11819dc6b9aed717a43ba18125b57ce193e91e4256a6"
+      },
+      {
+        "path": "assets/grasp/fivefinger_uniform48p8_side2deg_v1/plan.json",
+        "sha256": "c436d2f2bd3b994ba0fa4d4d1e4335aac2614e816cb8eddd5a8a99be84aac16e"
+      }
+    ],
+    "configuration_sha256": "2b6687c854f1c5b7b5bd9ea92e49b55f4109d269006b28b640065b2872e2efdf"
+  }
+}

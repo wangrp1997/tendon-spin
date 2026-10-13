@@ -1304,3 +1304,18 @@ No newphysics/training/extension/retry authorized by completion. Videos10/20/40M
 are measuredIsaac trajectories replayed withIsaacRTX, oblique/topsidebyside,
 normal speed; visualBOTYARD negative-Z cap U mapping fixed. Smallresults recorded,
 weights/fulltraces/TensorBoard staylocal; no extra evaluation/auditcampaign.
+
+
+[Five-finger B40M frozen validation LAUNCHED](experiments/2026-10-13-boya-b40m-validation/README.md):
+User requested an ordered checkbox plan at docs/next_steps.md and startup of step1.
+2026-10-13 12:46:48Shanghai supervisor3164554/firsteval3164574; fixed cache0/7/15/23
+one30s-or-failure episode each, then ONE original nominal120s-or-failure; 0training,
+maximum5episodes/240simseconds. Same B40M40,001,536actions, ownmodel/normalizer,
+48.77355x32mm/50g/16actions/privilegedobs/originalIsaacengine/Breward/workspace rules.
+Explicit cached q/object/commands, zero velocities; canonical reference unchanged.
+Cache states are training-distribution, not heldout. Each independent frozen episode
+retains fulltrace; ordinary physical failure continues fixed checklist, execution/source/
+manualerror stops without retry. Original train/eval/core sources and allweights preserved;
+new separate initial-state evaluator reuses identical physics/inference/stop loop.
+Plan/README results update automatically; steps2-4 do not launch automatically.
+Outputs: outputs/boya_uniform48p8_b40m_validation_v1. ETA65-85min conditionalonactualspeed.
