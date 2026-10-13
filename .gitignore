@@ -4,3 +4,10 @@ __pycache__/
 *.py[cod]
 .venv/
 .pytest_cache/
+
+# Local research records, agent instructions and editor settings.
+/docs/
+/AGENTS.md
+/.vscode/
+/.agents/
+/.codex/

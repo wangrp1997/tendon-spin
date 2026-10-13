@@ -16,24 +16,37 @@
 | `scripts/` | 训练、冻结策略评估和视频渲染入口 |
 | `assets/` | CAD、原始抓取状态和可选物体配置 |
 | `third_party/` | 参考算法源码及许可证 |
-| `docs/` | 适配说明、实验协议和结果 |
+| `assets/config/` | 公开的模型运行配置 |
 | `outputs/` | 本地权重、TensorBoard、轨迹和视频，不提交到 Git |
 
 ## 使用
 
-在已有 Isaac Lab Python 环境中运行，项目根目录加入 `PYTHONPATH`：
+Isaac 路径使用现有 Isaac Sim 6.1 / Isaac Lab 3 环境。先准备本地模型配置，
+再将 URDF 转换成该环境的 USD 资源；生成的运行记录和 USD 留在本地：
+
+```bash
+python scripts/prepare_local_runtime.py
+PYTHONPATH=. python scripts/probe_boya_import.py --out docs/data/isaac_boya_import_phases.json
+```
+
+训练和评估入口的参数：
 
 ```bash
 PYTHONPATH=. python scripts/train_boya_hora.py --help
-PYTHONPATH=. python scripts/evaluate_boya_hora_object.py --help
+PYTHONPATH=. python scripts/evaluate_boya_hora.py --help
+PYTHONPATH=. python scripts/evaluate_boya_hora_initial_state.py --help
 ```
 
 物体默认使用原始 40×32 毫米圆柱，也可选择命名配置或指定圆柱、球、长方体的尺寸。
-参数见[物体配置说明](docs/object_geometry.md)。
+训练可通过 `--scene-config` 选择物体与名义抓取配置、`--cache` 指定对应初态缓存。
+五指构型配置位于
+[isaac_learning_scene.json](assets/grasp/fivefinger_uniform48p8_side2deg_v1/isaac_learning_scene.json)。
+抓取配置保持双腕，开放16路手指动作，四个远端mimic被动耦合。
 
-## 文档
+冻结评估通过 `--checkpoint` 和匹配的 `--source-record` 载入策略及运行配置，
+配套 `--cache`；`evaluate_boya_hora_initial_state.py` 还支持 `--cache-index`。
+权重与缓存需自行提供。训练的 `--protocol` 接收项目内的运行配置文件，
+用于记录来源身份；历史实验专用的启动脚本需要对应的本地实验资料。
 
-- [Hora 到 Boya 的适配](docs/hora_boya_port.md)
-- [参考代码与触觉接口](docs/reference_reuse.md)
-- [实验记录与索引](docs/experiment_state.md)
-- [部署接口](docs/deployment.md)
+参考代码版本与许可证见[THIRD_PARTY.md](THIRD_PARTY.md)及
+[参考项目](references/README.md)。当前训练接口是特权教师；历史适应和触觉学生仍在开发。

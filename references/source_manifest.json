@@ -31,7 +31,7 @@
     {
       "name": "Sharpa",
       "origin": "git@github.com:wangrp1997/sharpa-rl-lab.git",
-      "local_source": "/home/rw/Projects/sharpa-rl-lab",
+      "local_source": "local source checkout (filesystem path omitted)",
       "commit": "5accf024d376685eaa17da7aa4614498217eab4d",
       "copy_scope": "selected PPO, adaptation, task and deployment source plus original licenses/notices",
       "upstream_revision_equivalence": "not verified; GitHub API rate limit exceeded",

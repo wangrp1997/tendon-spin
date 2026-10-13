@@ -1,25 +1,9 @@
 # Rotation references
 
-- **Hora:** Qi, Kumar, Calandra, Ma and Malik. *In-Hand Object Rotation via Rapid Motor Adaptation*. CoRL2022; [arXiv2210.04887v1](https://arxiv.org/abs/2210.04887v1). Official tagv0.0.1 code at `third_party/hora`.
-- **AnyRotate:** Yang et al. *AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch*. CoRL2024; [arXiv2405.07391v3](https://arxiv.org/abs/2405.07391v3). [Official project](https://maxyang27896.github.io/anyrotate/). Code availability is not established; this is not evidence that no code exists.
-- **SharpaWave:** user's local Sharpa RL Lab fork at commit `5accf024d376685eaa17da7aa4614498217eab4d`; selected reference code is in `third_party/sharpa`. Do not conflate a fork with a verified official revision. Follow-up pinned official95ccda3d948801bb5da4cb7ffea766e03067a63b separately under `third_party/sharpa_upstream`; three task/grasp/config ASTs differ, original fork preserved.
+- **Hora:** Qi, Kumar, Calandra, Ma and Malik. *In-Hand Object Rotation via Rapid Motor Adaptation*. CoRL2022. [Paper](https://arxiv.org/abs/2210.04887v1), [code v0.0.1](https://github.com/HaozhiQi/hora/tree/v0.0.1). Selected code: `third_party/hora`.
+- **AnyRotate:** Yang et al. *AnyRotate: Gravity-Invariant In-Hand Object Rotation with Sim-to-Real Touch*. CoRL2024. [Paper](https://arxiv.org/abs/2405.07391v3), [project](https://maxyang27896.github.io/anyrotate/). The project is a method reference; a complete Boya reproduction is pending.
+- **Sharpa RL Lab:** [official repository](https://github.com/sharpa-robotics/sharpa-rl-lab/tree/95ccda3d948801bb5da4cb7ffea766e03067a63b), revision `95ccda3d948801bb5da4cb7ffea766e03067a63b`, under `third_party/sharpa_upstream`. The separately attributed fork revision `5accf024d376685eaa17da7aa4614498217eab4d` is under `third_party/sharpa`.
 
-Complete PDFs are copied locally to ignored `outputs/references/`; text extractions
-are `outputs/hora-paper.txt` and `outputs/anyrotate-paper.txt`. The targeted arXiv
-API query returned both requested records. `source_manifest.json` records versions,
-URLs, access date, archive/document/file hashes, PDF validation and source gaps.
-No original paper policy or Boya baseline was executed by downloading references.
-See `../docs/baseline_methods.md` for verified mechanisms and novelty boundaries.
-
-Literature/PDF procedural tooling: Kassis, T., Agarwal, V., He, Y., Patel, D., and
-Brueckner, A. M. (2026). *Scientific Agent Skills: A Library of Procedural Knowledge
-for Research Agents*. [arXiv:2609.00065](https://arxiv.org/abs/2609.00065),
-[DOI](https://doi.org/10.48550/arXiv.2609.00065). Current arXiv landing-page
-metadata was checked2026-10-08; this is tool attribution, not a rotation baseline.
-
-Metric-focused follow-up adds TouchDexterity/RSS2023, RotateIt, Dactyl/IJRR2019,
-Tacmap, TacBPM and DexTaG; versioned IDs, authors, PDF/text hashes, pages, search
-queries and limitations are indexed by [metrics_manifest.json](metrics_manifest.json).
-See [review](../docs/research/2026-10-08-rotation-metrics/README.md). These sources
-were inspected for definitions, not executed as Boya baseline controllers;
-TacBPM scores are not attributable to Sharpa RL Lab. Large PDFs/GIFs stay ignored.
+[source_manifest.json](source_manifest.json) identifies selected code versions and hashes.
+[papers.json](papers.json) and [metrics_manifest.json](metrics_manifest.json) contain bibliographic metadata.
+Reference source availability does not establish a validated Boya baseline.
