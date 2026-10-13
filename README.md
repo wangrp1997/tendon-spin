@@ -43,6 +43,10 @@ PYTHONPATH=. python scripts/evaluate_boya_hora_initial_state.py --help
 [isaac_learning_scene.json](assets/grasp/fivefinger_uniform48p8_side2deg_v1/isaac_learning_scene.json)。
 抓取配置保持双腕，开放16路手指动作，四个远端mimic被动耦合。
 
+物理随机化教师使用独立入口 `run_boya_hora_randomized_milestones.py`，参数配置见
+[boya_hora_randomized_b.json](assets/config/boya_hora_randomized_b.json)。该入口按Hora正式教师脚本
+的尺寸、质量、摩擦、质心、PD和外力机制运行，使用各尺寸对应的抓取缓存；B奖励保留项目的姿态差分和掉落成本适配。
+
 冻结评估通过 `--checkpoint` 和匹配的 `--source-record` 载入策略及运行配置，
 配套 `--cache`；`evaluate_boya_hora_initial_state.py` 还支持 `--cache-index`。
 权重与缓存需自行提供。训练的 `--protocol` 接收项目内的运行配置文件，
