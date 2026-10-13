@@ -1,0 +1,21 @@
+{
+  "arm": "B",
+  "reward_profile": "hora_pose_delta_drop16",
+  "requested_actions": 20000000,
+  "training_actions": 20004864,
+  "actual_s": 30.0,
+  "valid_s": 30.0,
+  "net_deg": 1691.332665332574,
+  "peak_deg": 1691.332665332574,
+  "backward_deg": 2.555861751878183,
+  "final_10s_net_deg": 573.3760979807319,
+  "complete_window": true,
+  "stop_reason": "time limit",
+  "drift_mm": 8.35747241973877,
+  "tilt_deg": 45.42580795288086,
+  "max_normal": 20.644641876220703,
+  "checkpoint": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_b50m_v1/actions_020000000/training/teacher_final.pth",
+  "checkpoint_sha256": "dbd92ebdc16703738344065777d229255e4a4ffc91c1c555fe8a8f51e9385fe4",
+  "evaluation": "/home/rw/Projects/tendon-spin/outputs/boya_uniform48p8_b50m_v1/actions_020000000/evaluation/result.json",
+  "initial_state_max_error": 0.0
+}

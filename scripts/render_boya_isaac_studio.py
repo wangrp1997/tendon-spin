@@ -7,7 +7,7 @@
 # Object geometry: TendonSpin object_geometry.py; replay uses the episode's
 # declared dimensions/shape, with the original Boya profile for older records.
 """Render a readable floor/grid studio from an already executed Boya episode."""
-import argparse,hashlib,json,os,time
+import argparse,hashlib,json,os,subprocess,time
 from pathlib import Path
 from types import SimpleNamespace
 os.environ['ISAAC_LAB_ENABLE_ISAAC_RTX_PER_ENV_SCENE_PARTITION']='0'
@@ -16,10 +16,12 @@ parser.add_argument('--record',type=Path,required=True)
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--playback-speed',type=float,choices=(.2,1.),default=.2)
 parser.add_argument('--save-frames',action='store_true',help='Also export every sampled frame as PNG')
+parser.add_argument('--botyard-top-texture',type=Path,help='White cylinder with existing BOTYARD cap texture and sparse side marks; visual only')
+parser.add_argument('--views',choices=('oblique','oblique_top'),default='oblique',help='Synchronized oblique and overhead views side by side')
 args=parser.parse_args();root=Path(__file__).resolve().parents[1]
 source=args.record.resolve();episode=json.loads(source.read_text())
 from tendonspin.physics.object_geometry import resolve_object_geometry,author_primitive
-geometry=episode.get('object_geometry') or resolve_object_geometry(root)
+geometry=episode.get('object_geometry') or episode.get('scene_configuration',{}).get('geometry') or resolve_object_geometry(root)
 out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
 manifest=dict(motion_source=str(source),motion_source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
     renderer='Isaac Sim RTX; archived measured world-body poses',new_training_actions=0,
@@ -27,6 +29,7 @@ manifest=dict(motion_source=str(source),motion_source_sha256=hashlib.sha256(sour
     source_actual_s=episode['actual_s'],source_net_deg=episode['net_deg'],source_stop_reason=episode['stop_reason'],
     floor_collision=False,style='dark slate checker floor, dome/key light, orange object and painted marker',
     object_geometry=geometry,
+    views=args.views,
     geometry_source_sha256=hashlib.sha256((root/'tendonspin/physics/object_geometry.py').read_bytes()).hexdigest())
 (out/'render_boya_isaac_studio.py').write_bytes(Path(__file__).read_bytes())
 (out/'object_geometry.py').write_bytes((root/'tendonspin/physics/object_geometry.py').read_bytes())
@@ -84,6 +87,47 @@ try:
     marker.CreatePointsAttr(points)
     marker.CreateFaceVertexCountsAttr([3]);marker.CreateFaceVertexIndicesAttr([0,1,2]);marker.CreateDoubleSidedAttr(True)
     UsdShade.MaterialBindingAPI.Apply(marker.GetPrim()).Bind(material('/World/Looks/Marker',(.97,.98,1.)))
+    if args.botyard_top_texture:
+        if geometry['shape']!='cylinder':raise ValueError('BOTYARD appearance requires a cylinder')
+        texture_path=args.botyard_top_texture.resolve()
+        manifest['appearance_texture']=dict(path=str(texture_path),sha256=hashlib.sha256(texture_path.read_bytes()).hexdigest())
+        manifest['style']='dark slate checker floor, white cylinder, black BOTYARD cap and sparse side stripes'
+        stage.RemovePrim('/World/Cylinder/PaintedMarker')
+        UsdShade.MaterialBindingAPI.Apply(object_prim).Bind(material('/World/Looks/White',(.94,.94,.94),.65))
+        black=material('/World/Looks/Black',(.015,.015,.015),.65)
+        cap_material=material('/World/Looks/Botyard',(1.,1.,1.),.65)
+        uv=UsdShade.Shader.Define(stage,'/World/Looks/Botyard/UV')
+        uv.CreateIdAttr('UsdPrimvarReader_float2');uv.CreateInput('varname',Sdf.ValueTypeNames.Token).Set('st')
+        uv.CreateOutput('result',Sdf.ValueTypeNames.Float2)
+        tex=UsdShade.Shader.Define(stage,'/World/Looks/Botyard/Texture')
+        tex.CreateIdAttr('UsdUVTexture');tex.CreateInput('file',Sdf.ValueTypeNames.Asset).Set(Sdf.AssetPath(str(texture_path)))
+        tex.CreateInput('sourceColorSpace',Sdf.ValueTypeNames.Token).Set('sRGB')
+        tex.CreateInput('st',Sdf.ValueTypeNames.Float2).ConnectToSource(uv.ConnectableAPI(),'result')
+        tex.CreateOutput('rgb',Sdf.ValueTypeNames.Float3)
+        UsdShade.Shader(stage.GetPrimAtPath('/World/Looks/Botyard/Surface')).GetInput('diffuseColor').ConnectToSource(tex.ConnectableAPI(),'rgb')
+        radius=geometry['diameter_m']/2;halfheight=geometry['height_m']/2
+        # This upright grasp points local-Z down; its visible upper cap is local-Z negative.
+        cap=UsdGeom.Mesh.Define(stage,'/World/Cylinder/BotyardCap')
+        ring=np.linspace(0,2*np.pi,65)[:-1]
+        points=[(0.,0.,-halfheight-.00004)]+[(radius*np.cos(a),radius*np.sin(a),-halfheight-.00004) for a in ring]
+        cap.CreatePointsAttr(points);cap.CreateFaceVertexCountsAttr([3]*64)
+        cap.CreateFaceVertexIndicesAttr([j for i in range(64) for j in (0,(i+1)%64+1,i+1)])
+        cap.CreateDoubleSidedAttr(True);cap.CreateSubdivisionSchemeAttr('none')
+        # Read the lettering from the outward negative-Z face; reverse U to
+        # avoid mirroring the positive-Z texture convention on this cap.
+        UsdGeom.PrimvarsAPI(cap).CreatePrimvar('st',Sdf.ValueTypeNames.TexCoord2fArray,UsdGeom.Tokens.vertex).Set(
+            [(.5,.5)]+[(.5-.5*np.cos(a),.5+.5*np.sin(a)) for a in ring])
+        UsdShade.MaterialBindingAPI.Apply(cap.GetPrim()).Bind(cap_material)
+        marks=UsdGeom.Mesh.Define(stage,'/World/Cylinder/SideStripes');points=[];indices=[]
+        for a in np.linspace(0,2*np.pi,8,endpoint=False):
+            x=(radius+.00004)*np.cos(a);y=(radius+.00004)*np.sin(a)
+            dx=-.0004*np.sin(a);dy=.0004*np.cos(a);n=len(points)
+            points.extend([(x-dx,y-dy,-halfheight),(x+dx,y+dy,-halfheight),
+                           (x+dx,y+dy,halfheight),(x-dx,y-dy,halfheight)])
+            indices.extend([n,n+1,n+2,n+3])
+        marks.CreatePointsAttr(points);marks.CreateFaceVertexCountsAttr([4]*8);marks.CreateFaceVertexIndicesAttr(indices)
+        marks.CreateDoubleSidedAttr(True);marks.CreateSubdivisionSchemeAttr('none')
+        UsdShade.MaterialBindingAPI.Apply(marks.GetPrim()).Bind(black)
     floor=UsdGeom.Mesh.Define(stage,'/World/ReferenceFloor');points=[];indices=[];colors=[]
     for i in range(60):
         for j in range(60):
@@ -107,11 +151,38 @@ try:
             self.camera=Camera(CameraCfg(prim_path='/World/Camera',width=960,height=540,update_period=0.,
                 background_color=(.035,.045,.065),data_types=['rgb'],
                 spawn=sim_utils.PinholeCameraCfg(focal_length=24.,horizontal_aperture=24.,clipping_range=(.01,10.))))
+            self.top_camera=None
+            if args.views=='oblique_top':
+                self.top_camera=Camera(CameraCfg(prim_path='/World/TopCamera',width=960,height=540,update_period=0.,
+                    background_color=(.035,.045,.065),data_types=['rgb'],
+                    spawn=sim_utils.PinholeCameraCfg(focal_length=24.,horizontal_aperture=24.,clipping_range=(.01,10.))))
+        def attach(self,physics):
+            if self.top_camera is None:
+                return super().attach(physics)
+            self.physics=physics
+            center=physics.center[0].cpu().numpy()
+            self.camera.set_world_poses_from_view(eyes=[center+np.array([-.19,.23,.13])],targets=[center+np.array([.02,0.,-.025])])
+            focus=center+np.array([.02,0.,-.025])
+            # Tiny off-axis offset avoids a singular look-at frame at exactly world-Z.
+            self.top_camera.set_world_poses_from_view(eyes=[focus+np.array([0.,-.0001,.30])],targets=[focus])
+            self.encoder=subprocess.Popen(['/usr/bin/ffmpeg','-n','-loglevel','error','-f','rawvideo',
+                '-pix_fmt','rgb24','-s','1920x660','-r','20','-i','-','-an','-c:v','libx264',
+                '-pix_fmt','yuv420p','-movflags','+faststart',str(self.out/'isaac_native.mp4')],stdin=subprocess.PIPE)
         def capture(self,elapsed,net,drift,*,initial=False,reason=None):
             self.physics.sim.render();self.camera.update(self.physics.dt,force_recompute=True)
             rgb=tensor(self.camera.data.output['rgb'])[0,:,:,:3].cpu().numpy().astype(np.uint8)
-            frame=Image.new('RGB',(960,660),(18,23,31));frame.paste(Image.fromarray(rgb),(0,76))
+            width=1920 if self.top_camera is not None else 960
+            frame=Image.new('RGB',(width,660),(18,23,31));frame.paste(Image.fromarray(rgb),(0,76))
+            if self.top_camera is not None:
+                self.top_camera.update(self.physics.dt,force_recompute=True)
+                top_rgb=tensor(self.top_camera.data.output['rgb'])[0,:,:,:3].cpu().numpy().astype(np.uint8)
+                frame.paste(Image.fromarray(top_rgb),(960,76))
             draw=ImageDraw.Draw(frame)
+            if self.top_camera is not None:
+                for x,label in ((12,'斜侧视角'),(972,'顶部俯视')):
+                    draw.rectangle((x-4,82,x+120,118),fill=(18,23,31))
+                    draw.text((x,84),label,font=self.font,fill='white')
+                draw.line((960,76,960,615),fill=(150,160,175),width=2)
             draw.text((12,4),'伯牙手 / Isaac RTX 原生渲染 / 已执行物理轨迹回放',font=self.font,fill='white')
             label='初始状态定格' if initial else ('终止状态定格' if reason else ('原速播放' if args.playback_speed==1. else '0.2倍速慢放'))
             shape_name={'cylinder':'圆柱','sphere':'球','box':'长方体'}[geometry['shape']]

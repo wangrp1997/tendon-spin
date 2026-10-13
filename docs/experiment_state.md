@@ -1285,3 +1285,22 @@ pairedcheckpoints/TensorBoard present.10/20/30/40/50M exactly one frozen newnomi
 resume resets physics from same24-cache. No retries/extensions/watchdog, summary
 training/full eval traces. All oldconfigurations/weights/history preserved.
 No learned rotation result yet; expected firstnode~4h,total20–22h from initialrate.
+
+
+[New-grasp B50M COMPLETED and STOPPED](experiments/2026-10-12-boya-uniform48p8-b50m/RESULTS.md):
+2026-10-13 11:30:55Shanghai,50,003,968actions/6104updates,17.0087h wall.
+Allfive frozennewnominal30s evaluations and offlineanalysis completed normally,
+zeroevaluationresets/switches; eachinitialstateerror0. Finalactual/valid30s,
+signednet/peak+1474.687450deg,backward2.478304,last10s+493.327966,time-limit.
+Finaldrift10.502886mm/tilt27.234964deg/maxnormal13.575658N/contact99.9717%.
+Bestobserved by declarednet criterion remains20M+1691.332665deg/30s,
+backward2.555862/last10s+573.376098.30Mnet1584.937434/40M1517.247517,
+each30s normalstop; no summed150s claim. Laternetdecreases,tiltdecreases;
+50Mdriftworse than40M, no blanketstability/forgetting/superiority claim.
+Allparents/intermediate/finalweights preserved; ownfulllearner restored persegment,
+physicseachresume fromsame24-cache. SameB/task/16actions/engine/PPO/privilegedobs;
+newobject/grasp/cache inseparable as cause. Recordedouter/stage/child PIDs dead.
+No newphysics/training/extension/retry authorized by completion. Videos10/20/40M
+are measuredIsaac trajectories replayed withIsaacRTX, oblique/topsidebyside,
+normal speed; visualBOTYARD negative-Z cap U mapping fixed. Smallresults recorded,
+weights/fulltraces/TensorBoard staylocal; no extra evaluation/auditcampaign.
