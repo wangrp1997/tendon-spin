@@ -1,0 +1,91 @@
+# Derived from run_boya_hora_background.py at8cca30e (MIT), same supervision.
+# Separate randomized train/eval entrypoints, no retries or resource watchdog.
+# Reference: TendonSpin run_boya_hora_stage.py training/evaluation sequencing.
+# User-authorized cumulative resume, detached execution; no resource watchdog/quotas.
+"""Continue one declared learner in the background and record its actual final evaluation."""
+import argparse,json,os,signal,subprocess,sys,time,traceback
+from pathlib import Path
+from tendonspin.rl.resource_guard import atomic_json
+from tendonspin.rl.spin_progress_reward import PROFILE
+REWARD_PROFILES=(PROFILE,)
+parser=argparse.ArgumentParser()
+parser.add_argument('--out',type=Path,required=True)
+parser.add_argument('--cache',type=Path,required=True,help='Declared nine-size cache164')
+parser.add_argument('--randomization-config',type=Path,required=True)
+parser.add_argument('--scene-config',type=Path,required=True)
+parser.add_argument('--resume',type=Path,help='Omit for a fresh learner; supply only for deliberate continuation')
+parser.add_argument('--num-envs',type=int,required=True)
+parser.add_argument('--total-actions',type=int,default=10000000)
+parser.add_argument('--termination-profile',choices=('legacy_strict','hora_height','boya_workspace'),default='boya_workspace')
+parser.add_argument('--engine-profile',choices=('original_tgs16_4','tgs16_velocity0'),default='original_tgs16_4')
+parser.add_argument('--reward-profile',choices=REWARD_PROFILES,default=PROFILE)
+parser.add_argument('--eval-seconds',type=float,default=30.)
+parser.add_argument('--reward-diagnostics',action='store_true',help='Record rewards and analyze the final30s-or-failure episode')
+parser.add_argument('--initial-reference',type=Path)
+parser.add_argument('--controller',help='Explicit experiment/controller identity')
+parser.add_argument('--protocol',default='SERVER_TRAINING_HANDOFF.md')
+args=parser.parse_args()
+if args.eval_seconds != 30 or not args.reward_diagnostics:
+    parser.error('C stage requires --eval-seconds 30 --reward-diagnostics')
+root=Path(__file__).resolve().parents[1]
+out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
+started=time.monotonic();child=None;requested=None
+state=dict(arm='C',num_envs=args.num_envs,supervisor_pid=os.getpid(),phase='starting',training=None,evaluation=None,
+    process_nice=os.getpriority(os.PRIO_PROCESS,0),requested_total_actions=args.total_actions,
+    resume_checkpoint=str(args.resume.resolve()) if args.resume else None,
+    initialization='resume' if args.resume else 'fresh network/normalizers/Adam/RNG seed43',automatic_resource_stop=False,
+    termination_profile=args.termination_profile,engine_profile=args.engine_profile,reward_profile=args.reward_profile,
+    evaluation_requested_s=args.eval_seconds,automatic_retry=False)
+(out/Path(__file__).name).write_bytes(Path(__file__).read_bytes())
+environment=os.environ.copy();environment.update(OMNI_KIT_ACCEPT_EULA='YES',PYTHONPATH=str(root),
+    OMP_NUM_THREADS='4',MKL_NUM_THREADS='4')
+cache=args.cache.resolve() if args.cache else root/'outputs/boya_settled_cache_v2/grasp_cache.npz'
+def stop(signum,frame):
+    global requested
+    requested=signum
+    if child is not None and child.poll() is None:child.send_signal(signum)
+signal.signal(signal.SIGINT,stop);signal.signal(signal.SIGTERM,stop)
+def save():
+    state['wall_s']=time.monotonic()-started;atomic_json(out/'stage.json',state)
+    print('HORA_BACKGROUND '+json.dumps(state),flush=True)
+def run(phase,command):
+    global child
+    state['phase']=phase;state[phase+'_command']=command;save()
+    with (out/(phase+'.log')).open('w') as log:
+        child=subprocess.Popen(command,cwd=root,env=environment,stdout=log,stderr=subprocess.STDOUT)
+        state['child_pid']=child.pid;save();code=child.wait()
+    result=out/phase/'result.json';state[phase]=dict(exit_code=code,result=str(result))
+    if result.exists():
+        value=json.loads(result.read_text())
+        for key in ('status','stop_reason','actions_executed','session_actions_executed','actual_s','valid_s','net_deg'):
+            if key in value:state[phase][key]=value[key]
+    save()
+    if code or state[phase].get('status')!='completed':raise RuntimeError(phase+' failed; preserve record and stop')
+save()
+try:
+    run('training',[sys.executable,str(root/'scripts/train_boya_spin_progress.py'),'--out',str(out/'training'),
+        '--cache',str(cache),'--randomization-config',str(args.randomization_config.resolve()),*(['--resume',str(args.resume.resolve())] if args.resume else []),'--total-actions',str(args.total_actions),
+        '--num-envs',str(args.num_envs),'--trace-mode','summary','--wall-s','0','--max-gpu-memory-mib','0',
+        '--save-every','16','--minibatch-size','512','--seed','43','--termination-profile',args.termination_profile,
+        '--engine-profile',args.engine_profile,
+        '--reward-profile',args.reward_profile,
+        *(['--scene-config',str(args.scene_config.resolve())] if args.scene_config else []),
+        '--controller',(args.controller or 'boya_ninescale_dr_cache164_c_fresh_v1'),'--protocol',args.protocol])
+    if requested is not None or state['training'].get('stop_reason')!='update budget':
+        state['phase']='stopped';state['evaluation']='not launched after requested/non-budget stop'
+    else:
+        run('evaluation',[sys.executable,str(root/'scripts/evaluate_boya_spin_progress.py'),
+            '--out',str(out/'evaluation'),'--cache',str(cache),
+            '--checkpoint',str(out/'training/teacher_final.pth'),
+            '--source-record',str(out/'training/result.json'),'--seconds',str(args.eval_seconds),'--wall-s','1500',
+            *(['--reward-diagnostics'] if args.reward_diagnostics else []),
+            *(['--initial-reference',str(args.initial_reference.resolve())] if args.initial_reference else [])])
+        if args.reward_diagnostics:
+            run('analysis',[sys.executable,str(root/'scripts/analyze_boya_small_budget.py'),
+                '--evaluation',str(out/'evaluation'),'--training',str(out/'training/result.json'),
+                '--out',str(out/'analysis')])
+        state['phase']='completed'
+except BaseException as error:
+    state['phase']='error';state['error']=dict(type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
+finally:save()
+sys.exit(1 if state['phase']=='error' else 0)

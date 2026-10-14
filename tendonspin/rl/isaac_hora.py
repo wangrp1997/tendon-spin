@@ -138,6 +138,15 @@ class HoraBoyaEnv:
             np.savez(path,**{k:v[:self.trace_count] for k,v in self.trace.items()},**controls)
         self.trace=None;self.control_trace=[]
 
+    def control_reward(self, object_linvel, reported_velocity, pose, torque, work, failure_codes):
+        """One shared reward boundary; the terminal cost is included exactly once."""
+        velocity = self.rotation_reward_signal.angular_velocity(reported_velocity)
+        base, rotation, linear = self.reward_fn(object_linvel, -.3, velocity,
+            self.rotation_axis, 1., .5, -.5, pose, -.3, torque, -.1, work, -2.)
+        terminal = self.rotation_reward_signal.terminal_cost(failure_codes, base)
+        return dict(reward=base+terminal, base_reward=base, rotation=rotation,
+            linear_penalty=linear, terminal_failure_cost=terminal, rotation_velocity=velocity)
+
     @torch.no_grad()
     def step(self,actions):
         if self.stop_check is not None:self.stop_check()
@@ -182,9 +191,11 @@ class HoraBoyaEnv:
         pose=((m['joint_pos'][:,active]-self.init_q)**2).sum(-1)
         torque=(tau**2).sum(-1)
         work=((tau*velocity).sum(-1))**2
-        rotation_velocity=self.rotation_reward_signal.angular_velocity(m['object_state'][:,10:13])
-        reward,rot,lin=self.reward_fn(m['object_state'][:,7:10],-.3,rotation_velocity,
-            self.rotation_axis,1.,.5,-.5,pose,-.3,torque,-.1,work,-2.)
+        components=self.control_reward(m['object_state'][:,7:10],m['object_state'][:,10:13],
+            pose,torque,work,first)
+        reward,rot,lin=(components[k] for k in ('reward','rotation','linear_penalty'))
+        rotation_velocity=components['rotation_velocity']
+        terminal_cost=components['terminal_failure_cost']
         # Nonfinite physics cannot enter the network/optimizer; it is a hard blocker.
         if (first==1).any() or not m['finite'].all() or not torch.isfinite(reward).all():
             raise RuntimeError('Nonfinite physics or reward; preserve trace and stop nominal training')
@@ -192,8 +203,6 @@ class HoraBoyaEnv:
         timeout=self.termination.timeouts(self.progress,first)
         first[timeout]=7
         done=first!=0
-        terminal_cost=self.rotation_reward_signal.terminal_cost(first,reward)
-        reward=reward+terminal_cost
         if self.trace_mode=='full':
             self.control_trace[-1].update(reward=reward.cpu().numpy(),done=done.cpu().numpy(),
                 rotation_velocity=rotation_velocity.cpu().numpy(),

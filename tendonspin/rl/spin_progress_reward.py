@@ -14,6 +14,7 @@ from tendonspin.rl.rotation_reward import (
 )
 
 CONFIG = Path(__file__).resolve().parents[2] / 'assets/config/boya_spin_progress_reward.json'
+PROFILE = 'boya_object_spin_positive_cap_drop16'
 
 
 def configuration(path=CONFIG):
