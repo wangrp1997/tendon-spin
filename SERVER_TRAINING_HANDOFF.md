@@ -1,6 +1,37 @@
 # 服务器交接：五指构型 C 组教师训练
 
+## 最新状态：2026-10-15，210M 评估初始化错误后停止
+
+**当前没有训练进程运行。** 2026-10-15 10:04，210M 训练正常完成并保存（实际210,108,416动作、1603updates，14.01%），随后冻结评估在策略加载前失败，物理步数0；监督按既定规则停止，未自动重试。原主PID2227265已退出，以下“运行中”描述均是历史记录。
+
+错误：PhysX `setCMassLocalPose pose is not valid`，随后名义50g质量读回误差约0.05kg；根因待独立诊断，不推定为策略NaN或显存OOM。完整learner/policy哈希、有限性、配对、Adam步数2051840及52个冻结源/配置联合身份均已CPU核验通过。最后有效评估仍是200M（30秒、1238.48°），210M无有效评估。
+
+证据：`outputs/server_c50m_deployment/c1p5b_210m_failure_audit.json` / `.md`；恢复源是 `outputs/boya_c_fresh1p5b_server_v1/actions_210000000/training/teacher_final.pth`。保留全部权重和失败记录；不得重新运行原fresh命令覆盖或重新训练。遵守执行错误停止汇报、不自动重试约束；人工诊断/恢复另行记录授权和验证结果。原引擎、抓取、算法、奖励、DR和冻结协议均未修改。
+
+
 用户已授权：在服务器空闲 GPU 上测试合适的并行环境数，接入下面的 C 奖励，从零训练 **1.5B（1,500,000,000）累计环境动作**，每 10M 自动冻结评估，共 150 个节点。原 50M 是早期测试预算，用户已在 2026-10-14 明确改为参考原 Hora 正式上限。本次仅在服务器选定 GPU 1 上运行。此文件是明确要求公开的交接说明；`docs/`、`AGENTS.md`、权重和训练日志仍不发布。
+
+### 2026-10-15 最新授权：先 push，再从210M恢复
+
+用户已明确要求“先push再恢复”。**不再等待新的启动确认**；先确认本次恢复代码已经推送，再启动独立续训目录 `outputs/boya_c_fresh1p5b_server_recovery_sync_v1/`。本文件以下停机/待审阅描述是推送前历史；实际启动状态以新目录 `status.json`、当前训练 `result.json` 和PID为准。不得重跑旧fresh入口。
+
+正式修复不改安装文件：新增 `tendonspin/physics/physx_property_sync.py` 和 `scripts/run_boya_with_property_sync.py`，对精确SHA固定的安装版PhysX，仅在质量/COM/环境ID的现有D2H copy完成后让CPU消费者继续；其他GPU/求解器操作保持异步。旧52个冻结源码/配置及完整learner合同原样保留，兼容入口3个新文件另存哈希与运行审计，不隐瞒运行时差异。
+
+新增 `scripts/resume_boya_spin_progress_milestones.py`：核验旧节点和自己的210M完整learner，保存原失败记录，用新目录引用已验证的210M诊断评估并记录显式接纳，再继续220M～1500M共129段。每10M原名义30s评估、16384环境、minibatch512、seed43、C奖励、DR、抓取和原PhysX不变；执行/源/恢复/数值错误仍停报，不自动重试。
+
+推送前验证：相关CPU测试11项通过；新生产入口在独立64环境配置副本上完成2updates/1024动作且模型更新、属性回读正确。完整只读历史/恢复预检 `outputs/boya_c_recovery_preflight_sync_v1/` 为prepared，21个节点校验完成；`--prepare-only` 不启动正式训练。独立小验证不计入正式1.5B。诊断候选三行安装文件patch继续保留但不应用，正式路线采用上述有来源审计的进程内同步。
+
+### 2026-10-15 人工诊断结果：正式训练仍暂停
+
+用户已明确允许开始独立诊断。已在隔离小场景复现安装版 PhysX 适配层的异步 GPU→pinned CPU 属性回读问题：原 `set_masses_index` / `set_coms_index` / 环境ID回读在 CPU 消费前缺少等待；冷缓冲实验产生0质量及与正式日志一致的无效COM姿态报错。原错误未保存实际缓冲内容，不将实验零质量当作当时直接观测。完整报告：`outputs/server_c50m_deployment/c1p5b_210m_diagnosis_report.md` / `.json`。
+
+已生成未应用的三行候选 `outputs/server_c50m_deployment/isaaclab_physx_property_host_readback_sync_candidate.patch`，仅在现有D2H copy后等待stream。临时进程验证通过：单环境80次属性设置及冷缓冲、64环境80次属性设置和200次原DR reset均正确。52个冻结源/配置及安装文件原始哈希复核一致；**未修改安装环境、冻结代码、奖励、抓取、PPO或物理参数**。
+
+使用进程内临时等待的独立210M冻结评估已完成：30秒未掉落，net **1345.4828°（3.7375圈）**，比200M约+8.64%，仍低于70M最佳1686.1693°。名义50g/摩擦0.5/COM0读回正确，与200M初态各项误差0。输出 `outputs/server_c50m_deployment/physx_sync_eval210m_20261015_v1/`，含同步wrapper来源；**尚未计入正式210M节点，原失败评估未覆盖**。
+
+原64环境未同步的100次实际DR reset小样本也通过；历史训练并无逐次真实属性回读，因此不能排除或量化过去偶发错误，也不能将后期名义速度回退直接归因于此。200M有84.17%控制步达到0.5rad/s正向奖励上限；奖励分解提示速度与优化目标可能存在取舍，但未证明因果。
+
+恢复草案 `outputs/server_c50m_deployment/c1p5b_210m_recovery_plan_draft.json` 已保存，未执行。安装适配层兼容补丁需明确审阅记录；随后只允许从自己的210M完整learner续训，使用新的continuation监督输出，先明确接纳210M独立评估，再从220M（实际220069888）继续剩余129个节点。原主入口fresh-only，不得对旧目录重跑。当前没有正式训练进程。
 
 ## 服务器接手进度：2026-10-14，已在 tmux 中恢复
 
