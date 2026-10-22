@@ -11,3 +11,6 @@ __pycache__/
 /.vscode/
 /.agents/
 /.codex/
+
+# Local demo output, not part of the training sources.
+/bowl_posture_20261015_demo_02/
