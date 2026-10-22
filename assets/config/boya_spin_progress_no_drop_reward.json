@@ -1,0 +1,30 @@
+{
+  "schema": "tendonspin-boya-spin-progress-reward-v1",
+  "profile": "boya_object_spin_positive_cap_drop0",
+  "target_axis": "negative mean of adjacent object local-Z axes in world coordinates",
+  "rotation_signal": "sum signed per-physics-step pose rotation increments / control_dt",
+  "rotation_scale": 1.0,
+  "positive_speed_cap_rad_s": 0.5,
+  "negative_speed_floor_rad_s": null,
+  "physics_dt_s": 0.0005,
+  "steps_per_control": 100,
+  "terminal_failure_cost": 0.0,
+  "terminal_failure_codes": [
+    9,
+    10
+  ],
+  "ordinary_timeout_cost": 0.0,
+  "other_penalty_scales": {
+    "object_linear_velocity_l1": -0.3,
+    "joint_pose_squared": -0.3,
+    "motor_torque_squared": -0.1,
+    "motor_power_squared": -2.0
+  },
+  "reference": "https://github.com/HaozhiQi/hora/tree/v0.0.1",
+  "port_changes": [
+    "Moving object axis replaces Hora fixed world axis",
+    "Positive reward remains capped; negative self-spin is not clipped",
+    "Remove explicit Boya failure cost; retain workspace termination and original Hora other penalties"
+  ],
+  "integration": "Native D ablation; inherited C rotation and nonrotation terms, zero terminal cost"
+}
