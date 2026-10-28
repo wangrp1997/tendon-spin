@@ -9,10 +9,82 @@ import unittest
 from scripts.serve_boya_training_dashboard import (FIXTURES, WM_ATTACHMENT, WM_EVALUATION, WM_LAUNCH,
     WM_RECOVERIES, WorldModel, combine_wm_evaluations, comparison, display_lineage,
     evaluation, evaluation_history, merge_wm_series, series, verified_wm_continuation, weighted_fps,
-    verified_wm_recovery, wm_evaluation, wm_series)
+    verified_wm_recovery, wm_evaluation, wm_series, training_history, wm_training_resume_evidence)
 
 
 class DashboardTests(unittest.TestCase):
+    def test_wm_keeps_following_original_writer_after_auxiliary_event_file_appears(self):
+        from tensorboard.compat.proto.event_pb2 import Event
+        from tensorboard.compat.proto.summary_pb2 import Summary
+        from tensorboard.summary.writer.event_file_writer import EventFileWriter
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);output=root/'outputs/own';logs=output/'runs/summaries'
+            training=EventFileWriter(str(logs),filename_suffix='.training')
+            auxiliary=None
+            def scalar(writer,tag,step,value,wall_time):
+                writer.add_event(Event(wall_time=wall_time,step=step,
+                    summary=Summary(value=[Summary.Value(tag=tag,simple_value=value)])))
+            try:
+                scalar(training,'info/epochs',0,1,100)
+                scalar(training,'rewards/iter',1,10,100);training.flush()
+                model=WorldModel(root)
+                self.assertEqual([p['epoch'] for p in model.points(output,16384,.05)],[1])
+                auxiliary=EventFileWriter(str(logs),filename_suffix='.physical_metrics')
+                scalar(auxiliary,'physical_metrics/net_deg',16384,1000,110);auxiliary.flush()
+                self.assertEqual([p['epoch'] for p in model.points(output,16384,.05)],[1])
+                scalar(training,'info/epochs',16384,2,120)
+                scalar(training,'rewards/iter',2,20,120);training.flush()
+                points=model.points(output,16384,.05)
+                self.assertEqual([p['epoch'] for p in points],[1,2])
+                self.assertEqual([p['reward'] for p in points],[10,20])
+                self.assertEqual(points[-1]['wall_time'],120)
+            finally:
+                training.close()
+                if auxiliary is not None:auxiliary.close()
+
+    def test_periodic_resume_excludes_unsaved_predecessor_training_points(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            outputs=Path(tmp)
+            def write(path,value):
+                path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value))
+            write(outputs/'old/actions_100/training/result.json',dict(arm='C',lineage_id='own',
+                updates=[dict(actions=n) for n in [10,20,30]]))
+            write(outputs/'new/plan.json',dict(arm='C',start_actions=20,interruption_recovery=dict(
+                audit=dict(exact_saved_learning_state_verified=True,restored_actions=20))))
+            write(outputs/'new/actions_100/training/result.json',dict(arm='C',lineage_id='own',
+                updates=[dict(actions=21)]))
+            records=training_history(outputs,['old','new'],'C')
+            self.assertEqual([p['actions'] for p in series(records,'C','own')],[10,20,21])
+            old=json.loads((outputs/'old/actions_100/training/result.json').read_text())
+            self.assertEqual([p['actions'] for p in old['updates']],[10,20,30])
+            write(outputs/'new/plan.json',dict(arm='C',start_actions=30,interruption_recovery=dict(
+                audit=dict(exact_saved_learning_state_verified=True,restored_actions=20))))
+            with self.assertRaises(ValueError):training_history(outputs,['old','new'],'C')
+
+    def test_wm_training_resume_requires_own_checkpoint_command_and_full_verification(self):
+        predecessor=Path('/tmp/wm-predecessor');checkpoint=str(predecessor/'runs/nn/best.pth')
+        launch=dict(physical_gpu=1,planned_interactions=329318400,num_envs=1024)
+        verification=dict(status='passed',exact_learning_state_comparison=True,
+            frame=76152832,epoch=4648,checkpoint_sha256='own-sha',identity='own',checkpoint=checkpoint)
+        recovery=dict(out='/tmp/wm-new',checkpoint=checkpoint,checkpoint_sha256='own-sha',
+            physical_gpu=1,training_budget=329318400,num_envs=1024,horizon=16,max_epochs=20100,
+            evaluation_interval_actions=10000000,subprocess_timeout_seconds=21600,
+            core_code_and_learning_config_unchanged=True,restored_epoch=4648,
+            restored_training_actions=76152832,resume_verification=verification,
+            command=['python','train_wm.py','--checkpoint',checkpoint,'--out','/tmp/wm-new'])
+        normalized=wm_training_resume_evidence(recovery,predecessor,launch)
+        verified_wm_recovery(normalized,verification,'own',16384,predecessor,launch)
+        for change in [dict(checkpoint='/tmp/foreign/learner.pth'),dict(horizon=32),
+                dict(core_code_and_learning_config_unchanged=False),dict(restored_epoch=0),
+                dict(command=['python','train_wm.py','--out','/tmp/wm-new'])]:
+            with self.subTest(change=change),self.assertRaises(ValueError):
+                wm_training_resume_evidence(dict(recovery,**change),predecessor,launch)
+        for change in [dict(restored_training_actions=1),dict(checkpoint_sha256='foreign'),
+                dict(resume_verification=dict(verification,exact_learning_state_comparison=False))]:
+            bad=wm_training_resume_evidence(dict(recovery,**change),predecessor,launch)
+            with self.subTest(change=change),self.assertRaises(ValueError):
+                verified_wm_recovery(bad,verification,'own',16384,predecessor,launch)
+
     def test_unrestored_worker_keeps_own_previous_history(self):
         previous=dict(arm='C',status='completed',checkpoint='outputs/own/teacher_final.pth',lineage_id='own')
         current=dict(arm='C',resume_from=str(Path('outputs/own/teacher_final.pth').resolve()),

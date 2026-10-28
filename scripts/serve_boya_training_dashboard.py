@@ -17,8 +17,10 @@ HISTORY={
     'C': ['boya_c_fresh1p5b_server_v1','boya_c_fresh1p5b_server_recovery_sync_v1',
           'boya_c_fresh1p5b_server_dr_eval_v1',
           'boya_c_fresh1p5b_server_dr_eval_timeout_recovery_v1',
-          'boya_c_fresh1p5b_server_oom_recovery_v1'],
-    'D': ['boya_d_fresh1p5b_server_dr_eval_v1'],
+          'boya_c_fresh1p5b_server_oom_recovery_v1',
+          'boya_c_fresh1p5b_server_interrupted_recovery_20261024_v1'],
+    'D': ['boya_d_fresh1p5b_server_dr_eval_v1',
+          'boya_d_fresh1p5b_server_interrupted_recovery_20261024_v1'],
 }
 ACTIVE={arm:names[-1] for arm,names in HISTORY.items()}
 REFERENCE='boya_c_paired_dr_eval_20261016_gpu0_v3'
@@ -28,7 +30,8 @@ WM_ROOT=ROOT.parent/'boya-inhand-wm'
 WM_LAUNCH='evidence/wm_server_1024_launch_20261016.json'
 WM_ATTACHMENT='evidence/wm_periodic_evaluation_attachment_20261016.json'
 WM_EVALUATION='evidence/wm_periodic_evaluation_integration_20261016.json'
-WM_RECOVERIES=('evidence/wm_evaluation_timeout_recovery_20261022.json',)
+WM_TRAINING_RESUME='evidence/wm_training_resume_20261024.json'
+WM_RECOVERIES=('evidence/wm_evaluation_timeout_recovery_20261022.json',WM_TRAINING_RESUME)
 WM_TAGS=('info/epochs','performance/step_inference_rl_update_fps','rewards/iter',
     'episode_lengths/iter','losses/a_loss','losses/c_loss','world_model/model_loss',
     'world_model/image_loss','world_model/wm_pose_loss','world_model/wm_tac_loss')
@@ -60,6 +63,26 @@ def series(records, arm, lineage):
                 fps=finite(row.get('actions_per_s')),wall_s=finite(row.get('update_wall_s')),
                 learning_rate=finite(row.get('learning_rate')))
     return [points[key] for key in sorted(points)]
+
+
+def training_history(outputs,names,arm):
+    """Discard predecessor updates that the retained periodic learner did not save."""
+    records=[]
+    for name in names:
+        base=outputs/name;plan=read(base/'plan.json',{})
+        recovery=plan.get('interruption_recovery')
+        if recovery:
+            audit=recovery.get('audit',{});boundary=plan.get('start_actions')
+            if (plan.get('arm')!=arm or audit.get('exact_saved_learning_state_verified') is not True
+                    or not isinstance(boundary,int) or boundary!=audit.get('restored_actions')):
+                raise ValueError('C/D retained learner boundary is not verified')
+            records=[dict(r,updates=[u for u in r.get('updates',[]) if u.get('actions',0)<=boundary])
+                for r in records]
+        for path in sorted(base.glob('actions_*/training/result.json')):
+            if re.fullmatch(r'actions_[0-9]+',path.parent.parent.name):
+                record=read(path)
+                if record:records.append(record)
+    return records
 
 
 def weighted_fps(updates,num_envs):
@@ -194,6 +217,28 @@ def verified_wm_recovery(recovery,verification,identity,batch,predecessor,launch
     for key in ('checkpoint_sha256','epoch','frame','exact_learning_state_comparison','identity'):
         if declared.get(key)!=verification.get(key):
             raise ValueError('WM recovery evidence differs: '+key)
+
+
+def wm_training_resume_evidence(recovery,predecessor,launch):
+    """Validate the WM project's explicit checkpoint-resume handoff format."""
+    command=recovery.get('command',[])
+    def argument(flag):
+        if command.count(flag)!=1 or command.index(flag)+1>=len(command):
+            raise ValueError('WM resume command is missing '+flag)
+        return command[command.index(flag)+1]
+    checkpoint=Path(recovery['checkpoint']).resolve()
+    if (not checkpoint.is_relative_to(predecessor.resolve())
+            or Path(argument('--checkpoint')).resolve()!=checkpoint
+            or Path(argument('--out')).resolve()!=Path(recovery['out']).resolve()
+            or recovery.get('core_code_and_learning_config_unchanged') is not True
+            or recovery.get('restored_epoch',0)<=0
+            or recovery.get('horizon')!=16 or recovery.get('max_epochs')!=20100
+            or recovery.get('evaluation_interval_actions')!=10000000
+            or recovery.get('physical_gpu')!=launch['physical_gpu']):
+        raise ValueError('WM explicit training resume identity differs')
+    # The declared --checkpoint and verified positive epoch establish continuation.
+    return dict(recovery,predecessor_out=str(predecessor.resolve()),restart_from_zero=False,
+        repair=dict(subprocess_timeout_seconds=recovery.get('subprocess_timeout_seconds')))
 
 
 def combine_wm_evaluations(segments):
@@ -341,12 +386,20 @@ class WorldModel:
         event_path=output/'runs/summaries'
         if not event_path.exists():return []
         from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
-        if event_path not in self.accumulators:
-            self.accumulators[event_path]=EventAccumulator(str(event_path),size_guidance={'scalars':0})
-        accumulator=self.accumulators[event_path];accumulator.Reload();tags=set(accumulator.Tags()['scalars'])
-        scalars={tag:[dict(step=r.step,value=r.value,wall_time=r.wall_time)
-            for r in accumulator.Scalars(tag)] for tag in WM_TAGS if tag in tags}
-        return wm_series(scalars,batch,dt)
+        scalars={tag:{} for tag in WM_TAGS}
+        # An auxiliary evaluation writer can create a newer file while training
+        # keeps appending to its original file. Watch each file independently.
+        for path in sorted(event_path.glob('events.out.tfevents.*')):
+            if not path.is_file():continue
+            if path not in self.accumulators:
+                self.accumulators[path]=EventAccumulator(str(path),size_guidance={'scalars':0})
+            accumulator=self.accumulators[path];accumulator.Reload()
+            for tag in set(accumulator.Tags()['scalars']) & set(WM_TAGS):
+                for row in accumulator.Scalars(tag):
+                    prior=scalars[tag].get(row.step)
+                    if prior is None or row.wall_time>=prior['wall_time']:
+                        scalars[tag][row.step]=dict(step=row.step,value=row.value,wall_time=row.wall_time)
+        return wm_series({tag:list(rows.values()) for tag,rows in scalars.items()},batch,dt)
 
     def collect(self):
         launch=read(self.root/WM_LAUNCH,{})
@@ -396,6 +449,8 @@ class WorldModel:
                 verification=read(candidate/'resume_verified.json')
                 if not verification:
                     attaching=True;continue
+                if relative==WM_TRAINING_RESUME:
+                    recovery=wm_training_resume_evidence(recovery,output,launch)
                 verified_wm_recovery(recovery,verification,identity['checkpoint_identity'],batch,output,launch)
                 checkpoint=Path(recovery['checkpoint']).resolve()
                 if not checkpoint.is_relative_to(output.resolve()):
@@ -490,12 +545,7 @@ class Dashboard:
             base=outputs/ACTIVE[arm];state=read(base/'status.json',{});plan=read(base/'plan.json',{})
             current_path=Path(state['current_run']) if state.get('current_run') else base/'not-started'
             current=read(current_path/'training/result.json',{})
-            records=[]
-            for name in names:
-                for path in sorted((outputs/name).glob('actions_*/training/result.json')):
-                    if re.fullmatch(r'actions_[0-9]+',path.parent.parent.name):
-                        record=read(path)
-                        if record:records.append(record)
+            records=training_history(outputs,names,arm)
             lineage=display_lineage(current,records,arm)
             if not lineage and plan.get('source_run'):
                 lineage=read(Path(plan['source_run'])/'training/result.json',{}).get('lineage_id')

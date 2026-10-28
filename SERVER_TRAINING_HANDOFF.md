@@ -1,5 +1,25 @@
 # 服务器交接：五指构型 C 组教师训练
 
+## 2026-10-25：训练继续，修复WM网页进度不随原事件文件更新
+
+用户询问训练和网页是否正常。2026-10-25T18:09:47.381090+08:00核实C监督41956正常续训，D监督41957处于850M例行随机化评估，WM33671实际训练至5265轮/86261760动作。三组进程均存活，C/D心跳正常且未报告错误。当前实时进度以API为准。
+
+发现网页WM卡在80019456动作/4884轮并误显示“等待新训练日志”，原始训练TensorBoard和日志实际一直推进。原因是80M评估创建较新的 `physical_metrics_v2_80003072` 辅助事件文件后，目录级EventAccumulator跟踪移到新文件，忽略仍写入旧事件文件的训练writer。网页改为逐事件文件独立增量读取，只合并既有训练tag，同step按wall_time取最新；恢复点和名义/DR评估校验保持。真实事件文件回归覆盖“原writer开始→出现辅助writer→原writer继续追加”，22项网页CPU检查通过。
+
+只重启网页47283→2027536，未重启或更改C/D/WM训练。8765的HTML与API均200，修复后WM显示训练中并跟上真实轮数，保留C70/D84个完整评估节点与WM16行名义/随机化评估。C78/D72个冻结源哈希均未变。证据 `outputs/boya_training_dashboard_v1/wm_event_reader_fix_20261025.json`；日志 `server_wm_event_reader_fix_20261025.log`。浏览器刷新原页面即可取得新数据。
+
+## 2026-10-24：C/D 断点续训首更新验收通过，三组监控已恢复
+
+用户在确认两组进程退出后明确要求恢复训练，并要求恢复 C、D、WM 三组网页监控。旧 C/D 日志与监督心跳最后均在10月23日17:28附近，未记录新的 traceback/OOM；当前环境10月24日12:12启动，具体中断原因未知。旧 status 虽仍写 training，原 PID 已退出，不能据此认为原训练存活。
+
+新增 `scripts/resume_boya_interrupted.py`，只从自己的成对周期完整 learner 恢复，用新目录保留全部旧状态、日志及 checkpoint。C 为990248960动作/7555更新，D 为738197504动作/5632更新；分别重算未保存的12/2次更新。CPU验证模型、两类normalizer、Adam、调度器/随机状态字段、计数、原learner合同及来源哈希通过。22项恢复/原训练CPU检查通过，监督训练/评估循环与既有 OOM 恢复入口按 AST 验证一致，仅恢复引导改为周期断点。
+
+北京时间12:43:40已启动 C 监督 **41956** / worker **42361**，新目录 `outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261024_v1/`；D 监督 **41957** / worker **42360**，新目录 `outputs/boya_d_fresh1p5b_server_interrupted_recovery_20261024_v1/`。原GPU1 UUID、16384环境、1.5B累计目标、每10M同492例/30秒评估、抓取/奖励/PPO/DR/引擎均保留；C评估wall21600秒、D7200秒沿用各自原值。首目标C1B/D740M。每个worker复用15141MiB连续3次显存准入，worker执行错误停止且不自动重试。78个C/72个D固定源运行中不得修改；本交接及网页不在冻结源中。**北京时间12:55首更新验收通过**：C7555→7556更新、990248960→990380032动作；D5632→5633更新、738197504→738328576动作。两组恢复初始模型/两类normalizer与各自断点逐张量相同，训练合同相同，首更新参数确实变化且数值有限，成对learner/policy匹配，Adam各推进1280步（C9670400→9671680，D7208960→7210240）。原记录和全部冻结源码哈希保持不变。启动验收 `outputs/server_c50m_deployment/cd_interrupted_recovery_startup_20261024.json`；实际worker命令逐项一致验收 `cd_interrupted_worker_contract_20261024.json`。两组均已实际续训，不要重复启动。预检证据为各新输出 `recovery_preflight.json`；说明 `docs/experiments/2026-10-24-interrupted/RECOVERY.md`。
+
+8765网页已恢复，服务 **47283**，地址 `http://127.0.0.1:8765/`。已跟随上述新C/D目录，训练历史只保留到各自恢复断点，避免将未保存更新当作当前进度；旧完整C62/D73个DR节点保留。WM只读接入其项目新交接 `evidence/wm_training_resume_20261024.json`，校验其新输出 resume_verified、checkpoint哈希/身份/计数与已声明学习状态，当前WM进程 **33671** / 输出 `server_shared_1024_eval_resume_20261024_01`、恢复76152832动作/4648轮，实际已继续更新；保留7组名义/随机化共14行完整评估及分页。此处未修改或重启WM训练。
+
+网页21项CPU检查、真实HTTP/HTML/API与历史数量验证通过；验收 `outputs/boya_training_dashboard_v1/interrupted_recovery_integration_20261024.json`。网页不导入GPU训练运行时、不占GPU。12:55真实API确认C/D均为训练中，WM也在继续更新，最新动作及节点数以上述新目录status/result与API为准，旧启动记录仅作历史。
+
 ## 2026-10-22 最新人工恢复：已从920M完整状态续训，首更新验证通过
 
 用户本轮询问“C现在还能重启吗，显存是不是不够？”，按继续C训练的上下文执行一次人工恢复。09:26查询GPU1空闲 **17288MiB（16.88GiB）**；原成功16384环境容量测试记录全设备峰值 **10021MiB（9.79GiB）**，预计其他分配不变时启动后约余7267MiB。之前17GiB空闲并不等同无法运行；凌晨OOM是故障当时的分配失败，不应混为当前资源不足。
