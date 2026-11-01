@@ -1,4 +1,91 @@
+## 2026-11-01 botyard C1260M 蒸馏与独立闭环验收已完成，可交接
+
+用户委托本代理的 botyard 蒸馏任务已完成；不是仅启动训练。正式队列于 2026-11-01T20:48:37.019430+08:00 完成，约22.60分钟（不含开发/先行教师转移验证）。40条训练/验证采集、10000监督updates、30条独立闭环评估全部完成，全部精确原生回放一致。训练17775帧、独立验证6000帧，按验证集选7000步，测试不参与拟合/选择。
+
+| 策略 | 九个新DR平均净旋转 | DR保持30s | 名义净旋转 | 名义保持30s |
+| --- | ---: | ---: | ---: | ---: |
+| C1260教师 | 1082.00° | 9/9 | 1368.64° | 是 |
+| 旧40M名义学生 | 169.06° | 5/9 | 1508.79° | 是 |
+| 新C1260学生 | 1048.68° | 9/9 | 1355.42° | 是 |
+
+新学生达到教师DR净旋转的96.92%；名义旋转相对旧学生下降10.17%，必须保留此取舍说明。本轮有限面板满足预声明的名义闭环与DR新旧比较标准，`recommended_as_DR_default=true`，仅为仿真接入验收，不是总体/实物鲁棒保证。
+
+- 可用学生：`/home/wangrenpeng/botyard-inhand/outputs/research/c1260_distillation_20261101/trial_01/handoff/student_best.pth`。
+- 学生 SHA-256：`e46490f802adf656e4f58e96c7447d822ff597c4e145bb12ee6dcd4fa51fa986`；教师 SHA-256：`a1a4f3c20c62ed766bcce014eb15704d80b962cee0ffe4edff95ba1e2ef4b5a2`。
+- 交接说明：`/home/wangrenpeng/botyard-inhand/outputs/research/c1260_distillation_20261101/trial_01/handoff/README.md`；清单 `handoff/manifest.json`；完整小型结果 `comparison.json`。
+- 原 botyard `SensorStudent` 严格加载通过；student schema仍为sensor-student-v1，新教师动作头/normalizer已内嵌，部署不加载教师、不用物体真值。旧学生未覆盖。
+- 接入新底座时不能默认复用旧A的残差/特征校准/critic/回放，应由目标代理另建绑定并验证。
+- 代码 `research/c1260_distillation/` 已就地交付到botyard。独立本地分支 `research/c1260-sensor-distillation-20261101`，提交 `90e0f6e8f6508d5896a1f092b31c43e6f9e257a9`；通过临时索引提交，目标当前分支/HEAD/原索引/未提交改动均保持。
+- Git远端git.nrs-lab.com当前无可用认证（Coder auth provider不匹配、无非交互用户名），因此未推送；本地代码、模型和交接文件均可直接使用。未向其他代理发送消息，由用户告知。
+
+详细记录：`docs/experiments/2026-11-01-teacher-selection/BOTYARD_DISTILLATION_RESULT.md`、`outputs/server_c50m_deployment/botyard_distillation_result_20261101.json`。下面进行中记录已成为历史，禁止自动重跑已经完成的蒸馏队列。
+
+## 2026-11-01 用户委托本代理在 botyard 完成 C1260M 蒸馏
+
+用户明确要求本代理按 botyard 代码/流程完成蒸馏，之后由用户自己通知那边代理。已在目标仓库新建独立 `research/c1260_distillation/`，未替换旧学生/适应实验，无其他代理消息。结果目录 `/home/wangrenpeng/botyard-inhand/outputs/research/c1260_distillation_20261101/trial_01`；监督 PID 952303，实时 `pipeline_status.json`，最终预期 `handoff/`。
+
+新教师 CPU 推理与 Isaac 存档60组输入最大误差4.17e-7；DR特权归一化误差0。官方 MuJoCo3.16.0 名义原始初态完整30s净转1364.1534°、末10s468.0555°，原检查通过、精确回放一致。名义与一条DR的实际传感采集各完整30s，回放通过。三个必要检查通过（reset窗口边界、条件划分独立、实际采集传感流与原 SensorInference 一致）。
+
+固定30训练回合、10独立验证回合；原 SensorStudent CNN/TConv、原action+latent loss、C1260冻结动作头/normalizer，10000updates。最终10独立条件（九尺度DR+名义）分别评测教师/旧学生/新学生，保留提前失败前缀并核验三者初态与实际属性配对。四个原生进程在GPU1渲染，Torch拟合GPU1/15%显存上限。当前采集队列已实际启动；训练尚待采集完成，不要把准备当作训练完成。
+
+源码与 protocol/binding 已钉住；后续不要修改这些 Python 文件或 `distillation_protocol.json`。数值/实现/回放/身份错误停止，不自动重试；普通预定物理失败保留且继续其他固定案例。旧学生保持原 SHA 43c564...9f3ba。最终能否建议换底座由完整独立闭环评估决定，不能提前说“已经可以用了”。
+
+交接最终结果以 `comparison.json` 与 `handoff/manifest.json` 为准。相关记录 `outputs/server_c50m_deployment/botyard_distillation_delegation_20261101.json`。
+
+## 2026-11-01 教师评估已全部完成：best = C1260M
+
+完成于 2026-11-01T19:26:37.297057+08:00，总耗时 125.24 分钟。四个权重各 492 个新条件案例、共 1968 例全部完成，推理冻结、实际初始状态/物理参数配对和最终 checkpoint/policy/source-record 哈希复核通过，无基础设施未完成。输出 `outputs/boya_c_teacher_selection_20261101_v1/status.json` 的 `phase=completed`，自动最终清单 `best_teacher.json` 已生成。
+
+| 权重 | 平均净旋转（度） | P10（度） | 保持30s |
+| --- | ---: | ---: | ---: |
+| 1240M | 990.98 | 468.93 | 444/492 (90.24%) |
+| 1260M | 1020.31 | 525.01 | 436/492 (88.62%) |
+| 1460M | 968.74 | 603.30 | 461/492 (93.70%) |
+| 1500M | 949.71 | 190.66 | 436/492 (88.62%) |
+
+按事先固定的平均有效前缀净旋转主目标选 C1260M；保持率及 P10 更高的 C1460M 保留为稳定性备选。1260M 相比最后 1500M 的平均净旋转提高 7.43%，保持率同为 88.62%。
+
+- 主教师完整 learner：`outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1/actions_1260000000/training/teacher_final.pth`；SHA-256 `a1a4f3c20c62ed766bcce014eb15704d80b962cee0ffe4edff95ba1e2ef4b5a2`。
+- 配套 policy：`outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1/actions_1260000000/training/teacher_final_policy.pth`；必须使用同 checkpoint 的观测归一化器。
+- 结果记录：`docs/experiments/2026-11-01-teacher-selection/RESULTS.md`；完整比较 `outputs/boya_c_teacher_selection_20261101_v1/comparison.json`。
+- 监督 PID 577552 与最后 worker PID 772753 已退出，本轮显存已自动释放。未改其他任务，未启动学生训练。下面的启动/进行中记录均为历史。
+
+## 2026-11-01 教师四候选新随机条件配对评估（已授权运行）
+
+用户确认比较 1240M、1260M、1460M、1500M 并换新随机条件后，明确要求“好的你评测下？”。已于 2026-11-01T17:21:22.613471+08:00 启动独立评估队列，监督 PID 577552，物理 GPU1 / GPU-a3f9cc58-fe6f-96d3-ab1a-e1dc33b09e7a；不继续 C/D 训练。此节是启动记录，后续实时状态以 status.json 为准。
+
+- 输出：`outputs/boya_c_teacher_selection_20261101_v1/`，执行入口：`outputs/server_c50m_deployment/run_teacher_selection_20261101.py`。
+- 实时状态：`status.json`；详细日志：`supervisor.log` 与各权重 `.log`；已完成 9env/九尺寸/1s 实际属性及初始状态验证，当前首个完整模型为 1260M。
+- 新测试种子：2026110101、2026110102、2026110103，与旧种子不交叠；同一套 164 个缓存抓取 × 3 新条件共 492 案例/模型，每例最多 30s。四模型依次 1260M、1460M、1240M、1500M，全程串行，共 1968 案例。
+- 四个 learner/policy/normalizer 的 CPU 审计通过，原配对评估 6 项 CPU 测试通过；独立临时目录用历史结果验证最终报告/选择流程通过（不是真实新评估结果），见 `offline_pipeline_validation.json`。
+- 固定任务、物理、分布、缓存、终止与评分，使用各自匹配且冻结的 normalizer。所有实际案例元数据、初始状态及物理参数必须配对通过。
+- 全部完整评估和核验通过后，自动保存 `comparison.json`、`comparison.md` 和 `best_teacher.json`。预声明排序以全部案例平均有效前缀净旋转为主，保持率和 P10 同时报告，另列保持率最高备选。未全部完成前不能声称已选定新 best。
+- 协议：`docs/experiments/2026-11-01-teacher-selection/PROTOCOL.md`。每模型墙钟预算 14400s；基础设施错误停止且无自动重试，保留部分结果；不把未完成评估当作策略失败。共享 GPU 负载可能影响速度。
+- 原始权重/历史 fixture/冻结训练代码未覆盖。不改变其他运行进程，不启动学生训练。不要修改已钉住的本次协议或监督脚本，否则运行时来源核验会停止。
+
 # 服务器交接：五指构型 C 组教师训练
+
+## 2026-10-29：D评估超时后决定提前结束，资源已释放，C继续训练
+
+用户随后明确确认“先停止D并做好实验记录”。正式归档 `docs/experiments/2026-10-29-d-termination/EXPERIMENT_RECORD.md` 已完成，包含实际配置、最近六个完整评估、同预算C/D对照、超时无效结果边界及权重/证据哈希；原冻结协议和原始记录均未改。
+
+用户询问D是否报错、是否值得继续，并要求不继续时释放资源。核实D已完成1150025728动作/8774更新，随后1150M随机化评估达到7200秒运行上限，实际7206.74秒仅推进14.9/30仿真秒，491/492例已物理终止，评估以error和wall_budget_exhausted=true保存。监督27017于北京时间21:43:54附近停止，评估worker1801278已退出；GPU进程列表均无两者，资源在本次决定前已释放。本次未发信号或启动重试，未将不完整1150M评估当作有效成绩。
+
+决定**D本轮提前结束，不补跑1150M评估、不继续至原1.5B预算；后续若要恢复须有新的明确指令**。最近1090M至1140M六个完整492例评估，平均净角约133–135°、有效时长约3.8–3.9秒、30秒保持均为0/492，停止原因为物体低于Boya操作区。1140M同预算C为871.65°、保持415/492；D这一单次零掉落成本消融尚未学会稳定持物旋转，继续计算的预期收益有限，不据此推断所有随机种子的因果结论。
+
+D1150M完整learner/policy及此前历史全部保留；CPU审计确认成对、模型/两类normalizer/Adam有限及72个固定源未变。learner SHA256 `cb201ce968be7e96b2514affa30760823d5c2de6ab44c7fa1e3997a918daf58c`。原status、错误、部分评估及checkpoint哈希未改，停训决定另存当前D输出的 `termination_decision_20261029.json` 和 `outputs/server_c50m_deployment/d_termination_decision_20261029.json`。本次未修改训练源码、协议、奖励或其他任务，也未重启网页；原网页保留故障记录。21:51快照C约1304.56M/86.97%，监督27016/worker1779177正常训练，无当前错误；WM23652在110M例行冻结评估中，无当前错误，后续以实时状态为准。
+
+## 2026-10-28：服务器中断后 C/D 续训首更新验收通过，三组网页监控恢复
+
+用户明确要求继续训练并恢复 C、D、WM 网页监控，随后澄清故障是**显存耗尽**，系统内存充足、不需要额外管理。系统本次启动时间为北京时间17:50:57；旧C/D心跳最后在17:43:58/59附近，无新的执行错误记录。显存耗尽是用户报告的故障原因，本次未独立证明死机根因。保留全部旧目录、日志、权重和状态，不把旧status中的training视为仍然存活。
+
+复用原 `scripts/resume_boya_interrupted.py`，在新目录准备并启动：C输出 `outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1/`，监督 **27016**、worker **27371**；D输出 `outputs/boya_d_fresh1p5b_server_interrupted_recovery_20261028_v1/`，监督 **27017**、worker **27374**。C恢复自己的1231028224动作/9392更新，重算10次未保存更新；D恢复1061158912动作/8096更新，重算11次未保存更新。原GPU1 UUID、16384环境、1.5B累计预算、每10M同492例/30秒DR评估、学习和物理合同及既有显存准入保持。C下一目标1.24B，D下一目标1.07B；不要重复启动。
+
+**北京时间18:20首更新验收均通过**：C9392→9393更新、1231028224→1231159296动作，Adam12021760→12023040；D8096→8097更新、1061158912→1061289984动作，Adam10362880→10364160。恢复初始模型和两类normalizer与各自断点逐张量相同，合同相同，首更新参数确实变化、模型/normalizer/Adam有限、完整learner和policy配对。C78/D72个冻结源及原中断证据哈希不变。原恢复CPU测试4项/9子项通过；首更新证据 `outputs/server_c50m_deployment/cd_interrupted_recovery_startup_20261028.json`，各新目录另有 `recovery_preflight.json` 和 `startup_verified_20261028.json`。
+
+网页 **PID43202**，地址仍为 `http://127.0.0.1:8765/`。已跟随本次C/D目录，训练历史截到各自实际保存断点，保留C86/D106个完整评估节点。WM只读接入其负责方发布的 `evidence/wm_training_resume_20261028.json`，核验新格式的源码哈希、任务/学习配置未变声明、自己的100007936动作/6104轮checkpoint哈希、完整恢复证明和当前进程身份；当前WM **PID23652**、输出 `server_shared_1024_eval_resume_20261028_01`，已实际继续更新，保留20条名义/DR评估记录。未修改或启动WM训练。网页22项/42子项测试及真实HTML/API检查通过，证据 `outputs/boya_training_dashboard_v1/interrupted_recovery_integration_20261028.json`；服务日志 `server_interrupted_recovery_20261028.log`。页面每15秒刷新，服务不占GPU。
+
+用户另询问任务迁移。现场两卡算力利用率均约98–100%，GPU0显存仍有余量；空闲显存不能证明迁移会提高吞吐。本次未迁移任务或操作其他项目进程。诊断快照 `outputs/server_c50m_deployment/gpu_assignment_review_20261028.json`；当前占用和进度以后续实时查询为准。
 
 ## 2026-10-25：训练继续，修复WM网页进度不随原事件文件更新
 

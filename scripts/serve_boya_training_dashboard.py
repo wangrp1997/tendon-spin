@@ -18,9 +18,11 @@ HISTORY={
           'boya_c_fresh1p5b_server_dr_eval_v1',
           'boya_c_fresh1p5b_server_dr_eval_timeout_recovery_v1',
           'boya_c_fresh1p5b_server_oom_recovery_v1',
-          'boya_c_fresh1p5b_server_interrupted_recovery_20261024_v1'],
+          'boya_c_fresh1p5b_server_interrupted_recovery_20261024_v1',
+          'boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1'],
     'D': ['boya_d_fresh1p5b_server_dr_eval_v1',
-          'boya_d_fresh1p5b_server_interrupted_recovery_20261024_v1'],
+          'boya_d_fresh1p5b_server_interrupted_recovery_20261024_v1',
+          'boya_d_fresh1p5b_server_interrupted_recovery_20261028_v1'],
 }
 ACTIVE={arm:names[-1] for arm,names in HISTORY.items()}
 REFERENCE='boya_c_paired_dr_eval_20261016_gpu0_v3'
@@ -31,7 +33,8 @@ WM_LAUNCH='evidence/wm_server_1024_launch_20261016.json'
 WM_ATTACHMENT='evidence/wm_periodic_evaluation_attachment_20261016.json'
 WM_EVALUATION='evidence/wm_periodic_evaluation_integration_20261016.json'
 WM_TRAINING_RESUME='evidence/wm_training_resume_20261024.json'
-WM_RECOVERIES=('evidence/wm_evaluation_timeout_recovery_20261022.json',WM_TRAINING_RESUME)
+WM_TRAINING_RESUMES=(WM_TRAINING_RESUME,'evidence/wm_training_resume_20261028.json')
+WM_RECOVERIES=('evidence/wm_evaluation_timeout_recovery_20261022.json',*WM_TRAINING_RESUMES)
 WM_TAGS=('info/epochs','performance/step_inference_rl_update_fps','rewards/iter',
     'episode_lengths/iter','losses/a_loss','losses/c_loss','world_model/model_loss',
     'world_model/image_loss','world_model/wm_pose_loss','world_model/wm_tac_loss')
@@ -227,10 +230,18 @@ def wm_training_resume_evidence(recovery,predecessor,launch):
             raise ValueError('WM resume command is missing '+flag)
         return command[command.index(flag)+1]
     checkpoint=Path(recovery['checkpoint']).resolve()
+    health=recovery.get('startup_health',{})
+    unchanged=(recovery.get('core_code_and_learning_config_unchanged') is True or (
+        recovery.get('core_source_changed') is False
+        and recovery.get('learning_configuration_changed') is False
+        and health.get('core_implementation_hashes_match') is True
+        and health.get('core_implementation_hashes_checked',0)>0
+        and health.get('task_identity_exactly_equal') is True
+        and health.get('task_and_learning_preset_equal') is True))
     if (not checkpoint.is_relative_to(predecessor.resolve())
             or Path(argument('--checkpoint')).resolve()!=checkpoint
             or Path(argument('--out')).resolve()!=Path(recovery['out']).resolve()
-            or recovery.get('core_code_and_learning_config_unchanged') is not True
+            or not unchanged
             or recovery.get('restored_epoch',0)<=0
             or recovery.get('horizon')!=16 or recovery.get('max_epochs')!=20100
             or recovery.get('evaluation_interval_actions')!=10000000
@@ -449,7 +460,7 @@ class WorldModel:
                 verification=read(candidate/'resume_verified.json')
                 if not verification:
                     attaching=True;continue
-                if relative==WM_TRAINING_RESUME:
+                if relative in WM_TRAINING_RESUMES:
                     recovery=wm_training_resume_evidence(recovery,output,launch)
                 verified_wm_recovery(recovery,verification,identity['checkpoint_identity'],batch,output,launch)
                 checkpoint=Path(recovery['checkpoint']).resolve()

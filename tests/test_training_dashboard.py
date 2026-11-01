@@ -84,6 +84,19 @@ class DashboardTests(unittest.TestCase):
             bad=wm_training_resume_evidence(dict(recovery,**change),predecessor,launch)
             with self.subTest(change=change),self.assertRaises(ValueError):
                 verified_wm_recovery(bad,verification,'own',16384,predecessor,launch)
+        current=dict(recovery,core_source_changed=False,learning_configuration_changed=False,
+            startup_health=dict(core_implementation_hashes_match=True,core_implementation_hashes_checked=22,
+                task_identity_exactly_equal=True,task_and_learning_preset_equal=True))
+        del current['core_code_and_learning_config_unchanged']
+        normalized=wm_training_resume_evidence(current,predecessor,launch)
+        verified_wm_recovery(normalized,verification,'own',16384,predecessor,launch)
+        for change in [dict(core_source_changed=True),dict(learning_configuration_changed=True),
+                dict(core_source_changed=None),dict(learning_configuration_changed=None),
+                *[dict(startup_health=dict(current['startup_health'],**{field:value})) for field,value in (
+                    ('core_implementation_hashes_match',False),('core_implementation_hashes_checked',0),
+                    ('task_identity_exactly_equal',False),('task_and_learning_preset_equal',False))]]:
+            with self.subTest(change=change),self.assertRaises(ValueError):
+                wm_training_resume_evidence(dict(current,**change),predecessor,launch)
 
     def test_unrestored_worker_keeps_own_previous_history(self):
         previous=dict(arm='C',status='completed',checkpoint='outputs/own/teacher_final.pth',lineage_id='own')
