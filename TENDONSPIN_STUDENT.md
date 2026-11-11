@@ -102,9 +102,21 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. .venv/bin/python -u scripts/record_bilateral
 
 可先加`--preview`在单独目录检查同场景取景和初始间隙；`--view top`使用顶部视角。单手历史实验的视频工具保留原语义，双手入口不使用其慢放编码。
 
-纯本体学生部署时不再要求触觉占位输入：
+### 已发布的纯本体学生
+
+仓库根目录提供[weights/proprio_best.pth](weights/proprio_best.pth)和
+[weights/observation_contract.json](weights/observation_contract.json)，两者逐字节复制自
+`outputs/boya_touch_student_20261102_v1/training/`的同名文件。左右手使用同一份冻结权重，
+没有单独训练的左手检查点。权重SHA-256：
+`d9cb5593e383c4b0f34986d0288d647a599390d96ea91b33681794efd17cdbe2`。
+
+该权重是当前双手视频和修正后左手评测使用的版本；实物仍未验证。
+纯本体学生部署时不再要求触觉占位输入，在仓库根目录使用：
 
 ```python
+from tendonspin.students.runtime import TouchStudentRuntime
+
+proprio_runtime = TouchStudentRuntime("weights/proprio_best.pth", device="cpu")
 action = proprio_runtime.step(
     joint_pos_rad=joint_angles_20,
     issued_targets_rad=last_targets_16,

@@ -1,0 +1,148 @@
+{
+  "schema": "tendonspin-c-touch-history30-v1",
+  "joint_names": [
+    "THJ4",
+    "THJ3",
+    "THJ2",
+    "THJ1",
+    "FFJ4",
+    "FFJ3",
+    "FFJ2",
+    "MFJ4",
+    "MFJ3",
+    "MFJ2",
+    "RFJ4",
+    "RFJ3",
+    "RFJ2",
+    "LFJ4",
+    "LFJ3",
+    "LFJ2",
+    "FFJ1",
+    "MFJ1",
+    "RFJ1",
+    "LFJ1"
+  ],
+  "action_names": [
+    "THJ4",
+    "THJ3",
+    "THJ2",
+    "THJ1",
+    "FFJ4",
+    "FFJ3",
+    "FFJ2",
+    "MFJ4",
+    "MFJ3",
+    "MFJ2",
+    "RFJ4",
+    "RFJ3",
+    "RFJ2",
+    "LFJ4",
+    "LFJ3",
+    "LFJ2"
+  ],
+  "fingers": [
+    "TH",
+    "FF",
+    "MF",
+    "RF",
+    "LF"
+  ],
+  "history_frames": 30,
+  "frame_dim": 57,
+  "control_hz": 20,
+  "limits": [
+    [
+      -1.0471999645233154,
+      1.0471999645233154
+    ],
+    [
+      -1.0471999645233154,
+      1.0471999645233154
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      -0.26179999113082886,
+      0.26179999113082886
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      -0.26179999113082886,
+      0.26179999113082886
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      -0.26179999113082886,
+      0.26179999113082886
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      -0.26179999113082886,
+      0.26179999113082886
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ],
+    [
+      0.0,
+      1.5707999467849731
+    ]
+  ],
+  "preprocessing": {
+    "force_threshold_n": 0.05,
+    "force_max_n": 20.0,
+    "force_scale_n": 1.0,
+    "force_alpha": 0.5,
+    "max_tactile_age_s": 0.15
+  },
+  "force_units": "newtons",
+  "angle_units": "radians",
+  "force_features": "contact and log1p(EMA magnitude / fixed scale), retaining amplitude",
+  "camera_required": false,
+  "raw_pressure_array_required": false,
+  "passive_j1_independently_measured": true
+}

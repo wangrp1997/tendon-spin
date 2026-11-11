@@ -8,6 +8,24 @@
 代码和模型资源独立保存在本仓库。仿真使用现有 Isaac Sim/Lab 环境，
 同时保留原始 MuJoCo 模型与工具。
 
+## 学生权重
+
+当前双手视频使用的30帧纯本体学生已随仓库提供，左右手共用同一份：
+
+- [weights/proprio_best.pth](weights/proprio_best.pth)：约1.2 MB，冻结学生权重。
+- [weights/observation_contract.json](weights/observation_contract.json)：关节顺序、单位和预处理约定；相同内容也内嵌在权重中。
+
+在仓库根目录加载，无需教师权重或Isaac仿真环境：
+
+```python
+from tendonspin.students.runtime import TouchStudentRuntime
+
+runtime = TouchStudentRuntime("weights/proprio_best.pth", device="cpu")
+```
+
+实机SDK仍需完成关节映射和动作到目标的转换；当前权重仅通过仿真验证。
+输入示例、来源与校验值见[TENDONSPIN_STUDENT.md](TENDONSPIN_STUDENT.md#已发布的纯本体学生)。
+
 ## 目录
 
 | 目录 | 内容 |
@@ -17,6 +35,7 @@
 | `assets/` | CAD、原始抓取状态和可选物体配置 |
 | `third_party/` | 参考算法源码及许可证 |
 | `assets/config/` | 公开的模型运行配置 |
+| `weights/` | 已发布的小型学生权重与输入约定 |
 | `outputs/` | 本地权重、TensorBoard、轨迹和视频，不提交到 Git |
 
 ## 使用
@@ -53,4 +72,5 @@ PYTHONPATH=. python scripts/evaluate_boya_hora_initial_state.py --help
 用于记录来源身份；历史实验专用的启动脚本需要对应的本地实验资料。
 
 参考代码版本与许可证见[THIRD_PARTY.md](THIRD_PARTY.md)及
-[参考项目](references/README.md)。当前训练接口是特权教师；历史适应和触觉学生仍在开发。
+[参考项目](references/README.md)。本体/触觉学生的仿真评测与接入说明见
+[TENDONSPIN_STUDENT.md](TENDONSPIN_STUDENT.md)。

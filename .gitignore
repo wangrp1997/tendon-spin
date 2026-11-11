@@ -26,6 +26,9 @@ events.out.tfevents.*
 /runs/
 /wandb/
 
+# Published small proprioceptive student; other checkpoints stay local.
+!/weights/proprio_best.pth
+
 # Local research records, agent instructions and editor settings.
 /docs/
 /AGENTS.md
