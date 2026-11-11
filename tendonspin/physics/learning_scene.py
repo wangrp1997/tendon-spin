@@ -22,7 +22,9 @@ def configure_nominal(physics, spec):
     from .isaac_parallel import axis_z
     p = physics
     state = spec['nominal_state']
-    if state['joint_names'] != p.names or state['motor_names'] != [a['joint'] for a in p.contract['actuators']]:
+    canonical_motors = [a['joint'] for a in p.contract['actuators']]
+    expected_motors = p.hand_profile.runtime_names(canonical_motors)
+    if state['joint_names'] != p.names or state['motor_names'] != expected_motors:
         raise ValueError('Learning scene joint/motor order differs from Isaac')
     def batch(values):
         return torch.tensor([values], device=p.device, dtype=torch.float32).repeat(p.num_envs, 1)

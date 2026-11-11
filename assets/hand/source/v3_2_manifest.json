@@ -1,0 +1,31 @@
+{
+  "schema": "tendonspin-botyard-v3_2-source-v1",
+  "source_repository": "ssh://git@git.nrs-lab.com:10022/wangrenpeng25p/botyard.git",
+  "source_branch": "fix/mujoco-v3.2",
+  "source_revision": "28f4ba5649714c74c13f881891d579bfceb766e2",
+  "left_usd_snapshot_commit": "39f63b1926a9b3b81ef3b76be95e348f885f7461",
+  "files": {
+    "left_dexhand.xml": "db65ec0644c56dcedd79ee4a20836416427ea6e24155b11fab45596ceee7799c",
+    "left_dexhand.urdf": "d91b7cf6f9b200e2b9e8e7266fed739c2f8bc788a2384718d6790c58ae9f1bcb",
+    "right_dexhand.xml": "da20570474e72a0a26e525bb865e2d75d1529c56c6a3b9c84bafb1ae723a5591",
+    "right_dexhand.urdf": "9e642393401b9a040672ad7b1c988dba2ceef9a4a90a6649221690cc7e587e87"
+  },
+  "left_isaac_asset": {
+    "usd": "assets/hand/ros2_botyard_39f63b1/usd/left_hand.usd",
+    "usd_sha256": "2fbed9b90bf106272f6ec7d6336ab9e8f8fe7fdac336319093a658021ea116c8",
+    "geometry": "assets/hand/ros2_botyard_39f63b1/usd/left_hand_geometry.usd",
+    "geometry_sha256": "b9af7e0f59172563a59f0d2621eed9935f3e2793be8d8cb90724081c836e1c12",
+    "source_mesh_root": "assets/hand/ros2_botyard_39f63b1/meshes/gs_s1",
+    "verified_rigid_bodies": 24,
+    "physical_match": "All 24 mesh files and rigid-body mass/inertia values match the V3.2 left MJCF within USD conversion precision."
+  },
+  "left_validation_scene": {
+    "hand_mjcf": "assets/hand/botyard_v3_2/mjcf/v3_2/left_dexhand.xml",
+    "hand_mjcf_sha256": "db65ec0644c56dcedd79ee4a20836416427ea6e24155b11fab45596ceee7799c",
+    "scene": "assets/hand/botyard_v3_2/mjcf/v3_2/scene_left_validation.xml",
+    "isaac_hand_mjcf": "assets/hand/botyard_v3_2/mjcf/v3_2/left_dexhand_validation.xml",
+    "isaac_hand_mjcf_note": "Same V3.2 model parameters with only the source MJCF viewer root euler removed to match the identity-root Isaac USD.",
+    "mesh_directory": "assets/hand/botyard_v3_2/meshes"
+  },
+  "runtime_controls": "deep-copy the right TendonSpin contract; do not apply authored USD drive gains"
+}

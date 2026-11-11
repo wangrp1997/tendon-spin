@@ -1,0 +1,51 @@
+{
+  "schema": "tendonspin-strict-right-mirror-v1",
+  "transform": "world Y reflection; mesh winding restored; rotation axes mirrored as pseudovectors",
+  "source_urdf": {
+    "path": "assets/hand/source/right_dexhand.urdf",
+    "sha256": "9e642393401b9a040672ad7b1c988dba2ceef9a4a90a6649221690cc7e587e87"
+  },
+  "source_mjcf": {
+    "path": "assets/hand/source/right_dexhand.xml",
+    "sha256": "da20570474e72a0a26e525bb865e2d75d1529c56c6a3b9c84bafb1ae723a5591"
+  },
+  "urdf": {
+    "path": "assets/hand/mirror_right_v3_2/left_dexhand.urdf",
+    "sha256": "9e838a7968c3d633c8e012d196b849830dcd00491fa783fb0090868c91296228"
+  },
+  "mjcf": {
+    "path": "assets/hand/mirror_right_v3_2/mjcf/v3_2/left_dexhand.xml",
+    "sha256": "2ac1d57300024b5f03fd925870896ed5050063f7198c3cf77b7e0330d0f21970"
+  },
+  "validation_scene": {
+    "path": "assets/hand/mirror_right_v3_2/mjcf/v3_2/scene_left_validation.xml",
+    "sha256": "cbb866f13ac1c0f6a19296dad8fa167aabd49dee458690acdff3e995cdbbd54a"
+  },
+  "meshes": {
+    "assets/hand/mirror_right_v3_2/meshes/fabase.stl": "1a3e3b1554a013737e52a7584af75d52a92977822c1f3ff1ce7dffd7f2ad713a",
+    "assets/hand/mirror_right_v3_2/meshes/falink1.stl": "9504029f6189c4cabae67c61e5fe4ebf7eb5ed645e955e0a507541a04efeec8d",
+    "assets/hand/mirror_right_v3_2/meshes/ffbase.stl": "bf35e80eba810d91a99b659c3b088158f04cc1ab9b73d23990a10212057c9e2c",
+    "assets/hand/mirror_right_v3_2/meshes/ffdistal.stl": "22c80c8bee7408a7c9ba7d269547a71d1ee21448d75a3ff0fefa43a4b681ac4f",
+    "assets/hand/mirror_right_v3_2/meshes/ffmiddle.stl": "a1780492b0a4f20b7c5fda038d77c943a2889933a30da255434f1b9deeab1d22",
+    "assets/hand/mirror_right_v3_2/meshes/ffproximal.stl": "fdb2ec09ce0221807863a88e96cc93e66ad314f357ca4fcb9b61f9b7a7487808",
+    "assets/hand/mirror_right_v3_2/meshes/lfbase.stl": "92003f8d33e5db158df525f3da992f7d2f604d35f842d1027b9d0110059edeac",
+    "assets/hand/mirror_right_v3_2/meshes/lfdistal.stl": "fd8dcb434cacf208ccf8823411b9280ef172424d9628d7e653200564d8126268",
+    "assets/hand/mirror_right_v3_2/meshes/lfmiddle.stl": "88c7967fed3e15af11d54b89829e85b0a022e67f0281cee96505cd4c26fdf63a",
+    "assets/hand/mirror_right_v3_2/meshes/lfproximal.stl": "dabfc292aade90e2c8a2ebb8044e6a39ed7f193c0ca6a590549866c8df6e9202",
+    "assets/hand/mirror_right_v3_2/meshes/mfbase.stl": "a1053a07474206d6ae7d2fe16fb03cbaba2b6c46e7d4e917a05c4ea682b1d9c7",
+    "assets/hand/mirror_right_v3_2/meshes/mfdistal.stl": "328302ec2dc0273d3d61685e843203f982b35af03dec41cf0fe68e0bdd7ea94a",
+    "assets/hand/mirror_right_v3_2/meshes/mfmiddle.stl": "bf9630e71221f4a78e32bdafd3db0d800b6abe9004ca376f10b0e6609d3c0f34",
+    "assets/hand/mirror_right_v3_2/meshes/mfproximal.stl": "d5c480fde59ae8ec393a9fa481ebb537ad021be2ac3dc042b8a41c2cb3114625",
+    "assets/hand/mirror_right_v3_2/meshes/palm.stl": "e93e5e78763ba56d56466686d489f1e85bceb20ba1a68f4a4055e94fa709f696",
+    "assets/hand/mirror_right_v3_2/meshes/pmbase.stl": "cb915f8df1161bb259d3e6fc571b27055e6e30feb9cdece0e461fa63d5856e1b",
+    "assets/hand/mirror_right_v3_2/meshes/rfbase.stl": "e1d66f40297c476362076051d73e8c0a3113675142ac3789838f3455fe4b1def",
+    "assets/hand/mirror_right_v3_2/meshes/rfdistal.stl": "69697b9cb06cf76ba4cf8b126da661ce16cf7e9bf5d0df81dea339766e6c4e7c",
+    "assets/hand/mirror_right_v3_2/meshes/rfmiddle.stl": "75fc18245c4d481738e53d6842c3aee208650c7eccadc219339c645d7514075f",
+    "assets/hand/mirror_right_v3_2/meshes/rfproximal.stl": "cba280dd42762754239973bbe4db39a217db242cee850e5570e0a68a82896c72",
+    "assets/hand/mirror_right_v3_2/meshes/thbase.stl": "392696972836fc95687e9318f0b18b97b65f664e564c03c9de9671aec60b4861",
+    "assets/hand/mirror_right_v3_2/meshes/thdistal.stl": "84f81153a3c7bb1401aa579baafdf5d266e471b69c40f94c093151ae7495901f",
+    "assets/hand/mirror_right_v3_2/meshes/thmiddle.stl": "48252177c94f41d7cf298197cc5e5a25a492beafb274f559e0ae90eb45dd0fec",
+    "assets/hand/mirror_right_v3_2/meshes/thproximal.stl": "d68fc71e0f54d826d41b885e33cb772ce3fc3dd8b965610bceaab7cb0d6d015f"
+  },
+  "intent": "Preserve every right-hand physical parameter; reflect only handedness."
+}

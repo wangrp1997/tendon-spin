@@ -15,6 +15,11 @@ from tendonspin.students.model import sha256
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--hand-side', choices=('right', 'left'), default='right')
+    parser.add_argument('--left-asset', type=Path,
+        help='V3.2 left_hand.usd override; defaults to the bundled snapshot')
+    parser.add_argument('--scene-config', type=Path,
+        help='Optional scene and grasp-cache manifest used by training and evaluation')
     parser.add_argument('--num-envs', type=int, default=252)
     parser.add_argument('--warmup-controls', type=int, default=32)
     parser.add_argument('--online-controls', type=int, default=1968)
@@ -35,8 +40,11 @@ def main():
         teacher='C1260M', coupling_model='unchanged nominal 1:1',
         test_used_for_fitting_or_selection=False, real_hardware_commands_sent=False)
     state['arguments']['out'] = str(out)
-    sources = list((root/'tendonspin/students').glob('*.py'))+[Path(__file__).resolve(),
-        root/'scripts/train_boya_touch_student.py', root/'scripts/evaluate_boya_touch_student.py']
+    sources = (list((root/'tendonspin/students').glob('*.py'))
+        + list((root/'tendonspin/physics').glob('*.py'))
+        + list((root/'tendonspin/rl').glob('*.py'))
+        + [Path(__file__).resolve(), root/'scripts/train_boya_touch_student.py',
+           root/'scripts/evaluate_boya_touch_student.py'])
     state['sources'] = {str(path.relative_to(root)): sha256(path) for path in sources}
     for path in sources:
         target = out/'sources'/path.relative_to(root)
@@ -52,12 +60,22 @@ def main():
     signal.signal(signal.SIGTERM, stop)
     training = [sys.executable, '-u', str(root/'scripts/train_boya_touch_student.py'), '--out', str(out/'training')]
     training += ['--stop-file', str(out/'STOP')]
+    training += ['--hand-side', args.hand_side]
+    if args.left_asset is not None:
+        training += ['--left-asset', str(args.left_asset)]
+    if args.scene_config is not None:
+        training += ['--scene-config', str(args.scene_config)]
     for key in ('num_envs', 'warmup_controls', 'online_controls', 'validation_controls', 'warmup_updates',
                 'updates_per_block', 'batch_size', 'replay_capacity'):
         training += ['--'+key.replace('_', '-'), str(getattr(args, key))]
     evaluation = [sys.executable, '-u', str(root/'scripts/evaluate_boya_touch_student.py'),
         '--training', str(out/'training'), '--out', str(out/'evaluation'),
-        '--num-envs', str(args.test_envs), '--seconds', str(args.test_seconds)]
+        '--hand-side', args.hand_side, '--num-envs', str(args.test_envs),
+        '--seconds', str(args.test_seconds)]
+    if args.left_asset is not None:
+        evaluation += ['--left-asset', str(args.left_asset)]
+    if args.scene_config is not None:
+        evaluation += ['--scene-config', str(args.scene_config)]
     try:
         for phase, command in (('training', training), ('evaluation', evaluation)):
             for relative, digest in state['sources'].items():

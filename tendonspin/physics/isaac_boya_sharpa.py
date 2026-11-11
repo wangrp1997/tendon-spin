@@ -31,25 +31,36 @@ def motor_parameters(contract):
                 armature_semantics='unidentified nominal simulation assumption: A=4*D_effective*dt on 18 motors')
 
 
-def actuator_configuration(parameters):
+def actuator_configuration(parameters, joint_prefix=''):
+    def runtime(mapping):
+        return {joint_prefix+name: value for name, value in mapping.items()}
     return {'motor_forwarder': IdealPDActuatorCfg(
         joint_names_expr=['.*'], stiffness=0., damping=0.,
-        actuator_effort_limit=parameters['caps'], joint_effort_limit=parameters['caps'],
-        velocity_limit_sim=100., armature=parameters['armature'],
+        actuator_effort_limit=runtime(parameters['caps']),
+        joint_effort_limit=runtime(parameters['caps']),
+        velocity_limit_sim=100., armature=runtime(parameters['armature']),
         friction=0., dynamic_friction=0., viscous_friction=0.)}
 
 
-def configure_constraints(stage, root, contract, hand_prefix='/World/Hand'):
+def configure_constraints(stage, root, contract, hand_prefix='/World/Hand',
+                          contact_scene=None, body_prefix=''):
     from pxr import UsdPhysics, Sdf
-    bodies = {p.GetName(): p for p in stage.Traverse()
-              if str(p.GetPath()).startswith(hand_prefix+'/') and p.HasAPI(UsdPhysics.RigidBodyAPI)}
+    def canonical(name):
+        return name[len(body_prefix):] if body_prefix and name.startswith(body_prefix) else name
+    body_prims = {p.GetName(): p for p in stage.Traverse()
+                  if str(p.GetPath()).startswith(hand_prefix+'/')
+                  and p.HasAPI(UsdPhysics.RigidBodyAPI)}
+    bodies = {canonical(name): prim for name, prim in body_prims.items()}
     excluded = []
-    for entry in ET.parse(root/'assets/grasp/scene.xml').getroot().findall('./contact/exclude'):
+    scene = contact_scene or root/'assets/grasp/scene.xml'
+    for entry in ET.parse(scene).getroot().findall('./contact/exclude'):
         a, b = entry.attrib['body1'], entry.attrib['body2']
         UsdPhysics.FilteredPairsAPI.Apply(bodies[a]).CreateFilteredPairsRel().AddTarget(bodies[b].GetPath())
         excluded.append([a, b])
-    joints = {p.GetName(): p for p in stage.Traverse()
-              if str(p.GetPath()).startswith(hand_prefix+'/') and p.IsA(UsdPhysics.RevoluteJoint)}
+    joint_prims = {p.GetName(): p for p in stage.Traverse()
+                   if str(p.GetPath()).startswith(hand_prefix+'/')
+                   and p.IsA(UsdPhysics.RevoluteJoint)}
+    joints = {canonical(name): prim for name, prim in joint_prims.items()}
     # Preserve the currently documented NewtonMimicAPI, make its coefficients
     # explicit. This alone does not claim equivalence to MuJoCo solref/solimp.
     for c in contract['couplings']:
@@ -63,9 +74,9 @@ def configure_constraints(stage, root, contract, hand_prefix='/World/Hand'):
 
 class SharpaPositionAdapter(SourcePositionAdapter):
     """One fixed PD implementation; zero actions hold the original position targets."""
-    def __init__(self, hand, contract, parameters):
+    def __init__(self, hand, contract, parameters, joint_prefix=''):
         contract = finger_action_contract(contract)
-        super().__init__(hand, contract)
+        super().__init__(hand, contract, joint_prefix=joint_prefix)
         self.motor_damping = torch.tensor([parameters['damping'][a['joint']] for a in contract['actuators']],
                                           device=self.device, dtype=torch.float32)
 

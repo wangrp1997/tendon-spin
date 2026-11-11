@@ -9,6 +9,7 @@ import numpy as np
 import torch
 from gymnasium.spaces import Box
 from tendonspin.physics.isaac_parallel import BoyaParallel, tensor, axis_z
+from tendonspin.physics.hand_profiles import resolve_hand_profile
 from tendonspin.baselines.hora_training import load_reward
 from tendonspin.rl.termination import REASONS, TaskTermination, make_termination_spec, legacy_failure_codes
 from tendonspin.rl.rotation_reward import RotationRewardSignal, REPORTED, POSE_DROP
@@ -34,10 +35,15 @@ class HoraBoyaEnv:
 
     def __init__(self,root,out,cache,num_envs=64,trace_mode="full",scene_setup=None,
                  termination_profile="legacy_strict",engine_profile="original_tgs16_4",
-                 reward_profile=REPORTED,scene_configuration=None):
+                 reward_profile=REPORTED,scene_configuration=None,
+                 hand_side='right',left_asset=None,hand_profile=None):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
         if reward_profile==POSE_DROP and termination_profile!='boya_workspace':
             raise ValueError('Drop16 reward requires the existing Boya workspace failure rules')
+        self.hand_profile=hand_profile or resolve_hand_profile(root,hand_side,left_asset)
+        if scene_configuration is not None:
+            scene_configuration=self.hand_profile.adapt_scene_configuration(scene_configuration)
+        self.scene_configuration=scene_configuration
         self.trace_mode=trace_mode
         setup=scene_setup
         if scene_configuration is not None:
@@ -45,13 +51,15 @@ class HoraBoyaEnv:
             def setup(physics):
                 self.geometry_application=configure_object_scene(physics,scene_configuration['geometry'])
                 if scene_setup is not None:scene_setup(physics)
-        self.physics=BoyaParallel(root,out,num_envs,scene_setup=setup,engine_profile=engine_profile)
+        self.physics=BoyaParallel(root,out,num_envs,scene_setup=setup,engine_profile=engine_profile,
+            hand_profile=self.hand_profile)
         p=self.physics
         if scene_configuration is not None:
             from tendonspin.physics.learning_scene import configure_nominal
             self.nominal_initial_state_errors=configure_nominal(p,scene_configuration)
             with np.load(cache,allow_pickle=False) as saved:
-                if saved['joint_names'].tolist()!=p.names or saved['motor_names'].tolist()!=scene_configuration['nominal_state']['motor_names']:
+                if (not self.hand_profile.cache_names_match(saved['joint_names'],p.names)
+                        or not self.hand_profile.motor_names_match(saved['motor_names'],p.contract)):
                     raise ValueError('Migrated cache joint/motor order differs')
         self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]))
         self.device=p.device;self.num_envs=num_envs
@@ -59,6 +67,8 @@ class HoraBoyaEnv:
         self.observation_space=Box(-5.,5.,shape=(96,),dtype=np.float32)
         with np.load(cache) as saved:
             self.cache={k:torch.as_tensor(saved[k],device=self.device) for k in ('q','object_state','commands')}
+            self.cache['object_state']=self.hand_profile.adapt_object_state(
+                self.cache['object_state'])
         self.reward_fn=load_reward()
         self.rotation_reward_signal=RotationRewardSignal(reward_profile,p.dt,p.adapter.steps_per_control)
         self.reward_configuration=self.rotation_reward_signal.configuration
@@ -93,7 +103,8 @@ class HoraBoyaEnv:
     def observe(self):
         p=self.physics
         priv=torch.zeros((self.num_envs,9),device=self.device)
-        priv[:,:3]=tensor(p.object.data.root_state_w)[:,:3]-p.origins
+        priv[:,:3]=self.hand_profile.adapt_policy_position(
+            tensor(p.object.data.root_state_w)[:,:3]-p.origins)
         priv[:,3]=1.;priv[:,4]=-.5;priv[:,5]=0.
         return dict(obs=self.history[:,-3:].reshape(self.num_envs,96).clamp(-5,5).clone(),
                     proprio_hist=self.history.clone(),priv_info=priv)

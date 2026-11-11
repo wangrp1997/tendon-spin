@@ -14,6 +14,7 @@ import numpy as np
 import torch
 
 from tendonspin.rl.resource_guard import atomic_json
+from tendonspin.physics.hand_profiles import resolve_hand_profile
 from .model import TeacherLabels, TouchStudent, distillation_loss, save_student, sha256
 from .observations import FRAME_DIM, HISTORY, sensor_contract
 
@@ -63,16 +64,29 @@ def train(args, root, out, status):
     teacher = TeacherLabels(args.teacher, 'cuda:0')
     if teacher.checkpoint_sha256 != SELECTED_TEACHER_SHA256:
         raise ValueError('Checkpoint is not the selected C1260M teacher')
-    scene = teacher.contract['scene_configuration']
+    hand_profile = resolve_hand_profile(root, getattr(args, 'hand_side', 'right'),
+        getattr(args, 'left_asset', None))
+    scene_config_path = getattr(args, 'scene_config', None)
+    if scene_config_path is not None:
+        from tendonspin.physics.learning_scene import load_scene_configuration
+        scene = load_scene_configuration(
+            scene_config_path if scene_config_path.is_absolute() else root/scene_config_path)
+        declared_side = scene.get('hand_side', 'right')
+        if declared_side != hand_profile.side:
+            raise ValueError('Scene hand_side differs from --hand-side')
+    else:
+        scene = hand_profile.adapt_scene_configuration(teacher.contract['scene_configuration'])
     cache = root/scene['training_cache']
-    if sha256(cache) != teacher.contract['cache_sha256']:
-        raise ValueError('Teacher grasp cache changed')
+    expected_cache_sha = scene.get('training_cache_sha256', teacher.contract['cache_sha256'])
+    if sha256(cache) != expected_cache_sha:
+        raise ValueError('Scene grasp cache changed')
     dr_config = deepcopy(teacher.contract['domain_randomization'])
     dr_config['static_seed'] = args.seed
     env = SpinProgressBoyaEnv(root, out, cache, num_envs=args.num_envs, trace_mode='summary',
         scene_configuration=scene, randomization_configuration=dr_config,
         training_randomization=True,
-        engine_profile=teacher.contract['engine_configuration']['profile'])
+        engine_profile=teacher.contract['engine_configuration']['profile'],
+        hand_profile=hand_profile)
     for key, actual in [('engine_configuration', env.physics.engine_configuration),
                         ('termination', env.termination.spec.to_dict()),
                         ('reward_configuration', env.reward_configuration)]:
@@ -102,6 +116,8 @@ def train(args, root, out, status):
         raise RuntimeError('C teacher/action-head parity failed')
     status.update(teacher_sha256=teacher.checkpoint_sha256,
         cache_sha256=sha256(cache), teacher_training_num_envs=int(teacher.contract['num_envs']),
+        hand_profile=env.physics.hand_profile_identity,
+        scene_configuration=scene,
         train_environment_ids=train_ids.cpu().tolist(), validation_environment_ids=val_ids.cpu().tolist(),
         selection='Mean action MSE + latent MSE on fixed held-out teacher episodes; no test selection',
         simulation_tactile='Ideal normal+friction resultant on distal rigid body only; no pad ROI or array model',

@@ -14,3 +14,10 @@ __pycache__/
 
 # Local demo output, not part of the training sources.
 /bowl_posture_20261015_demo_02/
+
+# Locally generated/large hand assets. Recreate the mirror metadata with
+# scripts/generate_mirrored_right_hand.py and import the USD separately.
+/assets/hand/mirror_right_v3_2/meshes/
+/assets/hand/mirror_right_v3_2/usd/
+/assets/hand/ros2_botyard_39f63b1/
+/assets/hand/botyard_v3_2/meshes

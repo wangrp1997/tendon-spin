@@ -12,10 +12,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--training', type=Path, required=True)
     parser.add_argument('--teacher', type=Path, default=Path('outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1/actions_1260000000/training/teacher_final.pth'))
+    parser.add_argument('--hand-side', choices=('right', 'left'), default='right')
+    parser.add_argument('--left-asset', type=Path,
+        help='V3.2 left_hand.usd override; defaults to the bundled snapshot')
+    parser.add_argument('--scene-config', type=Path,
+        help='Optional left/right scene and grasp-cache manifest')
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--num-envs', type=int, default=27)
     parser.add_argument('--seconds', type=float, default=30.)
     parser.add_argument('--seed', type=int, default=2026110203)
+    parser.add_argument('--debug-physics', action='store_true')
+    parser.add_argument('--zero-actions', action='store_true')
+    parser.add_argument('--controllers', nargs='+',
+        choices=('teacher', 'touch', 'proprio'),
+        default=('teacher', 'touch', 'proprio'))
     args = parser.parse_args()
     if args.num_envs < 9 or args.num_envs % 9 or args.seconds <= 0:
         parser.error('Require complete nine-scale groups and a positive horizon')

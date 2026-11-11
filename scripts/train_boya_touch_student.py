@@ -16,6 +16,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--teacher', type=Path, default=Path('outputs/boya_c_fresh1p5b_server_interrupted_recovery_20261028_v1/actions_1260000000/training/teacher_final.pth'))
+    parser.add_argument('--hand-side', choices=('right', 'left'), default='right')
+    parser.add_argument('--left-asset', type=Path,
+        help='V3.2 left_hand.usd override; defaults to the bundled snapshot')
+    parser.add_argument('--scene-config', type=Path,
+        help='Optional left/right scene and grasp-cache manifest')
     parser.add_argument('--num-envs', type=int, default=252)
     parser.add_argument('--warmup-controls', type=int, default=32)
     parser.add_argument('--warmup-updates', type=int, default=1024)
@@ -52,10 +57,19 @@ def main():
     # Archive the teacher's exact physics/observation dependencies as well.
     import torch
     teacher_state = torch.load(args.teacher, map_location='cpu', weights_only=False)
-    for relative, digest in teacher_state['contract']['sources'].items():
-        if sha256(root/relative) != digest:
-            raise RuntimeError('Original C teacher dependency changed: '+relative)
+    right_hand = args.hand_side == 'right'
+    if right_hand:
+        for relative, digest in teacher_state['contract']['sources'].items():
+            if sha256(root/relative) != digest:
+                raise RuntimeError('Original C teacher dependency changed: '+relative)
     source_paths += [root/name for name in teacher_state['contract']['sources']]
+    source_paths += list((root/'tendonspin/physics').glob('*.py'))
+    source_paths += list((root/'tendonspin/rl').glob('*.py'))
+    status['historical_teacher_sources_verified'] = right_hand
+    if not right_hand:
+        status['historical_teacher_source_note'] = (
+            'Left-hand migration intentionally replaces the right-hand asset profile; '
+            'current left/physics sources are pinned instead of the original right environment hashes.')
     for path in sorted(set(source_paths)):
         relative = path.resolve().relative_to(root)
         content = path.read_bytes()

@@ -11,6 +11,7 @@ from gymnasium.spaces import Box
 from tendonspin.rl.isaac_hora import HoraBoyaEnv
 from tendonspin.physics.isaac_parallel import tensor
 from tendonspin.physics.isaac_parallel_randomized import BoyaRandomizedParallel
+from tendonspin.physics.hand_profiles import resolve_hand_profile
 from tendonspin.baselines.hora_training import load_reward
 from tendonspin.rl.termination import TaskTermination,make_termination_spec
 from tendonspin.rl.rotation_reward import RotationRewardSignal,REPORTED,POSE_DROP
@@ -21,10 +22,15 @@ class RandomizedHoraBoyaEnv(HoraBoyaEnv):
     def __init__(self,root,out,cache,num_envs=64,trace_mode="full",scene_setup=None,
                  termination_profile="legacy_strict",engine_profile="original_tgs16_4",
                  reward_profile=REPORTED,scene_configuration=None,
-                 randomization_configuration=None,training_randomization=True):
+                 randomization_configuration=None,training_randomization=True,
+                 hand_side='right',left_asset=None,hand_profile=None):
         if trace_mode not in ("full","summary"):raise ValueError(trace_mode)
         if reward_profile==POSE_DROP and termination_profile!='boya_workspace':
             raise ValueError('Drop16 reward requires the existing Boya workspace failure rules')
+        self.hand_profile=hand_profile or resolve_hand_profile(root,hand_side,left_asset)
+        if scene_configuration is not None:
+            scene_configuration=self.hand_profile.adapt_scene_configuration(scene_configuration)
+        self.scene_configuration=scene_configuration
         self.dr_configuration=randomization_configuration
         self.training_randomization=training_randomization
         self.static_dr_samples=static_samples(randomization_configuration,num_envs,training_randomization)
@@ -40,13 +46,15 @@ class RandomizedHoraBoyaEnv(HoraBoyaEnv):
             def setup(physics):
                 self.geometry_application=configure_object_scene(physics,scene_configuration['geometry'])
                 if scene_setup is not None:scene_setup(physics)
-        self.physics=BoyaRandomizedParallel(root,out,num_envs,scene_setup=setup,engine_profile=engine_profile)
+        self.physics=BoyaRandomizedParallel(root,out,num_envs,scene_setup=setup,
+            engine_profile=engine_profile,hand_profile=self.hand_profile)
         p=self.physics
         if scene_configuration is not None:
             from tendonspin.physics.learning_scene import configure_nominal
             self.nominal_initial_state_errors=configure_nominal(p,scene_configuration)
             with np.load(cache,allow_pickle=False) as saved:
-                if saved['joint_names'].tolist()!=p.names or saved['motor_names'].tolist()!=scene_configuration['nominal_state']['motor_names']:
+                if (not self.hand_profile.cache_names_match(saved['joint_names'],p.names)
+                        or not self.hand_profile.motor_names_match(saved['motor_names'],p.contract)):
                     raise ValueError('Migrated cache joint/motor order differs')
         self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]))
         self.device=p.device;self.num_envs=num_envs
@@ -54,6 +62,8 @@ class RandomizedHoraBoyaEnv(HoraBoyaEnv):
         self.observation_space=Box(-5.,5.,shape=(96,),dtype=np.float32)
         with np.load(cache) as saved:
             self.cache={k:torch.as_tensor(saved[k],device=self.device) for k in ('q','object_state','commands')}
+            self.cache['object_state']=self.hand_profile.adapt_object_state(
+                self.cache['object_state'])
         self.reward_fn=load_reward()
         self.rotation_reward_signal=RotationRewardSignal(reward_profile,p.dt,p.adapter.steps_per_control)
         self.reward_configuration=self.rotation_reward_signal.configuration
@@ -82,7 +92,8 @@ class RandomizedHoraBoyaEnv(HoraBoyaEnv):
         p.domain_randomization=self.dr
         counts=[];indices=[]
         with np.load(cache,allow_pickle=False) as saved:
-            if saved['joint_names'].tolist()!=p.names:raise ValueError('Size cache joint order differs')
+            if not self.hand_profile.cache_names_match(saved['joint_names'],p.names):
+                raise ValueError('Size cache joint order differs')
             groups=saved['scale_id']
             for i in range(len(randomization_configuration['scale_centers'])):
                 ids=np.flatnonzero(groups==i)

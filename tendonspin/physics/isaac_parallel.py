@@ -19,6 +19,7 @@ from isaaclab.sensors import ContactSensorCfg
 from isaaclab_physx.physics import PhysxCfg
 from tendonspin.interfaces import finger_action_contract, ACTION_NAMES
 from .coordinates import wxyz_to_xyzw
+from .hand_profiles import resolve_hand_profile
 from .isaac_boya_sharpa import motor_parameters, actuator_configuration, configure_constraints, SharpaPositionAdapter
 from .solver_profiles import ORIGINAL, VELOCITY_ZERO, configuration, author_zero_velocity, audit_zero_velocity
 
@@ -38,28 +39,43 @@ def axis_z(quat):
 
 
 class BoyaParallel:
-    def __init__(self, root, out, num_envs=64, scene_setup=None, engine_profile=ORIGINAL):
+    def __init__(self, root, out, num_envs=64, scene_setup=None, engine_profile=ORIGINAL,
+                 hand_profile=None, replicate_physics=True):
         self.root, self.out = Path(root), Path(out)
         self.engine_configuration = configuration(engine_profile)
         zero_velocity = engine_profile == VELOCITY_ZERO
-        self.contract = finger_action_contract(json.loads((self.root/'docs/data/boya_native_contract.json').read_text()))
+        self.hand_profile = hand_profile or resolve_hand_profile(self.root)
+        self.hand_profile_identity = self.hand_profile.identity()
+        raw_contract = json.loads(self.hand_profile.contract_path.read_text())
+        self.contract = finger_action_contract(self.hand_profile.adapt_contract(raw_contract))
         c = self.contract
         self.num_envs = num_envs
         self.dt = c['physics_dt']
         self.device = 'cuda:0'
-        imported = json.loads((self.root/'docs/data/isaac_boya_import_phases.json').read_text())
-        source = self.root/imported['usd']['path']
+        source = self.hand_profile.asset_path
         original = Usd.Stage.Open(str(source))
-        self.asset_path = self.out/'boya_parallel.usda'
+        self.asset_path = self.out/self.hand_profile.parallel_asset_name
         stage = Usd.Stage.CreateNew(str(self.asset_path))
         stage.GetRootLayer().subLayerPaths = [str(source)]
-        default_path = str(original.GetDefaultPrim().GetPath())
+        default_path = self.hand_profile.source_prim
+        if not stage.GetPrimAtPath(default_path):
+            raise ValueError(f'Hand source prim does not exist: {default_path}')
         stage.SetDefaultPrim(stage.GetPrimAtPath(default_path))
         UsdGeom.SetStageMetersPerUnit(stage, 1.)
         UsdGeom.SetStageUpAxis(stage, 'Z')
-        self.excludes = configure_constraints(stage,self.root,c,hand_prefix=default_path)
-        paths = [str(p.GetPath()) for p in stage.Traverse() if p.HasAPI(UsdPhysics.RigidBodyAPI)]
-        self.filter_names = [p.rsplit('/',1)[-1] for p in paths]
+        self.excludes = configure_constraints(stage,self.root,c,hand_prefix=default_path,
+            contact_scene=self.hand_profile.contact_scene,
+            body_prefix=self.hand_profile.body_prefix)
+        paths = [str(p.GetPath()) for p in stage.Traverse()
+                 if str(p.GetPath()).startswith(default_path+'/')
+                 and p.HasAPI(UsdPhysics.RigidBodyAPI)]
+        self.filter_names = [self.hand_profile.canonical_body_name(p.rsplit('/',1)[-1])
+                             for p in paths]
+        self.hand_profile_identity['usd_structure'] = dict(
+            rigid_bodies=len(paths), revolute_joints=len(c['joints']),
+            source_prim=default_path, contact_exclusions=len(self.excludes))
+        (self.out/'hand_profile.json').write_text(
+            json.dumps(self.hand_profile_identity, indent=2, allow_nan=False)+'\n')
         filters = ['{ENV_REGEX_NS}/Hand'+p[len(default_path):] for p in paths]
         stage.GetRootLayer().Save()
         del stage, original
@@ -80,9 +96,12 @@ class BoyaParallel:
                     solver_position_iteration_count=16,solver_velocity_iteration_count=4)),
             init_state=ArticulationCfg.InitialStateCfg(pos=tuple(c['hand_root']['pos']),
                 rot=tuple(wxyz_to_xyzw(c['hand_root']['quat'])),
-                joint_pos={j['name']:j['qpos'] for j in c['joints']},
-                joint_vel={j['name']:j['qvel'] for j in c['joints']}),
-            actuators=actuator_configuration(self.parameters))
+                joint_pos={self.hand_profile.runtime_joint_name(j['name']):j['qpos']
+                           for j in c['joints']},
+                joint_vel={self.hand_profile.runtime_joint_name(j['name']):j['qvel']
+                           for j in c['joints']}),
+            actuators=actuator_configuration(self.parameters,
+                joint_prefix=self.hand_profile.joint_prefix))
         o = c['object']
         object_cfg = RigidObjectCfg(prim_path='{ENV_REGEX_NS}/Cylinder',
             spawn=sim_utils.CylinderCfg(radius=o['diameter_m']/2,height=o['length_m'],
@@ -91,7 +110,8 @@ class BoyaParallel:
                 collision_props=collision,physics_material=material,activate_contact_sensors=True),
             init_state=RigidObjectCfg.InitialStateCfg(pos=tuple(o['pos']),rot=tuple(wxyz_to_xyzw(o['quat'])),
                 lin_vel=tuple(o['lin_vel_world']),ang_vel=tuple(o['ang_vel_world'])))
-        scene_cfg = InteractiveSceneCfg(num_envs=num_envs,env_spacing=1.,replicate_physics=True,filter_collisions=True)
+        scene_cfg = InteractiveSceneCfg(num_envs=num_envs,env_spacing=1.,
+            replicate_physics=replicate_physics,filter_collisions=True)
         scene_cfg.hand = hand_cfg
         scene_cfg.cylinder = object_cfg
         scene_cfg.contact = ContactSensorCfg(prim_path='{ENV_REGEX_NS}/Cylinder',update_period=0.,
@@ -113,11 +133,16 @@ class BoyaParallel:
             self.engine_audit = dict(configuration=self.engine_configuration,before_reset=before,after_reset=after)
             (self.out/'solver_configuration.json').write_text(json.dumps(self.engine_audit,indent=2,allow_nan=False)+'\n')
         self.origins = tensor(self.scene.env_origins)
-        self.adapter = SharpaPositionAdapter(self.hand,c,self.parameters)
+        self.adapter = SharpaPositionAdapter(self.hand,c,self.parameters,
+            joint_prefix=self.hand_profile.joint_prefix)
         self.names = list(self.hand.joint_names)
-        self.active_joint_ids = torch.tensor([self.names.index(n) for n in ACTION_NAMES],device=self.device)
-        self.slaves = torch.tensor([self.names.index(p['slave']) for p in c['couplings']],device=self.device)
-        self.masters = torch.tensor([self.names.index(p['master']) for p in c['couplings']],device=self.device)
+        runtime = self.hand_profile.runtime_joint_name
+        self.active_joint_ids = torch.tensor(
+            [self.names.index(runtime(n)) for n in ACTION_NAMES],device=self.device)
+        self.slaves = torch.tensor(
+            [self.names.index(runtime(p['slave'])) for p in c['couplings']],device=self.device)
+        self.masters = torch.tensor(
+            [self.names.index(runtime(p['master'])) for p in c['couplings']],device=self.device)
         self.q0 = tensor(self.hand.data.default_joint_pos).clone()
         self.v0 = tensor(self.hand.data.default_joint_vel).clone()
         self.commands0 = self.adapter.commands.clone()
@@ -130,6 +155,9 @@ class BoyaParallel:
                      for n in self.filter_names]
         self.groups = torch.nn.functional.one_hot(torch.tensor(group_ids,device=self.device),6).float()
         self.reset_nominal()
+
+    def joint_id(self, canonical):
+        return self.names.index(self.hand_profile.runtime_joint_name(canonical))
 
     def _write_state(self,q,v,object_state,commands,env_ids=None):
         if env_ids is None:

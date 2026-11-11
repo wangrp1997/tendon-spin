@@ -4,6 +4,12 @@ Boya meshes/source MJCF/URDF and saved grasp originate from
 botyard-inhand revision `204d197a9606fb7266e884f3b2e6110195be01cb`.
 Asset scene changes only mesh paths. Native runner and spin/PPO modules are
 adapted from that project. The public model contract is in `assets/config/`.
+The right-hand V3.2 source comes from `botyard.git` branch
+`fix/mujoco-v3.2` at `28f4ba5649714c74c13f881891d579bfceb766e2`.
+The simulation-left asset is generated from that right source by reflecting
+meshes, body/joint frames and inertia while retaining right-hand masses and
+control parameters. Do not substitute the separately authored vendor-left CAD
+when exact bilateral policy transfer is required.
 
 Hora code is copied from the official HaozhiQi/hora tagv0.0.1 archive. Preserve its
 LICENSE and README; retrieval hash/version recorded in references/source_manifest.json.

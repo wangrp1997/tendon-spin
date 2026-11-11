@@ -8,6 +8,7 @@ import unittest
 import numpy as np
 
 from tendonspin.evaluation.rotation import score_prefix
+from tendonspin.students.evaluation import declared_transfer_metrics
 
 
 class EvaluationTests(unittest.TestCase):
@@ -42,3 +43,20 @@ class EvaluationTests(unittest.TestCase):
     def test_nonfinite_valid_trace_is_rejected(self):
         with self.assertRaises(ValueError):
             score_prefix([90., np.nan], 1., 2, window_s=2.)
+
+    def test_left_mirror_spin_is_sign_normalized_before_transfer_gate(self):
+        teacher = dict(mean_net_deg=-1000., retention_fraction=.9)
+        student = dict(mean_net_deg=-950., retention_fraction=.82)
+        result = declared_transfer_metrics(student, teacher, 'left')
+        self.assertEqual(result['side_normalized_mean_net_deg'], 950.)
+        self.assertEqual(result['teacher_side_normalized_mean_net_deg'], 1000.)
+        self.assertAlmostEqual(result['teacher_mean_ratio'], .95)
+        self.assertAlmostEqual(result['retention_fraction_delta'], -.08)
+        self.assertTrue(result['meets_declared_simulation_threshold'])
+
+    def test_transfer_gate_still_applies_original_positive_convention(self):
+        teacher = dict(mean_net_deg=1000., retention_fraction=.9)
+        student = dict(mean_net_deg=850., retention_fraction=.82)
+        result = declared_transfer_metrics(student, teacher, 'right')
+        self.assertAlmostEqual(result['teacher_mean_ratio'], .85)
+        self.assertFalse(result['meets_declared_simulation_threshold'])

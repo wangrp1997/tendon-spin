@@ -29,6 +29,57 @@
 
 仿真触觉来自各指**distal刚体**与物体接触的法向力加摩擦力合力。这是理想刚体代理，尚未限制到实物传感器的局部覆盖区域，也不模拟压力阵列。当前力阈值、饱和与滤波参数属于显式工程默认值，不是实测传感器标定结果；均保存在`observation_contract.json`和检查点内。
 
+## 左手迁移
+
+环境通过`hand_side`选择`HandProfile`，任务、奖励、DR、学生网络和评测逻辑共用。右手继续使用原USD；左手默认读取从当前右手V3.2逐项镜像生成的`assets/hand/mirror_right_v3_2/usd/left_dexhand/left_dexhand.usda`。生成器同时镜像24个STL、所有刚体/关节局部位姿、关节轴和惯量，并保留右手质量、阻尼、增益和力矩范围；来源与逐文件哈希见`assets/hand/mirror_right_v3_2/manifest.json`。厂商V3.2左手保留为参考，但它不是严格镜像，因此不作为默认运行资产。也可用`TENDONSPIN_LEFT_HAND_USD`或`--left-asset`覆盖路径。
+
+镜像STL和约46MB的Isaac USD属于本机生成资产，不进入Git；仓库保留生成器、小体积URDF/MJCF与哈希清单。首次使用时执行：
+
+```bash
+PYTHONPATH=. .venv/bin/python scripts/generate_mirrored_right_hand.py
+PYTHONPATH=. .venv/bin/python -u scripts/import_mirrored_left_hand.py
+```
+
+左手profile显式处理`left_`关节/刚体前缀、镜像世界Y轴和镜像手掌根姿态；训练和评测记录实际资产、USD结构、profiles及source SHA-256。左手直接继承右手TendonSpin契约的全部控制参数。严格镜像保持右手关节坐标和初始q/commands，因此脚本不再重新拟合抓取姿态，只把物体和手掌放入镜像场景。原C1260M右手没有在左手重训；结果属于冻结策略跨手评测，仍不构成实物成功声明。
+
+迁移前运行静态预检。脚本核对USD主动关节/限位、远端刚体、接触排除和J1-J2联动。严格镜像分支原样保留右手164个初始抓取状态，避免把策略推出训练分布；这不替代Isaac动力学或硬件验收。
+
+```bash
+PYTHONPATH=. .venv/bin/python -u scripts/prepare_boya_left_transfer.py \
+  --out outputs/boya_left_transfer_prep_20261110_v5
+```
+
+严格镜像资产预检通过；24个刚体、22个转动关节、右手控制契约和28项接触排除一致，164个初始抓取及九个尺寸组全部保留。正式输出在`outputs/boya_left_transfer_prep_20261110_v5/`。旧的厂商左手、`v1/v2`重新拟合缓存和错误根变换输出均不能用于当前目标。
+
+```bash
+PYTHONPATH=. .venv/bin/python -u scripts/evaluate_boya_touch_student.py \
+  --training outputs/boya_touch_student_20261102_v1/training \
+  --out outputs/boya_touch_student_left_transfer_strict_mirror_20261110_v1 \
+  --hand-side left --num-envs 27 \
+  --scene-config outputs/boya_left_transfer_prep_20261110_v5/scene_configuration_left_candidate.json
+```
+
+严格镜像教师与纯本体学生配对评测已于2026-11-10完成，正式输出在`outputs/boya_touch_student_left_transfer_strict_mirror_20261110_v1/`。27个案例使用相同初态和物理条件：
+
+| 控制器 | 平均净旋转 | P10净旋转 | 平均有效时长 | 完整保持 |
+| --- | ---: | ---: | ---: | ---: |
+| C1260M教师 | -933.55° | -1252.80° | 28.01 s | 23/27 |
+| 纯本体学生 | -974.04° | -1248.50° | 27.06 s | 22/27 |
+
+镜像会翻转旋转赝矢量的符号，因此左手有符号净旋转为负是正确结果。按手侧归一化后，教师幅值为`933.55°`，纯本体学生为`974.04°`，学生/教师比为`1.043`；学生保持率22/27，仅比教师下降3.70个百分点。按预先声明的`≥90%`旋转和`≤10`个百分点保持率门槛，纯本体学生通过。
+
+原始右手教师同一协议的结果为幅值`1026.46°`、保持24/27。严格镜像左手教师达到右手幅值的`90.95%`、保持23/27。学生初态最大误差为`1.19e-7`，配对刺激核验通过，评测进程正常完成。该结果支持冻结策略在严格镜像仿真中复用；厂商左手和实物仍未验证。
+
+纯本体学生部署时不再要求触觉占位输入：
+
+```python
+action = proprio_runtime.step(
+    joint_pos_rad=joint_angles_20,
+    issued_targets_rad=last_targets_16,
+    timestamp_s=acquisition_timestamp,
+)
+```
+
 ## 训练与独立验证
 
 - 同时训练`touch`与`proprio`两个学生；后者屏蔽全部触觉、触觉有效性和时效，保留相同的关节输入和网络规模。

@@ -132,6 +132,19 @@ class TouchStudentTests(unittest.TestCase):
             runtime.step(**values)
             self.assertTrue((runtime.history.frames[0, :-1, -1] == 0).all())
 
+    def test_proprio_runtime_does_not_require_tactile_sensor_fields(self):
+        with tempfile.TemporaryDirectory() as folder:
+            teacher = self.teacher(folder)
+            model = TouchStudent(teacher, modality='proprio').eval()
+            path = Path(folder)/'proprio.pth'
+            save_student(path, model, sensor_contract(self.limits), teacher.checkpoint_sha256, {})
+            runtime = TouchStudentRuntime(path)
+            fields = self.readings()
+            action = runtime.step(joint_pos_rad=fields[0][0],
+                issued_targets_rad=fields[1][0], timestamp_s=1.)
+            self.assertEqual(action.shape, (16,))
+            self.assertTrue((runtime.history.frames[:, -1, 36:56] == 0).all())
+
     def test_replay_wrap_and_scale_balanced_heldout_split(self):
         replay = Replay(3, 'cpu')
         replay.add(torch.ones(2, 30, FRAME_DIM), torch.ones(2, 16), torch.ones(2, 8))

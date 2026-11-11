@@ -87,10 +87,11 @@ class SourcePositionAdapter:
     are assigned as solver-side viscous friction, avoiding explicit -D*qdot
     injection on tiny inertias. Solver/contact/coupling physics remain distinct.
     """
-    def __init__(self,hand,contract):
+    def __init__(self,hand,contract,joint_prefix=''):
         self.hand=hand;self.contract=contract;self.device=hand.device
         names=list(hand.joint_names)
-        self.ids=torch.tensor([names.index(a['joint']) for a in contract['actuators']],device=self.device)
+        runtime=lambda name: joint_prefix+name
+        self.ids=torch.tensor([names.index(runtime(a['joint'])) for a in contract['actuators']],device=self.device)
         self.num_envs=hand.num_instances
         self.commands=torch.tensor([a['initial_ctrl'] for a in contract['actuators']],device=self.device,dtype=torch.float32)[None].repeat(self.num_envs,1)
         self.kp=torch.tensor([a['gain'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
@@ -98,7 +99,7 @@ class SourcePositionAdapter:
         self.control_limits=torch.tensor([a['control_range'] for a in contract['actuators']],device=self.device,dtype=torch.float32)
         self.action_names=tuple(contract['action_names'])
         self.active=torch.tensor(action_motor_indices(contract,self.action_names),device=self.device)
-        by_name={j['name']:j for j in contract['joints']}
+        by_name={runtime(j['name']):j for j in contract['joints']}
         self.damping=torch.tensor([by_name[n]['damping'] for n in names],device=self.device,dtype=torch.float32)
         self.action_dim=len(self.active)
         assert self.action_dim in (13,16) and len(names)==22

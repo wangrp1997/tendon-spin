@@ -13,7 +13,7 @@ class IsaacStudentSensors:
     def __init__(self, env, config=SensorConfig()):
         self.env = env
         p = env.physics
-        self.joint_ids = [p.names.index(n) for n in JOINT_NAMES]
+        self.joint_ids = [p.joint_id(n) for n in JOINT_NAMES]
         self.distal_names = [f'{f}distal' for f in ('th', 'ff', 'mf', 'rf', 'lf')]
         self.force_ids = [p.filter_names.index(n) for n in self.distal_names]
         self.history = SensorHistory(joint_limits(p.contract), env.num_envs, p.device, config)

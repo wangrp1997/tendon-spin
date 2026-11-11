@@ -13,6 +13,7 @@ class TouchStudentRuntime:
     def __init__(self, checkpoint, device='cpu'):
         self.model, self.metadata = load_student(checkpoint, device)
         contract = self.metadata['observation_contract']
+        self.modality = self.metadata['modality']
         self.device = device
         self.history = SensorHistory(contract['limits'], device=device,
                                      config=SensorConfig(**contract['preprocessing']))
@@ -23,8 +24,8 @@ class TouchStudentRuntime:
         self.last_timestamp_s = None
 
     @torch.no_grad()
-    def step(self, *, joint_pos_rad, issued_targets_rad, force_magnitude_n,
-             tactile_valid, tactile_age_s, timestamp_s):
+    def step(self, *, joint_pos_rad, issued_targets_rad, timestamp_s,
+             force_magnitude_n=None, tactile_valid=None, tactile_age_s=None):
         import math
         if (not math.isfinite(timestamp_s) or (self.last_timestamp_s is not None
                 and timestamp_s <= self.last_timestamp_s)):
@@ -32,6 +33,15 @@ class TouchStudentRuntime:
         # Avoid feeding discontinuous history after an SDK pause/reconnect.
         if self.last_timestamp_s is not None and timestamp_s-self.last_timestamp_s > .15:
             self.history.reset()
+        tactile = (force_magnitude_n, tactile_valid, tactile_age_s)
+        if all(value is None for value in tactile):
+            if self.modality != 'proprio':
+                raise ValueError('Touch modality requires force, validity and age inputs')
+            force_magnitude_n = [0.]*5
+            tactile_valid = [False]*5
+            tactile_age_s = [0.]*5
+        elif any(value is None for value in tactile):
+            raise ValueError('All tactile inputs must be supplied together')
         def batch(value, dtype=torch.float32):
             return torch.as_tensor(value, dtype=dtype, device=self.device)[None]
         history = self.history.push(batch(joint_pos_rad), batch(issued_targets_rad),
