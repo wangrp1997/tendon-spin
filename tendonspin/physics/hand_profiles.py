@@ -146,6 +146,17 @@ class HandProfile:
         result[..., 1] *= -1
         return result
 
+    def adapt_policy_privileged(self, privileged):
+        """Canonicalize Hora's [position(3), scale, mass, friction, COM(3)]."""
+        if privileged.shape[-1] != 9:
+            raise ValueError('Expected nine Hora privileged channels')
+        if not self.mirror_world_y:
+            return privileged
+        result = privileged.clone() if hasattr(privileged, 'clone') else privileged.copy()
+        result[..., 1] *= -1
+        result[..., 7] *= -1
+        return result
+
     def cache_names_match(self, saved_joints, runtime_joints):
         return self.runtime_names([str(name) for name in saved_joints]) == [
             str(name) for name in runtime_joints]
@@ -194,22 +205,28 @@ def resolve_hand_profile(root, side='right', left_asset=None):
         imported = json.loads((root/'docs/data/isaac_boya_import_phases.json').read_text())
         return HandProfile(side='right', asset_path=root/imported['usd']['path'],
             source_prim='/dexhand', contract_path=contract, contact_scene=contact_scene)
-    candidates = []
-    if left_asset is not None:
-        candidates.append(Path(left_asset).expanduser())
-    if os.environ.get(LEFT_HAND_ENV):
-        candidates.append(Path(os.environ[LEFT_HAND_ENV]).expanduser())
-    candidates.extend([
-        root/LEFT_HAND_RELATIVE,
-        root.parent/EXTERNAL_LEFT_HAND_RELATIVE,
-        root.parent/'ros2botyard'/EXTERNAL_LEFT_HAND_RELATIVE.relative_to('ros2_botyard'),
-    ])
-    resolved = next((path.resolve() for path in candidates if path.is_file()), None)
-    if resolved is None:
+    # An explicit missing asset must fail, never silently select another model.
+    # Likewise, a missing strict mirror must not silently fall back to vendor CAD.
+    selected = left_asset if left_asset is not None else os.environ.get(LEFT_HAND_ENV)
+    resolved = Path(selected).expanduser() if selected is not None else root/LEFT_HAND_RELATIVE
+    if not resolved.is_absolute():
+        resolved = root/resolved
+    resolved = resolved.resolve()
+    if not resolved.is_file():
         raise FileNotFoundError(
-            'Left-hand USD not found. Set TENDONSPIN_LEFT_HAND_USD or pass '
-            f'left_asset; checked: {[str(path) for path in candidates]}')
+            f'Left-hand USD not found: {resolved}. Generate/import the strict '
+            'mirror, or explicitly select a left_asset.')
     strict_mirror = resolved == (root/LEFT_HAND_RELATIVE).resolve()
+    source_prim = '/World/Hand'
+    try:
+        from pxr import Usd
+        stage = Usd.Stage.Open(str(resolved))
+        default = stage.GetDefaultPrim() if stage else None
+        if default:
+            source_prim = str(default.GetPath())
+            strict_mirror = strict_mirror or default.GetName() == 'dexhand_strict_mirror_left'
+    except Exception:
+        pass
     vendor_validation = root/'assets/hand/ros2_botyard_39f63b1/mjcf/gs_s1/scene_left.xml'
     validation_candidates = (
         (root/LEFT_VALIDATION_SCENE,) if strict_mirror
@@ -222,15 +239,6 @@ def resolve_hand_profile(root, side='right', left_asset=None):
         else root/'assets/hand/botyard_v3_2/mjcf/v3_2/left_dexhand.xml')
     if not left_contact_scene.is_file():
         left_contact_scene = contact_scene
-    source_prim = '/World/Hand'
-    try:
-        from pxr import Usd
-        stage = Usd.Stage.Open(str(resolved))
-        default = stage.GetDefaultPrim() if stage else None
-        if default:
-            source_prim = str(default.GetPath())
-    except Exception:
-        pass
     return HandProfile(side='left', asset_path=resolved, source_prim=source_prim,
         contract_path=contract, contact_scene=left_contact_scene,
         joint_prefix='left_', body_prefix='left_', mirror_world_y=True,

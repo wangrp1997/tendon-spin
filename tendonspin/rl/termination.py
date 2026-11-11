@@ -75,8 +75,9 @@ def make_termination_spec(root, profile, nominal_height_m):
 
 class TaskTermination:
     """Use the upstream height/time method; keep numerical validity separate."""
-    def __init__(self, spec):
+    def __init__(self, spec, mirror_world_y=False):
         self.spec = spec
+        self.mirror_world_y = mirror_world_y
         self.reference_check = load_termination()
         self.reset_z_threshold = spec.reset_height_m
         self.max_episode_length = spec.episode_control_steps
@@ -103,6 +104,11 @@ class TaskTermination:
             codes[(codes == 0) & bad] = code
         if control_boundary and self.spec.profile == 'boya_workspace':
             position = m['object_state'][:, :3] - origins
+            if self.mirror_world_y:
+                # Bounds are in the original right-hand frame, after removing
+                # each environment's translation. Their Y limits are asymmetric.
+                position = position.clone()
+                position[:, 1] *= -1
             if self.outside_counts is None:
                 self.outside_counts = torch.zeros_like(codes)
                 self.xy_lower = position.new_tensor(self.spec.workspace['xy_lower_m'])

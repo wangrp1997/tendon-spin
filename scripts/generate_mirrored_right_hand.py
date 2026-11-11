@@ -173,9 +173,11 @@ def validation_scene():
 
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=False)
-    (OUT/'mjcf/v3_2').mkdir(parents=True)
-    (OUT/'meshes').mkdir()
+    # URDF/MJCF are tracked; the output directory already exists in a checkout.
+    # Regenerate these deterministic sources and missing meshes, preserving USD.
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT/'mjcf/v3_2').mkdir(parents=True, exist_ok=True)
+    (OUT/'meshes').mkdir(exist_ok=True)
     mirrored_meshes = {}
     for source in sorted(SOURCE_MESHES.glob('*.stl')):
         destination = OUT/'meshes'/source.name.lower()

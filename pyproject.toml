@@ -15,3 +15,6 @@ video = ["imageio-ffmpeg", "Pillow"]
 
 [tool.setuptools.packages.find]
 include = ["tendonspin*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

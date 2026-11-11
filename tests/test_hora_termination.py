@@ -115,6 +115,19 @@ class BoyaWorkspaceTests(unittest.TestCase):
         self.m['object_state'][0, 2] -= .06
         torch.testing.assert_close(self.check(), torch.tensor([0, 0]))
 
+    def test_mirrored_asymmetric_y_boundary_after_environment_translation(self):
+        left = TaskTermination(self.spec, mirror_world_y=True)
+        # +73 mm is inside the right bound; -73 mm is inside the mirrored left
+        # bound, but would incorrectly fail against the unmirrored -69 mm bound.
+        self.m['object_state'][:, 1] = self.origins[:, 1]+torch.tensor([.073, -.073])
+        mirrored = {key: value.clone() for key, value in self.m.items()}
+        mirrored['object_state'][:, 1] = 2*self.origins[:, 1]-self.m['object_state'][:, 1]
+        for _ in range(2):
+            expected = self.check()
+            actual = left.failure_codes(mirrored, self.origins, control_boundary=True)
+            torch.testing.assert_close(actual, expected)
+        torch.testing.assert_close(expected, torch.tensor([0, 10]))
+
 
 if __name__ == '__main__':
     unittest.main()

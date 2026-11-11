@@ -4,6 +4,27 @@ __pycache__/
 *.py[cod]
 .venv/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+/build/
+/dist/
+
+# Training weights, recordings and local experiment logs.
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.safetensors
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.log
+events.out.tfevents.*
+/runs/
+/wandb/
 
 # Local research records, agent instructions and editor settings.
 /docs/
@@ -11,6 +32,14 @@ __pycache__/
 /.vscode/
 /.agents/
 /.codex/
+/.aws/
+/.idea/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.swp
+*.swo
 
 # Local demo output, not part of the training sources.
 /bowl_posture_20261015_demo_02/

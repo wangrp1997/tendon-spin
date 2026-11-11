@@ -61,7 +61,8 @@ class HoraBoyaEnv:
                 if (not self.hand_profile.cache_names_match(saved['joint_names'],p.names)
                         or not self.hand_profile.motor_names_match(saved['motor_names'],p.contract)):
                     raise ValueError('Migrated cache joint/motor order differs')
-        self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]))
+        self.termination=TaskTermination(make_termination_spec(root,termination_profile,p.contract['object']['pos'][2]),
+            mirror_world_y=self.hand_profile.mirror_world_y)
         self.device=p.device;self.num_envs=num_envs
         self.action_space=Box(-1.,1.,shape=(16,),dtype=np.float32)
         self.observation_space=Box(-5.,5.,shape=(96,),dtype=np.float32)

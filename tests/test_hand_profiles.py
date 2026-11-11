@@ -108,6 +108,17 @@ class HandProfileTests(unittest.TestCase):
         self.assertTrue(profile.motor_names_match(
             ['FAJ1', 'FFJ2'], contract))
 
+    def test_randomized_privileges_mirror_position_and_com_only(self):
+        canonical = np.asarray([[.1, .2, .3, .4, .5, .6, .7, .8, .9]])
+        physical = canonical.copy()
+        physical[:, [1, 7]] *= -1
+        np.testing.assert_array_equal(
+            self.profile('left').adapt_policy_privileged(physical), canonical)
+        self.assertEqual(physical[0, 1], -.2)
+        self.assertIs(self.profile('right').adapt_policy_privileged(canonical), canonical)
+        with self.assertRaises(ValueError):
+            self.profile('left').adapt_policy_privileged(np.zeros((1, 8)))
+
     def test_left_contract_preserves_right_control_parameters(self):
         contract = json.loads((ROOT/'docs/data/boya_native_contract.json').read_text())
         adapted = self.profile('left').adapt_contract(contract)
@@ -164,6 +175,8 @@ class HandProfileTests(unittest.TestCase):
         self.assertEqual(len(profile.identity()['asset_dependencies']), 2)
         with self.assertRaises(ValueError):
             resolve_hand_profile(self.root, 'middle', left)
+        with self.assertRaises(FileNotFoundError):
+            resolve_hand_profile(self.root, 'left', self.root/'missing.usd')
 
     @unittest.skipUnless((ROOT/'assets/hand/mirror_right_v3_2/usd/left_dexhand/'
         'left_dexhand.usda').is_file(), 'mirrored left asset unavailable')
